@@ -61,7 +61,7 @@ namespace GameCore
 #endif
         }
 
-        private void UpdateText()
+        public void UpdateText()
         {
             if (this == null)
             {

@@ -354,7 +354,16 @@ namespace GameCore
                 OnLanguageChanged ();
             }
         }
+        public static void SetLanguage (SystemLanguage language)
+        {
+            PlayerPrefs.SetInt (ForceLangKey, (int) language);
+            ClearMenuChecks ();
 
+            if (OnLanguageChanged != null)
+            {
+                OnLanguageChanged ();
+            }
+        }
         private static void ClearMenuChecks ()
         {
 #if UNITY_EDITOR
