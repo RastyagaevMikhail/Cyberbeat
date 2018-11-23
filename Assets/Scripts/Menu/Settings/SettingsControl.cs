@@ -1,21 +1,19 @@
-﻿using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 using Text = TMPro.TextMeshProUGUI;
 using GameCore;
 namespace CyberBeat
 {
-	public class SettingsControl : SerializedMonoBehaviour
+	public class SettingsControl : MonoBehaviour
 	{
 
-		[OdinSerialize] List<StateControl> States;
+		[SerializeField, Sirenix.OdinInspector.DrawWithUnity] List<StateControl> States;
 		[SerializeField] Image stateImage;
 		[SerializeField] LocalizeTextMeshProUGUI stateName;
 		[SerializeField] Image AddIcon;
@@ -31,7 +29,7 @@ namespace CyberBeat
 			stateIndex %= States.Count;
 			StateControl state = States[stateIndex];
 
-			state.Invoke ();
+			state.action.Invoke ();
 
 			bool useAddIcon = state.UseAddIcon;
 
@@ -40,20 +38,16 @@ namespace CyberBeat
 			(state.UseAddIcon ? AddIcon : stateImage).sprite = state.icon;
 
 			stateName.Id = state.name;
-			stateName.UpdateText();
+			stateName.UpdateText ();
 		}
 
 		[Serializable]
 		public class StateControl
 		{
-			[SerializeField] Action action;
-			public void Invoke ()
-			{
-				if (action != null) action ();
-			}
 			public string name;
 			public Sprite icon;
 			public bool UseAddIcon;
+			public UnityEvent action;
 		}
 	}
 }

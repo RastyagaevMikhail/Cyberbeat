@@ -7,8 +7,10 @@ using UnityEditor;
 
 using UnityEngine;
 
-namespace GameCore
+namespace GameCore.Editor
 {
+	using Editor =  UnityEditor.Editor;
+	using GameCore;
 	[CustomEditor (typeof (LocalizeTextMeshProUGUI))]
 	public class LocalizeTextMeshProUGUIEditor : Editor
 	{

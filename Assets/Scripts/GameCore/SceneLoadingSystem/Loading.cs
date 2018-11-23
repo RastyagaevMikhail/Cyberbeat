@@ -13,7 +13,7 @@ namespace GameCore
 	public class Loading : SerializedMonoBehaviour
 	{
 		[SerializeField] ILoadingProgressor loadingProgressor;
-		float progress { set { if (loadingProgressor != null) loadingProgressor.value = value; } }
+		float progress { set { if (loadingProgressor != null) loadingProgressor.Value = value; } }
 		LoadingManager manager { get { return LoadingManager.instance; } }
 		RandomStack<string> loadingTextsRandStack;
 		IEnumerator Start ()

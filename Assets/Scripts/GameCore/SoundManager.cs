@@ -116,10 +116,10 @@ namespace GameCore
                 UISoundsVol = value;
             }
         }
-        public static bool MuteSound { get { return globalSoundsVolume == 0; } set { globalSoundsVolume = value ? 0 : PlayerPrefs.GetFloat ("SoundManager.soundsVol"); } }
-        public static bool MuteUISound { get { return globalUISoundsVolume == 0; } set { globalUISoundsVolume = value ? 0 : PlayerPrefs.GetFloat ("SoundManager.UISoundsVol"); } }
-        public static bool MuteMusic { get { return musicVol == 0; } set { musicVol = value ? 0 : PlayerPrefs.GetFloat ("SoundManager.musicVol"); } }
-        public static bool MuteAll { get { return globalVolume == 0; } set { globalVolume = value ? 0 : PlayerPrefs.GetFloat ("SoundManager.vol"); } }
+        public static bool MuteSound { get { return globalSoundsVolume == 0; } set { globalSoundsVolume = value ? 0 : 1f; } }
+        public static bool MuteUISound { get { return globalUISoundsVolume == 0; } set { globalUISoundsVolume = value ? 0 : 1f; } }
+        public static bool MuteMusic { get { return musicVol == 0; } set { musicVol = value ? 0 : 1f; } }
+        public static bool MuteAll { get { return globalVolume == 0; } set { globalVolume = value ? 0 : 1f; } }
 
         static SoundManager ()
         {

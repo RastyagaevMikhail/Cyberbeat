@@ -4,6 +4,7 @@ using Sirenix.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
 namespace GameCore
@@ -14,8 +15,9 @@ namespace GameCore
 #if UNITY_EDITOR
 		[Button] public abstract void ResetDefault ();
 		[Button] public abstract void InitOnCreate ();
-
 #endif
+		public abstract void Initialize ();
+		public abstract bool Initialized { get; }
 		static string typeName { get { return typeof (T).Name; } }
 		private static T _instance;
 		public static T instance
@@ -28,7 +30,14 @@ namespace GameCore
 				{
 					_instance = ScriptableObject.CreateInstance<T> ();
 					_instance.InitOnCreate ();
-					Tools.CreateAsset (_instance, "Assets/Resources/Data/{0}.asset".AsFormat (typeName));
+					_instance.CreateAsset ("Assets/Resources/Data/{0}.asset".AsFormat (typeName));
+
+				}
+				var PreoloadedAssets = UnityEditor.PlayerSettings.GetPreloadedAssets ().ToList ();
+				if (!PreoloadedAssets.Contains (_instance))
+				{
+					PreoloadedAssets.Add (_instance);
+					UnityEditor.PlayerSettings.SetPreloadedAssets(PreoloadedAssets.ToArray());
 				}
 #endif
 				return _instance;

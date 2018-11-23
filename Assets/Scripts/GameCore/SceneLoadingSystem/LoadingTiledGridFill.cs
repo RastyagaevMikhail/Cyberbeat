@@ -1,20 +1,17 @@
-﻿using Sirenix.OdinInspector;
-
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
 
 namespace GameCore
 {
-	[ExecuteInEditMode]
-	public class LoadingTiledGridFill : SerializedMonoBehaviour, ILoadingProgressor
+    [ExecuteInEditMode]
+	public class LoadingTiledGridFill : MonoBehaviour, ILoadingProgressor
 	{
 
 		[SerializeField] List<GameObject> Tiles;
-		[ShowInInspector, PropertyRange (0f, 1f)]
-		public float value
+
+		public float Value
 		{
 			set
 			{
@@ -29,6 +26,15 @@ namespace GameCore
 				return countOfLoaded / Tiles.Count;
 			}
 		}
+
+#if UNITY_EDITOR
+		[Range (0f, 1f)]
+		public float value;
+		private void Update ()
+		{
+			Value = value;
+		}
+#endif
 
 	}
 }

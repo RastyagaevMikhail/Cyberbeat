@@ -16,6 +16,7 @@ namespace CyberBeat
 		public void EnableSound () { MuteSound = false; }
 		public void DisableSound () { MuteSound = true; }
 
+		public SystemLanguage Language { get { return Localizator.GetLanguage (); } set { Localizator.SetLanguage (value); } }
 		public void SetEnglish ()
 		{
 			Localizator.LocalizatorSetEnglish ();

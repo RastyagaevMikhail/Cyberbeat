@@ -15,6 +15,11 @@ namespace GameCore
 		public override void ResetDefault () { }
 		public override void InitOnCreate () { }
 #endif		
+public override bool Initialized { get { return instance; } }
+		public override void Initialize ()
+		{
+
+		}
 		public float SoundVolume { get { return SoundManager.globalSoundsVolume; } set { SoundManager.globalSoundsVolume = value; } }
 		public float MusicVolume { get { return SoundManager.globalMusicVolume; } set { SoundManager.globalMusicVolume = value; } }
 		public float UISoundsVolume { get { return SoundManager.globalUISoundsVolume; } set { SoundManager.globalUISoundsVolume = value; } }
