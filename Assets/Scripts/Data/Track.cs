@@ -12,5 +12,8 @@ namespace CyberBeat
 		public string TrackName;
 		public Sprite AlbulImage;
 
+		public Sprite SocialIcon;
+		public string SocialURL;
+
 	}
 }

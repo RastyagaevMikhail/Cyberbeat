@@ -15,6 +15,9 @@ namespace CyberBeat
         [SerializeField] Text TrackName;
         [SerializeField] GameObject Play;
         [SerializeField] GameObject Pause;
+        [SerializeField] Image SocialButton;
+        private string socilaURL;
+
         bool playing { set { Play.SetActive (!value); Pause.SetActive (value); } get { return !Play.activeSelf & Pause.activeSelf; } }
         AudioClip clip;
         static Action<Audio> OnPlay;
@@ -24,7 +27,7 @@ namespace CyberBeat
         }
         private void OnDisable ()
         {
-            PauseMusic();
+            PauseMusic ();
         }
         private void OnDestroy ()
         {
@@ -84,6 +87,9 @@ namespace CyberBeat
             TrackName.text = data.track.TrackName;
             AuthorName.text = data.track.AuthorName;
 
+            SocialButton.gameObject.SetActive (data.track.SocialIcon);
+            SocialButton.sprite = data.track.SocialIcon;
+            socilaURL = data.track.SocialURL;
         }
 
         public void PlayMusic ()
@@ -119,6 +125,11 @@ namespace CyberBeat
             {
                 PlayMusic ();
             }
+        }
+
+        public void OpenSocial ()
+        {
+            Application.OpenURL (socilaURL);
         }
     }
 }

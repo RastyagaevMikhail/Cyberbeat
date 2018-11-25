@@ -22,15 +22,5 @@ namespace CyberBeat
 
 		}
 #endif
-		public override bool Initialized { get { return Objects != null && Objects.Count != 0; } }
-		public override void Initialize ()
-		{
-			if(Initialized) return;
-			if(Objects == null || Objects.Count == 0)
-			{
-				Objects = Resources.LoadAll<Track>("Data/Tracks").ToList();
-			}
-		}
-
 	}
 }

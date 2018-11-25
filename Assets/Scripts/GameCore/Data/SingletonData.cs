@@ -16,8 +16,7 @@ namespace GameCore
 		[Button] public abstract void ResetDefault ();
 		[Button] public abstract void InitOnCreate ();
 #endif
-		public abstract void Initialize ();
-		public abstract bool Initialized { get; }
+		
 		static string typeName { get { return typeof (T).Name; } }
 		private static T _instance;
 		public static T instance

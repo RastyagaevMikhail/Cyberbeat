@@ -8,12 +8,17 @@ using UnityEngine.UI;
 
 using Text = TMPro.TextMeshProUGUI;
 using GameCore;
+
+using Sirenix.OdinInspector;
+
 namespace CyberBeat
 {
 	public class SettingsControl : MonoBehaviour
 	{
 
-		[SerializeField, Sirenix.OdinInspector.DrawWithUnity] List<StateControl> States;
+		[DrawWithUnity]
+
+		[SerializeField] List<StateControl> States;
 		[SerializeField] Image stateImage;
 		[SerializeField] LocalizeTextMeshProUGUI stateName;
 		[SerializeField] Image AddIcon;
@@ -21,15 +26,15 @@ namespace CyberBeat
 		public void ToggleState ()
 		{
 			currentStateIndex++;
-			LoadState (currentStateIndex);
-
+			SetState (currentStateIndex);
 		}
-		public void LoadState (int stateIndex)
+		public void SetState (int stateIndex, bool invoke = true, bool overrideStateIndex = false)
 		{
 			stateIndex %= States.Count;
 			StateControl state = States[stateIndex];
 
-			state.action.Invoke ();
+			if (invoke)
+				state.action.Invoke ();
 
 			bool useAddIcon = state.UseAddIcon;
 
@@ -39,6 +44,7 @@ namespace CyberBeat
 
 			stateName.Id = state.name;
 			stateName.UpdateText ();
+			if (overrideStateIndex) currentStateIndex = stateIndex;
 		}
 
 		[Serializable]

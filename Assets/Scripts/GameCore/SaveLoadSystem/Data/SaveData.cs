@@ -17,11 +17,7 @@ namespace GameCore
         }
         public override void InitOnCreate () { }
 #endif
-public override bool Initialized { get { return instance; } }
-		public override void Initialize ()
-		{
 
-		}
         Saver _saver = null;
         Saver saver
         {

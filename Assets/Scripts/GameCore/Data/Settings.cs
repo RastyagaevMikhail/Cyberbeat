@@ -5,7 +5,8 @@ using UnityEngine;
 
 namespace GameCore
 {
-	using UnityEngine;
+    using Sirenix.OdinInspector;
+    using UnityEngine;
 
 	public class Settings : SingletonData<Settings>
 	{
@@ -15,11 +16,6 @@ namespace GameCore
 		public override void ResetDefault () { }
 		public override void InitOnCreate () { }
 #endif		
-public override bool Initialized { get { return instance; } }
-		public override void Initialize ()
-		{
-
-		}
 		public float SoundVolume { get { return SoundManager.globalSoundsVolume; } set { SoundManager.globalSoundsVolume = value; } }
 		public float MusicVolume { get { return SoundManager.globalMusicVolume; } set { SoundManager.globalMusicVolume = value; } }
 		public float UISoundsVolume { get { return SoundManager.globalUISoundsVolume; } set { SoundManager.globalUISoundsVolume = value; } }
@@ -31,6 +27,16 @@ public override bool Initialized { get { return instance; } }
 		public bool MuteMusic { get { return SoundManager.MuteMusic; } set { SoundManager.MuteMusic = value; } }
 
 		public SystemLanguage Language { get { return Localizator.GetLanguage (); } set { Localizator.SetLanguage (value); } }
-		// public InputType inputType;
+
+		public bool VibrationEnabled { get { return PlayerPrefs.GetInt ("Vibration", 1) == 1; } set { PlayerPrefs.SetInt ("Vibration", value ? 1 : 0); } }
+		public long VibrationTime { get { return (long) PlayerPrefs.GetFloat ("VibrationTime", 55); } set { PlayerPrefs.SetFloat ("VibrationTime", value); } }
+		[ShowInInspector]
+		public InputType inputType { get { return (InputType) PlayerPrefs.GetInt ("InputType", (int) InputType.Tap); } set { PlayerPrefs.SetInt ("InputType", (int) value); } }
+
+	}
+	public enum InputType
+	{
+		Tap,
+		Swipe
 	}
 }
