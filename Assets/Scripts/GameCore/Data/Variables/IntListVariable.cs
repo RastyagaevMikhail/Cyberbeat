@@ -8,7 +8,7 @@ namespace GameCore
 
 	using UnityEngine;
 
-	[CreateAssetMenu (fileName = "IntList", menuName = "Variables/GameCore/IntList", order = 0)]
+	[CreateAssetMenu (fileName = "List_int", menuName = "Variables/GameCore/List<int>", order = 0)]
 	public class IntListVariable : SavableVariable<List<int>>
 	{
 		public override void SaveValue () { }

@@ -1,0 +1,105 @@
+﻿using GameCore;
+
+using Sirenix.OdinInspector;
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+using TMPro;
+
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UI.Extensions;
+namespace CyberBeat
+{
+	public class TrackScrollViewCell : FancyScrollViewCell<TrackScrollData, TrackScrollContext>
+	{
+		TracksCollection trackData { get { return TracksCollection.instance; } }
+		public LoadingManager loadManger { get { return LoadingManager.instance; } }
+
+		[SerializeField] Track track;
+		[SerializeField] Animator animator;
+		[SerializeField] TrackPlayerCellView playerCellView;
+
+		[SerializeField] Image Frame;
+		[SerializeField] GameObject PlayButton;
+		[SerializeField] GameObject BuyButton;
+		[SerializeField] ButtonActionByVideoAds PlayByWatchButton;
+		private void Awake ()
+		{
+			PlayByWatchButton.Init (OnPlayByWatch);
+		}
+		readonly int scrollTriggerHash = Animator.StringToHash ("Scroll");
+		TrackScrollContext context;
+
+		public override void SetContext (TrackScrollContext context)
+		{
+			this.context = context;
+		}
+
+		public override void UpdatePosition (float position)
+		{
+			animator.Play (scrollTriggerHash, -1, position);
+			animator.speed = 0;
+		}
+
+		public void OnPressedCell ()
+		{
+			if (context != null)
+			{
+				context.OnPressedCell (this);
+			}
+		}
+		public override void UpdateContent (TrackScrollData data)
+		{
+			// Frame.sprite = data.Frame;
+
+			this.track = data.track;
+			name = track.name;
+			playerCellView.UpdateContent (data);
+			ValidateTrackValues ();
+			ValidateButtons (track.Buyed || track.PlayByWatch);
+			// UpdatePosition (0);
+		}
+
+		[Button]
+		private void ValidateTrackValues ()
+		{
+			if (track == null) return;
+
+			if (context == null) return;
+
+			if (context.SelectedIndex == DataIndex)
+				track.SetMeAsCurrent ();
+
+		}
+		public void OnPlay ()
+		{
+			track.SetMeAsCurrent ();
+			track.LoadScene ();
+		}
+
+		public void OnPlayByWatch ()
+		{
+			PlayButton.SetActive (true);
+			BuyButton.SetActive (false);
+			PlayByWatchButton.gameObject.SetActive (false);
+			track.PlayByWatch = true;
+		}
+
+		public void OnBuy ()
+		{
+			bool buyed = track.TryBuy ();
+			Debug.LogFormat ("buyed = {0}", buyed);
+			ValidateButtons (buyed);
+		}
+
+		private void ValidateButtons (bool buyed)
+		{
+			PlayButton.SetActive (buyed);
+			BuyButton.SetActive (!buyed);
+			PlayByWatchButton.gameObject.SetActive (!buyed);
+		}
+	}
+}

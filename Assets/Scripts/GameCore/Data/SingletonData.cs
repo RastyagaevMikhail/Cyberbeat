@@ -16,7 +16,7 @@ namespace GameCore
 		[Button] public abstract void ResetDefault ();
 		[Button] public abstract void InitOnCreate ();
 #endif
-		
+
 		static string typeName { get { return typeof (T).Name; } }
 		private static T _instance;
 		public static T instance
@@ -28,7 +28,12 @@ namespace GameCore
 				if (_instance == null)
 				{
 					_instance = ScriptableObject.CreateInstance<T> ();
-					_instance.InitOnCreate ();
+					try { _instance.InitOnCreate (); }
+					catch (Exception e)
+					{
+						Debug.LogError ("Don`t Can Init On Create {0}".AsFormat (instance));
+						Debug.LogError (e.Message);
+					}
 					_instance.CreateAsset ("Assets/Resources/Data/{0}.asset".AsFormat (typeName));
 
 				}
@@ -36,13 +41,14 @@ namespace GameCore
 				if (!PreoloadedAssets.Contains (_instance))
 				{
 					PreoloadedAssets.Add (_instance);
-					UnityEditor.PlayerSettings.SetPreloadedAssets(PreoloadedAssets.ToArray());
+					UnityEditor.PlayerSettings.SetPreloadedAssets (PreoloadedAssets.ToArray ());
 				}
 #endif
 				return _instance;
 			}
 		}
 
+		[Button] public void CreateAsset () { this.CreateAsset ("Assets/Resources/Data/{0}.asset".AsFormat (typeName)); }
 		#endregion
 	}
 }

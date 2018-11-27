@@ -1,10 +1,12 @@
+using Sirenix.OdinInspector;
+
 using System.Collections.Generic;
 
 using UnityEngine;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventObject", menuName = "Events/GameEventObject")]
+	[CreateAssetMenu (fileName = "GameEventObject", menuName = "Events/GameCore/GameEventObject")]
 	public class GameEventObject : GameEvent
 	{
 		/// <summary>
@@ -31,5 +33,9 @@ namespace GameCore
 			if (eventListeners.Contains (listener))
 				eventListeners.Remove (listener);
 		}
+
+		[Title ("Test")]
+		[SerializeField] UnityEngine.Object testArg;
+		[Button] public void TestRaise () { Raise (testArg); }
 	}
 }

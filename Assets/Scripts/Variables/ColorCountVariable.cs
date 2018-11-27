@@ -10,7 +10,7 @@ namespace CyberBeat
 
 	using UnityEngine;
 
-	[CreateAssetMenu (fileName = "ColorCount", menuName = "CyberBeat/Variables/ColorCount", order = 0)]
+	[CreateAssetMenu (fileName = "ColorCount", menuName = "Variables/CyberBeat/ColorCount", order = 0)]
 	public class ColorCountVariable : IntVariable
 	{
 		public Color color;

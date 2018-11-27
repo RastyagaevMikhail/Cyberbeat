@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "", menuName = "Variables/Color")]
+	[CreateAssetMenu (fileName = "", menuName = "Variables/GameCore/Color")]
 	public class ColorVariable : SavableVariable<Color>
 	{
 		static string DefaultValue { get { return JsonUtility.ToJson (Color.white); } }

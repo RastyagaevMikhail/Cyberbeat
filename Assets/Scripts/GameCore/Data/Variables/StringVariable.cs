@@ -2,7 +2,7 @@
 
 namespace GameCore
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu (fileName = "StringVariable", menuName = "Variables/GameCore/String", order = 0)]
     public class StringVariable : ScriptableObject
     {
         [SerializeField]

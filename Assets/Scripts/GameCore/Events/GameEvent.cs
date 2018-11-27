@@ -4,7 +4,7 @@ using UnityEngine;
 namespace GameCore
 {
 
-    [CreateAssetMenu(fileName = "GameEvent" , menuName ="Events/GameEvent")]
+    [CreateAssetMenu(fileName = "GameEvent" , menuName ="Events/GameCore/GameEvent")]
     public class GameEvent : ScriptableObject
     {
         /// <summary>

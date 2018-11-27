@@ -19,22 +19,28 @@ namespace GameCore
         [ShowInInspector]
         public bool isSavable
         {
-            get { return saveData.Contains(this); }
+            get { return saveData.Contains (this); }
             set
             {
-                bool contains = saveData.Contains(this);
+                bool contains = saveData.Contains (this);
                 if (value && !contains)
                 {
-                    saveData.Add(this);
+                    saveData.Add (this);
 #if UNITY_EDITOR
                     UnityEditor.Selection.activeObject = saveData;
 #endif
                 }
-                else if (!value && contains) saveData.Remove(this);
+                else if (!value && contains) saveData.Remove (this);
             }
         }
 #if UNITY_EDITOR
-        [OnValueChanged("SaveValue")]
+        private void SetValue ()
+        {
+            Value = _value;
+            SaveValue();
+        }
+
+        [OnValueChanged ("SetValue")]
 #endif
         [SerializeField]
         protected T _value;
@@ -49,7 +55,7 @@ namespace GameCore
                 if (isSavable && !Loaded && Application.isPlaying)
                 {
                     // Debug.LogFormat (this,"Get {1} = {0}", _value, name);
-                    LoadValue();
+                    LoadValue ();
                 }
                 return _value;
             }
@@ -57,35 +63,35 @@ namespace GameCore
             {
                 _value = value;
                 if (OnValueChanged != null)
-                    OnValueChanged(_value);
+                    OnValueChanged (_value);
                 if (isSavable)
                 {
                     if (Application.isPlaying)
-                        saveData.CheckSaver();
+                        saveData.CheckSaver ();
                     else
-                        SaveValue();
+                        SaveValue ();
                 }
             }
         }
 
         [Button]
-        public abstract void SaveValue();
-        public virtual void LoadValue()
+        public abstract void SaveValue ();
+        public virtual void LoadValue ()
         {
             Loaded = true;
         }
 #if UNITY_EDITOR
-        public void CreateAsset(string path = "")
+        public void CreateAsset (string path = "")
         {
-            if (path == "") path = "Assets/Data/Variables/{0}/{1}.asset".AsFormat(GetType().Name, name);
+            if (path == "") path = "Assets/Data/Variables/{0}/{1}.asset".AsFormat (GetType ().Name, name);
 
-            Tools.CreateAsset(this, path);
+            Tools.CreateAsset (this, path);
 
         }
-        public void ResetLoaded()
+        public void ResetLoaded ()
         {
             Loaded = false;
-            UnityEditor.EditorUtility.SetDirty(this);
+            UnityEditor.EditorUtility.SetDirty (this);
         }
 #endif
 

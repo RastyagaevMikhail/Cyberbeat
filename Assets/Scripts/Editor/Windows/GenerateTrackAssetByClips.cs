@@ -32,7 +32,7 @@ namespace CyberBeat.Editor
 			foreach (var clip in clips)
 			{
 				var track = ScriptableObject.CreateInstance<Track> ();
-				track.AlbulImage = Tools.GetAssetAtPath<Sprite> ("Assets/Sprites/UI/AlbumPhoto/{0}.png".AsFormat (clip.name));
+				track.AlbumImage = Tools.GetAssetAtPath<Sprite> ("Assets/Sprites/UI/AlbumPhoto/{0}.png".AsFormat (clip.name));
 				track.clip = clip;
 				var names = clip.name.Split ('-');
 				track.AuthorName = names[0].Trim ();

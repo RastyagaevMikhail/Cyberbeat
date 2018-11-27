@@ -83,7 +83,7 @@ namespace CyberBeat
         {
             clip = data.track.clip;
             name = data.track.name;
-            AlbumeImage.sprite = data.track.AlbulImage;
+            AlbumeImage.sprite = data.track.AlbumImage;
             TrackName.text = data.track.TrackName;
             AuthorName.text = data.track.AuthorName;
 
