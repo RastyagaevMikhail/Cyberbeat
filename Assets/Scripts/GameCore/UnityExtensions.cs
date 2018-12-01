@@ -105,7 +105,7 @@ namespace GameCore
             return Mathf.Abs (value);
         }
 
-        public static float CeilToInt (this float value)
+        public static int CeilToInt (this float value)
         {
             return Mathf.CeilToInt (value);
         }
@@ -190,6 +190,16 @@ namespace GameCore
         public static bool IsLower (this string c)
         {
             return c.SingleOrDefault ().IsLower ();
+        }
+        public static string ToCapitalize(this string str)
+        {
+            if (str == null)
+                return null;
+
+            if (str.Length > 1)
+                return char.ToUpper(str[0]) + str.Substring(1);
+
+            return str.ToUpper();
         }
 
     }

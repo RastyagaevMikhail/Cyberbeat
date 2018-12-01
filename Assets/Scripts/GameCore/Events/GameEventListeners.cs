@@ -10,17 +10,17 @@ namespace GameCore
 {
     public class GameEventListeners : MonoBehaviour
     {
-        [SerializeField] List<EventListener> listeners;
+        [SerializeField] List<EventListenerContainer> containers;
         private void OnEnable ()
         {
-            foreach (var listener in listeners)
-                listener.OnEnable ();
+            foreach (var container in containers)
+                container.Listener.OnEnable ();
         }
 
         private void OnDisable ()
         {
-            foreach (var listener in listeners)
-                listener.OnDisable ();
+            foreach (var container in containers)
+                container.Listener.OnDisable ();
         }
     }
 }

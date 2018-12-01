@@ -13,9 +13,11 @@ namespace GameCore
 	public class Loading : SerializedMonoBehaviour
 	{
 		[SerializeField] ILoadingProgressor loadingProgressor;
-		float progress { set { if (loadingProgressor != null) loadingProgressor.Value = value; } }
+		float progress { set { if (loadingProgressor != null) loadingProgressor.Value = value; } get { return loadingProgressor.Value; } }
 		LoadingManager manager { get { return LoadingManager.instance; } }
 		RandomStack<string> loadingTextsRandStack;
+		[SerializeField] float fakePercent;
+		[SerializeField] float fakePercentStep = 0.1f;
 		IEnumerator Start ()
 		{
 
@@ -26,12 +28,11 @@ namespace GameCore
 			var ao = SceneManager.LoadSceneAsync (manager.nextScene);
 			while (!ao.isDone)
 			{
-
-				progress = ao.progress;
+				progress = ao.progress.GetAsClamped (fakePercent, 1);
 				yield return null;
 			}
 			progress = 1f;
-			yield return new WaitForSeconds (5f);
+			// yield return new WaitForSeconds (5f);
 			manager.loader.OnSceneLoaded ();
 			ao.allowSceneActivation = true;
 		}
@@ -45,12 +46,21 @@ namespace GameCore
 
 				loadingDots.text = ".";
 				yield return waitForSeconds;
+				AddFakePercent ();
 				loadingDots.text = "..";
 				yield return waitForSeconds;
+				AddFakePercent ();
 				loadingDots.text = "...";
 				yield return waitForSeconds;
+				AddFakePercent ();
 				loadingText.text = loadingTextsRandStack.Get ().localized ();
 			}
+		}
+
+		private void AddFakePercent ()
+		{
+			fakePercent += fakePercentStep;
+			progress = fakePercent;
 		}
 
 		[SerializeField] Text loadingText;

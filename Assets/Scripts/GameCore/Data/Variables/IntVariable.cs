@@ -51,5 +51,15 @@ namespace GameCore
 		{
 			Value--;
 		}
+		public static IntVariable operator +(IntVariable variable, int other)
+		{
+			variable.Value += other;
+			return variable;
+		}
+		public static IntVariable operator -(IntVariable variable, int other)
+		{
+			variable.Value -= other;
+			return variable;
+		}
 	}
 }

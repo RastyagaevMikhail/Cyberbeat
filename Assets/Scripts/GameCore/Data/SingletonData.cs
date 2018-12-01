@@ -13,6 +13,7 @@ namespace GameCore
 	{
 		#region  instance
 #if UNITY_EDITOR
+		//[UnityEditor.MenuItem ("Game/Data/T")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
 		[Button] public abstract void ResetDefault ();
 		[Button] public abstract void InitOnCreate ();
 #endif

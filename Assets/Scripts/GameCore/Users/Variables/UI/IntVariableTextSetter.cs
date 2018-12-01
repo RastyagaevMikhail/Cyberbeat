@@ -9,17 +9,16 @@ namespace GameCore
 	[ExecuteInEditMode]
 	public class IntVariableTextSetter : VariableTextSetter<IntVariable, int>
 	{
-		int OldValue;
-		protected override void Awake ()
+		[SerializeField] int OldValue;
+		protected void Awake ()
 		{
-			base.Awake ();
 			OldValue = variable.Value;
 		}
 
-		protected override void OnValueChanged (int obj)
+		protected override void OnValueChanged (int newValue)
 		{
 			DOVirtual
-				.Float (OldValue, variable.Value, .5f, value => text = string.Format (stringFormat, Mathf.Round (value)))
+				.Float (OldValue, newValue, .5f, value => text = string.Format (stringFormat, Mathf.Round (value)))
 				.OnComplete (() => OldValue = variable.Value);
 
 		}

@@ -12,5 +12,10 @@ namespace GameCore
 			saveData.SaveAll ();
 		}
 
+		private void OnApplicationPause (bool pauseStatus)
+		{
+			saveData.SaveAll ();
+		}
+
 	}
 }

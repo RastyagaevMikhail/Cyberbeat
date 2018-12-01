@@ -56,8 +56,8 @@ namespace GameCore
             _saver = saver;
         }
 
+        [ListDrawerSettings (Expanded = true, ShowPaging = false)]
         [SerializeField] List<ISavableVariable> Saves;
-        public bool Loaded = false;
 
         public bool Contains (ISavableVariable savable)
         {
@@ -88,19 +88,10 @@ namespace GameCore
                 save.SaveValue ();
             }
         }
-        public void LoadAll ()
-        {
-            Loaded = true;
-            foreach (var save in Saves)
-            {
-                save.LoadValue ();
-            }
-        }
 
 #if UNITY_EDITOR
         public void ResetLoaded ()
         {
-            Loaded = false;
             foreach (var save in Saves)
             {
                 save.ResetLoaded ();

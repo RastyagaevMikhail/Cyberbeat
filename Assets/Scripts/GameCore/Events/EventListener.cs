@@ -7,8 +7,8 @@ using UnityEngine.Events;
 
 namespace GameCore
 {
-    [CreateAssetMenu(fileName= "Listener Container", menuName = "Events/GameCore/Listener")]
-    public class EventListener : ScriptableObject
+    [Serializable]
+    public class EventListener
     {
         [Tooltip ("Event to register with.")]
         public GameEvent Event;

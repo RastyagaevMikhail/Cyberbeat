@@ -6,19 +6,24 @@ using System.Linq;
 using UnityEditor;
 
 using UnityEngine;
-
 namespace GameCore.Editor
 {
-	using Editor =  UnityEditor.Editor;
+	using Editor = UnityEditor.Editor;
 	using GameCore;
+
+	using Sirenix.OdinInspector.Editor;
+	using Sirenix.Utilities.Editor;
+
 	[CustomEditor (typeof (LocalizeTextMeshProUGUI))]
-	public class LocalizeTextMeshProUGUIEditor : Editor
+	public class LocalizeTextMeshProUGUIEditor : OdinEditor
 	{
 		private readonly GUILayoutOption[] defaultGUI = new GUILayoutOption[0];
 		bool onFix = false;
 		string newID;
 		List<Translation> translationFromAdd = new List<Translation> ();
 		private bool notFixed = true;
+		private bool notAdded = true;
+		private bool onNew;
 
 		public override void OnInspectorGUI ()
 		{
@@ -29,31 +34,10 @@ namespace GameCore.Editor
 			EditorGUILayout.Separator ();
 			if (values.Length > 0)
 			{
-				if (GUILayout.Button (onFix ? "End Fix" : "Fix ID")) onFix = !onFix;
-				if (onFix)
-				{
-					if (notFixed)
-					{
-						newID = locText.Id;
-						notFixed = false;
-					}
-					newID = EditorGUILayout.TextField ("ID", newID);
-
-				}
-				else
-				{
-					if (notFixed == false && newID != locText.Id)
-					{
-						Localizator.AddTranslation (newID);
-						for (int i = 0; i < values.Length; i++)
-						{
-							Localizator.SaveLocalization (newID, Localizator.Languages[i], values[i]);
-						}
-						Localizator.RemoveTranslation (locText.Id);
-						locText.Id = newID;
-					}
-					notFixed = true;
-				}
+				EditorGUILayout.BeginHorizontal ();
+				Fix (locText, values);
+				New (locText, values);
+				EditorGUILayout.EndHorizontal ();
 				EditorGUILayout.Separator ();
 
 				for (int i = 0; i < values.Length; i++)
@@ -114,6 +98,85 @@ namespace GameCore.Editor
 
 			}
 
+		}
+
+		private void New (LocalizeTextMeshProUGUI locText, string[] values)
+		{
+			EditorGUILayout.BeginVertical ();
+			if (GUILayout.Button (onNew ? "Save" : "New ID")) onNew = !onNew;
+			if (onNew)
+			{
+				if (notAdded)
+				{
+					newID = locText.Id;
+					notAdded = false;
+					translationFromAdd = new List<Translation> ();
+					foreach (var lang in Localizator.Languages)
+						translationFromAdd.Add (new Translation () { language = lang });
+				}
+				newID = EditorGUILayout.TextField ("ID", newID);
+				foreach (var trans in translationFromAdd)
+				{
+					GUILayout.BeginHorizontal (defaultGUI);
+					var langstr = EditorGUILayout.EnumPopup (trans.language, defaultGUI).ToString ();
+					trans.language = (SystemLanguage) Enum.Parse (typeof (SystemLanguage), langstr);
+
+					trans.value = EditorGUILayout.TextField (trans.value, defaultGUI);
+					GUILayout.EndHorizontal ();
+				}
+			}
+			else
+			{
+				if (notAdded == false && newID != locText.Id)
+				{
+					Localizator.AddTranslation (newID);
+					for (int i = 0; i < values.Length; i++)
+					{
+						Localizator.SaveLocalization (newID, Localizator.Languages[i], values[i]);
+					}
+					locText.Id = newID;
+					Localizator.AddTranslation (locText.Id);
+					foreach (var trans in translationFromAdd)
+					{
+						Localizator.SaveLocalization (locText.Id, trans.language, trans.value);
+						EditorUtility.SetDirty (target);
+					}
+					translationFromAdd.Clear ();
+				}
+				notAdded = true;
+			}
+			EditorGUILayout.EndVertical ();
+		}
+
+		private void Fix (LocalizeTextMeshProUGUI locText, string[] values)
+		{
+			EditorGUILayout.BeginVertical ();
+			if (GUILayout.Button (onFix ? "End Fix" : "Fix ID")) onFix = !onFix;
+			if (onFix)
+			{
+				if (notFixed)
+				{
+					newID = locText.Id;
+					notFixed = false;
+				}
+				newID = EditorGUILayout.TextField ("ID", newID);
+
+			}
+			else
+			{
+				if (notFixed == false && newID != locText.Id)
+				{
+					Localizator.AddTranslation (newID);
+					for (int i = 0; i < values.Length; i++)
+					{
+						Localizator.SaveLocalization (newID, Localizator.Languages[i], values[i]);
+					}
+					Localizator.RemoveTranslation (locText.Id);
+					locText.Id = newID;
+				}
+				notFixed = true;
+			}
+			EditorGUILayout.EndVertical ();
 		}
 	}
 	public class Translation

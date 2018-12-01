@@ -14,13 +14,16 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 4196be7f6b249ed4dae3c6b1432775dd, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _value
+      Entry: 10
+      Data: 0
   DeveloperDescription: 
   categoryTag: ColorProgress
-  _value: {fileID: 11400000, guid: 4196be7f6b249ed4dae3c6b1432775dd, type: 2}
   Loaded: 0

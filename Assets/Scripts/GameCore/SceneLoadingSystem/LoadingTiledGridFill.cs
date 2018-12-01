@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-    [ExecuteInEditMode]
+	[ExecuteInEditMode]
 	public class LoadingTiledGridFill : MonoBehaviour, ILoadingProgressor
 	{
 
@@ -22,8 +22,8 @@ namespace GameCore
 			}
 			get
 			{
-				int countOfLoaded = Tiles.Sum (t => t.activeSelf ? 1 : 0);
-				return countOfLoaded / Tiles.Count;
+				float countOfLoaded = Tiles.Sum (t => t.activeSelf ? 1f : 0f);
+				return countOfLoaded / (float) Tiles.Count;
 			}
 		}
 
@@ -32,7 +32,8 @@ namespace GameCore
 		public float value;
 		private void Update ()
 		{
-			Value = value;
+			if (!Application.isPlaying)
+				Value = value;
 		}
 #endif
 

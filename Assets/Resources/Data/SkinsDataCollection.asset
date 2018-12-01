@@ -1,0 +1,219 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9ba7d5f36aa894aaa85486ddf0da6f, type: 3}
+  m_Name: SkinsDataCollection
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 08af98337885bb94e94ed90869ce4e64, type: 2}
+    - {fileID: 11400000, guid: e682fae8e998a2347b87827c913388d3, type: 2}
+    - {fileID: 11400000, guid: 1828cbbd5b4e19f41a383b9be456cf19, type: 2}
+    - {fileID: 11400000, guid: b3da93d3d33ee3840b2dfb87d2fd888a, type: 2}
+    - {fileID: 11400000, guid: 02230ff9c48278d43ae436bc32568e8b, type: 2}
+    - {fileID: 11400000, guid: 8c7165789db815d43a1f456c3a77262d, type: 2}
+    - {fileID: 11400000, guid: d19c264c0bc7d98469af43f11aa88d99, type: 2}
+    - {fileID: 11400000, guid: cf587c63c5d17f64ebcfd7f5089a322a, type: 2}
+    - {fileID: 11400000, guid: 571cdd0967c3d77439478ad0ff2df779, type: 2}
+    - {fileID: 11400000, guid: cd317585adcecc84d8a0a0dd259e3ede, type: 2}
+    - {fileID: 11400000, guid: f8dc51bbdd23bcc4798335d373f3dbae, type: 2}
+    - {fileID: 11400000, guid: 4fcbe0ec7feee744fa236c2b6f0ea258, type: 2}
+    - {fileID: 11400000, guid: 5fbd9c344e2c6774aad1e9d8b5b242aa, type: 2}
+    - {fileID: 11400000, guid: fe843a86d5096764a8b453b8fcc47da8, type: 2}
+    - {fileID: 11400000, guid: 9ebf1f144b3be1245a9ea69d852eb0e5, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: skins
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[CyberBeat.SkinType, Assembly-CSharp],[System.Collections.Generic.List`1[[CyberBeat.SkinItem,
+        Assembly-CSharp]], mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EqualityComparer`1+DefaultComparer[[CyberBeat.SkinType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[CyberBeat.SkinItem, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[CyberBeat.SkinItem, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[CyberBeat.SkinItem, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 10
+      Data: 11
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: skinIndexs
+      Entry: 7
+      Data: 5|System.Collections.Generic.Dictionary`2[[CyberBeat.SkinType, Assembly-CSharp],[GameCore.IntVariable,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 10
+      Data: 14
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  Objects: []
+  SkinsFolders:
+  - type: {fileID: 11400000, guid: 1828cbbd5b4e19f41a383b9be456cf19, type: 2}
+    searchedPrefabType: Object
+    prefabsPath: Assets/Prefabs/Skins/{0}
+    iconsPath: Assets/Sprites/Skins/{0}
+    pathFromSave: Assets/Data/Skins/{0}/{1}.asset
+  - type: {fileID: 11400000, guid: cd317585adcecc84d8a0a0dd259e3ede, type: 2}
+    searchedPrefabType: Texture2D
+    prefabsPath: Assets/Sprites/Skins/{0}
+    iconsPath: Assets/Sprites/Skins/{0}
+    pathFromSave: Assets/Data/Skins/{0}/{1}.asset
+  AllTypes:
+  - {fileID: 11400000, guid: 08af98337885bb94e94ed90869ce4e64, type: 2}
+  - {fileID: 11400000, guid: 1828cbbd5b4e19f41a383b9be456cf19, type: 2}
+  - {fileID: 11400000, guid: cd317585adcecc84d8a0a0dd259e3ede, type: 2}
+  SkinType: {fileID: 11400000, guid: 1828cbbd5b4e19f41a383b9be456cf19, type: 2}

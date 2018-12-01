@@ -44,10 +44,14 @@ namespace GameCore
         }
 
         [SerializeField] protected string stringFormat = "{0}";
-        protected virtual void Awake ()
+        protected virtual void OnEnable ()
         {
             variable.OnValueChanged += OnValueChanged;
             variable.OnValueChanged (variable.Value);
+        }
+        private void OnDisable ()
+        {
+            variable.OnValueChanged -= OnValueChanged;
         }
         protected virtual void OnValueChanged (K obj)
         {
@@ -57,7 +61,8 @@ namespace GameCore
 #if UNITY_EDITOR
         private void Update ()
         {
-            text = string.Format (stringFormat, variable.Value);
+            if (!Application.isPlaying)
+                text = string.Format (stringFormat, variable.Value);
         }
 #endif
 

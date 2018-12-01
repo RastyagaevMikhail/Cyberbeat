@@ -37,7 +37,7 @@ namespace GameCore
         private void SetValue ()
         {
             Value = _value;
-            SaveValue();
+            SaveValue ();
         }
 
         [OnValueChanged ("SetValue")]
@@ -76,9 +76,11 @@ namespace GameCore
 
         [Button]
         public abstract void SaveValue ();
+        [Button]
         public virtual void LoadValue ()
         {
-            Loaded = true;
+            if (Application.isPlaying)
+                Loaded = true;
         }
 #if UNITY_EDITOR
         public void CreateAsset (string path = "")

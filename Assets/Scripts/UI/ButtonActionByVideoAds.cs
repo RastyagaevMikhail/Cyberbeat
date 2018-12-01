@@ -1,7 +1,6 @@
-﻿using AppodealAds.Unity.Api;
-using AppodealAds.Unity.Common;
+﻿using DG.Tweening;
 
-using DG.Tweening;
+using GameCore;
 
 using System;
 using System.Collections;
@@ -11,42 +10,37 @@ using UnityEngine;
 
 namespace CyberBeat
 {
-    public class ButtonActionByVideoAds : MonoBehaviour, IRewardedVideoAdListener
+    public class ButtonActionByVideoAds : MonoBehaviour
     {
+
+        public AdsController adsController { get { return AdsController.instance; } }
 
         [SerializeField] GameObject text;
         [SerializeField] GameObject NotInternet;
         [SerializeField] GameObject Waiting;
-        private bool isLoaded
-        {
-            get
-            {
-#if UNITY_EDITOR
-                return true;
-#else
-                return Appodeal.isLoaded (Appodeal.REWARDED_VIDEO);
-#endif
-            }
-        }
-        bool internetNotReachable
-        {
-            get
-            {
-#if UNITY_EDITOR
-                return false;
-#else
-                return Application.internetReachability == NetworkReachability.NotReachable;
-#endif    
-            }
-        }
+        private bool isLoaded { get { return adsController.isLoadedRewardVideo; } }
+        bool internetNotReachable { get { return adsController.internetNotReachable; } }
         private void Start ()
         {
-            Appodeal.setRewardedVideoCallbacks (this);
+            adsController.OnRewardedVideoLoaded += UpdateSatate;
+            OnButtonVideoShown += UpdateSatate;
+            UpdateSatate ();
+        }
+
+        private void OnDestroy ()
+        {
+            OnButtonVideoShown -= UpdateSatate;
+            adsController.OnRewardedVideoLoaded -= UpdateSatate;
+        }
+
+        private void UpdateSatate ()
+        {
+            // Debug.LogFormat ("UpdateSatate = {0}.{1}", name, transform.parent.parent.name);
             text.SetActive (isLoaded);
             NotInternet.SetActive (!isLoaded && internetNotReachable);
             Waiting.SetActive (!isLoaded && !internetNotReachable);
-            Waiting.transform.DORotate (Vector3.forward * 90, 1f, RotateMode.LocalAxisAdd).SetLoops (-1, LoopType.Incremental);
         }
+        static Action OnButtonVideoShown;
         Action _onVideShown;
         public void Init (Action OnVideoShown)
         {
@@ -54,38 +48,11 @@ namespace CyberBeat
         }
         public void ShowVideo ()
         {
-#if UNITY_EDITOR
-            onRewardedVideoShown ();
-#else
-            Appodeal.show (Appodeal.REWARDED_VIDEO);
-#endif
-        }
-        public void onRewardedVideoClosed (bool finished)
-        {
-
-        }
-
-        public void onRewardedVideoExpired () { }
-
-        public void onRewardedVideoFailedToLoad ()
-        {
-            NotInternet.SetActive (internetNotReachable);
-            Waiting.SetActive (!internetNotReachable);
-            text.SetActive (false);
-        }
-
-        public void onRewardedVideoFinished (double amount, string name) { }
-
-        public void onRewardedVideoLoaded (bool precache)
-        {
-            NotInternet.SetActive (false);
-            Waiting.SetActive (false);
-            text.SetActive (true);
-        }
-
-        public void onRewardedVideoShown ()
-        {
-            if (_onVideShown != null) _onVideShown ();
+            adsController.ShowRewardVideo ((amount, name) =>
+            {
+                if (_onVideShown != null) _onVideShown ();
+            });
+            if (OnButtonVideoShown != null) OnButtonVideoShown ();
         }
     }
 }
