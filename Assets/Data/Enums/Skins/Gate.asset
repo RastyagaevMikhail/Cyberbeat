@@ -11,3 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3d24a0bf67cd84ca1cb0514bf4202d, type: 3}
   m_Name: Gate
   m_EditorClassIdentifier: 
+  OnSeleted: {fileID: 2100000, guid: 6513c1888d975274e9daeaaafd4579c2, type: 2}
+  OnOpend: {fileID: 2100000, guid: 594733f7a46c7f34584fa4b7754cb3ef, type: 2}
+  OnClosed: {fileID: 2100000, guid: e5f32caae9d24b64a8a499a9d365742d, type: 2}

@@ -16,7 +16,7 @@ namespace CyberBeat
 	{
 		[SerializeField] Image Icon;
 		[SerializeField] LocalizeTextMeshProUGUI Title;
-		[SerializeField] TextMeshProUGUI Description;
+		[SerializeField] IntVariableTextSetter CountSetter;
 		[SerializeField] TextMeshProUGUI Price;
 		[SerializeField] ShopCardData data;
 
@@ -41,8 +41,7 @@ namespace CyberBeat
 		}
 		private void UpdateValues ()
 		{
-			Icon.sprite = data.style.Icon;
-			Description.text = data.Description.localized().AsFormat (data.Count.Value);
+			Icon.sprite = data.Icon;
 			Title.Id = data.title;
 			Price.text = data.price.ToString ();
 		}
@@ -56,6 +55,7 @@ namespace CyberBeat
 			}
 			UpdateValues ();
 			Icon.SetNativeSize ();
+			CountSetter.SetVariavle(data.Count);
 			name = "ShopCard_{0}".AsFormat (data.name);
 			transform.localScale = Vector3.one;
 		}

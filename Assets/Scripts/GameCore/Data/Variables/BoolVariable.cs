@@ -2,26 +2,36 @@ using UnityEngine;
 
 namespace GameCore
 {
-    [CreateAssetMenu(fileName = "BoolVariable", menuName = "Variables/GameCore/Bool")]
+    [CreateAssetMenu (fileName = "BoolVariable", menuName = "Variables/GameCore/Bool")]
     public class BoolVariable : SavableVariable<bool>
     {
-        public override void LoadValue()
+#if UNITY_EDITOR
+        public override void ResetDefault ()
         {
-            base.LoadValue();
-            _value = Tools.GetBool(name);
+            if (ResetByDefault)
+            {
+                Value = DefaultValue;
+                SaveValue ();
+            }
+        }
+#endif
+        public override void LoadValue ()
+        {
+            base.LoadValue ();
+            _value = Tools.GetBool (name);
         }
 
-        public override void SaveValue()
+        public override void SaveValue ()
         {
-            Tools.SetBool(name, Value);
+            Tools.SetBool (name, Value);
         }
 
-        public void SetValue(bool value)
+        public void SetValue (bool value)
         {
             Value = value;
         }
 
-        public void SetValue(BoolVariable value)
+        public void SetValue (BoolVariable value)
         {
             Value = value.Value;
         }

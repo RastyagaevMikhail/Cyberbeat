@@ -13,10 +13,13 @@ namespace GameCore
         [UnityEditor.MenuItem ("Game/Data/SaveData")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
         public override void ResetDefault ()
         {
-
+            foreach (var save in Saves)
+                save.ResetDefault ();
         }
         public override void InitOnCreate () { }
 #endif
+        [ListDrawerSettings (Expanded = true, ShowPaging = false)]
+        [SerializeField] List<ISavableVariable> Saves;
 
         Saver _saver = null;
         Saver saver
@@ -55,9 +58,6 @@ namespace GameCore
             if (_saver) return;
             _saver = saver;
         }
-
-        [ListDrawerSettings (Expanded = true, ShowPaging = false)]
-        [SerializeField] List<ISavableVariable> Saves;
 
         public bool Contains (ISavableVariable savable)
         {

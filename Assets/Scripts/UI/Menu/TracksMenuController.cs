@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using GameCore;
+
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using GameCore;
+
 using UnityEngine;
 namespace CyberBeat
 {
@@ -16,11 +18,14 @@ namespace CyberBeat
 		{
 			trackScroll.UpdateData (tracksColletion.Objects.Select (t => new TrackScrollData (t)).ToList ());
 		}
-
-		public void Show()
+		private void OnEnable ()
 		{
-			gameObject.SetActive(true);
-			animator.Play("Show");
+			animator.Play ("Show");
+		}
+		public void Show ()
+		{
+			gameObject.SetActive (true);
+
 		}
 	}
 }

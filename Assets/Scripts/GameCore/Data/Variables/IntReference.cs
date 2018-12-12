@@ -7,14 +7,6 @@ namespace GameCore
     [System.Serializable]
     public class IntReference : VariableReference<IntVariable, int>
     {
-#if UNITY_EDITOR
-        public override void DrawMe (Rect position)
-        {
-            if (UseConstant) ConstantValue = UnityEditor.EditorGUI.IntField (position, Value);
-            else Variable = UnityEditor.EditorGUI.ObjectField (position, Variable, typeof (IntVariable), false) as IntVariable;
-        }
-#endif
-
         public static implicit operator int (IntReference reference)
         {
             return reference.Value;
@@ -22,11 +14,15 @@ namespace GameCore
 
         public void Increment ()
         {
-            Value++;
+            if (UseConstant) ConstantValue++;
+            else
+                Variable.Increment ();
         }
         public void Decrement ()
         {
-            Value--;
+            if (UseConstant) ConstantValue--;
+            else
+                Variable.Decrement ();
         }
     }
 }

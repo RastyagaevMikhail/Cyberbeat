@@ -18,7 +18,10 @@ namespace CyberBeat
         [ShowInInspector] public float SampleRate { get; private set; }
         public void Init (float sampleRate, List<KoreographyEvent> events, TimePointsData pointsData)
         {
+            SampleRate = sampleRate;
+
             Times = new List<TimeOfEvent> ();
+            
             foreach (var e in events)
             {
                 Times.Add (new TimeOfEvent (e, sampleRate));

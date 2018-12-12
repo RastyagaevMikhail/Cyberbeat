@@ -332,17 +332,17 @@ public class Reporter : MonoBehaviour
 #if UNITY_CHANGE3
 			scenes = new string[ SceneManager.sceneCountInBuildSettings ];
 			currentScene = SceneManager.GetActiveScene().name;
-#else
-			scenes = new string[Application.levelCount];
-			currentScene = Application.loadedLevelName;
+// #else
+// 			scenes = new string[Application.levelCount];
+// 			currentScene = Application.loadedLevelName;
 #endif
 			DontDestroyOnLoad(gameObject);
 #if UNITY_CHANGE1
 			Application.RegisterLogCallback (new Application.LogCallback (CaptureLog));
 			Application.RegisterLogCallbackThreaded (new Application.LogCallback (CaptureLogThread));
-#else
-			//Application.logMessageReceived += CaptureLog ;
-			Application.logMessageReceivedThreaded += CaptureLogThread;
+// #else
+// 			//Application.logMessageReceived += CaptureLog ;
+// 			Application.logMessageReceivedThreaded += CaptureLogThread;
 #endif
 			created = true;
 			//addSample();

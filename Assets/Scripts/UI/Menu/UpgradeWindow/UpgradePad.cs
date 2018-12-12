@@ -34,15 +34,18 @@ namespace CyberBeat
         [SerializeField] TextMeshProUGUI Info;
         [Title ("Animation")]
         // [SerializeField] Animator IconAnimator;
-        [SerializeField] Ease fromIcon =Ease.InOutBack;
-        [SerializeField] Ease toIcon =  Ease.OutExpo;
-        [SerializeField ] float fromDurationIcon = 0.25f;
-        [SerializeField ] float toDurationIcon = 0.25f;
-        [SerializeField ] float toSizeIcon = 444f;
-        [SerializeField ] float fromSizeIcon = 344;
-        
+        [SerializeField] Ease fromIcon = Ease.InOutBack;
+        [SerializeField] Ease toIcon = Ease.OutExpo;
+        [SerializeField] float fromDurationIcon = 0.25f;
+        [SerializeField] float toDurationIcon = 0.25f;
+        [SerializeField] float toSizeIcon = 444f;
+        [SerializeField] float fromSizeIcon = 344;
+
         [Title ("")]
         [SerializeField] bool isColors;
+        [SerializeField] bool useGradient;
+        [ShowIf ("useGradient")]
+        [SerializeField] Gradient enabledGradient;
         [SerializeField] UpgradeData data;
         [SerializeField] List<Toggle> UpgradeOTiles;
 
@@ -60,7 +63,7 @@ namespace CyberBeat
             UpdateValues ();
             ShakeIcon ();
         }
-        
+
         private void ShakeIcon ()
         {
             if (Icon /* && IconAnimator */ )
@@ -68,7 +71,7 @@ namespace CyberBeat
                 var seq = DOTween.Sequence ();
                 seq.Append (Icon.rectTransform.DOSizeDelta (toSizeIcon * Vector2.one, fromDurationIcon).SetEase (fromIcon));
                 seq.Append (Icon.rectTransform.DOSizeDelta (fromSizeIcon * Vector2.one, toDurationIcon).SetEase (toIcon));
-                seq.Play();
+                seq.Play ();
             }
         }
 
@@ -135,7 +138,16 @@ namespace CyberBeat
             if (Icon) Icon.sprite = data.style.Icon;
             if (Title) Title.Id = data.locTitleTag.ToLower ();
             name = data.locTitleTag.ToCapitalize ();
-
+            if (useGradient)
+            {
+                float count = UpgradeOTiles.Count;
+                for (int i = 0; i < count; i++)
+                {
+                    var enableGraph = UpgradeOTiles[i].graphic;
+                    UnityEditor.Undo.RecordObject (enableGraph, "enableGraph_{0}".AsFormat (i));
+                    enableGraph.color = enabledGradient.Evaluate ((float) (i + 1) / count);
+                }
+            }
             foreach (var controller in GetComponentsInChildren<StyleController> ())
             {
                 controller.Validate (data.style);

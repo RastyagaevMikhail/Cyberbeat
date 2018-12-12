@@ -1,5 +1,5 @@
 ﻿using Sirenix.OdinInspector;
-
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace CyberBeat
 
 		[ValueDropdown ("ColorNames")]
 		[SerializeField] string DefaultColorName = "_Color";
-		string[] ColorNames = new string[] { "_Color", "_EmissionColor", "_Emis" };
+		static string[] ColorNames = new string[] { "_Color", "_EmissionColor", "_Emis", "_TintColor" };
 
 		public void SetColor (Color newColor)
 		{

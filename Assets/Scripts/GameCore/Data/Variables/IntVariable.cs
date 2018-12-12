@@ -6,7 +6,16 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "", menuName = "Variables/GameCore/Int")]
 	public class IntVariable : SavableVariable<int>
 	{
-
+		#if UNITY_EDITOR
+		public override void ResetDefault ()
+        {
+            if (ResetByDefault)
+            {
+                Value = DefaultValue;
+                SaveValue ();
+            }
+        }
+		#endif
 		public void SetValue (int value)
 		{
 			Value = value;
@@ -40,7 +49,7 @@ namespace GameCore
 		public override void LoadValue ()
 		{
 			base.LoadValue ();
-			_value = PlayerPrefs.GetInt (name, 0);
+			_value = PlayerPrefs.GetInt (name, DefaultValue);
 		}
 
 		public void Increment ()
@@ -51,12 +60,12 @@ namespace GameCore
 		{
 			Value--;
 		}
-		public static IntVariable operator +(IntVariable variable, int other)
+		public static IntVariable operator + (IntVariable variable, int other)
 		{
 			variable.Value += other;
 			return variable;
 		}
-		public static IntVariable operator -(IntVariable variable, int other)
+		public static IntVariable operator - (IntVariable variable, int other)
 		{
 			variable.Value -= other;
 			return variable;

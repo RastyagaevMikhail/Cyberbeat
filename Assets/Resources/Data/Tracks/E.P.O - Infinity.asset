@@ -11,10 +11,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d349b086a7d334b804be2e8c6b3cd8, type: 3}
   m_Name: E.P.O - Infinity
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 50c4307b45f19604ab73571b950c5cf6, type: 3}
-  AuthorName: E.P.O
-  TrackName: Infinity
-  AlbumImage: {fileID: 21300000, guid: e0ad109e88ca62848a0b0b3296401dd8, type: 3}
-  SocialIcon: {fileID: 0}
-  SocialURL: 
-  Price: 2000
+  music:
+    clip: {fileID: 8300000, guid: 50c4307b45f19604ab73571b950c5cf6, type: 3}
+    AuthorName: E.P.O
+    TrackName: Infinity
+    AlbumImage: {fileID: 21300000, guid: e0ad109e88ca62848a0b0b3296401dd8, type: 3}
+  social:
+    Icon: {fileID: 0}
+    URL: 
+  shopInfo:
+    PlayByWatch: 0
+    Price: 2000
+    SaveKey: E.P.O - Infinity Buyed
+  StartSpeed: 50
+  koreography: {fileID: 11400000, guid: 32d303d596b8b204a9289db2904df861, type: 2}
+  MinTimeOfBit: 0.2
+  BitsInfos:
+  - time: 0
+    presets: 00000000
+  - time: 0.81249434
+    presets: 01000000
+  - time: 1.6249887
+    presets: 05000000
+  - time: 2.437483
+    presets: 01000000
+  - time: 2.6249886
+    presets: 02000000
+  - time: 2.8124943
+    presets: 05000000
+  - time: 3
+    presets: 05000000
+  - time: 3.187483
+    presets: 00000000
+  - time: 4.0221767
+    presets: 01000000
+  - time: 4.8342857
+    presets: 02000000
+  - time: 5.64
+    presets: 05000000
+  - time: 6.4073467
+    presets: 01000000
+  - time: 7.2066665
+    presets: 06000000
+  - time: 8.012381
+    presets: 06000000
+  - time: 8.805306
+    presets: 01000000
+  - time: 9.6272335
+    presets: 02000000
+  - time: 10.437891
+    presets: 00000000
+  - time: 11.312562
+    presets: 06000000
+  - time: 12.048549
+    presets: 06000000
+  - time: 12.837892
+    presets: 02000000
+  - time: 13.616553
+    presets: 06000000
+  - time: 14.0539
+    presets: 02000000
+  - time: 14.5339
+    presets: 06000000
+  - time: 14.629887
+    presets: 00000000
+  - time: 14.744921
+    presets: 06000000
+  - time: 15.330749
+    presets: 05000000
+  - time: 15.64322
+    presets: 05000000
+  - time: 15.7472105
+    presets: 06000000
+  - time: 15.824558
+    presets: 01000000
+  CountConstant: 0

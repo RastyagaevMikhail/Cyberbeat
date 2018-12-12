@@ -35,7 +35,8 @@ namespace CyberBeat
 		}
 #endif
 		//---Colors---
-		[ShowInInspector] private List<Color> _colors = null;
+		private List<Color> _colors = null;
+		[ShowInInspector]
 		public List<Color> colors
 		{
 			get
@@ -61,7 +62,8 @@ namespace CyberBeat
 		public Dictionary<Color, ColorCountVariable> ColorsCounter = new Dictionary<Color, ColorCountVariable> ();
 		public bool ColorsCounterIsFull { get { return ColorsCounter.Values.ToList ().FindAll (v => colors.Contains (v.color)).TrueForAll (v => v.Value >= ColorsPerCell); } }
 
-		[SerializeField] RandomStack<Color> randStack = null;
+		// [System.NonSerialized]
+		[ShowInInspector] RandomStack<Color> randStack = null;
 		public Color RandomColor
 		{
 			get
@@ -84,19 +86,24 @@ namespace CyberBeat
 			if (colorCountVariable && colorCountVariable.Value < ColorsPerCell) colorCountVariable.Increment ();
 
 		}
+
+		public void UpdateRandomColorsStack ()
+		{
+			randStack = new RandomStack<Color> (colors);
+		}
 		//TODO init Default Colors From Layers from tracks
-		// private void InitColors ()
-		// {
-		// 	var Values = System.Enum.GetValues (typeof (LayerType));
-		// 	if (DefaultLayersColors == null || DefaultLayersColors.Count == 0 || DefaultLayersColors.Count != Values.Length)
-		// 	{
-		// 		DefaultLayersColors = new Dictionary<LayerType, Color> ();
-		// 		foreach (LayerType lt in Values)
-		// 		{
-		// 			DefaultLayersColors.Add (lt, RandomColor);
-		// 		}
-		// 	}
-		// }
-		// public Dictionary<LayerType, Color> DefaultLayersColors;
+		[Button] private void InitColors ()
+		{
+			var Values = System.Enum.GetValues (typeof (LayerType));
+			if (DefaultLayersColors == null || DefaultLayersColors.Count == 0 || DefaultLayersColors.Count != Values.Length)
+			{
+				DefaultLayersColors = new Dictionary<LayerType, Color> ();
+				foreach (LayerType lt in Values)
+				{
+					DefaultLayersColors.Add (lt, RandomColor);
+				}
+			}
+		}
+		public Dictionary<LayerType, Color> DefaultLayersColors;
 	}
 }

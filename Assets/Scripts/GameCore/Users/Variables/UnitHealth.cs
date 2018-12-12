@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace GameCore
@@ -9,7 +10,9 @@ namespace GameCore
 
         public bool ResetHP;
         public FloatReference StartingHP;
+        [DrawWithUnity]
         public UnityEvent DamageEvent;
+        [DrawWithUnity]
         public UnityEvent DeathEvent;
 
         private void Start()

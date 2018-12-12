@@ -13,6 +13,16 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "TimeSpanVariable", menuName = "Variables/GameCore/TimeSpan")]
 	public class TimeSpanVariable : SavableVariable<TimeSpan>
 	{
+#if UNITY_EDITOR
+		public override void ResetDefault ()
+		{
+			if (ResetByDefault)
+			{
+				Value = DefaultValue;
+				SaveValue ();
+			}
+		}
+#endif
 		public override void LoadValue ()
 		{
 			base.LoadValue ();

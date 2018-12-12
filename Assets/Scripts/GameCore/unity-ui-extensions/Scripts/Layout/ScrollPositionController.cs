@@ -50,6 +50,11 @@ namespace UnityEngine.UI.Extensions
 			ByOne,
 			Infinity
 		}
+		enum DirectionScroll
+		{
+			ForwardUp,
+			ForwardDown
+		}
 
 		[SerializeField]
 		RectTransform viewport;
@@ -61,6 +66,9 @@ namespace UnityEngine.UI.Extensions
 		AutoScrollType autoScrollType = AutoScrollType.Nearest;
 		[SerializeField]
 		SnapType snapType = SnapType.Infinity;
+		[SerializeField]
+		DirectionScroll scrollDirectionType = DirectionScroll.ForwardUp;
+
 		[SerializeField]
 		float elasticity = 0.1f;
 		[SerializeField]
@@ -126,11 +134,11 @@ namespace UnityEngine.UI.Extensions
 			{
 				return;
 			}
-
+			var dir = (scrollDirectionType == DirectionScroll.ForwardUp ? 1 : -1);
 			var pointerDelta = localCursor - pointerStartLocalPosition;
 			var position = (directionOfRecognize == ScrollDirection.Horizontal ? -pointerDelta.x : pointerDelta.y) /
 				GetViewportSize () *
-				scrollSensitivity +
+				dir * scrollSensitivity +
 				dragStartScrollPosition;
 
 			var offset = CalculateOffset (position);

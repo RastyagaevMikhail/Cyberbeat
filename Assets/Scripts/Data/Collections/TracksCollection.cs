@@ -10,9 +10,8 @@ namespace CyberBeat
 	using System.Linq;
 	public class TracksCollection : DataCollections<TracksCollection, Track>
 	{
-        public Track CurrentTrack;
 #if UNITY_EDITOR
-        [UnityEditor.MenuItem ("Game/Data/Collections/Tracks")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
+		[UnityEditor.MenuItem ("Game/Data/Collections/Tracks")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
 
 		public override void InitOnCreate ()
 		{
@@ -23,5 +22,8 @@ namespace CyberBeat
 
 		}
 #endif
+
+		public Track CurrentTrack;
+		public Dictionary<int, RowInfo> Prefabs;
 	}
 }

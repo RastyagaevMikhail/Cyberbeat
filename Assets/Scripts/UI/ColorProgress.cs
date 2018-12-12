@@ -19,10 +19,18 @@ namespace CyberBeat
 
 		[SerializeField] Dictionary<Color, ColorSlider> colors = new Dictionary<Color, ColorSlider> ();
 		[SerializeField] ColorSlider ColorPrefab;
+		[SerializeField] GameObject Empty;
 		Colors data { get { return Colors.instance; } }
-		
+
 		void Awake ()
 		{
+			_UpdateColors (data.LevelOnColorProgress);
+		}
+
+		public void _UpdateColors (int counrcolors)
+		{
+			Empty.transform.SetParent (transform.parent);
+			transform.DestroyAllChilds ();
 			colors = new Dictionary<Color, ColorSlider> ();
 			// var width = rectTransform.sizeDelta.x;
 			foreach (var color in data.colors)
@@ -33,7 +41,14 @@ namespace CyberBeat
 				colors.Add (color, clr);
 				clr.Init (variable);
 			}
+			Empty.transform.SetParent (transform);
+			bool emptyIsEnabled = data.colors.Count <= 6;
+			Empty.SetActive (emptyIsEnabled);
+			/* if (emptyIsEnabled)
+			{
+				Empty.transform.SetAsLastSibling ();
+			} */
 		}
-		
+
 	}
 }

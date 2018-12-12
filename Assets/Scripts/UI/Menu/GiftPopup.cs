@@ -19,9 +19,12 @@ namespace CyberBeat
         IntVariable rewardVaribale;
         public void Show ()
         {
-            rewardData.InitReward (out rewardVaribale, Icon, TitleText, out reward);
-            CountText.text = "+{0}".AsFormat (reward);
             gameObject.SetActive (true);
+
+            rewardData.InitReward (out rewardVaribale, Icon, TitleText, out reward);
+
+            CountText.text = "+{0}".AsFormat (reward);
+
         }
 
         public void Close ()
@@ -30,10 +33,10 @@ namespace CyberBeat
         }
         public void Take ()
         {
-            Close ();
             rewardVaribale += reward;
             OnRewardTaked.Raise ();
             LastDateTimeRewardTaked.Value = DateTime.Now;
+            Close ();
         }
     }
 }

@@ -8,12 +8,12 @@ using UnityEngine;
 namespace GameCore
 {
     [System.Serializable]
-    public abstract class SavableVariable<T> : SerializedScriptableObject, ISavableVariable
+    public abstract class SavableVariable<TValue> : SerializedScriptableObject, ISavableVariable
     {
         [Multiline]
         public string DeveloperDescription = "";
         public string categoryTag = "Default";
-        public string CategoryTag { get { return categoryTag; } }
+        public string CategoryTag { get { return categoryTag; } set { categoryTag = value; } }
         protected SaveData saveData { get { return SaveData.instance; } }
 
         [ShowInInspector]
@@ -43,12 +43,17 @@ namespace GameCore
         [OnValueChanged ("SetValue")]
 #endif
         [SerializeField]
-        protected T _value;
+        [LabelText ("$name")]
+        protected TValue _value;
+        [SerializeField]
+        protected TValue DefaultValue;
+        [SerializeField]
+        protected bool ResetByDefault;
 
         [NonSerialized]
-        public Action<T> OnValueChanged = (o) => { };
+        public Action<TValue> OnValueChanged = (o) => { };
         public bool Loaded = false;
-        public virtual T Value
+        public virtual TValue Value
         {
             get
             {
@@ -95,6 +100,8 @@ namespace GameCore
             Loaded = false;
             UnityEditor.EditorUtility.SetDirty (this);
         }
+
+        public abstract void ResetDefault ();
 #endif
 
     }

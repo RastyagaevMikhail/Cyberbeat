@@ -1,3 +1,5 @@
+using DG.Tweening;
+
 using Sirenix.OdinInspector;
 
 using System.Collections.Generic;
@@ -37,6 +39,19 @@ namespace GameCore
             string colorName = useAlpha ? ColorUtility.ToHtmlStringRGBA (color) : ColorUtility.ToHtmlStringRGB (color);
             return fromColor ? Tools.LogTextInColor (colorName, color) : colorName;
         }
+
+        public static T GetOrAddComponent<T> (this GameObject go) where T : Component
+        {
+            T component = go.GetComponent<T> ();
+            if (component == null) component = go.AddComponent<T> ();
+            return component;
+        }
+        public static T GetOrAddComponent<T> (this Transform transform) where T : Component
+        {
+            T component = transform.GetComponent<T> ();
+            if (component == null) component = transform.gameObject.AddComponent<T> ();
+            return component;
+        }
     }
 
     public static class TransformExtensions
@@ -63,7 +78,7 @@ namespace GameCore
 
     public static class SimpleExtentions
     {
-           public static T GetRandom<T> (this IEnumerable<T> collection)
+        public static T GetRandom<T> (this IEnumerable<T> collection)
         {
             T[] array = collection.ToArray ();
             return array[Random.Range (0, array.Length)];
@@ -113,7 +128,7 @@ namespace GameCore
         {
             return Mathf.Round (value);
         }
-       public static int RoundToInt (this float value)
+        public static int RoundToInt (this float value)
         {
             return Mathf.RoundToInt (value);
         }
@@ -191,17 +206,25 @@ namespace GameCore
         {
             return c.SingleOrDefault ().IsLower ();
         }
-        public static string ToCapitalize(this string str)
+        public static string ToCapitalize (this string str)
         {
             if (str == null)
                 return null;
 
             if (str.Length > 1)
-                return char.ToUpper(str[0]) + str.Substring(1);
+                return char.ToUpper (str[0]) + str.Substring (1);
 
-            return str.ToUpper();
+            return str.ToUpper ();
         }
-
+        public static bool IsNullOrEmpty (this string str)
+        {
+            return string.IsNullOrEmpty (str);
+        }
+        public static void Do (this float value, float endValue, float duration, TweenCallback<float> onVirtualUpdate = null)
+        {
+            TweenCallback<float> DefaultCallback = v => value = v;
+            DOVirtual.Float (value, endValue, duration, onVirtualUpdate == null? DefaultCallback : onVirtualUpdate);
+        }
     }
     public static class Vector3Extentions
     {
@@ -238,6 +261,34 @@ namespace GameCore
         public static Vector2 To2 (this Vector3 value)
         {
             return value;
+        }
+        public static float Angle (this Vector3 orign, Vector3 other)
+        {
+            return Vector3.Angle (orign, other);
+        }
+        public static float Angle (this Vector2 orign, Vector2 other)
+        {
+            return Vector2.Angle (orign, other);
+        }
+        public static Vector3 Project (this Vector3 orign, Vector3 normal)
+        {
+            return Vector3.Project (orign, normal);
+        }
+        public static Vector3 ProjectOnPlane (this Vector3 orign, Vector3 normal)
+        {
+            return Vector3.ProjectOnPlane (orign, normal);
+        }
+        public static Vector2 Abs (this Vector2 vector)
+        {
+            return new Vector2 (vector.x.Abs (), vector.y.Abs ());
+        }
+        public static Vector3 Abs (this Vector3 vector)
+        {
+            return new Vector3 (vector.x.Abs (), vector.y.Abs (), vector.z.Abs ());
+        }
+        public static Vector4 Abs (this Vector4 vector)
+        {
+            return new Vector4 (vector.x.Abs (), vector.y.Abs (), vector.z.Abs (), vector.w.Abs ());
         }
     }
 }

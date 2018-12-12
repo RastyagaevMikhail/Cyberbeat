@@ -10,7 +10,7 @@ using GameCore;
 namespace CyberBeat
 {
 
-	[CreateAssetMenu (fileName = "ShopCardData", menuName = "Color Bricks/Shop/Card Data", order = 0)]
+	[CreateAssetMenu (fileName = "ShopCardData", menuName = "CyberBeat/Shop/Card Data", order = 0)]
 	public class ShopCardData : ScriptableObject
 	{
         public ColorsStyle style;

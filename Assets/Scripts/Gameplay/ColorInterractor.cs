@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using GameCore;
 
 using Sirenix.OdinInspector;
 
+using System.Collections;
+using System.Collections.Generic;
+
 using UnityEngine;
-using GameCore;
 namespace CyberBeat
 {
     public class ColorInterractor : Interractor
@@ -19,16 +20,15 @@ namespace CyberBeat
                 return _matSwitch;
             }
         }
+
         public float bit;
         public float Prevbit;
         [SerializeField] Vector3 StartPosition;
 
         Pool pool { get { return Pool.instance; } }
-        public virtual void OnSpawn ()
-        {
+        protected Player player { get { return Player.instance; } }
 
-        }
-        public virtual void OnPlayerContact ()
+        public virtual void OnPlayerContact (GameObject go)
         {
 
         }
@@ -48,19 +48,20 @@ namespace CyberBeat
             SpawnedObject spawnedObject = pool.Pop ("DeathPatrts");
             if (!spawnedObject) return;
 
-            var particles = spawnedObject.GetComponent<MaterialSwitcher> ();
+            var particles = spawnedObject.Get<MaterialSwitcher> ();
 
-            particles.transform.position = transform.position + transform.forward * 2f;
 
-            const string colorName = "_TintColor";
-            Material sharedMaterial = particles.partRenderer.sharedMaterial;
+            player.transform.SetParent (player.transform);
+            particles.transform.position = player.position + player.transform.forward * 2f ;
+
             Color MyColor = matSwitch.CurrentColor;
-            sharedMaterial.SetColor (colorName, MyColor);
+            particles.SetColor (MyColor);
 
-            TakedColor.Value = MyColor;
+            TakedColor.SetValue (MyColor);
             OnColorTeked.Raise (TakedColor);
             pool.Push (gameObject);
             transform.position = StartPosition;
         }
+
     }
 }

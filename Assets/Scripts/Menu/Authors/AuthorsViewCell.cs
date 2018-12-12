@@ -81,15 +81,15 @@ namespace CyberBeat
         }
         public override void UpdateContent (AuthorsData data)
         {
-            clip = data.track.clip;
+            clip = data.track.music.clip;
             name = data.track.name;
-            AlbumeImage.sprite = data.track.AlbumImage;
-            TrackName.text = data.track.TrackName;
-            AuthorName.text = data.track.AuthorName;
+            AlbumeImage.sprite = data.track.music.AlbumImage;
+            TrackName.text = data.track.music.TrackName;
+            AuthorName.text = data.track.music.AuthorName;
 
-            SocialButton.gameObject.SetActive (data.track.SocialIcon);
-            SocialButton.sprite = data.track.SocialIcon;
-            socilaURL = data.track.SocialURL;
+            SocialButton.gameObject.SetActive (data.track.social.Icon);
+            SocialButton.sprite = data.track.social.Icon;
+            socilaURL = data.track.social.URL;
         }
 
         public void PlayMusic ()

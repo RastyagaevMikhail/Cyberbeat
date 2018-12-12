@@ -13,6 +13,10 @@ namespace GameCore
     {
 
         [SerializeField] protected T variable;
+        public void SetVariavle (T newVariable)
+        {
+            variable = newVariable;
+        }
         private TextMeshProUGUI _textTMPro = null;
         public TextMeshProUGUI textTMPro
         {
@@ -47,7 +51,7 @@ namespace GameCore
         protected virtual void OnEnable ()
         {
             variable.OnValueChanged += OnValueChanged;
-            variable.OnValueChanged (variable.Value);
+            OnValueChanged (variable.Value);
         }
         private void OnDisable ()
         {

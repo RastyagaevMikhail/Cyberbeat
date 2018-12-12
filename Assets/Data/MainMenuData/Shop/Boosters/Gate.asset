@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269dd162f9b043741b686b51b8d3352f, type: 3}
+  m_Name: Gate
+  m_EditorClassIdentifier: 
+  style: {fileID: 11400000, guid: a56fdbfbdeb938e43bb65704ab8d9541, type: 2}
+  Icon: {fileID: 21300000, guid: d1844f6168af3ed42ac64069b7a69b2f, type: 3}
+  title: gate
+  Description: you_have
+  isIAP: 0
+  Count: {fileID: 11400000, guid: 18e008caf14f6bc4e968b9554548534a, type: 2}
+  productID: 
+  price: 100

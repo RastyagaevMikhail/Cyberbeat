@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,15 +20,20 @@ namespace GameCore
 		{
 			GDPR_PanelInfo.SetActive (!consentValue);
 
-			InitAds ();
-			notificationManager.Init();
-
+			if (consentValue)
+				Init ();
 		}
 
-		public void InitAds ()
+		public void Init ()
 		{
-			string appKey = "3c672f0ffdbf98b0bac46b6d2009945882ca20f1e7a2dc3a"; //DevSkim: ignore DS173237 
-			Appodeal.initialize (appKey, Appodeal.INTERSTITIAL | Appodeal.REWARDED_VIDEO, consentValue);
+			var initalizableData = Resources.LoadAll<ScriptableObject> ("Data")
+				.ToList ()
+				.FindAll (so => so is IStartInitializationData)
+				.Select (so => so as IStartInitializationData);
+				
+			foreach (var data in initalizableData)
+				data.Init (consentValue);
+
 			Invoke ("LoadGame", 1f);
 		}
 

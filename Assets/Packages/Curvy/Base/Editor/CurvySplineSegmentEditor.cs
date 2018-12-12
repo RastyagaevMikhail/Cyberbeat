@@ -190,13 +190,13 @@ namespace FluffyUnderware.CurvyEditor
                     Quaternion r = (Tools.pivotRotation == PivotRotation.Global) ? Target.Spline.transform.localRotation : Target.Spline.transform.rotation;
                     Handles.color = Color.yellow;
                     pIn = Target.HandleInPosition;
-                    pIn = DTHandles.TinyHandle2D(GUIUtility.GetControlID(FocusType.Passive), pIn, r, CurvyGlobalManager.GizmoControlPointSize * 0.7f, Handles.CubeCap);
+                    pIn = DTHandles.TinyHandle2D(GUIUtility.GetControlID(FocusType.Passive), pIn, r, CurvyGlobalManager.GizmoControlPointSize * 0.7f, Handles.CubeHandleCap);
                     if (!CurvyProject.Instance.UseTiny2DHandles)
                         pIn = DTHandles.PositionHandle2D(GUIUtility.GetControlID(FocusType.Passive), pIn, r, 1);
                     chgIn = Target.HandleInPosition != pIn;
                     Handles.color = Color.green;
                     pOut = Target.HandleOutPosition;
-                    pOut = DTHandles.TinyHandle2D(GUIUtility.GetControlID(FocusType.Passive), pOut, r, CurvyGlobalManager.GizmoControlPointSize * 0.7f, Handles.CubeCap);
+                    pOut = DTHandles.TinyHandle2D(GUIUtility.GetControlID(FocusType.Passive), pOut, r, CurvyGlobalManager.GizmoControlPointSize * 0.7f, Handles.CubeHandleCap);
                     if (!CurvyProject.Instance.UseTiny2DHandles)
                         pOut = DTHandles.PositionHandle2D(GUIUtility.GetControlID(FocusType.Passive), pOut, r, 1);
 
@@ -208,12 +208,12 @@ namespace FluffyUnderware.CurvyEditor
                     pIn = Handles.PositionHandle(Target.HandleInPosition, Tools.handleRotation);
                     chgIn = Target.HandleInPosition != pIn;
                     DTHandles.PushHandlesColor(Color.yellow);
-                    Handles.CubeCap(0, pIn, Quaternion.identity, HandleUtility.GetHandleSize(pIn) * CurvyGlobalManager.GizmoControlPointSize * 0.7f);
+                    Handles.CubeHandleCap(0, pIn, Quaternion.identity, HandleUtility.GetHandleSize(pIn) * CurvyGlobalManager.GizmoControlPointSize * 0.7f,EventType.Repaint);
                     DTHandles.PopHandlesColor();
                     pOut = Handles.PositionHandle(Target.HandleOutPosition, Tools.handleRotation);
                     chgOut = Target.HandleOutPosition!=pOut;
                     DTHandles.PushHandlesColor(Color.green);
-                    Handles.CubeCap(0, pOut, Quaternion.identity, HandleUtility.GetHandleSize(pOut) * CurvyGlobalManager.GizmoControlPointSize * 0.7f);
+                    Handles.CubeHandleCap(0, pOut, Quaternion.identity, HandleUtility.GetHandleSize(pOut) * CurvyGlobalManager.GizmoControlPointSize * 0.7f,EventType.Repaint);
                     DTHandles.PopHandlesColor();    
                 }
                     

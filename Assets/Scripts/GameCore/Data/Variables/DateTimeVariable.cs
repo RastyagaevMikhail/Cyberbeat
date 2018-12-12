@@ -8,6 +8,13 @@ namespace GameCore
 	[CreateAssetMenu(fileName ="DateTime Variable", menuName ="Variables/GameCore/DateTime")]
 	public class DateTimeVariable : SavableVariable<DateTime>
 	{
+		#if UNITY_EDITOR
+		public override void ResetDefault ()
+		{
+			Value = DefaultValue;
+			SaveValue ();
+		}
+		#endif
 		string strDeafultValue { get { return new DateTime ().ToString (); } }
 
 		public bool isNew { get { return _value == new DateTime (); } }

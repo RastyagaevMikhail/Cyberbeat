@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.OdinInspector.Editor.Drawers;
+using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
+
+using System;
+using System.Collections.Generic;
 
 using UnityEditor;
 
@@ -13,43 +14,50 @@ using UnityEngine;
 namespace GameCore
 {
     [OdinDrawer]
-    public class VariableReferenceDrawer<U, T, K> : OdinValueDrawer<U> where U : VariableReference<T, K> where T : SavableVariable<K>
-    {
-        /// <summary>
-        /// Options to display in the popup to select constant or variable.
-        /// </summary>
-        private readonly string[] popupOptions = { "Constant", "Variable" };
-        protected override GUICallType GUICallType { get { return GUICallType.Rect; } }
-        /// <summary> Cached style to use to draw the popup button. </summary>
-        private GUIStyle popupStyle;
-
-        protected override void DrawPropertyRect (Rect position, IPropertyValueEntry<U> entry, GUIContent label)
+    public class VariableReferenceDrawer<TReference, TVariable, TValue> : OdinValueDrawer<TReference>
+        where TReference : VariableReference<TVariable, TValue>
+        where TVariable : SavableVariable<TValue>
         {
-            var variableReference = entry.SmartValue;
-            if (popupStyle == null)
+            protected override void DrawPropertyLayout (IPropertyValueEntry<TReference> entry, GUIContent label)
             {
-                popupStyle = new GUIStyle (GUI.skin.GetStyle ("PaneOptions"));
-                popupStyle.imagePosition = ImagePosition.ImageOnly;
+                var value = entry.SmartValue;
+
+                GUILayout.BeginVertical ();
+                {
+                    var btnRect = GUIHelper.GetCurrentLayoutRect ();
+                    btnRect.width = EditorGUIUtility.labelWidth;
+                    btnRect = btnRect.AlignRight (18);
+                    btnRect.y += 4;
+
+                    if (GUI.Button (btnRect, GUIContent.none, "PaneOptions"))
+                    {
+                        var menu = new GenericMenu ();
+                        menu.AddItem (new GUIContent ("Constant"), value.UseConstant, () => value.UseConstant = true);
+                        menu.AddItem (new GUIContent ("Variable"), !value.UseConstant, () => value.UseConstant = false);
+                        menu.ShowAsContext ();
+                    }
+
+                    EditorGUIUtility.AddCursorRect (btnRect, MouseCursor.Arrow);
+
+                    if (value.UseConstant)
+                    {
+                        entry.Property.Children["ConstantValue"].Draw (label);
+                    }
+                    else
+                    {
+                        entry.Property.Children["Variable"].Draw (label);
+                    }
+                }
+                GUILayout.EndVertical ();
             }
-
-            if (label != null)
-            {
-                position = EditorGUI.PrefixLabel (position, label);
-            }
-
-            EditorGUI.BeginChangeCheck ();
-
-            // Calculate rect for configuration button
-            Rect buttonRect = new Rect (position);
-            buttonRect.yMin += popupStyle.margin.top;
-            buttonRect.width = popupStyle.fixedWidth + popupStyle.margin.right;
-            position.xMin = buttonRect.xMax;
-
-            variableReference.UseConstant = EditorGUI.Popup (buttonRect, variableReference.UseConstant ? 0 : 1, popupOptions, popupStyle) == 0;
-            
-            variableReference.DrawMe (position);
-
-            entry.SmartValue = variableReference;
         }
+    public class ColorReferenceDrawer : VariableReferenceDrawer<ColorReference, ColorVariable, Color>
+    {
+
     }
+    public class IntReferenceDrawer : VariableReferenceDrawer<IntReference, IntVariable, int>
+    {
+        
+    }
+
 }

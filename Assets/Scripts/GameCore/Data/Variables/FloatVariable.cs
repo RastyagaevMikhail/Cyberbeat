@@ -6,11 +6,25 @@ namespace GameCore
     [CreateAssetMenu (fileName = "", menuName = "Variables/GameCore/Float")]
     public class FloatVariable : SavableVariable<float>
     {
+#if UNITY_EDITOR
+        public override void ResetDefault ()
+        {
+            if (ResetByDefault)
+            {
+                Value = DefaultValue;
+                SaveValue ();
+            }
+        }
+#endif
         public float SmoothTime = 1f;
 
         public void SetSmoothly (float newValue)
         {
             DOVirtual.Float (Value, newValue, SmoothTime, value => Value = value);
+        }
+        public void DO (float to, float duration, TweenCallback<float> onVirtualUpdate = null)
+        {
+            DOVirtual.Float (base.Value, to, duration, onVirtualUpdate == null ? SetValue : onVirtualUpdate);
         }
         public void SetValue (float value)
         {
@@ -32,7 +46,6 @@ namespace GameCore
             Value += amount.Value;
         }
 
-        [SerializeField] float DeafultValue;
         public override void SaveValue ()
         {
             PlayerPrefs.SetFloat (name, Value);
@@ -41,7 +54,7 @@ namespace GameCore
         public override void LoadValue ()
         {
             base.LoadValue ();
-            _value = PlayerPrefs.GetFloat (name, DeafultValue);
+            _value = PlayerPrefs.GetFloat (name, DefaultValue);
         }
         public void Clamp (float min, float max)
         {
@@ -51,5 +64,6 @@ namespace GameCore
         {
             _value.Clamp01 ();
         }
+
     }
 }

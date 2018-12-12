@@ -103,5 +103,7 @@ namespace CyberBeat
 		[SerializeField] IntVariable OneLifes;
 		[ShowInInspector]
 		public List<IntVariable> RewardVariables { get { return new List<IntVariable> () { Blades, Shields, Gates, OneLifes, Notes }; } }
+
+		public float CurrentStartSpeed;
 	}
 }

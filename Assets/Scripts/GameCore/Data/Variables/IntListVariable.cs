@@ -15,6 +15,16 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "List_int", menuName = "Variables/GameCore/List<int>", order = 0)]
 	public class IntListVariable : SavableVariable<List<int>>, IEnumerable<int>
 	{
+#if UNITY_EDITOR
+		public override void ResetDefault ()
+		{
+			if (ResetByDefault)
+			{
+				base.Value = base.DefaultValue;
+				SaveValue ();
+			}
+		}
+#endif
 		[ShowInInspector]
 		public string strValue
 		{
@@ -33,13 +43,12 @@ namespace GameCore
 			get
 			{
 				JSONNode node = new JSONArray ();
-				foreach (var item in DeafultValue)
+				foreach (var item in DefaultValue)
 					node.Add (item);
 				return node.AsArray.ToString ();
 			}
 		}
 
-		[SerializeField] List<int> DeafultValue = new List<int> ();
 		public override void SaveValue ()
 		{
 			PlayerPrefs.SetString (name, strValue);
@@ -58,7 +67,7 @@ namespace GameCore
 
 		[Button] public void ResetToDefault ()
 		{
-			_value = new List<int> (DeafultValue);
+			_value = new List<int> (DefaultValue);
 		}
 
 		public IEnumerator<int> GetEnumerator ()
@@ -86,15 +95,15 @@ namespace GameCore
 				Value = new List<int> ();
 			Value.Add (item);
 		}
-        public int random
-        {
-            get
-            {
-                if (Count == 0) ResetToDefault();
-                int rand = _value.GetRandom();
-                Remove(rand);
-                return rand;
-            }
-        }
-    }
+		public int random
+		{
+			get
+			{
+				if (Count == 0) ResetToDefault ();
+				int rand = _value.GetRandom ();
+				Remove (rand);
+				return rand;
+			}
+		}
+	}
 }

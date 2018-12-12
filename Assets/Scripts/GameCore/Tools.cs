@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 using UnityEngine;
 #if UNITY_EDITOR
@@ -220,6 +221,24 @@ namespace GameCore
         }
         public static void CreateAsset<T> (T asset, string path) where T : UnityEngine.Object
         {
+            ValidatePath (path);
+            UnityEngine.Object oldAssetInctance = AssetDatabase.LoadAssetAtPath (path, typeof (T));
+            if (oldAssetInctance)
+            {
+                AssetDatabase.DeleteAsset (path);
+                Destroy (oldAssetInctance);
+            }
+
+            EditorUtility.SetDirty (asset);
+            AssetDatabase.CreateAsset (asset, path);
+            AssetDatabase.SaveAssets ();
+        }
+
+        public static void ValidatePath (string path)
+        {
+            var m = Regex.Match (path, "([a-zA-Z0-9 ])+(.asset)");
+            // Debug.LogFormat ("regex \"{0}\" in Path {1}", m.Value, path);
+            path = path.Replace ("/" + m.Value, "");
             string[] splitedPath = path.Split ('/');
             string validatedPath = splitedPath[0];
 
@@ -235,23 +254,8 @@ namespace GameCore
                 }
                 validatedPath += "/" + subPath;
             }
-            UnityEngine.Object oldAssetInctance = AssetDatabase.LoadAssetAtPath (path, typeof (T));
-            if (oldAssetInctance)
-            {
-                AssetDatabase.DeleteAsset (path);
-            }
-
-            EditorUtility.SetDirty (asset);
-            AssetDatabase.CreateAsset (asset, path);
-            AssetDatabase.SaveAssets ();
         }
-        //TODO Separate From GameCore namesapace
-        // public static void OpenKoreographyEditor(Koreography koreography, KoreographyTrack koreographyTrack)
-        // {
-        //     var methodInfo = Tools.EditorAssembliesHelper.GetMethodInCalss("ColorBricks.EditorTools", "OpenEditorByDifficulty");
 
-        //     methodInfo.Invoke(null, new object[] { koreography, koreographyTrack });
-        // }
         public class EditorAssembliesHelper
         {
             static Assembly _assembly = null;

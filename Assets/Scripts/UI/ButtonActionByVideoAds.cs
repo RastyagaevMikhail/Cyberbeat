@@ -15,7 +15,7 @@ namespace CyberBeat
 
         public AdsController adsController { get { return AdsController.instance; } }
 
-        [SerializeField] GameObject text;
+        [SerializeField] GameObject Content;
         [SerializeField] GameObject NotInternet;
         [SerializeField] GameObject Waiting;
         private bool isLoaded { get { return adsController.isLoadedRewardVideo; } }
@@ -36,7 +36,8 @@ namespace CyberBeat
         private void UpdateSatate ()
         {
             // Debug.LogFormat ("UpdateSatate = {0}.{1}", name, transform.parent.parent.name);
-            text.SetActive (isLoaded);
+            if (Content)
+                Content.SetActive (isLoaded);
             NotInternet.SetActive (!isLoaded && internetNotReachable);
             Waiting.SetActive (!isLoaded && !internetNotReachable);
         }

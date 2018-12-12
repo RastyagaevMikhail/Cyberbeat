@@ -9,7 +9,8 @@ using Sirenix.OdinInspector;
 public class AnimatorCallAnimationEvents : MonoBehaviour
 {
 	private Animator _animator = null;
-	public Animator animator { get { if (_animator == null) _animator = GetComponent<Animator> (); return _animator; } }
+	public Animator animator { get { if (_animator == null) 
+	_animator = GetComponent<Animator> (); return _animator; } }
 
 	[SerializeField] List<AnimationEventInfo> Events;
 	Dictionary<string, UnityEvent> dictEevnts = null;

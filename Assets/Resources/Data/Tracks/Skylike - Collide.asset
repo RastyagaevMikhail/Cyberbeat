@@ -11,10 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d349b086a7d334b804be2e8c6b3cd8, type: 3}
   m_Name: Skylike - Collide
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 5ec2c704982075641913192963122e6b, type: 3}
-  AuthorName: Skylike
-  TrackName: Collide
-  AlbumImage: {fileID: 21300000, guid: 42f85c982e36ceb41afb51a9e0000e19, type: 3}
-  SocialIcon: {fileID: 0}
-  SocialURL: 
-  Price: 2000
+  music:
+    clip: {fileID: 8300000, guid: 5ec2c704982075641913192963122e6b, type: 3}
+    AuthorName: Skylike
+    TrackName: Collide
+    AlbumImage: {fileID: 21300000, guid: 42f85c982e36ceb41afb51a9e0000e19, type: 3}
+  social:
+    Icon: {fileID: 0}
+    URL: 
+  shopInfo:
+    PlayByWatch: 0
+    Price: 2000
+    SaveKey: Skylike - Collide Buyed
+  StartSpeed: 50
+  koreography: {fileID: 11400000, guid: babc2ae791a3f54499735d637d11b6ea, type: 2}
+  MinTimeOfBit: 0.2
+  BitsInfos: []
+  CountConstant: 0

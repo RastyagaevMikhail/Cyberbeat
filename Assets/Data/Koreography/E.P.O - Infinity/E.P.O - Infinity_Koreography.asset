@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2076007791, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
+  m_Name: E.P.O - Infinity_Koreography
+  m_EditorClassIdentifier: 
+  mSourceClip: {fileID: 8300000, guid: 50c4307b45f19604ab73571b950c5cf6, type: 3}
+  mAudioFilePath: 
+  mSampleRate: 44100
+  mIgnoreLatencyOffset: 0
+  mTempoSections:
+  - sectionName: New Section
+    startSample: 0
+    samplesPerBeat: 22050
+    beatsPerMeasure: 8
+    bStartNewMeasure: 1
+  mTracks:
+  - {fileID: 11400000, guid: 5cd812777a760044ea0595b0f0754069, type: 2}
+  - {fileID: 11400000, guid: 02df839e57a775f40ac42cfc1808750e, type: 2}
+  - {fileID: 11400000, guid: 020ea33b98348be43a745f7134e4cb53, type: 2}
+  - {fileID: 11400000, guid: 02fc01f507bfc154684ed008d8eade60, type: 2}

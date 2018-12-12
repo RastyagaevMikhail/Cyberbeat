@@ -1,24 +1,16 @@
-using Sirenix.OdinInspector;
-
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
-using Random = UnityEngine.Random;
 namespace GameCore
 {
-    [Serializable]
+    [System.Serializable]
     public class RandomStack<T>
     {
-
         [SerializeField] IEnumerable<T> RandCollection;
         [SerializeField] IEnumerable<T> StarCollection;
         [SerializeField] T LastRandom;
-
-        public RandomStack () { }
-
         public RandomStack (IEnumerable<T> colection)
         {
             RandCollection = new List<T> (colection);
@@ -33,7 +25,7 @@ namespace GameCore
             T rand = default (T);
             do
             {
-                rand = RandCollection.GetRandom();
+                rand = RandCollection.GetRandom ();
             }
             while (rand.Equals (LastRandom));
 

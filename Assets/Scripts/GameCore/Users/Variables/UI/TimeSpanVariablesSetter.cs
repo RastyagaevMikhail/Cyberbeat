@@ -10,7 +10,7 @@ namespace GameCore
 	{
 		protected override void OnValueChanged (TimeSpan obj)
 		{
-			text = string.Format ("{0}:{1}:{2}", obj.Hours, obj.Minutes, obj.Seconds);
+			text = string.Format (stringFormat, obj);
 		}
 	}
 }

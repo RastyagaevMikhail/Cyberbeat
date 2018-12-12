@@ -15,7 +15,7 @@ namespace CyberBeat
 {
 	public class TrackScrollViewCell : FancyScrollViewCell<TrackScrollData, TrackScrollContext>
 	{
-		TracksCollection trackData { get { return TracksCollection.instance; } }
+		TracksCollection TracksCollection { get { return TracksCollection.instance; } }
 		public LoadingManager loadManger { get { return LoadingManager.instance; } }
 
 		[SerializeField] Track track;
@@ -60,7 +60,7 @@ namespace CyberBeat
 			name = track.name;
 			playerCellView.UpdateContent (data);
 			ValidateTrackValues ();
-			ValidateButtons (track.Buyed || WathedRewardVideo);
+			ValidateButtons (track.shopInfo.Buyed || WathedRewardVideo);
 			// UpdatePosition (0);
 		}
 
@@ -90,7 +90,7 @@ namespace CyberBeat
 
 		public void OnBuy ()
 		{
-			bool buyed = track.TryBuy ();
+			bool buyed = track.shopInfo.TryBuy ();
 			Debug.LogFormat ("buyed = {0}", buyed);
 			ValidateButtons (buyed);
 		}

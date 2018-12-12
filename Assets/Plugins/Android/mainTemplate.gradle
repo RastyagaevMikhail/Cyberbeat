@@ -23,22 +23,77 @@ apply plugin: 'com.android.application'
 dependencies {
     implementation 'com.android.support:multidex:1.0.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-**DEPS**}
+    implementation(name: 'android.arch.lifecycle.runtime-1.0.0', ext:'aar')
+    implementation(name: 'com.android.support.customtabs-26.1.0', ext:'aar')
+    implementation(name: 'com.android.support.recyclerview-v7-26.1.0', ext:'aar')
+    implementation(name: 'com.android.support.support-compat-26.1.0', ext:'aar')
+    implementation(name: 'com.android.support.support-core-ui-26.1.0', ext:'aar')
+    implementation(name: 'com.android.support.support-core-utils-26.1.0', ext:'aar')
+    implementation(name: 'com.android.support.support-fragment-26.1.0', ext:'aar')
+    implementation(name: 'com.android.support.support-media-compat-26.1.0', ext:'aar')
+    implementation(name: 'com.android.support.support-v4-26.1.0', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-base-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-identifier-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-lite-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-base-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-basement-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-gass-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-gcm-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-iid-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-location-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-places-placereport-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-stats-15.0.1', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-tasks-15.0.1', ext:'aar')
+    implementation(name: 'common', ext:'aar')
+    implementation(name: 'GoogleAIDL', ext:'aar')
+    implementation(name: 'GooglePlay', ext:'aar')
+    implementation project(':adcolony')
+    implementation project(':amazon')
+    implementation project(':applovin')
+    implementation project(':appodeal')
+    implementation project(':chartboost')
+    implementation project(':facebook')
+    implementation project(':inmobi')
+    implementation project(':ironsource')
+    implementation project(':mobvistaalphab')
+    implementation project(':mobvistacommon')
+    implementation project(':mobvistainterstitial')
+    implementation project(':mobvistainterstitialvideo')
+    implementation project(':mobvistamvdownloads')
+    implementation project(':mobvistamvjscommon')
+    implementation project(':mobvistamvnative')
+    implementation project(':mobvistanativeex')
+    implementation project(':mobvistaplayercommon')
+    implementation project(':mobvistareward')
+    implementation project(':mobvistavideocommon')
+    implementation project(':mobvistavideofeeds')
+    implementation project(':mobvistavideojs')
+    implementation project(':mopub')
+    implementation project(':mytarget')
+    implementation project(':ogury')
+    implementation project(':startapp')
+    implementation project(':tapjoy')
+    implementation project(':unityads')
+    implementation project(':vungle')
+    implementation project(':yandex-metrica')
+    implementation project(':yandex-mobileads')
+}
 
 android {
-    compileSdkVersion **APIVERSION**
-    buildToolsVersion '**BUILDTOOLS**'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         multiDexEnabled true
-        minSdkVersion **MINSDKVERSION**
-        targetSdkVersion **TARGETSDKVERSION**
-        applicationId '**APPLICATIONID**'
+        minSdkVersion 21
+        targetSdkVersion 28
+        applicationId 'com.suvorovgames.cyberbeat'
         ndk {
-            abiFilters **ABIFILTERS**
+            abiFilters 'armeabi-v7a'
         }
-        versionCode **VERSIONCODE**
-        versionName '**VERSIONNAME**'
+        versionCode 1
+        versionName '0.1'
     }
 
     lintOptions {
@@ -46,21 +101,20 @@ android {
     }
 
     aaptOptions {
-        noCompress '.unity3d', '.ress', '.resource', '.obb'**STREAMING_ASSETS**
-    }**SIGN**
+        noCompress '.unity3d', '.ress', '.resource', '.obb', 'build_info.txt'
+    }
 
     buildTypes {
         debug {
-            minifyEnabled **MINIFY_DEBUG**
-            useProguard **PROGUARD_DEBUG**
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-unity.txt'**USER_PROGUARD**
             jniDebuggable true
         }
         release {
-            minifyEnabled **MINIFY_RELEASE**
-            useProguard **PROGUARD_RELEASE**
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-unity.txt'**USER_PROGUARD****SIGNCONFIG**
+            signingConfig signingConfigs.debug
         }
-    }**PACKAGING_OPTIONS****SPLITS**
-**BUILT_APK_LOCATION**
-}**SPLITS_VERSION_CODE****SOURCE_BUILD_SETUP**
+    }
+
+    packagingOptions {
+        doNotStrip '*/armeabi-v7a/*.so'
+    }
+
+}

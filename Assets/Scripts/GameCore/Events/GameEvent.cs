@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Sirenix.OdinInspector;
+
+using System.Collections.Generic;
 
 using UnityEngine;
 namespace GameCore
 {
 
-    [CreateAssetMenu(fileName = "GameEvent" , menuName ="Events/GameCore/GameEvent")]
+    [CreateAssetMenu (fileName = "GameEvent", menuName = "Events/GameCore/GameEvent")]
     public class GameEvent : ScriptableObject
     {
         /// <summary>
@@ -13,7 +15,8 @@ namespace GameCore
         [SerializeField]
         private List<EventListener> eventListeners =
             new List<EventListener> ();
-
+        [DisableInEditorMode]
+        [Button]
         public void Raise ()
         {
             for (int i = eventListeners.Count - 1; i >= 0; i--)

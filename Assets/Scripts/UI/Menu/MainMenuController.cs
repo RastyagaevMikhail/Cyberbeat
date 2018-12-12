@@ -18,9 +18,7 @@ namespace CyberBeat
 	{
 		private static MainMenuController _instance = null;
 		public static MainMenuController instance { get { if (_instance == null) _instance = GameObject.FindObjectOfType<MainMenuController> (); _instance.Init (); return _instance; } }
-
 		public HeaderController header { get { return HeaderController.instance; } }
-		public SkinsMenuController skins { get { return SkinsMenuController.instance; } }
 
 		[SerializeField] Transform cameraTransform;
 		[SerializeField] Sprite BlueFrame, PinkFrame;
@@ -31,7 +29,7 @@ namespace CyberBeat
 
 			if (inited) return;
 			inited = true;
-
+			//TODO
 			// Init TrackList
 			// var trackCells = tracks
 			// 	.Select (t =>
@@ -60,8 +58,7 @@ namespace CyberBeat
 
 		public void ToStart ()
 		{
-			
-			gameObject.SetActive(false);
+			gameObject.SetActive (false);
 		}
 
 	}

@@ -41,10 +41,10 @@ namespace CyberBeat
 				audio != null &&
 				audio.clip != null &&
 				track &&
-				track.clip &&
+				track.music.clip &&
 				audio.clip
 				.Equals (track
-					.clip);
+					.music.clip);
 
 			if (!playing)
 			{
@@ -62,10 +62,10 @@ namespace CyberBeat
 			track = data.track;
 			// AuthorName.color = data.color;
 
-			TrackName.text = track.TrackName;
-			AuthorName.text = track.AuthorName;
+			TrackName.text = track.music.TrackName;
+			AuthorName.text = track.music.AuthorName;
 			TrackNumber.text = track.TrackNumber.ToString ();
-			Album.sprite = track.AlbumImage;
+			Album.sprite = track.music.AlbumImage;
 		}
 		Audio myAuido;
 		public void PlayMusic ()
@@ -74,9 +74,9 @@ namespace CyberBeat
 				myAuido.Resume ();
 			else
 			{
-				int ID = SoundManager.PlayMusic (track.clip);
+				int ID = SoundManager.PlayMusic (track.music.clip);
 				myAuido = SoundManager.GetAudio (ID);
-				Invoke ("PauseMusic", track.clip.length);
+				Invoke ("PauseMusic", track.music.clip.length);
 			}
 			playing = true;
 			if (OnPlay != null)

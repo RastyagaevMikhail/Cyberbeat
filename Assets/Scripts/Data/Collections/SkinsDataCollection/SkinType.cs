@@ -1,13 +1,23 @@
-﻿using System.Collections;
+﻿using GameCore;
+
+using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
-using GameCore;
 namespace CyberBeat
 {
-   using UnityEngine;
-   
-   [CreateAssetMenu(fileName = "SkinType", menuName = "Variables/CyberBeat/Enum/SkinType", order = 0)]
-   public class SkinType : EnumScriptable {
-	   
+
+   [CreateAssetMenu (fileName = "SkinType", menuName = "Variables/CyberBeat/Enum/SkinType", order = 0)]
+   public class SkinType : EnumScriptable
+   {
+      public Material OnSeleted;
+      public Material OnOpend;
+      public Material OnClosed;
+      public SkinsDataCollection skinsData { get { return SkinsDataCollection.instance; } }
+      public void Apply (Object obj)
+      {
+         foreach (var skin in skinsData.skins[this])
+            skin.Apply (obj);
+      }
    }
 }

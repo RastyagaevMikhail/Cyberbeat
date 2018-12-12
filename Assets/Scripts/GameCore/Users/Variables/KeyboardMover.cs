@@ -27,7 +27,7 @@ namespace GameCore
             }
         }
 
-        public FloatVariable MoveRate;
+        public FloatReference MoveRate;
         public MoveAxis Horizontal = new MoveAxis(KeyCode.D, KeyCode.A);
         public MoveAxis Vertical = new MoveAxis(KeyCode.W, KeyCode.S);
 

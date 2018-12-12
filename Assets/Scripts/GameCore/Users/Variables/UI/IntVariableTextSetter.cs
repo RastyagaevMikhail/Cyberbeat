@@ -1,5 +1,5 @@
 ﻿using DG.Tweening;
-
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -20,7 +20,7 @@ namespace GameCore
 			DOVirtual
 				.Float (OldValue, newValue, .5f, value => text = string.Format (stringFormat, Mathf.Round (value)))
 				.OnComplete (() => OldValue = variable.Value);
-
 		}
-	}
+        
+    }
 }

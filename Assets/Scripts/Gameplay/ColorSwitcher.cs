@@ -7,23 +7,16 @@ namespace CyberBeat
 {
     public class ColorSwitcher : ColorInterractor
     {
-
-        public override void OnSpawn ()
+        public override void OnPlayerContact (GameObject go)
         {
+            base.OnPlayerContact (go);
+            if (player == null) return;
 
-        }
-        Player player { get { return Player.instance; } }
-
-        public override void OnPlayerContact ()
-        {
-
-            // if (matSwitch.Constant)
-            // {
             GameData.instance.OnDestroyedBrick ();
-            // }
 
-            player.SetColor (matSwitch.CurrentColor);
             Death ();
+            
+            player.SetColor (matSwitch.CurrentColor);
         }
 
     }

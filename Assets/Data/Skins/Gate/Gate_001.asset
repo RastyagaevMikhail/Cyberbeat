@@ -8,10 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8700006950d2944bb1b5232ed608152, type: 3}
+  m_Script: {fileID: 11500000, guid: adb8aa40fd95d1c42b768c3f47c09ac1, type: 3}
   m_Name: Gate_001
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 97a3d3bfa3d9d4a4fb5432531680fbe8, type: 3}
+  Icon: {fileID: 0}
   Prefab: {fileID: 1987584641252372, guid: 589fb5f2d37d04947826306bc1f27e56, type: 2}
   Price: 0
   getByVideo: 0
+  type: {fileID: 11400000, guid: 08af98337885bb94e94ed90869ce4e64, type: 2}

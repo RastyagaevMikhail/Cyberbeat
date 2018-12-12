@@ -14,7 +14,13 @@ namespace GameCore
     public class LocalizeTextMeshProUGUI : MonoBehaviour
     {
         private TextMeshProUGUI mText;
-        [InlineButton ("RemoveID")]
+        bool EmptyID { get { return Id.IsNullOrEmpty (); } }
+
+        [ShowIf ("EmptyID")]
+        [InlineButton ("NewID", "New ID")]
+        public string NewId;
+        [HideIf ("EmptyID")]
+        [InlineButton ("RemoveID", "Remove ID")]
         [ValueDropdown ("IDs")]
         public string Id;
         public List<string> IDs
@@ -25,6 +31,14 @@ namespace GameCore
         public void RemoveID ()
         {
             Localizator.RemoveTranslation (Id);
+        }
+        void NewID ()
+        {
+            string[] values = Localizator.GetValuesForKey (NewId);
+            if (values == null || values.Length == 0)
+                Localizator.AddTranslation (NewId);
+
+            Id = NewId;
         }
 #endif
         public enum CaseType

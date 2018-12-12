@@ -1,22 +1,21 @@
-﻿using System;
+﻿using DG.Tweening;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
-using DG.Tweening;
-
 using UnityEngine;
 using UnityEngine.Events;
-
 
 namespace CyberBeat
 {
     public class ColorBrick : ColorInterractor
     {
-        Player player { get { return Player.instance; } }
-
-        public override void OnPlayerContact ()
+        public override void OnPlayerContact (GameObject go)
         {
-            bool isEqualsColors = player.matSwitch.ChechColor (matSwitch.CurrentColor);
+         base.OnPlayerContact (go);
+            if (player == null) return;
+            bool isEqualsColors = player.ChechColor (matSwitch.CurrentColor);
             if (isEqualsColors)
             {
                 GameData.instance.OnDestroyedBrick ();
