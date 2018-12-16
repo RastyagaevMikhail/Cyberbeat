@@ -41,6 +41,7 @@ namespace CyberBeat
         }
         private void OnBitKoreograpHyEvent (KoreographyEvent koreoEvent)
         {
+            var payload = koreoEvent.GetTextValue();
             OnBit.Invoke ();
         }
 

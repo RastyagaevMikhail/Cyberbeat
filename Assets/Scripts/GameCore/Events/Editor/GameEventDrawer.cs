@@ -18,7 +18,7 @@ namespace GameCore.Editor
     }
 
     [OdinDrawer][CanEditMultipleObjects]
-    public class GameEventObjectDrawer : ScriptableObjectDrawer<GameEventObject>
+    public class GameEventObjectDrawer : ScriptableObjectDrawer<GameEventUnityObject>
     {
         protected override string LocalFolderPath { get { return "Assets/Data/Events/"; } }
     }

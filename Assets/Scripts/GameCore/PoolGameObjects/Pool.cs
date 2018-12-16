@@ -14,7 +14,6 @@ namespace GameCore
         public List<PoolSetteings> Settings;
         [SerializeField] Dictionary<string, List<SpawnedObject>> PoolDict = new Dictionary<string, List<SpawnedObject>> ();
         [SerializeField] Dictionary<string, Transform> Parents = new Dictionary<string, Transform> ();
-        private float timeSpawn = 0.2f;
         private void Awake ()
         {
             InitParents ();
@@ -117,7 +116,7 @@ namespace GameCore
         }
 
 #if UNITY_EDITOR
-        [Button]
+        [Button("Add to Pool selected objects")]
         void AddToPoolSelected ()
         {
             var gos = UnityEditor.Selection.gameObjects;

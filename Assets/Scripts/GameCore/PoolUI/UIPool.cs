@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-
+using Sirenix.OdinInspector;
 using UnityEngine;
 namespace GameCore
 {
@@ -96,5 +96,19 @@ namespace GameCore
 
             return newObj;
         }
+#if UNITY_EDITOR
+        [Button ("Add to Pool selected objects")]
+        void AddToPoolSelected ()
+        {
+            var gos = UnityEditor.Selection.gameObjects;
+            var spwns = gos.ToList ()
+                .FindAll (go => go.GetComponent<SpawnedObject> ())
+                .Select (go => go.GetComponent<SpawnedObject> ());
+            foreach (var spwn in spwns)
+            {
+                Settings.Add (new PoolSetteings () { Key = spwn.name, Prefab = spwn, startCount = 10 });
+            }
+        }
+#endif
     }
 }

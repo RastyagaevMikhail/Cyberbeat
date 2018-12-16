@@ -21,12 +21,12 @@ GameObject:
   - component: {fileID: 4556469179934308}
   - component: {fileID: 33738011384066670}
   - component: {fileID: 23270712249372548}
+  - component: {fileID: 65213588606398728}
+  - component: {fileID: 114213637515028564}
   - component: {fileID: 114675100915323678}
   - component: {fileID: 114366601351319264}
   - component: {fileID: 114949869099189892}
   - component: {fileID: 114759451436673612}
-  - component: {fileID: 65213588606398728}
-  - component: {fileID: 114213637515028564}
   m_Layer: 0
   m_Name: Switcher
   m_TagString: Untagged
@@ -165,12 +165,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   bit: 0
-  Prevbit: 0
-  StartPosition: {x: 0, y: 0, z: 0}
-  OnDeathCollorInterractor: {fileID: 11400000, guid: 5e08e2db1e0ad3a4a8052e72b2679b37,
+  OnDeathCollorInterractor: {fileID: 11400000, guid: 47c53296d23de95469d924d930798c78,
     type: 2}
-  OnColorTeked: {fileID: 11400000, guid: f951bb8dff9583647bb90d74d6f5dbf4, type: 2}
-  TakedColor: {fileID: 11400000, guid: 4196be7f6b249ed4dae3c6b1432775dd, type: 2}
+  OnColorTeked: {fileID: 11400000, guid: f848ac470e1c2d24085b4140d22da118, type: 2}
 --- !u!114 &114759451436673612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,4 +210,4 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  yOffset: 1
+  OffsetPosition: {x: 0, y: 1, z: 0}

@@ -775,8 +775,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 51}
-  m_SizeDelta: {x: 1080, y: 1364}
+  m_AnchoredPosition: {x: 2.9, y: -17.7}
+  m_SizeDelta: {x: 916.1, y: 1204.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146336671
 MonoBehaviour:
@@ -797,8 +797,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cb3cfc453b76a3649911760a09b4a72e, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 3a898a96896b4e24180e0d834000b853, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -936,7 +936,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\u0421\u043E\u0433\u043B\u0430\u0441\u0435\u043D(\u043D\u0430)"
+  m_text: Agree
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
   m_sharedMaterial: {fileID: 21676424071739598, guid: e9861507bfb60474c94b6cc17f396fa0,
@@ -965,7 +965,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 54.6
+  m_fontSize: 72
   m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1006,10 +1006,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 481660201}
-    characterCount: 12
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
-    wordCount: 2
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -1050,6 +1050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf9b04ff7035dc47a3b37ca50410330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NewId: 
   Id: agree
   letters: 0
 --- !u!1 &490354682
@@ -1168,6 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf9b04ff7035dc47a3b37ca50410330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NewId: 
   Id: agreement
   letters: 0
 --- !u!114 &514938140
@@ -1189,7 +1191,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\u0421\u043E\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435"
+  m_text: Agreement
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
   m_sharedMaterial: {fileID: 21676424071739598, guid: e9861507bfb60474c94b6cc17f396fa0,
@@ -1259,7 +1261,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 514938140}
-    characterCount: 10
+    characterCount: 9
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1272,7 +1274,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -1580,7 +1582,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 7.8125
+  m_padding: 4.5218744
   m_canvasRenderer: {fileID: 895855653}
   m_TextComponent: {fileID: 117318761}
   m_materialReferenceIndex: 1

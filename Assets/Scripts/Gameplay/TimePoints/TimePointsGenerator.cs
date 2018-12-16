@@ -7,6 +7,8 @@ using GameCore;
 
 using Sirenix.OdinInspector;
 
+using SonicBloom.Koreo;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +17,7 @@ using System.Linq;
 using UnityEngine;
 namespace CyberBeat
 {
-	public class TimePointsGenerator : MonoBehaviour
+	public class TimePointsGenerator : TimeEventsCatcher
 	{
 
 		private void OnValidate ()
@@ -44,37 +46,30 @@ namespace CyberBeat
 
 		[ShowIf ("EditMode")]
 		[SerializeField] TimeOfEventsData dataTime;
-		List<TimeOfEvent> Times { get { return dataTime.Times; } }
-		public bool outOfIndexTime { get { return (Times != null ? Times.Count <= indexOfTime : false); } }
 		TimePointsData DataSave { get { return dataTime.PointsData; } }
 		List<TimePoints> points { get { return DataSave.points; } set { DataSave.points = value; } }
-		TimeOfEvent currentTime;
-		[ShowIf ("EditMode")]
-		float time = 0;
-		[ShowIf ("EditMode")]
-		int indexOfTime = 0;
 		TimePoints LastPoint { get { return points[points.Count - 1]; } }
-
-		[SerializeField] TimeEventsController timeEventsCtrl;
 
 		[ShowIf ("EditMode")]
 		[SerializeField] SplineController controller;
 		private void Start ()
 		{
-
 			if (EditMode)
 			{
-				timeEventsCtrl.OnChanged += OnChanged;
 				points = new List<TimePoints> ();
 			}
 		}
 
-		private void OnChanged (bool isTime, TimeOfEvent currentTime)
+		public override void _OnChanged (TimeEvent timeEvent)
 		{
-			if (isTime)
+			Debug.Log ("TimePointsGenerator._OnChanged {name}");
+			Debug.LogFormat ("timeOfEvent = {0}", timeEvent.timeOfEvent);
+			if (!EditMode) return;
+
+			if (timeEvent.isTime)
 			{
-				points.Add (new TimePoints ());
-				var F = currentTime.Start == 0f ? 0f : controller.Position / controller.Length;
+				points.Add (new TimePoints () { payload = timeEvent.timeOfEvent.payload });
+				var F = timeEvent.timeOfEvent.Start == 0f ? 0f : controller.Position / controller.Length;
 				LastPoint.Start = new TimePointInfo (F, controller.transform.position, controller.transform.rotation, transform.up);
 			}
 			else
@@ -91,15 +86,6 @@ namespace CyberBeat
 			if (EditMode)
 			{
 				DataSave.Save ();
-				EditMode = false;
-			}
-		}
-
-		[RuntimeInitializeOnLoadMethod]
-		public void AutoExitEditMode ()
-		{
-			if (points != null && points.Count > 0)
-			{
 				EditMode = false;
 			}
 		}
@@ -120,13 +106,15 @@ namespace CyberBeat
 #endif
 		[HideIf ("EditMode")]
 		[SerializeField] Transform parent;
+		[HideIf ("EditMode")]
 		[SerializeField] string namePrefix = "Line";
-
+		[SerializeField] string payloadFilter;
 		[Button]
 		void Build ()
 		{
-			TimePoints CurrentLine = new TimePoints ();
-			foreach (var point in points)
+			var FilterdIndexesOfTimes = dataTime[payloadFilter].Select (t => dataTime.Times.IndexOf (t));
+			var FoltredPoints = dataTime.PointsData[payloadFilter];
+			foreach (var point in FoltredPoints)
 			{
 				var generator = Instantiate (generatorPrefab, parent);
 				generator.name = namePrefix + "{0}".AsFormat (generator.GetInstanceID ());
@@ -150,8 +138,8 @@ namespace CyberBeat
 				shapeEtr.From = FromTF;
 				shapeEtr.To = ToTF;
 
-				shapeEtr.From = FromTF;
-				shapeEtr.To = ToTF;
+				// shapeEtr.From = FromTF;
+				// shapeEtr.To = ToTF;
 				generator.Initialize ();
 				generator.Refresh ();
 

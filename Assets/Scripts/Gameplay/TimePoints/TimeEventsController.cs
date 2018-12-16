@@ -9,63 +9,50 @@ using UnityEngine;
 namespace CyberBeat
 {
 
-	public class TimeEventsController : MonoBehaviour
-	{
-		[SerializeField] TimeOfEventsData dataTime;
-		List<TimeOfEvent> Times { get { return dataTime.Times; } }
-		TimeOfEvent currentTime;
-		[SerializeField] GameEvent StartEvent;
-		EventListener listener;
-		private void OnEnable ()
-		{
-			listener = new EventListener (StartEvent, () => startCountTime = true);
-			listener.OnEnable ();
-		}
-		private void OnDisable ()
-		{
-			listener.OnDisable ();
-		}
-		private void Start ()
-		{
-			currentTime = Times.First ();
-		}
+    [RequireComponent (typeof (GameEventListener))]
+    public class TimeEventsController : MonoBehaviour
+    {
+        [SerializeField] TimeOfEventsData dataTime;
+        [SerializeField] bool enableFilter;
+        [SerializeField] string payloadFilter = "Combo";
+        List<TimeOfEvent> Times { get { return enableFilter ? dataTime[payloadFilter] : dataTime.Times; } }
+        TimeOfEvent currentTime;
+        private void Start ()
+        {
+            currentTime = Times.First ();
+        }
 
-		bool isTime;
-		bool lastTime;
-		private float time;
-		private bool startCountTime;
-		private int indexOfTime;
+        bool isTime;
+        bool lastTime;
+        private float time;
+        //* Set On GameEventListener, When Need start Write Times
+        public bool _startCountTime { get; set; }
+        private int indexOfTime;
 
-		public Action<bool, TimeOfEvent> OnChanged;
+        [SerializeField] TimeEventVariable timeEvent;
 
-		void Update ()
-		{
-			if (!startCountTime) return;
+        void Update ()
+        {
+            if (!_startCountTime) return;
 
-			time += Time.deltaTime;
-			if (lastTime != isTime)
-			{
-				lastTime = isTime;
-				if (OnChanged != null) OnChanged (isTime, currentTime);
-			}
-			if (currentTime.Start <= time)
-			{
-				isTime = true;
-				if (currentTime.End <= time)
-				{
-					isTime = false;
+            time += Time.deltaTime;
+            if (lastTime != isTime)
+            {
+                lastTime = isTime;
+                if (timeEvent != null) timeEvent.SetValue (new TimeEvent (isTime, currentTime));
+            }
+            if (currentTime.Start <= time)
+            {
+                isTime = true;
+                if (currentTime.End <= time)
+                {
+                    isTime = false;
 
-					indexOfTime++;
-					if (indexOfTime >= Times.Count) return;
-					currentTime = Times[indexOfTime];
-				}
-			}
-		}
-
-		public void SetStartEvent (GameEvent gameEvent)
-		{
-			StartEvent = gameEvent;
-		}
-	}
-
+                    indexOfTime++;
+                    if (indexOfTime >= Times.Count) return;
+                    currentTime = Times[indexOfTime];
+                }
+            }
+        }
+    }
 }

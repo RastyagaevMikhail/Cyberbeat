@@ -1,4 +1,4 @@
-﻿using GameCore;
+﻿ using GameCore;
 
 using Sirenix.OdinInspector;
 
@@ -12,35 +12,19 @@ namespace CyberBeat
     {
 
         protected MaterialSwitcher _matSwitch = null;
-        public virtual MaterialSwitcher matSwitch
-        {
-            get
-            {
-                if (_matSwitch == null) _matSwitch = GetComponent<MaterialSwitcher> ();
-                return _matSwitch;
-            }
-        }
-
-        public float bit;
-        public float Prevbit;
-        [SerializeField] Vector3 StartPosition;
-
-        Pool pool { get { return Pool.instance; } }
+        public virtual MaterialSwitcher matSwitch { get { if (_matSwitch == null) _matSwitch = GetComponent<MaterialSwitcher> (); return _matSwitch; } }
         protected Player player { get { return Player.instance; } }
+        Pool pool { get { return Pool.instance; } }
+        public float bit;
 
         public virtual void OnPlayerContact (GameObject go)
         {
 
         }
-        private void OnEnable ()
-        {
-            StartPosition = transform.position;
-        }
 
-        [SerializeField] protected GameEventObject OnDeathCollorInterractor;
-        [SerializeField] protected GameEventObject OnColorTeked;
-        [SerializeField] protected ColorVariable TakedColor;
-        public virtual void Death ()
+        [SerializeField] protected GameEventColorInterractor OnDeathCollorInterractor;
+        [SerializeField] protected GameEventColor OnColorTeked;
+        public void Death ()
         {
             // Debug.LogFormat (this,"OnDeathCollorInterractor = {0}", OnDeathCollorInterractor);
             OnDeathCollorInterractor.Raise (this);
@@ -50,17 +34,15 @@ namespace CyberBeat
 
             var particles = spawnedObject.Get<MaterialSwitcher> ();
 
-
-            player.transform.SetParent (player.transform);
-            particles.transform.position = player.position + player.transform.forward * 2f ;
+            // particles.transform.SetParent (player.transform);
+            particles.transform.position = position + transform.forward * 5f;
 
             Color MyColor = matSwitch.CurrentColor;
             particles.SetColor (MyColor);
 
-            TakedColor.SetValue (MyColor);
-            OnColorTeked.Raise (TakedColor);
+            OnColorTeked.Raise (MyColor);
             pool.Push (gameObject);
-            transform.position = StartPosition;
+
         }
 
     }

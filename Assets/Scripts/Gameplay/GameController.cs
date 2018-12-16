@@ -21,17 +21,12 @@ namespace CyberBeat
         [SerializeField] IntVariable BestScore;
         [SerializeField] SplineController playerSplineController;
         [SerializeField] SplineController trackSplineController;
-        [SerializeField] List<EventListener> listeners;
         Player player { get { return Player.instance; } }
         GameData gameData { get { return GameData.instance; } }
         Track track { get { return gameData.currentTrack; } }
         BoostersData boostersData { get { return BoostersData.instance; } }
 
         [SerializeField] BoosterData currentBooster;
-        private void OnEnable ()
-        {
-            listeners.ForEach (l => l.OnEnable ());
-        }
         void Awake ()
         {
             playerSplineController.Speed = track.StartSpeed;
@@ -39,17 +34,7 @@ namespace CyberBeat
             CurrentScore.Value = 0;
             gameData.ResetCurrentProgress ();
         }
-        private void OnDisable ()
-        {
-            listeners.ForEach (l => l.OnDisable ());
-        }
-        void Update ()
-        {
-            if (Input.GetKeyDown (KeyCode.Space))
-            {
-                RestartGame ();
-            }
-        }
+       
         public void OnDeathColorIterracble (UnityObjectVariable unityObject)
         {
 

@@ -21,15 +21,29 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   points:
-  - Start:
-      position: {x: 0, y: -1.1519927, z: 575.0959}
+  - payload: Info
+    Start:
+      position: {x: 0, y: -27.596075, z: 472.0713}
       Up: {x: 0, y: 1, z: 0}
-      rotation: {x: -0.17244989, y: 0, z: -0, w: 0.9850183}
-      F: 0.15967742
+      rotation: {x: 0.021945287, y: 0, z: 0, w: 0.9997592}
+      F: 0.13018331
       MetaData: 
     End:
-      position: {x: 0, y: -0.6689804, z: 1558.5574}
+      position: {x: 0, y: -22.969515, z: 591.1644}
       Up: {x: 0, y: 1, z: 0}
-      rotation: {x: -0.23097907, y: 0, z: -0, w: 0.97295874}
-      F: 0.43577117
+      rotation: {x: 0.023615621, y: 0, z: 0, w: 0.9997211}
+      F: 0.16290466
+      MetaData: 
+  - payload: Combo
+    Start:
+      position: {x: 0, y: -23.161108, z: 636.2777}
+      Up: {x: 0, y: 1, z: 0}
+      rotation: {x: -0.027700417, y: 0, z: 0, w: 0.9996163}
+      F: 0.17525437
+      MetaData: 
+    End:
+      position: {x: 0, y: -39.020233, z: 1394.4425}
+      Up: {x: 0, y: 1, z: 0}
+      rotation: {x: 0.005194794, y: 0, z: -0, w: 0.9999865}
+      F: 0.38645753
       MetaData: 

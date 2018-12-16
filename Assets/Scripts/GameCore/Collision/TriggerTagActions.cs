@@ -55,5 +55,4 @@ namespace GameCore
 				action.Invoke (go);
 		}
 	}
-	[System.Serializable] public class UnityEventGameObject : UnityEvent<GameObject> { }
 }

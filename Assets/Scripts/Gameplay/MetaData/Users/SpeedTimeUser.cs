@@ -23,7 +23,6 @@ namespace CyberBeat
 
 		public void _SetSpeed (float newSpeed)
 		{
-			Debug.Log ("_SetSpeed");
 			splineController.Speed = newSpeed;
 			splineController.Play ();
 		}

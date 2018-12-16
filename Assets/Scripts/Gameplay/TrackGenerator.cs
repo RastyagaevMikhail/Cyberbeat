@@ -51,6 +51,7 @@ namespace CyberBeat
             musicPlayer.LoadSong (track.koreography, 0, false);
             koreographer.LoadKoreography (track.koreography);
             ResetCurrentRows ();
+            
         }
 
         private void InitRCM ()
@@ -81,6 +82,7 @@ namespace CyberBeat
                     {
                         string metadata = string.Format ("{0}", currentBit.time);
                         spawnObj.Get<MetaDataGizmos> ().MetaData = Tools.LogTextInColor (metadata, Color.blue);
+                        spawnObj.Get<ColorInterractor>().bit = currentBit.time;
                     }
                 }
                 indexRow++;
@@ -108,7 +110,7 @@ namespace CyberBeat
             var obj = pool.Pop (Key);
             if (!obj) return null;
 
-            obj.position = transform.position + transform.right * xPos + transform.up * obj.yOffset;
+            obj.position = transform.position + transform.right * xPos + transform.up * obj.OffsetPosition.y;
             obj.transform.rotation = transform.rotation;
             obj.Get<MetaDataGizmos> ().MetaData = currentBit.time.ToString();
             MaterialSwitcher origianlMaterialSwitcher = spwn_obj.Get<MaterialSwitcher> ();

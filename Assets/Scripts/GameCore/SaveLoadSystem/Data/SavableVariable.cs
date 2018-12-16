@@ -43,7 +43,6 @@ namespace GameCore
         [OnValueChanged ("SetValue")]
 #endif
         [SerializeField]
-        [LabelText ("$name")]
         protected TValue _value;
         [SerializeField]
         protected TValue DefaultValue;

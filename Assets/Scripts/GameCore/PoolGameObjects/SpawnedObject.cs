@@ -1,13 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-using Sirenix.OdinInspector;
-using Sirenix.Utilities;
+﻿using Sirenix.OdinInspector;
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -35,7 +30,7 @@ namespace GameCore
         public UnityEvent OnSpawn;
         [DrawWithUnity]
         public UnityEvent OnDeSpawn;
-        public float yOffset;
+        public Vector3 OffsetPosition;
         public void PushToPool ()
         {
             Pool.instance.Push (gameObject);

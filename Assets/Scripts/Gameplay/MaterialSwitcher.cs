@@ -32,7 +32,6 @@ namespace CyberBeat
 		}
 		public void SetColorInMaterial (Color newColor)
 		{
-			// CurrentMaterial.color = newColor;
 			this [DefaultColorName] = newColor;
 		}
 		public void SetColorInMaterial (Color newColor, string colorName = "_Color")

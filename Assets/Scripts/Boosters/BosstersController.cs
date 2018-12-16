@@ -12,7 +12,7 @@ namespace CyberBeat
 	public class BosstersController : TransformObject
 	{
 		[SerializeField] EventListener OnBoosterTakedListener;
-		[SerializeField] GameEventObject OnBoosterStart;
+		[SerializeField] GameEventUnityObject OnBoosterStart;
 		[SerializeField] RuntimeTimerView timerView;
 		BoostersData boostersData { get { return BoostersData.instance; } }
 		Pool pool { get { return Pool.instance; } }

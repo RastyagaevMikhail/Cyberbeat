@@ -3,13 +3,13 @@ namespace CyberBeat
 	using System;
 
 	using FluffyUnderware.Curvy;
-
-	using UnityEngine;
+    using SonicBloom.Koreo;
+    using UnityEngine;
 
 	[Serializable]
 	public class TimePoints
 	{
-
+		public  string payload;
 		public TimePointInfo Start;
 		public TimePointInfo End;
 	}

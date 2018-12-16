@@ -123,15 +123,37 @@ MonoBehaviour:
     SerializationNodes: []
   OnSpawn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 23634842161331732}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDeSpawn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 23634842161331732}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  yOffset: 0
+  OffsetPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114534531970346352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,12 +175,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   bit: 0
-  Prevbit: 0
-  StartPosition: {x: 0, y: 0, z: 0}
-  OnDeathCollorInterractor: {fileID: 11400000, guid: 5e08e2db1e0ad3a4a8052e72b2679b37,
+  OnDeathCollorInterractor: {fileID: 11400000, guid: 47c53296d23de95469d924d930798c78,
     type: 2}
-  OnColorTeked: {fileID: 11400000, guid: f951bb8dff9583647bb90d74d6f5dbf4, type: 2}
-  TakedColor: {fileID: 11400000, guid: 4196be7f6b249ed4dae3c6b1432775dd, type: 2}
+  OnColorTeked: {fileID: 11400000, guid: f848ac470e1c2d24085b4140d22da118, type: 2}
 --- !u!114 &114578799353373992
 MonoBehaviour:
   m_ObjectHideFlags: 1

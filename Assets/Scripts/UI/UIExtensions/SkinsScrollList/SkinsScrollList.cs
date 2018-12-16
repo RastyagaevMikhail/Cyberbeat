@@ -1,4 +1,6 @@
-﻿using Sirenix.OdinInspector;
+﻿using GameCore;
+
+using Sirenix.OdinInspector;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -18,7 +20,6 @@ namespace CyberBeat
         [SerializeField] UnityEventSkinItem OnSkinSelected;
         [DrawWithUnity]
         [SerializeField] UnityEventInt OnItemSelected;
-      
 
         Material material { get { return skinsData.RoadMaterial; } }
         int index { get { return skinsData.RoadSkinTypeIndex; } set { skinsData.RoadSkinTypeIndex = value; } }

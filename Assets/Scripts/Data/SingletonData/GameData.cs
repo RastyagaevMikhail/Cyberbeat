@@ -76,7 +76,7 @@ namespace CyberBeat
 				ProgressCurrentLevel.Value = 100 * (DestroyedBricks / GeneratedBricks);
 		}
 
-		[SerializeField] GameEventObject OnCantBuy;
+		[SerializeField] GameEventUnityObject OnCantBuy;
 		[SerializeField]
 		public IntVariable Notes;
 		internal List<TimeOfEvent> currentLines;

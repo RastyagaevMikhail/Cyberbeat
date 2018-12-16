@@ -23,5 +23,4 @@ namespace GameCore
 		}
 	}
 
-	[System.Serializable] public class UnityEventInt : UnityEvent<int> { }
 }

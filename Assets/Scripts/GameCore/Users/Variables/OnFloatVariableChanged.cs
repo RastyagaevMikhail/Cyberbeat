@@ -21,6 +21,4 @@ namespace GameCore
 			variable.OnValueChanged -= action.Invoke;
 		}
 	}
-
-	[System.Serializable] public class UnityEventFloat : UnityEvent<float> { }
 }

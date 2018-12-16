@@ -32,7 +32,7 @@ namespace GameCore
         }
         public static void ReNameWithID (this Object obj)
         {
-            obj.name = string.Format ("{0}{1}", obj.name, obj.GetInstanceID ());
+            obj.name = "{0}{1}".AsFormat (obj.name, obj.GetInstanceID ());
         }
         public static string ToString (this Color color, bool useAlpha = false, bool fromColor = false)
         {

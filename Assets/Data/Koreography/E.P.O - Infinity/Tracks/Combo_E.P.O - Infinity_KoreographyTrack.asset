@@ -13,9 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: Combo
   mEventList:
+  - mStartSample: 418950
+    mEndSample: 529200
   - mStartSample: 563616
     mEndSample: 1130880
-  _SerializedPayloadTypes: []
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -28,5 +31,7 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: Info
+  - mTextVal: Combo
+  _TextPayloadIdxs: 0000000001000000

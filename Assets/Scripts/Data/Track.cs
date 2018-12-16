@@ -77,6 +77,7 @@ namespace CyberBeat
 			{
 				evnt.Payload = new IntPayload () { IntVal = keys.GetRandom () };
 			}
+			events.First ().Payload = new IntPayload () { IntVal = 0 };
 		}
 
 		[Button] public void GenerateBitInfoByEvnts ()
@@ -91,6 +92,15 @@ namespace CyberBeat
 						time = (float) e.StartSample / (float) koreography.SampleRate,
 				});
 			}
+		}
+
+		public bool GetGateState (int index)
+		{
+			return Tools.GetBool ("{0} Gate {1}".AsFormat (name, index), true);
+		}
+		public void SetGateState (int index, bool value = true)
+		{
+			Tools.SetBool ("{0} Gate {1}".AsFormat (name, index), value);
 		}
 	}
 }
