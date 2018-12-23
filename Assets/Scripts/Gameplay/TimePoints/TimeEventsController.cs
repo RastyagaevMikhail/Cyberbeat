@@ -17,6 +17,7 @@ namespace CyberBeat
         [SerializeField] string payloadFilter = "Combo";
         List<TimeOfEvent> Times { get { return enableFilter ? dataTime[payloadFilter] : dataTime.Times; } }
         TimeOfEvent currentTime;
+
         private void Start ()
         {
             currentTime = Times.First ();
@@ -53,6 +54,10 @@ namespace CyberBeat
                     currentTime = Times[indexOfTime];
                 }
             }
+        }
+
+        public void SetFilterEnabled(bool Value) {
+            enableFilter = Value;
         }
     }
 }

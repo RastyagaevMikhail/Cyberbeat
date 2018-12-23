@@ -33,10 +33,10 @@ namespace FluffyUnderware.DevToolsEditor {
 
         public bool SceneLighting
         {
-            get { return m_SceneLighting; }
+            get { return m_SceneLighting ; }
             set
             {
-                m_SceneLighting = value;
+                m_SceneLighting  = value;
             }
         }
 

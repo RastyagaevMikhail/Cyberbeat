@@ -32,15 +32,14 @@ namespace CyberBeat
 
         [OdinSerialize]
         RandomConstantMaterial rcm;
-        private List<BitInfo> CurrentBits;
-        BitInfo currentBit;
+        private List<BitInfo> CurrentBits = null;
+        BitInfo currentBit = null;
         GameData gameData { get { return GameData.instance; } }
         private SimpleMusicPlayer _musicPlayer = null;
         public SimpleMusicPlayer musicPlayer { get { if (_musicPlayer == null) _musicPlayer = GetComponent<SimpleMusicPlayer> (); return _musicPlayer; } }
         private Koreographer _koreographer = null;
         public Koreographer koreographer { get { if (_koreographer == null) _koreographer = GetComponent<Koreographer> (); return _koreographer; } }
         public bool outOfIndexBits { get { return (CurrentBits.Count <= indexRow); } }
-
         private void Start ()
         {
             LastRandomColor = Colors.instance.RandomColor;
@@ -50,8 +49,7 @@ namespace CyberBeat
             ASource.clip = track.music.clip;
             musicPlayer.LoadSong (track.koreography, 0, false);
             koreographer.LoadKoreography (track.koreography);
-            ResetCurrentRows ();
-            
+            OnStart ();
         }
 
         private void InitRCM ()
@@ -65,13 +63,14 @@ namespace CyberBeat
         [SerializeField] Color LastRandomColor;
         private void Update ()
         {
-            if (!outOfIndexBits && currentBit.time + track.MinTimeOfBit <= time)
+            if (CurrentBits != null && !outOfIndexBits && currentBit != null && currentBit.time + track.MinTimeOfBit <= time)
             {
                 float half_width = width / 2;
                 float step = half_width / 2;
                 // string Log = "";
 
-                int randPreset = Tools.RandomIn (currentBit.presets);
+                int randPreset = currentBit.presets.GetRandom ();
+                // Debug.LogFormat ("randPreset = {0}", randPreset);
                 RowInfo row = tracksCollection.Prefabs[randPreset];
 
                 for (float x = -half_width, i = 0; x <= half_width; x += step, i++)
@@ -82,7 +81,7 @@ namespace CyberBeat
                     {
                         string metadata = string.Format ("{0}", currentBit.time);
                         spawnObj.Get<MetaDataGizmos> ().MetaData = Tools.LogTextInColor (metadata, Color.blue);
-                        spawnObj.Get<ColorInterractor>().bit = currentBit.time;
+                        spawnObj.Get<ColorInterractor> ().bit = currentBit.time;
                     }
                 }
                 indexRow++;
@@ -95,7 +94,7 @@ namespace CyberBeat
             time += Time.deltaTime;
         }
 
-        private void ResetCurrentRows ()
+        public void OnStart ()
         {
             CurrentBits = new List<BitInfo> (track.BitsInfos);
             // CurrentBits.Reverse ();
@@ -112,7 +111,8 @@ namespace CyberBeat
 
             obj.position = transform.position + transform.right * xPos + transform.up * obj.OffsetPosition.y;
             obj.transform.rotation = transform.rotation;
-            obj.Get<MetaDataGizmos> ().MetaData = currentBit.time.ToString();
+
+            obj.Get<MetaDataGizmos> ().MetaData = currentBit.time.ToString ();
             MaterialSwitcher origianlMaterialSwitcher = spwn_obj.Get<MaterialSwitcher> ();
             if (origianlMaterialSwitcher)
             {
@@ -121,6 +121,10 @@ namespace CyberBeat
                 if (obj.Get<ColorSwitcher> ())
                 {
                     InitRCM ();
+                }
+                else
+                {
+                    obj.localScale = Vector3.one;
                 }
 
                 var matSwitcher = obj.Get<MaterialSwitcher> ();

@@ -3,12 +3,10 @@
 namespace Sirenix.Serialization.Internal
 {
     using Sirenix.Serialization;
-
+    using UnityEditor;
+    using UnityEditor.Build;
     using System.IO;
     using System;
-
-    using UnityEditor.Build;
-    using UnityEditor;
 
 #if UNITY_2018_1_OR_NEWER
 
@@ -16,7 +14,7 @@ namespace Sirenix.Serialization.Internal
 
 #endif
 
-    public class PreBuildAOTAutomation : IPreprocessBuildWithReport //IPreprocessBuild
+    public class PreBuildAOTAutomation : IPreprocessBuild
     {
         public int callbackOrder
         {
@@ -26,28 +24,28 @@ namespace Sirenix.Serialization.Internal
             }
         }
 
-        public void OnPreprocessBuild (BuildTarget target, string path)
+        public void OnPreprocessBuild(BuildTarget target, string path)
         {
-            if (AOTGenerationConfig.Instance.AutomateBeforeBuilds &&
-                AOTGenerationConfig.Instance.AutomateForPlatforms != null &&
-                AOTGenerationConfig.Instance.AutomateForPlatforms.Contains (target))
+            if (AOTGenerationConfig.Instance.AutomateBeforeBuilds
+                && AOTGenerationConfig.Instance.AutomateForPlatforms != null
+                && AOTGenerationConfig.Instance.AutomateForPlatforms.Contains(target))
             {
-                AOTGenerationConfig.Instance.ScanProject ();
-                AOTGenerationConfig.Instance.GenerateDLL ();
+                AOTGenerationConfig.Instance.ScanProject();
+                AOTGenerationConfig.Instance.GenerateDLL();
             }
         }
 
 #if UNITY_2018_1_OR_NEWER
 
-        public void OnPreprocessBuild (BuildReport report)
+        public void OnPreprocessBuild(BuildReport report)
         {
-            this.OnPreprocessBuild (report.summary.platform, report.summary.outputPath);
+            this.OnPreprocessBuild(report.summary.platform, report.summary.outputPath);
         }
 
 #endif
     }
 
-    public class PostBuildAOTAutomation : IPostprocessBuildWithReport//IPostprocessBuild
+    public class PostBuildAOTAutomation : IPostprocessBuild
     {
         public int callbackOrder
         {
@@ -57,25 +55,26 @@ namespace Sirenix.Serialization.Internal
             }
         }
 
-        public void OnPostprocessBuild (BuildTarget target, string path)
+        public void OnPostprocessBuild(BuildTarget target, string path)
         {
-            if (AOTGenerationConfig.Instance.AutomateBeforeBuilds &&
-                AOTGenerationConfig.Instance.AutomateForPlatforms != null &&
-                AOTGenerationConfig.Instance.AutomateForPlatforms.Contains (target) &&
-                AOTGenerationConfig.Instance.DeleteDllAfterBuilds)
+            if (AOTGenerationConfig.Instance.AutomateBeforeBuilds
+                && AOTGenerationConfig.Instance.AutomateForPlatforms != null
+                && AOTGenerationConfig.Instance.AutomateForPlatforms.Contains(target)
+                && AOTGenerationConfig.Instance.DeleteDllAfterBuilds)
             {
-                Directory.Delete (AOTGenerationConfig.Instance.AOTFolderPath, true);
-                File.Delete (AOTGenerationConfig.Instance.AOTFolderPath.TrimEnd ('/', '\\') + ".meta");
-                AssetDatabase.Refresh ();
+                Directory.Delete(AOTGenerationConfig.Instance.AOTFolderPath, true);
+                File.Delete(AOTGenerationConfig.Instance.AOTFolderPath.TrimEnd('/', '\\') + ".meta");
+                AssetDatabase.Refresh();
             }
         }
 
 #if UNITY_2018_1_OR_NEWER
 
-        public void OnPostprocessBuild (BuildReport report)
+        public void OnPostprocessBuild(BuildReport report)
         {
-            this.OnPostprocessBuild (report.summary.platform, report.summary.outputPath);
+            this.OnPostprocessBuild(report.summary.platform, report.summary.outputPath);
         }
+
 #endif
     }
 }

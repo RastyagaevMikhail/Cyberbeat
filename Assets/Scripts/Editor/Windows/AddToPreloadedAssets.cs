@@ -12,7 +12,7 @@ namespace GameCore.Editor
 	using GameCore;
 
 	using UnityEditor;
-
+#if UNITY_2018_2_OR_NEWER
 	public class AddToPreloadedAssets : OdinEditorWindow
 	{
 		[MenuItem ("Game/Windows/AddToPreloadedAssets")]
@@ -30,4 +30,5 @@ namespace GameCore.Editor
 			PlayerSettings.SetPreloadedAssets (scriptableObjects.ToArray ());
 		}
 	}
+#endif
 }

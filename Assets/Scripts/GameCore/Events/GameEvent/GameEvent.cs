@@ -1,7 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 
 using System.Collections.Generic;
-using System.Linq;
 
 using UnityEngine;
 namespace GameCore
@@ -32,7 +31,9 @@ namespace GameCore
             if (eventListeners.Contains (listener))
                 eventListeners.Remove (listener);
         }
+#if UNITY_EDITOR
+        [Button] public void ShowPath () { Debug.Log (UnityEditor.AssetDatabase.GetAssetPath (this)); }
+#endif
     }
 
 }
-

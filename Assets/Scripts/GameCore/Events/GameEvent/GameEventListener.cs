@@ -1,9 +1,5 @@
-﻿using Sirenix.OdinInspector;
-
-using System;
-
+﻿
 using UnityEngine;
-using UnityEngine.Events;
 namespace GameCore
 {
     public class GameEventListener : MonoBehaviour

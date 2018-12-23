@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -30,13 +31,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a444eb376aff6bd48925937fe345316c, type: 2}
     - {fileID: 11400000, guid: fd8f2163ae5fb5f41af549a542e9881b, type: 2}
     - {fileID: 11400000, guid: cd317585adcecc84d8a0a0dd259e3ede, type: 2}
+    - {fileID: 11400000, guid: 17321af9b5cf3ca4899c225c0132647f, type: 2}
     - {fileID: 11400000, guid: a3201b208936a2642ba122cb562d2450, type: 2}
     - {fileID: 11400000, guid: 88fee826c61d859498acf0a3714b9348, type: 2}
     - {fileID: 11400000, guid: 5816cc04338795b4486de00904f21d7b, type: 2}
     - {fileID: 11400000, guid: 1d2cafbc84a2f0946baf7914de52362b, type: 2}
     - {fileID: 11400000, guid: 49055bacabdad5b4fa0799d91e3af5a8, type: 2}
     - {fileID: 11400000, guid: 4dce36da102fbcd47b40453fd00a12e4, type: 2}
-    - {fileID: 11400000, guid: 17321af9b5cf3ca4899c225c0132647f, type: 2}
     - {fileID: 11400000, guid: 5fbd9c344e2c6774aad1e9d8b5b242aa, type: 2}
     - {fileID: 11400000, guid: fe843a86d5096764a8b453b8fcc47da8, type: 2}
     - {fileID: 11400000, guid: 9ebf1f144b3be1245a9ea69d852eb0e5, type: 2}
@@ -51,7 +52,7 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EqualityComparer`1+DefaultComparer[[CyberBeat.SkinType,
+      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[CyberBeat.SkinType,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 8

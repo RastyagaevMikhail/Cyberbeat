@@ -11,6 +11,8 @@ namespace GameCore
 
 	[Serializable] public class UnityEventFloat : UnityEvent<float> { }
 
+	[Serializable] public class UnityEventString : UnityEvent<string> { }
+
 	[Serializable] public class UnityEventTimeSpan : UnityEvent<TimeSpan> { }
 
 	[Serializable] public class UnityEventDateTime : UnityEvent<DateTime> { }
@@ -28,8 +30,12 @@ namespace GameCore
 	[Serializable] public class UnityEventUnityObject : UnityEvent<UnityEngine.Object> { }
 
 	[Serializable] public class UnityEventGameObject : UnityEvent<GameObject> { }
+
 	[Serializable] public class UnityEventTransform : UnityEvent<Transform> { }
+
 	[Serializable] public class UnityEventRectTransform : UnityEvent<RectTransform> { }
+
 	[Serializable] public class UnityEventMaterial : UnityEvent<Material> { }
+
 	[Serializable] public class UnityEventScriptableObject : UnityEvent<ScriptableObject> { }
 }

@@ -1,4 +1,6 @@
-﻿using FluffyUnderware.Curvy;
+﻿using EZCameraShake;
+
+using FluffyUnderware.Curvy;
 using FluffyUnderware.Curvy.Controllers;
 
 using GameCore;
@@ -19,6 +21,7 @@ namespace CyberBeat
 
         [SerializeField] IntVariable CurrentScore;
         [SerializeField] IntVariable BestScore;
+        [SerializeField] GameEvent StartGame;
         [SerializeField] SplineController playerSplineController;
         [SerializeField] SplineController trackSplineController;
         Player player { get { return Player.instance; } }
@@ -27,14 +30,16 @@ namespace CyberBeat
         BoostersData boostersData { get { return BoostersData.instance; } }
 
         [SerializeField] BoosterData currentBooster;
+        private bool gameStarted;
+
         void Awake ()
         {
-            playerSplineController.Speed = track.StartSpeed;
-            trackSplineController.Speed = track.StartSpeed;
+            // playerSplineController.Speed = track.StartSpeed;
+            // trackSplineController.Speed = track.StartSpeed;
             CurrentScore.Value = 0;
             gameData.ResetCurrentProgress ();
         }
-       
+
         public void OnDeathColorIterracble (UnityObjectVariable unityObject)
         {
 
@@ -45,10 +50,9 @@ namespace CyberBeat
             CurrentScore.Value++;
             if (CurrentScore.Value > BestScore.Value) BestScore.Value = CurrentScore.Value;
         }
-        public void OnPlayerContactWith (UnityObjectVariable unityObject)
+        public void OnPlayerContactWith (Interractor interractor)
         {
-            Interractor interractor = null;
-            if (!unityObject.CheckAs<Interractor> (out interractor)) return;
+            if (!interractor) return;
             ColorBrick colorBrick = interractor as ColorBrick;
             bool isBrick = colorBrick;
             bool isShieldActive = boostersData["Shield"].Equals (currentBooster);
@@ -99,17 +103,6 @@ namespace CyberBeat
             LoadingManager.instance.LoadScene ("Menu");
         }
 
-        [SerializeField] float StopDuration = 2f;
-        public void _RestartGameWithDelay ()
-        {
-            playerSplineController.Speed.Do (0f, StopDuration, value =>
-            {
-                playerSplineController.Speed = value;
-                playerSplineController.Play ();
-            });
-            playerSplineController.Stop ();
-            Invoke ("RestartGame", StopDuration);
-        }
         public void RestartGame ()
         {
             CurrentScore.Value = 0;
@@ -122,5 +115,13 @@ namespace CyberBeat
             SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
         }
 
+        public void OnFadeOut ()
+        {
+            if (!gameStarted)
+            {
+                gameStarted = true;
+                StartGame.Raise ();
+            }
+        }
     }
 }

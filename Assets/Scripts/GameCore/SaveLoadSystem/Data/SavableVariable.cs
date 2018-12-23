@@ -48,7 +48,8 @@ namespace GameCore
         protected TValue DefaultValue;
         [SerializeField]
         protected bool ResetByDefault;
-
+        [Button]
+        public abstract void ResetDefault ();
         [NonSerialized]
         public Action<TValue> OnValueChanged = (o) => { };
         public bool Loaded = false;
@@ -86,6 +87,7 @@ namespace GameCore
             if (Application.isPlaying)
                 Loaded = true;
         }
+
 #if UNITY_EDITOR
         public void CreateAsset (string path = "")
         {
@@ -99,8 +101,8 @@ namespace GameCore
             Loaded = false;
             UnityEditor.EditorUtility.SetDirty (this);
         }
-
-        public abstract void ResetDefault ();
+        [Title("Editor Only")]
+        [Button] public void ShowPath () { Debug.Log (UnityEditor.AssetDatabase.GetAssetPath (this)); }
 #endif
 
     }

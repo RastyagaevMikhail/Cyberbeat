@@ -33,8 +33,8 @@ namespace CyberBeat
         string timeStr { get { return "{0:00.0000}:".AsFormat (time); } }
 
         [ShowIf ("OneIsShotEvent")]
-        float OneShotTime => Start;
-        bool OneIsShotEvent => Start == End;
+        float OneShotTime { get { return Start; } }
+        bool OneIsShotEvent { get { return Start == End; } }
         public static bool operator == (TimeOfEvent left, TimeOfEvent right)
         {
             return !object.ReferenceEquals (left, null) &&

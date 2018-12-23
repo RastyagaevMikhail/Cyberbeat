@@ -18,6 +18,7 @@ namespace GameCore
         public float zLocal { get { return localPosition.z; } set { localPosition = new Vector3 (xLocal, yLocal, value); } }
         public Quaternion rotation { get { return transform.rotation; } set { transform.rotation = value; } }
         public Quaternion localRotation { get { return transform.localRotation; } set { transform.localRotation = value; } }
+        public Vector3 localScale { get { return transform.localScale; } set { transform.localScale = value; } }
         public void SetParent (Transform child) { transform.SetParent (child); }
     }
 }

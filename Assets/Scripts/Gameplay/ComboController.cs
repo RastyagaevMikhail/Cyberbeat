@@ -42,6 +42,7 @@ namespace CyberBeat
 			if (currentCombo.InRange (inter.bit))
 			{
 				// Debug.Log ("CurrentCombo InRange");
+				// Debug.LogFormat ("currentCombo = {0}", currentCombo);
 				List<ComboBit> comboList = comboInGame[currentCombo];
 				// Debug.LogFormat ("comboList = {0}", comboList);
 				var currentComboBit = comboList.Find (c => c.bit == inter.bit);
@@ -164,7 +165,9 @@ namespace CyberBeat
 			get
 			{
 				ComboListItem comboListItem = items.Find (i => i.timeOfEvent == timeOfEvent);
-				return comboListItem?.comboBits;
+				if (comboListItem != null)
+					return comboListItem.comboBits;
+				return null;
 			}
 		}
 

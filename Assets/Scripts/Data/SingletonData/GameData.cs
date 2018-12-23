@@ -105,5 +105,9 @@ namespace CyberBeat
 		public List<IntVariable> RewardVariables { get { return new List<IntVariable> () { Blades, Shields, Gates, OneLifes, Notes }; } }
 
 		public float CurrentStartSpeed;
+
+		public void AddScore() {
+			ProgressCurrentLevel.ApplyChange(1);
+		}
 	}
 }

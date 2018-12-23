@@ -9,7 +9,7 @@ namespace GameCore
 	{
 #if UNITY_EDITOR
 		[UnityEditor.MenuItem ("Game/Data/LoadingManager")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
-		public override void ResetDefault () { }
+		public override void ResetDefault () { nextScene = "Menu"; }
 		public override void InitOnCreate () { }
 #endif
 		public string nextScene = "Menu";

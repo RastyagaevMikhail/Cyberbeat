@@ -82,10 +82,7 @@ namespace CyberBeat
 			float Duration = distance / speed;
 			return Duration;
 		}
-#if UNITY_EDITOR
-		[SerializeField] LookAtConstraint lookAtConstraint;
-		[SerializeField] PositionConstraint positionConstraint;
-#endif
+
 		public void SetPivot ()
 		{
 			deb.SetTarget (PivotsBySkinType[type].LookTarget);
@@ -104,13 +101,7 @@ namespace CyberBeat
 
 				DOVirtual.Float (OldAngle, LookAngle, currentSettings.DurationMove, value => localRotation = Quaternion.AngleAxis (value, Vector3.right));
 			}
-#if UNITY_EDITOR
-			else
-			{
-				lookAtConstraint.SetSource(0,new ConstraintSource(){sourceTransform = PivotsBySkinType[type].LookTarget, weight = 1f});
-				positionConstraint.SetSource(0,new ConstraintSource(){sourceTransform = PivotsBySkinType[type].PositionTarget, weight = 1f});
-			}
-#endif
+
 		}
 
 	}

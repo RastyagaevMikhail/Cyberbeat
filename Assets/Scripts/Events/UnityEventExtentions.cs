@@ -1,10 +1,6 @@
 namespace CyberBeat
 {
-    using Sirenix.OdinInspector;
-    using Sirenix.Serialization;
-
     using SonicBloom.Koreo;
-
     using System;
 
     using UnityEngine.Events;

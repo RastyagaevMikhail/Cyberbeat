@@ -12,8 +12,9 @@ namespace CyberBeat
 	{
 		[SerializeField] GameEventColorInterractor _Event;
 		protected override AGameEventUnityObject<ColorInterractor> Event { get { return _Event; } set { _Event = value as GameEventColorInterractor; } }
+
 		[SerializeField] UnityEventColorInterractor responce;
-		protected override UnityEvent<ColorInterractor> Responce => responce;
+		protected override UnityEvent<ColorInterractor> Responce { get { return responce; } }
 		public EventListenerColorInterractor (GameEventColorInterractor _evnet, UnityAction<ColorInterractor> action)
 		{
 			Event = _evnet;

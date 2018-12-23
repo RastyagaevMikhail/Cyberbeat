@@ -12,7 +12,7 @@ namespace CyberBeat
 	{
 		[DrawWithUnity]
 		[SerializeField] EventListenerColorInterractor _listener;
-		protected override AEventListenerUnityObject<ColorInterractor> listener => _listener;
+		protected override AEventListenerUnityObject<ColorInterractor> listener { get { return _listener; } }
 
 	}
 }

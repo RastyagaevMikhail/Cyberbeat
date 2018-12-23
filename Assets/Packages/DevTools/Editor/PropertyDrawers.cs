@@ -554,8 +554,8 @@ namespace FluffyUnderware.DevToolsEditor
 
     }
 
-    [CustomPropertyDrawer(typeof(MinAttribute), true)]
-    public class MinPropertyDrawer : DTPropertyDrawer<MinAttribute>
+    [CustomPropertyDrawer(typeof(FluffyUnderware.DevTools.MinAttribute), true)]
+    public class MinPropertyDrawer : DTPropertyDrawer<FluffyUnderware.DevTools.MinAttribute> 
     {
         protected float minV;
 

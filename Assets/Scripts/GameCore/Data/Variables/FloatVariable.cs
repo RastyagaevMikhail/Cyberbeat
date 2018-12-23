@@ -22,9 +22,9 @@ namespace GameCore
         {
             DOVirtual.Float (Value, newValue, SmoothTime, value => Value = value);
         }
-        public void DO (float to, float duration, TweenCallback<float> onVirtualUpdate = null)
+        public Tweener DO (float to, float duration, TweenCallback<float> onVirtualUpdate = null)
         {
-            DOVirtual.Float (base.Value, to, duration, onVirtualUpdate == null ? SetValue : onVirtualUpdate);
+            return DOVirtual.Float (base.Value, to, duration, onVirtualUpdate == null ? SetValue : onVirtualUpdate);
         }
         public void SetValue (float value)
         {

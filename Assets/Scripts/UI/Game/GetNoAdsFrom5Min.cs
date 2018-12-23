@@ -1,0 +1,82 @@
+﻿using GameCore;
+
+using Sirenix.OdinInspector;
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+using UnityEngine;
+using UnityEngine.UI;
+using Text = TMPro.TextMeshProUGUI;
+namespace CyberBeat
+{
+    public class GetNoAdsFrom5Min : MonoBehaviour
+    {
+        [SerializeField] Button WatchButton;
+        [SerializeField] Button SkipButton;
+        [SerializeField] GameObject Panel;
+        [SerializeField] BoolVariable NoadsIsEnabled;
+        [SerializeField] TimeSpanVariable NoAdsTime;
+        [SerializeField] GameEvent ShowResults;
+        [SerializeField] GameEvent RestartGame;
+
+        public AdsController Ads { get { return AdsController.instance; } }
+#if UNITY_EDITOR
+        private void OnValidate ()
+        {
+            Panel = transform.GetChild (0).gameObject;
+
+            WatchButton = Panel.transform.GetChild (2).GetComponent<Button> ();
+            SkipButton = Panel.transform.GetChild (3).GetComponent<Button> ();
+
+            NoadsIsEnabled = Tools.GetAssetAtPath<BoolVariable> ("Assets/Data/NoAdsTimer/NoAdsIsEnabled.asset");
+            NoAdsTime = Tools.GetAssetAtPath<TimeSpanVariable> ("Assets/Data/NoAdsTimer/NoAdsTime.asset");
+
+            ShowResults = Tools.GetAssetAtPath<GameEvent> ("Assets/Data/Events/GetNoAdsFrom5Min/Show Results.asset");
+            RestartGame = Tools.GetAssetAtPath<GameEvent> ("Assets/Data/Events/GameController/OnRestartGame.asset");
+        }
+#endif
+        [Button]
+        public void Show ()
+        {
+            Panel.SetActive (true);
+        }
+
+        [Button]
+        public void Close ()
+        {
+            Panel.SetActive (false);
+        }
+
+        private void Awake ()
+        {
+            WatchButton.onClick.RemoveAllListeners ();
+            WatchButton.onClick.AddListener (ShowVideo);
+
+            SkipButton.onClick.RemoveAllListeners ();
+            SkipButton.onClick.AddListener (SkipVideo);
+        }
+        private void ShowVideo ()
+        {
+            Ads.ShowRewardVideo (ResetNoAdsTimer);
+
+            RestartGame.Raise ();
+
+            Close ();
+        }
+
+        private void ResetNoAdsTimer (double arg1, string arg2)
+        {
+            NoadsIsEnabled.Value = true;
+            NoAdsTime.ResetDefault ();
+        }
+
+        public void SkipVideo ()
+        {
+            ShowResults.Raise ();
+
+            Close ();
+        }
+    }
+}

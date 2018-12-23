@@ -1,21 +1,19 @@
 ﻿using GameCore;
 
 using SonicBloom.Koreo;
-
-using System.Collections;
-using System.Collections.Generic;
-
-using UnityEngine;
 namespace CyberBeat
 {
 
-	public class KoreoTools
-	{
-		public static void OpenKoreographyEditor (Koreography koreography, KoreographyTrack koreographyTrack)
-		{
-			var methodInfo = Tools.EditorAssembliesHelper.GetMethodInCalss ("CyberBeat.EditorTools", "OpenEditorByDifficulty");
+    public static class KoreoTools
+    {
+        public static void OpenKoreographyEditor(Koreography koreography, KoreographyTrack koreographyTrack)
+        {
+#if UNITY_EDITOR
+            var methodInfo = Tools.EditorAssembliesHelper.GetMethodInCalss("CyberBeat.KoreoEditorTools", "OpenEditorByDifficulty");
 
-			methodInfo.Invoke (null, new object[] { koreography, koreographyTrack });
-		}
-	}
+            methodInfo.Invoke(null, new object[] { koreography, koreographyTrack });
+#endif
+        }
+
+    }
 }
