@@ -50,6 +50,8 @@ namespace CyberBeat
 		[SerializeField] FloatVariable ProgressCurrentLevel;
 		public Track currentTrack { get { return TracksCollection.instance.CurrentTrack; } }
 
+	
+
 		public void AddNotes (int notesFromAdd)
 		{
 			Notes.ApplyChange (notesFromAdd);
@@ -106,8 +108,9 @@ namespace CyberBeat
 
 		public float CurrentStartSpeed;
 
-		public void AddScore() {
-			ProgressCurrentLevel.ApplyChange(1);
+		public void AddScore ()
+		{
+			ProgressCurrentLevel.ApplyChange (1);
 		}
 	}
 }

@@ -82,7 +82,10 @@ namespace CyberBeat
                 bool isActive = i <= data.CurrentUpgrade.Value;
                 UpgradeOTiles[i].isOn = isActive;
                 if (isActive && isColors)
+                {
                     UpgradeOTiles[i].graphic.color = Colors.instance.colors[i];
+                    UpgradeOTiles[i].targetGraphic.color = Colors.instance.colors[i];
+                }
             }
             PriceNotes.text = data.Price.ToString ();
 

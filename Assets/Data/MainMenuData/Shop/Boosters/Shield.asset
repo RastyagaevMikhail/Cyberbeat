@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   style: {fileID: 11400000, guid: 28d80600ebdd02f4789c0fb0bdcb6e6f, type: 2}
-  Icon: {fileID: 21300000, guid: bcbe134383a366f409ccfca2ef65d798, type: 3}
+  Icon: {fileID: 21300000, guid: 34d1a2a9c5967384b87510417f1111fb, type: 3}
   title: shield
   Description: you_have
   isIAP: 0

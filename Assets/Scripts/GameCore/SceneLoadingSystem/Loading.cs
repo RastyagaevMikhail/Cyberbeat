@@ -71,7 +71,7 @@ namespace GameCore
 #if UNITY_EDITOR
 		[Button] public void ValidateTags ()
 		{
-			localizationTagsOfLoadingText = Localizator.GetTranslations ().ToList ().FindAll (t => t.code.Contains ("loading_text_")).Select (t => t.code).ToList ();
+			localizationTagsOfLoadingText = Localizator.instance.GetTranslations ().ToList ().FindAll (t => t.code.Contains ("loading_text_")).Select (t => t.code).ToList ();
 		}
 #endif
 

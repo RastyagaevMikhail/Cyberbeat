@@ -8,7 +8,7 @@ using UnityEditor;
 
 namespace GameCore
 {
-    public static class Localizator
+    public class Localizator : SingletonData<Localizator>
     {
         private const string TranslationPathFolder = "Assets/Resources/";
         private const string TranslationsFilename = "translations.csv";
@@ -17,15 +17,16 @@ namespace GameCore
         private const string MenuEnglishLanguage = "Game/Localizator/Force English";
         private const string MenuRussianLanguage = "Game/Localizator/Force Russian";
         private const string MenuSpanishLanguage = "Game/Localizator/Force Spanish";
-        public const string LocalizeWindow = "Game/Localizator/Editor";
-
-        private static Trans[] translations = new Trans[0];
-        private static SystemLanguage[] mLanguages;
+        public const string LocalizeWindowMenuPath = "Game/Localizator/Editor";
+        [SerializeField]
+        private Trans[] translations = new Trans[0];
+        [SerializeField]
+        private SystemLanguage[] mLanguages;
 
         public delegate void OnLanguageChangedDelegate ();
-        public static OnLanguageChangedDelegate OnLanguageChanged;
+        public OnLanguageChangedDelegate OnLanguageChanged;
 
-        public static SystemLanguage[] Languages
+        public SystemLanguage[] Languages
         {
             get
             {
@@ -33,11 +34,7 @@ namespace GameCore
             }
         }
 
-        public static string localized (this string str)
-        {
-            return s (str);
-        }
-
+        [System.Serializable]
         public class Trans
         {
             public string code;
@@ -54,15 +51,7 @@ namespace GameCore
             }
         }
 
-        static Localizator ()
-        {
-            ParseTranslations ();
-#if UNITY_EDITOR
-            ClearMenuChecks ();
-#endif
-        }
-
-        public static SystemLanguage GetLanguage ()
+        public SystemLanguage GetLanguage ()
         {
             if (PlayerPrefs.HasKey (ForceLangKey))
             {
@@ -74,7 +63,7 @@ namespace GameCore
             }
         }
 
-        private static int GetLangIndex (SystemLanguage language)
+        private int GetLangIndex (SystemLanguage language)
         {
             for (int i = 0; i < mLanguages.Length; i++)
             {
@@ -86,12 +75,12 @@ namespace GameCore
             return -1;
         }
 
-        public static Trans[] GetTranslations ()
+        public Trans[] GetTranslations ()
         {
             return translations;
         }
 
-        public static string s (string s, SystemLanguage language = SystemLanguage.Unknown)
+        public string s (string s, SystemLanguage language = SystemLanguage.Unknown)
         {
             language = (language == SystemLanguage.Unknown) ? GetLanguage () : language;
             for (int i = 0; i < translations.Length; i++)
@@ -112,7 +101,7 @@ namespace GameCore
             return s;
         }
 
-        public static string[] GetValuesForKey (string s)
+        public string[] GetValuesForKey (string s)
         {
             for (int i = 0; i < translations.Length; i++)
             {
@@ -125,13 +114,13 @@ namespace GameCore
         }
 
 #if UNITY_EDITOR
-        public static void SaveLocalization (string key, SystemLanguage language, string value)
+        public void SaveLocalization (string key, SystemLanguage language, string value)
         {
 
             int langIndex = GetLangIndex (language);
             SaveLocalization (key, langIndex, value);
         }
-        public static void SaveLocalization (string key, int langIndex, string value, bool writeToFile = true)
+        public void SaveLocalization (string key, int langIndex, string value, bool writeToFile = true)
         {
             if (langIndex >= 0)
             {
@@ -147,7 +136,7 @@ namespace GameCore
                     WriteToFile ();
             }
         }
-        public static void AddTranslation (string key)
+        public void AddTranslation (string key)
         {
             List<Trans> tr = new List<Trans> ();
             tr.AddRange (translations);
@@ -155,7 +144,7 @@ namespace GameCore
             translations = tr.ToArray ();
             WriteToFile ();
         }
-        public static void RemoveTranslation (string key)
+        public void RemoveTranslation (string key)
         {
             List<Trans> tr = new List<Trans> ();
             tr.AddRange (translations);
@@ -170,7 +159,7 @@ namespace GameCore
             translations = tr.ToArray ();
             WriteToFile ();
         }
-        public static void ChangeKey (string fromKey, string toKey)
+        public void ChangeKey (string fromKey, string toKey)
         {
             for (int i = 0; i < translations.Length; i++)
             {
@@ -183,7 +172,7 @@ namespace GameCore
             WriteToFile ();
         }
 
-        public static void WriteToFile ()
+        public void WriteToFile ()
         {
             string path = TranslationPathFolder + TranslationsFilename;
             if (!File.Exists (path))
@@ -224,7 +213,12 @@ namespace GameCore
 #if UNITY_EDITOR
         [MenuItem ("Game/Localizator/Parse Translations")]
 #endif
-        public static void ParseTranslations ()
+
+        public void ParseTranslationsFromInstance ()
+        {
+            instance.ParseTranslations ();
+        }
+        public void ParseTranslations ()
         {
             TextAsset file = Resources.Load<TextAsset> (
                 Path.GetFileNameWithoutExtension (TranslationsFilename));
@@ -284,10 +278,11 @@ namespace GameCore
                     }
                 }
                 translations = tr.ToArray ();
+                this.Save ();
             }
         }
 
-        public static string[] GetAllLanguagesNames ()
+        public string[] GetAllLanguagesNames ()
         {
             var values = System.Enum.GetValues (typeof (SystemLanguage));
             List<string> all = new List<string> ();
@@ -307,9 +302,9 @@ namespace GameCore
             PlayerPrefs.DeleteKey (ForceLangKey);
             ClearMenuChecks ();
 
-            if (OnLanguageChanged != null)
+            if (instance.OnLanguageChanged != null)
             {
-                OnLanguageChanged ();
+                instance.OnLanguageChanged ();
             }
         }
 
@@ -321,9 +316,9 @@ namespace GameCore
             PlayerPrefs.SetInt (ForceLangKey, (int) SystemLanguage.Russian);
             ClearMenuChecks ();
 
-            if (OnLanguageChanged != null)
+            if (instance.OnLanguageChanged != null)
             {
-                OnLanguageChanged ();
+                instance.OnLanguageChanged ();
             }
         }
 
@@ -335,9 +330,9 @@ namespace GameCore
             PlayerPrefs.SetInt (ForceLangKey, (int) SystemLanguage.English);
             ClearMenuChecks ();
 
-            if (OnLanguageChanged != null)
+            if (instance.OnLanguageChanged != null)
             {
-                OnLanguageChanged ();
+                instance.OnLanguageChanged ();
             }
         }
 
@@ -349,12 +344,12 @@ namespace GameCore
             PlayerPrefs.SetInt (ForceLangKey, (int) SystemLanguage.Spanish);
             ClearMenuChecks ();
 
-            if (OnLanguageChanged != null)
+            if (instance.OnLanguageChanged != null)
             {
-                OnLanguageChanged ();
+                instance.OnLanguageChanged ();
             }
         }
-        public static void SetLanguage (SystemLanguage language)
+        public void SetLanguage (SystemLanguage language)
         {
             PlayerPrefs.SetInt (ForceLangKey, (int) language);
             ClearMenuChecks ();
@@ -395,7 +390,23 @@ namespace GameCore
             {
                 EditorUtility.SetDirty (t);
             }
+
+        }
+
+        public override void ResetDefault () { }
+        public override void InitOnCreate ()
+        {
+            ParseTranslations ();
+            ClearMenuChecks ();
+        }
 #endif
+    }
+
+    public static class LocalizatorExtention
+    {
+        public static string localized (this string str)
+        {
+            return Localizator.instance.s (str);
         }
     }
 }

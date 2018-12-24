@@ -17,8 +17,8 @@ namespace CyberBeat
 		{
 			inputType = (InputType) type;
 		}
-
-		public SystemLanguage Language { get { return Localizator.GetLanguage (); } set { Localizator.SetLanguage (value); } }
+		public Localizator localizator { get { return Localizator.instance; } }
+		public SystemLanguage Language { get { return localizator.GetLanguage (); } set { localizator.SetLanguage (value); } }
 		public void SetEnglish ()
 		{
 			Localizator.LocalizatorSetEnglish ();

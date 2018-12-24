@@ -37,17 +37,5 @@
                     .SetLoops (3, LoopType.Yoyo)
                     .OnComplete (() => targetGraphic.color = startColor);
             }
-
-            [SerializeField] Gradient gradient;
-            [SerializeField] Color result;
-            [Range (0f, 1f)]
-            [OnValueChanged ("Evaluate")]
-            // [InlineButton ("Evaluate")]
-            [SerializeField] float percent = 0.5f;
-
-            public void Evaluate ()
-            {
-                result = gradient.Evaluate (percent);
-            }
         }
     }

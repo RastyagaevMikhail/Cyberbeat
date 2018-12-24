@@ -33,9 +33,10 @@ namespace CyberBeat
 			countVariable.OnValueChanged += OnChangedPorgress;
 			OnChangedPorgress (countVariable.Value);
 		}
-		private void OnDestroy ()
+		private void OnDisable ()
 		{
-			countVariable.OnValueChanged -= OnChangedPorgress;
+			if (countVariable)
+				countVariable.OnValueChanged -= OnChangedPorgress;
 		}
 		private void OnChangedPorgress (int count)
 		{

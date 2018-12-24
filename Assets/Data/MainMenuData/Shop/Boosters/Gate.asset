@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,7 +13,7 @@ MonoBehaviour:
   m_Name: Gate
   m_EditorClassIdentifier: 
   style: {fileID: 11400000, guid: a56fdbfbdeb938e43bb65704ab8d9541, type: 2}
-  Icon: {fileID: 21300000, guid: d1844f6168af3ed42ac64069b7a69b2f, type: 3}
+  Icon: {fileID: 21300000, guid: 5bb067b3ec7116240a546046facf0ff0, type: 3}
   title: gate
   Description: you_have
   isIAP: 0

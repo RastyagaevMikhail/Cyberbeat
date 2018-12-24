@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,7 +13,7 @@ MonoBehaviour:
   m_Name: OneLife
   m_EditorClassIdentifier: 
   style: {fileID: 11400000, guid: c20ff9591e2a0f74cb29e952bf31b7e9, type: 2}
-  Icon: {fileID: 21300000, guid: 0974132d263483a4c9d123430fc7ca51, type: 3}
+  Icon: {fileID: 21300000, guid: d9f0fed9a28d4b74f9529e616a98dc11, type: 3}
   title: life
   Description: you_have
   isIAP: 0

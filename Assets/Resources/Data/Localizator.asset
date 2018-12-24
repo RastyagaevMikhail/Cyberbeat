@@ -1,0 +1,582 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6abdba5008ac04cdeae4cb578e70bd43, type: 3}
+  m_Name: Localizator
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: OnLanguageChanged
+      Entry: 7
+      Data: 0|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: invocationList
+      Entry: 7
+      Data: 1|System.Delegate[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 10
+    - Name: 
+      Entry: 7
+      Data: 2|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: declaringType
+      Entry: 7
+      Data: 3|System.MonoType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: GameCore.LocalizeTextMeshProUGUI, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: methodName
+      Entry: 1
+      Data: <Awake>m__1
+    - Name: delegateType
+      Entry: 7
+      Data: 4|System.MonoType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 7
+      Data: 5|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 1
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: <Awake>m__1
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 7|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 2
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: <Awake>m__1
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 9|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 3
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: <Awake>m__1
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 11|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 4
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: <Awake>m__1
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 13|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 5
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: <Awake>m__1
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 15|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 16|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 6
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: <Awake>m__1
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 17|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 18|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 7
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: <Awake>m__1
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 19|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 20|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 8
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: <Awake>m__1
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 21|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 22|GameCore.Localizator+OnLanguageChangedDelegate, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 9
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: <Awake>m__1
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 23|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  translations:
+  - code: btn_play
+    val:
+    - Play
+    - "\u0418\u0433\u0440\u0430\u0442\u044C"
+  - code: change_language
+    val:
+    - Change Lang
+    - "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u044F\u0437\u044B\u043A"
+  - code: starter_box
+    val:
+    - Starter Box
+    - "\u0421\u0442\u0430\u0440\u0442\u043E\u0432\u044B\u0439 \u041D\u0430\u0431\u043E\u0440"
+  - code: notes_pack_7500
+    val:
+    - 7 500 notes
+    - "7 500  \u043D\u043E\u0442"
+  - code: box_of_notes
+    val:
+    - Box  of Notes
+    - "\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u043D\u043E\u0442"
+  - code: double_notes_title
+    val:
+    - Double notes
+    - "\u0423\u0434\u0432\u043E\u0435\u043D\u0438\u0435 \u043D\u043E\u0442"
+  - code: double_notes_desc
+    val:
+    - double all notes pickups
+    - "\u0443\u0434\u0432\u0430\u0438\u0432\u0430\u0435\u0442 \u043D\u043E\u0442\u044B"
+  - code: loading_text_1
+    val:
+    - Loading Planets
+    - "\u0417\u0430\u0433\u0440\u0443\u0436\u0430\u0435\u043C \u043F\u043B\u0430\u043D\u0435\u0442\u044B"
+  - code: loading_text_2
+    val:
+    - Placed stars
+    - "\u0420\u0430\u0441\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u043C \u0437\u0432\u0435\u0437\u0434\u044B"
+  - code: loading_text_3
+    val:
+    - Caluculate beats
+    - "\u041F\u043E\u0434\u0441\u0447\u0438\u0442\u044B\u0432\u0430\u0435\u043C \u0431\u0438\u0442\u044B"
+  - code: settings
+    val:
+    - Settings
+    - "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+  - code: authors_of_tracks
+    val:
+    - Authors of tracks
+    - "\u0410\u0432\u0442\u043E\u0440\u044B \u0442\u0440\u044D\u043A\u043E\u0432"
+  - code: other
+    val:
+    - other
+    - "\u0447\u0442\u043E-\u0442\u043E \u0435\u0449\u0451"
+  - code: on
+    val:
+    - on
+    - "\u0432\u043A\u043B"
+  - code: off
+    val:
+    - off
+    - "\u0432\u044B\u043A\u043B"
+  - code: music
+    val:
+    - music
+    - "\u043C\u0443\u0437\u044B\u043A\u0430"
+  - code: sound
+    val:
+    - sound
+    - "\u0437\u0432\u0443\u043A\u0438"
+  - code: english
+    val:
+    - english
+    - "\u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u0438\u0439"
+  - code: russian
+    val:
+    - russian
+    - "\u0440\u0443\u0441\u0441\u043A\u0438\u0439"
+  - code: language
+    val:
+    - language
+    - "\u044F\u0437\u044B\u043A"
+  - code: authors
+    val:
+    - authors of tracks
+    - "\u0430\u0432\u0442\u043E\u0440\u044B \u0442\u0440\u044D\u043A\u043E\u0432"
+  - code: vibration
+    val:
+    - Vibration
+    - "\u0412\u0438\u0431\u0440\u0430\u0446\u0438\u044F"
+  - code: quality
+    val:
+    - Qulity
+    - "\u041A\u0430\u0447\u0435\u0441\u0442\u0432\u043E"
+  - code: higth
+    val:
+    - Higth
+    - "\u0412\u044B\u0441\u043E\u043A\u043E\u0435"
+  - code: medium
+    val:
+    - Medium
+    - "\u0421\u0440\u0435\u0434\u043D\u0435\u0435"
+  - code: low
+    val:
+    - Low
+    - "\u041D\u0438\u0437\u043A\u043E\u0435"
+  - code: control
+    val:
+    - Control
+    - "\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435"
+  - code: tap
+    val:
+    - tap
+    - "\u0442\u0430\u043F\u043E\u043C"
+  - code: swipe
+    val:
+    - swipe
+    - "\u0441\u0432\u0430\u0439\u043F"
+  - code: restore_purchses
+    val:
+    - restore purchses
+    - "\u0432\u043E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u043E\u043A\u0443\u043F\u043A\u0438"
+  - code: boosters
+    val:
+    - Boosters
+    - "\u0411\u0443\u0441\u0442\u0435\u0440\u044B"
+  - code: skins
+    val:
+    - Skins
+    - "\u0421\u043A\u0438\u043D\u044B"
+  - code: notes
+    val:
+    - Notes
+    - "\u041D\u043E\u0442\u044B"
+  - code: play
+    val:
+    - Play
+    - "\u0418\u0433\u0440\u0430\u0442\u044C"
+  - code: colors
+    val:
+    - Colors
+    - "\u0426\u0432\u0435\u0442\u0430"
+  - code: life
+    val:
+    - Life
+    - "\u0416\u0438\u0437\u043D\u044C"
+  - code: blade
+    val:
+    - Blade
+    - "\u041B\u0435\u0437\u0432\u0438\u0435"
+  - code: shield
+    val:
+    - Shield
+    - "\u0429\u0438\u0442"
+  - code: gate
+    val:
+    - Gate
+    - "\u0412\u0440\u0430\u0442\u0430"
+  - code: you_have
+    val:
+    - 'You have:'
+    - "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438:"
+  - code: take_it
+    val:
+    - Take it
+    - "\u0417\u0430\u0431\u0440\u0430\u0442\u044C"
+  - code: agreement
+    val:
+    - Agreement
+    - "\u0421\u043E\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435"
+  - code: agree
+    val:
+    - Agree
+    - "\u0421\u043E\u0433\u043B\u0430\u0441\u0435\u043D(\u043D\u0430)"
+  - code: remember_gift
+    val:
+    - Remember from next gift
+    - "\u041D\u0430\u043F\u043E\u043C\u043D\u0438\u0442\u044C \u043E \u043F\u043E\u0434\u0430\u0440\u043A\u0435"
+  - code: yes
+    val:
+    - yes
+    - "\u0434\u0430"
+  - code: noa
+    val:
+    - No
+    - "\u041D\u0435\u0442"
+  - code: select
+    val:
+    - Select
+    - "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
+  - code: selected
+    val:
+    - Selected
+    - "\u0412\u044B\u0431\u0440\u0430\u043D\u043E"
+  - code: upgrade
+    val:
+    - Upgrade
+    - "\u041F\u0440\u043E\u043A\u0430\u0447\u043A\u0430"
+  - code: noads_offer_title
+    val:
+    - disable ads from 5 minuts
+    - "\u043E\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0440\u0435\u043A\u043B\u0430\u043C\u044B
+      \u043D\u0430 5 \u043C\u0438\u043D"
+  - code: plus_autorestart
+    val:
+    - +autorestart
+    - "+\u0410\u0432\u0442\u043E\u0440\u0435\u0441\u0442\u0430\u0440\u0442"
+  - code: noads_title
+    val:
+    - Disable Ads
+    - "\u041E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0440\u0435\u043A\u043B\u0430\u043C\u0443"
+  - code: 
+    val:
+    - 
+    - 
+  - code: activated
+    val:
+    - Activated
+    - "\u0410\u043A\u0442\u0438\u0432\u043D\u043E"
+  mLanguages: 0a0000001e000000

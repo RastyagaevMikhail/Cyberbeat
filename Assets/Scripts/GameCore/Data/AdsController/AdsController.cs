@@ -17,7 +17,23 @@ namespace GameCore
 #if UNITY_EDITOR
 		[UnityEditor.MenuItem ("Game/Data/ADS")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
 		public override void ResetDefault () { }
-		public override void InitOnCreate () { }
+		public override void InitOnCreate ()
+		{
+			CreateNoAdsVariable ();
+		}
+
+		[Button]
+		private void CreateNoAdsVariable ()
+		{
+			const string NoAdsVariablePath = "Assets/Data/Variables/AdsController/NoAds.asset";
+			noAds = Tools.GetAssetAtPath<BoolVariable> (NoAdsVariablePath);
+			if (noAds == null)
+			{
+				noAds = ScriptableObject.CreateInstance<BoolVariable> ();
+				noAds.CreateAsset (NoAdsVariablePath);
+				noAds.isSavable = true;
+			}
+		}
 #endif
 
 		public bool isLoadedRewardVideo
@@ -42,6 +58,12 @@ namespace GameCore
 #endif
 			}
 		}
+
+		public void ActivateNoAds ()
+		{
+			NoAds = true;
+		}
+
 		public bool internetNotReachable
 		{
 			get
@@ -71,6 +93,8 @@ namespace GameCore
 		}
 		Action<double, string> _onVideShown;
 		[NonSerialized] public Action OnRewardedVideoLoaded;
+		[SerializeField] BoolVariable noAds;
+		private bool NoAds { get { return noAds.Value; } set { noAds.Value = value; } }
 
 		public void ShowRewardVideo (GameEventRewardVideo OnVideoShown)
 		{

@@ -17,7 +17,7 @@ namespace CyberBeat
 	public class Track : ScriptableObject
 	{
 		public MusicInfo music;
-		public SocialInfo social;
+		public List<SocialInfo> socials;
 		[OdinSerialize]
 		public ShopInfo shopInfo;
 		public TracksCollection data { get { return TracksCollection.instance; } }

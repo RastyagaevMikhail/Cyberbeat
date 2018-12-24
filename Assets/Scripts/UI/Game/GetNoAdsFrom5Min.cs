@@ -15,7 +15,7 @@ namespace CyberBeat
     {
         [SerializeField] Button WatchButton;
         [SerializeField] Button SkipButton;
-        [SerializeField] GameObject Panel;
+        [SerializeField] GameObject Back;
         [SerializeField] BoolVariable NoadsIsEnabled;
         [SerializeField] TimeSpanVariable NoAdsTime;
         [SerializeField] GameEvent ShowResults;
@@ -25,7 +25,9 @@ namespace CyberBeat
 #if UNITY_EDITOR
         private void OnValidate ()
         {
-            Panel = transform.GetChild (0).gameObject;
+            Back = transform.GetChild (0).gameObject;
+
+            var Panel = Back.transform.GetChild (0);
 
             WatchButton = Panel.transform.GetChild (2).GetComponent<Button> ();
             SkipButton = Panel.transform.GetChild (3).GetComponent<Button> ();
@@ -40,13 +42,13 @@ namespace CyberBeat
         [Button]
         public void Show ()
         {
-            Panel.SetActive (true);
+            Back.SetActive (true);
         }
 
         [Button]
         public void Close ()
         {
-            Panel.SetActive (false);
+            Back.SetActive (false);
         }
 
         private void Awake ()

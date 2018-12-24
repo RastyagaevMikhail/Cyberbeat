@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 namespace GameCore
 {
     [ExecuteInEditMode]
-    [RequireComponent(typeof(Text))]
+    [RequireComponent (typeof (Text))]
     public class LocalizeText : MonoBehaviour
     {
         private Text mText;
@@ -13,53 +14,56 @@ namespace GameCore
 
         public enum CaseType
         {
-            Normal, Uppercase, Capitalize, Lowercase
+            Normal,
+            Uppercase,
+            Capitalize,
+            Lowercase
         }
 
         public CaseType letters = CaseType.Normal;
 
 #if UNITY_EDITOR
         private Coroutine mCoroutine = null;
-        IEnumerator UpdateCoroutine()
+        IEnumerator UpdateCoroutine ()
         {
             while (true)
             {
-                yield return new WaitForSeconds(0.2f);
-                UpdateText();
+                yield return new WaitForSeconds (0.2f);
+                UpdateText ();
             }
         }
 #endif
 
-        void Awake()
+        void Awake ()
         {
-            Localizator.OnLanguageChanged += () =>
+            Localizator.instance.OnLanguageChanged += () =>
             {
                 if (this != null)
                 {
-                    UpdateText();
+                    UpdateText ();
 #if UNITY_EDITOR
                     if (this != null)
                     {
-                        UnityEditor.EditorUtility.SetDirty(this);
+                        UnityEditor.EditorUtility.SetDirty (this);
                     }
 #endif
                 }
             };
         }
 
-        void OnEnable()
+        void OnEnable ()
         {
-            UpdateText();
+            UpdateText ();
 
 #if UNITY_EDITOR
             if (mCoroutine == null)
             {
-                mCoroutine = StartCoroutine(UpdateCoroutine());
+                mCoroutine = StartCoroutine (UpdateCoroutine ());
             }
 #endif
         }
 
-        private void UpdateText()
+        private void UpdateText ()
         {
             if (this == null)
             {
@@ -67,12 +71,12 @@ namespace GameCore
             }
             if (mText == null)
             {
-                mText = GetComponent<Text>();
+                mText = GetComponent<Text> ();
             }
             if (mText != null)
             {
-                string str = Localizator.s(Id);
-                if (string.IsNullOrEmpty(str))
+                string str = Id.localized ();
+                if (string.IsNullOrEmpty (str))
                 {
                     str = "Undefined!";
                 }
@@ -80,13 +84,13 @@ namespace GameCore
                 switch (letters)
                 {
                     case CaseType.Uppercase:
-                        str = str.ToUpper();
+                        str = str.ToUpper ();
                         break;
                     case CaseType.Lowercase:
-                        str = str.ToLower();
+                        str = str.ToLower ();
                         break;
                     case CaseType.Capitalize:
-                        str = FirstLetterToUpper(str);
+                        str = FirstLetterToUpper (str);
                         break;
                 }
 
@@ -94,15 +98,15 @@ namespace GameCore
             }
         }
 
-        public static string FirstLetterToUpper(string str)
+        public static string FirstLetterToUpper (string str)
         {
             if (str == null)
                 return null;
 
             if (str.Length > 1)
-                return char.ToUpper(str[0]) + str.Substring(1);
+                return char.ToUpper (str[0]) + str.Substring (1);
 
-            return str.ToUpper();
+            return str.ToUpper ();
         }
     }
 }

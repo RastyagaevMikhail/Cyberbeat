@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -52,6 +53,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0a2b306bb050e3f40b3da13e30ecd869, type: 2}
     - {fileID: 11400000, guid: de72312b99d472e4b9a71cb8b92ad09c, type: 2}
     - {fileID: 11400000, guid: 8478a01ba5d689145949bd361522a754, type: 2}
+    - {fileID: 11400000, guid: 0d3e500d10acd4d49961b14fb8c5919c, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -63,7 +65,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 37
+      Data: 38
     - Name: 
       Entry: 10
       Data: 0
@@ -175,6 +177,9 @@ MonoBehaviour:
     - Name: 
       Entry: 10
       Data: 36
+    - Name: 
+      Entry: 10
+      Data: 37
     - Name: 
       Entry: 13
       Data: 

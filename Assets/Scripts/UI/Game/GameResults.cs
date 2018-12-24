@@ -14,7 +14,7 @@ namespace CyberBeat
 
     public class GameResults : MonoBehaviour
     {
-        [SerializeField] GameObject Panel;
+        [SerializeField] GameObject Back;
         [SerializeField] GameObject RewardButtons;
         [SerializeField] GameObject PostGetReawardButtons;
         [SerializeField] Button DoubleReward;
@@ -24,9 +24,9 @@ namespace CyberBeat
         public AdsController Ads { get { return AdsController.instance; } }
         private void OnValidate ()
         {
-            Panel = transform.GetChild (0).gameObject;
-            RewardButtons = Panel.transform.Find ("RewardButtons").gameObject;
-            PostGetReawardButtons = Panel.transform.Find ("PostGetReawardButtons").gameObject;
+            Back = transform.GetChild (0).gameObject;
+            RewardButtons = Back.transform.GetChild (0).Find ("RewardButtons").gameObject;
+            PostGetReawardButtons = Back.transform.GetChild (0).Find ("PostGetReawardButtons").gameObject;
 
             DoubleReward = RewardButtons.transform.Find ("DoubleRewardButton").GetComponent<Button> ();
             GetReward = RewardButtons.transform.Find ("GetRewardButton").GetComponent<Button> ();
@@ -60,14 +60,14 @@ namespace CyberBeat
         [Button]
         public void Show ()
         {
-            Panel.SetActive (true);
+            Back.SetActive (true);
             ShowRewardsButtons (true);
         }
 
         [Button]
         public void Close ()
         {
-            Panel.SetActive (false);
+            Back.SetActive (false);
         }
 
     }

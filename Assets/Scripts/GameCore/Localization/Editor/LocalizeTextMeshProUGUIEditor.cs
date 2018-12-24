@@ -17,6 +17,7 @@ namespace GameCore.Editor
 	[CustomEditor (typeof (LocalizeTextMeshProUGUI))]
 	public class LocalizeTextMeshProUGUIEditor : OdinEditor
 	{
+		public Localizator localizator { get { return Localizator.instance; } }
 		private readonly GUILayoutOption[] defaultGUI = new GUILayoutOption[0];
 		bool onFix = false;
 		string newID;
@@ -30,7 +31,7 @@ namespace GameCore.Editor
 			DrawDefaultInspector ();
 
 			LocalizeTextMeshProUGUI locText = (LocalizeTextMeshProUGUI) target;
-			string[] values = Localizator.GetValuesForKey (locText.Id);
+			string[] values = localizator.GetValuesForKey (locText.Id);
 			EditorGUILayout.Separator ();
 			if (values.Length > 0)
 			{
@@ -43,12 +44,12 @@ namespace GameCore.Editor
 				for (int i = 0; i < values.Length; i++)
 				{
 					GUILayout.BeginHorizontal (defaultGUI);
-					EditorGUILayout.LabelField (Localizator.Languages[i].ToString (), defaultGUI);
+					EditorGUILayout.LabelField (localizator.Languages[i].ToString (), defaultGUI);
 
 					var newText = EditorGUILayout.TextField (values[i], defaultGUI);
 					if (newText.Equals (values[i]) == false)
 					{
-						Localizator.SaveLocalization (locText.Id, Localizator.Languages[i], newText);
+						localizator.SaveLocalization (locText.Id, localizator.Languages[i], newText);
 						EditorUtility.SetDirty (target);
 					}
 
@@ -64,12 +65,12 @@ namespace GameCore.Editor
 				if (addTrans)
 				{
 					if (translationFromAdd == null) translationFromAdd = new List<Translation> ();
-					translationFromAdd.Add (new Translation () { language = Localizator.GetLanguage () });
+					translationFromAdd.Add (new Translation () { language = localizator.GetLanguage () });
 				}
 				if (addDefaultTrans)
 				{
 					if (translationFromAdd == null) translationFromAdd = new List<Translation> ();
-					foreach (var lang in Localizator.Languages)
+					foreach (var lang in localizator.Languages)
 						translationFromAdd.Add (new Translation () { language = lang });
 				}
 				foreach (var trans in translationFromAdd)
@@ -86,10 +87,10 @@ namespace GameCore.Editor
 					bool SaveTrans = GUILayout.Button (new GUIContent ("Save Translations"), defaultGUI);
 					if (SaveTrans)
 					{
-						Localizator.AddTranslation (locText.Id);
+						localizator.AddTranslation (locText.Id);
 						foreach (var trans in translationFromAdd)
 						{
-							Localizator.SaveLocalization (locText.Id, trans.language, trans.value);
+							localizator.SaveLocalization (locText.Id, trans.language, trans.value);
 							EditorUtility.SetDirty (target);
 						}
 						translationFromAdd.Clear ();
@@ -111,7 +112,7 @@ namespace GameCore.Editor
 					newID = locText.Id;
 					notAdded = false;
 					translationFromAdd = new List<Translation> ();
-					foreach (var lang in Localizator.Languages)
+					foreach (var lang in localizator.Languages)
 						translationFromAdd.Add (new Translation () { language = lang });
 				}
 				newID = EditorGUILayout.TextField ("ID", newID);
@@ -129,16 +130,16 @@ namespace GameCore.Editor
 			{
 				if (notAdded == false && newID != locText.Id)
 				{
-					Localizator.AddTranslation (newID);
+					localizator.AddTranslation (newID);
 					for (int i = 0; i < values.Length; i++)
 					{
-						Localizator.SaveLocalization (newID, Localizator.Languages[i], values[i]);
+						localizator.SaveLocalization (newID, localizator.Languages[i], values[i]);
 					}
 					locText.Id = newID;
-					Localizator.AddTranslation (locText.Id);
+					localizator.AddTranslation (locText.Id);
 					foreach (var trans in translationFromAdd)
 					{
-						Localizator.SaveLocalization (locText.Id, trans.language, trans.value);
+						localizator.SaveLocalization (locText.Id, trans.language, trans.value);
 						EditorUtility.SetDirty (target);
 					}
 					translationFromAdd.Clear ();
@@ -166,12 +167,12 @@ namespace GameCore.Editor
 			{
 				if (notFixed == false && newID != locText.Id)
 				{
-					Localizator.AddTranslation (newID);
+					localizator.AddTranslation (newID);
 					for (int i = 0; i < values.Length; i++)
 					{
-						Localizator.SaveLocalization (newID, Localizator.Languages[i], values[i]);
+						localizator.SaveLocalization (newID, localizator.Languages[i], values[i]);
 					}
-					Localizator.RemoveTranslation (locText.Id);
+					localizator.RemoveTranslation (locText.Id);
 					locText.Id = newID;
 				}
 				notFixed = true;

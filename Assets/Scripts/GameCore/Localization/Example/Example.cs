@@ -1,16 +1,20 @@
-﻿using UnityEngine;
-using GameCore;
+﻿using GameCore;
 
+using UnityEngine;
 
-public class Example : MonoBehaviour {
+public class Example : MonoBehaviour
+{
 
-	public void ToggleLanguage()
+	public Localizator localizator { get { return Localizator.instance; } }
+	public void ToggleLanguage ()
 	{
-		if(Localizator.GetLanguage() == SystemLanguage.Russian)
+		if (localizator.GetLanguage () == SystemLanguage.Russian)
 		{
-			Localizator.LocalizatorSetEnglish();
-		} else {
-			Localizator.LocalizatorSetRussian();
+			Localizator.LocalizatorSetEnglish ();
+		}
+		else
+		{
+			Localizator.LocalizatorSetRussian ();
 		}
 	}
 }

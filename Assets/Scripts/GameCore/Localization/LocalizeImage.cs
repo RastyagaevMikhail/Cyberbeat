@@ -10,6 +10,7 @@ namespace GameCore
     [RequireComponent(typeof(Image))]
     public class LocalizeImage : MonoBehaviour
     {
+        public Localizator localizator { get { return Localizator.instance; } }
         [SerializeField]
         private SystemLanguage[] mLanguagesInternal;
         [SerializeField]
@@ -61,7 +62,7 @@ namespace GameCore
 
         void Awake()
         {
-            Localizator.OnLanguageChanged += () =>
+            localizator.OnLanguageChanged += () =>
             {
                 UpdateImage();
 #if UNITY_EDITOR
@@ -97,7 +98,7 @@ namespace GameCore
             }
             if (mImage != null)
             {
-                SystemLanguage language = Localizator.GetLanguage();
+                SystemLanguage language = localizator.GetLanguage();
                 int index = HasTranslations(language);
                 if (index >= 0)
                 {

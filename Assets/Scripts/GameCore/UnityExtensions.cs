@@ -223,7 +223,7 @@ namespace GameCore
         public static void Do (this float value, float endValue, float duration, TweenCallback<float> onVirtualUpdate = null, TweenCallback onComlete = null)
         {
             TweenCallback<float> DefaultCallback = v => value = v;
-            DOVirtual.Float (value, endValue, duration, onVirtualUpdate == null? DefaultCallback : onVirtualUpdate).OnComplete(onComlete);
+            DOVirtual.Float (value, endValue, duration, onVirtualUpdate == null? DefaultCallback : onVirtualUpdate).OnComplete (onComlete);
         }
     }
     public static class Vector3Extentions

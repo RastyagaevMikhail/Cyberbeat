@@ -33,7 +33,7 @@ namespace GameCore.Editor
 
             if (locImage.Sprites != null)
             {
-                string[] options = Localizator.GetAllLanguagesNames ();
+                string[] options = Localizator.instance.GetAllLanguagesNames ();
 
                 for (int i = 0; i < locImage.Sprites.Length; i++)
                 {

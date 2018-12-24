@@ -6,6 +6,9 @@ namespace CyberBeat
     using Text = TMPro.TextMeshProUGUI;
     using GameCore;
 
+    using Sirenix.OdinInspector;
+
+    using System.Collections.Generic;
     using System;
 
     public class AuthorsViewCell : FancyScrollViewCell<AuthorsData, AuthorsContext>
@@ -15,8 +18,8 @@ namespace CyberBeat
         [SerializeField] Text TrackName;
         [SerializeField] GameObject Play;
         [SerializeField] GameObject Pause;
-        [SerializeField] Image SocialButton;
-        private string socilaURL;
+        [SerializeField] Transform SocialButtonsParent;
+        [SerializeField] SocialButton SocialButtonPrefab;
 
         bool playing { set { Play.SetActive (!value); Pause.SetActive (value); } get { return !Play.activeSelf & Pause.activeSelf; } }
         AudioClip clip;
@@ -87,9 +90,18 @@ namespace CyberBeat
             TrackName.text = data.track.music.TrackName;
             AuthorName.text = data.track.music.AuthorName;
 
-            SocialButton.gameObject.SetActive (data.track.social.Icon);
-            SocialButton.sprite = data.track.social.Icon;
-            socilaURL = data.track.social.URL;
+            if (SocialButtonsParent.childCount == 0)
+                InitSocialButtons (data);
+        }
+
+        private void InitSocialButtons (AuthorsData data)
+        {
+            foreach (var social in data.track.socials)
+            {
+                var socButton = Instantiate (SocialButtonPrefab, SocialButtonsParent);
+                socButton.Init (social);
+            }
+
         }
 
         public void PlayMusic ()
@@ -125,11 +137,6 @@ namespace CyberBeat
             {
                 PlayMusic ();
             }
-        }
-
-        public void OpenSocial ()
-        {
-            Application.OpenURL (socilaURL);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace GameCore.Editor
     public class LocalizeTextEditor : Editor
     {
         private readonly GUILayoutOption[] defaultGUI = new GUILayoutOption[0];
-
+        public Localizator localizator { get { return Localizator.instance; } }
         public override void OnInspectorGUI ()
         {
             DrawDefaultInspector ();
@@ -20,17 +20,17 @@ namespace GameCore.Editor
 
             LocalizeText locText = (LocalizeText) target;
 
-            string[] values = Localizator.GetValuesForKey (locText.Id);
+            string[] values = localizator.GetValuesForKey (locText.Id);
 
             for (int i = 0; i < values.Length; i++)
             {
                 GUILayout.BeginHorizontal (defaultGUI);
-                EditorGUILayout.LabelField (Localizator.Languages[i].ToString (), defaultGUI);
+                EditorGUILayout.LabelField (localizator.Languages[i].ToString (), defaultGUI);
 
                 var newText = EditorGUILayout.TextField (values[i], defaultGUI);
                 if (newText.Equals (values[i]) == false)
                 {
-                    Localizator.SaveLocalization (locText.Id, Localizator.Languages[i], newText);
+                    localizator.SaveLocalization (locText.Id, localizator.Languages[i], newText);
                     EditorUtility.SetDirty (target);
                 }
 

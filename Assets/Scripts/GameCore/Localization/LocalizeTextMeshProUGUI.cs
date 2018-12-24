@@ -13,33 +13,34 @@ namespace GameCore
     [RequireComponent (typeof (TextMeshProUGUI))]
     public class LocalizeTextMeshProUGUI : MonoBehaviour
     {
+        public Localizator localizator { get { return Localizator.instance; } }
         private TextMeshProUGUI mText;
-        bool EmptyID { get { return Id.IsNullOrEmpty (); } }
+        // bool EmptyID { get { return Id.IsNullOrEmpty (); } }
 
-        [ShowIf ("EmptyID")]
-        [InlineButton ("NewID", "New ID")]
-        public string NewId;
-        [HideIf ("EmptyID")]
+        // [ShowIf ("EmptyID")]
+        // [InlineButton ("NewID", "New ID")]
+        // public string NewId;
+        // [HideIf ("EmptyID")]
         [InlineButton ("RemoveID", "Remove ID")]
         [ValueDropdown ("IDs")]
         public string Id;
         public List<string> IDs
         {
-            get { return Localizator.GetTranslations ().Select (t => t.code).ToList (); }
+            get { return localizator.GetTranslations ().Select (t => t.code).ToList (); }
         }
 #if UNITY_EDITOR
         public void RemoveID ()
         {
-            Localizator.RemoveTranslation (Id);
+            localizator.RemoveTranslation (Id);
         }
-        void NewID ()
-        {
-            string[] values = Localizator.GetValuesForKey (NewId);
-            if (values == null || values.Length == 0)
-                Localizator.AddTranslation (NewId);
+        // void NewID ()
+        // {
+        //     string[] values = localizator.GetValuesForKey (NewId);
+        //     if (values == null || values.Length == 0)
+        //         localizator.AddTranslation (NewId);
 
-            Id = NewId;
-        }
+        //     Id = NewId;
+        // }
 #endif
         public enum CaseType
         {
@@ -66,7 +67,7 @@ namespace GameCore
 
         void Awake ()
         {
-            Localizator.OnLanguageChanged += () =>
+            localizator.OnLanguageChanged += () =>
             {
                 if (this != null)
                 {
@@ -105,7 +106,7 @@ namespace GameCore
             }
             if (mText != null)
             {
-                string str = Localizator.s (Id);
+                string str = Id.localized();
                 if (string.IsNullOrEmpty (str))
                 {
                     str = "Undefined!";

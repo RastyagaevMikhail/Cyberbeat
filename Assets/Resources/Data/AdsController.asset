@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -19,6 +20,10 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: OnIntrastitialShown
+      Entry: 6
+      Data: 
   appKey: 3c672f0ffdbf98b0bac46b6d2009945882ca20f1e7a2dc3a
   adType: 131
+  noAds: {fileID: 11400000, guid: 0d3e500d10acd4d49961b14fb8c5919c, type: 2}
