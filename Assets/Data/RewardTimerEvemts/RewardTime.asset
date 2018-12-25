@@ -13,32 +13,14 @@ MonoBehaviour:
   m_Name: RewardTime
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 0300060000005f76616c75652f00000000001900000053797374656d2e54696d655370616e2c206d73636f726c69621c00000000000000000503000c00000044656661756c7456616c756530000000001c000000000000000005
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _value
-      Entry: 7
-      Data: System.TimeSpan, mscorlib
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DefaultValue
-      Entry: 7
-      Data: System.TimeSpan, mscorlib
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   DeveloperDescription: 
   categoryTag: Reward
   ResetByDefault: 0

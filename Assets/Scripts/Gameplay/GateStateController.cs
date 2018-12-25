@@ -30,17 +30,11 @@ namespace CyberBeat
         [SerializeField] GameObject EndGate;
         [SerializeField] Track track;
         [SerializeField] int Index;
-#if UNITY_EDITOR
         [SerializeField] bool alwaysOpen;
-#endif
         private void Start ()
         {
-#if UNITY_EDITOR
             if (!alwaysOpen)
-            {
-#endif
                 Activate (track.GetGateState (Index));
-            }
 
             DisableTunelAndGate ();
         }

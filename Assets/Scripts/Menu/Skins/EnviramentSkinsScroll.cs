@@ -39,8 +39,8 @@ namespace CyberBeat
 			if (skinsData.isRoadType (skinType))
 			{
 				scrollPositionController.ScrollTo (0);
-				foreach (var tg in transfromGroupSelector.Values)
-					DOVirtual.Float (tg.z, 0, 1, value => tg.z = value);
+				foreach (var transformGroup in transfromGroupSelector.Values)
+					DOVirtual.Float (transformGroup.z, 0, 1, value => transformGroup.z = value);
 
 				return;
 			}
