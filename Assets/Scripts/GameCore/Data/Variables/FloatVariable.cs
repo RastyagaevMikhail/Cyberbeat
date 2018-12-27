@@ -63,5 +63,10 @@ namespace GameCore
             _value.Clamp01 ();
         }
 
+        [ContextMenu ("Toggle Savable")]
+        void ToggleSavable () { isSavable = !isSavable; }
+
+        [ContextMenu ("Check Savable")]
+        void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
     }
 }

@@ -15,7 +15,7 @@ namespace GameCore
         }
         public override void InitOnCreate () { }
 #endif
-        [SerializeField] List<ISavableVariable> Saves;
+        public List<ASavableVariable> Saves;
 
         Saver _saver = null;
         Saver saver
@@ -55,22 +55,22 @@ namespace GameCore
             _saver = saver;
         }
 
-        public bool Contains (ISavableVariable savable)
+        public bool Contains (ASavableVariable savable)
         {
-            if (Saves == null) Saves = new List<ISavableVariable> ();
+            if (Saves == null) Saves = new List<ASavableVariable> ();
             return Saves.Contains (savable);
         }
-        public void Add (ISavableVariable savable)
+        public void Add (ASavableVariable savable)
         {
-            if (Saves == null) Saves = new List<ISavableVariable> ();
+            if (Saves == null) Saves = new List<ASavableVariable> ();
             Saves.Add (savable);
             this.Save ();
         }
-        public void Remove (ISavableVariable savable)
+        public void Remove (ASavableVariable savable)
         {
             if (Saves == null)
             {
-                Saves = new List<ISavableVariable> ();
+                Saves = new List<ASavableVariable> ();
                 return;
             }
             Saves.Remove (savable);
@@ -93,6 +93,12 @@ namespace GameCore
                 save.ResetLoaded ();
             }
         }
+
+        [ContextMenu ("CleatMissingReference")]
+        void ClearMissingReference ()
+        {
+            Saves.RemoveAll(item => item == null);
+        }   
 #endif
     }
 }

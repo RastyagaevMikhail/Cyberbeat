@@ -7,13 +7,13 @@ namespace GameCore
 	public class IntVariable : SavableVariable<int>
 	{
 		public override void ResetDefault ()
-        {
-            if (ResetByDefault)
-            {
-                Value = DefaultValue;
-                SaveValue ();
-            }
-        }
+		{
+			if (ResetByDefault)
+			{
+				Value = DefaultValue;
+				SaveValue ();
+			}
+		}
 		public void SetValue (int value)
 		{
 			Value = value;
@@ -68,5 +68,11 @@ namespace GameCore
 			variable.Value -= other;
 			return variable;
 		}
+
+		[ContextMenu ("Toggle Savable")]
+		void ToggleSavable () { isSavable = !isSavable; }
+
+		[ContextMenu ("Check Savable")]
+		void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
 	}
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameCore
 {
     [System.Serializable]
-    public abstract class SavableVariable<TValue> : ScriptableObject, ISavableVariable
+    public abstract class SavableVariable<TValue> : ASavableVariable
     {
         [Multiline]
         public string DeveloperDescription = "";
@@ -13,7 +13,7 @@ namespace GameCore
         public string CategoryTag { get { return categoryTag; } set { categoryTag = value; } }
         protected SaveData saveData { get { return SaveData.instance; } }
 
-        public bool isSavable
+        public override bool isSavable
         {
             get { return saveData.Contains (this); }
             set
@@ -37,7 +37,7 @@ namespace GameCore
         [SerializeField]
         protected bool ResetByDefault;
         [ContextMenu ("Reset Default")]
-        public abstract void ResetDefault ();
+        public override void ResetDefault () { }
         public Action<TValue> OnValueChanged = (o) => { };
         public bool Loaded = false;
         public virtual TValue Value
@@ -67,23 +67,23 @@ namespace GameCore
         }
 
         [ContextMenu ("Save Value")]
-        public abstract void SaveValue ();
+        public override void SaveValue (){}
         [ContextMenu ("Load Value")]
-        public virtual void LoadValue ()
+        public override void LoadValue ()
         {
             if (Application.isPlaying)
                 Loaded = true;
         }
 
 #if UNITY_EDITOR
-        public void CreateAsset (string path = "")
+        public override void CreateAsset (string path = "")
         {
             if (path == "") path = "Assets/Data/Variables/{0}/{1}.asset".AsFormat (GetType ().Name, name);
 
             Tools.CreateAsset (this, path);
 
         }
-        public void ResetLoaded ()
+        public override void ResetLoaded ()
         {
             Loaded = false;
             UnityEditor.EditorUtility.SetDirty (this);

@@ -42,8 +42,7 @@ namespace CyberBeat
                 upgradeData.CreateAsset (DefaultUPgradeDataPath.AsFormat (booster_name, "{0}UpgradeData".AsFormat (booster_name)));
             }
         }
-        private static T CreateVariable<T> (string booster_name, string nameVariable) where T : ScriptableObject,
-        ISavableVariable
+        private static T CreateVariable<T> (string booster_name, string nameVariable) where T : ASavableVariable
         {
             T Variable = ScriptableObject.CreateInstance<T> ();
             Variable.CreateAsset (DefaultUPgradeDataPath.AsFormat (booster_name, "{0}{1}".AsFormat (booster_name, nameVariable)));

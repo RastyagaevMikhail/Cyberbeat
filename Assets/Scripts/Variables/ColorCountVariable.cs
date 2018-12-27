@@ -20,6 +20,7 @@ namespace CyberBeat
 			Value = 0;
 			SaveValue ();
 		}
+		
 #endif
 	}
 }
