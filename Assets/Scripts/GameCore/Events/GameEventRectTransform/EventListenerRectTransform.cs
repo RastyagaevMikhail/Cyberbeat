@@ -1,5 +1,3 @@
-using Sirenix.OdinInspector;
-
 using System;
 
 using UnityEngine;
@@ -10,7 +8,7 @@ namespace GameCore
     [Serializable] public class EventListenerRectTransform
     {
         [SerializeField] GameEventRectTransform EventObject;
-        [DrawWithUnity]
+
         [SerializeField] UnityEventRectTransform Responce;
         public EventListenerRectTransform (GameEventRectTransform _evnet, UnityAction<RectTransform> action)
         {

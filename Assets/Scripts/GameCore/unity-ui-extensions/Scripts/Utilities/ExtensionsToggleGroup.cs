@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Sirenix.OdinInspector;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
@@ -21,8 +20,8 @@ namespace UnityEngine.UI
         public class ToggleGroupEvent : UnityEvent<bool>
         { }
 
-        [DrawWithUnity]public ToggleGroupEvent onToggleGroupChanged = new ToggleGroupEvent();
-        [DrawWithUnity]public ToggleGroupEvent onToggleGroupToggleChanged = new ToggleGroupEvent();
+        public ToggleGroupEvent onToggleGroupChanged = new ToggleGroupEvent();
+        public ToggleGroupEvent onToggleGroupToggleChanged = new ToggleGroupEvent();
 
         public ExtensionsToggle SelectedToggle { get; private set; }
 

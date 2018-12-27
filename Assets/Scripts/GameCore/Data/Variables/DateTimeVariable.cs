@@ -4,17 +4,18 @@ using System.Collections.Generic;
 
 using UnityEngine;
 namespace GameCore
-{	
-	[CreateAssetMenu(fileName ="DateTime Variable", menuName ="Variables/GameCore/DateTime")]
+{
+	[CreateAssetMenu (fileName = "DateTime Variable", menuName = "Variables/GameCore/DateTime")]
 	public class DateTimeVariable : SavableVariable<DateTime>
 	{
-		#if UNITY_EDITOR
 		public override void ResetDefault ()
 		{
-			Value = DefaultValue;
-			SaveValue ();
+			if (ResetByDefault)
+			{
+				Value = DefaultValue;
+				SaveValue ();
+			}
 		}
-		#endif
 		string strDeafultValue { get { return new DateTime ().ToString (); } }
 
 		public bool isNew { get { return _value == new DateTime (); } }
@@ -25,7 +26,7 @@ namespace GameCore
 		}
 		public override void LoadValue ()
 		{
-			base.LoadValue();
+			base.LoadValue ();
 			var str = PlayerPrefs.GetString (name, strDeafultValue);
 			DateTime.TryParse (str, out _value);
 		}

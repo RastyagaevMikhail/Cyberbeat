@@ -1,8 +1,6 @@
 ﻿using FluffyUnderware.Curvy;
 using FluffyUnderware.Curvy.Controllers;
 
-using Sirenix.OdinInspector;
-
 using SonicBloom.Koreo;
 
 using System;

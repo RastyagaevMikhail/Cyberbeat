@@ -1,5 +1,3 @@
-using Sirenix.OdinInspector;
-
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -28,8 +26,7 @@ namespace GameCore
 				eventListeners.Remove (listener);
 		}
 
-		[Title ("Test")]
 		[SerializeField] UnityEngine.Object testArg;
-		[Button] public void TestRaise () { Raise (testArg); }
+		[ContextMenu("Test Raise")] public void TestRaise () { Raise (testArg); }
 	}
 }

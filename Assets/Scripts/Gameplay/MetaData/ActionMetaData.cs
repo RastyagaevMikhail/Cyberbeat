@@ -1,5 +1,7 @@
 using FluffyUnderware.Curvy;
-using Sirenix.Utilities;
+
+using GameCore;
+
 using UnityEngine;
 using UnityEngine.Events;
 

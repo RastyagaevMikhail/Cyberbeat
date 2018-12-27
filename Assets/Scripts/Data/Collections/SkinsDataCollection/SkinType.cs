@@ -16,7 +16,7 @@ namespace CyberBeat
       public SkinsDataCollection skinsData { get { return SkinsDataCollection.instance; } }
       public void Apply (Object obj)
       {
-         foreach (var skin in skinsData.skins[this])
+         foreach (var skin in skinsData.skinsSelector[this])
             skin.Apply (obj);
       }
    }

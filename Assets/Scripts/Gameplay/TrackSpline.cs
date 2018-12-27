@@ -3,10 +3,6 @@ using FluffyUnderware.DevTools;
 
 using GameCore;
 
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using Sirenix.Utilities;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,12 +35,10 @@ namespace CyberBeat
 			}
 		}
 
-		[ShowInInspector]
 		public float LengthTimeTrackSpline { get { return segments.Select (s => s.TimeOnSegment).Sum (); } }
 
 #if UNITY_EDITOR
 		[ContextMenu ("Validate Segments")]
-		[Button]
 		private void ValidateSegments ()
 		{
 			float sum_time = 0;

@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 namespace CyberBeat
 {
 	public enum LayerType

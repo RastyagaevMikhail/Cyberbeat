@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
+﻿
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,7 +10,7 @@ namespace GameCore
 	public class OnIntVariableChanged : MonoBehaviour
 	{
 		[SerializeField] IntVariable variable;
-		[SerializeField, DrawWithUnity] UnityEventInt action;
+		[SerializeField] UnityEventInt action;
 
 		private void OnEnable ()
 		{

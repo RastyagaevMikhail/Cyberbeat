@@ -2,8 +2,6 @@
 
 using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,13 +26,13 @@ namespace CyberBeat
         {
             get
             {
-                if (!skinsData.skins.ContainsKey (skinType)) return null;
-                return skinsData.skins[skinsData.SkinType][_skinIndex];
+                if (!skinsData.skinsSelector.ContainsKey (skinType)) return null;
+                return skinsData.skinsSelector[skinsData.SkinType][_skinIndex];
             }
         }
         int SkinIndex { get { return skinsData.SkinIndex; } set { skinsData.SkinIndex = value; } }
 
-        [Title ("UI")] //-----------------------------------------------------------------------
+        [Header ("UI")] //-----------------------------------------------------------------------
         [SerializeField] ContentButton BuyButton;
         [SerializeField] ContentButton SelectButton;
 
@@ -114,10 +112,10 @@ namespace CyberBeat
             _UpdateValues (skin);
         }
 
-        [ShowInInspector]
+        [SerializeField]
         int _skinIndex;
 
-        [SerializeField, DrawWithUnity] UnityEventInt onSkinSelceted;
+        [SerializeField] UnityEventInt onSkinSelceted;
         private SkinType skinType;
 
         bool currentIsSelected { get { return _skinIndex == SkinIndex; } }
@@ -128,7 +126,7 @@ namespace CyberBeat
             // Debug.Log ("Update Selection");
             // Debug.LogFormat ("skinIsAvalivable = {0}", skinIsAvalivable);
             // Debug.LogFormat ("currentSkinIsRaod = {0}", currentSkinIsRaod);
-            SelectButton.SetActive (skin.IsAvalivable /* && !currentSkinIsRaod */);
+            SelectButton.SetActive (skin.IsAvalivable /* && !currentSkinIsRaod */ );
             // Debug.LogFormat ("currentIsSelected = {0}", currentIsSelected);
             SelectButton.textLocalizationID = (currentIsSelected ? "selected" : "select");
             SelectButton.textColor = currentIsSelected ? selectedColor : unselectedColor;

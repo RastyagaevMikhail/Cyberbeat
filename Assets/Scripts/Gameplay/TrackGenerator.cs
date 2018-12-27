@@ -1,6 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.Serialization;
 
 using SonicBloom.Koreo;
 using SonicBloom.Koreo.Players;
@@ -30,7 +29,6 @@ namespace CyberBeat
                 ASource.Play ();
         }
 
-        [OdinSerialize]
         RandomConstantMaterial rcm;
         private List<BitInfo> CurrentBits = null;
         BitInfo currentBit = null;
@@ -113,10 +111,10 @@ namespace CyberBeat
             obj.transform.rotation = transform.rotation;
 
             obj.Get<MetaDataGizmos> ().MetaData = currentBit.time.ToString ();
-            MaterialSwitcher origianlMaterialSwitcher = spwn_obj.Get<MaterialSwitcher> ();
-            if (origianlMaterialSwitcher)
+            MaterialSwitcher originalMaterialSwitcher = spwn_obj.Get<MaterialSwitcher> ();
+            if (originalMaterialSwitcher)
             {
-                Material currentMaterial = origianlMaterialSwitcher.CurrentMaterial;
+                Material currentMaterial = originalMaterialSwitcher.CurrentMaterial;
 
                 if (obj.Get<ColorSwitcher> ())
                 {
@@ -133,7 +131,7 @@ namespace CyberBeat
                     Material ConstantMaterial = rcm.Constant[currentMaterial];
                     Material RandomMaterial = rcm.GetRandom (currentMaterial);
                     matSwitcher.SetMaterial (matSwitcher.Constant ? ConstantMaterial : RandomMaterial);
-                    LastRandomColor = RandomMaterial.GetColor ("_EmissionColor");
+                    LastRandomColor = RandomMaterial.GetColor(matSwitcher.DefaultColorName);
                 }
             }
             return obj;

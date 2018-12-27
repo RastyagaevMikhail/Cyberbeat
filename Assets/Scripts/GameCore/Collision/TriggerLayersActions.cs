@@ -43,7 +43,6 @@ namespace GameCore
 	public class LayersAction
 	{
 		public LayerMask layermask;
-		[Sirenix.OdinInspector.DrawWithUnity]
 		public UnityEventGameObject action;
 		public void Invoke (GameObject go)
 		{

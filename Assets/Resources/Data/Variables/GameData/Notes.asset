@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfeecda361dff14bb7050f05dd2c888, type: 3}
   m_Name: Notes
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   DeveloperDescription: 
   categoryTag: GameData
-  _value: 46800
-  DefaultValue: 2000
+  _value: 2147483647
+  DefaultValue: 10000000
   ResetByDefault: 1
   Loaded: 0

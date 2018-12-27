@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
+﻿
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,19 +8,19 @@ namespace GameCore
 {
 	public class MonoBehaviourSingleCallEvents : MonoBehaviour
 	{
-		[SerializeField, DrawWithUnity] UnityEvent _OnEnable;
+		[SerializeField] UnityEvent _OnEnable;
 		private void OnEnable () { _OnEnable.Invoke (); }
 
-		[SerializeField, DrawWithUnity] UnityEvent OnAwake;
+		[SerializeField] UnityEvent OnAwake;
 		private void Awake () { OnAwake.Invoke (); }
 
-		[SerializeField, DrawWithUnity] UnityEvent OnStart;
+		[SerializeField] UnityEvent OnStart;
 		private void Start () { OnStart.Invoke (); }
 
-		[SerializeField, DrawWithUnity] UnityEvent _OnDisable;
+		[SerializeField] UnityEvent _OnDisable;
 		private void OnDisable () { _OnDisable.Invoke (); }
 
-		[SerializeField, DrawWithUnity] UnityEvent _OnDestroy;
+		[SerializeField] UnityEvent _OnDestroy;
 		private void OnDestroy () { _OnDestroy.Invoke (); }
 	}
 }

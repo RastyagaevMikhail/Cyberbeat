@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -47,15 +45,12 @@ namespace CyberBeat
 		}
 
 #if UNITY_EDITOR
-		[Button] public void Validate ()
+		[ContextMenu ("Validate")]
+		public void Validate ()
 		{
-			foreach (var controller in GetComponentsInChildren<StyleController> ())
-			{
-				controller.Validate (data.style);
-			}
 			UpdateValues ();
 			Icon.SetNativeSize ();
-			CountSetter.SetVariavle(data.Count);
+			CountSetter.SetVariavle (data.Count);
 			name = "ShopCard_{0}".AsFormat (data.name);
 			transform.localScale = Vector3.one;
 		}

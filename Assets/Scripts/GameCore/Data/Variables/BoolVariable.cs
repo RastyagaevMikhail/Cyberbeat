@@ -5,7 +5,6 @@ namespace GameCore
     [CreateAssetMenu (fileName = "BoolVariable", menuName = "Variables/GameCore/Bool")]
     public class BoolVariable : SavableVariable<bool>
     {
-#if UNITY_EDITOR
         public override void ResetDefault ()
         {
             if (ResetByDefault)
@@ -14,7 +13,6 @@ namespace GameCore
                 SaveValue ();
             }
         }
-#endif
         public override void LoadValue ()
         {
             base.LoadValue ();

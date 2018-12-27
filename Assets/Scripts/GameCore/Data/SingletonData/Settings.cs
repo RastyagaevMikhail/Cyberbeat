@@ -5,10 +5,6 @@ using UnityEngine;
 
 namespace GameCore
 {
-	using Sirenix.OdinInspector;
-
-	using UnityEngine;
-
 	public class Settings : SingletonData<Settings>
 	{
 
@@ -26,13 +22,12 @@ namespace GameCore
 		public bool MuteUISound { get { return SoundManager.MuteUISound; } set { SoundManager.MuteUISound = value; } }
 		public bool MuteSound { get { return MuteGameSound && MuteUISound; } set { MuteGameSound = MuteUISound = value; } }
 		public bool MuteMusic { get { return SoundManager.MuteMusic; } set { SoundManager.MuteMusic = value; } }
-		public Localizator localizator { get { return Localizator.instance; } }
-		public SystemLanguage Language { get { return localizator.GetLanguage (); } set { localizator.SetLanguage (value); } }
+		public LocalizationManager localizator { get { return LocalizationManager.instance; } }
+		public SystemLanguage Language { get { return localizator.currentLanguage; } set { localizator.SetLanguage (value); } }
 
 		public bool VibrationEnabled { get { return PlayerPrefs.GetInt ("Vibration", 1) == 1; } set { PlayerPrefs.SetInt ("Vibration", value ? 1 : 0); } }
 		public long VibrationTime { get { return (long) PlayerPrefs.GetFloat ("VibrationTime", 55); } set { PlayerPrefs.SetFloat ("VibrationTime", value); } }
 
-		[ShowInInspector]
 		public InputType inputType { get { return (InputType) PlayerPrefs.GetInt ("InputType", (int) InputType.Tap); } set { PlayerPrefs.SetInt ("InputType", (int) value); } }
 
 	}

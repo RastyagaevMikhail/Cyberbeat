@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,7 +27,7 @@ namespace CyberBeat
 #if UNITY_EDITOR
         static int[] UpgradeVideoAdsPrices = new int[] { 1, 3, 5, 7, 9, 10, 12, 15, 17, 20 };
         static int[] UpgradeNotePrices = new int[] { 50, 100, 150, 200, 250, 300, 350, 400, 450, 500 };
-        [Button]
+        [ContextMenu ("Copy To Variable")]
         public void CopyToVariable ()
         {
             upgradeVideoAdsPrices.Value = new List<int> ();
@@ -92,10 +90,9 @@ namespace CyberBeat
         }
 
         public string IAPTag;
-        public ColorsStyle style;
 #if UNITY_EDITOR
 
-        [Button]
+        [ContextMenu ("Generate Products")]
         public void GenerateProducts ()
         {
             ProductCatalog productCatalog = ProductCatalog.LoadDefaultCatalog ();
@@ -116,7 +113,7 @@ namespace CyberBeat
         public void ResetDefault ()
         {
             CurrentUpgrade.Value = 0;
-            CurrentUpgrade.Save();
+            CurrentUpgrade.Save ();
         }
 #endif
     }

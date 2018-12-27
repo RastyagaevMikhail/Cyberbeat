@@ -9,15 +9,10 @@ using UnityEngine.UI;
 using Text = TMPro.TextMeshProUGUI;
 using GameCore;
 
-using Sirenix.OdinInspector;
-
 namespace CyberBeat
 {
 	public class SettingsControl : MonoBehaviour
 	{
-
-		[DrawWithUnity]
-
 		[SerializeField] List<StateControl> States;
 		[SerializeField] Image stateImage;
 		[SerializeField] LocalizeTextMeshProUGUI stateName;

@@ -1,11 +1,12 @@
 using GameCore;
 
-using Sirenix.OdinInspector;
-
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 namespace CyberBeat
 {
 
@@ -14,18 +15,19 @@ namespace CyberBeat
 #if UNITY_EDITOR
 		[UnityEditor.MenuItem ("Game/Data/Colors")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
 
-		[Button]
 		public override void InitOnCreate () { GenerateColorsCount (); }
+
+		[ContextMenu ("Generate Colors Count")]
 		void GenerateColorsCount ()
 		{
-			ColorsCounter = new Dictionary<Color, ColorCountVariable> ();
+			colorsCounter = new ColorsCounter ();
 			foreach (var clr in AllColors)
 			{
 				var colorCountVar = ScriptableObject.CreateInstance<ColorCountVariable> ();
 				colorCountVar.color = clr;
-				colorCountVar.name = "#{0}".AsFormat (clr.ToString (false));
-				ColorsCounter.Add (clr, colorCountVar);
-				Tools.CreateAsset (colorCountVar, "Assets/Resources/Data/Variables/Colors/{0}.asset".AsFormat (colorCountVar.name));
+				var nameVariable = "#{0}".AsFormat (clr.ToString (false));
+				colorsCounter.counts.Add (new ColorCount () { color = clr, variable = colorCountVar });
+				Tools.CreateAsset (colorCountVar, "Assets/Resources/Data/Variables/Colors/{0}.asset".AsFormat (nameVariable));
 			}
 			this.Save ();
 		}
@@ -36,7 +38,6 @@ namespace CyberBeat
 #endif
 		//---Colors---
 		private List<Color> _colors = null;
-		[ShowInInspector]
 		public List<Color> colors
 		{
 			get
@@ -59,11 +60,10 @@ namespace CyberBeat
 
 		public int ColorsPerCell { get { return colorsByLevel.InRangeIndex (levelOnColorProgress.Value) ? colorsByLevel[levelOnColorProgress.Value] : 50; } }
 
-		public Dictionary<Color, ColorCountVariable> ColorsCounter = new Dictionary<Color, ColorCountVariable> ();
-		public bool ColorsCounterIsFull { get { return ColorsCounter.Values.ToList ().FindAll (v => colors.Contains (v.color)).TrueForAll (v => v.Value >= ColorsPerCell); } }
+		public ColorsCounter colorsCounter = new ColorsCounter ();
+		public bool ColorsCounterIsFull { get { return colorsCounter.Variables.ToList ().FindAll (v => colors.Contains (v.color)).TrueForAll (v => v.Value >= ColorsPerCell); } }
 
-		// [System.NonSerialized]
-		[ShowInInspector] RandomStack<Color> randStack = null;
+		[SerializeField] RandomStack<Color> randStack = null;
 		public Color RandomColor
 		{
 			get
@@ -81,8 +81,7 @@ namespace CyberBeat
 			if (!unityObject.CheckAs (out colorVar)) return;
 			Color color = colorVar.Value;
 
-			ColorCountVariable colorCountVariable;
-			ColorsCounter.TryGetValue (color, out colorCountVariable);
+			ColorCountVariable colorCountVariable = colorsCounter[color];
 			if (colorCountVariable && colorCountVariable.Value < ColorsPerCell) colorCountVariable.Increment ();
 
 		}
@@ -91,19 +90,71 @@ namespace CyberBeat
 		{
 			randStack = new RandomStack<Color> (colors);
 		}
-		//TODO init Default Colors From Layers from tracks
-		[Button] private void InitColors ()
+
+		[ContextMenu ("Init Colors")]
+		private void InitColors ()
 		{
 			var Values = System.Enum.GetValues (typeof (LayerType));
 			if (DefaultLayersColors == null || DefaultLayersColors.Count == 0 || DefaultLayersColors.Count != Values.Length)
 			{
-				DefaultLayersColors = new Dictionary<LayerType, Color> ();
+				DefaultLayersColors = new LayersColors ();
 				foreach (LayerType lt in Values)
 				{
-					DefaultLayersColors.Add (lt, RandomColor);
+					DefaultLayersColors.layerOfColors.Add (new LayerOfColor () { layer = lt, color = RandomColor });
 				}
 			}
 		}
-		public Dictionary<LayerType, Color> DefaultLayersColors;
+		public LayersColors DefaultLayersColors;
+	}
+
+	[Serializable]
+	public class LayersColors
+	{
+		public List<LayerOfColor> layerOfColors;
+		public int Count { get { return layerOfColors.Count; } }
+
+		public Color this [LayerType layer]
+		{
+			get
+			{
+				return layerOfColors.Find (lc => lc.layer == layer).color;
+			}
+		}
+	}
+
+	[Serializable]
+	public class LayerOfColor
+	{
+		public LayerType layer;
+		public Color color;
+	}
+
+	[Serializable]
+	public class ColorsCounter
+	{
+		public List<ColorCountVariable> Variables
+		{
+			get
+			{
+				return counts.Select (c => c.variable).ToList ();
+			}
+		}
+
+		public List<ColorCount> counts = new List<ColorCount> ();
+
+		public ColorCountVariable this [Color color]
+		{
+			get
+			{
+				return counts.Find (counts => counts.color == color).variable;
+			}
+		}
+	}
+
+	[Serializable]
+	public class ColorCount
+	{
+		public Color color;
+		public ColorCountVariable variable;
 	}
 }

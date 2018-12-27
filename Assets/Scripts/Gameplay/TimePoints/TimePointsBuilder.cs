@@ -4,9 +4,6 @@ using FluffyUnderware.Curvy.Generator.Modules;
 
 using GameCore;
 
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,7 +11,7 @@ using UnityEngine;
 namespace CyberBeat
 {
 
-    public class TimePointsBuilder : SerializedMonoBehaviour
+    public class TimePointsBuilder : MonoBehaviour
     {
         public TimeOfEventsData dataTime;
         public TimePointsData DataSave { get { return dataTime.PointsData; } }
@@ -28,10 +25,9 @@ namespace CyberBeat
         public Transform parent;
         public string namePrefix = "Line";
         public string payloadFilter;
-
-        public ITimePointsPostBuilder postBuilder = new ComboTunnelPostBuilder ();
-        [SerializeField] List<GameObject> BuildedObjects = new List<GameObject>();
-        [Button]
+        public ATimePointsPostBuilder postBuilder;
+        [SerializeField] List<GameObject> BuildedObjects = new List<GameObject> ();
+        [ContextMenu ("Build")]
         void Build ()
         {
             var FilterdIndexesOfTimes = dataTime[payloadFilter].Select (t => dataTime.Times.IndexOf (t));
@@ -68,7 +64,7 @@ namespace CyberBeat
                 generator.Refresh ();
 
                 var GOBuild = postBuilder.PostBuild (this, generator.gameObject);
-                BuildedObjects.Add(GOBuild);
+                BuildedObjects.Add (GOBuild);
             }
 #if UNITY_EDITOR
             drawer = new TimePointsGizmoDrawer (points);
@@ -84,13 +80,13 @@ namespace CyberBeat
             }
         }
 
-        [Button] public void Clear ()
+        [ContextMenu ("Clear")] public void Clear ()
         {
             foreach (var go in BuildedObjects)
             {
-                Tools.Destroy(go);
+                Tools.Destroy (go);
             }
-            BuildedObjects.Clear();
+            BuildedObjects.Clear ();
         }
 #endif
     }

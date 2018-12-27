@@ -1,5 +1,7 @@
-﻿using Sirenix.OdinInspector;
-using DG.Tweening;
+﻿using DG.Tweening;
+
+using GameCore;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,8 +13,6 @@ namespace CyberBeat
 	{
 		public Material CurrentMaterial { get { return renderer.sharedMaterial; } }
 
-		private ParticleSystemRenderer _partRenderer = null;
-		public ParticleSystemRenderer partRenderer { get { if (_partRenderer == null) _partRenderer = GetComponent<ParticleSystemRenderer> (); return _partRenderer; } }
 		public Color CurrentColor { get { return this [DefaultColorName]; } }
 		public Color this [string colorName]
 		{
@@ -22,9 +22,8 @@ namespace CyberBeat
 		public new Renderer renderer { get { if (_renderer == null) _renderer = GetComponent<Renderer> (); return _renderer; } }
 		public bool Constant = true;
 
-		[ValueDropdown ("ColorNames")]
-		[SerializeField] string DefaultColorName = "_Color";
-		static string[] ColorNames = new string[] { "_Color", "_EmissionColor", "_Emis", "_TintColor" };
+		public string DefaultColorName = "_Color";
+		static string[] ColorNames = new string[] { "_Color", "_EmissionColor", "_Emis", "_TintColor", "_EmissiveColor" };
 
 		public void SetColor (Color newColor)
 		{

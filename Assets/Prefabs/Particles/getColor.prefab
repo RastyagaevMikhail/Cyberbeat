@@ -4627,7 +4627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Constant: 1
-  DefaultColorName: _EmissionColor
+  DefaultColorName: _EmissiveColor
 --- !u!1 &7723277063174253682
 GameObject:
   m_ObjectHideFlags: 0
@@ -9254,7 +9254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Constant: 1
-  DefaultColorName: _EmissionColor
+  DefaultColorName: _EmissiveColor
 --- !u!1 &8181107078723069153
 GameObject:
   m_ObjectHideFlags: 0
@@ -9268,6 +9268,7 @@ GameObject:
   - component: {fileID: 8555723446092741974}
   - component: {fileID: 5814588266505027277}
   - component: {fileID: 6974421898623401848}
+  - component: {fileID: 4348371404801279697}
   m_Layer: 0
   m_Name: getColor
   m_TagString: Untagged
@@ -13912,7 +13913,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -14029,3 +14030,16 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OffsetPosition: {x: 0, y: 0.15, z: 0}
+--- !u!114 &4348371404801279697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8181107078723069153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72a0d1c90f019b4daca348420de5a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeDelay: 1

@@ -17,15 +17,15 @@ namespace CyberBeat
 		{
 			inputType = (InputType) type;
 		}
-		public Localizator localizator { get { return Localizator.instance; } }
-		public SystemLanguage Language { get { return localizator.GetLanguage (); } set { localizator.SetLanguage (value); } }
+		public LocalizationManager localizator { get { return LocalizationManager.instance; } }
+		public SystemLanguage Language { get { return localizator.currentLanguage; } set { localizator.SetLanguage (value); } }
 		public void SetEnglish ()
 		{
-			Localizator.LocalizatorSetEnglish ();
+			Language = SystemLanguage.English;
 		}
 		public void SetRussian ()
 		{
-			Localizator.LocalizatorSetRussian ();
+			Language = SystemLanguage.Russian;
 		}
 
 		[SerializeField] SettingsControl Music;

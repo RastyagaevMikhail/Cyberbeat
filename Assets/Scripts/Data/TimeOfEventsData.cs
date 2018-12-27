@@ -2,20 +2,17 @@ using SonicBloom.Koreo;
 
 namespace CyberBeat
 {
-    using Sirenix.OdinInspector;
-    using Sirenix.Serialization;
 
     using System.Collections.Generic;
 
     using UnityEngine;
 
-    public class TimeOfEventsData : SerializedScriptableObject
+    public class TimeOfEventsData : ScriptableObject
     {
-        [OdinSerialize]
-        [ShowInInspector] public List<TimeOfEvent> Times { get; private set; }
+        public List<TimeOfEvent> Times { get; private set; }
 
         public TimePointsData PointsData;
-        [ShowInInspector] public float SampleRate { get; private set; }
+        public float SampleRate { get; private set; }
         public void Init (float sampleRate, List<KoreographyEvent> events, TimePointsData pointsData)
         {
             SampleRate = sampleRate;

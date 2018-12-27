@@ -6,7 +6,6 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "", menuName = "Variables/GameCore/Int")]
 	public class IntVariable : SavableVariable<int>
 	{
-		#if UNITY_EDITOR
 		public override void ResetDefault ()
         {
             if (ResetByDefault)
@@ -15,7 +14,6 @@ namespace GameCore
                 SaveValue ();
             }
         }
-		#endif
 		public void SetValue (int value)
 		{
 			Value = value;

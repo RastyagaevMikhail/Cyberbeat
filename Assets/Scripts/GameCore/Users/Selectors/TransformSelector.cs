@@ -5,9 +5,8 @@ using UnityEngine;
 
 namespace GameCore
 {
-	public abstract class TransformSelector<T> : EnumDataSelector<T, Transform> where T : EnumScriptable
+	public abstract class TransformSelector<T> : AEnumDataSelectorMonoBehaviour<T, Transform> where T : EnumScriptable
 	{
 
 	}
-
 }

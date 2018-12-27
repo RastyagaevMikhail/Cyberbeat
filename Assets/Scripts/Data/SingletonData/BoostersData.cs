@@ -1,8 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,12 +15,12 @@ namespace CyberBeat
         public override void InitOnCreate ()
         {
             boosters = Tools.GetAtPath<BoosterData> ("Assets/Data/Boosters").ToList ();
-            boosts  = boosters.ToDictionary( b =>b.name);
+            boosts = boosters.ToDictionary (b => b.name);
         }
 
         private const string DefaultUPgradeDataPath = "Assets/Data/UpgradeData/{0}/{1}.asset";
-        [Button]
-        public void GenerateUpgeadeData ()
+        [ContextMenu ("Generate Upgrade Data")]
+        public void GenerateUpgradeData ()
         {
             foreach (var booster in boosters)
             {
@@ -53,23 +50,14 @@ namespace CyberBeat
             return Variable;
         }
 
-        [Button]
-        public void CreateStylesByBoostes ()
-        {
-            foreach (var booster in boosters)
-            {
-                var style = ScriptableObject.CreateInstance<ColorsStyle> ();
-                style.InitOnCreate ();
-                style.CreateAsset ("Assets/Data/ColorsStyles/{0}Style.asset".AsFormat (booster.name));
-            }
-        }
-
-        [Button] public void ValidateUpgrades ()
+        [ContextMenu ("Validate Upgrades")]
+        public void ValidateUpgrades ()
         {
             Upgrades = Tools.GetAtPath<UpgradeData> ("Assets/Data/UpgradeData").ToList ();
         }
 
-        [Button] public void CopyToVariable ()
+        [ContextMenu ("Copy To Variable")]
+        public void CopyToVariable ()
         {
             foreach (var item in Upgrades)
             {
@@ -77,7 +65,7 @@ namespace CyberBeat
             }
         }
 
-        [Button] public void GenerateShopItems ()
+        [ContextMenu ("Generate Shop Items")] public void GenerateShopItems ()
         {
             foreach (var booster in boosters)
             {

@@ -4,248 +4,39 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e312962230f04c4c851a80e46eae75d, type: 3}
   m_Name: Colors
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: cc46f979c7a659948bde43679734f447, type: 2}
-    - {fileID: 11400000, guid: bc1bcab161d068a48b1f83e6995e475b, type: 2}
-    - {fileID: 11400000, guid: e3988a7a00a5160408792808ed104ef0, type: 2}
-    - {fileID: 11400000, guid: c1abdfe4809bbf44bbd12aa9033ed888, type: 2}
-    - {fileID: 11400000, guid: a5680aaf8f02d5f4cb622b3c973a3077, type: 2}
-    - {fileID: 11400000, guid: ea4b6e68bc8b76a479072de7ff1d3450, type: 2}
-    - {fileID: 11400000, guid: ac3093ed123f9c647abdb49e9e3eb809, type: 2}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: ColorsCounter
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[UnityEngine.Color, UnityEngine.CoreModule],[CyberBeat.ColorCountVariable,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[UnityEngine.Color,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 7
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.843137264
-    - Name: 
-      Entry: 4
-      Data: 0.20784314
-    - Name: 
-      Entry: 4
-      Data: 0.286274523
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 0.596078455
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 0.921568632
-    - Name: 
-      Entry: 4
-      Data: 0.23137255
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.533333361
-    - Name: 
-      Entry: 4
-      Data: 0.870588243
-    - Name: 
-      Entry: 4
-      Data: 0.447058827
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.596078455
-    - Name: 
-      Entry: 4
-      Data: 0.996078432
-    - Name: 
-      Entry: 4
-      Data: 0.996078432
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 4
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.0117647061
-    - Name: 
-      Entry: 4
-      Data: 0.6627451
-    - Name: 
-      Entry: 4
-      Data: 0.956862748
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.6901961
-    - Name: 
-      Entry: 4
-      Data: 0.4
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 6
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DefaultLayersColors
-      Entry: 6
-      Data: 
   AllColors:
-  - {r: 0.84313726, g: 0.20784314, b: 0.28627452, a: 1}
-  - {r: 1, g: 0.59607846, b: 0, a: 1}
-  - {r: 1, g: 0.92156863, b: 0.23137255, a: 1}
-  - {r: 0.53333336, g: 0.87058824, b: 0.44705883, a: 1}
-  - {r: 0.59607846, g: 0.99607843, b: 0.99607843, a: 1}
-  - {r: 0.011764706, g: 0.6627451, b: 0.95686275, a: 1}
-  - {r: 0.6901961, g: 0.4, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.27058825, b: 0, a: 1}
+  - {r: 1, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
   levelOnColorProgress: {fileID: 11400000, guid: 9d18fa84f6e0892429a345c71559c840,
     type: 2}
+  colorsCounter:
+    counts:
+    - color: {r: 1, g: 0, b: 0, a: 1}
+      variable: {fileID: 11400000, guid: 4f05d5bed5d50ec4594f183cf03d7b05, type: 2}
+    - color: {r: 1, g: 0.27058825, b: 0, a: 1}
+      variable: {fileID: 11400000, guid: 66b8490c9f6e4f34cb70919af1510a17, type: 2}
+    - color: {r: 1, g: 1, b: 0, a: 1}
+      variable: {fileID: 11400000, guid: da0fddb40b578c848a07ba396e726f1d, type: 2}
+    - color: {r: 0, g: 1, b: 0, a: 1}
+      variable: {fileID: 11400000, guid: 45327a7aa0108844e94210195fd3cf08, type: 2}
+    - color: {r: 0, g: 0, b: 1, a: 1}
+      variable: {fileID: 11400000, guid: 37df5058df2ad5f4aa7e17cbc7fca844, type: 2}
+    - color: {r: 0, g: 1, b: 1, a: 1}
+      variable: {fileID: 11400000, guid: 4301ac2611448fe40b819dd7e4d6cebe, type: 2}
+    - color: {r: 1, g: 0, b: 1, a: 1}
+      variable: {fileID: 11400000, guid: 0526de036cc1053428dd9f702129b901, type: 2}
+  DefaultLayersColors:
+    layerOfColors: []

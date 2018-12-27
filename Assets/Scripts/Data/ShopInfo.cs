@@ -1,6 +1,5 @@
 using GameCore;
 
-using Sirenix.OdinInspector;
 
 namespace CyberBeat
 {
@@ -11,7 +10,6 @@ namespace CyberBeat
 		public bool PlayByWatch;
 		public int Price = 2000;
 		public string SaveKey;
-		[ShowInInspector]
 		public bool Buyed { get { return Tools.GetBool (SaveKey, false); } set { Tools.SetBool (SaveKey, value); } }
 		public bool TryBuy ()
 		{

@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
+﻿
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,7 +11,7 @@ namespace GameCore
 	public class OnUnityObjectVariableValueChanged : MonoBehaviour
 	{
 		[SerializeField] UnityObjectVariable variable;
-		[DrawWithUnity]
+		
 		[SerializeField] ObjectUnityEvent action = new ObjectUnityEvent ();
 		private void OnEnable ()
 		{

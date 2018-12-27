@@ -1,12 +1,11 @@
-﻿using Sirenix.OdinInspector;
-
+﻿
 using System;
 
 using UnityEngine;
 using UnityEngine.Events;
 namespace GameCore
 {
-    public abstract class AGameEventListenerUnityOject<TObject> : SerializedMonoBehaviour
+    public abstract class AGameEventListenerUnityOject<TObject> : MonoBehaviour
     where TObject : UnityEngine.Object
     {
         [SerializeField] protected abstract AEventListenerUnityObject<TObject> listener { get; }

@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -58,7 +56,7 @@ namespace CyberBeat
 
         [SerializeField] Color SelectedColor;
         [SerializeField] Color UnSelectedColor;
-        [Button]
+        [ContextMenu ("Validate Values")]
         private void ValidateValues ()
         {
 

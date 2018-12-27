@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -52,9 +50,9 @@ namespace GameCore
 			T t = Objects[index].GetComponent<T> ();
 			return t;
 		}
-		public Transform GetAt (int index) 
+		public Transform GetAt (int index)
 		{
-			return  Objects[index];;
+			return Objects[index];;
 		}
 		public T AddAt<T> (int index) where T : Component
 		{
@@ -74,6 +72,6 @@ namespace GameCore
 		}
 		public int Count { get { return Objects.Count; } }
 
-		[ShowInInspector] public Bounds rawBounds { get { return new Bounds (Vector3.zero, Count * Space.Abs ()); } }
+		public Bounds rawBounds { get { return new Bounds (Vector3.zero, Count * Space.Abs ()); } }
 	}
 }

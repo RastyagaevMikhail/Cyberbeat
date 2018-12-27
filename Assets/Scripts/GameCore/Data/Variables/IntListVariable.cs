@@ -2,20 +2,15 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
 namespace GameCore
 {
-	using Sirenix.OdinInspector;
-
-	using System.Linq;
-
-	using UnityEngine;
 
 	[CreateAssetMenu (fileName = "List_int", menuName = "Variables/GameCore/List<int>", order = 0)]
 	public class IntListVariable : SavableVariable<List<int>>, IEnumerable<int>
 	{
-#if UNITY_EDITOR
 		public override void ResetDefault ()
 		{
 			if (ResetByDefault)
@@ -24,8 +19,7 @@ namespace GameCore
 				SaveValue ();
 			}
 		}
-#endif
-		[ShowInInspector]
+
 		public string strValue
 		{
 			get
@@ -37,7 +31,6 @@ namespace GameCore
 			}
 		}
 
-		[ShowInInspector]
 		public string strDeafultValue
 		{
 			get
@@ -65,7 +58,7 @@ namespace GameCore
 			set { Value[index] = value; }
 		}
 
-		[Button] public void ResetToDefault ()
+		[ContextMenu ("Reset to Default")] public void ResetToDefault ()
 		{
 			_value = new List<int> (DefaultValue);
 		}

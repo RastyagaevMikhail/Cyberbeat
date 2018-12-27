@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
 using UnityEngine.Events;
-using Object = UnityEngine.Object;
 
 namespace GameCore
 {
-	public abstract class EnumActionSelector<EnumType> : MonoBehaviour where EnumType : EnumScriptable
+    public abstract class EnumActionSelector<EnumType> : MonoBehaviour where EnumType : EnumScriptable
 	{
 		public List<TypeAction> actions = new List<TypeAction> ();
 		Dictionary<EnumType, UnityEvent> selector = null;
@@ -30,7 +28,6 @@ namespace GameCore
 	public class TypeAction
 	{
 		public EnumScriptable type;
-		[Sirenix.OdinInspector.DrawWithUnity]
 		public UnityEvent action;
 	}
 }

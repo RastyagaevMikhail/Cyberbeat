@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +7,7 @@ using UnityEngine;
 public class EditorStates : MonoBehaviour
 {
 	public List<State> States;
-	[Button ("AddState", ButtonSizes.Medium)]
+	[ContextMenu ("AddState")]
 	void AddState ()
 	{
 #if UNITY_EDITOR
@@ -29,10 +27,9 @@ public class ObjectState
 [System.Serializable]
 public class State
 {
-	[InlineButton ("ActivateState", "Activate State"), HideLabel]
 	public string name;
 	public List<ObjectState> ObjectStates;
-
+	[ContextMenu ("ActivateState")]
 	public void ActivateState ()
 	{
 		foreach (var os in ObjectStates)

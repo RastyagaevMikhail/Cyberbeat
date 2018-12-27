@@ -1,7 +1,5 @@
 using System;
 
-using Sirenix.OdinInspector;
-
 using UnityEngine;
 
 namespace CyberBeat
@@ -9,12 +7,7 @@ namespace CyberBeat
 	[System.Serializable]
 	public class LayerColor
 	{
-		[HideInInspector]
-		private bool _enable;
-		[InlineButton ("OpenEditor", "E")]
-		[HorizontalGroup ("LayerColor"), HideLabel]
-		[ShowInInspector]
-		[PropertyOrder(-1)]
+		[SerializeField] private bool _enable;
 		public bool enable
 		{
 			get
@@ -37,12 +30,10 @@ namespace CyberBeat
 		}
 		public System.Action<LayerColor, bool> OnEnabeleChnaged;
 
-		[HorizontalGroup ("LayerColor"), HideLabel, DisplayAsString]
 		public LayerType layer;
-		[HorizontalGroup ("LayerColor"), HideLabel]
 		public Color color;
 		private Action OnOpenEditor;
-		
+		[ContextMenu ("OpenEditor")]
 		public void OpenEditor ()
 		{
 			if (OnOpenEditor != null) OnOpenEditor ();
@@ -60,12 +51,7 @@ namespace CyberBeat
 			OnOpenEditor = onOpenEditor;
 
 		}
-
-		[HideInPlayMode]
-		[ShowIf ("enable"), LabelText ("Размер точек")]
 		public float SizePoints = 0.2f;
-		[HideInEditorMode]
-		[ShowIf ("enable")]
 		public float OffsetSizePoint = 2.5f;
 	}
 }

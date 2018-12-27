@@ -8,7 +8,6 @@ namespace GameCore
     [CreateAssetMenu (fileName = "", menuName = "Variables/GameCore/Color")]
 	public class ColorVariable : SavableVariable<Color>
 	{
-#if UNITY_EDITOR
 		public override void ResetDefault ()
 		{
 			if (ResetByDefault)
@@ -17,7 +16,6 @@ namespace GameCore
 				SaveValue ();
 			}
 		}
-#endif
 		static string DefaultValueStr { get { return JsonUtility.ToJson (Color.white); } }
 		public override void LoadValue ()
 		{

@@ -6,20 +6,15 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace CyberBeat
 {
-	public class CenterInputController : IInputController
+	[CreateAssetMenu(fileName = "CenterInputController", menuName = "CyberBeat/InputController/Center")]
+	public class CenterInputController : AInputController
 	{
 
 		Quaternion up { get { return Quaternion.LookRotation (Target.forward, Target.up); } }
 		Quaternion left { get { return Quaternion.LookRotation (Target.forward, -Target.right); } }
 		Quaternion right { get { return Quaternion.LookRotation (Target.forward, Target.right); } }
 		float duration { get { return settings.SwipeDuration / 2f; } }
-		Transform Target;
-		InputSettings settings;
-		public void Init (Transform target, InputSettings _settings)
-		{
-			Target = target;
-			settings = _settings;
-		}
+
 		Sequence TweenWhithRotateOnUpdate (Quaternion from, Quaternion to, float EndValue = 0)
 		{
 			Sequence seq = DOTween.Sequence ();
@@ -29,11 +24,11 @@ namespace CyberBeat
 			return seq;
 		}
 		//Call In Update
-		public void MoveRight ()
+		public override void MoveRight ()
 		{
 			TweenWhithRotateOnUpdate (up, right, settings.width).OnComplete (() => TweenWhithRotateOnUpdate (up, left));
 		}
-		public void MoveLeft ()
+		public override void MoveLeft ()
 		{
 			TweenWhithRotateOnUpdate (up, left, -settings.width).OnComplete (() => TweenWhithRotateOnUpdate (up, right));
 		}

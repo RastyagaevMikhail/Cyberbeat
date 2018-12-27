@@ -2,8 +2,6 @@
 
     using GameCore;
 
-    using Sirenix.OdinInspector;
-
     using System.Collections.Generic;
     using System.Collections;
 
@@ -13,7 +11,7 @@
     using UnityEngine;
     namespace CyberBeat
     {
-        public class HeaderController : SerializedMonoBehaviour
+        public class HeaderController : MonoBehaviour
         {
 
             private static HeaderController _instance = null;

@@ -1,30 +1,28 @@
-﻿using Sirenix.OdinInspector;
-
-using System;
+﻿using System;
 
 using UnityEngine;
 using UnityEngine.Events;
 namespace GameCore
 {
-    public class GameEventListenerDateTime :  GameEventListenerStruct<DateTime>
+    public class GameEventListenerDateTime : GameEventListenerStruct<DateTime>
 
-    {
-        [SerializeField] EventListenerDateTime listener;
-
-        private void OnEnable ()
         {
-            if (!listener.OnEnable ())
+            [SerializeField] EventListenerDateTime listener;
+
+            private void OnEnable ()
             {
-                Debug.LogError ("Event not set On listener", this);
+                if (!listener.OnEnable ())
+                {
+                    Debug.LogError ("Event not set On listener", this);
+                }
+            }
+
+            private void OnDisable ()
+            {
+                if (!listener.OnDisable ())
+                {
+                    Debug.LogError ("Event not set On listener", this);
+                }
             }
         }
-
-        private void OnDisable ()
-        {
-            if (!listener.OnDisable ())
-            {
-                Debug.LogError ("Event not set On listener", this);
-            }
-        }
-    }
 }

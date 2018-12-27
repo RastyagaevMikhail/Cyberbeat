@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 
 using SonicBloom.Koreo;
 
@@ -18,18 +16,18 @@ namespace CyberBeat
 	{
 		public MusicInfo music;
 		public List<SocialInfo> socials;
-		[OdinSerialize]
 		public ShopInfo shopInfo;
 		public TracksCollection data { get { return TracksCollection.instance; } }
 
 		public int TrackNumber { get { return data.Objects.IndexOf (this) + 1; } }
 
-		[Button] public void SaveME ()
+		[ContextMenu("Save ME")] 
+		public void SaveME ()
 		{
 			this.Save ();
 		}
 		public float StartSpeed = 50f;
-		[Button]
+		[ContextMenu("Set Me As Current")]
 		public void SetMeAsCurrent ()
 		{
 			data.CurrentTrack = this;
@@ -69,7 +67,8 @@ namespace CyberBeat
 		public List<BitInfo> BitsInfos = new List<BitInfo> ();
 		public int CountConstant;
 
-		[Button] public void GenerateRandomPlayebles ()
+		[ContextMenu("Generate Random Playeble")] 
+		public void GenerateRandomPlayebles ()
 		{
 			var events = GetAllEventsByType (LayerType.Bit);
 			var keys = data.Prefabs.Keys.ToList ();
@@ -80,7 +79,8 @@ namespace CyberBeat
 			events.First ().Payload = new IntPayload () { IntVal = 0 };
 		}
 
-		[Button] public void GenerateBitInfoByEvnts ()
+		[ContextMenu("Generate BitInfo by Events")]
+		 public void GenerateBitInfoByEvnts ()
 		{
 			BitsInfos = new List<BitInfo> ();
 			var events = GetAllEventsByType (LayerType.Bit);

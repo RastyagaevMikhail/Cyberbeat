@@ -1,7 +1,5 @@
 using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +19,7 @@ namespace CyberBeat
 		public override void ResetDefault () { }
 #endif
 
-		[NonSerialized, ShowInInspector] Dictionary<Material, List<Material>> _materials = null;
+		Dictionary<Material, List<Material>> _materials = null;
 		public Dictionary<Material, List<Material>> materials { get { return _materials; } }
 		Dictionary<Material, RandomStack<Material>> randStacks = null;
 		public Material[] BaseMaterials;
@@ -66,14 +64,13 @@ namespace CyberBeat
 			// Debug.Log (color.ToString (false));
 			return materials[mat].Find (m => m.GetColor (ColorName) == (color));
 		}
-		public void Add (Material BaseMaterial, string BaseColor = "_Color", string EmissionColor = "_EmissionColor")
+		public void Add (Material BaseMaterial, string ColorName = "_Color")
 		{
 			foreach (var color in Colors.instance.colors)
 			{
 				Material mat = UnityEngine.Object.Instantiate (BaseMaterial);
 
-				// mat.SetColor(BaseColor, color);
-				mat.SetColor (EmissionColor, color);
+				mat.SetColor (ColorName, color);
 				mat.name = string.Format ("{0} #{1}", BaseMaterial.name, color.ToString (false));
 
 				if (!materials.ContainsKey (BaseMaterial))
@@ -86,7 +83,7 @@ namespace CyberBeat
 					materials[BaseMaterial] = new List<Material> ();
 					materials[BaseMaterial].Add (mat);
 				}
-				bool isExist = materials[BaseMaterial].Exists (m => mat.GetColor (EmissionColor) == m.GetColor (EmissionColor));
+				bool isExist = materials[BaseMaterial].Exists (m => mat.GetColor (ColorName) == m.GetColor (ColorName));
 				if (!isExist)
 					materials[BaseMaterial].Add (mat);
 			}

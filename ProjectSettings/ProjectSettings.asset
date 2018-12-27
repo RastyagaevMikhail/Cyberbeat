@@ -123,7 +123,7 @@ PlayerSettings:
   - {fileID: 11400000, guid: 15c1980739b622344a5502bbc69dfc83, type: 2}
   - {fileID: 11400000, guid: fc5458fc19d83b844a1126a08b8f297d, type: 2}
   - {fileID: 11400000, guid: 374e7c64eb1851f4abcf20a98a3547c5, type: 2}
-  - {fileID: 11400000, guid: 1f464ea588548cc4da9fc6eee1677d3d, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 56bd49594212d08449645a1a879fd982, type: 2}
   - {fileID: 11400000, guid: e7ba042f74bcbc349a301c61bc07f326, type: 2}
   - {fileID: 11400000, guid: 7cc74a6e19d0dc84a978f3ec1cfca0fb, type: 2}
@@ -134,6 +134,8 @@ PlayerSettings:
   - {fileID: 11400000, guid: 328fa3d301abe6a4f830c8ea5677a79a, type: 2}
   - {fileID: 11400000, guid: b670e399b603b2f49a642c6ac92e5589, type: 2}
   - {fileID: 11400000, guid: 412631d0f5f7c7643b20303861d2487b, type: 2}
+  - {fileID: 11400000, guid: 1f464ea588548cc4da9fc6eee1677d3d, type: 2}
+  - {fileID: 11400000, guid: b53cddf60e805864380e74c79d200dd1, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -617,7 +619,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     1: ODIN_INSPECTOR;UNITY_POST_PROCESSING_STACK_V2
     4: UNITY_POST_PROCESSING_STACK_V2
-    7: ODIN_INSPECTOR;UNITY_POST_PROCESSING_STACK_V2
+    7: ODIN_INSPECTOR;UNITY_POST_PROCESSING_STACK_V2;AMPLIFY_SHADER_EDITOR
     13: UNITY_POST_PROCESSING_STACK_V2
     14: UNITY_POST_PROCESSING_STACK_V2
     18: UNITY_POST_PROCESSING_STACK_V2

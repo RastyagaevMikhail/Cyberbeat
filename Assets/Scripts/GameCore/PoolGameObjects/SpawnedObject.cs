@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
+﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,9 +25,9 @@ namespace GameCore
             ActionWhithComponent (Get<T> ());
         }
 
-        [DrawWithUnity]
+        
         public UnityEvent OnSpawn;
-        [DrawWithUnity]
+        
         public UnityEvent OnDeSpawn;
         public Vector3 OffsetPosition;
         public void PushToPool ()

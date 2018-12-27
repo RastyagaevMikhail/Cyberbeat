@@ -2,8 +2,6 @@
 
 using GameCore;
 
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +13,6 @@ namespace CyberBeat
 {
 	public class MaterialColorSetter : MonoBehaviour
 	{
-		
 
 		[SerializeField] Material material;
 		[SerializeField] string colorName = "_EmissionColor";

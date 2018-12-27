@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,20 +11,19 @@ namespace CyberBeat
 {
 	public class LineGenerator : MonoBehaviour
 	{
-		[ShowInInspector]
 		List<TimeOfEvent> Lines { get { return GameData.instance.currentLines; } }
 
-		[ShowInInspector] LineRenderer currentRend;
-		[ShowInInspector] TimeOfEvent currentLine;
-		[ShowInInspector] float time = 0;
-		[ShowInInspector] int indexOfLine = 0;
-		[ShowInInspector]
+		LineRenderer currentRend;
+		TimeOfEvent currentLine;
+		float time = 0;
+		int indexOfLine = 0;
+
 		public bool outOfIndexLines { get { return (Lines.Count <= indexOfLine); } }
 		private Transform _transform = null;
 		public new Transform transform { get { if (_transform == null) _transform = GetComponent<Transform> (); return _transform; } }
 		public Vector3 newPosition { get { return transform.position + transform.up * 0.15f; } }
 
-		[ShowInInspector] public bool timeInCurrentLine { get { return time.InRange (currentLine.Start, currentLine.End); } }
+		public bool timeInCurrentLine { get { return time.InRange (currentLine.Start, currentLine.End); } }
 
 		private void Start ()
 		{

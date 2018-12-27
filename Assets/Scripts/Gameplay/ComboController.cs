@@ -1,8 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,8 +12,8 @@ namespace CyberBeat
 	[RequireComponent (typeof (GameEventListenerColorInterractor))]
 	public class ComboController : TimeEventsCatcher
 	{
-		[SerializeField, HideLabel] ComboList combo = new ComboList ();
-		[SerializeField, HideLabel] ComboList comboInGame = new ComboList ();
+		[SerializeField] ComboList combo = new ComboList ();
+		[SerializeField] ComboList comboInGame = new ComboList ();
 		[SerializeField] GameEventBool OnBitCombo;
 		[SerializeField] GameEventInt OnComboEnd;
 		[SerializeField] GameEventInt OnActivateCurrentCombo;
@@ -82,10 +79,10 @@ namespace CyberBeat
 			Gates.Decrement ();
 		}
 
-		[Title ("For Generation Combo Info")]
+		[Header ("For Generation Combo Info")]
 		[SerializeField] TimeOfEventsData events;
 		[SerializeField] string payloadFilter = "Combo";
-		[Button (ButtonSizes.Medium)]
+		[ContextMenu ("Init Combo")]
 		public void InitCombo ()
 		{
 			combo = new ComboList ();
@@ -116,9 +113,7 @@ namespace CyberBeat
 	[Serializable]
 	public class ComboBit
 	{
-		[HorizontalGroup, LabelText ("[-1]"), LabelWidth (30)]
 		public float prev;
-		[HorizontalGroup, LabelText ("[0]"), LabelWidth (25)]
 		public float bit;
 
 		public ComboBit (float bit, float prev)

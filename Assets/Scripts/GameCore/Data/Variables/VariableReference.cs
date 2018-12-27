@@ -1,7 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -14,13 +11,12 @@ namespace GameCore
 
 		public TValue ConstantValue;
 
-		[SuffixLabel ("$GetValueString", true)]
 		public TVariable Variable;
 
 		public TValue Value
 		{
 			get { return !this.UseConstant && this.Variable ? this.Variable.Value : this.ConstantValue; }
-			
+
 		}
 
 		private string GetValueString ()

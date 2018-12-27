@@ -6,8 +6,6 @@ namespace CyberBeat
     using Text = TMPro.TextMeshProUGUI;
     using GameCore;
 
-    using Sirenix.OdinInspector;
-
     using System.Collections.Generic;
     using System;
 

@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace GameCore
@@ -10,29 +9,27 @@ namespace GameCore
 
         public bool ResetHP;
         public FloatReference StartingHP;
-        [DrawWithUnity]
         public UnityEvent DamageEvent;
-        [DrawWithUnity]
         public UnityEvent DeathEvent;
 
-        private void Start()
+        private void Start ()
         {
             if (ResetHP)
-                HP.SetValue(StartingHP);
+                HP.SetValue (StartingHP);
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter (Collider other)
         {
-            DamageDealer damage = other.gameObject.GetComponent<DamageDealer>();
+            DamageDealer damage = other.gameObject.GetComponent<DamageDealer> ();
             if (damage != null)
             {
-                HP.ApplyChange(-damage.DamageAmount);
-                DamageEvent.Invoke();
+                HP.ApplyChange (-damage.DamageAmount);
+                DamageEvent.Invoke ();
             }
 
             if (HP.Value <= 0.0f)
             {
-                DeathEvent.Invoke();
+                DeathEvent.Invoke ();
             }
         }
     }

@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System.Collections;
 using System.Collections.Generic;
 
@@ -16,9 +14,7 @@ namespace CyberBeat
 
         public SkinsDataCollection skinsData { get { return SkinsDataCollection.instance; } }
 
-        [DrawWithUnity]
         [SerializeField] UnityEventSkinItem OnSkinSelected;
-        [DrawWithUnity]
         [SerializeField] UnityEventInt OnItemSelected;
 
         Material material { get { return skinsData.RoadMaterial; } }

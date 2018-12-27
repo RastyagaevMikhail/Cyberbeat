@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System;
+﻿using System;
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,7 +12,7 @@ namespace UnityEngine.UI
     /// </summary>
     [AddComponentMenu ("UI/Extensions/Extensions Toggle", 31)]
     [RequireComponent (typeof (RectTransform))]
-   
+
     public class ExtensionsToggle : Selectable, IPointerClickHandler, ISubmitHandler, ICanvasElement
     {
         /// <summary>
@@ -74,7 +72,7 @@ namespace UnityEngine.UI
         /// Allow for delegate-based subscriptions for faster events than 'eventReceiver', and allowing for multiple receivers.
         /// </summary>
         [Tooltip ("Use this event if you need access to the toggle that was changed")]
-        [DrawWithUnity] public ToggleEventObject onToggleChanged = new ToggleEventObject ();
+        public ToggleEventObject onToggleChanged = new ToggleEventObject ();
 
         // Whether the toggle is on
         [FormerlySerializedAs ("m_IsActive")]

@@ -2,8 +2,6 @@
 
 using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System.Collections.Generic;
 using System.Linq;
 
@@ -34,9 +32,15 @@ namespace CyberBeat
 #endif
         }
 
+        [ContextMenu ("SetEditMode")]
+        void SetEditMode ()
+        {
+            EditMode = true;
+        }
+
         [SerializeField, HideInInspector]
         BoolVariable editMode;
-        [ShowInInspector, PropertyOrder (-200), GUIColor (0, 1, 0)]
+
         bool EditMode
         {
             get

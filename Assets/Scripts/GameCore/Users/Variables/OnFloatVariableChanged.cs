@@ -10,7 +10,6 @@ namespace GameCore
 	{
 
 		[SerializeField] FloatVariable variable;
-		[Sirenix.OdinInspector.DrawWithUnity]
 		[SerializeField] UnityEventFloat action;
 		private void OnEnable ()
 		{

@@ -1,5 +1,3 @@
-using Sirenix.OdinInspector;
-
 using System;
 
 using UnityEngine;
@@ -11,7 +9,7 @@ namespace GameCore
     public class EventListenerTimeSpan : EventListenerStruct<TimeSpan>
     {
         [SerializeField] GameEventTimeSpan EventObject;
-        [DrawWithUnity]
+
         [SerializeField] UnityEventTimeSpan Responce;
         public EventListenerTimeSpan (GameEventTimeSpan _evnet, UnityAction<TimeSpan> action)
         {

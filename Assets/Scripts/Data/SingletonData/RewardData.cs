@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -64,18 +62,14 @@ namespace CyberBeat
 		[System.Serializable]
 		public class RewardInfo
 		{
-
-			[HorizontalGroup ("Properties"), HideLabel]
 			public string LocTag;
-			[HorizontalGroup ("Properties"), HideLabel]
 			public Sprite Icon;
-			[HorizontalGroup ("Properties"), HideLabel]
 			public IntVariable CountVarible;
-			[HorizontalGroup ("Chnaces")]
 			public List<int> CountsByChanche;
 		}
 
-		[Button] public void InitInfo ()
+		[ContextMenu("Init Info")]
+		 public void InitInfo ()
 		{
 			rewards = new List<RewardInfo> ();
 			foreach (var booster in BoostersData.instance.boosters)

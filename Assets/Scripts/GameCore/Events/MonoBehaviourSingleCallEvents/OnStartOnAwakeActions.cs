@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -10,15 +8,15 @@ namespace GameCore
 
 	public class OnStartOnAwakeActions : MonoBehaviour
 	{
-		[SerializeField, DrawWithUnity] UnityEvent OnAwake;
-		[SerializeField, DrawWithUnity] UnityEvent OnStart;
+		[SerializeField] UnityEvent OnAwake;
+		[SerializeField] UnityEvent OnStart;
 		private void Awake ()
 		{
-			OnAwake.Invoke();
+			OnAwake.Invoke ();
 		}
 		void Start ()
 		{
-			OnStart.Invoke();
+			OnStart.Invoke ();
 		}
 
 	}

@@ -32,19 +32,25 @@ namespace CyberBeat
 
 		private void UpdateData ()
 		{
-			Tools.DelayAction (this,
-				Time.deltaTime, () =>
-				{
-					MaskImage.enabled = !buyed;
-					BuyButton.gameObject.SetActive (!buyed);
-					Activated.SetActive (buyed);
-				});
+			this.DelayAction (Time.deltaTime, Validate);
 		}
+
+		void Validate ()
+		{
+			MaskImage.enabled = !buyed;
+			BuyButton.gameObject.SetActive (!buyed);
+			Activated.SetActive (buyed);
+		}
+		
+#if UNITY_EDITOR
 
 		public void Init (IAPProductData productData)
 		{
 			this.productData = productData;
 			name = "IAPShopCard.{0}".AsFormat (productData.productID);
+			// Save In Editor on Scene
+			UnityEditor.EditorUtility.SetDirty (this);
 		}
+#endif
 	}
 }

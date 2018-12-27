@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Sirenix.OdinInspector;
+
 using UnityEngine;
 namespace GameCore
 {
@@ -97,7 +97,7 @@ namespace GameCore
             return newObj;
         }
 #if UNITY_EDITOR
-        [Button ("Add to Pool selected objects")]
+        [ContextMenu ("Add to Pool selected objects")]
         void AddToPoolSelected ()
         {
             var gos = UnityEditor.Selection.gameObjects;

@@ -1,6 +1,3 @@
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-
 using System;
 using System.Collections.Generic;
 
@@ -18,7 +15,6 @@ namespace GameCore
         }
         public override void InitOnCreate () { }
 #endif
-        [ListDrawerSettings (Expanded = true, ShowPaging = false)]
         [SerializeField] List<ISavableVariable> Saves;
 
         Saver _saver = null;

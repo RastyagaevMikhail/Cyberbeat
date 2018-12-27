@@ -1,9 +1,6 @@
-﻿using GameCore;
+﻿using FluffyUnderware.Curvy;
 
-using FluffyUnderware.Curvy;
-
-using Sirenix.OdinInspector;
-using Sirenix.Utilities;
+using GameCore;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +10,6 @@ namespace CyberBeat
 {
     public class SpeedParticlesMetaData : MonoBehaviour, ICurvyMetadata, IMetaData
     {
-        [HideLabel]
         public PartsData data;
         public string NameOfMetaType
         {

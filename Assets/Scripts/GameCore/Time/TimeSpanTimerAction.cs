@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,7 +9,7 @@ namespace GameCore
 {
 	public class TimeSpanTimerAction : MonoBehaviour
 	{
-		[InlineButton ("reset")]
+		[ContextMenuItem ("Reset", "reset")]
 		[SerializeField] TimeSpanVariable variable;
 		[SerializeField] GameEvent RestartOn;
 		[SerializeField] BoolVariable Started;
@@ -19,7 +17,7 @@ namespace GameCore
 		[SerializeField] GameObject TimerText;
 		EventListener listener;
 
-		[SerializeField, DrawWithUnity] UnityEvent action;
+		[SerializeField] UnityEvent action;
 		public void reset ()
 		{
 			variable.Reset ().AddSeconds (1);

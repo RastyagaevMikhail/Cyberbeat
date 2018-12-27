@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,8 +14,8 @@ namespace CyberBeat
 	{
 
 		[SerializeField] TimeEventVariable variable;
-		[SerializeField, DrawWithUnity] UnityEventTimeEvent action;
-		[SerializeField, DrawWithUnity] UnityEventBool action_bool;
+		[SerializeField] UnityEventTimeEvent action;
+		[SerializeField] UnityEventBool action_bool;
 
 		private void OnEnable ()
 		{
@@ -32,7 +30,7 @@ namespace CyberBeat
 		}
 		private void OnValuechngeFromBool (TimeEvent obj)
 		{
-			action_bool.Invoke(obj.isTime);
+			action_bool.Invoke (obj.isTime);
 		}
 
 	}

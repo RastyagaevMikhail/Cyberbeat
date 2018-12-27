@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +20,7 @@ namespace CyberBeat
         [SerializeField] GameEvent ToMenu;
 
         public AdsController Ads { get { return AdsController.instance; } }
+#if UNITY_EDITOR
         private void OnValidate ()
         {
             Back = transform.GetChild (0).gameObject;
@@ -32,6 +31,7 @@ namespace CyberBeat
             GetReward = RewardButtons.transform.Find ("GetRewardButton").GetComponent<Button> ();
             ToMenu = Tools.GetAssetAtPath<GameEvent> ("Assets/Data/Events/GameResults/To Menu.asset");
         }
+#endif
         private void Awake ()
         {
             DoubleReward.onClick.RemoveAllListeners ();
@@ -57,14 +57,14 @@ namespace CyberBeat
             ShowRewardsButtons (false);
         }
 
-        [Button]
+        [ContextMenu ("Show")]
         public void Show ()
         {
             Back.SetActive (true);
             ShowRewardsButtons (true);
         }
 
-        [Button]
+        [ContextMenu ("Close")]
         public void Close ()
         {
             Back.SetActive (false);

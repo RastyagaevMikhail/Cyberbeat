@@ -2,8 +2,6 @@
 
 using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,8 +13,6 @@ namespace CyberBeat
 {
 	public class SkinsCameraController : TransformObject
 	{
-		[OnValueChanged ("SetPivot")]
-		[ValueDropdown ("types")]
 		[SerializeField] SkinType type;
 
 		[SerializeField] SkinTypeViewSettingsDataSelector PivotsBySkinType;
@@ -29,7 +25,6 @@ namespace CyberBeat
 		Vector3 LookDirection { get { return LookTarget.position - PositionTarget.position; } }
 		float LookAngle { get { return Vector3.Angle (LookDirection, Vector3.forward); } }
 		public SkinsDataCollection skinsData { get { return SkinsDataCollection.instance; } }
-		List<SkinType> types { get { return skinsData.AllTypes; } }
 
 		[SerializeField] ViewSettings currentSettings;
 		private void OnEnable ()
@@ -95,7 +90,7 @@ namespace CyberBeat
 				// RotationHolder.DOKill ();
 				RotationHolder.DOMove (LookTarget.position, currentSettings.DurationMove);
 				transform.DOKill (true);
-				transform.DOLocalMove (LookTarget.InverseTransformPoint (PositionTarget.position),currentSettings.DurationMove)/* .OnComplete (StartRotation) */;
+				transform.DOLocalMove (LookTarget.InverseTransformPoint (PositionTarget.position), currentSettings.DurationMove) /* .OnComplete (StartRotation) */ ;
 
 				DOVirtual.Float (RenderSettings.fogDensity, currentSettings.FogDensity, currentSettings.DurationMove, value => RenderSettings.fogDensity = value);
 

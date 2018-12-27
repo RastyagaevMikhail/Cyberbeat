@@ -1,12 +1,12 @@
-﻿using System;
+﻿using FluffyUnderware.Curvy;
+
+using GameCore;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-using FluffyUnderware.Curvy;
-
-using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -16,7 +16,6 @@ namespace CyberBeat
     // [ExecuteInEditMode]
     public class SpeedTimeMetaData : MonoBehaviour, ICurvyMetadata, IMetaData
     {
-        [HideLabel, InlineProperty (LabelWidth = 20)]
         public SpeedTimeData data;
         public float Speed { get { return data.Speed; } }
         public float time { get { return data.time; } }
@@ -25,10 +24,10 @@ namespace CyberBeat
         public CurvySplineSegment ControlPoint { get { if (_ControlPoint == null) _ControlPoint = GetComponent<CurvySplineSegment> (); return _ControlPoint; } }
 
         public Vector3 Up { get { return ControlPoint.GetOrientationUpFast (0); } }
-        Track track { get {  return GameData.instance.currentTrack; } }
+        Track track { get { return GameData.instance.currentTrack; } }
         float startSpeedOnTrack { get { return track.StartSpeed; } }
 
-        [SerializeField, ReadOnly] float startSpeed = 0;
+        [SerializeField] float startSpeed = 0;
         public float StartSpeed
         {
             get
@@ -99,7 +98,7 @@ namespace CyberBeat
                 OnValueChanged (null);
         }
 #endif
-#region Impelmet interface
+        #region Impelmet interface
         //---Implement ICurvyInterpolatableMetadata---
         public object Value { get { return data; } }
         public object InterpolateObject (ICurvyMetadata b, float f)
@@ -143,22 +142,20 @@ namespace CyberBeat
             return value;
         }
 
-#endregion
+        #endregion
     }
 
-    [System.Serializable]
+    [Serializable]
 
     public struct SpeedTimeData
     {
-        [VerticalGroup]
         public float Speed;
-        [VerticalGroup]
         [Range (0, 1)]
         public float time;
 
-        // public void Print ()
-        // {
-        //     Debug.LogFormat ("Speed = {0}\ntime = {1}", Speed, time);
-        // }
+        public void Print ()
+        {
+            Debug.LogFormat ("Speed = {0}\ntime = {1}", Speed, time);
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -15,10 +13,9 @@ namespace GameCore
 		[SerializeField] TabsButtonsController controller;
 		[SerializeField] GameObject OnActiveObject;
 		[SerializeField] GameObject OnDontActiveObject;
-		
-		[DrawWithUnity]
+
 		public UnityEvent onSelect;
-		[DrawWithUnity]
+
 		public UnityEvent onDeSelect;
 		private void OnEnable ()
 		{
@@ -47,10 +44,10 @@ namespace GameCore
 			if (controller.IsSelected (this)) return;
 			controller.Swith (this);
 		}
-		public void _DeSelect()
+		public void _DeSelect ()
 		{
 			Active = false;
-			onDeSelect.Invoke();
+			onDeSelect.Invoke ();
 		}
 	}
 

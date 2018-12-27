@@ -1,7 +1,5 @@
 using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +16,6 @@ namespace CyberBeat
 		[SerializeField] Dictionary<Material, RandomStack<Material>> RandomSet;
 		Materials materialsData { get { return Materials.instance; } }
 		public Colors colorsData { get { return Colors.instance; } }
-		// // // public RandomConstantMaterial (Color lastRandomColor) { Init (lastRandomColor); }
 		public void Init (Color lastRandomColor)
 		{
 			var BaseMaterials = materialsData.BaseMaterials;
@@ -33,22 +30,18 @@ namespace CyberBeat
 			materialsData.Init ();
 			foreach (var baseMat in BaseMaterials)
 			{
-				// var values = materialsData.materials.Values.Cast<List<Material>> ().ToList ();
 
-				Constant[baseMat] = materialsData.GetMaterialWhithColor (baseMat, currentConstatntColor, "_EmissionColor");
+				Constant[baseMat] = materialsData.GetMaterialWhithColor (baseMat, currentConstatntColor, "_Color");
 				// Debug.LogFormat ("Constant[mat] = {0}", Constant[mat]);
 				RandomSet = new Dictionary<Material, RandomStack<Material>> ();
-				// foreach (var mat_ListMat in materialsData.materials)
-				// {
-				// List<Material> ColoredMaterials = new List<Material> (mat_ListMat.Value);
+
 				List<Material> ColoredMaterials = new List<Material> (materialsData.materials[baseMat]);
 
 				if (ColoredMaterials.Count > 1 && ColoredMaterials.Contains (Constant[baseMat]))
 					ColoredMaterials.Remove (Constant[baseMat]);
 
 				RandomSet[baseMat] = new RandomStack<Material> (ColoredMaterials);
-				// }
-				// RandomSet.Remove (Constant[mat]);
+
 				if (randStacks == null) randStacks = new Dictionary<Material, RandomStack<Material>> ();
 				randStacks.Add (baseMat, RandomSet[baseMat]);
 			}

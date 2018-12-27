@@ -1,7 +1,13 @@
 namespace GameCore
 {
-public abstract class TransformGroupSelector<T> : EnumDataSelector<T, TransformGroup> where T : EnumScriptable
+	public abstract class TransformGroupSelector<TEnumType> : AEnumDataSelectorMonoBehaviour<TEnumType, TransformGroup> where TEnumType : EnumScriptable
 	{
-
+		public override TransformGroup this [TEnumType enumType]
+		{
+			get
+			{
+				return base[enumType] as TransformGroup;
+			}
+		}
 	}
 }

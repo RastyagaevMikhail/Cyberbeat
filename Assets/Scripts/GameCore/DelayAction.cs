@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +7,6 @@ namespace GameCore
     public class DelayAction : MonoBehaviour
     {
         [SerializeField] float delay;
-        [DrawWithUnity]
         [SerializeField] UnityEvent action;
 
         public void Invoke()

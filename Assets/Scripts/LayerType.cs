@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 namespace ColorBricks
 {
 	public enum LayerType

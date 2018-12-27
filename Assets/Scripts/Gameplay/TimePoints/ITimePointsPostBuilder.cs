@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace CyberBeat
 {
-    public interface ITimePointsPostBuilder
+    public abstract class ATimePointsPostBuilder : ScriptableObject
     {
-        GameObject PostBuild (TimePointsBuilder builder, GameObject ResultGO);
+        public abstract GameObject PostBuild (TimePointsBuilder builder, GameObject ResultGO);
     }
 }

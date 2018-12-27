@@ -6,7 +6,6 @@ namespace GameCore
     [CreateAssetMenu (fileName = "", menuName = "Variables/GameCore/Float")]
     public class FloatVariable : SavableVariable<float>
     {
-#if UNITY_EDITOR
         public override void ResetDefault ()
         {
             if (ResetByDefault)
@@ -15,7 +14,6 @@ namespace GameCore
                 SaveValue ();
             }
         }
-#endif
         public float SmoothTime = 1f;
 
         public void SetSmoothly (float newValue)

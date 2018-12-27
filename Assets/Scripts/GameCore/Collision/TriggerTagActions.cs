@@ -47,7 +47,6 @@ namespace GameCore
 	public class TagAction
 	{
 		public string Tag;
-		[Sirenix.OdinInspector.DrawWithUnity]
 		public UnityEventGameObject action;
 		public void Invoke (GameObject go)
 		{

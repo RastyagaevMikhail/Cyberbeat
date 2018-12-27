@@ -1,7 +1,5 @@
 using GameCore;
 
-using Sirenix.OdinInspector;
-
 using SonicBloom.Koreo;
 namespace CyberBeat
 {
@@ -23,16 +21,11 @@ namespace CyberBeat
             return string.Format ("{0:00.0000} - {1:00.0000} {2}", Start, End, payload);
         }
         public string payload;
-        [HideIf ("OneIsShotEvent")]
-        [HorizontalGroup, LabelText ("$timeStr"), LabelWidth (20 * 3)]
         public float Start;
-        [HideIf ("OneIsShotEvent")]
-        [HorizontalGroup, LabelText ("->"), LabelWidth (18)]
         public float End;
         float time { get { return (End - Start).Abs (); } }
         string timeStr { get { return "{0:00.0000}:".AsFormat (time); } }
 
-        [ShowIf ("OneIsShotEvent")]
         float OneShotTime { get { return Start; } }
         bool OneIsShotEvent { get { return Start == End; } }
         public static bool operator == (TimeOfEvent left, TimeOfEvent right)

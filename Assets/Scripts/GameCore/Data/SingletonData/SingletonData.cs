@@ -1,7 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +6,13 @@ using System.Linq;
 using UnityEngine;
 namespace GameCore
 {
-	public abstract class SingletonData<T> : SerializedScriptableObject, ISingletonData where T : SingletonData<T>
+	public abstract class SingletonData<T> : ScriptableObject, ISingletonData where T : SingletonData<T>
 	{
 		#region  instance
 #if UNITY_EDITOR
 		//[UnityEditor.MenuItem ("Game/Data/T")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
-		[Button] public abstract void ResetDefault ();
-		[Button] public abstract void InitOnCreate ();
+		[ContextMenu ("Reset Default")] public abstract void ResetDefault ();
+		[ContextMenu ("Init On Create")] public abstract void InitOnCreate ();
 #endif
 
 		static string typeName { get { return typeof (T).Name; } }
@@ -47,11 +44,14 @@ namespace GameCore
 				}
 #endif
 #endif
+				_instance.InitOnLoaded ();
 				return _instance;
 			}
 		}
 
-		[Button] public void CreateAsset () { this.CreateAsset ("Assets/Resources/Data/{0}.asset".AsFormat (typeName)); }
+		protected virtual void InitOnLoaded () { }
+
+		[ContextMenu ("Create Asset")] public void CreateAsset () { this.CreateAsset ("Assets/Resources/Data/{0}.asset".AsFormat (typeName)); }
 		#endregion
 	}
 }

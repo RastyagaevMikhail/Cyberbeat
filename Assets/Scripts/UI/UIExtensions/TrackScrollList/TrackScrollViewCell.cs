@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,9 +30,9 @@ namespace CyberBeat
 		}
 		readonly int scrollTriggerHash = Animator.StringToHash ("Scroll");
 		TrackScrollContext context;
-        private bool WathedRewardVideo = false;
+		private bool WathedRewardVideo = false;
 
-        public override void SetContext (TrackScrollContext context)
+		public override void SetContext (TrackScrollContext context)
 		{
 			this.context = context;
 		}
@@ -64,7 +62,7 @@ namespace CyberBeat
 			// UpdatePosition (0);
 		}
 
-		[Button]
+		[ContextMenu("Validate Track Values")]
 		private void ValidateTrackValues ()
 		{
 			if (track == null) return;
@@ -83,7 +81,7 @@ namespace CyberBeat
 
 		public void OnPlayByWatch ()
 		{
-			Debug.Log ("OnPlayByWatch {0}".AsFormat(this));
+			Debug.Log ("OnPlayByWatch {0}".AsFormat (this));
 			WathedRewardVideo = true;
 			ValidateButtons (true);
 		}

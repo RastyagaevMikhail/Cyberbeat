@@ -1,6 +1,6 @@
 namespace GameCore
 {
-	public abstract class RectTransformObjectSelector<T> : EnumDataSelector<T, RectTransformObject> where T : EnumScriptable
+	public abstract class RectTransformObjectSelector<TEnumType> : AEnumDataSelectorMonoBehaviour<TEnumType, RectTransformObject> where TEnumType : EnumScriptable
 	{
 
 	}

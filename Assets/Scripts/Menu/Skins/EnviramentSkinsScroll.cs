@@ -2,21 +2,12 @@
 
 using GameCore;
 
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI.Extensions;
 
 namespace CyberBeat
 {
-	public class EnviramentSkinsScroll : SerializedMonoBehaviour
+    public class EnviramentSkinsScroll : MonoBehaviour
 	{
 		private ScrollPositionController _scrollPositionController = null;
 		public ScrollPositionController scrollPositionController { get { if (_scrollPositionController == null) _scrollPositionController = GetComponent<ScrollPositionController> (); return _scrollPositionController; } }
@@ -25,7 +16,7 @@ namespace CyberBeat
 
 		private SkinType skinType { get { return skinsData.SkinType; } }
 
-		SkinItem skin { get { return skinsData.skins[skinType][skinIdex]; } }
+		SkinItem skin { get { return skinsData.skinsSelector[skinType][skinIdex]; } }
 
 		TransformGroup transformGroup { get { return transfromGroupSelector[skinType]; } }
 		TransformObject TargetScroll { get { return transformGroup; } }
@@ -48,10 +39,6 @@ namespace CyberBeat
 			{
 				scrollPositionController.ScrollTo (skinIdex);
 			}
-			// float tmp = lastPosition;
-			// lastPosition = currentPosition;
-			// currentPosition = tmp;
-			// scrollPositionController.ScrollTo((int)currentPosition);
 
 			SetDataCount (obj as SkinType);
 			_OnItemSelected (skinIdex);
@@ -76,8 +63,8 @@ namespace CyberBeat
 
 		private void SetDataCount (SkinType skinType)
 		{
-			if (!skinsData.skins.ContainsKey (skinType)) return;
-			scrollPositionController.SetDataCount (skinsData.skins[skinType].Count);
+			if (!skinsData.skinsSelector.ContainsKey (skinType)) return;
+			scrollPositionController.SetDataCount (skinsData.skinsSelector[skinType].Count);
 		}
 
 		int previndex = 0;
@@ -85,12 +72,12 @@ namespace CyberBeat
 		{
 			get
 			{
-				if (!skinsData.skinIndexs.ContainsKey (skinType)) return 0;
-				return skinsData.skinIndexs[skinType].Value;
+				if (!skinsData.skinIndexsSelector.ContainsKey (skinType)) return 0;
+				return skinsData.skinIndexsSelector[skinType].Value;
 			}
 		}
-		PrefabSkinItem skinItem { get { return skinsData.skins[skinType][skinIdex] as PrefabSkinItem; } }
-		PrefabSkinItem prevskinItem { get { return skinsData.skins[skinType][previndex] as PrefabSkinItem; } }
+		PrefabSkinItem skinItem { get { return skinsData.skinsSelector[skinType][skinIdex] as PrefabSkinItem; } }
+		PrefabSkinItem prevskinItem { get { return skinsData.skinsSelector[skinType][previndex] as PrefabSkinItem; } }
 		public void _OnItemSelected (int index)
 		{
 			if (skinsData.isRoadType (skinType))

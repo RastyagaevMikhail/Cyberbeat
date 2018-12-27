@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +12,7 @@ using UnityEngine.UI;
 namespace CyberBeat
 {
 
-	public class MainMenuController : SerializedMonoBehaviour //DevSkim: ignore DS184626 
+	public class MainMenuController : MonoBehaviour //DevSkim: ignore DS184626 
 	{
 		private static MainMenuController _instance = null;
 		public static MainMenuController instance { get { if (_instance == null) _instance = GameObject.FindObjectOfType<MainMenuController> (); _instance.Init (); return _instance; } }
@@ -23,7 +21,7 @@ namespace CyberBeat
 		[SerializeField] Transform cameraTransform;
 		[SerializeField] Sprite BlueFrame, PinkFrame;
 		[SerializeField] Color Blue, Pink;
-		[Button]
+		[ContextMenu ("Init")]
 		public void Init ()
 		{
 

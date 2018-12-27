@@ -83,10 +83,10 @@ namespace UnityEngine.UI.Extensions
 		int dataCount;
 
 		#region Events
-		[Tooltip ("Event that fires when the position of an item changes")][Sirenix.OdinInspector.DrawWithUnity]
+		[Tooltip ("Event that fires when the position of an item changes")]
 		public UpdatePositionEvent OnUpdatePosition;
 
-		[Tooltip ("Event that fires when an item is selected/focused")][Sirenix.OdinInspector.DrawWithUnity]
+		[Tooltip ("Event that fires when an item is selected/focused")]
 		public ItemSelectedEvent OnItemSelected;
 		#endregion
 

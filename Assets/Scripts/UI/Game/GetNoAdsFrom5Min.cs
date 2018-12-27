@@ -1,7 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,13 +37,14 @@ namespace CyberBeat
             RestartGame = Tools.GetAssetAtPath<GameEvent> ("Assets/Data/Events/GameController/OnRestartGame.asset");
         }
 #endif
-        [Button]
+
+        [ContextMenu ("Show")]
         public void Show ()
         {
             Back.SetActive (true);
         }
 
-        [Button]
+        [ContextMenu("Close")]
         public void Close ()
         {
             Back.SetActive (false);

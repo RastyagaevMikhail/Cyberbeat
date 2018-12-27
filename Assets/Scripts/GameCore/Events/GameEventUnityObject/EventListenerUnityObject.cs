@@ -1,5 +1,3 @@
-using Sirenix.OdinInspector;
-
 using System;
 
 using UnityEngine;
@@ -10,7 +8,7 @@ namespace GameCore
     [Serializable] public class EventListenerUnityObject
     {
         [SerializeField] GameEventUnityObject EventObject;
-        [DrawWithUnity]
+
         [SerializeField] UnityEventUnityObject Responce;
         public EventListenerUnityObject (GameEventUnityObject _evnet, UnityAction<UnityEngine.Object> action)
         {

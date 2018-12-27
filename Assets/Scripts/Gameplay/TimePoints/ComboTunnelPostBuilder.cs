@@ -1,14 +1,11 @@
 using GameCore;
 
-using Sirenix.OdinInspector;
-
-using System.Collections.Generic;
-
 using UnityEngine;
 
 namespace CyberBeat
 {
-    public class ComboTunnelPostBuilder : ITimePointsPostBuilder
+    [CreateAssetMenu (fileName = "ComboTunnelPostBuilder", menuName = "CyberBeat/TimePointsPostBuilder/ComboTunnel")]
+    public class ComboTunnelPostBuilder : ATimePointsPostBuilder
     {
         [SerializeField] GameObject GatePrefab;
         [SerializeField] string PrefixName = "Gate";
@@ -16,7 +13,7 @@ namespace CyberBeat
         [SerializeField] Vector3 offset;
         [SerializeField] GateStateController gateControllerPrefab;
 
-        public GameObject PostBuild (TimePointsBuilder builder, GameObject generatorGO)
+        public override GameObject PostBuild (TimePointsBuilder builder, GameObject generatorGO)
         {
             var count = GameObject.FindObjectsOfType<GateStateController> ().Length;
             var gateController = GameObject.Instantiate (gateControllerPrefab, builder.parent);
@@ -33,7 +30,6 @@ namespace CyberBeat
             return gateController.gameObject;
         }
 
-      
         private GameObject InstatiatePrefab (GameObject prefab, TimePointInfo pointInfo, string prefixName, Transform Parent)
         {
             if (!prefab)

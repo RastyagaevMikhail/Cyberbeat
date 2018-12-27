@@ -1,5 +1,3 @@
-using Sirenix.OdinInspector;
-
 using System;
 
 using UnityEngine;
@@ -11,7 +9,7 @@ namespace GameCore
     public class EventListenerVector4 : EventListenerStruct<Vector4>
     {
         [SerializeField] GameEventVector4 EventObject;
-        [DrawWithUnity]
+
         [SerializeField] UnityEventVector4 Responce;
         public EventListenerVector4 (GameEventVector4 _evnet, UnityAction<Vector4> action)
         {

@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using UnityEngine;
 namespace GameCore
@@ -12,8 +10,6 @@ namespace GameCore
         [SerializeField]
         public List<EventListener> eventListeners = new List<EventListener> ();
 
-        [DisableInEditorMode]
-        [Button]
         public void Raise ()
         {
             for (int i = eventListeners.Count - 1; i >= 0; i--)
@@ -32,7 +28,7 @@ namespace GameCore
                 eventListeners.Remove (listener);
         }
 #if UNITY_EDITOR
-        [Button] public void ShowPath () { Debug.Log (UnityEditor.AssetDatabase.GetAssetPath (this)); }
+        [ContextMenu ("Show path")] public void ShowPath () { Debug.Log (UnityEditor.AssetDatabase.GetAssetPath (this)); }
 #endif
     }
 

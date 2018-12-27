@@ -1,5 +1,3 @@
-using Sirenix.OdinInspector;
-
 using System;
 
 using UnityEngine;
@@ -11,14 +9,9 @@ namespace CyberBeat
 {
     public abstract class SkinItem : ScriptableObject
     {
-        [Title ("Icon")]
-        [HorizontalGroup ("Split", 135, LabelWidth = 135)]
-        [HideLabel, PreviewField (90, ObjectFieldAlignment.Center)]
+        [Header ("Icon")]
         public Sprite Icon;
-        [Title ("Prefab")]
-        [HorizontalGroup ("Split", 135, LabelWidth = 135)]
-        [HideLabel, PreviewField (90, ObjectFieldAlignment.Center)]
-        [AssetsOnly]
+        [Header ("Prefab")]
         public Object Prefab;
         public int Price;
 
@@ -30,7 +23,6 @@ namespace CyberBeat
 
         string bouthSaveKey { get { return "{0}.Bougth".AsFormat (name); } }
 
-        [ShowInInspector]
         public bool Bougth { get { return Tools.GetBool (bouthSaveKey); } set { Tools.SetBool (bouthSaveKey, value); } }
         public bool getByVideo;
         [SerializeField] protected SkinType type;

@@ -8,9 +8,7 @@ namespace GameCore
 {
 	public class OnBoolVariableChanged : MonoBehaviour
 	{
-
 		[SerializeField] BoolVariable variable;
-		[Sirenix.OdinInspector.DrawWithUnity]
 		[SerializeField] UnityEventBool action;
 		private void OnEnable ()
 		{

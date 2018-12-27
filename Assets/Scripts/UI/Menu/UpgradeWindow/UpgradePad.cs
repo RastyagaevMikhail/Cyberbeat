@@ -2,8 +2,6 @@
 
 using GameCore;
 
-using Sirenix.OdinInspector;
-
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,19 +18,19 @@ namespace CyberBeat
     {
         public MainMenuController menu { get { return MainMenuController.instance; } }
 
-        [Title ("Buttons")]
+        [Header ("Buttons")]
         [SerializeField] IAPButton UpgradeByCurencyButton;
         [SerializeField] Button UpgradeByNotesButton;
         [SerializeField] ButtonActionByVideoAds UpgradeByVideoAdsButton;
-        [Title ("Images")]
+        [Header ("Images")]
         [SerializeField] Image mask;
         [SerializeField] Image Icon;
-        [Title ("Texts")]
+        [Header ("Texts")]
         [SerializeField] LocalizeTextMeshProUGUI Title;
         [SerializeField] TextMeshProUGUI PriceNotes;
         [SerializeField] TextMeshProUGUI CountVideoAds;
         [SerializeField] TextMeshProUGUI Info;
-        [Title ("Animation")]
+        [Header ("Animation")]
         // [SerializeField] Animator IconAnimator;
         [SerializeField] Ease fromIcon = Ease.InOutBack;
         [SerializeField] Ease toIcon = Ease.OutExpo;
@@ -41,10 +39,9 @@ namespace CyberBeat
         [SerializeField] float toSizeIcon = 444f;
         [SerializeField] float fromSizeIcon = 344;
 
-        [Title ("")]
+        [Header ("")]
         [SerializeField] bool isColors;
         [SerializeField] bool useGradient;
-        [ShowIf ("useGradient")]
         [SerializeField] Gradient enabledGradient;
         [SerializeField] UpgradeData data;
         [SerializeField] List<Toggle> UpgradeOTiles;
@@ -129,16 +126,15 @@ namespace CyberBeat
             ShakeIcon ();
         }
 #if UNITY_EDITOR
-        [Button]
+        [ContextMenu ("Init Toggles")]
         public void InitToggles ()
         {
             UpgradeOTiles = GetComponentsInChildren<Toggle> ().ToList ();
         }
 
-        [Button]
-        public void ValidateStylesAndValues ()
+        [ContextMenu ("Validate  Values")]
+        public void ValidateValues ()
         {
-            if (Icon) Icon.sprite = data.style.Icon;
             if (Title) Title.Id = data.locTitleTag.ToLower ();
             name = data.locTitleTag.ToCapitalize ();
             if (useGradient)
@@ -150,10 +146,6 @@ namespace CyberBeat
                     UnityEditor.Undo.RecordObject (enableGraph, "enableGraph_{0}".AsFormat (i));
                     enableGraph.color = enabledGradient.Evaluate ((float) (i + 1) / count);
                 }
-            }
-            foreach (var controller in GetComponentsInChildren<StyleController> ())
-            {
-                controller.Validate (data.style);
             }
         }
 #endif

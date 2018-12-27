@@ -2,9 +2,6 @@
 
 using GameCore;
 
-using Sirenix.OdinInspector;
-using Sirenix.Utilities;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +11,7 @@ using UnityEngine;
 
 namespace CyberBeat
 {
-	public class TrackController : SerializedMonoBehaviour
+	public class TrackController : MonoBehaviour
 	{
 		private CurvySpline _Spline = null;
 		public CurvySpline Spline { get { if (_Spline == null) _Spline = GetComponent<CurvySpline> (); return _Spline; } }
@@ -26,8 +23,7 @@ namespace CyberBeat
 
 		bool segmentSelected { get { return SelectedSegment != null; } }
 
-		[ShowIf ("segmentSelected")]
-		[SerializeField, ShowInInspector, ReadOnly, PropertyOrder (2)] CurvySplineSegment SelectedSegment { get { GameObject activeGameObject = UnityEditor.Selection.activeGameObject; return activeGameObject ? activeGameObject.GetComponent<CurvySplineSegment> () : null; } }
+		[SerializeField] CurvySplineSegment SelectedSegment { get { GameObject activeGameObject = UnityEditor.Selection.activeGameObject; return activeGameObject ? activeGameObject.GetComponent<CurvySplineSegment> () : null; } }
 		private Type IMetaDataType { get { return typeof (IMetaData); } }
 		private List<Type> listOfIMetaDataTypes = null;
 		public List<Type> ListOfIMetaDataTypes
@@ -40,10 +36,10 @@ namespace CyberBeat
 			}
 		}
 
-		[SerializeField, PropertyOrder (3), FoldoutGroup ("Мета Данные")]
+		[SerializeField]
 		public MetaList metaList;
 
-		[ShowIf ("segmentSelected"), Button ("Add Meta", ButtonSizes.Medium), PropertyOrder (2)]
+		[ContextMenu ("Add Meta")]
 		void AddMeta ()
 		{
 			if (SelectedSegment == null) return;
@@ -71,9 +67,9 @@ namespace CyberBeat
 		[HideInInspector]
 		[SerializeField] public List<CurvyTrackBitViewer> viewers;
 
-		[SerializeField, PropertyOrder (2), FoldoutGroup ("Слои"), Indent (2), ListDrawerSettings (HideAddButton = true, Expanded = true)]
+		[SerializeField]
 		public List<LayerColor> layers;
-		[Button]
+		[ContextMenu ("Validate")]
 		private void Validate ()
 		{
 			if (layers.IsNullOrEmpty ())
@@ -89,7 +85,7 @@ namespace CyberBeat
 
 		}
 
-		[ButtonGroup ("Init")]
+		[ContextMenu ("Init_Layers")]
 		private void Init_Layers ()
 		{
 			layers = Enums.LayerTypes
@@ -103,7 +99,7 @@ namespace CyberBeat
 				.ToList ();
 		}
 
-		[ButtonGroup ("Init")]
+		[ContextMenu ("Init_Viewers")]
 		private void Init_Viewers ()
 		{
 			viewers = layers

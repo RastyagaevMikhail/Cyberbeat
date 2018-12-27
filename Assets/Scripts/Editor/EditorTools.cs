@@ -1,9 +1,5 @@
 ﻿using GameCore;
 
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using Sirenix.Utilities.Unsafe;
-
 using SonicBloom.Koreo;
 using SonicBloom.Koreo.EditorUI;
 

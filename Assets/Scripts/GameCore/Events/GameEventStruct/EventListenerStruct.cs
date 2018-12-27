@@ -1,5 +1,3 @@
-using Sirenix.OdinInspector;
-
 using System;
 
 using UnityEngine;
@@ -7,11 +5,11 @@ using UnityEngine.Events;
 
 namespace GameCore
 {
-    [Serializable] 
+    [Serializable]
     public abstract class EventListenerStruct<TStruct> where TStruct : struct
     {
         [SerializeField] GameEventStruct<TStruct> EventObject;
-        [DrawWithUnity]
+
         [SerializeField] UnityEvent<TStruct> Responce;
         // public abstract EventListenerStruct (GameEventStruct<TStruct> _evnet, UnityAction<TStruct> action);
         // {
@@ -20,7 +18,7 @@ namespace GameCore
         //     Responce.AddListener (action);
         // }
 
-        public void OnEventRaised (TStruct obj)
+        public virtual void OnEventRaised (TStruct obj)
         {
             Responce.Invoke (obj);
         }

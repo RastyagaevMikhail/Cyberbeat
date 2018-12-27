@@ -1,12 +1,10 @@
-﻿using System;
+﻿using GameCore;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
-using Sirenix.OdinInspector;
-
 using UnityEngine;
-
-using GameCore;
 namespace CyberBeat
 {
 	public class BosstersController : TransformObject
@@ -29,11 +27,13 @@ namespace CyberBeat
 			OnBoosterTakedListener.OnDisable ();
 		}
 
-		[ButtonGroup]
-		public void ActivateOneLife () { InitBooster (boostersData["OneLife"]); }
-		[ButtonGroup]
+		[ContextMenu ("Activate Life")]
+		public void ActivateLife () { InitBooster (boostersData["Life"]); }
+
+		[ContextMenu ("Activate Blade")]
 		public void ActivateBlade () { InitBooster (boostersData["Blade"]); }
-		[ButtonGroup]
+
+		[ContextMenu ("Activate Shield")]
 		public void ActivateShield () { InitBooster (boostersData["Shield"]); }
 
 		public void OnColorInterractorDeath (UnityObjectVariable uov)

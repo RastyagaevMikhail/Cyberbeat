@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,11 +9,11 @@ namespace GameCore
 {
     public class OnTicksTimer : MonoBehaviour
     {
-        [DrawWithUnity]
+
         [SerializeField] UnityEventInt OnStartTimer;
-        [DrawWithUnity]
+
         [SerializeField] UnityEventInt OnTickTimer;
-        [DrawWithUnity]
+
         [SerializeField] UnityEvent OnEndTimer;
         [SerializeField] int Seconds;
         [SerializeField] float timeTick = 1f;

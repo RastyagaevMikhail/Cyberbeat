@@ -1,13 +1,11 @@
-﻿using Sirenix.OdinInspector;
-
-using System;
+﻿using System;
 
 using UnityEngine;
 using UnityEngine.Events;
 namespace GameCore
 {
     public abstract class GameEventListenerStruct<TStruct> : MonoBehaviour
-    where TStruct :struct
+    where TStruct : struct
     {
         [SerializeField] EventListenerStruct<TStruct> listener;
 

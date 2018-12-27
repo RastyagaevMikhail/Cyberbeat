@@ -1,6 +1,5 @@
 using GameCore;
 
-using Sirenix.OdinInspector;
 
 using System;
 using System.Collections.Generic;
@@ -103,7 +102,6 @@ namespace CyberBeat
 
 		[SerializeField] IntVariable Blades;
 		[SerializeField] IntVariable OneLifes;
-		[ShowInInspector]
 		public List<IntVariable> RewardVariables { get { return new List<IntVariable> () { Blades, Shields, Gates, OneLifes, Notes }; } }
 
 		public float CurrentStartSpeed;

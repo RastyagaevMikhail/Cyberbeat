@@ -7,7 +7,6 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "Vector3Variable", menuName = "Variables/GameCore/Vector3")]
 	public class Vector3Variable : SavableVariable<Vector3>
 	{
-	#if UNITY_EDITOR
 		public override void ResetDefault ()
         {
             if (ResetByDefault)
@@ -16,7 +15,6 @@ namespace GameCore
                 SaveValue ();
             }
         }
-	#endif
 		static string DefaultValueStr { get { return JsonUtility.ToJson (Vector3.zero); } }
 		public override void LoadValue ()
 		{

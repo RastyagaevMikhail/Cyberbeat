@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,7 +8,7 @@ using UnityEngine.SceneManagement;
 using Text = TMPro.TextMeshProUGUI;
 namespace GameCore
 {
-	public class Loading : SerializedMonoBehaviour
+	public class Loading : MonoBehaviour
 	{
 		[SerializeField] ILoadingProgressor loadingProgressor;
 		float progress { set { if (loadingProgressor != null) loadingProgressor.Value = value; } get { return loadingProgressor.Value; } }
@@ -69,9 +67,9 @@ namespace GameCore
 		[SerializeField] List<string> localizationTagsOfLoadingText;
 
 #if UNITY_EDITOR
-		[Button] public void ValidateTags ()
+		[ContextMenu ("Validate Tags")] public void ValidateTags ()
 		{
-			localizationTagsOfLoadingText = Localizator.instance.GetTranslations ().ToList ().FindAll (t => t.code.Contains ("loading_text_")).Select (t => t.code).ToList ();
+			localizationTagsOfLoadingText = LocalizationManager.instance.Keys.Keys.ToList ().FindAll (key => key.Contains ("loading_text_"));
 		}
 #endif
 

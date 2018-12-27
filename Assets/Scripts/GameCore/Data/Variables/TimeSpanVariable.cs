@@ -1,8 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using Sirenix.Serialization.Formatters;
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,7 +9,6 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "TimeSpanVariable", menuName = "Variables/GameCore/TimeSpan")]
 	public class TimeSpanVariable : SavableVariable<TimeSpan>
 	{
-#if UNITY_EDITOR
 		public override void ResetDefault ()
 		{
 			if (ResetByDefault)
@@ -22,7 +17,6 @@ namespace GameCore
 				SaveValue ();
 			}
 		}
-#endif
 		public override void LoadValue ()
 		{
 			base.LoadValue ();
@@ -57,7 +51,7 @@ namespace GameCore
 			return this;
 		}
 
-		[Button]
+		[ContextMenu ("Reset")]
 		public TimeSpanVariable Reset ()
 		{
 			Value = new TimeSpan ();

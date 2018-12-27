@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System;
+﻿using System;
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,7 +10,6 @@ namespace GameCore
 	{
 		[SerializeField] GameEventInt Event;
 
-		[DrawWithUnity]
 		[SerializeField] UnityEventInt Responce;
 
 		public EventListenerInt (GameEventInt _event, UnityAction<int> action)
@@ -25,20 +22,20 @@ namespace GameCore
 		{
 			Responce.Invoke (arg);
 		}
-		  public bool OnEnable ()
-            {
-                if (Event)
-                    Event.RegisterListener (this);
-                return Event;
+		public bool OnEnable ()
+		{
+			if (Event)
+				Event.RegisterListener (this);
+			return Event;
 
-            }
+		}
 
-            public bool OnDisable ()
-            {
-                if (Event)
-                    Event.UnRegisterListener (this);
-                return Event;
-            }
+		public bool OnDisable ()
+		{
+			if (Event)
+				Event.UnRegisterListener (this);
+			return Event;
+		}
 
 	}
 }

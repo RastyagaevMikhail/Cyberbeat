@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 
 using System.Collections.Generic;
 
@@ -28,8 +27,7 @@ namespace GameCore
 				eventListeners.Remove (listener);
 		}
 
-		[Title ("Test")]
 		[SerializeField] TObject testArg;
-		[Button] public void TestRaise () { Raise (testArg); }
+		[ContextMenu("Test Raise")] public void TestRaise () { Raise (testArg); }
 	}
 }

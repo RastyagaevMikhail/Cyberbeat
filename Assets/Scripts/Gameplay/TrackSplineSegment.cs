@@ -9,29 +9,26 @@ namespace CyberBeat
     using FluffyUnderware.Curvy;
     using FluffyUnderware.DevTools;
 
-    using Sirenix.OdinInspector;
-
     using System.Reflection;
     using System;
-    using Sirenix.Serialization;
 
     [System.Serializable]
     public class TrackSplineSegment
     {
         [SerializeField] string name;
-        [OdinSerialize]
+
         public Dictionary<Type, ICurvyMetadata> meta = null;
         public CurvySplineSegment segment;
 
-        [ShowInInspector] public float StartSpeed { get; private set; }
+        public float StartSpeed;
 
-        [ShowInInspector] public float EndSpeed { get; private set; }
+        public float EndSpeed;
 
-        [ShowInInspector] public float TimeOnSegment { get; private set; }
+        public float TimeOnSegment;
 
-        [ShowInInspector] public float StartTime { get; private set; }
+        public float StartTime;
 
-        [ShowInInspector] public float EndTime { get; private set; }
+        public float EndTime;
 
         public TrackSplineSegment Init_TrackSplineSegment (CurvySplineSegment segment, float startTime, float StartSpeed)
         {
@@ -69,7 +66,6 @@ namespace CyberBeat
 
         [SerializeField, HideInInspector]
         List<Type> typesOfMetaData = null;
-        
 
         List<Type> TypesOfMetaData
         {

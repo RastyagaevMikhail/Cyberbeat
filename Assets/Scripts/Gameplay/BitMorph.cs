@@ -1,19 +1,17 @@
+using DG.Tweening;
+
+using SonicBloom.Koreo;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using DG.Tweening;
-
-using Sirenix.OdinInspector;
-
-using SonicBloom.Koreo;
 
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace CyberBeat
 {
-    public class BitMorph : SerializedMonoBehaviour
+    public class BitMorph : MonoBehaviour
     {
         Track track { get { return TracksCollection.instance.CurrentTrack; } }
 
@@ -22,7 +20,6 @@ namespace CyberBeat
         [SerializeField] List<IMorph> ScaleMorphs;
         [SerializeField] List<IMorph> RotationMorphs;
         public GameData gameData { get { return GameData.instance; } }
-        
 
         [SerializeField] bool enable;
         private void Awake ()
@@ -41,7 +38,7 @@ namespace CyberBeat
         }
         private void OnBitKoreograpHyEvent (KoreographyEvent koreoEvent)
         {
-            var payload = koreoEvent.GetTextValue();
+            var payload = koreoEvent.GetTextValue ();
             OnBit.Invoke ();
         }
 

@@ -7,7 +7,6 @@ using UnityEditor;
 
 using GameCore;
 
-using Sirenix.OdinInspector;
 namespace CyberBeat
 {
     [System.Serializable]
@@ -20,15 +19,10 @@ namespace CyberBeat
             set { if (index == 0) Object1 = value; if (index == 1) Object2 = value; if (index == 2) Object3 = value; if (index == 3) Object4 = value; if (index == 4) Object5 = value; }
         }
 
-        [HorizontalGroup, PreviewField, HideLabel]
         [SerializeField] /* GameObject */ SpawnedObject Object1 = null;
-        [HorizontalGroup, PreviewField, HideLabel]
         [SerializeField] /* GameObject */ SpawnedObject Object2 = null;
-        [HorizontalGroup, PreviewField, HideLabel]
         [SerializeField] /* GameObject */ SpawnedObject Object3 = null;
-        [HorizontalGroup, PreviewField, HideLabel]
         [SerializeField] /* GameObject */ SpawnedObject Object4 = null;
-        [HorizontalGroup, PreviewField, HideLabel]
         [SerializeField] /* GameObject */ SpawnedObject Object5 = null;
 
         public RowInfo () { }

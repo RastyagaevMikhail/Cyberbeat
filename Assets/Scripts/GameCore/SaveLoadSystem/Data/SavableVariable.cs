@@ -1,6 +1,3 @@
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-
 using System;
 
 using UnityEngine;
@@ -8,7 +5,7 @@ using UnityEngine;
 namespace GameCore
 {
     [System.Serializable]
-    public abstract class SavableVariable<TValue> : SerializedScriptableObject, ISavableVariable
+    public abstract class SavableVariable<TValue> : ScriptableObject, ISavableVariable
     {
         [Multiline]
         public string DeveloperDescription = "";
@@ -16,7 +13,6 @@ namespace GameCore
         public string CategoryTag { get { return categoryTag; } set { categoryTag = value; } }
         protected SaveData saveData { get { return SaveData.instance; } }
 
-        [ShowInInspector]
         public bool isSavable
         {
             get { return saveData.Contains (this); }
@@ -33,24 +29,15 @@ namespace GameCore
                 else if (!value && contains) saveData.Remove (this);
             }
         }
-#if UNITY_EDITOR
-        private void SetValue ()
-        {
-            Value = _value;
-            SaveValue ();
-        }
 
-        [OnValueChanged ("SetValue")]
-#endif
         [SerializeField]
         protected TValue _value;
         [SerializeField]
         protected TValue DefaultValue;
         [SerializeField]
         protected bool ResetByDefault;
-        [Button]
+        [ContextMenu ("Reset Default")]
         public abstract void ResetDefault ();
-        [NonSerialized]
         public Action<TValue> OnValueChanged = (o) => { };
         public bool Loaded = false;
         public virtual TValue Value
@@ -79,9 +66,9 @@ namespace GameCore
             }
         }
 
-        [Button]
+        [ContextMenu ("Save Value")]
         public abstract void SaveValue ();
-        [Button]
+        [ContextMenu ("Load Value")]
         public virtual void LoadValue ()
         {
             if (Application.isPlaying)
@@ -101,8 +88,14 @@ namespace GameCore
             Loaded = false;
             UnityEditor.EditorUtility.SetDirty (this);
         }
-        [Title("Editor Only")]
-        [Button] public void ShowPath () { Debug.Log (UnityEditor.AssetDatabase.GetAssetPath (this)); }
+
+        [ContextMenu ("Show Paths")] public void ShowPath () { Debug.Log (UnityEditor.AssetDatabase.GetAssetPath (this)); }
+
+        [ContextMenu ("Toggle Savable")]
+        void ToggleSavable () { isSavable = !isSavable; }
+
+        [ContextMenu ("Check Savable")]
+        void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
 #endif
 
     }

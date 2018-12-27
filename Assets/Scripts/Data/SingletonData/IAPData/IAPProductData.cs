@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-using System;
+﻿using System;
 
 using UnityEngine;
 using UnityEngine.Purchasing;
@@ -30,22 +28,15 @@ namespace GameCore
 #endif
         public string productID;
         public ProductType productType;
-        [Title ("IAP Action Variables")]
-        [ShowIf ("productType", ProductType.NonConsumable)]
+        [Header ("IAP Action Variables")]
         [SerializeField] BoolVariable NonConsumableVariable;
-        [Title ("IAP Actions")]
-        [ShowIf ("productType", ProductType.Consumable)]
-        [DrawWithUnity]
+        [Header ("IAP Actions")]
         public OnPurchaseCompletedEvent OnPurchaseCompleted;
-        [ShowIf ("productType", ProductType.Consumable)]
-        [DrawWithUnity]
         public OnPurchaseFailedEvent OnPurchaseFailed;
 
-        [Title ("IAP Action Variables")]
-        [ShowIf ("productType", ProductType.Subscription)]
+        [Header ("IAP Action Variables")]
         [SerializeField]
         TimeSpan TimeOfSubscription;
-        [ShowIf ("productType", ProductType.Subscription)]
         [SerializeField]
         DateTimeVariable LasTimeSubsciption;
 

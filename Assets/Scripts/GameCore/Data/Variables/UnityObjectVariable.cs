@@ -4,7 +4,6 @@ namespace GameCore
     [CreateAssetMenu (fileName = "ObjectVariable", menuName = "Variables/GameCore/UnityEngine.Object")]
     public class UnityObjectVariable : SavableVariable<Object>
     {
-#if UNITY_EDITOR
         public override void ResetDefault ()
         {
             if (ResetByDefault)
@@ -13,7 +12,6 @@ namespace GameCore
                 SaveValue ();
             }
         }
-#endif
         public void SetValue (Object value)
         {
             Value = value;

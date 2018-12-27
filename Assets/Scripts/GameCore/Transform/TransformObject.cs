@@ -1,10 +1,8 @@
-using Sirenix.OdinInspector;
-
 using UnityEngine;
 
 namespace GameCore
 {
-    public class TransformObject : SerializedMonoBehaviour
+    public class TransformObject : MonoBehaviour
     {
         private Transform _transform = null;
         public new Transform transform { get { if (_transform == null) _transform = GetComponent<Transform> (); return _transform; } }
