@@ -7,19 +7,7 @@ namespace CyberBeat
     public class GateStateController : MonoBehaviour
     {
         private Renderer _rend = null;
-
-        public Renderer rend
-        {
-            get
-            {
-                if (_rend == null)
-                {
-                    _rend = StartGate.GetComponent<Renderer> ();
-                }
-
-                return _rend;
-            }
-        }
+        public Renderer rend { get { if (_rend == null) { _rend = StartGate.GetComponent<Renderer> (); } return _rend; } }
 
         [SerializeField] Material activeMaterial;
         [SerializeField] Material notActiveMaterial;
@@ -30,11 +18,10 @@ namespace CyberBeat
         [SerializeField] GameObject EndGate;
         [SerializeField] Track track;
         [SerializeField] int Index;
-        [SerializeField] bool alwaysOpen;
         private void Start ()
         {
-            if (!alwaysOpen)
-                Activate (track.GetGateState (Index));
+            bool active = track.GetGateState (Index);
+            Activate (active);
 
             DisableTunelAndGate ();
         }
@@ -50,7 +37,7 @@ namespace CyberBeat
             Portal = StartGate.transform.Find ("Portal").gameObject;
             Portal.SetActive (false);
             Trigger.transform.SetParent (startGate.transform);
-            Trigger.transform.localPosition = -Vector3.forward * 10f; //? Distance from Gates from hide Tunnel
+            Trigger.transform.localPosition = Vector3.zero;
             Trigger.transform.localRotation = Quaternion.identity;
         }
 
@@ -58,6 +45,7 @@ namespace CyberBeat
         {
             rend.sharedMaterial = active ? activeMaterial : notActiveMaterial;
             DisableTunelAndGate ();
+            Portal.SetActive (active);
             Trigger.SetActive (active);
         }
 
@@ -83,14 +71,11 @@ namespace CyberBeat
             EndGate.SetActive (false);
         }
 
-        public void _OpenGate ()
+        public void _OpenTunnel ()
         {
-            Portal.SetActive (true);
-            Tools.DelayAction (this, 0.25f, () =>
-            {
-                Tunnel.SetActive (true);
-                EndGate.SetActive (true);
-            });
+            Tunnel.SetActive (true);
+            EndGate.SetActive (true);
+
         }
     }
 }

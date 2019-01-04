@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameCore
 {
+	[RequireComponent (typeof (SpawnedObject))]
 	public class RuntimeTimer : MonoBehaviour
 	{
 

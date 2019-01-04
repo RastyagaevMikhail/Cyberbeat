@@ -31,22 +31,22 @@ namespace CyberBeat
 			Empty.transform.SetParent (transform.parent);
 			transform.DestroyAllChilds ();
 			colors = new ColorSliders ();
-			// var width = rectTransform.sizeDelta.x;
-			foreach (var color in data.colors)
+            // var width = rectTransform.sizeDelta.x;
+            int count = data.AvalivableColors.Count;
+			foreach (var colorInfo in data.AvalivableColors)
 			{
-				ColorCountVariable variable = data.colorsCounter[color];
 				var clr = Instantiate (ColorPrefab, transform);
-				clr.name = string.Format ("{0}", variable.name);
-				colors.sliders.Add (new SliderOfColor () { color = color, slider = clr });
-				clr.Init (variable);
+				clr.name = string.Format ("{0}", colorInfo.Name);
+				colors.sliders.Add (new SliderOfColor () { color = colorInfo.color, slider = clr });
+				clr.Init (colorInfo);
 			}
 			Empty.transform.SetParent (transform);
-			bool emptyIsEnabled = data.colors.Count <= 6;
+			bool emptyIsEnabled = count <= 6;
 			Empty.SetActive (emptyIsEnabled);
-			/* if (emptyIsEnabled)
-			{
-				Empty.transform.SetAsLastSibling ();
-			} */
+			// if (emptyIsEnabled)
+			// {
+			// 	Empty.transform.SetAsLastSibling ();
+			// }
 		}
 
 	}
@@ -54,7 +54,7 @@ namespace CyberBeat
 	[Serializable]
 	public class ColorSliders
 	{
-		public List<SliderOfColor> sliders = new List<SliderOfColor>();
+		public List<SliderOfColor> sliders = new List<SliderOfColor> ();
 		public ColorSlider this [Color color]
 		{
 			get

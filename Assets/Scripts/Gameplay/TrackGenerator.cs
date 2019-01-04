@@ -1,6 +1,5 @@
 ﻿using GameCore;
 
-
 using SonicBloom.Koreo;
 using SonicBloom.Koreo.Players;
 
@@ -38,6 +37,7 @@ namespace CyberBeat
         private Koreographer _koreographer = null;
         public Koreographer koreographer { get { if (_koreographer == null) _koreographer = GetComponent<Koreographer> (); return _koreographer; } }
         public bool outOfIndexBits { get { return (CurrentBits.Count <= indexRow); } }
+        List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
         private void Start ()
         {
             LastRandomColor = Colors.instance.RandomColor;
@@ -50,10 +50,11 @@ namespace CyberBeat
             OnStart ();
         }
 
+        [SerializeField] StringVariable DefaultColorName;
         private void InitRCM ()
         {
             rcm = new RandomConstantMaterial (); //ScriptableObject.CreateInstance<RandomConstantMaterial> ();
-            rcm.Init (LastRandomColor);
+            rcm.Init (LastRandomColor, DefaultColorName.Value);
         }
 
         private int indexRow = 0;
@@ -65,11 +66,10 @@ namespace CyberBeat
             {
                 float half_width = width / 2;
                 float step = half_width / 2;
-                // string Log = "";
 
                 int randPreset = currentBit.presets.GetRandom ();
                 // Debug.LogFormat ("randPreset = {0}", randPreset);
-                RowInfo row = tracksCollection.Prefabs[randPreset];
+                var row = tracksCollection.Presets[randPreset];
 
                 for (float x = -half_width, i = 0; x <= half_width; x += step, i++)
                 {
@@ -79,9 +79,25 @@ namespace CyberBeat
                     {
                         string metadata = string.Format ("{0}", currentBit.time);
                         spawnObj.Get<MetaDataGizmos> ().MetaData = Tools.LogTextInColor (metadata, Color.blue);
-                        spawnObj.Get<ColorInterractor> ().bit = currentBit.time;
+                        ColorInterractor colorInterractor = spawnObj.Get<ColorInterractor> ();
+                        colorInterractor.bit = currentBit.time;
+                        Neighbors.Add (colorInterractor);
                     }
                 }
+                if (Neighbors.Count > 1)
+                {
+                    foreach (var neighbor in Neighbors)
+                    {
+                        foreach (var n in Neighbors)
+                        {
+                            if (!neighbor.Equals (n) && !neighbor.Neighbors.Contains (n))
+                            {
+                                neighbor.Neighbors.Add (n);
+                            }
+                        }
+                    }
+                }
+                Neighbors.Clear ();
                 indexRow++;
 
                 if (!outOfIndexBits)
@@ -131,7 +147,7 @@ namespace CyberBeat
                     Material ConstantMaterial = rcm.Constant[currentMaterial];
                     Material RandomMaterial = rcm.GetRandom (currentMaterial);
                     matSwitcher.SetMaterial (matSwitcher.Constant ? ConstantMaterial : RandomMaterial);
-                    LastRandomColor = RandomMaterial.GetColor(matSwitcher.DefaultColorName);
+                    LastRandomColor = RandomMaterial.GetColor (matSwitcher.DefaultColorName);
                 }
             }
             return obj;

@@ -8,33 +8,29 @@ namespace GameCore
     [Serializable]
     public abstract class EventListenerStruct<TStruct> where TStruct : struct
     {
-        [SerializeField] GameEventStruct<TStruct> EventObject;
+        [SerializeField]
+        protected abstract GameEventStruct<TStruct> AEventObject { get; }
 
-        [SerializeField] UnityEvent<TStruct> Responce;
-        // public abstract EventListenerStruct (GameEventStruct<TStruct> _evnet, UnityAction<TStruct> action);
-        // {
-        //     EventObject = _evnet;
-        //     Responce = new UnityEvent<TStruct> ();
-        //     Responce.AddListener (action);
-        // }
-
+        [SerializeField]
+        protected abstract UnityEvent<TStruct> AResponce { get; }
         public virtual void OnEventRaised (TStruct obj)
         {
-            Responce.Invoke (obj);
+            AResponce.Invoke (obj);
         }
-        public bool OnEnable ()
+        public virtual bool OnEnable ()
         {
-            if (EventObject)
-                EventObject.RegisterListener (this);
-            return EventObject;
+            // Debug.LogFormat (AEventObject, "EventObject.{1} = {0}", AEventObject, this);
+            if (AEventObject)
+                AEventObject.RegisterListener (this);
+            return AEventObject;
 
         }
 
-        public bool OnDisable ()
+        public virtual bool OnDisable ()
         {
-            if (EventObject)
-                EventObject.UnRegisterListener (this);
-            return EventObject;
+            if (AEventObject)
+                AEventObject.UnRegisterListener (this);
+            return AEventObject;
         }
     }
 }

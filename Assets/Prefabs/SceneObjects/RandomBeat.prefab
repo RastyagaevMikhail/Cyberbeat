@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 4001502892432346}
   - component: {fileID: 33967364804507146}
   - component: {fileID: 23172934800083484}
+  - component: {fileID: 114283711047911854}
+  - component: {fileID: 8512347159991630916}
+  - component: {fileID: 1615753148857422651}
+  - component: {fileID: 65426608238597218}
+  - component: {fileID: 114712336674342962}
   - component: {fileID: 114551148824255416}
   - component: {fileID: 114460927941135028}
   - component: {fileID: 114359091212655260}
-  - component: {fileID: 114283711047911854}
-  - component: {fileID: 65426608238597218}
-  - component: {fileID: 114712336674342962}
-  - component: {fileID: 8512347159991630916}
-  - component: {fileID: 1615753148857422651}
   m_Layer: 0
   m_Name: RandomBeat
   m_TagString: Brick
@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 1215168562196926}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,7 +47,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215168562196926}
-  m_Mesh: {fileID: 4300000, guid: 60c209b948fae1843a0554c234e404dc, type: 3}
+  m_Mesh: {fileID: 4300004, guid: becca941ab1fb6b44bb02a488aee9b02, type: 3}
 --- !u!23 &23172934800083484
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -85,89 +85,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &114551148824255416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215168562196926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feaa4d6d8642c174eab59e792f0daef7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  bit: 0
-  OnDeathCollorInterractor: {fileID: 11400000, guid: 47c53296d23de95469d924d930798c78,
-    type: 2}
-  OnColorTeked: {fileID: 11400000, guid: f848ac470e1c2d24085b4140d22da118, type: 2}
-  deathParticles_poolKey: getColor
-  PushOnDeath: 0
---- !u!114 &114460927941135028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215168562196926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f52f70634c881846834bbd5c65026e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  OnSpawn:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnDeSpawn:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114551148824255416}
-        m_MethodName: OnDeSpawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OffsetPosition: {x: 0, y: 0, z: 0}
---- !u!114 &114359091212655260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215168562196926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eef64ff8aeafc5d4d82fbad485fdd62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MetaData: 
 --- !u!114 &114283711047911854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,51 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Constant: 0
-  DefaultColorName: _Color
---- !u!65 &65426608238597218
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215168562196926}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: -0.000000059604645, y: 0.53768814, z: -0.000000059604645}
---- !u!114 &114712336674342962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215168562196926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28ac4242359d8d746a4a2c63d4ea2a7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnterTrigger:
-  - Tag: Player
-    action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114551148824255416}
-          m_MethodName: OnPlayerContact
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: GameCore.UnityEventGameObject, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  OnExitTrigger: []
+  DefaultColorNameVariable: {fileID: 11400000, guid: 0f78b5ae5ceb6df4596094116cf669c0,
+    type: 2}
+  defaultColorName: _Color
 --- !u!95 &8512347159991630916
 Animator:
   serializedVersion: 3
@@ -275,3 +150,126 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!65 &65426608238597218
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215168562196926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114712336674342962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215168562196926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ac4242359d8d746a4a2c63d4ea2a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnterTrigger:
+  - Tag: Player
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: d09fa85f63eb3af4e987ac2d4a02b0cd, type: 2}
+          m_MethodName: Raise
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 114551148824255416}
+            m_ObjectArgumentAssemblyTypeName: CyberBeat.ColorInterractor, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventGameObject, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  OnExitTrigger: []
+--- !u!114 &114551148824255416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215168562196926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaa4d6d8642c174eab59e792f0daef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bit: 0
+  OnDeathCollorInterractor: {fileID: 11400000, guid: 47c53296d23de95469d924d930798c78,
+    type: 2}
+  OnColorTeked: {fileID: 11400000, guid: f848ac470e1c2d24085b4140d22da118, type: 2}
+  deathParticles_poolKey: getColor
+  PushOnDeath: 0
+  DeathParticlesOnMe: 0
+  Neighbors: []
+  DeathHashState: 646380074
+--- !u!114 &114460927941135028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215168562196926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f52f70634c881846834bbd5c65026e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114551148824255416}
+        m_MethodName: OnSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114551148824255416}
+        m_MethodName: OnDeSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OffsetPosition: {x: 0, y: 1, z: 0}
+--- !u!114 &114359091212655260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215168562196926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef64ff8aeafc5d4d82fbad485fdd62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MetaData: 

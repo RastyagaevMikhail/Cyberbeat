@@ -18,6 +18,8 @@ namespace CyberBeat
 		public SpeedTimeUser speedTimeUser { get { return _speedTimeUser ?? (_speedTimeUser = GetComponentInParent<SpeedTimeUser> ()); } }
 		Dir lastMove = Dir.None;
 		const float maxDistance = 6f;
+		private const float Radius = 1f;
+
 		private void Awake ()
 		{
 			ControlSwitchController.OnSwitchControl += OnControlSwitched;
@@ -56,7 +58,7 @@ namespace CyberBeat
 			Ray leftRay = new Ray (origin, -transform.right);
 			Ray forwardRay = new Ray (origin, transform.forward);
 			RaycastHit hit = new RaycastHit ();
-			if (Physics.Raycast (rightRay, out hit, maxDistance))
+			if (Physics.SphereCast (rightRay, Radius, out hit, maxDistance))
 			{
 				if (Checkhit (hit))
 				{
@@ -65,7 +67,7 @@ namespace CyberBeat
 				}
 			}
 
-			if (Physics.Raycast (leftRay, out hit, maxDistance))
+			if (Physics.SphereCast (leftRay, Radius, out hit, maxDistance))
 			{
 				if (Checkhit (hit))
 				{
@@ -73,7 +75,7 @@ namespace CyberBeat
 					lastMove = Dir.Left;
 				}
 			}
-			if (Physics.Raycast (forwardRay, out hit, maxDistance))
+			if (Physics.SphereCast (forwardRay, Radius, out hit, maxDistance))
 			{
 				GameObject hitGO = hit.transform.gameObject;
 				bool isBrick = hitGO.CompareTag ("Brick");
@@ -91,6 +93,7 @@ namespace CyberBeat
 		{
 			GameObject hitGO = hit.transform.gameObject;
 			bool isBit = hitGO.CompareTag ("Brick") || hitGO.CompareTag ("Switcher");
+			if (!isBit) return false;
 			MaterialSwitcher materialSwitcher = hitGO.GetComponent<MaterialSwitcher> ();
 			return isBit && (materialSwitcher.Constant || materialSwitcher.CurrentColor == player.matSwitch.CurrentColor);
 		}

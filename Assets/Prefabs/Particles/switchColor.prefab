@@ -4779,7 +4779,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Constant: 1
-  DefaultColorName: _EmissiveColor
+  DefaultColorNameVariable: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437,
+    type: 2}
+  defaultColorName: _Color
 --- !u!1 &6171535383522432815
 GameObject:
   m_ObjectHideFlags: 0
@@ -9536,15 +9538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f52f70634c881846834bbd5c65026e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   OnSpawn:
     m_PersistentCalls:
       m_Calls: []
@@ -14348,4 +14341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Constant: 1
-  DefaultColorName: _EmissiveColor
+  DefaultColorNameVariable: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437,
+    type: 2}
+  defaultColorName: _Color

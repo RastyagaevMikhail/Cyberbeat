@@ -30,17 +30,10 @@ namespace CyberBeat
         {
             inputController[CurrentInputType].MoveLeft ();
         }
-
-        public void GEColor_OnColorChangeOnInterracor (Color color)
-        {
-            if (!ChechColor (color))
-            {
-                OnColorChnaged.Raise (color);
-            }
-        }
         public void SetColor (Color color)
         {
             matSwitch.SetColorInMaterial (color);
+             OnColorChnaged.Raise (color);
         }
 
         private void Awake ()

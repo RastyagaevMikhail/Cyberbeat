@@ -19,6 +19,7 @@ namespace CyberBeat
 			if (transGroup.Contains (prefab)) return;
 			GameObject result = Instantiate (prefab, transGroup.transform);
 			result.name = prefab.name;
+			
 			ApplyStateMaterial (result.GetComponent<Renderer> ());
 
 			transGroup.Add (result);

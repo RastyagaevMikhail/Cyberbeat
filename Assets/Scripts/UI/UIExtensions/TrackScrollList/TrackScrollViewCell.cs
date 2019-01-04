@@ -30,7 +30,6 @@ namespace CyberBeat
 		}
 		readonly int scrollTriggerHash = Animator.StringToHash ("Scroll");
 		TrackScrollContext context;
-		private bool WathedRewardVideo = false;
 
 		public override void SetContext (TrackScrollContext context)
 		{
@@ -58,11 +57,11 @@ namespace CyberBeat
 			name = track.name;
 			playerCellView.UpdateContent (data);
 			ValidateTrackValues ();
-			ValidateButtons (track.shopInfo.Buyed || WathedRewardVideo);
+			ValidateButtons (track.shopInfo.Buyed);
 			// UpdatePosition (0);
 		}
 
-		[ContextMenu("Validate Track Values")]
+		[ContextMenu ("Validate Track Values")]
 		private void ValidateTrackValues ()
 		{
 			if (track == null) return;
@@ -75,6 +74,7 @@ namespace CyberBeat
 		}
 		public void OnPlay ()
 		{
+			PlayButton.SetActive (false);
 			track.SetMeAsCurrent ();
 			track.LoadScene ();
 		}
@@ -82,8 +82,9 @@ namespace CyberBeat
 		public void OnPlayByWatch ()
 		{
 			Debug.Log ("OnPlayByWatch {0}".AsFormat (this));
-			WathedRewardVideo = true;
+			GameData.instance.WathedRewardVideo = true;
 			ValidateButtons (true);
+			OnPlay();
 		}
 
 		public void OnBuy ()
@@ -91,6 +92,7 @@ namespace CyberBeat
 			bool buyed = track.shopInfo.TryBuy ();
 			Debug.LogFormat ("buyed = {0}", buyed);
 			ValidateButtons (buyed);
+			if (buyed) OnPlay ();
 		}
 
 		private void ValidateButtons (bool buyed)

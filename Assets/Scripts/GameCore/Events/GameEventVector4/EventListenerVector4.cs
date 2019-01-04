@@ -9,8 +9,10 @@ namespace GameCore
     public class EventListenerVector4 : EventListenerStruct<Vector4>
     {
         [SerializeField] GameEventVector4 EventObject;
+        protected override GameEventStruct<Vector4> AEventObject { get { return EventObject; } }
 
         [SerializeField] UnityEventVector4 Responce;
+        protected override UnityEvent<Vector4> AResponce { get { return Responce; } }
         public EventListenerVector4 (GameEventVector4 _evnet, UnityAction<Vector4> action)
         {
             EventObject = _evnet;
@@ -18,23 +20,9 @@ namespace GameCore
             Responce.AddListener (action);
         }
 
-        public void OnEventRaised (Vector4 obj)
+        public override void OnEventRaised (Vector4 obj)
         {
             Responce.Invoke (obj);
-        }
-        public bool OnEnable ()
-        {
-            if (EventObject)
-                EventObject.RegisterListener (this);
-            return EventObject;
-
-        }
-
-        public bool OnDisable ()
-        {
-            if (EventObject)
-                EventObject.UnRegisterListener (this);
-            return EventObject;
         }
     }
 }

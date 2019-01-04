@@ -4,13 +4,16 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b1b7d894eeb06458e91d5258663f7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 781592224b017e0469f849c92e7db88b, type: 3}
   m_Name: Blade
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 3ad3d91c97082f441a1c0e3845a395d3, type: 3}
   timer: {fileID: 0}
   levelUpgrade: {fileID: 11400000, guid: dda55088ec9541f418b624586643137a, type: 2}
+  count: {fileID: 11400000, guid: 25844f6bc788dc54382c5bfb632e7a3c, type: 2}
+  BoosterIsOver: {fileID: 11400000, guid: b2058eef625f6bf4f8dc77cec26f7e6d, type: 2}

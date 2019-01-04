@@ -27,8 +27,8 @@ namespace CyberBeat
 
             var Panel = Back.transform.GetChild (0);
 
-            WatchButton = Panel.transform.GetChild (2).GetComponent<Button> ();
-            SkipButton = Panel.transform.GetChild (3).GetComponent<Button> ();
+            WatchButton = Panel.transform.Find ("GetAndWatch").GetComponent<Button> ();
+            SkipButton = Panel.transform.Find ("Skip").GetComponent<Button> ();
 
             NoadsIsEnabled = Tools.GetAssetAtPath<BoolVariable> ("Assets/Data/NoAdsTimer/NoAdsIsEnabled.asset");
             NoAdsTime = Tools.GetAssetAtPath<TimeSpanVariable> ("Assets/Data/NoAdsTimer/NoAdsTime.asset");
@@ -44,7 +44,7 @@ namespace CyberBeat
             Back.SetActive (true);
         }
 
-        [ContextMenu("Close")]
+        [ContextMenu ("Close")]
         public void Close ()
         {
             Back.SetActive (false);
@@ -70,6 +70,7 @@ namespace CyberBeat
         private void ResetNoAdsTimer (double arg1, string arg2)
         {
             NoadsIsEnabled.Value = true;
+            
             NoAdsTime.ResetDefault ();
         }
 

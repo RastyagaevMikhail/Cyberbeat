@@ -68,7 +68,7 @@ namespace GameCore
 		}
 		public void StartTimer ()
 		{
-			Debug.Log ("StartTimer.{0}".AsFormat (name));
+			// Debug.Log ("StartTimer.{0}".AsFormat (name));
 			Started.Value = true;
 			if (TimerText)
 				TimerText.SetActive (true);

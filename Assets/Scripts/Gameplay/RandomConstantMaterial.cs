@@ -16,8 +16,10 @@ namespace CyberBeat
 		[SerializeField] Dictionary<Material, RandomStack<Material>> RandomSet;
 		Materials materialsData { get { return Materials.instance; } }
 		public Colors colorsData { get { return Colors.instance; } }
-		public void Init (Color lastRandomColor)
+		string DefalutColorName;
+		public void Init (Color lastRandomColor, string ColorName)
 		{
+			DefalutColorName = ColorName;
 			var BaseMaterials = materialsData.BaseMaterials;
 			currentConstatntColor = colorsData.RandomColor;
 
@@ -27,11 +29,11 @@ namespace CyberBeat
 					currentConstatntColor = colorsData.RandomColor;
 
 			// Debug.LogFormat ("currentConstatntColor == lastRandomColor  \n{0} == {1}", currentConstatntColor.ToString (false), lastRandomColor.ToString (false));
-			materialsData.Init ();
+			materialsData.Init (DefalutColorName);
 			foreach (var baseMat in BaseMaterials)
 			{
 
-				Constant[baseMat] = materialsData.GetMaterialWhithColor (baseMat, currentConstatntColor, "_Color");
+				Constant[baseMat] = materialsData.GetMaterialWhithColor (baseMat, currentConstatntColor, DefalutColorName);
 				// Debug.LogFormat ("Constant[mat] = {0}", Constant[mat]);
 				RandomSet = new Dictionary<Material, RandomStack<Material>> ();
 

@@ -28,7 +28,7 @@ namespace CyberBeat
 
         public void _SetSpeed (FloatVariable newSpeed)
         {
-            _SetSpeed(newSpeed.Value);
+            _SetSpeed (newSpeed.Value);
         }
         public void _SetSpeed (float newSpeed)
         {
@@ -37,12 +37,12 @@ namespace CyberBeat
         }
         public void _SlowStop (float StopDuration = 2f)
         {
-            splineController.Speed.Do (0f, StopDuration, value =>
-                {
-                    splineController.Speed = value;
-                    // splineController.Play ();
-                },
-                splineController.Stop);
+            splineController.Speed.Do (0f, StopDuration, SetSpeed, splineController.Stop);
+        }
+
+        private void SetSpeed (float value)
+        {
+            splineController.Speed = value;
         }
     }
 }

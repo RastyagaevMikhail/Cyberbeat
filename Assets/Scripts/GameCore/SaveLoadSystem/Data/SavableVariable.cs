@@ -10,7 +10,7 @@ namespace GameCore
         [Multiline]
         public string DeveloperDescription = "";
         public string categoryTag = "Default";
-        public string CategoryTag { get { return categoryTag; } set { categoryTag = value; } }
+        public override string CategoryTag { get { return categoryTag; } set { categoryTag = value; } }
         protected SaveData saveData { get { return SaveData.instance; } }
 
         public override bool isSavable
@@ -37,7 +37,11 @@ namespace GameCore
         [SerializeField]
         protected bool ResetByDefault;
         [ContextMenu ("Reset Default")]
-        public override void ResetDefault () { }
+        public override void ResetDefault ()
+        {
+            if (ResetByDefault)
+                Value = DefaultValue;
+        }
         public Action<TValue> OnValueChanged = (o) => { };
         public bool Loaded = false;
         public virtual TValue Value
@@ -67,7 +71,8 @@ namespace GameCore
         }
 
         [ContextMenu ("Save Value")]
-        public override void SaveValue (){}
+        public override void SaveValue () { }
+
         [ContextMenu ("Load Value")]
         public override void LoadValue ()
         {

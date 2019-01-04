@@ -12,10 +12,12 @@ namespace GameCore
 		{
 			if (ResetByDefault)
 			{
-				Value = DefaultValue;
+				Value = CustomDefault;
 				SaveValue ();
 			}
 		}
+
+		[SerializeField] CustomDateTime CustomDefault;
 		string strDeafultValue { get { return new DateTime ().ToString (); } }
 
 		public bool isNew { get { return _value == new DateTime (); } }
@@ -43,5 +45,38 @@ namespace GameCore
 			return value._value;
 		}
 
+		[ContextMenu ("ShowValue")]
+		void ShowValue ()
+		{
+			Debug.Log (Value);
+		}
+
+		[ContextMenu ("Toggle Savable")]
+		void ToggleSavable () { isSavable = !isSavable; }
+
+		[ContextMenu ("Check Savable")]
+		void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
+
+	}
+
+	[Serializable]
+	public class CustomDateTime
+	{
+		public int Year;
+		public int Mounth;
+		public int Day;
+		public int Hour;
+		public int Minute;
+		public int Second;
+
+		public static implicit operator CustomDateTime (DateTime value)
+		{
+			return new CustomDateTime () { Year = value.Year, Mounth = value.Month, Day = value.Day, Hour = value.Hour, Minute = value.Minute, Second = value.Second };
+		}
+
+		public static implicit operator DateTime (CustomDateTime value)
+		{
+			return new DateTime (value.Year, value.Mounth, value.Day, value.Hour, value.Minute, value.Second);
+		}
 	}
 }

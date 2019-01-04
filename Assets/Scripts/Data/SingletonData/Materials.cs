@@ -13,7 +13,7 @@ namespace CyberBeat
 		[UnityEditor.MenuItem ("Game/Data/Materials")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
 		public override void InitOnCreate ()
 		{
-			Init ();
+
 		}
 
 		public override void ResetDefault () { }
@@ -35,13 +35,13 @@ namespace CyberBeat
 				});
 			}
 		}
-		public void Init ()
+		public void Init (string defalutColorName)
 		{
 			_materials = new Dictionary<Material, List<Material>> ();
 			foreach (var mat in BaseMaterials)
-				Add (mat);
+				Add (mat, defalutColorName);
 		}
-		public Material GetRandomMaterial (Material mat)
+		/* public Material GetRandomMaterial (Material mat)
 		{
 			if (randStacks == null)
 			{
@@ -55,7 +55,8 @@ namespace CyberBeat
 			}
 			return randStacks[mat].Get ();
 		}
-		public Material GetMaterialWhithColor (Material mat, Color color, string ColorName = "_Color")
+ */
+		public Material GetMaterialWhithColor (Material mat, Color color, string ColorName)
 		{
 			var LogStr = Tools.LogCollection (materials.Keys);
 			// Debug.Log (LogStr);

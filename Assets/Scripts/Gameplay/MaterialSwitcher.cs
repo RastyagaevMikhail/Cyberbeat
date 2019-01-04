@@ -21,8 +21,9 @@ namespace CyberBeat
 		private Renderer _renderer = null;
 		public new Renderer renderer { get { if (_renderer == null) _renderer = GetComponent<Renderer> (); return _renderer; } }
 		public bool Constant = true;
-
-		public string DefaultColorName = "_Color";
+		[SerializeField] StringVariable DefaultColorNameVariable;
+		public string defaultColorName = "_Color";
+		public string DefaultColorName { get { return DefaultColorNameVariable?DefaultColorNameVariable.Value : defaultColorName; } }
 		static string[] ColorNames = new string[] { "_Color", "_EmissionColor", "_Emis", "_TintColor", "_EmissiveColor" };
 
 		public void SetColor (Color newColor)

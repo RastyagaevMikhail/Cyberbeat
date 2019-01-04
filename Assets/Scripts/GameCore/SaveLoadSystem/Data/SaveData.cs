@@ -28,6 +28,7 @@ namespace GameCore
                     if (_saver == null)
                     {
                         _saver = new GameObject ("Saver").AddComponent<Saver> ();
+                        DontDestroyOnLoad (saver.gameObject);
                     }
                 }
                 return _saver;
@@ -97,8 +98,8 @@ namespace GameCore
         [ContextMenu ("CleatMissingReference")]
         void ClearMissingReference ()
         {
-            Saves.RemoveAll(item => item == null);
-        }   
+            Saves.RemoveAll (item => item == null);
+        }
 #endif
     }
 }

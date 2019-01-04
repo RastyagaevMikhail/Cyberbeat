@@ -1,6 +1,5 @@
 ﻿using GameCore;
 
-
 using SonicBloom.Koreo;
 
 using System;
@@ -21,13 +20,19 @@ namespace CyberBeat
 
 		public int TrackNumber { get { return data.Objects.IndexOf (this) + 1; } }
 
-		[ContextMenu("Save ME")] 
+		[ContextMenu ("Save ME")]
 		public void SaveME ()
 		{
 			this.Save ();
 		}
+
+		public void ResetDefault ()
+		{
+			shopInfo.ResetDefault ();
+		}
+
 		public float StartSpeed = 50f;
-		[ContextMenu("Set Me As Current")]
+		[ContextMenu ("Set Me As Current")]
 		public void SetMeAsCurrent ()
 		{
 			data.CurrentTrack = this;
@@ -67,11 +72,11 @@ namespace CyberBeat
 		public List<BitInfo> BitsInfos = new List<BitInfo> ();
 		public int CountConstant;
 
-		[ContextMenu("Generate Random Playeble")] 
+		[ContextMenu ("Generate Random Playeble")]
 		public void GenerateRandomPlayebles ()
 		{
 			var events = GetAllEventsByType (LayerType.Bit);
-			var keys = data.Prefabs.Keys.ToList ();
+			var keys = data.Presets.Keys.ToList ();
 			foreach (var evnt in events)
 			{
 				evnt.Payload = new IntPayload () { IntVal = keys.GetRandom () };
@@ -79,8 +84,8 @@ namespace CyberBeat
 			events.First ().Payload = new IntPayload () { IntVal = 0 };
 		}
 
-		[ContextMenu("Generate BitInfo by Events")]
-		 public void GenerateBitInfoByEvnts ()
+		[ContextMenu ("Generate BitInfo by Events")]
+		public void GenerateBitInfoByEvnts ()
 		{
 			BitsInfos = new List<BitInfo> ();
 			var events = GetAllEventsByType (LayerType.Bit);
@@ -93,6 +98,16 @@ namespace CyberBeat
 				});
 			}
 		}
+#if UNITY_EDITOR
+
+		public LayerType LayerForGenerateTimEvents = LayerType.Combo;
+		[ContextMenu ("Generate Combo TimeEvent`s")]
+		void GenerateComboTimeEvents ()
+		{
+			var timeEventOfData = Tools.GetAssetAtPath<TimeOfEventsData> ("Assets/Data/TimeEvents/{0}/{1}.asset".AsFormat (name, LayerForGenerateTimEvents));
+			timeEventOfData.Init (koreography.SampleRate, GetAllEventsByType (LayerForGenerateTimEvents));
+		}
+#endif
 
 		public bool GetGateState (int index)
 		{

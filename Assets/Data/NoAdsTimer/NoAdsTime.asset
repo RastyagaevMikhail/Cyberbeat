@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: NoAdsTime
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  categoryTag: NoAds
+  categoryTag: Default
   ResetByDefault: 1
   Loaded: 0
+  CustomDefault:
+    seconds: 0
+    minutes: 5
+    hours: 0

@@ -12,10 +12,9 @@ namespace CyberBeat
         [SerializeField] TimeSpanTimerAction NoAdsTimer;
         public AdsController Ads { get { return AdsController.instance; } }
 
-        [SerializeField] GameEvent ShowIntrastiotialAds;
+        [SerializeField] GameEvent ShowIntrstitialAdsTimer;
         [SerializeField] GameEvent RestartGame;
 
-        [SerializeField] TimeSpanVariable NoAdsTime;
         [SerializeField] BoolVariable NoAdsIsEnabled;
 
         bool noAdsIsEnabled { get { return NoAdsIsEnabled.Value; } set { NoAdsIsEnabled.Value = value; } }
@@ -24,26 +23,16 @@ namespace CyberBeat
         {
             if (noAdsIsEnabled) NoAdsTimer.StartTimer ();
         }
-
-        public void _OnChngeNoAdsState (bool isEnabled)
-        {
-            if (isEnabled)
-            {
-                Ads.ShowIntrastitial ("Autogenration", OnAdsShown);
-            }
-        }
-
-        private void OnAdsShown ()
-        {
-
-        }
-
+        int notLoadedAds;
         public void OnPlayerDeath ()
         {
-            if (!noAdsIsEnabled)
-                ShowIntrastiotialAds.Raise ();
-            else
+            if (noAdsIsEnabled)
                 RestartGame.Raise ();
+            else
+            {
+                ShowIntrstitialAdsTimer.Raise();
+                Ads.ShowIntrastitial ();
+            }
         }
     }
 }

@@ -12,18 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05514c26532ffbe438c83c52290a9ab1, type: 3}
   m_Name: AdsController
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: OnIntrastitialShown
-      Entry: 6
-      Data: 
-  appKey: 3c672f0ffdbf98b0bac46b6d2009945882ca20f1e7a2dc3a
-  adType: 131
+  currentAdsNetworks: {fileID: 11400000, guid: a326b853f4e032749a9be5feb7c99041, type: 2}
   noAds: {fileID: 11400000, guid: 0d3e500d10acd4d49961b14fb8c5919c, type: 2}

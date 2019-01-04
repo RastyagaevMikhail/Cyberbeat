@@ -19,12 +19,12 @@ namespace GameCore
         public CanvasGroup canvasGroup { get { if (_canvasGroup == null) _canvasGroup = GetComponent<CanvasGroup> (); return _canvasGroup; } }
         public void FadeIn ()
         {
-            Debug.LogFormat("FadeIn.{0}",name);
+            // Debug.LogFormat("FadeIn.{0}",name);
             canvasGroup.DOFade (1f, TimeIn).OnComplete (OnFadeInComplete.Raise);
         }
         public void FadeOut ()
         {
-            Debug.LogFormat("FadeOut.{0}",name);
+            // Debug.LogFormat("FadeOut.{0}",name);
             canvasGroup.DOFade (0f, TimeIn).OnComplete (OnFadeOutComplete.Raise);
         }
     }

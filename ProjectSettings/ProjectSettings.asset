@@ -40,8 +40,6 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 21300000, guid: 697c168b773c8f54181da4da6a9731a6, type: 3}
-    duration: 2
   - logo: {fileID: 21300000, guid: 8a3c113f6d048b24f82dbd8deb742e74, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
@@ -81,7 +79,7 @@ PlayerSettings:
   hideHomeButton: 0
   submitAnalytics: 1
   usePlayerLog: 1
-  bakeCollisionMeshes: 0
+  bakeCollisionMeshes: 1
   forceSingleInstance: 0
   resizableWindow: 0
   useMacAppStoreValidation: 0
@@ -117,25 +115,22 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1
+  bundleVersion: 1.0
   preloadedAssets:
   - {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
   - {fileID: 11400000, guid: 15c1980739b622344a5502bbc69dfc83, type: 2}
   - {fileID: 11400000, guid: fc5458fc19d83b844a1126a08b8f297d, type: 2}
   - {fileID: 11400000, guid: 374e7c64eb1851f4abcf20a98a3547c5, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 1f464ea588548cc4da9fc6eee1677d3d, type: 2}
   - {fileID: 11400000, guid: 56bd49594212d08449645a1a879fd982, type: 2}
+  - {fileID: 11400000, guid: b53cddf60e805864380e74c79d200dd1, type: 2}
   - {fileID: 11400000, guid: e7ba042f74bcbc349a301c61bc07f326, type: 2}
-  - {fileID: 11400000, guid: 7cc74a6e19d0dc84a978f3ec1cfca0fb, type: 2}
   - {fileID: 11400000, guid: 11999941d5235fa4ab2efb3ebc143126, type: 2}
   - {fileID: 11400000, guid: 36edd8dc4ca5f2b4d82ffb3cf8e385fd, type: 2}
   - {fileID: 11400000, guid: 6fe5bebdb9e7ca0408546aedab6fd868, type: 2}
   - {fileID: 11400000, guid: 43ddb2644a58dba45a0cf343f849d88f, type: 2}
   - {fileID: 11400000, guid: 328fa3d301abe6a4f830c8ea5677a79a, type: 2}
   - {fileID: 11400000, guid: b670e399b603b2f49a642c6ac92e5589, type: 2}
-  - {fileID: 11400000, guid: 412631d0f5f7c7643b20303861d2487b, type: 2}
-  - {fileID: 11400000, guid: 1f464ea588548cc4da9fc6eee1677d3d, type: 2}
-  - {fileID: 11400000, guid: b53cddf60e805864380e74c79d200dd1, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -175,13 +170,13 @@ PlayerSettings:
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
-  AndroidPreferredInstallLocation: 1
+  AndroidPreferredInstallLocation: 0
   aotOptions: 
   stripEngineCode: 1
   iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 0
   ForceInternetPermission: 0
-  ForceSDCardPermission: 0
+  ForceSDCardPermission: 1
   CreateWallpaper: 0
   APKExpansionFiles: 0
   keepLoadedShadersAlive: 0
@@ -599,7 +594,7 @@ PlayerSettings:
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
   monoEnv: 
-  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: c767eeac380ded14ba0397bfe81ccc99,
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: 1d76a841942f0614983f88ff939afe41,
     type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: 
@@ -619,7 +614,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     1: ODIN_INSPECTOR;UNITY_POST_PROCESSING_STACK_V2
     4: UNITY_POST_PROCESSING_STACK_V2
-    7: ODIN_INSPECTOR;UNITY_POST_PROCESSING_STACK_V2;AMPLIFY_SHADER_EDITOR
+    7: UNITY_POST_PROCESSING_STACK_V2
     13: UNITY_POST_PROCESSING_STACK_V2
     14: UNITY_POST_PROCESSING_STACK_V2
     18: UNITY_POST_PROCESSING_STACK_V2
@@ -636,11 +631,11 @@ PlayerSettings:
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
-  allowUnsafeCode: 1
+  allowUnsafeCode: 0
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 0
   apiCompatibilityLevelPerPlatform:
-    Android: 1
+    Android: 2
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Template_2D

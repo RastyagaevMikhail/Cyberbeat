@@ -28,17 +28,22 @@ namespace CyberBeat
 
         float OneShotTime { get { return Start; } }
         bool OneIsShotEvent { get { return Start == End; } }
-        public static bool operator == (TimeOfEvent left, TimeOfEvent right)
+
+        public override bool Equals (object obj)
         {
-            return !object.ReferenceEquals (left, null) &&
-                !object.ReferenceEquals (right, null) &&
-                left.Start == right.Start &&
-                left.End == right.End;
+            var other = obj as TimeOfEvent;
+            if (other == null)
+            {
+                return false;
+            }
+
+            return other.Start == Start && other.End == End;
         }
 
-        public static bool operator != (TimeOfEvent left, TimeOfEvent right)
+        public override int GetHashCode ()
         {
-            return !(left == right);
+            return Start.GetHashCode () + End.GetHashCode ();
         }
+
     }
 }

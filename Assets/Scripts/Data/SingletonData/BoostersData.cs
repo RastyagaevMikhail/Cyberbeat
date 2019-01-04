@@ -15,7 +15,6 @@ namespace CyberBeat
         public override void InitOnCreate ()
         {
             boosters = Tools.GetAtPath<BoosterData> ("Assets/Data/Boosters").ToList ();
-            boosts = boosters.ToDictionary (b => b.name);
         }
 
         private const string DefaultUPgradeDataPath = "Assets/Data/UpgradeData/{0}/{1}.asset";
@@ -72,15 +71,23 @@ namespace CyberBeat
                 shopData.InitOnCreate (booster.name);
             }
         }
+
+        [ContextMenu ("DeactivateAllBoosters")]
+        void DeactivateAllBoosters ()
+        {
+            ActiveBoosters.ForEach (b => b.DeActivate ());
+        }
 #endif
         [SerializeField] List<UpgradeData> Upgrades;
         public List<BoosterData> boosters;
-        [SerializeField] Dictionary<string, BoosterData> boosts;
-
-        public BoosterData this [string nameBooster]
+        public List<BoosterData> ActiveBoosters = new List<BoosterData> ();
+        public bool HasActiveBoosters { get { return ActiveBoosters.Count > 0; } }
+        public void ActivateBoosters (ColorBrick brick)
         {
-            get { return boosts[nameBooster]; }
+            foreach (var boosterData in ActiveBoosters)
+            {
+                boosterData.Apply (brick);
+            }
         }
-
     }
 }

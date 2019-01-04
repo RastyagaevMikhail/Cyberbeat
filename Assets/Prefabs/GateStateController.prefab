@@ -63,7 +63,18 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6692610600310836071}
-          m_MethodName: _OpenGate
+          m_MethodName: _OpenTunnel
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 344dd9979b139d942b31f32cba056af0, type: 2}
+          m_MethodName: Raise
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -121,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5656dc8bce1a22845abb60058d4fa062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeMaterial: {fileID: 2100000, guid: 7456ab22bbf74a9498fc8d6756e4e236, type: 2}
+  activeMaterial: {fileID: 2100000, guid: 0040a74c126055a449b46d36ed3cc448, type: 2}
   notActiveMaterial: {fileID: 2100000, guid: e5f32caae9d24b64a8a499a9d365742d, type: 2}
   Trigger: {fileID: 6692610599183555573}
   Portal: {fileID: 0}
@@ -130,7 +141,6 @@ MonoBehaviour:
   EndGate: {fileID: 0}
   track: {fileID: 0}
   Index: 0
-  alwaysOpen: 0
 --- !u!114 &5720350244464746341
 MonoBehaviour:
   m_ObjectHideFlags: 0

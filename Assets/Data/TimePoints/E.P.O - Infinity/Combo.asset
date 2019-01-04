@@ -12,39 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7299e44d7ac7f44fb903781cbf3a63b, type: 3}
   m_Name: Combo
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   points:
   - payload: Info
     Start:
-      position: {x: -0.0004897492, y: 25.89708, z: 569.2388}
+      position: {x: -0.0005316671, y: 25.88783, z: 568.725}
       Up: {x: 0, y: 1, z: 0}
-      rotation: {x: -0.008836796, y: 0.000041603886, z: 0.0000068080953, w: 0.99996096}
-      F: 0.15819682
+      rotation: {x: -0.008871761, y: -0.000033170734, z: -0.008402738, w: 0.9999254}
+      F: 0.08043168
       MetaData: 
     End:
-      position: {x: 0.024806634, y: 23.31593, z: 717.5958}
+      position: {x: 0.03795163, y: 22.072489, z: 718.3986}
       Up: {x: 0, y: 1, z: 0}
-      rotation: {x: 0.1135363, y: 0.000027274285, z: -0.000009351061, w: 0.99353385}
-      F: 0.1994516
+      rotation: {x: -0.050253022, y: -0.0025810595, z: -0.010666504, w: 0.99867624}
+      F: 0.101561874
       MetaData: 
   - payload: Combo
     Start:
-      position: {x: 0.025309823, y: 8.690748, z: 762.2406}
+      position: {x: 2.757476, y: 29.673801, z: 764.10126}
       Up: {x: 0, y: 1, z: 0}
-      rotation: {x: 0.20622957, y: -0.0000120895775, z: -0.00001549506, w: 0.97850364}
-      F: 0.21248297
+      rotation: {x: -0.11570358, y: 0.06159012, z: -0.014686368, w: 0.9912637}
+      F: 0.10811315
       MetaData: 
     End:
-      position: {x: 0, y: -41.164032, z: 1498.3193}
+      position: {x: -405.27835, y: -53.88701, z: 1215.5222}
       Up: {x: 0, y: 1, z: 0}
-      rotation: {x: 0.06944585, y: 0.0000017637439, z: -0.000025336085, w: 0.9975857}
-      F: 0.42633423
+      rotation: {x: 0.1106261, y: 0.07238581, z: 0.23198596, w: 0.96369326}
+      F: 0.21691553
       MetaData: 

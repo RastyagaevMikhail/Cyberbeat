@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
 
@@ -9,7 +10,10 @@ namespace GameCore
 	public class GameEventTimeSpan : GameEventStruct<TimeSpan>
 	{
 		protected List<EventListenerTimeSpan> eventListeners = new List<EventListenerTimeSpan> ();
-		public void Raise (TimeSpan obj)
+		protected override List<EventListenerStruct<TimeSpan>> AEventListeners { get { return eventListeners.Cast<EventListenerStruct<TimeSpan>> ().ToList (); } }
+
+		// protected override List<EventListenerStruct<TStruct>> AEventListeners { get { return eventListeners; } }
+		public override void Raise (TimeSpan obj)
 		{
 			for (int i = eventListeners.Count - 1; i >= 0; i--)
 				eventListeners[i].OnEventRaised (obj);

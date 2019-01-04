@@ -1,5 +1,6 @@
 using GameCore;
 
+using System;
 
 namespace CyberBeat
 {
@@ -15,6 +16,12 @@ namespace CyberBeat
 		{
 			Buyed = gameData.TryBuy (Price);
 			return Buyed;
+		}
+
+		public void ResetDefault ()
+		{
+			Buyed = false;
+			PlayByWatch = false;
 		}
 	}
 }

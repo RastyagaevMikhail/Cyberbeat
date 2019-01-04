@@ -1,7 +1,7 @@
 
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using UnityEngine;
 
 namespace GameCore
@@ -9,7 +9,8 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "GameEventDateTime", menuName = "Events/GameCore/GameEvent/DateTime")]
 	public class GameEventDateTime : GameEventStruct<DateTime>
 	{
-		// protected List<EventListenerDateTime> eventListeners = new List<EventListenerDateTime> ();
+		protected List<EventListenerDateTime> eventListeners = new List<EventListenerDateTime> ();
+		protected override List<EventListenerStruct<DateTime>> AEventListeners { get { return eventListeners.Cast<EventListenerStruct<DateTime>> ().ToList (); } }
 		// public void Raise (DateTime obj)
 		// {
 		// 	for (int i = eventListeners.Count - 1; i >= 0; i--)
@@ -17,14 +18,14 @@ namespace GameCore
 		// }
 		public virtual void RegisterListener (EventListenerDateTime listener)
 		{
-			if (!eventListeners.Contains (listener))
-				eventListeners.Add (listener);
+			if (!AEventListeners.Contains (listener))
+				AEventListeners.Add (listener);
 		}
 
 		public virtual void UnRegisterListener (EventListenerDateTime listener)
 		{
-			if (eventListeners.Contains (listener))
-				eventListeners.Remove (listener);
+			if (AEventListeners.Contains (listener))
+				AEventListeners.Remove (listener);
 		}
 
 	}

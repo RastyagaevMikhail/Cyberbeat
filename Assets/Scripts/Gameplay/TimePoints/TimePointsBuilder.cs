@@ -17,18 +17,17 @@ namespace CyberBeat
         public TimePointsData DataSave { get { return dataTime.PointsData; } }
         public List<TimePoints> points { get { return DataSave.points; } set { DataSave.points = value; } }
         public CurvySpline Spline;
-        public Material material;
         public CurvyGenerator generatorPrefab;
-#if UNITY_EDITOR
-        public TimePointsGizmoDrawer drawer;
-#endif
+// #if UNITY_EDITOR
+//         public TimePointsGizmoDrawer drawer;
+// #endif
         public Transform parent;
         public string namePrefix = "Line";
         public string payloadFilter;
         public ATimePointsPostBuilder postBuilder;
         [SerializeField] List<GameObject> BuildedObjects = new List<GameObject> ();
         [ContextMenu ("Build")]
-        void Build ()
+        public void Build ()
         {
             var FilterdIndexesOfTimes = dataTime[payloadFilter].Select (t => dataTime.Times.IndexOf (t));
             var FiltredPoints = dataTime.PointsData[payloadFilter];
@@ -42,15 +41,6 @@ namespace CyberBeat
                 inputSplinePath.Spline = Spline;
 
                 var shapeEtr = generator.GetModule<BuildShapeExtrusion> ("Shape Extrusion");
-
-                if (material)
-                {
-                    var volumes = generator.FindModules<BuildVolumeMesh> ();
-                    foreach (var volume in volumes)
-                    {
-                        volume.SetMaterial (0, material);
-                    }
-                }
 
                 float FromTF = point.Start.F;
                 float ToTF = point.End.F;
@@ -66,19 +56,19 @@ namespace CyberBeat
                 var GOBuild = postBuilder.PostBuild (this, generator.gameObject);
                 BuildedObjects.Add (GOBuild);
             }
-#if UNITY_EDITOR
-            drawer = new TimePointsGizmoDrawer (points);
-#endif
+// #if UNITY_EDITOR
+//             drawer = new TimePointsGizmoDrawer (points);
+// #endif
         }
 #if UNITY_EDITOR
 
-        private void OnDrawGizmos ()
-        {
-            if (drawer != null)
-            {
-                drawer.Draw ();
-            }
-        }
+        // private void OnDrawGizmos ()
+        // {
+        //     if (drawer != null)
+        //     {
+        //         drawer.Draw ();
+        //     }
+        // }
 
         [ContextMenu ("Clear")] public void Clear ()
         {

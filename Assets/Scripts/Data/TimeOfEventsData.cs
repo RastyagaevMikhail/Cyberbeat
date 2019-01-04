@@ -3,17 +3,18 @@ using SonicBloom.Koreo;
 namespace CyberBeat
 {
 
+    using GameCore;
+
     using System.Collections.Generic;
 
     using UnityEngine;
 
     public class TimeOfEventsData : ScriptableObject
     {
-        public List<TimeOfEvent> Times { get; private set; }
-
+        public List<TimeOfEvent> Times;
         public TimePointsData PointsData;
-        public float SampleRate { get; private set; }
-        public void Init (float sampleRate, List<KoreographyEvent> events, TimePointsData pointsData)
+        public float SampleRate;
+        public void Init (float sampleRate, List<KoreographyEvent> events, TimePointsData pointsData = null)
         {
             SampleRate = sampleRate;
 
@@ -22,9 +23,11 @@ namespace CyberBeat
             foreach (var e in events)
             {
                 Times.Add (new TimeOfEvent (e, sampleRate));
-
             }
-            PointsData = pointsData;
+            if (pointsData)
+                PointsData = pointsData;
+                
+            this.Save ();
         }
 
         public List<TimeOfEvent> this [string payload]

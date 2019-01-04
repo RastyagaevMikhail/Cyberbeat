@@ -39,6 +39,7 @@ namespace GameCore
 			Value += amount.Value;
 		}
 
+		[ContextMenu ("SaveValue")]
 		public override void SaveValue ()
 		{
 			// Debug.LogFormat("Save = {0}", name);
@@ -70,9 +71,9 @@ namespace GameCore
 		}
 
 		[ContextMenu ("Toggle Savable")]
-		void ToggleSavable () { isSavable = !isSavable; }
+		void ToggleSavable () { isSavable = !isSavable; CheckSavable (); }
 
 		[ContextMenu ("Check Savable")]
-		void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
+		void CheckSavable () { Debug.LogFormat (this, "{0} isSavable = {1}", name, isSavable); }
 	}
 }

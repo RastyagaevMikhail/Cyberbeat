@@ -7,12 +7,9 @@ namespace CyberBeat
 {
     public class ColorSwitcher : ColorInterractor
     {
-        public override void OnPlayerContact (GameObject go)
+        public override void OnPlayerContact ()
         {
-            base.OnPlayerContact (go);
             if (player == null) return;
-
-            GameData.instance.OnDestroyedBrick ();
 
             Death ();
             

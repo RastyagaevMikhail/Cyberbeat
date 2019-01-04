@@ -10,7 +10,7 @@ using UnityEngine.Events;
 
 namespace GameCore
 {
-	public partial class AdsController : SingletonData<AdsController>, IRewardedVideoAdListener, IInterstitialAdListener, IStartInitializationData
+	public partial class AdsController : SingletonData<AdsController>, IStartInitializationData
 	{
 #if UNITY_EDITOR
 		[UnityEditor.MenuItem ("Game/Data/ADS")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
@@ -20,7 +20,7 @@ namespace GameCore
 			CreateNoAdsVariable ();
 		}
 
-		[ContextMenu("Create NoAds Variable")]
+		[ContextMenu ("Create NoAds Variable")]
 		private void CreateNoAdsVariable ()
 		{
 			const string NoAdsVariablePath = "Assets/Data/Variables/AdsController/NoAds.asset";
@@ -34,34 +34,10 @@ namespace GameCore
 		}
 #endif
 
-		public bool isLoadedRewardVideo
-		{
-			get
-			{
-#if UNITY_EDITOR
-				return true;
-#else
-				return Appodeal.isLoaded (Appodeal.REWARDED_VIDEO);
-#endif
-			}
-		}
-		public bool isLoadedInterstitial
-		{
-			get
-			{
-#if UNITY_EDITOR
-				return true;
-#else
-				return Appodeal.isLoaded (Appodeal.INTERSTITIAL);
-#endif
-			}
-		}
+		public bool isLoadedRewardVideo { get { return CurrentAdsNetworks.isLoadedRewardVideo; } }
+		public bool isLoadedInterstitial { get { return CurrentAdsNetworks.isLoadedInterstitial; } }
 
-		public void ActivateNoAds ()
-		{
-			NoAds = true;
-		}
-
+		public void ActivateNoAds () { NoAds = true; }
 		public bool internetNotReachable
 		{
 			get
@@ -70,37 +46,45 @@ namespace GameCore
 				return false;
 #else
 				return Application.internetReachability == NetworkReachability.NotReachable;
-#endif    
+#endif
 			}
 		}
 
-		public Action OnIntrastitialShown;
+		[SerializeField] AdsNetwork currentAdsNetworks = null;
+		public AdsNetwork CurrentAdsNetworks
+		{
+			get
+			{
+				AdsNetwork result = null;
+#if UNITY_EDITOR
+				result = CreateInstance<DummyAdsNetwork> ();
+#else
+				if (currentAdsNetworks == null)
+					result = CreateInstance<DummyAdsNetwork> ();
+				else
+					result = currentAdsNetworks;
+#endif
+				return result;
+			}
+		}
 
-		[Multiline]
-		[SerializeField]
-		string appKey;
-
-		[SerializeField]
-		AdType adType = AdType.INTERSTITIAL | AdType.REWARDED_VIDEO;
 		public void Init (bool consentValue)
 		{
-			Appodeal.initialize (appKey, (int) adType, consentValue);
-			Appodeal.setRewardedVideoCallbacks (this);
+			CurrentAdsNetworks.Init (consentValue);
+			OnRewardedVideoLoaded += CurrentAdsNetworks.OnRewardedVideoLoaded;
 		}
+
 		Action<double, string> _onVideShown;
-		[NonSerialized] public Action OnRewardedVideoLoaded;
+		[NonSerialized] public Action<bool> OnRewardedVideoLoaded;
 		[SerializeField] BoolVariable noAds;
 		private bool NoAds { get { return noAds.Value; } set { noAds.Value = value; } }
 
 		public void ShowRewardVideo (GameEventRewardVideo OnVideoShown)
 		{
-			Debug.Log ("ShowRewardVideo");
-			Debug.LogFormat (OnVideoShown, "OnVideoShown = {0}", OnVideoShown);
 			ShowRewardVideo (OnVideoShown.Raise);
 		}
 		public void ShowRewardVideo (RewardVideoUnityEvent OnVideoShown)
 		{
-
 			ShowRewardVideo (OnVideoShown.Invoke);
 		}
 		public void ShowRewardVideo (GameEvent OnVideoShown)
@@ -109,14 +93,9 @@ namespace GameCore
 		}
 		public void ShowRewardVideo (Action<double, string> OnVideoShown = null)
 		{
-
-			_onVideShown = OnVideoShown;
-			Debug.Log ("_onVideShown");
-#if UNITY_EDITOR
-			onRewardedVideoFinished (0, "");
-#else
-			Appodeal.show (Appodeal.REWARDED_VIDEO);
-#endif
+			Debug.LogFormat ("AdsController.ShowRewardVideo(OnVideoShown = {0})", OnVideoShown);
+			Debug.LogFormat ("AdsController.ShowRewardVideo.CurrentAdsNetworks = {0}", CurrentAdsNetworks);
+			CurrentAdsNetworks.ShowRewardVideo (OnVideoShown);
 		}
 
 		public void ShowIntrastitial ()
@@ -124,97 +103,22 @@ namespace GameCore
 			ShowIntrastitial ("default", null);
 		}
 
-		public void ShowIntrastitial (GameEvent GE)
+		public void ShowIntrastitial_GE (GameEvent gameEvent)
 		{
-			ShowIntrastitial ("default", GE.Raise);
+			ShowIntrastitial ("default", gameEvent.Raise);
 		}
 		public void ShowIntrastitial (string playsment = "default")
 		{
 			ShowIntrastitial (playsment, null);
 		}
-		public void ShowIntrastitial (string playsment = "default", Action onIntrastitialShown = null)
+		public void ShowIntrastitial (string playsment = "default", Action _onIntrastitialShown = null)
 		{
-			OnIntrastitialShown = onIntrastitialShown;
-#if UNITY_EDITOR
-			// Appodeal.showTestScreen ();
-			onInterstitialShown ();
-#else
-			Appodeal.show (Appodeal.INTERSTITIAL, playsment);
-#endif
+			Debug.LogFormat ("AdsController.ShowIntrastitial(playsment = {0}, _onIntrastitialShown = {1})", playsment, _onIntrastitialShown);
+			Debug.LogFormat ("AdsController.ShowIntrastitial.CurrentAdsNetworks = {0}", CurrentAdsNetworks);
+			//  Debug.LogFormat ("DummyAdsNetwork.ShowRewardVideo(OnVideoShown = {0}, _onIntrastitialShown = {1})", OnVideoShown);
+
+			CurrentAdsNetworks.ShowIntrastitial (playsment, _onIntrastitialShown);
 		}
-
-		public void onRewardedVideoClosed (bool finished)
-		{
-			// Debug.LogFormat ("onRewardedVideoClosed finished= {0}", finished);
-		}
-
-		public void onRewardedVideoExpired ()
-		{
-			// Debug.Log ("onRewardedVideoExpired");
-		}
-
-		public void onRewardedVideoFailedToLoad ()
-		{
-			// Debug.Log ("onRewardedVideoFailedToLoad");
-		}
-
-		public void onRewardedVideoFinished (double amount, string name)
-		{
-			Debug.LogFormat ("onRewardedVideoFinished = {0} : {1} ", amount, name);
-			Debug.LogFormat ("_onVideShown = {0}", _onVideShown);
-			if (_onVideShown != null) _onVideShown (amount, name);
-		}
-
-		public void onRewardedVideoLoaded (bool precache)
-		{
-			if (OnRewardedVideoLoaded != null) OnRewardedVideoLoaded ();
-			// Debug.LogFormat ("onRewardedVideoLoaded prechache = {0}", precache);
-
-		}
-		public void onRewardedVideoShown ()
-		{
-			// Debug.Log ("onRewardedVideoShown");
-			// Debug.LogFormat ("_onVideShown = {0}", _onVideShown);
-
-		}
-
-		public void onInterstitialLoaded (bool isPrecache)
-		{
-
-		}
-
-		public void onInterstitialFailedToLoad () { }
-
-		public void onInterstitialShown ()
-		{
-			if (OnIntrastitialShown != null)
-			{
-				OnIntrastitialShown ();
-			}
-		}
-
-		public void onInterstitialClosed () { }
-
-		public void onInterstitialClicked () { }
-		public void onInterstitialExpired () { }
-
-		[System.Flags]
-		private enum AdType
-		{
-			INTERSTITIAL = Appodeal.INTERSTITIAL,
-			REWARDED_VIDEO = Appodeal.REWARDED_VIDEO,
-			BANNER = Appodeal.BANNER,
-			BANNER_BOTTOM = Appodeal.BANNER_BOTTOM,
-			BANNER_HORIZONTAL_CENTER = Appodeal.BANNER_HORIZONTAL_CENTER,
-			BANNER_HORIZONTAL_LEFT = Appodeal.BANNER_HORIZONTAL_LEFT,
-			BANNER_HORIZONTAL_RIGHT = Appodeal.BANNER_HORIZONTAL_RIGHT,
-			BANNER_HORIZONTAL_SMART = Appodeal.BANNER_HORIZONTAL_SMART,
-			BANNER_TOP = Appodeal.BANNER_TOP,
-			BANNER_VIEW = Appodeal.BANNER_VIEW,
-			MREC = Appodeal.MREC,
-			NON_SKIPPABLE_VIDEO = Appodeal.NON_SKIPPABLE_VIDEO,
-		}
-
 	}
 
 	[Serializable] public class RewardVideoUnityEvent : UnityEvent<double, string> { }

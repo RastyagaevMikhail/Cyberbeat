@@ -20,16 +20,15 @@ namespace CyberBeat
 		[ContextMenu ("Generate Colors Count")]
 		void GenerateColorsCount ()
 		{
-			colorsCounter = new ColorsCounter ();
-			foreach (var clr in AllColors)
-			{
-				var colorCountVar = ScriptableObject.CreateInstance<ColorCountVariable> ();
-				colorCountVar.color = clr;
-				var nameVariable = "#{0}".AsFormat (clr.ToString (false));
-				colorsCounter.counts.Add (new ColorCount () { color = clr, variable = colorCountVar });
-				Tools.CreateAsset (colorCountVar, "Assets/Resources/Data/Variables/Colors/{0}.asset".AsFormat (nameVariable));
-			}
-			this.Save ();
+			// foreach (var clr in AllColors)
+			// {
+			// 	var colorCountVar = ScriptableObject.CreateInstance<ColorCountVariable> ();
+			// 	colorCountVar.color = clr;
+			// 	var nameVariable = "#{0}".AsFormat (clr.ToString (false));
+			// 	colorsCounter.counts.Add (new ColorCount () { color = clr, variable = colorCountVar });
+			// 	Tools.CreateAsset (colorCountVar, "Assets/Resources/Data/Variables/Colors/{0}.asset".AsFormat (nameVariable));
+			// }
+			// this.Save ();
 		}
 		public override void ResetDefault ()
 		{
@@ -46,24 +45,38 @@ namespace CyberBeat
 				{
 					_colors = new List<Color> ();
 					for (int i = 0; i < levelOnColorProgress.Value + 1; i++)
-						_colors.Add (AllColors[i]);
+						_colors.Add (AllColors[i].color);
 				}
 				return _colors;
 			}
 		}
 
-		// ;
-		public List<Color> AllColors;
+		private List<ColorInfo> avalivableColors = null;
+		public List<ColorInfo> AvalivableColors
+		{
+			get
+			{
+				if (avalivableColors == null || avalivableColors.Count == 0)
+					avalivableColors = new List<ColorInfo> (AllColors.Take (LevelOnColorProgress + 1));
+				return avalivableColors;
+			}
+		}
+		public List<ColorInfo> AllColors;
 		int[] colorsByLevel = new int[] { 50, 100, 50, 150, 75, 50, 200 };
 		[SerializeField] IntVariable levelOnColorProgress;
 		public int LevelOnColorProgress { get { return levelOnColorProgress.Value; } set { levelOnColorProgress.Value = value; } }
 
 		public int ColorsPerCell { get { return colorsByLevel.InRangeIndex (levelOnColorProgress.Value) ? colorsByLevel[levelOnColorProgress.Value] : 50; } }
 
-		public ColorsCounter colorsCounter = new ColorsCounter ();
-		public bool ColorsCounterIsFull { get { return colorsCounter.Variables.ToList ().FindAll (v => colors.Contains (v.color)).TrueForAll (v => v.Value >= ColorsPerCell); } }
+		public bool ColorsCounterIsFull;
+		//  { get { return colorsCounter.Variables.ToList ().FindAll (v => colors.Contains (v.color)).TrueForAll (v => v.Value >= ColorsPerCell); } }
 
 		[SerializeField] RandomStack<Color> randStack = null;
+		private Dictionary<Color, ColorInfo> infoByColor = null;
+		private Dictionary<Color, ColorInfo> InfoByColor { get { return infoByColor??(infoByColor = AllColors.ToDictionary (ci => ci.color)); } }
+		private Dictionary<string, ColorInfo> infoByName = null;
+		private Dictionary<string, ColorInfo> InfoByName { get { return infoByName??(infoByName = AllColors.ToDictionary (ci => ci.Name)); } }
+
 		public Color RandomColor
 		{
 			get
@@ -81,8 +94,8 @@ namespace CyberBeat
 			if (!unityObject.CheckAs (out colorVar)) return;
 			Color color = colorVar.Value;
 
-			ColorCountVariable colorCountVariable = colorsCounter[color];
-			if (colorCountVariable && colorCountVariable.Value < ColorsPerCell) colorCountVariable.Increment ();
+			// ColorCountVariable colorCountVariable = colorsCounter[color];
+			// if (colorCountVariable && colorCountVariable.Value < ColorsPerCell) colorCountVariable.Increment ();
 
 		}
 
@@ -91,70 +104,35 @@ namespace CyberBeat
 			randStack = new RandomStack<Color> (colors);
 		}
 
-		[ContextMenu ("Init Colors")]
-		private void InitColors ()
-		{
-			var Values = System.Enum.GetValues (typeof (LayerType));
-			if (DefaultLayersColors == null || DefaultLayersColors.Count == 0 || DefaultLayersColors.Count != Values.Length)
-			{
-				DefaultLayersColors = new LayersColors ();
-				foreach (LayerType lt in Values)
-				{
-					DefaultLayersColors.layerOfColors.Add (new LayerOfColor () { layer = lt, color = RandomColor });
-				}
-			}
-		}
-		public LayersColors DefaultLayersColors;
-	}
-
-	[Serializable]
-	public class LayersColors
-	{
-		public List<LayerOfColor> layerOfColors;
-		public int Count { get { return layerOfColors.Count; } }
-
-		public Color this [LayerType layer]
+		public ColorInfo this [Color color]
 		{
 			get
 			{
-				return layerOfColors.Find (lc => lc.layer == layer).color;
+				ColorInfo result = null;
+				Debug.LogFormat ("color = {0}", color);
+				Debug.Log (Tools.LogCollection (InfoByColor.Keys));
+				InfoByColor.TryGetValue (color, out result);
+				return result;
 			}
 		}
+		public ColorInfo this [string name]
+		{
+			get
+			{
+				ColorInfo result = null;
+				InfoByName.TryGetValue (name, out result);
+				return result;
+			}
+		}
+
 	}
 
 	[Serializable]
-	public class LayerOfColor
+	public class ColorInfo
 	{
-		public LayerType layer;
+		public string Name;
 		public Color color;
-	}
+		public IntVariable Count;
 
-	[Serializable]
-	public class ColorsCounter
-	{
-		public List<ColorCountVariable> Variables
-		{
-			get
-			{
-				return counts.Select (c => c.variable).ToList ();
-			}
-		}
-
-		public List<ColorCount> counts = new List<ColorCount> ();
-
-		public ColorCountVariable this [Color color]
-		{
-			get
-			{
-				return counts.Find (counts => counts.color == color).variable;
-			}
-		}
-	}
-
-	[Serializable]
-	public class ColorCount
-	{
-		public Color color;
-		public ColorCountVariable variable;
 	}
 }

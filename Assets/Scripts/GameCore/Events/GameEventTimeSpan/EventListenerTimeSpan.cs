@@ -9,8 +9,9 @@ namespace GameCore
     public class EventListenerTimeSpan : EventListenerStruct<TimeSpan>
     {
         [SerializeField] GameEventTimeSpan EventObject;
-
+        protected override GameEventStruct<TimeSpan> AEventObject { get { return EventObject; } }
         [SerializeField] UnityEventTimeSpan Responce;
+        protected override UnityEvent<TimeSpan> AResponce { get { return Responce; } }
         public EventListenerTimeSpan (GameEventTimeSpan _evnet, UnityAction<TimeSpan> action)
         {
             EventObject = _evnet;
@@ -18,23 +19,9 @@ namespace GameCore
             Responce.AddListener (action);
         }
 
-        public void OnEventRaised (TimeSpan obj)
+        public override void OnEventRaised (TimeSpan obj)
         {
             Responce.Invoke (obj);
-        }
-        public bool OnEnable ()
-        {
-            if (EventObject)
-                EventObject.RegisterListener (this);
-            return EventObject;
-
-        }
-
-        public bool OnDisable ()
-        {
-            if (EventObject)
-                EventObject.UnRegisterListener (this);
-            return EventObject;
         }
     }
 }

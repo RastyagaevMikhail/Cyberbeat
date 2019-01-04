@@ -6,11 +6,12 @@ using UnityEngine.Events;
 namespace GameCore
 {
     [Serializable]
-    public class EventListenerColor : EventListenerStruct<Color>
+    public class EventListenerColor
     {
         [SerializeField] GameEventColor EventObject;
 
         [SerializeField] UnityEventColor Responce;
+
         public EventListenerColor (GameEventColor _evnet, UnityAction<Color> action)
         {
             EventObject = _evnet;
@@ -18,9 +19,23 @@ namespace GameCore
             Responce.AddListener (action);
         }
 
-        public override void OnEventRaised (Color obj)
+        public void OnEventRaised (Color obj)
         {
             Responce.Invoke (obj);
+        }
+        public bool OnEnable ()
+        {
+            if (EventObject)
+                EventObject.RegisterListener (this);
+            return EventObject;
+
+        }
+
+        public bool OnDisable ()
+        {
+            if (EventObject)
+                EventObject.UnRegisterListener (this);
+            return EventObject;
         }
 
     }

@@ -2,7 +2,6 @@
 
 using GameCore;
 
-
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +14,12 @@ namespace CyberBeat
 	{
 
 		[SerializeField] Material material;
-		[SerializeField] string colorName = "_EmissionColor";
+		[SerializeField] StringVariable ColorName;
 		[SerializeField] float duration = 1f;
 
 		public void GEColor_ChnageColorTo (Color color)
 		{
-			material.DOColor (color, colorName, duration);
+			material.DOColor (color, ColorName ? ColorName.Value : "_Color", duration);
 		}
 	}
 }

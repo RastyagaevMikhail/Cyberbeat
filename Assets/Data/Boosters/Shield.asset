@@ -4,13 +4,16 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b1b7d894eeb06458e91d5258663f7a, type: 3}
+  m_Script: {fileID: 11500000, guid: c52ee773814165042b5e74fce59cb96c, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 34d1a2a9c5967384b87510417f1111fb, type: 3}
   timer: {fileID: 0}
   levelUpgrade: {fileID: 11400000, guid: dc2f6489485ca19498ceca4407af0313, type: 2}
+  count: {fileID: 11400000, guid: 1c62fecfd6685a24d8c5c351eb23bf02, type: 2}
+  BoosterIsOver: {fileID: 11400000, guid: b2058eef625f6bf4f8dc77cec26f7e6d, type: 2}

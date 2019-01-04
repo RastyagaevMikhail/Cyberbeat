@@ -1,5 +1,4 @@
-﻿using AppodealAds.Unity.Api;
-
+﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,7 +33,8 @@ namespace GameCore
 			foreach (var data in initalizableData)
 				data.Init (consentValue);
 
-			Invoke ("LoadGame", 1f);
+			// Invoke ("LoadGame", 1f);
+			LoadGame();
 		}
 
 		void LoadGame ()

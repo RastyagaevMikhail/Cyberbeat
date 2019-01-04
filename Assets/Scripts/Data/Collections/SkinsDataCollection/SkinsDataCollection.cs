@@ -86,6 +86,7 @@ namespace CyberBeat
             public void AddNewSkins ()
             {
                 data.skinsSelector.Add (type, LoadSkinItems ());
+                data.skinsSelector.Save();
             }
         }
 #endif

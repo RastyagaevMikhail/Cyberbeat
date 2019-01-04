@@ -1,6 +1,5 @@
 using GameCore;
 
-
 using System;
 using System.Collections.Generic;
 
@@ -48,8 +47,6 @@ namespace CyberBeat
 
 		[SerializeField] FloatVariable ProgressCurrentLevel;
 		public Track currentTrack { get { return TracksCollection.instance.CurrentTrack; } }
-
-	
 
 		public void AddNotes (int notesFromAdd)
 		{
@@ -101,8 +98,10 @@ namespace CyberBeat
 		}
 
 		[SerializeField] IntVariable Blades;
-		[SerializeField] IntVariable OneLifes;
-		public List<IntVariable> RewardVariables { get { return new List<IntVariable> () { Blades, Shields, Gates, OneLifes, Notes }; } }
+		[SerializeField] IntVariable Lifes;
+		public List<IntVariable> RewardVariables { get { return new List<IntVariable> () { Blades, Shields, Gates, Lifes, Notes }; } }
+
+		public bool WathedRewardVideo;
 
 		public float CurrentStartSpeed;
 

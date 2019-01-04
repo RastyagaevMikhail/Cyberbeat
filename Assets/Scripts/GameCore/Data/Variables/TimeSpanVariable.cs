@@ -9,20 +9,25 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "TimeSpanVariable", menuName = "Variables/GameCore/TimeSpan")]
 	public class TimeSpanVariable : SavableVariable<TimeSpan>
 	{
+		[ContextMenu ("ResetDefault")]
 		public override void ResetDefault ()
 		{
 			if (ResetByDefault)
 			{
-				Value = DefaultValue;
+				Value = CustomDefault;
 				SaveValue ();
 			}
 		}
+
+		[SerializeField] CustomTimeSpan CustomDefault;
 		public override void LoadValue ()
 		{
 			base.LoadValue ();
 			var strTime = PlayerPrefs.GetString (name, new TimeSpan ().ToString ());
 			TimeSpan.TryParse (strTime, out _value);
 		}
+
+		[ContextMenu ("SaveValue")]
 		public override void SaveValue ()
 		{
 			PlayerPrefs.SetString (name, _value.ToString ());
@@ -56,6 +61,35 @@ namespace GameCore
 		{
 			Value = new TimeSpan ();
 			return this;
+		}
+
+		[ContextMenu ("ShowValue")]
+		void ShowValue ()
+		{
+			Debug.Log (Value);
+		}
+
+		[ContextMenu ("Toggle Savable")]
+		void ToggleSavable () { isSavable = !isSavable; }
+
+		[ContextMenu ("Check Savable")]
+		void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
+	}
+
+	[Serializable]
+	public class CustomTimeSpan
+	{
+		public int seconds;
+		public int minutes;
+		public int hours;
+		public static implicit operator CustomTimeSpan (TimeSpan value)
+		{
+			return new CustomTimeSpan () { seconds = value.Seconds, minutes = value.Minutes, hours = value.Hours };
+		}
+
+		public static implicit operator TimeSpan (CustomTimeSpan value)
+		{
+			return new TimeSpan (value.hours, value.minutes, value.seconds);
 		}
 	}
 }

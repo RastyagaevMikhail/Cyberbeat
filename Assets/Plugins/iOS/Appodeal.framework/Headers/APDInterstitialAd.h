@@ -1,7 +1,7 @@
 //
 //  APDInterstital.h
 //
-//  AppodealSDK version 2.4.8.1-Beta
+//  AppodealSDK version 2.4.9
 //
 //  Copyright © 2018 Appodeal, Inc. All rights reserved.
 //

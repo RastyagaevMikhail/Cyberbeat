@@ -7,7 +7,7 @@ namespace GameCore
     public abstract class GameEventListenerStruct<TStruct> : MonoBehaviour
     where TStruct : struct
     {
-        [SerializeField] EventListenerStruct<TStruct> listener;
+        [SerializeField]  EventListenerStruct<TStruct> listener;
 
         private void OnEnable ()
         {

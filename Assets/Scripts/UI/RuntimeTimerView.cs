@@ -25,9 +25,9 @@ namespace CyberBeat
 
 		private void TimeElapsed ()
 		{
-			gameObject.SetActive (false);
 			currenttimer.OnTimeProgress -= ProcessSlider;
 			currenttimer.OnTimeElapsed -= TimeElapsed;
+			gameObject.SetActive (false);
 		}
 
 		private void ProcessSlider (float percent)

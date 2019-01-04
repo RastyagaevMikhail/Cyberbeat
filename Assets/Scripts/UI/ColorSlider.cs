@@ -12,24 +12,17 @@ namespace CyberBeat
 	{
 		[SerializeField] Image Fill;
 		[SerializeField] Image Frame;
-		[SerializeField] ColorCountVariable countVariable;
+		[SerializeField] IntVariable countVariable;
 		public Color color { get { return Fill.color; } set { Fill.color = value; Frame.color = value; } }
 		public float progress { get { Debug.LogFormat ("this = {0}", this); Debug.LogFormat ("Fill = {0}", Fill); return Fill.fillAmount; } set { Fill.fillAmount = value; } }
 		public Colors colorsData { get { return Colors.instance; } }
 		float ColorsPerCell { get { return colorsData.ColorsPerCell; } }
 
-		[SerializeField] bool InitOnAwake = false;
-		private void Awake ()
+
+		public void Init (ColorInfo colorInfo)
 		{
-			if (InitOnAwake && countVariable)
-			{
-				Init (countVariable);
-			}
-		}
-		public void Init (ColorCountVariable variable)
-		{
-			countVariable = variable;
-			this.color = countVariable.color;
+			countVariable = colorInfo.Count;
+			this.color = colorInfo.color;
 			countVariable.OnValueChanged += OnChangedPorgress;
 			OnChangedPorgress (countVariable.Value);
 		}

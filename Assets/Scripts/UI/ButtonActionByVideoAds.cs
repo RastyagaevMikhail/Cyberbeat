@@ -22,7 +22,7 @@ namespace CyberBeat
         bool internetNotReachable { get { return adsController.internetNotReachable; } }
         private void Start ()
         {
-            adsController.OnRewardedVideoLoaded += UpdateSatate;
+            adsController.OnRewardedVideoLoaded += OnRewardedVideoLoaded;
             OnButtonVideoShown += UpdateSatate;
             UpdateSatate ();
         }
@@ -30,9 +30,12 @@ namespace CyberBeat
         private void OnDestroy ()
         {
             OnButtonVideoShown -= UpdateSatate;
-            adsController.OnRewardedVideoLoaded -= UpdateSatate;
+            adsController.OnRewardedVideoLoaded -= OnRewardedVideoLoaded;
         }
-
+        private void OnRewardedVideoLoaded (bool precache)
+        {
+            UpdateSatate ();
+        }
         private void UpdateSatate ()
         {
             // Debug.LogFormat ("UpdateSatate = {0}.{1}", name, transform.parent.parent.name);

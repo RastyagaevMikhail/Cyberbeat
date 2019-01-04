@@ -22,6 +22,7 @@ namespace CyberBeat
         [SerializeField] IntVariable CurrentScore;
         [SerializeField] IntVariable BestScore;
         [SerializeField] GameEvent StartGame;
+        [SerializeField] GameEvent Pause;
         [SerializeField] SplineController playerSplineController;
         [SerializeField] SplineController trackSplineController;
         Player player { get { return Player.instance; } }
@@ -29,7 +30,6 @@ namespace CyberBeat
         Track track { get { return gameData.currentTrack; } }
         BoostersData boostersData { get { return BoostersData.instance; } }
 
-        [SerializeField] BoosterData currentBooster;
         private bool gameStarted;
 
         void Awake ()
@@ -40,9 +40,9 @@ namespace CyberBeat
             gameData.ResetCurrentProgress ();
         }
 
-        public void OnDeathColorIterracble (UnityObjectVariable unityObject)
+        public void OnDeathColorIterracble (ColorInterractor colorInterractor)
         {
-
+            gameData.OnDestroyedBrick ();
         }
         public void IncrementCurrentScore ()
         {
@@ -50,56 +50,21 @@ namespace CyberBeat
             CurrentScore.Value++;
             if (CurrentScore.Value > BestScore.Value) BestScore.Value = CurrentScore.Value;
         }
-        public void OnPlayerContactWith (Interractor interractor)
+        public void OnPlayerContactWith (ColorInterractor interractor)
         {
             if (!interractor) return;
+
             ColorBrick colorBrick = interractor as ColorBrick;
-            bool isBrick = colorBrick;
-            bool isShieldActive = boostersData["Shield"].Equals (currentBooster);
-            bool isOneLifeActive = boostersData["OneLife"].Equals (currentBooster);
-            if (isBrick)
-            {
-                if (isShieldActive)
-                {
-                    colorBrick.Death ();
-                }
-                else if (isOneLifeActive)
-                {
-                    currentBooster.Reset ();
-                    colorBrick.Death ();
-                }
-                else
-                {
-                    colorBrick.OnPlayerContact (interractor.gameObject);
-                }
-            }
+            // Debug.Log ("{0} colorBrick = {1}".AsFormat (interractor, colorBrick));
+            // Debug.LogFormat ("HasActiveBoosters = {0}", boostersData.HasActiveBoosters);
+            if (colorBrick && boostersData.HasActiveBoosters)
+                boostersData.ActivateBoosters (colorBrick);
+            else
+                interractor.OnPlayerContact ();
         }
 
-        public void OnBoosterStart (UnityObjectVariable unityObject)
-        {
-            if (!unityObject.CheckAs<BoosterData> (out currentBooster)) return;
-
-            currentBooster.timer.OnTimeElapsed += OnBoosterTimeEnd;
-
-        }
-
-        private void OnBoosterTimeEnd ()
-        {
-            currentBooster.timer.OnTimeElapsed -= OnBoosterTimeEnd;
-            currentBooster.timer = null;
-            currentBooster = null;
-        }
-        public void Pause ()
-        {
-            Time.timeScale = 0;
-        }
-        public void Resume ()
-        {
-            Time.timeScale = 1;
-        }
         public void ToMenu ()
         {
-            Resume ();
             LoadingManager.instance.LoadScene ("Menu");
         }
 
@@ -123,5 +88,24 @@ namespace CyberBeat
                 StartGame.Raise ();
             }
         }
+#if !UNITY_EDITOR
+        bool isPaused = false;
+
+        void Update ()
+        {
+            if (isPaused)
+                Pause.Raise ();
+        }
+
+        void OnApplicationFocus (bool hasFocus)
+        {
+            isPaused = !hasFocus;
+        }
+
+        void OnApplicationPause (bool pauseStatus)
+        {
+            isPaused = pauseStatus;
+        }
+#endif
     }
 }

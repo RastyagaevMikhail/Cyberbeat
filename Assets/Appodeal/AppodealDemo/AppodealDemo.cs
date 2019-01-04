@@ -41,8 +41,8 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
         UserSettings settings = new UserSettings();
         settings.setAge(25).setGender(UserSettings.Gender.OTHER).setUserId("best_user_ever");
 
-		Appodeal.disableNetwork("appnext");
-		Appodeal.disableNetwork("amazon_ads", Appodeal.BANNER);
+		//Appodeal.disableNetwork("appnext");
+		//Appodeal.disableNetwork("amazon_ads", Appodeal.BANNER);
 
 
 		Appodeal.disableLocationPermissionCheck();

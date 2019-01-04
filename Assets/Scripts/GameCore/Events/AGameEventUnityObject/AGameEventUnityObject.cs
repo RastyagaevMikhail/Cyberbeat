@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -9,7 +8,7 @@ namespace GameCore
 	public abstract class AGameEventUnityObject<TObject> : ScriptableObject
 	where TObject : UnityEngine.Object
 	{
-		protected List<AEventListenerUnityObject<TObject>> eventListeners = new List<AEventListenerUnityObject<TObject>> ();
+		[SerializeField] protected List<AEventListenerUnityObject<TObject>> eventListeners = new List<AEventListenerUnityObject<TObject>> ();
 		public void Raise (TObject obj)
 		{
 			for (int i = eventListeners.Count - 1; i >= 0; i--)
@@ -28,6 +27,6 @@ namespace GameCore
 		}
 
 		[SerializeField] TObject testArg;
-		[ContextMenu("Test Raise")] public void TestRaise () { Raise (testArg); }
+		[ContextMenu ("Test Raise")] public void TestRaise () { Raise (testArg); }
 	}
 }

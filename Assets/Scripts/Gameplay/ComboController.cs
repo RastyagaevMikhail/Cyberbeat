@@ -12,8 +12,8 @@ namespace CyberBeat
 	[RequireComponent (typeof (GameEventListenerColorInterractor))]
 	public class ComboController : TimeEventsCatcher
 	{
-		[SerializeField] ComboList combo = new ComboList ();
-		[SerializeField] ComboList comboInGame = new ComboList ();
+		[SerializeField] ComboList combo = null;
+		[SerializeField] ComboList comboInGame = null;
 		[SerializeField] GameEventBool OnBitCombo;
 		[SerializeField] GameEventInt OnComboEnd;
 		[SerializeField] GameEventInt OnActivateCurrentCombo;
@@ -40,15 +40,27 @@ namespace CyberBeat
 			{
 				// Debug.Log ("CurrentCombo InRange");
 				// Debug.LogFormat ("currentCombo = {0}", currentCombo);
-				List<ComboBit> comboList = comboInGame[currentCombo];
+				var comboList = comboInGame[currentCombo];
 				// Debug.LogFormat ("comboList = {0}", comboList);
-				var currentComboBit = comboList.Find (c => c.bit == inter.bit);
-				var prevComboBit = comboList.Find (cb => cb.bit == currentComboBit.prev);
-				bool isReset = prevComboBit != null;
+				// Debug.LogFormat ("inter = {0}", inter);
+				// Debug.LogFormat ("inter.bit = {0}", inter.bit);
+				// Debug.Log (Tools.LogCollection (comboList.Keys));
+				ComboBit currentComboBit = null;
+				comboList.TryGetValue (inter.bit, out currentComboBit);
+				if (currentComboBit == null) return;
+				bool isReset = false;
+				if (currentComboBit.prev != 0)
+				{
+					// Debug.LogFormat ("currentComboBit.prev = {0}", currentComboBit.prev);
+					// Debug.Log (Tools.LogCollection (comboList.Keys));
+					ComboBit prevComboBit = null;
+					comboList.TryGetValue (currentComboBit.prev, out prevComboBit);
+					isReset = prevComboBit != null;
+				}
 				// reset.SetValue (isReset);
 				// Debug.LogFormat ("reset = {0}", reset.Value);
 				OnBitCombo.Raise (isReset);
-				comboList.Remove (currentComboBit);
+				comboList.Remove (currentComboBit.bit);
 			}
 		}
 
@@ -92,22 +104,22 @@ namespace CyberBeat
 			{
 				TimeOfEvent e = events[payloadFilter].Find (t => t.InRange (bit));
 
-				if (!object.ReferenceEquals (e, null))
+				if (e != null)
 				{
 
 					if (!combo.ContainsKey (e))
 					{
 						combo.Add (e, new List<ComboBit> () { new ComboBit (bit, 0f) });
+						i++;
 						continue;
 					}
 					// Debug.LogFormat ("i = {0}", i);
-					List<ComboBit> list = combo[e];
+					List<ComboBit> list = combo.items.Find (c => c.timeOfEvent == e).comboBits;
 					list.Add (new ComboBit (bit, i == 0 ? 0 : bits[i - 1]));
 				}
 				i++;
 			}
 		}
-
 	}
 
 	[Serializable]
@@ -120,18 +132,6 @@ namespace CyberBeat
 		{
 			this.bit = bit;
 			this.prev = prev;
-		}
-		public static bool operator == (ComboBit left, ComboBit right)
-		{
-			return !object.ReferenceEquals (left, null) &&
-				!object.ReferenceEquals (right, null) &&
-				left.bit == right.bit &&
-				left.prev == right.prev;
-		}
-
-		public static bool operator != (ComboBit left, ComboBit right)
-		{
-			return !(left == right);
 		}
 	}
 
@@ -152,17 +152,28 @@ namespace CyberBeat
 		}
 		public ComboList (ComboList combo)
 		{
-			items = new List<ComboListItem> (combo.items);;
+			items = new List<ComboListItem> (combo.items);
+			InitDict ();
 		}
+		Dictionary<TimeOfEvent, Dictionary<float, ComboBit>> _dict = null;
+		Dictionary<TimeOfEvent, Dictionary<float, ComboBit>> dict { get { if (_dict == null) InitDict (); return _dict; } }
 
-		public List<ComboBit> this [TimeOfEvent timeOfEvent]
+		private void InitDict ()
+		{
+			_dict = items.ToDictionary (item => item.timeOfEvent,
+				item => item.comboBits.ToDictionary (cli => cli.bit));
+		}
+		public Dictionary<float, ComboBit> this [TimeOfEvent timeOfEvent]
 		{
 			get
 			{
-				ComboListItem comboListItem = items.Find (i => i.timeOfEvent == timeOfEvent);
-				if (comboListItem != null)
-					return comboListItem.comboBits;
-				return null;
+				Dictionary<float, ComboBit> comboListItem = null;
+				// Debug.LogFormat ("dict = {0}", dict);
+				// Debug.Log (Tools.LogCollection (dict.Keys));
+				dict.TryGetValue (timeOfEvent, out comboListItem);
+				// Debug.LogFormat ("timeOfEvent = {0}", timeOfEvent);
+				// Debug.LogFormat ("comboListItem = {0}", comboListItem);
+				return comboListItem;
 			}
 		}
 
@@ -176,6 +187,7 @@ namespace CyberBeat
 		{
 			return items.Exists (i => i.timeOfEvent == e);
 		}
+
 	}
 
 }
