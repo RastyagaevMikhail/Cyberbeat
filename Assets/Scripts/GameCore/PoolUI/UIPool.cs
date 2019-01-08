@@ -10,6 +10,12 @@ namespace GameCore
         public static UIPool instance { get { if (_instance == null) _instance = GameObject.FindObjectOfType<UIPool> (); return _instance; } }
 
         public List<PoolSetteings> Settings;
+        Dictionary<string, SpawnedObject> _dictSettings = null;
+        Dictionary<string, SpawnedObject> dictSettings
+        {
+            get { return _dictSettings ?? (_dictSettings = Settings.ToDictionary (s => s.Key, s => s.Prefab)); }
+        }
+
         [SerializeField] Dictionary<string, List<SpawnedObject>> PoolDict = new Dictionary<string, List<SpawnedObject>> ();
         [SerializeField] Dictionary<string, Transform> Parents = new Dictionary<string, Transform> ();
         private float timeSpawn = 0.2f;
@@ -38,13 +44,16 @@ namespace GameCore
                 var parent = new GameObject (Key, typeof (RectTransform)).transform;
                 parent.SetParent (transform);
                 parent.name = Key;
+                (parent as RectTransform).SetFullSizeOfParent ();
+
                 Parents[Key] = parent;
             }
         }
 
         public SpawnedObject Pop (string Key)
         {
-            var pObj = Settings.Find (ps => ps.Key == Key);
+            SpawnedObject pObj = null;
+            dictSettings.TryGetValue (Key, out pObj);
             if (pObj == null) return null;
 
             if (!PoolDict.ContainsKey (Key))
@@ -79,10 +88,11 @@ namespace GameCore
 
         private SpawnedObject Extend (string Key)
         {
-            var pObj = Settings.Find (ps => ps.Key == Key);
+            SpawnedObject pObj = null;
+            dictSettings.TryGetValue (Key, out pObj);
             if (pObj == null) return null;
 
-            var newObj = Instantiate (pObj.Prefab);
+            var newObj = Instantiate (pObj);
 
             newObj.name = string.Format ("{0}{1}", Key, newObj.GetInstanceID ());
 

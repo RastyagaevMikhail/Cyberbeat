@@ -9,11 +9,12 @@ using UnityEngine.UI;
 
 namespace GameCore
 {
-    public abstract class VariableTextSetter<T, K> : MonoBehaviour where T : SavableVariable<K>
+    [ExecuteInEditMode]
+    public abstract class VariableTextSetter<TVariable, TValue> : MonoBehaviour where TVariable : SavableVariable<TValue>
     {
 
-        [SerializeField] protected T variable;
-        public void SetVariavle (T newVariable)
+        [SerializeField] protected TVariable variable;
+        public void SetVariavle (TVariable newVariable)
         {
             variable = newVariable;
         }
@@ -37,7 +38,7 @@ namespace GameCore
                 return _textuigui;
             }
         }
-        public string text
+        public virtual string text
         {
             get { return textTMPro ? textTMPro.text : textuigui ? textuigui.text : ""; }
             set
@@ -57,16 +58,16 @@ namespace GameCore
         {
             variable.OnValueChanged -= OnValueChanged;
         }
-        protected virtual void OnValueChanged (K obj)
+        protected virtual void OnValueChanged (TValue obj)
         {
-            text = string.Format (stringFormat, variable.Value);
+            text = string.Format (stringFormat, obj);
         }
 
 #if UNITY_EDITOR
         private void Update ()
         {
             if (!Application.isPlaying)
-                text = string.Format (stringFormat, variable.Value);
+                OnValueChanged (variable.Value);
         }
 #endif
 

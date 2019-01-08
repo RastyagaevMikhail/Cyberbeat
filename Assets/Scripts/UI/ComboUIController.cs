@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 
 using GameCore;
+using Animator = GameCore.DoTween.DoTweenAnimatorController;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -22,29 +23,15 @@ namespace CyberBeat
 			// Debug.Log ("OnBit UI");
 
 			if (reset)
-			{
-				ComboCounter = 0;
-			}
+				_ResetCounter ();
+
 			ComboCounter++;
 			var obj = pool.Pop ("Text");
 			if (!obj) return;
 			var text = obj.Get<Text> ();
 			if (!text) return;
 			text.text = "x" + ComboCounter;
-			var rect = obj.Get<RectTransform> ();
-			// rect.SetParent (transform);
-			rect.anchoredPosition = new Vector2 (0, 100);
-			var seq = DOTween.Sequence ();
-			seq.Append (rect.DOAnchorPos (new Vector2 (0, 200), 1f));
-			seq.Join (text.DOFade (0f, 1f));
-			seq.Join (text.transform.DOScale (0.5f, 1f));
-			seq.OnComplete (() =>
-			{
-				text.color = Color.white;
-				text.transform.localScale = Vector3.one;
-				pool.Push (text.gameObject);
-			});
-			seq.Play ();
+			obj.Get<Animator> ().Play ("ComboText", () => pool.Push (obj.gameObject));
 		}
 		public void _ResetCounter ()
 		{

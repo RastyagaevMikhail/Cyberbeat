@@ -5,12 +5,11 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameCore
 {
-	[ExecuteInEditMode]
 	public class TimeSpanVariablesSetter : VariableTextSetter<TimeSpanVariable, TimeSpan>
 	{
-		protected override void OnValueChanged (TimeSpan obj)
+		protected override void OnValueChanged (TimeSpan timeSpan)
 		{
-			text = string.Format (stringFormat, obj);
+			text = string.Format (stringFormat, new DateTime (timeSpan.Ticks));
 		}
 	}
 }

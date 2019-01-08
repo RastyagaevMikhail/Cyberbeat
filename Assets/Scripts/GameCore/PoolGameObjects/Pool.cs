@@ -10,6 +10,12 @@ namespace GameCore
         public static Pool instance { get { if (_instance == null) { _instance = GameObject.FindObjectOfType<Pool> (); } return _instance; } }
 
         public List<PoolSetteings> Settings;
+        Dictionary<string, SpawnedObject> _dictSettings = null;
+        Dictionary<string, SpawnedObject> dictSettings
+        {
+            get { return _dictSettings ?? (_dictSettings = Settings.ToDictionary (s => s.Key, s => s.Prefab)); }
+        }
+
         [SerializeField] Dictionary<string, List<SpawnedObject>> PoolDict = new Dictionary<string, List<SpawnedObject>> ();
         [SerializeField] Dictionary<string, Transform> Parents = new Dictionary<string, Transform> ();
         private void Awake ()
@@ -52,7 +58,10 @@ namespace GameCore
 
         public SpawnedObject Pop (string Key, Transform Parent = null)
         {
-            var pObj = Settings.Find (ps => ps.Key == Key);
+            SpawnedObject pObj = null;
+
+            dictSettings.TryGetValue (Key, out pObj);
+            
             if (pObj == null)
             {
                 return null;
@@ -75,12 +84,12 @@ namespace GameCore
             }
 
             NewObj.gameObject.SetActive (true);
-            if (Parent)
-            {
-                NewObj.SetParent (Parent);
-                NewObj.localPosition = NewObj.OffsetPosition;
-                NewObj.localRotation = Quaternion.identity;
-            }
+
+            if (Parent == null) Parent = Parents[Key];
+
+            NewObj.SetParent (Parent);
+            NewObj.ApplyOffset ();
+
             NewObj.OnSpawn.Invoke ();
             return NewObj;
         }

@@ -6,7 +6,7 @@ namespace CyberBeat
     {
         public override void Apply (ColorBrick brick)
         {
-            Debug.Log("Apply.ShieldBoosterData");
+            // Debug.Log("Apply.ShieldBoosterData");
             brick.Death();
         }
     }

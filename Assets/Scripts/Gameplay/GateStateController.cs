@@ -12,12 +12,14 @@ namespace CyberBeat
         [SerializeField] Material activeMaterial;
         [SerializeField] Material notActiveMaterial;
         [SerializeField] GameObject Trigger;
-        [SerializeField] GameObject Portal;
         [SerializeField] GameObject Tunnel;
         [SerializeField] GameObject StartGate;
+        [SerializeField] GameObject StartPortal;
         [SerializeField] GameObject EndGate;
+        [SerializeField] GameObject EndPortal;
         [SerializeField] Track track;
         [SerializeField] int Index;
+
         private void Start ()
         {
             bool active = track.GetGateState (Index);
@@ -34,8 +36,11 @@ namespace CyberBeat
             Tunnel.transform.SetParent (transform);
             StartGate = startGate;
             EndGate = endGate;
-            Portal = StartGate.transform.Find ("Portal").gameObject;
-            Portal.SetActive (false);
+            StartPortal = StartGate.transform.Find ("Portal").gameObject;
+            StartPortal.SetActive (false);
+            EndPortal = EndGate.transform.Find ("Portal").gameObject;
+            EndPortal.SetActive (false);
+
             Trigger.transform.SetParent (startGate.transform);
             Trigger.transform.localPosition = Vector3.zero;
             Trigger.transform.localRotation = Quaternion.identity;
@@ -45,7 +50,8 @@ namespace CyberBeat
         {
             rend.sharedMaterial = active ? activeMaterial : notActiveMaterial;
             DisableTunelAndGate ();
-            Portal.SetActive (active);
+            StartPortal.SetActive (active);
+            EndPortal.SetActive (active);
             Trigger.SetActive (active);
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using UnityEngine;
@@ -14,6 +15,8 @@ namespace GameCore
         public override void InitOnCreate () { ParseTranslations (); }
         public override void ResetDefault () { }
 #endif
+        private const string TranslationPathFolder = "Assets/Resources/";
+        private const string TranslationsFilename = "translations.csv";
         [Serializable]
         public class LanguageItems
         {
@@ -76,7 +79,8 @@ namespace GameCore
                 OnLanguageChanged ();
         }
 
-        [ContextMenu ("Parse Translations")] public void ParseTranslations ()
+        [ContextMenu ("Parse Translations")]
+        public void ParseTranslations ()
         {
             ParseCSV (Resources.Load<TextAsset> ("translations"));
         }
@@ -117,6 +121,49 @@ namespace GameCore
             }
         }
 
+#if UNITY_EDITOR
+
+        [ContextMenu ("Save Translations")]
+        void SaveTranslations ()
+        {
+            string path = TranslationPathFolder + TranslationsFilename;
+            if (!File.Exists (path))
+            {
+                Debug.LogError ("Unable to save translations to file " + path + ". Make sure that file exists.");
+                return;
+            }
+
+            using (FileStream fs = new FileStream (path, FileMode.Create))
+            {
+                using (StreamWriter writer = new StreamWriter (fs))
+                {
+                    writer.Write ("#	");
+                    for (int i = 0; i < Languges.Count; i++)
+                    {
+                        writer.Write (Languges[i].ToString () + "	");
+                    }
+                    writer.Write (System.Environment.NewLine);
+                    for (int i = 0; i < keys.Count; i++)
+                    {
+                        LocalizationKey key = keys[i];
+                        writer.Write (key.key + "	");
+                        for (int j = 0; j < Languges.Count; j++)
+                        {
+                            var lang = Languges[j];
+                            string Transl = Translations[lang][key.index];
+                            if (Transl == null)
+                            {
+                                Transl = "";
+                            }
+                            writer.Write (Transl.Replace ("\n", "<br>") + "	");
+                        }
+                        writer.Write (System.Environment.NewLine);
+                    }
+                }
+            }
+            UnityEditor.AssetDatabase.Refresh ();
+        }
+#endif
         public string Localize (string str)
         {
             var result = "Undefined!";

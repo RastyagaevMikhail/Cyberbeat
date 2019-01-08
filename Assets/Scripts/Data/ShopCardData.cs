@@ -12,25 +12,9 @@ namespace CyberBeat
 	[CreateAssetMenu (fileName = "ShopCardData", menuName = "CyberBeat/Shop/Card Data", order = 0)]
 	public class ShopCardData : ScriptableObject
 	{
-		public Sprite Icon;
-		public string title;
-		public string Description = "You have: {0}";
-		public bool isIAP;
-
-		public void TryBuy ()
-		{
-			bool canBuy = GameData.instance.TryBuy (price);
-			if (canBuy) Count.Increment ();
-		}
-
-		public IntVariable Count;
-		public string productID;
-
-		public int price;
 #if UNITY_EDITOR
 		private const string IconPath = "Assets/Sprites/UI/Icons/Boosters/{0}.png";
 		private const string CountVariablePath = "Assets/Resources/Data/Variables/GameData/{0}s.asset";
-
 		[ContextMenu ("Init")]
 		public void Init ()
 		{
@@ -48,5 +32,21 @@ namespace CyberBeat
 			this.CreateAsset ("Assets/Data/Shop/Boosters/{0}.asset".AsFormat (item_name));
 		}
 #endif
+		public Sprite Icon;
+		public string title;
+		public string Description = "You have: {0}";
+		public bool TryBuy ()
+		{
+			bool canBuy = GameData.instance.TryBuy (price);
+			if (canBuy) Increment ();
+			return canBuy;
+		}
+		public IntVariable Count;
+		public string productID;
+		public int price;
+		public void Increment ()
+		{
+			Count.Increment ();
+		}
 	}
 }

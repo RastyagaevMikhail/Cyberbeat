@@ -26,18 +26,6 @@ namespace CyberBeat
 
 		[SerializeField] float GeneratedBricks = 0;
 		[SerializeField] float DestroyedBricks = 0;
-		[SerializeField] IntVariable Gates;
-		public void AddGates (int count)
-		{
-			Gates.ApplyChange (count);
-		}
-
-		[SerializeField] IntVariable Shields;
-
-		public void AddShields (int count)
-		{
-			Shields.ApplyChange (count);
-		}
 
 		public BoolVariable DoubleNotes;
 		public void ActivateDoubleCoins ()
@@ -47,12 +35,6 @@ namespace CyberBeat
 
 		[SerializeField] FloatVariable ProgressCurrentLevel;
 		public Track currentTrack { get { return TracksCollection.instance.CurrentTrack; } }
-
-		public void AddNotes (int notesFromAdd)
-		{
-			Notes.ApplyChange (notesFromAdd);
-		}
-
 		public void ResetCurrentProgress ()
 		{
 			GeneratedBricks = 0;
@@ -74,7 +56,7 @@ namespace CyberBeat
 				ProgressCurrentLevel.Value = 100 * (DestroyedBricks / GeneratedBricks);
 		}
 
-		[SerializeField] GameEventUnityObject OnCantBuy;
+		
 		[SerializeField]
 		public IntVariable Notes;
 		internal List<TimeOfEvent> currentLines;
@@ -84,9 +66,7 @@ namespace CyberBeat
 			bool canBuy = CanBuy (price);
 			if (canBuy)
 				Notes.ApplyChange (-price);
-			else
-				OnCantBuy.Raise (ScriptableObject.CreateInstance<IntVariable> ().Init (price));
-
+		
 			return canBuy;
 		}
 
@@ -97,9 +77,7 @@ namespace CyberBeat
 			return canBuy;
 		}
 
-		[SerializeField] IntVariable Blades;
-		[SerializeField] IntVariable Lifes;
-		public List<IntVariable> RewardVariables { get { return new List<IntVariable> () { Blades, Shields, Gates, Lifes, Notes }; } }
+	
 
 		public bool WathedRewardVideo;
 

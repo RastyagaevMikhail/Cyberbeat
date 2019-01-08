@@ -67,6 +67,24 @@ namespace GameCore
             if (action != null)
                 action ();
         }
+
+        public static void SetRect (this RectTransform rt, float left = 0f, float top = 0f, float right = 0f, float bottom = 0f)
+        {
+            rt.offsetMin = new Vector2 (left, bottom);
+            rt.offsetMax = new Vector2 (-right, -top);
+        }
+        public static void SetFullSizeOfParent (this RectTransform rt, Vector2 anchoredPosition = new Vector2 ())
+        {
+            rt.anchorMin = Vector2.zero;
+            rt.anchorMax = Vector2.one;
+            rt.sizeDelta = Vector2.zero;
+            rt.anchoredPosition = anchoredPosition;
+        }
+        public static void SetRect (this RectTransform rt, float all)
+        {
+            rt.SetRect (all, all, all, all);
+        }
+
     }
 
     public static class TransformExtensions

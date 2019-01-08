@@ -50,8 +50,7 @@ namespace GameCore
         private bool CheckComplete ()
         {
             bool isZero = seconds == 0;
-            Debug.LogFormat ("CheckComplete = {0}", isZero);
-            if (isZero) OnEndTimer.Invoke ();
+                if (isZero) OnEndTimer.Invoke ();
             return isZero;
         }
     }

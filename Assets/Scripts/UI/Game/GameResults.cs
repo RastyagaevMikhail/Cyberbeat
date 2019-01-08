@@ -18,7 +18,7 @@ namespace CyberBeat
         [SerializeField] Button DoubleReward;
         [SerializeField] Button GetReward;
         [SerializeField] GameEvent ToMenu;
-
+        public ResultsData data { get { return ResultsData.instance; } }
         public AdsController Ads { get { return AdsController.instance; } }
 #if UNITY_EDITOR
         private void OnValidate ()
@@ -29,7 +29,7 @@ namespace CyberBeat
 
             DoubleReward = RewardButtons.transform.Find ("DoubleRewardButton").GetComponent<Button> ();
             GetReward = RewardButtons.transform.Find ("GetRewardButton").GetComponent<Button> ();
-            ToMenu = Tools.GetAssetAtPath<GameEvent> ("Assets/Data/Events/GameResults/To Menu.asset");
+            ToMenu = Tools.GetAssetAtPath<GameEvent> ("Assets/Data/Events/GameResults/ToMenu.asset");
         }
 #endif
         private void Awake ()
@@ -43,9 +43,14 @@ namespace CyberBeat
         }
         private void ShowVideo ()
         {
-            Ads.ShowRewardVideo ((a, n) => ShowRewardsButtons (false));
+            Ads.ShowRewardVideo (GetDoubleReward);
         }
 
+        void GetDoubleReward ()
+        {
+            ShowRewardsButtons (false);
+            data.TakeDoubleReward();
+        }
         private void ShowRewardsButtons (bool Show)
         {
             RewardButtons.SetActive (Show);
@@ -55,6 +60,7 @@ namespace CyberBeat
         private void SkipVideo ()
         {
             ShowRewardsButtons (false);
+            data.TakeReward();
         }
 
         [ContextMenu ("Show")]
@@ -62,6 +68,7 @@ namespace CyberBeat
         {
             Back.SetActive (true);
             ShowRewardsButtons (true);
+            data.Calculate ();
         }
 
         [ContextMenu ("Close")]

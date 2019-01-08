@@ -17,9 +17,10 @@ namespace CyberBeat
 
         [SerializeField] FloatVariable SpeedVariable;
         public TweenCallback<float> OnSpeedUpdated;
+        Tweener tweener;
         public override void OnMetaReached (SpeedTimeMetaData meta)
         {
-            SpeedVariable.DO (meta.Speed, meta.time, speed =>
+            tweener = SpeedVariable.DO (meta.Speed, meta.time, speed =>
             {
                 SpeedVariable.Value = speed;
                 OnSpeedUpdated (speed);
@@ -43,6 +44,21 @@ namespace CyberBeat
         private void SetSpeed (float value)
         {
             splineController.Speed = value;
+        }
+
+        public void Pause ()
+        {
+            if (tweener != null)
+                tweener.Pause ();
+            SetSpeed (0);
+
+        }
+        public void Resume ()
+        {
+            if (tweener != null && tweener.IsActive())
+                tweener.TogglePause ();
+            else
+                _SetSpeed (SpeedVariable);
         }
     }
 }

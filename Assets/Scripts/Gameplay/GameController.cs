@@ -1,17 +1,8 @@
-﻿using EZCameraShake;
-
-using FluffyUnderware.Curvy;
-using FluffyUnderware.Curvy.Controllers;
+﻿using FluffyUnderware.Curvy.Controllers;
 
 using GameCore;
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-
 using UnityEngine;
-using UnityEngine.SceneManagement;
 namespace CyberBeat
 {
     public class GameController : MonoBehaviour
@@ -22,7 +13,9 @@ namespace CyberBeat
         [SerializeField] IntVariable CurrentScore;
         [SerializeField] IntVariable BestScore;
         [SerializeField] GameEvent StartGame;
+        //Raise On AppliacrtionPause or Focus
         [SerializeField] GameEvent Pause;
+        
         [SerializeField] SplineController playerSplineController;
         [SerializeField] SplineController trackSplineController;
         Player player { get { return Player.instance; } }
@@ -77,7 +70,8 @@ namespace CyberBeat
 
         public void ReloadScene ()
         {
-            SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+            LoadingManager.instance.ReloadScene ();
+            
         }
 
         public void OnFadeOut ()

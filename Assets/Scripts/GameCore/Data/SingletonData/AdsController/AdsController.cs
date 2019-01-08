@@ -89,7 +89,12 @@ namespace GameCore
 		}
 		public void ShowRewardVideo (GameEvent OnVideoShown)
 		{
-			ShowRewardVideo ((a, n) => OnVideoShown.Raise ());
+			ShowRewardVideo (OnVideoShown.Raise);
+		}
+		public void ShowRewardVideo (Action OnVideoShown)
+		{
+			ShowRewardVideo ((a, n) => OnVideoShown ());
+
 		}
 		public void ShowRewardVideo (Action<double, string> OnVideoShown = null)
 		{
@@ -113,8 +118,8 @@ namespace GameCore
 		}
 		public void ShowIntrastitial (string playsment = "default", Action _onIntrastitialShown = null)
 		{
-			Debug.LogFormat ("AdsController.ShowIntrastitial(playsment = {0}, _onIntrastitialShown = {1})", playsment, _onIntrastitialShown);
-			Debug.LogFormat ("AdsController.ShowIntrastitial.CurrentAdsNetworks = {0}", CurrentAdsNetworks);
+			// Debug.LogFormat ("AdsController.ShowIntrastitial(playsment = {0}, _onIntrastitialShown = {1})", playsment, _onIntrastitialShown);
+			// Debug.LogFormat ("AdsController.ShowIntrastitial.CurrentAdsNetworks = {0}", CurrentAdsNetworks);
 			//  Debug.LogFormat ("DummyAdsNetwork.ShowRewardVideo(OnVideoShown = {0}, _onIntrastitialShown = {1})", OnVideoShown);
 
 			CurrentAdsNetworks.ShowIntrastitial (playsment, _onIntrastitialShown);

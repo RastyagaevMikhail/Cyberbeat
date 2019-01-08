@@ -18,18 +18,21 @@ namespace CyberBeat
 		[SerializeField] GameEventInt OnComboEnd;
 		[SerializeField] GameEventInt OnActivateCurrentCombo;
 		[SerializeField] IntVariable _CurrentCombo;
+		[SerializeField] IntVariable ScorePerBeat;
+		[SerializeField] IntVariable CurrentComboMaxCount;
 		int CurrentCombo { get { return _CurrentCombo.Value; } set { _CurrentCombo.Value = value; } }
 
 		[SerializeField] IntVariable Gates;
-		[SerializeField] BoolVariable reset;
-
-		bool isCombo;
-		/* [ShowInInspector] */
+		[SerializeField] BoolVariable IsCombo;
+		bool isCombo { get { return IsCombo.Value; } set { IsCombo.Value = value; } }
 		TimeOfEvent currentCombo = null;
 		private void Start ()
 		{
 			comboInGame = new ComboList (combo);
 			CurrentCombo = 0;
+			CurrentComboMaxCount.Value = comboInGame[CurrentCombo];
+			isCombo = false;
+			ScorePerBeat.Value = 1;
 		}
 
 		public void GEColorInterractor_CollectCombo (ColorInterractor inter)
@@ -38,27 +41,19 @@ namespace CyberBeat
 
 			if (currentCombo.InRange (inter.bit))
 			{
-				// Debug.Log ("CurrentCombo InRange");
-				// Debug.LogFormat ("currentCombo = {0}", currentCombo);
 				var comboList = comboInGame[currentCombo];
-				// Debug.LogFormat ("comboList = {0}", comboList);
-				// Debug.LogFormat ("inter = {0}", inter);
-				// Debug.LogFormat ("inter.bit = {0}", inter.bit);
-				// Debug.Log (Tools.LogCollection (comboList.Keys));
+
 				ComboBit currentComboBit = null;
 				comboList.TryGetValue (inter.bit, out currentComboBit);
 				if (currentComboBit == null) return;
 				bool isReset = false;
 				if (currentComboBit.prev != 0)
 				{
-					// Debug.LogFormat ("currentComboBit.prev = {0}", currentComboBit.prev);
-					// Debug.Log (Tools.LogCollection (comboList.Keys));
 					ComboBit prevComboBit = null;
 					comboList.TryGetValue (currentComboBit.prev, out prevComboBit);
 					isReset = prevComboBit != null;
 				}
-				// reset.SetValue (isReset);
-				// Debug.LogFormat ("reset = {0}", reset.Value);
+
 				OnBitCombo.Raise (isReset);
 				comboList.Remove (currentComboBit.bit);
 			}
@@ -67,13 +62,21 @@ namespace CyberBeat
 		public override void _OnChanged (TimeEvent timeEvent)
 		{
 			// Debug.Log ("_OnChanged State");
-			isCombo = timeEvent.isTime;
+
 			currentCombo = timeEvent.timeOfEvent;
-			if (!isCombo)
+			CurrentComboMaxCount.Value = comboInGame[CurrentCombo];
+			if (timeEvent.isTime)
+			{
+				isCombo = track.GetGateState (CurrentCombo);
+				ScorePerBeat.Value = isCombo ? 2 : 1;
+			}
+			else
 			{
 				track.SetGateState (CurrentCombo, false);
 				OnComboEnd.Raise (CurrentCombo);
+				isCombo = false;
 				CurrentCombo++;
+
 			}
 		}
 		public void _DeActivateCurrentGate ()
@@ -174,6 +177,14 @@ namespace CyberBeat
 				// Debug.LogFormat ("timeOfEvent = {0}", timeOfEvent);
 				// Debug.LogFormat ("comboListItem = {0}", comboListItem);
 				return comboListItem;
+			}
+		}
+		///Get Count of Bint in currentCombo
+		public int this [int index]
+		{
+			get
+			{
+				return items[index].comboBits.Count;
 			}
 		}
 

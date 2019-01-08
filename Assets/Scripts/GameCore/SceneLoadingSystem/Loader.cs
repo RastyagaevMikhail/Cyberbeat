@@ -7,6 +7,12 @@ namespace GameCore
 
 	public class Loader : MonoBehaviour
 	{
+#if UNITY_EDITOR
+		private void OnApplicationQuit ()
+		{
+			LoadingManager.instance.nextScene = "Menu";
+		}
+#endif
 		[SerializeField] GameObject FullScreenHolder;
 		private void Start ()
 		{
@@ -23,12 +29,9 @@ namespace GameCore
 		{
 			FullScreenHolder.SetActive (false);
 		}
-#if UNITY_EDITOR
-
-		private void OnApplicationQuit ()
+		public void ReloadScene ()
 		{
-			LoadingManager.instance.nextScene = "Menu";
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		}
-#endif
 	}
 }

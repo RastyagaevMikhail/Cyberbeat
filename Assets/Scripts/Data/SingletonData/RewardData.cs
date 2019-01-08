@@ -68,24 +68,6 @@ namespace CyberBeat
 			public List<int> CountsByChanche;
 		}
 
-		[ContextMenu("Init Info")]
-		 public void InitInfo ()
-		{
-			rewards = new List<RewardInfo> ();
-			foreach (var booster in BoostersData.instance.boosters)
-			{
-				var info = new RewardInfo ()
-				{
-					LocTag = booster.name,
-						Icon = booster.Icon,
-						CountVarible = GameData.instance.RewardVariables.Find (rv => rv.name.Contains (booster.name)),
-						CountsByChanche = Enumerable.Range (1, 10).ToList ()
-				};
-				rewards.Add (info);
-			}
-			rewards.Add (new RewardInfo () { LocTag = "notes", CountVarible = GameData.instance.Notes, CountsByChanche = Enumerable.Range (1, 10).Select (i => i * 100).ToList () });
-		}
-
 		public void ResetRewardTime ()
 		{
 			RewardTime.Value = TimeFoemNextReward;

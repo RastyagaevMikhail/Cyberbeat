@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: d9f0fed9a28d4b74f9529e616a98dc11, type: 3}
   timer: {fileID: 0}
+  shopData: {fileID: 11400000, guid: 2b81576b44df4b6469e392647cd2e1a5, type: 2}
   levelUpgrade: {fileID: 11400000, guid: e99fe92920f326c47887a4ca97d6ffa5, type: 2}
   count: {fileID: 11400000, guid: 73795263a201448419966226411c8eb4, type: 2}
+  BoosterIsActivated: {fileID: 11400000, guid: 844d1df58a5a67d4aa2c54e4f6acbd19, type: 2}
+  BoosterIsReseted: {fileID: 11400000, guid: c45e5f2008519fd4fac9892c8cce754b, type: 2}
   BoosterIsOver: {fileID: 11400000, guid: b2058eef625f6bf4f8dc77cec26f7e6d, type: 2}
+  description: life_desc

@@ -62,9 +62,25 @@ namespace GameCore
         {
             _value.Clamp01 ();
         }
+        public float AsPercent (FloatVariable otherVariable)
+        {
+            return AsPercent( otherVariable.Value);
+        }
+        public float AsPercent (float otherValue)
+        {
+            return otherValue * Value;
+        }
+        public int AsPercent (IntVariable otherVariable)
+        {
+            return AsPercent (otherVariable.Value);
+        }
+        public int AsPercent (int otherValue)
+        {
+            return (int) (otherValue * Value);
+        }
 
         [ContextMenu ("Toggle Savable")]
-        void ToggleSavable () { isSavable = !isSavable; }
+        void ToggleSavable () { isSavable = !isSavable; CheckSavable (); }
 
         [ContextMenu ("Check Savable")]
         void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }

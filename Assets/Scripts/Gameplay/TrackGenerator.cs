@@ -1,4 +1,6 @@
-﻿using GameCore;
+﻿using DG.Tweening;
+
+using GameCore;
 
 using SonicBloom.Koreo;
 using SonicBloom.Koreo.Players;
@@ -20,12 +22,30 @@ namespace CyberBeat
         public TracksCollection tracksCollection { get { return TracksCollection.instance; } }
         private AudioSource _ASource = null;
         public AudioSource ASource { get { if (_ASource == null) _ASource = GetComponent<AudioSource> (); return _ASource; } }
+        private SimpleMusicPlayer _player = null;
+        public SimpleMusicPlayer music_player { get { if (_player == null) _player = GetComponent<SimpleMusicPlayer> (); return _player; } }
 
         Track track { get { return tracksCollection.CurrentTrack; } }
         public void PlayMusinOnSwitcher ()
         {
             if (!ASource.isPlaying)
+            {
                 ASource.Play ();
+
+            }
+        }
+
+        public void Continue ()
+        {
+            // Debug.LogFormat ("ASource.time = {0}", ASource.time);
+
+            var targetTime = ASource.time - 1.5f;
+            // Debug.LogFormat ("targetTime = {0}", targetTime);
+            ASource.time = targetTime.Abs ();
+            ASource.volume = 0;
+            music_player.Play ();
+
+            DOVirtual.Float (ASource.volume, 1f, 1.5f, value => ASource.volume = value).SetEase (Ease.InQuint);
         }
 
         RandomConstantMaterial rcm;
@@ -40,6 +60,7 @@ namespace CyberBeat
         List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
         private void Start ()
         {
+            started = true;
             LastRandomColor = Colors.instance.RandomColor;
 
             InitRCM ();
@@ -60,9 +81,11 @@ namespace CyberBeat
         private int indexRow = 0;
         private float time = 0;
         [SerializeField] Color LastRandomColor;
+        public bool started { get; set; }
+
         private void Update ()
         {
-            if (CurrentBits != null && !outOfIndexBits && currentBit != null && currentBit.time + track.MinTimeOfBit <= time)
+            if (started && CurrentBits != null && !outOfIndexBits && currentBit != null && currentBit.time + track.MinTimeOfBit <= time)
             {
                 float half_width = width / 2;
                 float step = half_width / 2;
@@ -105,7 +128,8 @@ namespace CyberBeat
                     currentBit = CurrentBits[indexRow];
                 }
             }
-            time += Time.deltaTime;
+            if (started)
+                time += Time.deltaTime;
         }
 
         public void OnStart ()
@@ -123,8 +147,8 @@ namespace CyberBeat
             var obj = pool.Pop (Key);
             if (!obj) return null;
 
-            obj.position = transform.position + transform.right * xPos + transform.up * obj.OffsetPosition.y;
-            obj.transform.rotation = transform.rotation;
+            obj.position = position + right * xPos + up * obj.y;
+            obj.rotation = rotation;
 
             obj.Get<MetaDataGizmos> ().MetaData = currentBit.time.ToString ();
             MaterialSwitcher originalMaterialSwitcher = spwn_obj.Get<MaterialSwitcher> ();

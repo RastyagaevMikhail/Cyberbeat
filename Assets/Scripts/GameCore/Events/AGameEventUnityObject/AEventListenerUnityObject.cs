@@ -9,8 +9,8 @@ namespace GameCore
     public abstract class AEventListenerUnityObject<TObject>
         where TObject : UnityEngine.Object
         {
-            [SerializeField] protected abstract AGameEventUnityObject<TObject> Event { get; set; }
-            [SerializeField] protected abstract UnityEvent<TObject> Responce { get; }
+            public abstract AGameEventUnityObject<TObject> Event { get; set; }
+            public abstract UnityEvent<TObject> Responce { get; }
             public void OnEventRaised (TObject obj)
             {
                 Responce.Invoke (obj);

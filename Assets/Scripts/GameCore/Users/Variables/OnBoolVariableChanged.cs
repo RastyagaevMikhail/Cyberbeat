@@ -10,9 +10,12 @@ namespace GameCore
 	{
 		[SerializeField] BoolVariable variable;
 		[SerializeField] UnityEventBool action;
+		[SerializeField] bool updateOnEnable;
+
 		private void OnEnable ()
 		{
 			variable.OnValueChanged += action.Invoke;
+			if (updateOnEnable) action.Invoke (variable.Value);
 		}
 		private void OnDisable ()
 		{

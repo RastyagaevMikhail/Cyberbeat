@@ -39,12 +39,13 @@ namespace GameCore
 			Value += amount.Value;
 		}
 
-		[ContextMenu ("SaveValue")]
+		[ContextMenu ("Save Value")]
 		public override void SaveValue ()
 		{
 			// Debug.LogFormat("Save = {0}", name);
 			PlayerPrefs.SetInt (name, _value);
 		}
+		[ContextMenu ("Load Value")]
 		public override void LoadValue ()
 		{
 			base.LoadValue ();
@@ -68,6 +69,10 @@ namespace GameCore
 		{
 			variable.Value -= other;
 			return variable;
+		}
+		public float AsFloat()
+		{
+			return Value;
 		}
 
 		[ContextMenu ("Toggle Savable")]

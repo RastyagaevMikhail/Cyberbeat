@@ -12,15 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e70d2e4cd4f06a44a5f6e9c1f01ec7c, type: 3}
   m_Name: LocalizationManager
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   keys:
   - key: btn_play
     index: 0
@@ -112,7 +103,7 @@ MonoBehaviour:
     index: 43
   - key: yes
     index: 44
-  - key: noa
+  - key: no
     index: 45
   - key: select
     index: 46
@@ -128,6 +119,14 @@ MonoBehaviour:
     index: 51
   - key: activated
     index: 52
+  - key: blade_desc
+    index: 53
+  - key: life_desc
+    index: 54
+  - key: shield_desc
+    index: 55
+  - key: nobooster_title
+    index: 56
   translations:
   - Lang: 10
     Items:
@@ -184,6 +183,10 @@ MonoBehaviour:
     - +autorestart
     - Disable Ads
     - Activated
+    - Hit bits from two sides
+    - Saves life once
+    - Protect yourself death
+    - <color=#ef3d50>need</color> a booster
   - Lang: 30
     Items:
     - "\u0418\u0433\u0440\u0430\u0442\u044C"
@@ -240,5 +243,11 @@ MonoBehaviour:
     - "+\u0410\u0432\u0442\u043E\u0440\u0435\u0441\u0442\u0430\u0440\u0442"
     - "\u041E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0440\u0435\u043A\u043B\u0430\u043C\u0443"
     - "\u0410\u043A\u0442\u0438\u0432\u043D\u043E"
+    - "\u0420\u0443\u0431\u0438\u0442 \u0431\u0438\u0442\u044B \u0441 \u0434\u0432\u0443\u0445
+      \u0441\u0442\u043E\u0440\u043E\u043D"
+    - "\u0421\u043F\u0430\u0441\u0430\u0435\u0442 \u0436\u0438\u0437\u043D\u044C \u043E\u0434\u0438\u043D
+      \u0440\u0430\u0437"
+    - "\u0417\u0430\u0449\u0438\u0449\u0430\u0435\u0442 \u043E\u0442 \u0441\u043C\u0435\u0440\u0442\u0438"
+    - "<color=#ef3d50>\u041D\u0443\u0436\u0435\u043D</color> \u0431\u0443\u0441\u0442\u0435\u0440
+      {0}?"
   Languges: 0a0000001e000000
-  currentLanguage: 10

@@ -8,7 +8,7 @@ namespace CyberBeat
         {
             Debug.Log ("Apply.LifeBoosterData");
             brick.Death ();
-            Reset ();
+            DeActivate ();
         }
     }
 }
