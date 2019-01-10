@@ -64,17 +64,6 @@ namespace CyberBeat
                 item.CopyToVariable ();
             }
         }
-
-        [ContextMenu ("Generate Shop Items")] public void GenerateShopItems ()
-        {
-            foreach (var booster in boosters)
-            {
-                var shopData = ScriptableObject.CreateInstance<ShopCardData> ();
-                shopData.InitOnCreate (booster.name);
-            }
-        }
-
-
 #endif
         [ContextMenu ("DeactivateAllBoosters")]
         public void DeactivateAllBoosters ()

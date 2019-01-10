@@ -41,7 +41,7 @@ namespace CyberBeat
 		{
 			Icon.sprite = data.Icon;
 			Title.Id = data.title;
-			Price.text = data.price.ToString ();
+			Price.text = data.Price.ToString ();
 		}
 
 #if UNITY_EDITOR

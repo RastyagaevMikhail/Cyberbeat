@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Constant: 0
-  DefaultColorNameVariable: {fileID: 11400000, guid: 0f78b5ae5ceb6df4596094116cf669c0,
+  DefaultColorNameVariable: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd,
     type: 2}
   defaultColorName: _Color
 --- !u!95 &8512347159991630916
@@ -277,6 +277,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OffsetPosition: {x: 0, y: 1, z: 0}
+  OffsetRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &114359091212655260
 MonoBehaviour:
   m_ObjectHideFlags: 0

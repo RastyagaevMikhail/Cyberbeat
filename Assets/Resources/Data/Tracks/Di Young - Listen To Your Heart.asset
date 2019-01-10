@@ -24,8 +24,13 @@ MonoBehaviour:
     PlayByWatch: 0
     Price: 2000
     SaveKey: Di Young - Listen To Your Heart Buyed
+  progressInfo:
+    Best: {fileID: 11400000, guid: 12a19c562166923448cd8a56a222e5ca, type: 2}
+    Max: {fileID: 11400000, guid: 752f161ac9486754298b0cdde3d56dc1, type: 2}
+    Percent: {fileID: 11400000, guid: 5fbaf50dad831c046a08ac50d26818fe, type: 2}
   StartSpeed: 50
   koreography: {fileID: 11400000, guid: e263f399b1a062d4abda7da671d49004, type: 2}
   MinTimeOfBit: 0.2
   BitsInfos: []
   CountConstant: 0
+  LayerForGenerateTimEvents: 3

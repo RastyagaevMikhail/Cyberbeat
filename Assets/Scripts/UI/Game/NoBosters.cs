@@ -58,11 +58,11 @@ namespace CyberBeat
             Back.SetActive (false);
         }
 
-        public void OnBoosterIsOver (BoosterData boosterData)
+        public void OnBoosterIsOver (ABayable boosterData)
         {
             Icon.sprite = boosterData.Icon;
 
-            Description.text = boosterData.description.localized ();
+            Description.text = boosterData.Description.localized ();
             Title.text = "nobooster_title".localized ().AsFormat (boosterData.name.ToLower ().localized ());
 
             notesButton.onClick.RemoveAllListeners ();

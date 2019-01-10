@@ -24,13 +24,15 @@ namespace CyberBeat
             if (noAdsIsEnabled) NoAdsTimer.StartTimer ();
         }
         int notLoadedAds;
-        public void OnPlayerDeath ()
+        public void OnCheckNoAds ()
         {
             if (noAdsIsEnabled)
-                RestartGame.Raise ();
+            {
+                RestartGame.Raise ();//need Delay
+            }
             else
             {
-                ShowIntrstitialAdsTimer.Raise();
+                ShowIntrstitialAdsTimer.Raise ();
                 Ads.ShowIntrastitial ();
             }
         }

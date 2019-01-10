@@ -74,8 +74,8 @@ Material:
     - _OcclusionStrength: 1
     - _OutlinePower: 1
     - _Parallax: 0.02
-    - _RPower: 0
-    - _SkyboxPower: 0.3
+    - _RPower: 0.2
+    - _SkyboxPower: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -85,7 +85,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BColor: {r: 1, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.011764706, g: 0.6627451, b: 0.95686275, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _GColor: {r: 1, g: 0, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 0, b: 0, a: 0}

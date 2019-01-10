@@ -11,4 +11,5 @@ namespace CyberBeat
     [Serializable] public class UnityEventColorInterractor : UnityEvent<ColorInterractor> { }
 
     [Serializable] public class UnityEventBoosterData : UnityEvent<BoosterData> { }
+    [Serializable] public class UnityEventBayable : UnityEvent<ABayable> { }
 }

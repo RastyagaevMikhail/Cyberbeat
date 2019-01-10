@@ -231,9 +231,10 @@ namespace GameCore
 
         public static void ValidatePath (string path)
         {
-            var m = Regex.Match (path, "([a-zA-Z0-9 ])+(.asset)");
+            var m = Regex.Match (path, "(/[a-zA-Z0-9 ])+(.asset)");
             // Debug.LogFormat ("regex \"{0}\" in Path {1}", m.Value, path);
-            path = path.Replace ("/" + m.Value, "");
+            if (!m.Value.IsNullOrEmpty ())
+                path = path.Replace ("/" + m.Value, "/");
             string[] splitedPath = path.Split ('/');
             string validatedPath = splitedPath[0];
 
@@ -249,6 +250,8 @@ namespace GameCore
                 }
                 validatedPath += "/" + subPath;
             }
+            Debug.LogFormat ("validatedPath = {0}", validatedPath);
+            AssetDatabase.Refresh ();
         }
 
         public class EditorAssembliesHelper

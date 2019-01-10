@@ -34,6 +34,7 @@ namespace CyberBeat
 		}
 
 		[SerializeField] FloatVariable ProgressCurrentLevel;
+		[SerializeField] FloatVariable TotalProgressCurrentLevel;
 		public Track currentTrack { get { return TracksCollection.instance.CurrentTrack; } }
 		public void ResetCurrentProgress ()
 		{
@@ -46,27 +47,29 @@ namespace CyberBeat
 			DestroyedBricks++;
 			ProgressLevel ();
 		}
-		public void SetGeneratedBrick (int value)
+		public void SetGeneratedBrick ()
 		{
-			GeneratedBricks = value;
+			GeneratedBricks = currentTrack.progressInfo.Max.Value;
 		}
 		void ProgressLevel ()
 		{
 			if (GeneratedBricks != 0 && DestroyedBricks != 0)
-				ProgressCurrentLevel.Value = 100 * (DestroyedBricks / GeneratedBricks);
+			{
+				ProgressCurrentLevel.Value = (DestroyedBricks / GeneratedBricks);
+				// TotalProgressCurrentLevel.Value = bestScore.
+			}
 		}
 
-		
 		[SerializeField]
 		public IntVariable Notes;
-		internal List<TimeOfEvent> currentLines;
+		public List<TimeOfEvent> currentLines;
 
 		public bool TryBuy (int price)
 		{
 			bool canBuy = CanBuy (price);
 			if (canBuy)
 				Notes.ApplyChange (-price);
-		
+
 			return canBuy;
 		}
 
@@ -77,15 +80,8 @@ namespace CyberBeat
 			return canBuy;
 		}
 
-	
-
 		public bool WathedRewardVideo;
 
 		public float CurrentStartSpeed;
-
-		public void AddScore ()
-		{
-			ProgressCurrentLevel.ApplyChange (1);
-		}
 	}
 }

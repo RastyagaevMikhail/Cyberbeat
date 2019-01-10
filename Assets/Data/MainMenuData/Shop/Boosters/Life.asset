@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: d9f0fed9a28d4b74f9529e616a98dc11, type: 3}
   title: life
-  Description: you_have
-  isIAP: 0
+  Description: life_desc
+  IsOver: {fileID: 11400000, guid: c2557299ad7fcd24e828dfb68376350e, type: 2}
   Count: {fileID: 11400000, guid: 73795263a201448419966226411c8eb4, type: 2}
-  productID: 
-  price: 100
+  Price: 100

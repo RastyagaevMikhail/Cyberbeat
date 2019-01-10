@@ -6,18 +6,26 @@ using UnityEngine;
 namespace CyberBeat
 {
 
-	public abstract class BoosterData : ScriptableObject
+	public abstract class BoosterData : ABayable
 	{
+		[ContextMenu ("Valiadte")]
+		void Valiadte ()
+		{
+			Icon = shopData.Icon;
+			Description = description;
+			title = name.ToLower ();
+			Count = shopData.Count;
+			this.Save ();
+		}
 		static float[] TimeLevels = new float[] { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 };
-		public Sprite Icon;
+		[Header ("Booster Data")]
 		public RuntimeTimer timer;
 		public BoostersData data { get { return BoostersData.instance; } }
 		public ShopCardData shopData;
 		[SerializeField] IntVariable levelUpgrade;
-		[SerializeField] IntVariable count;
 		[SerializeField] GameEventBoosterData BoosterIsActivated;
 		[SerializeField] GameEventBoosterData BoosterIsReseted;
-		[SerializeField] GameEventBoosterData BoosterIsOver;
+
 		public float boosterUsePercent = 0.1f;
 		public string description;
 		bool isActive { get { return data.ActiveBoosters.Contains (this); } }
@@ -26,11 +34,10 @@ namespace CyberBeat
 		{
 			get
 			{
-				if (count.Value == 0) return 0f;
+				if (Count.Value == 0) return 0f;
 				return TimeLevels[LevelUpgrade];
 			}
 		}
-		public int Price { get { return shopData.price; } }
 		public void InitTimer (RuntimeTimer timer)
 		{
 			if (LifeTime == 0)
@@ -63,29 +70,14 @@ namespace CyberBeat
 		}
 		public void Activate ()
 		{
-			if (!isActive && count.Value > 0)
+			if (TryUse ())
 			{
-				data.ActiveBoosters.Add (this);
-
 				InitTimer (Pool.instance.Pop<RuntimeTimer> ("RuntimeTimer"));
-
-				count.Decrement ();
-
+				data.ActiveBoosters.Add (this);
 				BoosterIsActivated.Raise (this);
-			}
-			else if (count.Value == 0)
-			{
-				BoosterIsOver.Raise (this);
+
 			}
 		}
 		public abstract void Apply (ColorBrick brick);
-		public bool TryBuy ()
-		{
-			return shopData.TryBuy ();
-		}
-		public void Increment ()
-		{
-			shopData.Increment ();
-		}
 	}
 }

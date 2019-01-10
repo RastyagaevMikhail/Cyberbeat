@@ -16,6 +16,7 @@ namespace CyberBeat
         void Start ()
         {
             data.AccumulateAttems ();
+            
         }
         public void OnColorInterractorDeath (ColorInterractor interractor)
         {

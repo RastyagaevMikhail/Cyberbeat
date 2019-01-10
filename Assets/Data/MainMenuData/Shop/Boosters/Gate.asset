@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269dd162f9b043741b686b51b8d3352f, type: 3}
   m_Name: Gate
   m_EditorClassIdentifier: 
-  style: {fileID: 11400000, guid: a56fdbfbdeb938e43bb65704ab8d9541, type: 2}
   Icon: {fileID: 21300000, guid: 5bb067b3ec7116240a546046facf0ff0, type: 3}
   title: gate
-  Description: you_have
-  isIAP: 0
+  Description: gate_desc
+  IsOver: {fileID: 11400000, guid: c2557299ad7fcd24e828dfb68376350e, type: 2}
   Count: {fileID: 11400000, guid: 18e008caf14f6bc4e968b9554548534a, type: 2}
-  productID: 
-  price: 100
+  Price: 100

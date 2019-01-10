@@ -17,21 +17,14 @@ namespace CyberBeat
         [SerializeField] GameObject PostGetReawardButtons;
         [SerializeField] Button DoubleReward;
         [SerializeField] Button GetReward;
+        [SerializeField] Text ProgressText;
         [SerializeField] GameEvent ToMenu;
+        [SerializeField] ResultsTrackInfo trackInfo;
+        Track track { get { return TracksCollection.instance.CurrentTrack; } }
+
         public ResultsData data { get { return ResultsData.instance; } }
         public AdsController Ads { get { return AdsController.instance; } }
-#if UNITY_EDITOR
-        private void OnValidate ()
-        {
-            Back = transform.GetChild (0).gameObject;
-            RewardButtons = Back.transform.GetChild (0).Find ("RewardButtons").gameObject;
-            PostGetReawardButtons = Back.transform.GetChild (0).Find ("PostGetReawardButtons").gameObject;
 
-            DoubleReward = RewardButtons.transform.Find ("DoubleRewardButton").GetComponent<Button> ();
-            GetReward = RewardButtons.transform.Find ("GetRewardButton").GetComponent<Button> ();
-            ToMenu = Tools.GetAssetAtPath<GameEvent> ("Assets/Data/Events/GameResults/ToMenu.asset");
-        }
-#endif
         private void Awake ()
         {
             DoubleReward.onClick.RemoveAllListeners ();
@@ -49,7 +42,7 @@ namespace CyberBeat
         void GetDoubleReward ()
         {
             ShowRewardsButtons (false);
-            data.TakeDoubleReward();
+            data.TakeDoubleReward ();
         }
         private void ShowRewardsButtons (bool Show)
         {
@@ -60,7 +53,7 @@ namespace CyberBeat
         private void SkipVideo ()
         {
             ShowRewardsButtons (false);
-            data.TakeReward();
+            data.TakeReward ();
         }
 
         [ContextMenu ("Show")]
@@ -69,6 +62,10 @@ namespace CyberBeat
             Back.SetActive (true);
             ShowRewardsButtons (true);
             data.Calculate ();
+            var progress = track.progressInfo;
+            ProgressText.text = "{0}/{1}".AsFormat (progress.Best.Value, progress.Max.Value);
+            
+            trackInfo.Init (track.music);
         }
 
         [ContextMenu ("Close")]

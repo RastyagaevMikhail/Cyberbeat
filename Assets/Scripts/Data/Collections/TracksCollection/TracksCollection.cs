@@ -23,6 +23,14 @@ namespace CyberBeat
 				track.ResetDefault ();
 			}
 		}
+		[ContextMenu("GentrateProgressInfo")]
+		void GentrateProgressInfo()
+		{
+			foreach (var track in Objects)
+			{
+					track.GenerateProgressInfo();
+			}
+		}
 #endif
 
 		public Track CurrentTrack;

@@ -16,6 +16,7 @@ namespace CyberBeat
 		public MusicInfo music;
 		public List<SocialInfo> socials;
 		public ShopInfo shopInfo;
+		public ProgressInfo progressInfo;
 		public TracksCollection data { get { return TracksCollection.instance; } }
 
 		public int TrackNumber { get { return data.Objects.IndexOf (this) + 1; } }
@@ -30,6 +31,14 @@ namespace CyberBeat
 		{
 			shopInfo.ResetDefault ();
 		}
+
+#if UNITY_EDITOR
+		public void GenerateProgressInfo ()
+		{
+			progressInfo.Generate (name);
+			this.Save ();
+		}
+#endif
 
 		public float StartSpeed = 50f;
 		[ContextMenu ("Set Me As Current")]
@@ -70,18 +79,18 @@ namespace CyberBeat
 
 		public float MinTimeOfBit = 0.2f;
 		public List<BitInfo> BitsInfos = new List<BitInfo> ();
-		public int CountConstant;
 
 		[ContextMenu ("Generate Random Playeble")]
 		public void GenerateRandomPlayebles ()
 		{
 			var events = GetAllEventsByType (LayerType.Bit);
 			var keys = data.Presets.Keys.ToList ();
+			RandomStack<int> randStack = new RandomStack<int>(keys);
 			foreach (var evnt in events)
 			{
-				evnt.Payload = new IntPayload () { IntVal = keys.GetRandom () };
+				evnt.Payload = new IntPayload () { IntVal = randStack.Get () };
 			}
-			events.First ().Payload = new IntPayload () { IntVal = 0 };
+			events.First ().Payload = new IntPayload () { IntVal = 1 };
 		}
 
 		[ContextMenu ("Generate BitInfo by Events")]
@@ -106,6 +115,28 @@ namespace CyberBeat
 		{
 			var timeEventOfData = Tools.GetAssetAtPath<TimeOfEventsData> ("Assets/Data/TimeEvents/{0}/{1}.asset".AsFormat (name, LayerForGenerateTimEvents));
 			timeEventOfData.Init (koreography.SampleRate, GetAllEventsByType (LayerForGenerateTimEvents));
+		}
+
+		[ContextMenu ("CalculateConstant")]
+		void CalculateConstant ()
+		{
+			progressInfo.Max.Value = 0;
+			foreach (var bitInfo in BitsInfos)
+			{
+				List<int> presetList = bitInfo.presets.ToList ();
+
+				bool isContainConstant = presetList
+					.TrueForAll (p => data.Presets[p]
+						.Find (spwnObj =>
+						{
+							if (spwnObj)
+								return spwnObj.Get<MaterialSwitcher> ().Constant;
+							return false;
+						}));
+
+				if (isContainConstant) progressInfo.Max.Increment ();
+			}
+			progressInfo.Max.Save();
 		}
 #endif
 

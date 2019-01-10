@@ -137,7 +137,7 @@ namespace CyberBeat
             CurrentBits = new List<BitInfo> (track.BitsInfos);
             // CurrentBits.Reverse ();
             currentBit = CurrentBits.First ();
-            gameData.SetGeneratedBrick (track.CountConstant);
+            gameData.SetGeneratedBrick ();
         }
 
         SpawnedObject InstattiateObj (SpawnedObject spwn_obj, float xPos)

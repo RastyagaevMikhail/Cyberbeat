@@ -81,12 +81,12 @@ namespace GameCore
         }
 
 #if UNITY_EDITOR
-        public override void CreateAsset (string path = "")
+        public override void CreateAsset (string path = "", bool IsSaveble = false)
         {
             if (path == "") path = "Assets/Data/Variables/{0}/{1}.asset".AsFormat (GetType ().Name, name);
 
             Tools.CreateAsset (this, path);
-
+            if (IsSaveble) isSavable = IsSaveble;
         }
         public override void ResetLoaded ()
         {
@@ -101,6 +101,10 @@ namespace GameCore
 
         [ContextMenu ("Check Savable")]
         void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
+        private void OnDestroy ()
+        {
+            if (isSavable) ToggleSavable ();
+        }
 #endif
 
     }

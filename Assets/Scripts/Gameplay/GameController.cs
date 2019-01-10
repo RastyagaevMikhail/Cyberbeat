@@ -7,17 +7,13 @@ namespace CyberBeat
 {
     public class GameController : MonoBehaviour
     {
-        private static GameController _instance = null;
-        public static GameController instance { get { if (_instance == null) _instance = GameObject.FindObjectOfType<GameController> (); return _instance; } }
 
-        [SerializeField] IntVariable CurrentScore;
-        [SerializeField] IntVariable BestScore;
+        
+        
         [SerializeField] GameEvent StartGame;
         //Raise On AppliacrtionPause or Focus
         [SerializeField] GameEvent Pause;
-        
-        [SerializeField] SplineController playerSplineController;
-        [SerializeField] SplineController trackSplineController;
+
         Player player { get { return Player.instance; } }
         GameData gameData { get { return GameData.instance; } }
         Track track { get { return gameData.currentTrack; } }
@@ -27,9 +23,7 @@ namespace CyberBeat
 
         void Awake ()
         {
-            // playerSplineController.Speed = track.StartSpeed;
-            // trackSplineController.Speed = track.StartSpeed;
-            CurrentScore.Value = 0;
+            
             gameData.ResetCurrentProgress ();
         }
 
@@ -37,12 +31,7 @@ namespace CyberBeat
         {
             gameData.OnDestroyedBrick ();
         }
-        public void IncrementCurrentScore ()
-        {
-            gameData.Notes.Increment ();
-            CurrentScore.Value++;
-            if (CurrentScore.Value > BestScore.Value) BestScore.Value = CurrentScore.Value;
-        }
+    
         public void OnPlayerContactWith (ColorInterractor interractor)
         {
             if (!interractor) return;
@@ -63,7 +52,6 @@ namespace CyberBeat
 
         public void RestartGame ()
         {
-            CurrentScore.Value = 0;
             gameData.ResetCurrentProgress ();
             ReloadScene ();
         }
@@ -71,7 +59,7 @@ namespace CyberBeat
         public void ReloadScene ()
         {
             LoadingManager.instance.ReloadScene ();
-            
+
         }
 
         public void OnFadeOut ()

@@ -11,7 +11,7 @@ namespace GameCore
 		public abstract void ResetDefault ();
 #if UNITY_EDITOR
 		public abstract void ResetLoaded ();
-		public abstract void CreateAsset (string path);
+		public abstract void CreateAsset (string path, bool IsSaveble);
 #endif
 	}
 }

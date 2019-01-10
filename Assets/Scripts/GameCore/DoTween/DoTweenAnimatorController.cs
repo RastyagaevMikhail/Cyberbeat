@@ -18,7 +18,6 @@ namespace GameCore.DoTween
         Tween currentTween;
         public void Play (string NameState, TweenCallback OnComplete = null)
         {
-            Debug.LogFormat ("OnComplete = {0}", OnComplete);
             int hashState = Animator.StringToHash (NameState);
             currentTween = DOVirtual.Float (0f, 1f, duration, value => onPlay (layer, value, hashState)).SetEase (ease).OnComplete (OnComplete);
 

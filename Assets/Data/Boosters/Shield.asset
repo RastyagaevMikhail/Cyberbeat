@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 34d1a2a9c5967384b87510417f1111fb, type: 3}
+  title: shield
+  Description: shield_desc
+  IsOver: {fileID: 11400000, guid: c2557299ad7fcd24e828dfb68376350e, type: 2}
+  Count: {fileID: 11400000, guid: 1c62fecfd6685a24d8c5c351eb23bf02, type: 2}
+  Price: 100
   timer: {fileID: 0}
   shopData: {fileID: 11400000, guid: fe73b4f34ed2d644d9db1374782e92b7, type: 2}
   levelUpgrade: {fileID: 11400000, guid: dc2f6489485ca19498ceca4407af0313, type: 2}
-  count: {fileID: 11400000, guid: 1c62fecfd6685a24d8c5c351eb23bf02, type: 2}
   BoosterIsActivated: {fileID: 11400000, guid: 844d1df58a5a67d4aa2c54e4f6acbd19, type: 2}
   BoosterIsReseted: {fileID: 11400000, guid: c45e5f2008519fd4fac9892c8cce754b, type: 2}
-  BoosterIsOver: {fileID: 11400000, guid: b2058eef625f6bf4f8dc77cec26f7e6d, type: 2}
+  boosterUsePercent: 0.1
   description: shield_desc

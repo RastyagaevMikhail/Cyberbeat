@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269dd162f9b043741b686b51b8d3352f, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  style: {fileID: 11400000, guid: 28d80600ebdd02f4789c0fb0bdcb6e6f, type: 2}
   Icon: {fileID: 21300000, guid: 34d1a2a9c5967384b87510417f1111fb, type: 3}
   title: shield
-  Description: you_have
-  isIAP: 0
+  Description: shield_desc
+  IsOver: {fileID: 11400000, guid: c2557299ad7fcd24e828dfb68376350e, type: 2}
   Count: {fileID: 11400000, guid: 1c62fecfd6685a24d8c5c351eb23bf02, type: 2}
-  productID: 
-  price: 100
+  Price: 100

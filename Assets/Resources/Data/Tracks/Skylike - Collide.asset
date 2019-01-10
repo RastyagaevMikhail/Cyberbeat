@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -16,15 +17,18 @@ MonoBehaviour:
     AuthorName: Skylike
     TrackName: Collide
     AlbumImage: {fileID: 21300000, guid: 42f85c982e36ceb41afb51a9e0000e19, type: 3}
-  social:
-    Icon: {fileID: 0}
-    URL: 
+  socials: []
   shopInfo:
     PlayByWatch: 0
     Price: 2000
     SaveKey: Skylike - Collide Buyed
+  progressInfo:
+    Best: {fileID: 11400000, guid: 40c7ea41520c1f946abe9bf921a2b6b1, type: 2}
+    Max: {fileID: 11400000, guid: 7ad1574c933f09546b71ca77ea0130e4, type: 2}
+    Percent: {fileID: 11400000, guid: 2c7b95adf78eb0f4ba5bacee7a7fbf88, type: 2}
   StartSpeed: 50
   koreography: {fileID: 11400000, guid: babc2ae791a3f54499735d637d11b6ea, type: 2}
   MinTimeOfBit: 0.2
   BitsInfos: []
   CountConstant: 0
+  LayerForGenerateTimEvents: 3

@@ -14,6 +14,10 @@ namespace CyberBeat
     {
         private SplineController _splineController = null;
         public SplineController splineController { get { if (_splineController == null) { _splineController = GetComponent<SplineController> (); } return _splineController; } }
+        private void Awake ()
+        {
+            _SetSpeed (TracksCollection.instance.CurrentTrack.StartSpeed);
+        }
 
         [SerializeField] FloatVariable SpeedVariable;
         public TweenCallback<float> OnSpeedUpdated;
@@ -34,28 +38,23 @@ namespace CyberBeat
         public void _SetSpeed (float newSpeed)
         {
             splineController.Speed = newSpeed;
-            splineController.Play ();
+            // splineController.Play ();
         }
         public void _SlowStop (float StopDuration = 2f)
         {
-            splineController.Speed.Do (0f, StopDuration, SetSpeed, splineController.Stop);
-        }
-
-        private void SetSpeed (float value)
-        {
-            splineController.Speed = value;
+            splineController.Speed.Do (0f, StopDuration, _SetSpeed, splineController.Stop);
         }
 
         public void Pause ()
         {
             if (tweener != null)
                 tweener.Pause ();
-            SetSpeed (0);
+            _SetSpeed (0);
 
         }
         public void Resume ()
         {
-            if (tweener != null && tweener.IsActive())
+            if (tweener != null && tweener.IsActive ())
                 tweener.TogglePause ();
             else
                 _SetSpeed (SpeedVariable);

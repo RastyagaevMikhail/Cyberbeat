@@ -17,20 +17,21 @@ namespace CyberBeat
 		[SerializeField] GameEventBool OnBitCombo;
 		[SerializeField] GameEventInt OnComboEnd;
 		[SerializeField] GameEventInt OnActivateCurrentCombo;
-		[SerializeField] IntVariable _CurrentCombo;
+		[SerializeField] IntVariable CurrentComboIndex;
 		[SerializeField] IntVariable ScorePerBeat;
 		[SerializeField] IntVariable CurrentComboMaxCount;
-		int CurrentCombo { get { return _CurrentCombo.Value; } set { _CurrentCombo.Value = value; } }
+		[SerializeField] IntVariable CurrentComboBeatCount;
+		int currentComboIndex { get { return CurrentComboIndex.Value; } set { CurrentComboIndex.Value = value; } }
 
-		[SerializeField] IntVariable Gates;
+		[SerializeField] ShopCardData Gates;
 		[SerializeField] BoolVariable IsCombo;
 		bool isCombo { get { return IsCombo.Value; } set { IsCombo.Value = value; } }
 		TimeOfEvent currentCombo = null;
 		private void Start ()
 		{
 			comboInGame = new ComboList (combo);
-			CurrentCombo = 0;
-			CurrentComboMaxCount.Value = comboInGame[CurrentCombo];
+			currentComboIndex = 0;
+			CurrentComboMaxCount.Value = comboInGame[currentComboIndex];
 			isCombo = false;
 			ScorePerBeat.Value = 1;
 		}
@@ -53,6 +54,8 @@ namespace CyberBeat
 					comboList.TryGetValue (currentComboBit.prev, out prevComboBit);
 					isReset = prevComboBit != null;
 				}
+				if (isReset) CurrentComboBeatCount.ResetDefault ();
+				CurrentComboBeatCount.Increment ();
 
 				OnBitCombo.Raise (isReset);
 				comboList.Remove (currentComboBit.bit);
@@ -64,34 +67,37 @@ namespace CyberBeat
 			// Debug.Log ("_OnChanged State");
 
 			currentCombo = timeEvent.timeOfEvent;
-			CurrentComboMaxCount.Value = comboInGame[CurrentCombo];
+			CurrentComboMaxCount.Value = comboInGame[currentComboIndex];
 			if (timeEvent.isTime)
 			{
-				isCombo = track.GetGateState (CurrentCombo);
+				isCombo = track.GetGateState (currentComboIndex);
 				ScorePerBeat.Value = isCombo ? 2 : 1;
 			}
 			else
 			{
-				track.SetGateState (CurrentCombo, false);
-				OnComboEnd.Raise (CurrentCombo);
+				track.SetGateState (currentComboIndex, false);
+				OnComboEnd.Raise (currentComboIndex);
 				isCombo = false;
-				CurrentCombo++;
+				currentComboIndex++;
 
 			}
 		}
 		public void _DeActivateCurrentGate ()
 		{
 			if (!isCombo) return;
-			track.SetGateState (CurrentCombo, false);
+			track.SetGateState (currentComboIndex, false);
 
 		}
 		Track track { get { return TracksCollection.instance.CurrentTrack; } }
 
 		public void _ActivetCurrentGate ()
 		{
-			track.SetGateState (CurrentCombo);
-			OnActivateCurrentCombo.Raise (CurrentCombo);
-			Gates.Decrement ();
+			Gates.TryUse (() =>
+			{
+				track.SetGateState (currentComboIndex);
+				OnActivateCurrentCombo.Raise (currentComboIndex);
+			});
+
 		}
 
 		[Header ("For Generation Combo Info")]
