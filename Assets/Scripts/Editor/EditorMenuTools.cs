@@ -42,4 +42,9 @@ public class EditorMenuTools
 	{
 		OpenScene ("Tracks/E.P.O - Infinity");
 	}
+	[MenuItem ("Game/Scenes/Tracks/Mountkid - Dino")]
+	public static void OpenMountkid_Dino ()
+	{
+		OpenScene ("Tracks/Mountkid - Dino");
+	}
 }
