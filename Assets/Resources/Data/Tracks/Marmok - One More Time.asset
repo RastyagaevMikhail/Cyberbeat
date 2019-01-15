@@ -23,9 +23,9 @@ MonoBehaviour:
     Price: 2000
     SaveKey: Marmok - One More Time Buyed
   progressInfo:
-    Best: {fileID: 11400000, guid: f0fe61479cd37474fb519be147e31b28, type: 2}
-    Max: {fileID: 11400000, guid: 31ce199c2226f468a8808e69c3fcf0db, type: 2}
-    Percent: {fileID: 11400000, guid: edf17efc3f31944e7beb0071381d6ec0, type: 2}
+    best: {fileID: 11400000, guid: f0fe61479cd37474fb519be147e31b28, type: 2}
+    max: {fileID: 11400000, guid: 31ce199c2226f468a8808e69c3fcf0db, type: 2}
+    percent: {fileID: 11400000, guid: edf17efc3f31944e7beb0071381d6ec0, type: 2}
   StartSpeed: 50
   koreography: {fileID: 11400000, guid: fb34e7311ebf74545ae703454314d07a, type: 2}
   MinTimeOfBit: 0.2
@@ -890,4 +890,3 @@ MonoBehaviour:
     presets: 01000000
   - time: 151.7347
     presets: 05000000
-  LayerForGenerateTimEvents: 3
