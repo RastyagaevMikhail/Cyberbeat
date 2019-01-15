@@ -18,6 +18,11 @@ namespace GameCore
 		{
 			Value = value;
 		}
+		public void SetValue (float value)
+		{
+			Value = (int) value;
+		}
+
 		public IntVariable Init (int value)
 		{
 			Value = value;
@@ -45,6 +50,7 @@ namespace GameCore
 			// Debug.LogFormat("Save = {0}", name);
 			PlayerPrefs.SetInt (name, _value);
 		}
+
 		[ContextMenu ("Load Value")]
 		public override void LoadValue ()
 		{
@@ -70,7 +76,13 @@ namespace GameCore
 			variable.Value -= other;
 			return variable;
 		}
-		public float AsFloat()
+
+		public bool IsZero ()
+		{
+			return Value == 0;
+		}
+
+		public float AsFloat ()
 		{
 			return Value;
 		}

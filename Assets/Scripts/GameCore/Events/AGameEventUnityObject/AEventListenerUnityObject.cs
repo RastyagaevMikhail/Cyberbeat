@@ -6,10 +6,15 @@ using UnityEngine.Events;
 namespace GameCore
 {
     [System.Serializable]
-    public abstract class AEventListenerUnityObject<TObject>
+    public abstract class AEventListenerUnityObject<TObject, TEventListener>
         where TObject : UnityEngine.Object
+    where TEventListener : AEventListenerUnityObject<TObject, TEventListener>
+
+        // where TGameEvent : AGameEventUnityObject<TObject, AEventListenerUnityObject<TObject>>
+
         {
-            public abstract AGameEventUnityObject<TObject> Event { get; set; }
+            public abstract AGameEventUnityObject<TObject, TEventListener> Event { get; }
+            // public abstract AGameEventUnityObject<TObject, TEventListener> Event { get; }
             public abstract UnityEvent<TObject> Responce { get; }
             public void OnEventRaised (TObject obj)
             {
@@ -18,7 +23,7 @@ namespace GameCore
             public bool OnEnable ()
             {
                 if (Event)
-                    Event.RegisterListener (this);
+                    Event.RegisterListener (this as TEventListener);
                 return Event;
 
             }
@@ -26,7 +31,7 @@ namespace GameCore
             public bool OnDisable ()
             {
                 if (Event)
-                    Event.UnRegisterListener (this);
+                    Event.UnRegisterListener (this as TEventListener);
                 return Event;
             }
         }

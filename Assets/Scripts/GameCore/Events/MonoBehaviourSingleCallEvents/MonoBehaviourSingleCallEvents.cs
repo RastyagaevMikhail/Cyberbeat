@@ -8,6 +8,7 @@ namespace GameCore
 {
 	public class MonoBehaviourSingleCallEvents : MonoBehaviour
 	{
+		
 		[SerializeField] UnityEvent _OnEnable;
 		private void OnEnable () { _OnEnable.Invoke (); }
 

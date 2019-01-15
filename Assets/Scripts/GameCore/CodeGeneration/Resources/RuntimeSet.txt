@@ -1,0 +1,10 @@
+﻿using GameCore;
+
+using UnityEngine;
+namespace $NAMESPACE_NAME$
+{
+[CreateAssetMenu(
+    fileName = "$TYPE_NAME$RuntimeSet.asset",
+    menuName = "$NAMESPACE_NAME$/RuntimeSet/$TYPE_NAME$")]
+    public class $TYPE_NAME$RuntimeSet : RuntimeSet<$TYPE_NAME$> { }
+}

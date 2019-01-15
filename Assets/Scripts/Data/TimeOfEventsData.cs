@@ -6,6 +6,8 @@ namespace CyberBeat
     using GameCore;
 
     using System.Collections.Generic;
+    using System.Collections;
+    using System.Linq;
 
     using UnityEngine;
 
@@ -13,10 +15,8 @@ namespace CyberBeat
     {
         public List<TimeOfEvent> Times;
         public TimePointsData PointsData;
-        public float SampleRate;
         public void Init (float sampleRate, List<KoreographyEvent> events, TimePointsData pointsData = null)
         {
-            SampleRate = sampleRate;
 
             Times = new List<TimeOfEvent> ();
 
@@ -26,21 +26,25 @@ namespace CyberBeat
             }
             if (pointsData)
                 PointsData = pointsData;
-                
+
             this.Save ();
+        }
+        Dictionary<string, List<TimeOfEvent>> _filterd = null;
+        Dictionary<string, List<TimeOfEvent>> filterd
+        {
+            get
+            {
+                return _filterd ?? (_filterd = Times.ToDictionary (t => t.payload, t =>Times.FindAll (ti => ti.payload == t.payload)));
+            }
         }
 
         public List<TimeOfEvent> this [string payload]
         {
             get
             {
-                return Times.FindAll (t => t.payload == payload);
-            }
-            set
-            {
-                var filterd = Times.FindAll (t => t.payload == payload);
-                for (int i = 0; i < filterd.Count; i++)
-                    filterd[i] = value[i];
+                List<TimeOfEvent> timeOfEvents = null;
+                filterd.TryGetValue (payload, out timeOfEvents);
+                return timeOfEvents;
             }
         }
     }

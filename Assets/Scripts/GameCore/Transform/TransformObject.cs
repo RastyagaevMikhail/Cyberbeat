@@ -17,10 +17,22 @@ namespace GameCore
         public Quaternion rotation { get { return transform.rotation; } set { transform.rotation = value; } }
         public Quaternion localRotation { get { return transform.localRotation; } set { transform.localRotation = value; } }
         public Vector3 localScale { get { return transform.localScale; } set { transform.localScale = value; } }
+        public float UniformLocalScale { set { localScale = Vector3.one * value; } }
         public void SetParent (Transform child) { transform.SetParent (child); }
 
         public Vector3 up { get { return transform.up; } set { transform.up = value; } }
         public Vector3 right { get { return transform.right; } set { transform.right = value; } }
         public Vector3 forward { get { return transform.forward; } set { transform.forward = value; } }
+
+        public void Apply (TransformObject other, bool applyPosition = true, bool applyRotation = true, bool applyScale = true)
+        {
+            if (applyPosition)
+                position = other.position;
+            if (applyRotation)
+                rotation = other.rotation;
+            if (applyScale)
+                localScale = other.localScale;
+
+        }
     }
 }

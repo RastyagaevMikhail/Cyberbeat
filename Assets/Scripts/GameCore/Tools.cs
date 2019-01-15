@@ -210,6 +210,19 @@ namespace GameCore
             // Debug.LogFormat ("results.Count() = {0}", results.Count ());
             return results;
         }
+        public static void Validate<T> (this T variable, string path, bool isSavable = false) where T : ASavableVariable
+        {
+            variable = GetAssetAtPath<T> (path);
+            if (variable == null)
+            {
+                variable = ScriptableObject.CreateInstance<T> ();
+                variable.CreateAsset (path, isSavable);
+            }
+            Debug.LogFormat (variable, "variable = {0}", variable);
+            string pathInstance = AssetDatabase.GetAssetPath (variable);
+            Debug.Log (pathInstance, variable);
+            // return variable;
+        }
         public static T GetAssetAtPath<T> (string path) where T : UnityEngine.Object
         {
             return (T) AssetDatabase.LoadAssetAtPath (path, typeof (T));

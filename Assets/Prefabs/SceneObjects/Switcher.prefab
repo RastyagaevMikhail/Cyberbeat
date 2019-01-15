@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 114213637515028564}
   - component: {fileID: 114675100915323678}
   - component: {fileID: 114949869099189892}
+  - component: {fileID: 8014810558538556963}
   - component: {fileID: 114759451436673612}
   m_Layer: 0
   m_Name: Switcher
@@ -192,15 +193,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e95247fad41ed448eeeb1f0ef4ca82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bit: 0
-  OnDeathCollorInterractor: {fileID: 11400000, guid: 47c53296d23de95469d924d930798c78,
-    type: 2}
-  OnColorTeked: {fileID: 11400000, guid: f848ac470e1c2d24085b4140d22da118, type: 2}
-  deathParticles_poolKey: switchColor
-  PushOnDeath: 1
-  DeathParticlesOnMe: 0
-  Neighbors: []
-  DeathHashState: 646380074
+  OnDeathASColorInterractor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 47c53296d23de95469d924d930798c78, type: 2}
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 114675100915323678}
+          m_ObjectArgumentAssemblyTypeName: CyberBeat.ColorInterractor, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CyberBeat.UnityEventColorInterractor, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeathAsColor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: fb4d046c293515c4bad70ebf98f8dc87, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: f848ac470e1c2d24085b4140d22da118, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnDeathAsBit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c2285b862b778ba4c9cce1b38df6074b, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114949869099189892}
+        m_MethodName: PushToPool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8014810558538556963}
+        m_MethodName: Pop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: switchColor
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114949869099189892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,25 +294,25 @@ MonoBehaviour:
   OnSpawn:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114675100915323678}
-        m_MethodName: OnSpawn
-        m_Mode: 1
+      - m_Target: {fileID: 65213588606398728}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDeSpawn:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114675100915323678}
-        m_MethodName: OnDeSpawn
-        m_Mode: 1
+      - m_Target: {fileID: 65213588606398728}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -247,6 +325,22 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   OffsetPosition: {x: 0, y: 1, z: 0}
   OffsetRotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8014810558538556963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270562587347094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0358ffcdd9312f44cb2ab84f2cb36abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parnet:
+    UseConstant: 0
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 11400000, guid: dec75450444bced4da902c835e011fe2, type: 2}
 --- !u!114 &114759451436673612
 MonoBehaviour:
   m_ObjectHideFlags: 0

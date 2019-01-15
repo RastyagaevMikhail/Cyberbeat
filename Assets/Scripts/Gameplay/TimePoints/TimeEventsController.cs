@@ -30,7 +30,12 @@ namespace CyberBeat
         public bool _startCountTime { get; set; }
         private int indexOfTime;
 
-        [SerializeField] TimeEventVariable timeEvent;
+        TimeEvent currentTimeEvent;
+        [SerializeField] UnityEventTimeEvent OnTimneEventChanged;
+        private void Awake ()
+        {
+            currentTimeEvent = new TimeEvent ();
+        }
 
         void Update ()
         {
@@ -40,7 +45,8 @@ namespace CyberBeat
             if (lastTime != isTime)
             {
                 lastTime = isTime;
-                if (timeEvent != null) timeEvent.SetValue (new TimeEvent (isTime, currentTime));
+
+                OnTimneEventChanged.Invoke (currentTimeEvent.Init (isTime, currentTime));
             }
             if (currentTime.Start <= time)
             {
@@ -56,7 +62,8 @@ namespace CyberBeat
             }
         }
 
-        public void SetFilterEnabled(bool Value) {
+        public void SetFilterEnabled (bool Value)
+        {
             enableFilter = Value;
         }
     }

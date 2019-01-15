@@ -33,9 +33,10 @@ namespace CyberBeat
 		}
 
 #if UNITY_EDITOR
-		public void GenerateProgressInfo ()
+		[ContextMenu ("Validate ProgressInfo")]
+		public void ValidateProgressInfo ()
 		{
-			progressInfo.Generate (name);
+			progressInfo.Validate (name);
 			this.Save ();
 		}
 #endif
@@ -52,11 +53,28 @@ namespace CyberBeat
 			LoadingManager.instance.LoadScene (name);
 		}
 
-		public Dictionary<LayerType, List<KoreographyEvent>> layerevents = new Dictionary<LayerType, List<KoreographyEvent>> ();
+		Dictionary<LayerType, List<KoreographyEvent>> _layerevents = null;
+		Dictionary<LayerType, List<KoreographyEvent>> layerevents
+		{
+
+			get
+			{
+				return _layerevents ??
+					(_layerevents = Enums.LayerTypes
+						.Select (layer => new { Layer = layer, Events = GetTrack (layer).GetAllEvents () })
+						.ToDictionary (les => les.Layer, les => les.Events));
+			}
+
+		}
 
 		public List<KoreographyEvent> this [LayerType layer]
 		{
-			get { return layerevents[layer]; }
+			get
+			{
+				List<KoreographyEvent> events = null;
+				layerevents.TryGetValue (layer, out events);
+				return events;
+			}
 		}
 		public Koreography koreography;
 
@@ -85,7 +103,7 @@ namespace CyberBeat
 		{
 			var events = GetAllEventsByType (LayerType.Bit);
 			var keys = data.Presets.Keys.ToList ();
-			RandomStack<int> randStack = new RandomStack<int>(keys);
+			RandomStack<int> randStack = new RandomStack<int> (keys);
 			foreach (var evnt in events)
 			{
 				evnt.Payload = new IntPayload () { IntVal = randStack.Get () };
@@ -109,18 +127,11 @@ namespace CyberBeat
 		}
 #if UNITY_EDITOR
 
-		public LayerType LayerForGenerateTimEvents = LayerType.Combo;
-		[ContextMenu ("Generate Combo TimeEvent`s")]
-		void GenerateComboTimeEvents ()
-		{
-			var timeEventOfData = Tools.GetAssetAtPath<TimeOfEventsData> ("Assets/Data/TimeEvents/{0}/{1}.asset".AsFormat (name, LayerForGenerateTimEvents));
-			timeEventOfData.Init (koreography.SampleRate, GetAllEventsByType (LayerForGenerateTimEvents));
-		}
-
 		[ContextMenu ("CalculateConstant")]
 		void CalculateConstant ()
 		{
-			progressInfo.Max.Value = 0;
+
+			progressInfo.Max = 0;
 			foreach (var bitInfo in BitsInfos)
 			{
 				List<int> presetList = bitInfo.presets.ToList ();
@@ -134,10 +145,43 @@ namespace CyberBeat
 							return false;
 						}));
 
-				if (isContainConstant) progressInfo.Max.Increment ();
+				if (isContainConstant) progressInfo.Max++;
 			}
-			progressInfo.Max.Save();
+			progressInfo.Save ();
 		}
+
+		[ContextMenu ("InitByMusic")]
+		void InitByMusic ()
+		{
+
+			var SpitedName = name.Split ("-".ToCharArray (), StringSplitOptions.RemoveEmptyEntries);
+			this.Save ();
+			music.AuthorName = SpitedName[0];
+			music.TrackName = SpitedName[1];
+
+			shopInfo.SaveKey = "{0} Buyed".AsFormat (name);
+
+			progressInfo.Validate (name);
+			var koreography = CreateInstance<Koreography> ();
+			this.koreography = koreography;
+			this.koreography.SourceClip = music.clip;
+			koreography.GetTempoSectionAtIndex (0).SectionName = "Default Selection";
+			koreography.InsertTempoSectionAtIndex (0).SectionName = "Zero Selection";
+			this.koreography.CreateAsset (("Assets/Data/Koreography/{0}/{0}_Koreography.asset").AsFormat (name));
+			foreach (var layer in Enums.LayerTypes)
+			{
+				var trackLayer = CreateInstance<KoreographyTrack> ();
+				trackLayer.CreateAsset (("Assets/Data/Koreography/{0}/Traks/{1}_{0}.asset").AsFormat (name, layer));
+				trackLayer.EventID = layer.ToString ();
+				koreography.AddTrack (trackLayer);
+			}
+			CalculateConstant ();
+			data.Objects.Add (this);
+			SetMeAsCurrent ();
+			UnityEditor.Selection.activeObject = this;
+			this.Save ();
+		}
+
 #endif
 
 		public bool GetGateState (int index)

@@ -3,10 +3,10 @@
 using UnityEngine;
 namespace CyberBeat
 {
-    public class GameEventListenerColorInterractor : AGameEventListenerUnityOject<ColorInterractor>
+	public class GameEventListenerColorInterractor : AGameEventListenerUnityOject<ColorInterractor, EventListenerColorInterractor>
 	{
 		[SerializeField] EventListenerColorInterractor _listener;
-		protected override AEventListenerUnityObject<ColorInterractor> listener { get { return _listener; } }
+		protected override AEventListenerUnityObject<ColorInterractor, EventListenerColorInterractor> listener { get { return _listener; } }
 
 	}
 }

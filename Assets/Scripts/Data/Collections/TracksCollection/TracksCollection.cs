@@ -23,12 +23,13 @@ namespace CyberBeat
 				track.ResetDefault ();
 			}
 		}
-		[ContextMenu("GentrateProgressInfo")]
-		void GentrateProgressInfo()
+
+		[ContextMenu ("validate ProgressInfo")]
+		void ValidateProgressInfo ()
 		{
 			foreach (var track in Objects)
 			{
-					track.GenerateProgressInfo();
+				track.ValidateProgressInfo ();
 			}
 		}
 #endif
@@ -43,6 +44,12 @@ namespace CyberBeat
 				if (presets == null) presets = _presets.ToDictionary (p => p.Id, p => p.Objects);
 				return presets;
 			}
+		}
+
+		[ContextMenu ("PrintKeys")]
+		void PrintKeys ()
+		{
+			Debug.Log (Tools.LogCollection (Presets.Keys));
 		}
 	}
 }

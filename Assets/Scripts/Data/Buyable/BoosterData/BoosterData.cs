@@ -8,41 +8,30 @@ namespace CyberBeat
 
 	public abstract class BoosterData : ABayable
 	{
-		[ContextMenu ("Valiadte")]
-		void Valiadte ()
-		{
-			Icon = shopData.Icon;
-			Description = description;
-			title = name.ToLower ();
-			Count = shopData.Count;
-			this.Save ();
-		}
-		static float[] TimeLevels = new float[] { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 };
-		[Header ("Booster Data")]
-		public RuntimeTimer timer;
-		public BoostersData data { get { return BoostersData.instance; } }
-		public ShopCardData shopData;
-		[SerializeField] IntVariable levelUpgrade;
-		[SerializeField] GameEventBoosterData BoosterIsActivated;
-		[SerializeField] GameEventBoosterData BoosterIsReseted;
 
-		public float boosterUsePercent = 0.1f;
-		public string description;
-		bool isActive { get { return data.ActiveBoosters.Contains (this); } }
+		static float[] TimeLevels = new float[] { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 };
+		public BoostersData data { get { return BoostersData.instance; } }
+		bool isActive { get { return activeBoosters.Contains (this); } }
 		public int LevelUpgrade { get { return levelUpgrade.Value; } set { levelUpgrade.Value = value.GetAsClamped (0, TimeLevels.Length - 1); } }
-		public float LifeTime
-		{
-			get
-			{
-				if (Count.Value == 0) return 0f;
-				return TimeLevels[LevelUpgrade];
-			}
-		}
+		public float LifeTime { get { return TimeLevels[LevelUpgrade]; } }
+
+		[Header ("Booster Data")]
+		[SerializeField] float boosterUsePercent = 0.1f;
+		[SerializeField] IntVariable levelUpgrade;
+		[SerializeField] BoosterDataRuntimeSet activeBoosters;
+		RuntimeTimer timer;
+		[Header ("Events")]
+		[SerializeField] UnityEventBoosterData OnActivated;
+		[SerializeField] UnityEventBoosterData OnDeActivated;
+		[SerializeField] UnityEventBoosterData OnReseted;
+		[SerializeField] protected UnityEventBoosterData OnApply;
+		[SerializeField] protected UnityEventFloat OnActivatedAsUsePrecent;
+
 		public void InitTimer (RuntimeTimer timer)
 		{
 			if (LifeTime == 0)
 			{
-				DeActivate ();
+				// DeActivate ();
 				return;
 			}
 			this.timer = timer;
@@ -57,15 +46,20 @@ namespace CyberBeat
 				timer.Reset ();
 				timer = null;
 			}
-			BoosterIsReseted.Raise (this);
+			// BoosterIsReseted.Raise (this);
+			OnReseted.Invoke (this);
 		}
 		public void DeActivate ()
 		{
+		// Debug.LogFormat ("DeActivate.{0} {1}", this, isActive);
 			if (isActive)
 			{
-				// Debug.Log ("DeActivate  {0}".AsFormat (name));
+
 				Reset ();
-				data.DeActivate (this);
+				OnDeActivated.Invoke (this);
+
+				activeBoosters.Remove (this);
+				// Debug.LogFormat ("DeActivate.{0}", this);
 			}
 		}
 		public void Activate ()
@@ -73,11 +67,14 @@ namespace CyberBeat
 			if (TryUse ())
 			{
 				InitTimer (Pool.instance.Pop<RuntimeTimer> ("RuntimeTimer"));
-				data.ActiveBoosters.Add (this);
-				BoosterIsActivated.Raise (this);
+				activeBoosters.Add (this);
+				// data.ActiveBoosters.Add (this);
 
+				OnActivated.Invoke (this);
+
+				OnActivatedAsUsePrecent.Invoke (boosterUsePercent);
 			}
 		}
-		public abstract void Apply (ColorBrick brick);
+		public abstract bool Apply (ColorBrick brick, bool equalColor = true);
 	}
 }

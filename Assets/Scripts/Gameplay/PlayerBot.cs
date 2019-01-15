@@ -12,21 +12,32 @@ namespace CyberBeat
 	public class PlayerBot : MonoBehaviour
 	{
 		enum Dir { None, Left, Rigth }
-		private Player _player = null;
-		public Player player { get { return _player ?? (_player = GetComponent<Player> ()); } }
+		private MaterialSwitcher _matSwitch;
+		public MaterialSwitcher matSwitch { get { if (_matSwitch == null) { _matSwitch = GetComponentInChildren<MaterialSwitcher> (); } return _matSwitch; } } private InputControllerComponent _inputControllerComponent = null;
+		public InputControllerComponent inputControllerComponent
+		{
+			get
+			{
+				if (_inputControllerComponent == null)
+					_inputControllerComponent = GetComponent<InputControllerComponent> ();
+				return _inputControllerComponent;
+			}
+		}
 		private SpeedTimeUser _speedTimeUser = null;
 		public SpeedTimeUser speedTimeUser { get { return _speedTimeUser ?? (_speedTimeUser = GetComponentInParent<SpeedTimeUser> ()); } }
 		Dir lastMove = Dir.None;
 		const float maxDistance = 6f;
 		private const float Radius = 1f;
 
-		private void Awake ()
+		private void OnEnable ()
 		{
+			// Debug.LogFormat ("On Bot OnEnable = {0}", this);
 			ControlSwitchController.OnSwitchControl += OnControlSwitched;
 			speedTimeUser.OnSpeedUpdated += UpdateSpeed;
 		}
 		private void OnDisable ()
 		{
+			// Debug.LogFormat ("On Bot Disable = {0}", this);
 			ControlSwitchController.OnSwitchControl -= OnControlSwitched;
 			speedTimeUser.OnSpeedUpdated -= UpdateSpeed;
 		}
@@ -37,8 +48,8 @@ namespace CyberBeat
 
 		private void UpdateSpeed (float speed)
 		{
-			float width = player.inputSettings.width;
-			float swipeDuration = player.inputSettings.SwipeDuration;
+			float width = inputControllerComponent.inputSettings.width;
+			float swipeDuration = inputControllerComponent.inputSettings.SwipeDuration;
 			float time = swipeDuration / 2f;
 			float Vw = width * time;
 			float Swv = (speed.Sqr () + Vw.Sqr ()).Sqrt ();
@@ -51,7 +62,6 @@ namespace CyberBeat
 		float Fs;
 		private void FixedUpdate ()
 		{
-
 			Vector3 forwardOffset = transform.forward * (Fs);
 			Vector3 origin = transform.position + transform.up * 0.5f + forwardOffset;
 			Ray rightRay = new Ray (origin, transform.right);
@@ -62,7 +72,7 @@ namespace CyberBeat
 			{
 				if (Checkhit (hit))
 				{
-					player.MoveRight ();
+					inputControllerComponent.MoveRight ();
 					lastMove = Dir.Rigth;
 				}
 			}
@@ -71,7 +81,7 @@ namespace CyberBeat
 			{
 				if (Checkhit (hit))
 				{
-					player.MoveLeft ();
+					inputControllerComponent.MoveLeft ();
 					lastMove = Dir.Left;
 				}
 			}
@@ -81,7 +91,7 @@ namespace CyberBeat
 				bool isBrick = hitGO.CompareTag ("Brick");
 				MaterialSwitcher materialSwitcher = hitGO.GetComponent<MaterialSwitcher> ();
 
-				if (isBrick && (!materialSwitcher.Constant || materialSwitcher.CurrentColor != player.matSwitch.CurrentColor))
+				if (isBrick && (!materialSwitcher.Constant || materialSwitcher.CurrentColor != matSwitch.CurrentColor))
 				{
 					AvoidForward ();
 				}
@@ -95,12 +105,12 @@ namespace CyberBeat
 			bool isBit = hitGO.CompareTag ("Brick") || hitGO.CompareTag ("Switcher");
 			if (!isBit) return false;
 			MaterialSwitcher materialSwitcher = hitGO.GetComponent<MaterialSwitcher> ();
-			return isBit && (materialSwitcher.Constant || materialSwitcher.CurrentColor == player.matSwitch.CurrentColor);
+			return isBit && (materialSwitcher.Constant || materialSwitcher.CurrentColor == matSwitch.CurrentColor);
 		}
 
 		private void AvoidForward ()
 		{
-			(lastMove == Dir.Rigth ? (System.Action) player.MoveLeft : player.MoveRight) ();
+			(lastMove == Dir.Rigth ? (System.Action) inputControllerComponent.MoveLeft : inputControllerComponent.MoveRight) ();
 		}
 		public void SwithchEnabled ()
 		{

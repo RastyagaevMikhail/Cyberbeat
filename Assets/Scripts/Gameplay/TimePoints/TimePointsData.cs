@@ -2,6 +2,7 @@
 
 namespace CyberBeat
 {
+    using System.Linq;
 
     using UnityEngine;
 
@@ -10,17 +11,23 @@ namespace CyberBeat
     {
         [SerializeField]
         public List<TimePoints> points = new List<TimePoints> ();
+
+        Dictionary<string, List<TimePoints>> _filterd = null;
+        Dictionary<string, List<TimePoints>> filterd
+        {
+            get
+            {
+                return _filterd ?? (_filterd = points.ToDictionary (p => p.payload, p => points.FindAll (pts => pts.payload == p.payload)));
+            }
+        }
+
         public List<TimePoints> this [string payload]
         {
             get
             {
-                return points.FindAll (t => t.payload == payload);
-            }
-            set
-            {
-                var filterd = points.FindAll (t => t.payload == payload);
-                for (int i = 0; i < filterd.Count; i++)
-                    filterd[i] = value[i];
+                List<TimePoints> timePoints = null;
+                filterd.TryGetValue (payload, out timePoints);
+                return timePoints;
             }
         }
     }

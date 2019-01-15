@@ -8,16 +8,26 @@ using UnityEngine.Events;
 
 namespace CyberBeat
 {
-	[System.Serializable] public class EventListenerBoosterData : AEventListenerUnityObject<BoosterData>
+	[System.Serializable] public class EventListenerBoosterData : AEventListenerUnityObject<BoosterData,EventListenerBoosterData>
 	{
 		[SerializeField] GameEventBoosterData _Event;
-		public override AGameEventUnityObject<BoosterData> Event { get { return _Event; } set { _Event = value as GameEventBoosterData; } }
+		//  
+	
+		public override AGameEventUnityObject<BoosterData, EventListenerBoosterData> Event
+		{
+			get
+			{
+				return _Event;
+			}
+			
+		}
 
 		[SerializeField] UnityEventBoosterData responce;
 		public override UnityEvent<BoosterData> Responce { get { return responce; } }
+
 		public EventListenerBoosterData (GameEventBoosterData _evnet, UnityAction<BoosterData> action)
 		{
-			Event = _evnet;
+			_Event = _evnet;
 			responce = new UnityEventBoosterData ();
 			Responce.AddListener (action);
 		}

@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Events;
 namespace CyberBeat
 {
-	[RequireComponent (typeof (GameEventListenerColorInterractor))]
+	[RequireComponent (typeof (GameEventListenerFloat))]
 	public class ComboController : TimeEventsCatcher
 	{
 		[SerializeField] ComboList combo = null;
@@ -36,16 +36,16 @@ namespace CyberBeat
 			ScorePerBeat.Value = 1;
 		}
 
-		public void GEColorInterractor_CollectCombo (ColorInterractor inter)
+		public void OnCollectBit (float bit)
 		{
 			if (!isCombo) return;
 
-			if (currentCombo.InRange (inter.bit))
+			if (currentCombo.InRange (bit))
 			{
 				var comboList = comboInGame[currentCombo];
 
 				ComboBit currentComboBit = null;
-				comboList.TryGetValue (inter.bit, out currentComboBit);
+				comboList.TryGetValue (bit, out currentComboBit);
 				if (currentComboBit == null) return;
 				bool isReset = false;
 				if (currentComboBit.prev != 0)

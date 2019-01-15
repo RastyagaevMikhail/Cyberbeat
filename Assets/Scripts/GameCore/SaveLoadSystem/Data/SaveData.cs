@@ -16,22 +16,26 @@ namespace GameCore
         public override void InitOnCreate () { }
 #endif
         public List<ASavableVariable> Saves;
-
+        private static object _lock = new object ();
         Saver _saver = null;
         Saver saver
         {
             get
             {
-                if (_saver == null)
+                if (Saver.IsApplicationQuiting) return null;
+                lock (_lock)
                 {
-                    _saver = GameObject.FindObjectOfType<Saver> ();
                     if (_saver == null)
                     {
-                        _saver = new GameObject ("Saver").AddComponent<Saver> ();
-                        DontDestroyOnLoad (saver.gameObject);
+                        _saver = GameObject.FindObjectOfType<Saver> ();
+                        if (_saver == null)
+                        {
+                            _saver = new GameObject ("Saver").AddComponent<Saver> ();
+                            DontDestroyOnLoad (saver.gameObject);
+                        }
                     }
+                    return _saver;
                 }
-                return _saver;
             }
         }
 #if UNITY_EDITOR
@@ -58,7 +62,11 @@ namespace GameCore
 
         public bool Contains (ASavableVariable savable)
         {
-            if (Saves == null) Saves = new List<ASavableVariable> ();
+            if (Saves == null)
+            {
+                Saves = new List<ASavableVariable> ();
+                return false;
+            }
             return Saves.Contains (savable);
         }
         public void Add (ASavableVariable savable)

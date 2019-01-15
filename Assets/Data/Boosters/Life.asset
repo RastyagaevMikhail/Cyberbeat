@@ -18,10 +18,86 @@ MonoBehaviour:
   IsOver: {fileID: 11400000, guid: c2557299ad7fcd24e828dfb68376350e, type: 2}
   Count: {fileID: 11400000, guid: 73795263a201448419966226411c8eb4, type: 2}
   Price: 100
-  timer: {fileID: 0}
-  shopData: {fileID: 11400000, guid: 2b81576b44df4b6469e392647cd2e1a5, type: 2}
-  levelUpgrade: {fileID: 11400000, guid: e99fe92920f326c47887a4ca97d6ffa5, type: 2}
-  BoosterIsActivated: {fileID: 11400000, guid: 844d1df58a5a67d4aa2c54e4f6acbd19, type: 2}
-  BoosterIsReseted: {fileID: 11400000, guid: c45e5f2008519fd4fac9892c8cce754b, type: 2}
   boosterUsePercent: 0.1
-  description: life_desc
+  levelUpgrade: {fileID: 11400000, guid: e99fe92920f326c47887a4ca97d6ffa5, type: 2}
+  activeBoosters: {fileID: 11400000, guid: 9cb038c12b3558148bddf31125a5954e, type: 2}
+  OnActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 844d1df58a5a67d4aa2c54e4f6acbd19, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: be92a397cfce43148806ba6f90e95d69, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: CyberBeat.UnityEventBoosterData, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: be92a397cfce43148806ba6f90e95d69, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CyberBeat.UnityEventBoosterData, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnReseted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c45e5f2008519fd4fac9892c8cce754b, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CyberBeat.UnityEventBoosterData, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnApply:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CyberBeat.UnityEventBoosterData, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnActivatedAsUsePrecent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: fd4f7e4e904dfb94a8e28ce543594bf3, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

@@ -4,31 +4,21 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fb91879c7c93934fa3960a91b252da4, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  GeneratedBricks: 0
-  DestroyedBricks: 3
-  Gates: {fileID: 11400000, guid: 18e008caf14f6bc4e968b9554548534a, type: 2}
-  Shields: {fileID: 11400000, guid: 1c62fecfd6685a24d8c5c351eb23bf02, type: 2}
+  GeneratedBricks: {fileID: 11400000, guid: 34d7348c6fbd6b043a5348513b5b014c, type: 2}
+  DestroyedBricks: 5
   DoubleNotes: {fileID: 11400000, guid: ba0b5de139a4c614282ae9068afdaf02, type: 2}
   ProgressCurrentLevel: {fileID: 11400000, guid: 346e802f07119244b9c241a9ea901b9a,
     type: 2}
-  OnCantBuy: {fileID: 0}
+  TotalProgressCurrentLevel: {fileID: 0}
   Notes: {fileID: 11400000, guid: 1f9cd4ce577402c4cbe726f601a8b381, type: 2}
-  Blades: {fileID: 11400000, guid: 25844f6bc788dc54382c5bfb632e7a3c, type: 2}
-  OneLifes: {fileID: 11400000, guid: 73795263a201448419966226411c8eb4, type: 2}
+  currentLines: []
+  WathedRewardVideo: 0
   CurrentStartSpeed: 0

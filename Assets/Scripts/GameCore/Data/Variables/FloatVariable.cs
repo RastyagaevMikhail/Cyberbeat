@@ -64,7 +64,7 @@ namespace GameCore
         }
         public float AsPercent (FloatVariable otherVariable)
         {
-            return AsPercent( otherVariable.Value);
+            return AsPercent (otherVariable.Value);
         }
         public float AsPercent (float otherValue)
         {
@@ -84,5 +84,10 @@ namespace GameCore
 
         [ContextMenu ("Check Savable")]
         void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
+        
+        public static implicit operator float (FloatVariable variable)
+        {
+            return variable.Value;
+        }
     }
 }

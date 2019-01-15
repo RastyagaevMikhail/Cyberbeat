@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d349b086a7d334b804be2e8c6b3cd8, type: 3}
+  m_Name: Starlit Black - Stem - Melody
+  m_EditorClassIdentifier: 
+  music:
+    clip: {fileID: 8300000, guid: a1aed01d2779f4db9a58a02da032a931, type: 3}
+    AuthorName: 'Starlit Black '
+    TrackName: ' Stem '
+    AlbumImage: {fileID: 0}
+  socials: []
+  shopInfo:
+    PlayByWatch: 0
+    Price: 2000
+    SaveKey: Starlit Black - Stem - Melody Buyed
+  progressInfo:
+    Best: {fileID: 11400000, guid: 477ddbe70453b8b4f817ac54952b1f4c, type: 2}
+    Max: {fileID: 11400000, guid: 9170b4d851997104f87182a81933c535, type: 2}
+    Percent: {fileID: 11400000, guid: 3eafbb0d25470094ea3f9a11fc9594c7, type: 2}
+  StartSpeed: 50
+  koreography: {fileID: 11400000, guid: 8ec11404185e12044a17b0655d893c76, type: 2}
+  MinTimeOfBit: 0.2
+  BitsInfos: []
+  LayerForGenerateTimEvents: 3

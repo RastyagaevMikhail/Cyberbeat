@@ -4,10 +4,13 @@ namespace CyberBeat
     [CreateAssetMenu (fileName = "Shield", menuName = "CyberBeat/BoosterData/Shield")]
     public class ShieldBoosterData : BoosterData
     {
-        public override void Apply (ColorBrick brick)
+        public override bool Apply (ColorBrick brick, bool equalColor)
         {
+            OnApply.Invoke(this);
             // Debug.Log("Apply.ShieldBoosterData");
-            brick.Death();
+            return true;
         }
+
+
     }
 }

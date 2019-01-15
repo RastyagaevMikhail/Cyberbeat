@@ -68,49 +68,26 @@ namespace CyberBeat
         [ContextMenu ("DeactivateAllBoosters")]
         public void DeactivateAllBoosters ()
         {
-            ActiveBoosters.ForEach (b => b.DeActivate ());
+            activeBoosters.ForEach (b => b.DeActivate ());
         }
+
         [SerializeField] List<UpgradeData> Upgrades;
         public List<BoosterData> boosters;
-        public List<BoosterData> ActiveBoosters = new List<BoosterData> ();
-        public bool HasActiveBoosters { get { return ActiveBoosters.Count > 0; } }
-        bool startActivated;
-        Action OnActivationComplete;
+        [SerializeField] BoosterDataRuntimeSet activeBoosters;
+        public bool HasActiveBoosters { get { return activeBoosters.Count > 0; } }
         public void ActivateBoosters (ColorBrick brick)
         {
-            startActivated = true;
-            foreach (var boosterData in ActiveBoosters)
+            activeBoosters.ForEach (boosterData =>
             {
                 boosterData.Apply (brick);
-            }
-            startActivated = false;
-            if (OnActivationComplete != null) OnActivationComplete ();
+            });
         }
-        List<BoosterData> BoostersFromRemove = new List<BoosterData> ();
+        
         public void DeActivate (BoosterData boosterData)
         {
-            if (startActivated)
-            {
-                if (BoostersFromRemove == null) BoostersFromRemove = new List<BoosterData> ();
-                BoostersFromRemove.Add (boosterData);
-                OnActivationComplete += onActivationComplete;
-            }
-            else
-                RemoveActiveBooster (boosterData);
-
+            activeBoosters.Remove (boosterData);
         }
 
-        private void RemoveActiveBooster (BoosterData boosterData)
-        {
-            ActiveBoosters.Remove (boosterData);
-        }
-        void onActivationComplete ()
-        {
-            OnActivationComplete -= onActivationComplete;
-            foreach (var boosterData in BoostersFromRemove)
-                RemoveActiveBooster (boosterData);
-            BoostersFromRemove.Clear ();
-
-        }
+       
     }
 }

@@ -18,7 +18,6 @@ namespace CyberBeat
         [SerializeField] Button DoubleReward;
         [SerializeField] Button GetReward;
         [SerializeField] Text ProgressText;
-        [SerializeField] GameEvent ToMenu;
         [SerializeField] ResultsTrackInfo trackInfo;
         Track track { get { return TracksCollection.instance.CurrentTrack; } }
 
@@ -63,7 +62,7 @@ namespace CyberBeat
             ShowRewardsButtons (true);
             data.Calculate ();
             var progress = track.progressInfo;
-            ProgressText.text = "{0}/{1}".AsFormat (progress.Best.Value, progress.Max.Value);
+            ProgressText.text = "{0}/{1}".AsFormat (progress.Best, progress.Max);
             
             trackInfo.Init (track.music);
         }

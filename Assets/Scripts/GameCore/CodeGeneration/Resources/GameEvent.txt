@@ -1,0 +1,37 @@
+﻿using System.Collections.Generic;
+
+using UnityEngine;
+namespace $NAMESPACE_NAME$
+{
+
+    [CreateAssetMenu (
+        fileName = "$TYPE_NAME$GameEvent", 
+        menuName = "$NAMESPACE_NAME$/GameEvent/$TYPE_NAME$")]
+    public class GameEvent$TYPE_NAME$ : ScriptableObject
+    {
+        [SerializeField]
+        public List<GameEventListener$TYPE_NAME$> eventListeners = new List<GameEventListener$TYPE_NAME$> ();
+
+        public void Raise ($TYPE_NAME$ arg)
+        {
+            for (int i = eventListeners.Count - 1; i >= 0; i--)
+                eventListeners[i].OnEventRaised (arg);
+        }
+
+        public virtual void RegisterListener (GameEventListener$TYPE_NAME$ listener)
+        {
+            if (!eventListeners.Contains (listener))
+                eventListeners.Add (listener);
+        }
+
+        public virtual void UnRegisterListener (GameEventListener$TYPE_NAME$ listener)
+        {
+            if (eventListeners.Contains (listener))
+                eventListeners.Remove (listener);
+        }
+#if UNITY_EDITOR
+        [ContextMenu ("Show path")] public void ShowPath () { Debug.Log (UnityEditor.AssetDatabase.GetAssetPath (this)); }
+#endif
+    }
+
+}
