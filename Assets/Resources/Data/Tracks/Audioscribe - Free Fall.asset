@@ -1,0 +1,369 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d349b086a7d334b804be2e8c6b3cd8, type: 3}
+  m_Name: Audioscribe - Free Fall
+  m_EditorClassIdentifier: 
+  music:
+    clip: {fileID: 8300000, guid: d17868098830e4281ab0070819f6e507, type: 3}
+    AuthorName: 'Audioscribe '
+    TrackName: Free Fall
+    AlbumImage: {fileID: 21300000, guid: e1791d4d3fa4ef949ab2115a05e0894b, type: 3}
+  socials:
+  - Icon: {fileID: 21300000, guid: 78fc711090e8e0143931bf4b587b661b, type: 3}
+    URL: https://www.youtube.com/watch?v=BHWNELSwnsg
+  shopInfo:
+    PlayByWatch: 0
+    Price: 2000
+    SaveKey: Audioscribe - Free Fall Buyed
+  progressInfo:
+    Best: {fileID: 11400000, guid: 624b63e0634c849309d8b8db0f8a011e, type: 2}
+    Max: {fileID: 11400000, guid: 04ad5887c11e740c689d94435c844dc3, type: 2}
+    Percent: {fileID: 11400000, guid: 2e91d3f3b12f547dbbc8b2be0a8c89b5, type: 2}
+  StartSpeed: 50
+  koreography: {fileID: 11400000, guid: 109f584a8dd3543e3997a0a0d9f67ef3, type: 2}
+  MinTimeOfBit: 0.2
+  BitsInfos:
+  - time: 0
+    presets: 01000000
+  - time: 2.7361906
+    presets: 01000000
+  - time: 4.161769
+    presets: 04000000
+  - time: 5.495374
+    presets: 05000000
+  - time: 6.7676644
+    presets: 04000000
+  - time: 8.216236
+    presets: 05000000
+  - time: 9.63415
+    presets: 04000000
+  - time: 10.99551
+    presets: 05000000
+  - time: 12.387347
+    presets: 05000000
+  - time: 13.758095
+    presets: 04000000
+  - time: 15.065578
+    presets: 04000000
+  - time: 16.503809
+    presets: 05000000
+  - time: 17.874557
+    presets: 04000000
+  - time: 19.262177
+    presets: 05000000
+  - time: 20.54857
+    presets: 05000000
+  - time: 21.830748
+    presets: 04000000
+  - time: 22.071156
+    presets: 01000000
+  - time: 26.359592
+    presets: 04000000
+  - time: 27.549387
+    presets: 05000000
+  - time: 28.914286
+    presets: 04000000
+  - time: 30.296598
+    presets: 04000000
+  - time: 31.66839
+    presets: 04000000
+  - time: 33.04363
+    presets: 05000000
+  - time: 33.360546
+    presets: 01000000
+  - time: 34.43628
+    presets: 04000000
+  - time: 34.71746
+    presets: 01000000
+  - time: 35.775055
+    presets: 05000000
+  - time: 36.091156
+    presets: 01000000
+  - time: 37.203808
+    presets: 04000000
+  - time: 37.460316
+    presets: 01000000
+  - time: 38.485985
+    presets: 05000000
+  - time: 38.78068
+    presets: 01000000
+  - time: 39.87508
+    presets: 04000000
+  - time: 40.19211
+    presets: 01000000
+  - time: 41.248528
+    presets: 04000000
+  - time: 41.572517
+    presets: 01000000
+  - time: 43.964943
+    presets: 01000000
+  - time: 44.309162
+    presets: 06000000
+  - time: 45.678005
+    presets: 07000000
+  - time: 47.053196
+    presets: 06000000
+  - time: 48.446396
+    presets: 07000000
+  - time: 49.820637
+    presets: 06000000
+  - time: 51.198414
+    presets: 07000000
+  - time: 52.557144
+    presets: 07000000
+  - time: 53.560318
+    presets: 01000000
+  - time: 53.922447
+    presets: 06000000
+  - time: 55.29433
+    presets: 07000000
+  - time: 56.670204
+    presets: 06000000
+  - time: 58.02812
+    presets: 07000000
+  - time: 59.417957
+    presets: 06000000
+  - time: 60.774876
+    presets: 07000000
+  - time: 62.14676
+    presets: 06000000
+  - time: 63.551563
+    presets: 07000000
+  - time: 64.393654
+    presets: 01000000
+  - time: 64.73986
+    presets: 04000000
+  - time: 65.0951
+    presets: 05000000
+  - time: 65.417145
+    presets: 04000000
+  - time: 65.76061
+    presets: 05000000
+  - time: 65.911224
+    presets: 01000000
+  - time: 66.25775
+    presets: 04000000
+  - time: 66.6
+    presets: 05000000
+  - time: 66.946144
+    presets: 04000000
+  - time: 67.281746
+    presets: 05000000
+  - time: 67.61281
+    presets: 05000000
+  - time: 67.95556
+    presets: 05000000
+  - time: 68.31406
+    presets: 04000000
+  - time: 68.65023
+    presets: 05000000
+  - time: 68.99886
+    presets: 04000000
+  - time: 69.31916
+    presets: 05000000
+  - time: 69.68991
+    presets: 04000000
+  - time: 70.02608
+    presets: 05000000
+  - time: 70.37302
+    presets: 04000000
+  - time: 70.710884
+    presets: 04000000
+  - time: 71.05896
+    presets: 04000000
+  - time: 71.39513
+    presets: 05000000
+  - time: 71.71599
+    presets: 04000000
+  - time: 72.08276
+    presets: 05000000
+  - time: 72.43261
+    presets: 04000000
+  - time: 72.767006
+    presets: 05000000
+  - time: 73.11961
+    presets: 04000000
+  - time: 73.4346
+    presets: 05000000
+  - time: 73.802155
+    presets: 04000000
+  - time: 74.13265
+    presets: 04000000
+  - time: 74.48073
+    presets: 05000000
+  - time: 74.83787
+    presets: 04000000
+  - time: 75.17256
+    presets: 04000000
+  - time: 75.49093
+    presets: 05000000
+  - time: 75.86054
+    presets: 05000000
+  - time: 76.18707
+    presets: 04000000
+  - time: 76.54365
+    presets: 04000000
+  - time: 76.88039
+    presets: 05000000
+  - time: 77.19161
+    presets: 05000000
+  - time: 77.55159
+    presets: 04000000
+  - time: 77.915535
+    presets: 04000000
+  - time: 78.264626
+    presets: 05000000
+  - time: 78.56227
+    presets: 04000000
+  - time: 78.94449
+    presets: 05000000
+  - time: 79.293564
+    presets: 04000000
+  - time: 79.62411
+    presets: 04000000
+  - time: 79.97415
+    presets: 05000000
+  - time: 80.301765
+    presets: 05000000
+  - time: 80.65766
+    presets: 05000000
+  - time: 80.977554
+    presets: 04000000
+  - time: 81.34313
+    presets: 05000000
+  - time: 81.69318
+    presets: 04000000
+  - time: 82.03152
+    presets: 04000000
+  - time: 82.37084
+    presets: 05000000
+  - time: 82.71796
+    presets: 04000000
+  - time: 83.0602
+    presets: 05000000
+  - time: 83.40537
+    presets: 04000000
+  - time: 83.75835
+    presets: 04000000
+  - time: 84.08499
+    presets: 05000000
+  - time: 84.4141
+    presets: 05000000
+  - time: 84.77728
+    presets: 04000000
+  - time: 85.1178
+    presets: 05000000
+  - time: 85.459526
+    presets: 04000000
+  - time: 85.79376
+    presets: 05000000
+  - time: 86.1556
+    presets: 04000000
+  - time: 87.87381
+    presets: 04000000
+  - time: 88.2381
+    presets: 05000000
+  - time: 89.26755
+    presets: 04000000
+  - time: 89.50014
+    presets: 04000000
+  - time: 89.759254
+    presets: 05000000
+  - time: 89.86204
+    presets: 01000000
+  - time: 90.61835
+    presets: 04000000
+  - time: 90.95725
+    presets: 05000000
+  - time: 91.99057
+    presets: 05000000
+  - time: 92.25347
+    presets: 04000000
+  - time: 92.56064
+    presets: 05000000
+  - time: 92.64095
+    presets: 01000000
+  - time: 93.358574
+    presets: 04000000
+  - time: 93.725716
+    presets: 05000000
+  - time: 94.727005
+    presets: 05000000
+  - time: 95.0024
+    presets: 04000000
+  - time: 95.27864
+    presets: 05000000
+  - time: 95.34467
+    presets: 01000000
+  - time: 96.14018
+    presets: 04000000
+  - time: 96.44204
+    presets: 04000000
+  - time: 97.47082
+    presets: 05000000
+  - time: 97.73243
+    presets: 05000000
+  - time: 97.9878
+    presets: 04000000
+  - time: 98.09265
+    presets: 01000000
+  - time: 98.8451
+    presets: 05000000
+  - time: 99.205215
+    presets: 05000000
+  - time: 100.21646
+    presets: 04000000
+  - time: 100.47714
+    presets: 04000000
+  - time: 100.69204
+    presets: 05000000
+  - time: 100.80075
+    presets: 04000000
+  - time: 101.59093
+    presets: 04000000
+  - time: 101.93238
+    presets: 05000000
+  - time: 102.10011
+    presets: 01000000
+  - time: 102.964424
+    presets: 05000000
+  - time: 103.21793
+    presets: 04000000
+  - time: 103.47469
+    presets: 05000000
+  - time: 103.55694
+    presets: 01000000
+  - time: 104.32721
+    presets: 05000000
+  - time: 104.680405
+    presets: 04000000
+  - time: 105.700294
+    presets: 04000000
+  - time: 105.963196
+    presets: 04000000
+  - time: 106.22803
+    presets: 05000000
+  - time: 106.30281
+    presets: 01000000
+  - time: 107.07186
+    presets: 05000000
+  - time: 107.41803
+    presets: 04000000
+  - time: 108.44497
+    presets: 04000000
+  - time: 108.79422
+    presets: 05000000
+  - time: 108.961136
+    presets: 04000000
+  - time: 109.03515
+    presets: 01000000
+  LayerForGenerateTimEvents: 3
