@@ -36,8 +36,20 @@ namespace GameCore
                     namesapaceKey = namesapaceKey,
                     nameOfNameSpace = nameOfNameSpace
                 };
-                RuntimeSetScriptGenerator.Generate();
+                RuntimeSetScriptGenerator.Generate ();
                 // Selection.activeObject = Tools.GetAssetAtPath<TextAsset> ("Assets/" + filePath.Replace (Application.dataPath, ""));
+            }
+            if (savableVariable)
+            {
+                ScritpGenerator RuntimeSetScriptGenerator = new ScritpGenerator ()
+                {
+                    Name = "Variable",
+                    nameOfType = nameOfType,
+                    typeKey = typeKey,
+                    namesapaceKey = namesapaceKey,
+                    nameOfNameSpace = nameOfNameSpace
+                };
+                RuntimeSetScriptGenerator.Generate ();
             }
 
             if (gameEvent)
@@ -50,7 +62,7 @@ namespace GameCore
                     namesapaceKey = namesapaceKey,
                     nameOfNameSpace = nameOfNameSpace
                 };
-                GameEventScriptGenerator.Generate();
+                GameEventScriptGenerator.Generate (false);
 
                 ScritpGenerator GameEventListenerScriptGenerator = new ScritpGenerator ()
                 {
@@ -60,7 +72,7 @@ namespace GameCore
                     namesapaceKey = namesapaceKey,
                     nameOfNameSpace = nameOfNameSpace
                 };
-                GameEventListenerScriptGenerator.Generate();
+                GameEventListenerScriptGenerator.Generate (false);
 
             }
         }
@@ -80,7 +92,7 @@ namespace GameCore
         public string namesapaceKey;
         public string nameOfNameSpace;
 
-        public void Generate ()
+        public void Generate (bool ForwardNameTypte = true)
         {
             var textAsset = Resources.Load<TextAsset> (Name);
 
@@ -91,7 +103,8 @@ namespace GameCore
 
             string directoryPath = Application.dataPath + "/Scripts/" + nameOfNameSpace + "/" + Name + "/";
             Directory.CreateDirectory (directoryPath);
-            string filePath = directoryPath +  Name + nameOfType + ".cs";
+            string name = ForwardNameTypte ? nameOfType + Name : Name + nameOfType;
+            string filePath = directoryPath + name + ".cs";
             File.WriteAllText (filePath, ScriptText);
             AssetDatabase.Refresh ();
         }

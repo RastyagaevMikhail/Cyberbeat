@@ -30,7 +30,7 @@ namespace CyberBeat.Generation
                     TimePointsData timePointsData = CreateInstance<TimePointsData>();
                     var events = track[layer];
                     TimeOfEventsData timeOfEventsData = CreateInstance<TimeOfEventsData> ();
-                    timeOfEventsData.Init (track.koreography.SampleRate, events,timePointsData);
+                    timeOfEventsData.Init (track.Koreography.SampleRate, events,timePointsData);
 
 
                     Tools.CreateAsset (timeOfEventsData, "Assets/Data/TimeEvents/{0}/{1}.asset".AsFormat (track.name, layer));

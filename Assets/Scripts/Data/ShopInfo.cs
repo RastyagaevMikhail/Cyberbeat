@@ -23,5 +23,10 @@ namespace CyberBeat
 			Buyed = false;
 			PlayByWatch = false;
 		}
+
+		public void Validate (string TrackName)
+		{
+			SaveKey = "{0} Buyed".AsFormat (TrackName);
+		}
 	}
 }

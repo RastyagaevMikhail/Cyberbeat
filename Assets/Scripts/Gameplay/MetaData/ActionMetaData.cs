@@ -1,15 +1,13 @@
 using FluffyUnderware.Curvy;
 
-using GameCore;
-
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace CyberBeat
+namespace GameCore
 {
-	public class ActionMetaData : MonoBehaviour, ICurvyMetadata, IMetaData
+	public class ActionMetaData : MonoBehaviour, ICurvyMetadata
 	{
-		public UnityEvent actionEvent;
+		public MetaAction data;
 		public string NameOfMetaType
 		{
 			get

@@ -1,7 +1,9 @@
+using UnityEngine;
+
 namespace CyberBeat
 {
 	[System.Serializable]
-	public class PartsData
+	public class PartsData : GameCore.IMetaData
 	{
 		public bool MoveOnBit;
 		public float StartLifetime;
@@ -9,6 +11,7 @@ namespace CyberBeat
 		public float StartSize;
 		public float LengthScale;
 		public float OverRate;
-		public float Duration;
+		public float timeDuaration;
+		public float TimeDuaration { get { return timeDuaration; } set { timeDuaration = value; } }
 	}
 }

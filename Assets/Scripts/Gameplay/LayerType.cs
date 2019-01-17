@@ -5,6 +5,10 @@ namespace CyberBeat
 		Bit,
 		Effect,
 		Line,
-		Combo
+		Combo,
+		Speed,
+		Camera,
+		Particles,
+		Shake
 	}
 }

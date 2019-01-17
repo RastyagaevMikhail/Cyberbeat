@@ -7,7 +7,7 @@ namespace $NAMESPACE_NAME$
     [CreateAssetMenu (
         fileName = "$TYPE_NAME$GameEvent", 
         menuName = "$NAMESPACE_NAME$/GameEvent/$TYPE_NAME$")]
-    public class GameEvent$TYPE_NAME$ : ScriptableObject
+    public class $TYPE_NAME$GameEvent : ScriptableObject
     {
         [SerializeField]
         public List<GameEventListener$TYPE_NAME$> eventListeners = new List<GameEventListener$TYPE_NAME$> ();

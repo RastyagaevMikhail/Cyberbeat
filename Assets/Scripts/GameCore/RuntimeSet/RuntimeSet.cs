@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Events;
+
 namespace GameCore
 {
     public abstract class RuntimeSet<T> : ScriptableObject
@@ -11,11 +13,16 @@ namespace GameCore
         bool startIterrate = false;
         [SerializeField] List<T> items = new List<T> ();
         public List<T> Items { get { return items; } }
+        protected abstract UnityEvent<T> OnAddComplete { get; }
+        protected abstract UnityEvent<T> OnRemoveComplete { get; }
         public int Count { get { return Items.Count; } }
-        public void Add (T thing)
+        public void Add (T item)
         {
-            if (!Contains (thing))
-                items.Add (thing);
+            if (!Contains (item))
+            {
+                items.Add (item);
+                OnAddComplete.Invoke (item);
+            }
         }
 
         public void ForEach (Action<T> action)
@@ -33,7 +40,10 @@ namespace GameCore
             _onItterrateComplete -= onItterrateComplete;
 
             foreach (var item in itemsFromRemove)
+            {
                 items.Remove (item);
+                OnRemoveComplete.Invoke (item);
+            }
             itemsFromRemove.Clear ();
         }
         public void Remove (T item)
@@ -47,7 +57,10 @@ namespace GameCore
                     _onItterrateComplete += onItterrateComplete;
                 }
                 else
+                {
                     items.Remove (item);
+                    OnRemoveComplete.Invoke (item);
+                }
             }
         }
         public bool Contains (T item)

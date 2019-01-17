@@ -32,10 +32,14 @@ namespace GameCore
         }
         public void OnPointerDown (PointerEventData eventData)
         {
-            bool TweenIsPlaying = cdTween != null && cdTween.IsPlaying ();
+            bool TweenIsPlaying =
+                cdTween != null &&
+                cdTween.IsPlaying ();
+
+            // Debug.LogFormat ("TweenIsPlaying = {0}", TweenIsPlaying);
 
             if (TweenIsPlaying) return;
-
+            // Debug.LogFormat ("Interractable = {0}", Interractable);
             if (!Interractable)
             {
                 onPressFaild.Invoke ();
@@ -43,6 +47,7 @@ namespace GameCore
             }
 
             onPress.Invoke ();
+
 
             cdTween = DOVirtual
                 .Float (0f, CDTime, CDTime, OnTick)

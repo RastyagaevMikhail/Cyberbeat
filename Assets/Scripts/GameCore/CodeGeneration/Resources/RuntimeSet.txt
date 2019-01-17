@@ -1,10 +1,29 @@
 ﻿using GameCore;
 
 using UnityEngine;
+using UnityEngine.Events;
 namespace $NAMESPACE_NAME$
 {
 [CreateAssetMenu(
     fileName = "$TYPE_NAME$RuntimeSet.asset",
     menuName = "$NAMESPACE_NAME$/RuntimeSet/$TYPE_NAME$")]
-    public class $TYPE_NAME$RuntimeSet : RuntimeSet<$TYPE_NAME$> { }
+    public class $TYPE_NAME$RuntimeSet : RuntimeSet<$TYPE_NAME$> 
+    {
+        [SerializeField] UnityEvent$TYPE_NAME$ onAddComplete;
+        protected override UnityEvent<$TYPE_NAME$> OnAddComplete
+        {
+            get
+            {
+                return onRemoveComplete;
+            }
+        }
+        [SerializeField] UnityEvent$TYPE_NAME$ onRemoveComplete;
+        protected override UnityEvent<$TYPE_NAME$> OnRemoveComplete
+        {
+            get
+            {
+                return onRemoveComplete;
+            }
+        }
+     }
 }

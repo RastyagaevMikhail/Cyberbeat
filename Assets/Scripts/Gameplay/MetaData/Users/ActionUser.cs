@@ -1,16 +1,18 @@
-﻿using GameCore;
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
-namespace CyberBeat
+namespace GameCore
 {
-	public class ActionUser : MetaDataUser<ActionMetaData>
+	public class ActionUser : MetaDataUser<ActionMetaData, MetaAction>
 	{
+		public override void OnMetaData (MetaAction metaData)
+		{
+			metaData.Invoke ();
+		}
 		public override void OnMetaReached (ActionMetaData metaData)
 		{
-			metaData.actionEvent.Invoke ();
+			OnMetaData (metaData.data);
 		}
 	}
 }

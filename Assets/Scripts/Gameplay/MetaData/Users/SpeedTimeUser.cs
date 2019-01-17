@@ -10,7 +10,7 @@ using UnityEngine;
 namespace CyberBeat
 {
 
-    public class SpeedTimeUser : MetaDataUser<SpeedTimeMetaData>
+    public class SpeedTimeUser : MetaDataUser<SpeedTimeMetaData,SpeedTimeData>
     {
         private SplineController _splineController = null;
         public SplineController splineController { get { if (_splineController == null) { _splineController = GetComponent<SplineController> (); } return _splineController; } }
@@ -24,7 +24,11 @@ namespace CyberBeat
         Tweener tweener;
         public override void OnMetaReached (SpeedTimeMetaData meta)
         {
-            tweener = SpeedVariable.DO (meta.Speed, meta.time, speed =>
+            OnMetaData(meta.data);
+        }
+        public override void OnMetaData (SpeedTimeData metaData)
+        {
+            tweener = SpeedVariable.DO (metaData.Speed, metaData.TimeDuaration, speed =>
             {
                 SpeedVariable.Value = speed;
                 OnSpeedUpdated (speed);
@@ -50,7 +54,6 @@ namespace CyberBeat
             if (tweener != null)
                 tweener.Pause ();
             _SetSpeed (0);
-
         }
         public void Resume ()
         {
@@ -59,5 +62,6 @@ namespace CyberBeat
             else
                 _SetSpeed (SpeedVariable);
         }
+
     }
 }

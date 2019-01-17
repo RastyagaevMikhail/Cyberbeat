@@ -1,5 +1,7 @@
 ﻿using GameCore;
+
 using SonicBloom.Koreo;
+
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,11 +11,12 @@ namespace CyberBeat
 {
     public class BitGenerator : TransformObject
     {
+        [SerializeField] KoreographerVariable koreographer;
         [SerializeField] LayerType TrackIDLayer;
-        [SerializeField]UnityEventKoreographyEvent OnBit;
+        [SerializeField] UnityEventKoreographyEvent OnBit;
         void Start ()
         {
-            Koreographer.Instance.RegisterForEvents(TrackIDLayer.ToString(),OnBit.Invoke);
+            koreographer.RegisterForEvents (TrackIDLayer.ToString (), OnBit.Invoke);
         }
     }
 }

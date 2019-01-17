@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace CyberBeat
 {
-    public class SpeedParticlesMetaData : MonoBehaviour, ICurvyMetadata, IMetaData
+    public class SpeedParticlesMetaData : MonoBehaviour, ICurvyMetadata
     {
         public PartsData data;
         public string NameOfMetaType

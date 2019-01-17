@@ -1,0 +1,50 @@
+﻿using GameCore;
+using UnityEngine;
+namespace  $NAMESPACE_NAME$
+{
+    [CreateAssetMenu (
+        fileName = "$TYPE_NAME$", 
+    menuName = "Variables/$NAMESPACE_NAME$/$TYPE_NAME$")]
+    public class $TYPE_NAME$Variable : SavableVariable<$TYPE_NAME$>
+    {
+        public override void ResetDefault ()
+        {
+            if (ResetByDefault)
+            {
+                Value = DefaultValue;
+                SaveValue ();
+            }
+        }
+        public void SetValue ($TYPE_NAME$ value)
+        {
+            Value = value;
+        }
+
+        public void SetValue ($TYPE_NAME$Variable value)
+        {
+            Value = value.Value;
+        }
+
+        public override void SaveValue ()
+        {
+            // TODO: Save Code This From $TYPE_NAME$Variable
+        }
+
+        public override void LoadValue ()
+        {
+          // TODO: Load Code This From $TYPE_NAME$Variable
+        }
+
+        [ContextMenu ("Toggle Savable")]
+        void ToggleSavable () { isSavable = !isSavable; CheckSavable (); }
+
+        [ContextMenu ("Check Savable")]
+        void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
+        
+        public static implicit operator $TYPE_NAME$ ($TYPE_NAME$Variable variable)
+        {
+            return variable.Value;
+        }
+    }
+}
+
