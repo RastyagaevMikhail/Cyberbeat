@@ -210,18 +210,27 @@ namespace GameCore
             // Debug.LogFormat ("results.Count() = {0}", results.Count ());
             return results;
         }
-        public static void Validate<T> (this T variable, string path, bool isSavable = false) where T : ASavableVariable
+        public static T ValidateVaraiable<T> (string path, bool isSavable = false) where T : ASavableVariable
         {
-            variable = GetAssetAtPath<T> (path);
+            T variable = GetAssetAtPath<T> (path);
             if (variable == null)
             {
                 variable = ScriptableObject.CreateInstance<T> ();
                 variable.CreateAsset (path, isSavable);
             }
-            Debug.LogFormat (variable, "variable = {0}", variable);
             string pathInstance = AssetDatabase.GetAssetPath (variable);
-            Debug.Log (pathInstance, variable);
-            // return variable;
+            return variable;
+        }
+        public static T ValidateSO<T> (string path) where T : ScriptableObject
+        {
+            T so = GetAssetAtPath<T> (path);
+            if (so == null)
+            {
+                so = ScriptableObject.CreateInstance<T> ();
+                CreateAsset (so, path);
+            }
+            // string pathInstance = AssetDatabase.GetAssetPath (so);
+            return so;
         }
         public static T GetAssetAtPath<T> (string path) where T : UnityEngine.Object
         {

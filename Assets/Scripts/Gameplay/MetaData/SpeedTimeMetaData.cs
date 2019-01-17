@@ -14,11 +14,11 @@ using UnityEngine;
 namespace CyberBeat
 {
     // [ExecuteInEditMode]
-    public class SpeedTimeMetaData : MonoBehaviour, ICurvyMetadata, IMetaData
+    public class SpeedTimeMetaData : MonoBehaviour, ICurvyMetadata
     {
         public SpeedTimeData data;
         public float Speed { get { return data.Speed; } }
-        public float time { get { return data.time; } }
+        public float time { get { return data.TimeDuaration; } }
 
         private CurvySplineSegment _ControlPoint = null;
         public CurvySplineSegment ControlPoint { get { if (_ControlPoint == null) _ControlPoint = GetComponent<CurvySplineSegment> (); return _ControlPoint; } }
@@ -87,13 +87,13 @@ namespace CyberBeat
         {
             if (OnValueChanged != null)
                 OnValueChanged (null);
-            if (Speed == 0) { data.Speed = StartSpeed; data.time = 1f; }
+            if (Speed == 0) { data.Speed = StartSpeed; data.TimeDuaration = 1f; }
         }
 #if UNITY_EDITOR
         private void OnDestroy ()
         {
             data.Speed = StartSpeed;
-            data.time = 0;
+            data.TimeDuaration = 0;
             if (OnValueChanged != null)
                 OnValueChanged (null);
         }
@@ -144,20 +144,21 @@ namespace CyberBeat
 
         #endregion
 
-        
     }
 
     [Serializable]
 
-    public struct SpeedTimeData
+    public class SpeedTimeData : IMetaData
     {
         public float Speed;
-        [Range (0, 1)]
-        public float time;
+        [Range (0, 10)]
+        [SerializeField] float time;
+
+        public float TimeDuaration { get { return time; } set { time = value; } }
 
         public void Print ()
         {
-            Debug.LogFormat ("Speed = {0}\ntime = {1}", Speed, time);
+            Debug.LogFormat ("Speed = {0}\ntime = {1}", Speed, TimeDuaration);
         }
     }
 }

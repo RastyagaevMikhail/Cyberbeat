@@ -34,7 +34,9 @@ namespace CyberBeat
 		}
 #endif
 
-		public Track CurrentTrack;
+		[SerializeField] TrackVariable currentTrack;
+		public Track CurrentTrack { get { return currentTrack.Value; } set { currentTrack.Value = value; } }
+
 		[SerializeField] List<Preset> _presets;
 		Dictionary<int, List<SpawnedObject>> presets = null;
 		public Dictionary<int, List<SpawnedObject>> Presets

@@ -18,50 +18,15 @@ namespace CyberBeat
         private const float width = 5f;
         public Pool pool { get { return Pool.instance; } }
         public TracksCollection tracksCollection { get { return TracksCollection.instance; } }
-        private AudioSource _ASource = null;
-        public AudioSource ASource { get { if (_ASource == null) _ASource = GetComponent<AudioSource> (); return _ASource; } }
-        private SimpleMusicPlayer _player = null;
-        public SimpleMusicPlayer music_player { get { if (_player == null) _player = GetComponent<SimpleMusicPlayer> (); return _player; } }
-
-        Track track { get { return tracksCollection.CurrentTrack; } }
-        // public void PlayMusinOnSwitcher ()
-        // {
-        //     if (!ASource.isPlaying)
-        //     {
-        //         ASource.Play ();
-
-        //     }
-        // }
-
-        public void Continue ()
-        {
-            var targetTime = ASource.time - 1.5f;
-            ASource.time = targetTime.Abs ();
-            ASource.volume = 0;
-            music_player.Play ();
-            DOVirtual.Float (ASource.volume, 1f, 1.5f, value => ASource.volume = value).SetEase (Ease.InQuint);
-        }
 
         RandomConstantMaterial rcm;
-        private List<BitInfo> CurrentBits = null;
-        BitInfo currentBit = null;
-        GameData gameData { get { return GameData.instance; } }
-        private SimpleMusicPlayer _musicPlayer = null;
-        public SimpleMusicPlayer musicPlayer { get { if (_musicPlayer == null) _musicPlayer = GetComponent<SimpleMusicPlayer> (); return _musicPlayer; } }
-        private Koreographer _koreographer = null;
-        public Koreographer koreographer { get { if (_koreographer == null) _koreographer = GetComponent<Koreographer> (); return _koreographer; } }
-        public bool outOfIndexBits { get { return (CurrentBits.Count <= indexRow); } }
+
         List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
         private void Start ()
         {
-            started = true;
             LastRandomColor = Colors.instance.RandomColor;
 
             InitRCM ();
-
-            musicPlayer.LoadSong (track.koreography, 0, false);
-            koreographer.LoadKoreography (track.koreography);
-            OnStart ();
         }
 
         [SerializeField] StringVariable DefaultColorName;
@@ -71,61 +36,52 @@ namespace CyberBeat
             rcm.Init (LastRandomColor, DefaultColorName.Value);
         }
 
-        private int indexRow = 0;
-        private float time = 0;
         [SerializeField] Color LastRandomColor;
-        public bool started { get; set; }
-
-        private void Update ()
+        public void OnBit (KoreographyEvent koreographyEvent)
         {
-            if (started && CurrentBits != null && !outOfIndexBits && currentBit != null && currentBit.time + track.MinTimeOfBit <= time)
+            var TextPayloadValue = koreographyEvent.GetTextValue ();
+            int randPreset = TextPayloadValue.Split (',').Select (strInt => int.Parse (strInt)).GetRandom ();
+            List<SpawnedObject> row = null;
+            try
             {
-                float half_width = width / 2;
-                float step = half_width / 2;
+                row = tracksCollection.Presets[randPreset];
+            }
+            catch (System.Exception)
+            {
+                Debug.LogFormat ("randPreset = {0}", randPreset);
+                throw;
+            }
 
-                int randPreset = currentBit.presets.GetRandom ();
-                // Debug.LogFormat ("randPreset = {0}", randPreset);
-                var row = tracksCollection.Presets[randPreset];
+            float half_width = width / 2;
+            float step = half_width / 2;
 
-                for (float x = -half_width, i = 0; x <= half_width; x += step, i++)
+            for (float x = -half_width, i = 0; x <= half_width; x += step, i++)
+            {
+                var spawnObj = InstattiateObj (row[(int) i], x);
+
+                if (spawnObj)
                 {
-                    var spawnObj = InstattiateObj (row[(int) i], x);
+                    float bitTime = (float) koreographyEvent.StartSample / 44100f;
 
-                    if (spawnObj)
-                    {
-                        string metadata = string.Format ("{0}", currentBit.time);
-                        spawnObj.Get<MetaDataGizmos> ().MetaData = Tools.LogTextInColor (metadata, Color.blue);
-                        ColorInterractor colorInterractor = spawnObj.Get<ColorInterractor> ();
+                    ColorInterractor colorInterractor = spawnObj.Get<ColorInterractor> ();
 
-                        colorInterractor.Init (currentBit.time);
+                    colorInterractor.Init (bitTime);
 
-                        Neighbors.Add (colorInterractor);
-                    }
-                }
-                if (Neighbors.Count > 1)
-                {
-                    foreach (var neighbor in Neighbors)
-                        foreach (var n in Neighbors)
-                            neighbor.AddNeighbor (n);
-                }
-                Neighbors.Clear ();
-                indexRow++;
+                    Neighbors.Add (colorInterractor);
 
-                if (!outOfIndexBits)
-                {
-                    currentBit = CurrentBits[indexRow];
+#if UNITY_EDITOR
+                    string metadata = string.Format ("{0}", bitTime);
+                    spawnObj.Get<MetaDataGizmos> ().MetaData = Tools.LogTextInColor (metadata, Color.blue);
+#endif
                 }
             }
-            if (started)
-                time += Time.deltaTime;
-        }
-
-        public void OnStart ()
-        {
-            CurrentBits = new List<BitInfo> (track.BitsInfos);
-            // CurrentBits.Reverse ();
-            currentBit = CurrentBits.First ();
-            gameData.SetGeneratedBrick ();
+            if (Neighbors.Count > 1)
+            {
+                foreach (var neighbor in Neighbors)
+                    foreach (var n in Neighbors)
+                        neighbor.AddNeighbor (n);
+            }
+            Neighbors.Clear ();
         }
 
         SpawnedObject InstattiateObj (SpawnedObject spwn_obj, float xPos)
@@ -138,7 +94,6 @@ namespace CyberBeat
             obj.position = position + right * xPos + up * obj.y;
             obj.rotation = rotation;
 
-            // obj.Get<MetaDataGizmos> ().MetaData = currentBit.time.ToString ();
             MaterialSwitcher originalMaterialSwitcher = spwn_obj.Get<MaterialSwitcher> ();
             if (originalMaterialSwitcher)
             {

@@ -34,13 +34,11 @@ namespace CyberBeat
             }
         }
         float StartSpeed { get { return track ? track.StartSpeed : 0f; } }
-        float SampleRate { get { return track ? track.koreography.SampleRate : 0f; } }
+        float SampleRate { get { return track ? track.Koreography.SampleRate : 0f; } }
         public Color PointsColor { get { return layerColor.color; } }
         public bool draw { get { return layerColor.enable; } }
         public float SizePoint { get { return layerColor.SizePoints; } }
-
         public float OffsetSizePoint { get { return layerColor.OffsetSizePoint; } }
-
         [SerializeField, HideInInspector] Track track;
         [SerializeField /* , HideInInspector */ ] LayerColor layerColor;
         public CurvyTrackBitViewer (Track track, LayerColor layerColor, CurvySpline _Spline)
@@ -127,7 +125,6 @@ namespace CyberBeat
 
             }
         }
-
         private void CalculatePointsOnSegementBetween (
             CurvySplineSegment segment,
             float start_time,

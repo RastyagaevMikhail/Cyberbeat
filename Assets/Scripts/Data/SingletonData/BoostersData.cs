@@ -71,23 +71,16 @@ namespace CyberBeat
             activeBoosters.ForEach (b => b.DeActivate ());
         }
 
-        [SerializeField] List<UpgradeData> Upgrades;
+        [SerializeField] 
+        List<UpgradeData> Upgrades;
         public List<BoosterData> boosters;
         [SerializeField] BoosterDataRuntimeSet activeBoosters;
         public bool HasActiveBoosters { get { return activeBoosters.Count > 0; } }
-        public void ActivateBoosters (ColorBrick brick)
-        {
-            activeBoosters.ForEach (boosterData =>
-            {
-                boosterData.Apply (brick);
-            });
-        }
-        
+       
         public void DeActivate (BoosterData boosterData)
         {
             activeBoosters.Remove (boosterData);
         }
 
-       
     }
 }

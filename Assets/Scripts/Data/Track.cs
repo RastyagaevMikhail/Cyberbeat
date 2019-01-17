@@ -13,90 +13,93 @@ namespace CyberBeat
 	[CreateAssetMenu (fileName = "Track", menuName = "CyberBeat/Track", order = 0)]
 	public class Track : ScriptableObject
 	{
-		public MusicInfo music;
-		public List<SocialInfo> socials;
-		public ShopInfo shopInfo;
-		public ProgressInfo progressInfo;
-		public TracksCollection data { get { return TracksCollection.instance; } }
+		#region EdiotHelpersFunctions
 
-		public int TrackNumber { get { return data.Objects.IndexOf (this) + 1; } }
-
-		[ContextMenu ("Save ME")]
-		public void SaveME ()
+#if UNITY_EDITOR
+		[ContextMenu ("Validate")]
+		void Validate ()
 		{
+			ValidateMusicInfo ();
+			ValidateShopInfo ();
+			ValidateProgressInfo ();
+			// CalculateConstant ();
+			ValidateKoreography ();
+			SetMeAsCurrent ();
+
+			data.Objects.Add (this);
+			this.Save ();
+			UnityEditor.Selection.activeObject = this;
+		}
+
+		[ContextMenu ("Validate MusicInfo")]
+		public void ValidateMusicInfo ()
+		{
+			music.Validate (name);
 			this.Save ();
 		}
 
-		public void ResetDefault ()
+		[ContextMenu ("Validate ShopInfo")]
+		public void ValidateShopInfo ()
 		{
-			shopInfo.ResetDefault ();
+			shopInfo.Validate (name);
+			this.Save ();
 		}
 
-#if UNITY_EDITOR
 		[ContextMenu ("Validate ProgressInfo")]
 		public void ValidateProgressInfo ()
 		{
 			progressInfo.Validate (name);
 			this.Save ();
 		}
-#endif
 
-		public float StartSpeed = 50f;
+		[ContextMenu ("Validate Koreography")]
+		private void ValidateKoreography ()
+		{
+			Koreography = Tools.ValidateSO<Koreography> ("Assets/Data/Koreography/{0}/{0}_Koreography.asset".AsFormat (name));
+			Koreography.GetTempoSectionAtIndex (0).SectionName = "Default Selection";
+			Koreography.InsertTempoSectionAtIndex (0).SectionName = "Zero Selection";
+			Koreography.SourceClip = music.clip;
+			ValidateKoreographyTracksLayers ();
+		}
+
+		[ContextMenu ("Validate Layers")]
+		void ValidateKoreographyTracksLayers ()
+		{
+			foreach (var layer in Enums.LayerTypes)
+			{
+				var trackLayer = Tools.ValidateSO<KoreographyTrack> (("Assets/Data/Koreography/{0}/Tracks/{1}_{0}.asset").AsFormat (name, layer));
+				trackLayer.EventID = layer.ToString ();
+				if (Koreography.CanAddTrack (trackLayer))
+					Koreography.AddTrack (trackLayer);
+			}
+		}
+
+		[ContextMenu ("CalculateConstant")]
+		void CalculateConstant ()
+		{
+			progressInfo.Max = 0;
+			foreach (var bitInfo in BitsInfos)
+			{
+				List<int> presetList = bitInfo.presets.ToList ();
+				bool isContainConstant = presetList
+					.TrueForAll (p => data.Presets[p]
+						.Find (spwnObj =>
+						{
+							if (spwnObj)
+								return spwnObj.Get<MaterialSwitcher> ().Constant;
+							return false;
+						}));
+
+				if (isContainConstant) progressInfo.Max++;
+			}
+			progressInfo.Save ();
+		}
+
 		[ContextMenu ("Set Me As Current")]
 		public void SetMeAsCurrent ()
 		{
 			data.CurrentTrack = this;
 		}
-
-		public void LoadScene ()
-		{
-			LoadingManager.instance.LoadScene (name);
-		}
-
-		Dictionary<LayerType, List<KoreographyEvent>> _layerevents = null;
-		Dictionary<LayerType, List<KoreographyEvent>> layerevents
-		{
-
-			get
-			{
-				return _layerevents ??
-					(_layerevents = Enums.LayerTypes
-						.Select (layer => new { Layer = layer, Events = GetTrack (layer).GetAllEvents () })
-						.ToDictionary (les => les.Layer, les => les.Events));
-			}
-
-		}
-
-		public List<KoreographyEvent> this [LayerType layer]
-		{
-			get
-			{
-				List<KoreographyEvent> events = null;
-				layerevents.TryGetValue (layer, out events);
-				return events;
-			}
-		}
-		public Koreography koreography;
-
-		public KoreographyTrack GetTrack (LayerType layer)
-		{
-			return koreography.GetTrackByID (layer.ToString ());
-		}
-		public List<KoreographyEvent> GetAllEventsByType (LayerType layer)
-		{
-			return GetTrack (layer).GetAllEvents ();
-		}
-		public List<KoreographyEvent> GetLongEventsByType (LayerType layer)
-		{
-			return GetAllEventsByType (layer).FindAll (e => e.EndSample - e.StartSample > 0);
-		}
-		public List<KoreographyEvent> GetShortEventsByType (LayerType layer)
-		{
-			return GetAllEventsByType (layer).FindAll (e => e.EndSample == e.StartSample);
-		}
-
-		public float MinTimeOfBit = 0.2f;
-		public List<BitInfo> BitsInfos = new List<BitInfo> ();
 
 		[ContextMenu ("Generate Random Playeble")]
 		public void GenerateRandomPlayebles ()
@@ -121,68 +124,113 @@ namespace CyberBeat
 				BitsInfos.Add (new BitInfo ()
 				{
 					presets = new int[] { e.GetIntValue () },
-						time = (float) e.StartSample / (float) koreography.SampleRate,
+						time = (float) e.StartSample / (float) Koreography.SampleRate,
 				});
 			}
 		}
-#if UNITY_EDITOR
 
-		[ContextMenu ("CalculateConstant")]
-		void CalculateConstant ()
+		[ContextMenu ("Convert To Text")]
+		void ConvertToText ()
 		{
-
-			progressInfo.Max = 0;
-			foreach (var bitInfo in BitsInfos)
+			UnityEditor.EditorUtility.SetDirty (GetTrack (LayerType.Bit));
+			foreach (var e in this [LayerType.Bit])
 			{
-				List<int> presetList = bitInfo.presets.ToList ();
-
-				bool isContainConstant = presetList
-					.TrueForAll (p => data.Presets[p]
-						.Find (spwnObj =>
-						{
-							if (spwnObj)
-								return spwnObj.Get<MaterialSwitcher> ().Constant;
-							return false;
-						}));
-
-				if (isContainConstant) progressInfo.Max++;
+				int pld = e.GetIntValue ();
+				var payload = new TextPayload ();
+				payload.TextVal = pld.ToString ();
 			}
-			progressInfo.Save ();
+
 		}
 
-		[ContextMenu ("InitByMusic")]
-		void InitByMusic ()
+		[ContextMenu ("Fix Paylaod")]
+		void FixPayload ()
 		{
-
-			var SpitedName = name.Split ("-".ToCharArray (), StringSplitOptions.RemoveEmptyEntries);
-			this.Save ();
-			music.AuthorName = SpitedName[0];
-			music.TrackName = SpitedName[1];
-
-			shopInfo.SaveKey = "{0} Buyed".AsFormat (name);
-
-			progressInfo.Validate (name);
-			var koreography = CreateInstance<Koreography> ();
-			this.koreography = koreography;
-			this.koreography.SourceClip = music.clip;
-			koreography.GetTempoSectionAtIndex (0).SectionName = "Default Selection";
-			koreography.InsertTempoSectionAtIndex (0).SectionName = "Zero Selection";
-			this.koreography.CreateAsset (("Assets/Data/Koreography/{0}/{0}_Koreography.asset").AsFormat (name));
-			foreach (var layer in Enums.LayerTypes)
+			UnityEditor.EditorUtility.SetDirty (GetTrack (LayerType.Bit));
+			foreach (var e in this [LayerType.Bit])
 			{
-				var trackLayer = CreateInstance<KoreographyTrack> ();
-				trackLayer.CreateAsset (("Assets/Data/Koreography/{0}/Traks/{1}_{0}.asset").AsFormat (name, layer));
-				trackLayer.EventID = layer.ToString ();
-				koreography.AddTrack (trackLayer);
+				string pld = e.GetTextValue ();
+				int value = -1;
+				int.TryParse (pld, out value);
+				if (value == -1 || !data.Presets.Keys.Contains (value))
+				{
+					TextPayload textPayload = new TextPayload ();
+					textPayload.TextVal = string.Format ("{0}", 1);
+					e.Payload = textPayload;
+				}
 			}
-			CalculateConstant ();
-			data.Objects.Add (this);
-			SetMeAsCurrent ();
-			UnityEditor.Selection.activeObject = this;
-			this.Save ();
+
 		}
 
+		[ContextMenu ("Save ME")]
+		public void SaveME ()
+		{
+			this.Save ();
+		}
 #endif
+		#endregion
+		public MusicInfo music;
+		public List<SocialInfo> socials;
+		public ShopInfo shopInfo;
+		public ProgressInfo progressInfo;
+		public TracksCollection data { get { return TracksCollection.instance; } }
+
+		public int TrackNumber { get { return data.Objects.IndexOf (this) + 1; } }
+
+		public void ResetDefault ()
+		{
+			shopInfo.ResetDefault ();
+		}
+		public float StartSpeed = 50f;
+		public void LoadScene ()
+		{
+			LoadingManager.instance.LoadScene (name);
+		}
+		Dictionary<LayerType, List<KoreographyEvent>> _layerevents = null;
+		Dictionary<LayerType, List<KoreographyEvent>> layerevents
+		{
+
+			get
+			{
+				return _layerevents ??
+					(_layerevents = Enums.LayerTypes
+						.Select (layer => new { Layer = layer, Events = GetTrack (layer).GetAllEvents () })
+						.ToDictionary (les => les.Layer, les => les.Events));
+			}
+
+		}
+
+		[SerializeField] Koreography koreography;
+		public Koreography Koreography { get { return koreography; } set { koreography = value; } }
+
+		public List<KoreographyEvent> this [LayerType layer]
+		{
+			get
+			{
+				List<KoreographyEvent> events = null;
+				layerevents.TryGetValue (layer, out events);
+				return events;
+			}
+		}
+
+		public KoreographyTrack GetTrack (LayerType layer)
+		{
+			return Koreography.GetTrackByID (layer.ToString ());
+		}
+		public List<KoreographyEvent> GetAllEventsByType (LayerType layer)
+		{
+			return GetTrack (layer).GetAllEvents ();
+		}
+		public List<KoreographyEvent> GetLongEventsByType (LayerType layer)
+		{
+			return GetAllEventsByType (layer).FindAll (e => e.EndSample - e.StartSample > 0);
+		}
+		public List<KoreographyEvent> GetShortEventsByType (LayerType layer)
+		{
+			return GetAllEventsByType (layer).FindAll (e => e.EndSample == e.StartSample);
+		}
+
+		public float MinTimeOfBit = 0.2f;
+		public List<BitInfo> BitsInfos = new List<BitInfo> ();
 
 		public bool GetGateState (int index)
 		{

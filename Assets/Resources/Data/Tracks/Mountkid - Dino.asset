@@ -23,9 +23,9 @@ MonoBehaviour:
     Price: 2000
     SaveKey: Mountkid - Dino Buyed
   progressInfo:
-    Best: {fileID: 11400000, guid: ca9681043e24648fa8d698f10cde37d2, type: 2}
-    Max: {fileID: 11400000, guid: 471deb5a90d6c48bfbefb196b4dddd6f, type: 2}
-    Percent: {fileID: 11400000, guid: 266a68745cd434d8ab3c526d42a8c175, type: 2}
+    best: {fileID: 11400000, guid: ca9681043e24648fa8d698f10cde37d2, type: 2}
+    max: {fileID: 11400000, guid: 471deb5a90d6c48bfbefb196b4dddd6f, type: 2}
+    percent: {fileID: 11400000, guid: 266a68745cd434d8ab3c526d42a8c175, type: 2}
   StartSpeed: 50
   koreography: {fileID: 11400000, guid: 6bc33ba4241084a55856c983ae4767e9, type: 2}
   MinTimeOfBit: 0.2
@@ -584,4 +584,3 @@ MonoBehaviour:
     presets: 01000000
   - time: 83.35823
     presets: 04000000
-  LayerForGenerateTimEvents: 0

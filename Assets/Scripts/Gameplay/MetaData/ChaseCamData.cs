@@ -4,7 +4,7 @@ namespace CyberBeat
 
 	using UnityEngine;
 	[System.Serializable]
-	public struct ChaseCamData
+	public struct ChaseCamData : GameCore.IMetaData
 	{
 		[Header ("Позиция камеры")]
 		public Vector3 TargetMovePosition;
@@ -30,6 +30,9 @@ namespace CyberBeat
 		public Vector3 posInfluence;
 		[Header ("Насколько это дрожание влияет на вращение.")]
 		public Vector3 rotInfluence;
+
+		float timeDuaration;
+		public float TimeDuaration { get;set; }
 
 		// TODO Make EZ ShakeCameara
 

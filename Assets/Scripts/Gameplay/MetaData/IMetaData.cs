@@ -1,7 +1,7 @@
-namespace CyberBeat
+namespace GameCore
 {
     public interface IMetaData
     {
-        string NameOfMetaType { get; }
+        float TimeDuaration { get; set; }
     }
 }
