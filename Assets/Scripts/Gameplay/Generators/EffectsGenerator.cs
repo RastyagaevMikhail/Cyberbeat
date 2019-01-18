@@ -18,6 +18,7 @@ namespace CyberBeat
         public Pool pool { get { return Pool.instance; } }
         public void OnBit (KoreographyEvent koreographyEvent)
         {
+            if (!koreographyEvent.HasTextPayload ()) return;
             var dataPayload = koreographyEvent.GetTextValue ().Split (',');
 
             var spawnedSkin = pool.Pop ("Effects");

@@ -27,6 +27,7 @@ namespace CyberBeat
             LastRandomColor = Colors.instance.RandomColor;
 
             InitRCM ();
+            lastBeat = 0;
         }
 
         [SerializeField] StringVariable DefaultColorName;
@@ -35,13 +36,23 @@ namespace CyberBeat
             rcm = new RandomConstantMaterial (); //ScriptableObject.CreateInstance<RandomConstantMaterial> ();
             rcm.Init (LastRandomColor, DefaultColorName.Value);
         }
-
+        float lastBeat = 0;
         [SerializeField] Color LastRandomColor;
         public void OnBit (KoreographyEvent koreographyEvent)
         {
-            Debug.Log("OnBit TrackGenerator");
+            if (!koreographyEvent.HasTextPayload ()) return;
+
+            float bitTime = (float) koreographyEvent.StartSample / 44100f;
+
+            if (lastBeat >= bitTime)
+                return;
+            else
+                lastBeat = bitTime;
+
             var TextPayloadValue = koreographyEvent.GetTextValue ();
-            int randPreset = TextPayloadValue.Split (',').Select (strInt => int.Parse (strInt)).GetRandom ();
+            string[] SplitedPresetsStrings = TextPayloadValue.Split (',');
+
+            int randPreset = SplitedPresetsStrings.Select (strInt => int.Parse (strInt)).GetRandom ();
             List<SpawnedObject> row = null;
             try
             {
@@ -62,8 +73,6 @@ namespace CyberBeat
 
                 if (spawnObj)
                 {
-                    float bitTime = (float) koreographyEvent.StartSample / 44100f;
-                    Debug.LogFormat("bitTime = {0}",bitTime);
                     ColorInterractor colorInterractor = spawnObj.Get<ColorInterractor> ();
 
                     colorInterractor.Init (bitTime);

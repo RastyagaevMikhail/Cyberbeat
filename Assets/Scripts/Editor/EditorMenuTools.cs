@@ -26,11 +26,13 @@ public class EditorMenuTools
 	{
 		OpenScene ("Menu");
 	}
+
 	[MenuItem ("Game/Scenes/InitializeScene")]
 	public static void OpenInitializeScene ()
 	{
 		OpenScene ("InitializeScene");
 	}
+
 	[MenuItem ("Game/Scenes/Tutorial")]
 	public static void OpenTutorial ()
 	{
@@ -42,9 +44,15 @@ public class EditorMenuTools
 	{
 		OpenScene ("Tracks/E.P.O - Infinity");
 	}
+
 	[MenuItem ("Game/Scenes/Tracks/Mountkid - Dino")]
 	public static void OpenMountkid_Dino ()
 	{
 		OpenScene ("Tracks/Mountkid - Dino");
+	}
+	[MenuItem("Game/Current Track")]
+	public static void OpenCurrent ()
+	{
+		Selection.activeObject = CyberBeat.TracksCollection.instance.CurrentTrack;
 	}
 }

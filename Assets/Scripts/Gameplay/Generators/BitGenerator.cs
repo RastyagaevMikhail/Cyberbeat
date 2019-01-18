@@ -42,6 +42,7 @@ namespace CyberBeat
         }
         public void RegisterEvents ()
         {
+            Debug.LogFormat ("koreographer = {0}", koreographer);
             koreographer.RegisterForEvents (TrackIDLayer.ToString (), OnBit.Invoke);
         }
 
