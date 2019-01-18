@@ -1,4 +1,3 @@
-
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
@@ -13,12 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: -1223223985, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
   m_Name: Line_Audioscribe - Free Fall
   m_EditorClassIdentifier: 
-  mEventID: Line
-  mEventList:
-  - mStartSample: 0
-    mEndSample: 1952700
-  - mStartSample: 2834327
-    mEndSample: 4950143
+  mEventID: 
+  mEventList: []
   _SerializedPayloadTypes: []
   _ColorPayloads: []
   _ColorPayloadIdxs: 
