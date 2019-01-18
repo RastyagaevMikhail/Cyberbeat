@@ -39,6 +39,7 @@ namespace CyberBeat
         [SerializeField] Color LastRandomColor;
         public void OnBit (KoreographyEvent koreographyEvent)
         {
+            Debug.Log("OnBit TrackGenerator");
             var TextPayloadValue = koreographyEvent.GetTextValue ();
             int randPreset = TextPayloadValue.Split (',').Select (strInt => int.Parse (strInt)).GetRandom ();
             List<SpawnedObject> row = null;
@@ -62,7 +63,7 @@ namespace CyberBeat
                 if (spawnObj)
                 {
                     float bitTime = (float) koreographyEvent.StartSample / 44100f;
-
+                    Debug.LogFormat("bitTime = {0}",bitTime);
                     ColorInterractor colorInterractor = spawnObj.Get<ColorInterractor> ();
 
                     colorInterractor.Init (bitTime);

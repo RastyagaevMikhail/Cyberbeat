@@ -14,9 +14,40 @@ namespace CyberBeat
         [SerializeField] KoreographerVariable koreographer;
         [SerializeField] LayerType TrackIDLayer;
         [SerializeField] UnityEventKoreographyEvent OnBit;
-        void Start ()
+        [SerializeField] bool RegisterOnAwake;
+        [SerializeField] bool RegisterOnStart;
+        [SerializeField] bool debug;
+        private void Awake()
+        {
+            if(RegisterOnAwake)
+            {
+                RegisterEvents();
+                if(debug)
+                {
+                    Debug.Log("Register OnAwake");
+                    printDebug();
+                }
+            }
+        }
+        private void Start() {
+            if(RegisterOnStart)
+            {
+                RegisterEvents();
+                if(debug)
+                {
+                    Debug.Log("Register OnStart");
+                    printDebug();
+                }
+            }
+        }
+        public void RegisterEvents ()
         {
             koreographer.RegisterForEvents (TrackIDLayer.ToString (), OnBit.Invoke);
+        }
+
+        void printDebug()
+        {
+            Debug.LogFormat(this, "{0} {1} {2}", koreographer, TrackIDLayer, name);
         }
     }
 }

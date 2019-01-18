@@ -12,6 +12,7 @@ namespace GameCore
         [SerializeField] GameEvent Event;
 
         [SerializeField] UnityEvent Responce;
+        [SerializeField] bool debug;
         public EventListener (GameEvent startEvent, UnityAction action)
         {
             Event = startEvent;
@@ -22,6 +23,8 @@ namespace GameCore
 
         public void OnEventRaised ()
         {
+            if (debug)
+                Debug.LogFormat(" On Event \"{0}\" Raised", Event.name);
             Responce.Invoke ();
         }
         public bool OnEnable ()

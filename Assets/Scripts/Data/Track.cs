@@ -138,6 +138,7 @@ namespace CyberBeat
 				int pld = e.GetIntValue ();
 				var payload = new TextPayload ();
 				payload.TextVal = pld.ToString ();
+				e.Payload = payload;
 			}
 
 		}

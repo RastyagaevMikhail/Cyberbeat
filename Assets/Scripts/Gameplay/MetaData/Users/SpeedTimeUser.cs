@@ -14,10 +14,10 @@ namespace CyberBeat
     {
         private SplineController _splineController = null;
         public SplineController splineController { get { if (_splineController == null) { _splineController = GetComponent<SplineController> (); } return _splineController; } }
-        private void Awake ()
+        /* private void Awake ()
         {
             _SetSpeed (TracksCollection.instance.CurrentTrack.StartSpeed);
-        }
+        } */
 
         [SerializeField] FloatVariable SpeedVariable;
         public TweenCallback<float> OnSpeedUpdated;
@@ -42,6 +42,7 @@ namespace CyberBeat
         public void _SetSpeed (float newSpeed)
         {
             splineController.Speed = newSpeed;
+            // Debug.LogFormat("newSpeed = {0}",newSpeed);
             // splineController.Play ();
         }
         public void _SlowStop (float StopDuration = 2f)
