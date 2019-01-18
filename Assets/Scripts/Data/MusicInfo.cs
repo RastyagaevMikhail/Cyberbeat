@@ -12,6 +12,7 @@ namespace CyberBeat
 		public Sprite AlbumImage;
 		public TracksCollection data { get { return TracksCollection.instance; } }
 
+		#if UNITY_EDITOR
 		public void Validate (string NameTrack)
 		{
 			clip = Tools.GetAssetAtPath<AudioClip> ("Assets/Audio/Tracks/{0}.mp3".AsFormat (NameTrack));
@@ -20,5 +21,6 @@ namespace CyberBeat
 			TrackName = SpitedName[1].TrimStart ();
 			AlbumImage = Tools.GetAssetAtPath<Sprite> ("Assets/Sprites/UI/AlbumPhoto/{0}.png".AsFormat (NameTrack));
 		}
+		#endif
 	}
 }

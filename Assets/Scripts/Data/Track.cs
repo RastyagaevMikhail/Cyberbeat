@@ -68,6 +68,7 @@ namespace CyberBeat
 			foreach (var layer in Enums.LayerTypes)
 			{
 				var trackLayer = Tools.ValidateSO<KoreographyTrack> (("Assets/Data/Koreography/{0}/Tracks/{1}_{0}.asset").AsFormat (name, layer));
+				UnityEditor.EditorUtility.SetDirty(trackLayer);
 				trackLayer.EventID = layer.ToString ();
 				if (Koreography.CanAddTrack (trackLayer))
 					Koreography.AddTrack (trackLayer);
@@ -93,12 +94,6 @@ namespace CyberBeat
 				if (isContainConstant) progressInfo.Max++;
 			}
 			progressInfo.Save ();
-		}
-
-		[ContextMenu ("Set Me As Current")]
-		public void SetMeAsCurrent ()
-		{
-			data.CurrentTrack = this;
 		}
 
 		[ContextMenu ("Generate Random Playeble")]
@@ -138,6 +133,7 @@ namespace CyberBeat
 				int pld = e.GetIntValue ();
 				var payload = new TextPayload ();
 				payload.TextVal = pld.ToString ();
+				e.Payload = payload;
 			}
 
 		}
@@ -167,6 +163,11 @@ namespace CyberBeat
 			this.Save ();
 		}
 #endif
+		[ContextMenu ("Set Me As Current")]
+		public void SetMeAsCurrent ()
+		{
+			data.CurrentTrack = this;
+		}
 		#endregion
 		public MusicInfo music;
 		public List<SocialInfo> socials;

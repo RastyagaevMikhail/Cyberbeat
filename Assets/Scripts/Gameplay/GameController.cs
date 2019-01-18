@@ -10,6 +10,7 @@ namespace CyberBeat
         [SerializeField] GameEvent startGame;
         //Raise On AppliacrtionPause or Focus
         [SerializeField] GameEvent pause;
+        [SerializeField] GameEvent resume;
 
         private bool gameStarted;
 
@@ -36,12 +37,13 @@ namespace CyberBeat
         void Update ()
         {
             if (isPaused)
-                Pause.Raise ();
+                pause.Raise ();
         }
 
         void OnApplicationFocus (bool hasFocus)
         {
             isPaused = !hasFocus;
+            if(!isPaused) resume.Raise();
         }
 
         void OnApplicationPause (bool pauseStatus)

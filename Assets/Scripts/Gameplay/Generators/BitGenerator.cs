@@ -16,6 +16,7 @@ namespace CyberBeat
         [SerializeField] UnityEventKoreographyEvent OnBit;
         void Start ()
         {
+            Debug.LogFormat ("koreographer = {0}", koreographer);
             koreographer.RegisterForEvents (TrackIDLayer.ToString (), OnBit.Invoke);
         }
     }
