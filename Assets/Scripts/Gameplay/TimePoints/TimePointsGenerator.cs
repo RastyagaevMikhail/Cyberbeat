@@ -50,7 +50,7 @@ namespace CyberBeat
             set
             {
                 editMode.Value = value;
-                FindObjectsOfType<TimeEventsController> ().ToList ().ForEach (tec => tec.SetFilterEnabled (!value));
+                // FindObjectsOfType<TimeEventsController> ().ToList ().ForEach (tec => tec.FilterEnabled = !value);
             }
         }
 

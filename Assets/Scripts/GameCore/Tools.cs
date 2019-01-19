@@ -210,7 +210,6 @@ namespace GameCore
             // Debug.LogFormat ("results.Count() = {0}", results.Count ());
             return results;
         }
-<<<<<<< HEAD
         public static T ValidateVaraiable<T> (string path, bool isSavable = false) where T : ASavableVariable
         {
             T variable = GetAssetAtPath<T> (path);
@@ -233,8 +232,6 @@ namespace GameCore
             // string pathInstance = AssetDatabase.GetAssetPath (so);
             return so;
         }
-=======
->>>>>>> parent of 46a173b... Fix Some Problem with Booster and Memory
         public static T GetAssetAtPath<T> (string path) where T : UnityEngine.Object
         {
             return (T) AssetDatabase.LoadAssetAtPath (path, typeof (T));

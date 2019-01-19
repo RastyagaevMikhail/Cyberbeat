@@ -1,20 +1,27 @@
 using FluffyUnderware.DevTools;
 
 using GameCore;
-
+using System;
 using System.Collections;
 
 using UnityEngine;
 namespace CyberBeat
 {
     [ExecuteInEditMode]
-    public class ChaseCam : MonoBehaviour
+    public class ChaseCam : TransformObject
     {
         private static ChaseCam _instance = null;
         public static ChaseCam instance { get { if (_instance == null) _instance = GameObject.FindObjectOfType<ChaseCam> (); return _instance; } }
-        public Transform LookAt;
-        public Transform MoveTo;
-        public Transform RollTo;
+
+        [SerializeField] TransformVariable lookAt;
+        public Transform LookAtTarget { get => lookAt ? lookAt.Value : null; set => lookAt.Value = value; }
+
+        [SerializeField] TransformVariable moveTo;
+        public Transform MoveTo { get => moveTo?moveTo.Value : null; set => moveTo.Value = value; }
+
+        [SerializeField] TransformVariable rollTo;
+        public Transform RollTo { get => rollTo?rollTo.Value : null; set => rollTo.Value = value; }
+
         [Positive]
         public float ChaseTime = 0.5f;
 
@@ -28,27 +35,29 @@ namespace CyberBeat
             if (!Application.isPlaying)
             {
                 if (MoveTo)
-                    transform.position = MoveTo.position;
-                if (LookAt)
+                    position = MoveTo.position;
+                if (LookAtTarget)
                 {
-                    if (!RollTo) transform.LookAt (LookAt);
-                    else transform.LookAt (LookAt, RollTo.up);
+                    if (!RollTo) LookAt (LookAtTarget);
+                    else LookAt (LookAtTarget, RollTo.up);
                 }
                 // if (RollTo)
                 //     transform.rotation = Quaternion.Euler (new Vector3 (transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, RollTo.rotation.eulerAngles.z));
             }
         }
+
+        
 #endif
 
         // Update is called once per frame
         void LateUpdate ()
         {
             if (MoveTo)
-                transform.position = Vector3.SmoothDamp (transform.position, MoveTo.position, ref mVelocity, ChaseTime);
-            if (LookAt)
+                position = Vector3.SmoothDamp (position, MoveTo.position, ref mVelocity, ChaseTime);
+            if (LookAtTarget)
             {
-                if (!RollTo) transform.LookAt (LookAt);
-                else transform.LookAt (LookAt, Vector3.SmoothDamp (transform.up, RollTo.up, ref mRollVelocity, ChaseTime));
+                if (!RollTo) LookAt (LookAtTarget);
+                else LookAt (LookAtTarget, Vector3.SmoothDamp (up, RollTo.up, ref mRollVelocity, ChaseTime));
             }
             // if (RollTo)
             //     transform.rotation = Quaternion.Euler (new Vector3 (transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, RollTo.rotation.eulerAngles.z));

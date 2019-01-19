@@ -33,6 +33,11 @@ namespace GameCore
         {
             Value = value.Value;
         }
+        [ContextMenu("Toggle")]
+        public void Toggle ()
+        {
+            Value = !Value;
+        }
 
         [ContextMenu ("Toggle Savable")]
         void ToggleSavable () { isSavable = !isSavable; }

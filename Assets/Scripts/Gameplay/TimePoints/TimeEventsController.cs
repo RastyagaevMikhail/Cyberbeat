@@ -8,39 +8,62 @@ using System.Linq;
 using UnityEngine;
 namespace CyberBeat
 {
-
-    [RequireComponent (typeof (GameEventListener))]
     public class TimeEventsController : MonoBehaviour
     {
-        [SerializeField] TimeOfEventsData dataTime;
-        [SerializeField] bool enableFilter;
-        [SerializeField] string payloadFilter = "Combo";
-        List<TimeOfEvent> Times { get { return enableFilter ? dataTime[payloadFilter] : dataTime.Times; } }
-        TimeOfEvent currentTime;
-
-        private void Start ()
+        [SerializeField]
+        List<TimeEventsItem> timeEventsItems;
+        [SerializeField]
+        float time;
+        public bool StartCountTime { get; set; }
+        void Awake ()
         {
-            currentTime = Times.First ();
+            foreach (var item in timeEventsItems)
+                item.Start ();
         }
-
-        bool isTime;
-        bool lastTime;
-        private float time;
-        //* Set On GameEventListener, When Need start Write Times
-        public bool _startCountTime { get; set; }
-        private int indexOfTime;
-
-        [SerializeField] TimeEventVariable timeEvent;
-
         void Update ()
         {
-            if (!_startCountTime) return;
+            if (!StartCountTime) return;
 
             time += Time.deltaTime;
+            foreach (var item in timeEventsItems)
+                item.UpdateInTime (time);
+        }
+    }
+
+    [Serializable]
+    public class TimeEventsItem
+    {
+        [SerializeField] TimeOfEventsDataVariable dataTimeVariable;
+        [SerializeField] UnityEventTimeEvent OnTimneEventChanged;
+        TimeOfEventsData dataTime { get { return dataTimeVariable.Value; } }
+        List<TimeOfEvent> Times { get { return dataTime.Times; } }
+        private bool TimesIsOver => indexOfTime >= Times.Count;
+        TimeOfEvent currentTime;
+        TimeEvent currentTimeEvent;
+        int indexOfTime;
+        bool isTime;
+        bool lastTime;
+
+        public bool Start ()
+        {
+            if (TimesIsOver)
+            {
+                Debug.Log ($"TimesIsOver {this}");
+                return false;
+            }
+            currentTime = Times.First ();
+            currentTimeEvent = new TimeEvent (isTime, currentTime);
+            return true;
+        }
+        public void UpdateInTime (float time)
+        {
+            if (TimesIsOver) return;
+
             if (lastTime != isTime)
             {
                 lastTime = isTime;
-                if (timeEvent != null) timeEvent.SetValue (new TimeEvent (isTime, currentTime));
+
+                OnTimneEventChanged.Invoke (currentTimeEvent.Init (isTime, currentTime));
             }
             if (currentTime.Start <= time)
             {
@@ -50,14 +73,15 @@ namespace CyberBeat
                     isTime = false;
 
                     indexOfTime++;
-                    if (indexOfTime >= Times.Count) return;
+                    if (TimesIsOver) return;
                     currentTime = Times[indexOfTime];
                 }
             }
         }
-
-        public void SetFilterEnabled(bool Value) {
-            enableFilter = Value;
+        public override string ToString ()
+        {
+            return $"{dataTimeVariable}" + base.ToString ();
         }
+
     }
 }

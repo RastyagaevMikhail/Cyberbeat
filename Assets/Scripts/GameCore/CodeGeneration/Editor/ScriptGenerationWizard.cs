@@ -92,7 +92,7 @@ namespace GameCore
         public string namesapaceKey;
         public string nameOfNameSpace;
 
-        public void Generate (bool ForwardNameTypte = true)
+        public void Generate (bool ForwardTypeName = true)
         {
             var textAsset = Resources.Load<TextAsset> (Name);
 
@@ -103,7 +103,7 @@ namespace GameCore
 
             string directoryPath = Application.dataPath + "/Scripts/" + nameOfNameSpace + "/" + Name + "/";
             Directory.CreateDirectory (directoryPath);
-            string name = ForwardNameTypte ? nameOfType + Name : Name + nameOfType;
+            string name = ForwardTypeName ? nameOfType + Name : Name + nameOfType;
             string filePath = directoryPath + name + ".cs";
             File.WriteAllText (filePath, ScriptText);
             AssetDatabase.Refresh ();

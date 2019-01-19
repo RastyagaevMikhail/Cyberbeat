@@ -59,9 +59,9 @@ namespace CyberBeat
             //Notes
             AccumulatedNotes.ApplyChange (notesPerBeat);
         }
-        public void AccumulateBoosterData (BoosterData boosterData)
+        public void AccumulateBoosterUsePercent (float boosterUsePercent)
         {
-            BoostersUsePercent.ApplyChange (boosterData.boosterUsePercent);
+            BoostersUsePercent.ApplyChange (boosterUsePercent);
         }
 
         public void TakeDoubleReward ()
@@ -76,7 +76,7 @@ namespace CyberBeat
                 return AccumulatedBits.Value +
                     BoostersUsePercent.AsPercent (AccumulatedBits) +
                     ComboPercent.AsPercent (AccumulatedBits) +
-                    track.progressInfo.Percent.AsPercent (AccumulatedBits) +
+                    track.progressInfo.AsPercent (AccumulatedBits) +
                     AccumulatedNotes.Value;
             }
         }

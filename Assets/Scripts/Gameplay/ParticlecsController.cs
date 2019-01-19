@@ -6,14 +6,17 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace CyberBeat
 {
+    [RequireComponent (typeof (GameEventColor))]
     public class ParticlecsController : MonoBehaviour
     {
         public Pool pool { get { return Pool.instance; } }
-        public IntVariable ScoresPerBeat;
-        public void OnColorInterractorDeath (ColorInterractor interractor)
+
+        [SerializeField] IntVariable ScoresPerBeat;
+        [SerializeField] TransformVariable PlayerTransform;
+        public void OnColorTaked (Color color)
         {
-            var scoreText = pool.Pop ("ScoreText", Player.instance.transform.parent).Get<ScoreText> ();
-            scoreText.Init (ScoresPerBeat.Value, interractor.matSwitch.CurrentColor);
+            var scoreText = pool.Pop ("ScoreText", PlayerTransform.parent).Get<ScoreText> ();
+            scoreText.Init (ScoresPerBeat.Value, color);
         }
     }
 }

@@ -18,8 +18,7 @@ MonoBehaviour:
   IsOver: {fileID: 11400000, guid: c2557299ad7fcd24e828dfb68376350e, type: 2}
   Count: {fileID: 11400000, guid: 73795263a201448419966226411c8eb4, type: 2}
   Price: 100
-  timer: {fileID: 0}
-  shopData: {fileID: 11400000, guid: 2b81576b44df4b6469e392647cd2e1a5, type: 2}
+  boosterUsePercent: 0.1
   levelUpgrade: {fileID: 11400000, guid: e99fe92920f326c47887a4ca97d6ffa5, type: 2}
   activeBoosters: {fileID: 11400000, guid: 9cb038c12b3558148bddf31125a5954e, type: 2}
   OnReseted:

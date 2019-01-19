@@ -68,9 +68,8 @@ namespace CyberBeat
         [ContextMenu ("DeactivateAllBoosters")]
         public void DeactivateAllBoosters ()
         {
-            ActiveBoosters.ForEach (b => b.DeActivate ());
+            activeBoosters.ForEach (b => b.DeActivate ());
         }
-<<<<<<< HEAD
 
         [SerializeField] 
         List<UpgradeData> Upgrades;
@@ -78,52 +77,10 @@ namespace CyberBeat
         [SerializeField] BoosterDataRuntimeSet activeBoosters;
         public bool HasActiveBoosters { get { return activeBoosters.Count > 0; } }
        
-=======
-        [SerializeField] List<UpgradeData> Upgrades;
-        public List<BoosterData> boosters;
-        public List<BoosterData> ActiveBoosters = new List<BoosterData> ();
-        public bool HasActiveBoosters { get { return ActiveBoosters.Count > 0; } }
-        bool startActivated;
-        Action OnActivationComplete;
-        public void ActivateBoosters (ColorBrick brick)
-        {
-            startActivated = true;
-            foreach (var boosterData in ActiveBoosters)
-            {
-                boosterData.Apply (brick);
-            }
-            startActivated = false;
-            if (OnActivationComplete != null) OnActivationComplete ();
-        }
-        List<BoosterData> BoostersFromRemove = new List<BoosterData> ();
->>>>>>> parent of 46a173b... Fix Some Problem with Booster and Memory
         public void DeActivate (BoosterData boosterData)
         {
-            if (startActivated)
-            {
-                if (BoostersFromRemove == null) BoostersFromRemove = new List<BoosterData> ();
-                BoostersFromRemove.Add (boosterData);
-                OnActivationComplete += onActivationComplete;
-            }
-            else
-                RemoveActiveBooster (boosterData);
-
+            activeBoosters.Remove (boosterData);
         }
 
-        private void RemoveActiveBooster (BoosterData boosterData)
-        {
-            ActiveBoosters.Remove (boosterData);
-        }
-        void onActivationComplete ()
-        {
-            OnActivationComplete -= onActivationComplete;
-            foreach (var boosterData in BoostersFromRemove)
-                RemoveActiveBooster (boosterData);
-            BoostersFromRemove.Clear ();
-
-<<<<<<< HEAD
-=======
-        }
->>>>>>> parent of 46a173b... Fix Some Problem with Booster and Memory
     }
 }

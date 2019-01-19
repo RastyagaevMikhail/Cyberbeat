@@ -23,12 +23,13 @@ namespace CyberBeat
 				track.ResetDefault ();
 			}
 		}
-		[ContextMenu("GentrateProgressInfo")]
-		void GentrateProgressInfo()
+
+		[ContextMenu ("Validate ProgressInfo")]
+		void ValidateProgressInfo ()
 		{
 			foreach (var track in Objects)
 			{
-					track.GenerateProgressInfo();
+				track.ValidateProgressInfo ();
 			}
 		}
 #endif

@@ -7,12 +7,14 @@ namespace CyberBeat
     [CreateAssetMenu (fileName = "Blade", menuName = "CyberBeat/BoosterData/Blade")]
     public class BladeBoosterData : BoosterData
     {
-        public override void Apply (ColorBrick brick)
+        public override bool Apply (ColorBrick brick, bool equalsColor)
         {
-            Debug.Log ("Apply.BladeBoosterData");
-            foreach (var neighbor in brick.Neighbors)
-                neighbor.Death ();
-            brick.OnPlayerContact();
+            OnApply.Invoke (this);
+            // Debug.Log ("Apply.BladeBoosterData");
+
+            brick.KillNeighbors ();
+            
+            return equalsColor;
         }
     }
 }

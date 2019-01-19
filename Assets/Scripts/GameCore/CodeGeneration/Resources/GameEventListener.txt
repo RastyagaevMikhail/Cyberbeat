@@ -9,7 +9,7 @@ namespace $NAMESPACE_NAME$
     
     public class GameEventListener$TYPE_NAME$ : MonoBehaviour
     {
-        [SerializeField] $TYPE_NAME$GameEvent Event;
+        [SerializeField] GameEvent$TYPE_NAME$ Event;
 
         [SerializeField] UnityEvent$TYPE_NAME$ Responce;
 

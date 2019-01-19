@@ -4,47 +4,12 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1a4ee63bb206ce4eb13353d7543e929, type: 3}
+  m_Script: {fileID: 11500000, guid: 013774f0e3b325f4580701cf3aaf425b, type: 3}
   m_Name: ComboTimeEvent
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _value
-      Entry: 7
-      Data: CyberBeat.TimeEvent, Assembly-CSharp
-    - Name: isTime
-      Entry: 5
-      Data: false
-    - Name: timeOfEvent
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DefaultValue
-      Entry: 7
-      Data: CyberBeat.TimeEvent, Assembly-CSharp
-    - Name: isTime
-      Entry: 5
-      Data: false
-    - Name: timeOfEvent
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  DeveloperDescription: 
-  categoryTag: Default
-  ResetByDefault: 0
-  Loaded: 0
+  eventListeners: []

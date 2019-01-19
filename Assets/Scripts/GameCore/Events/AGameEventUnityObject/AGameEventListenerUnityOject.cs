@@ -1,14 +1,14 @@
-﻿
-using System;
+﻿using System;
 
 using UnityEngine;
 using UnityEngine.Events;
 namespace GameCore
 {
-    public abstract class AGameEventListenerUnityOject<TObject> : MonoBehaviour
+    public abstract class AGameEventListenerUnityOject<TObject, TEventListener> : MonoBehaviour
     where TObject : UnityEngine.Object
+    where TEventListener : AEventListenerUnityObject<TObject, TEventListener>
     {
-        [SerializeField] protected abstract AEventListenerUnityObject<TObject> listener { get; }
+        [SerializeField] protected abstract AEventListenerUnityObject<TObject, TEventListener> listener { get; }
 
         private void OnEnable ()
         {

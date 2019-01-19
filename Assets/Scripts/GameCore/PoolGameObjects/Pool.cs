@@ -9,7 +9,9 @@ namespace GameCore
         private static Pool _instance = null;
         public static Pool instance { get { if (_instance == null) { _instance = GameObject.FindObjectOfType<Pool> (); } return _instance; } }
 
-        public List<PoolSetteings> Settings;
+        public PoolSettingsData data;
+        List<PoolSetteings> Settings { get { return data.Settings; } }
+
         Dictionary<string, SpawnedObject> _dictSettings = null;
         Dictionary<string, SpawnedObject> dictSettings
         {
@@ -61,7 +63,7 @@ namespace GameCore
             SpawnedObject pObj = null;
 
             dictSettings.TryGetValue (Key, out pObj);
-            
+
             if (pObj == null)
             {
                 return null;

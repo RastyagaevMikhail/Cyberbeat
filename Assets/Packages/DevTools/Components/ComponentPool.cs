@@ -9,9 +9,10 @@
 #define PRE_UNITY_5_4
 #endif
 
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
+using UnityEngine;
 #if !PRE_UNITY_5_4
 using UnityEngine.SceneManagement;
 #endif
@@ -33,7 +34,7 @@ namespace FluffyUnderware.DevTools
             {
                 if (m_Settings != value)
                     m_Settings = value;
-                m_Settings.OnValidate();
+                m_Settings.OnValidate ();
             }
         }
 
@@ -44,7 +45,7 @@ namespace FluffyUnderware.DevTools
             get
             {
                 if (mManager == null)
-                    mManager = GetComponent<PoolManager>();
+                    mManager = GetComponent<PoolManager> ();
                 return mManager;
             }
         }
@@ -53,63 +54,60 @@ namespace FluffyUnderware.DevTools
         {
             get { return m_Identifier; }
             set
-            {
-            }
+            { }
         }
 
         public System.Type Type
         {
             get
             {
-                return System.Type.GetType(Identifier);
+                return System.Type.GetType (Identifier);
             }
         }
-
 
         public int Count
         {
             get { return mObjects.Count; }
         }
 
-        List<Component> mObjects = new List<Component>();
+        List<Component> mObjects = new List<Component> ();
 
         double mLastTime;
         double mDeltaTime;
 
-        public void Initialize(System.Type type, PoolSettings settings)
+        public void Initialize (System.Type type, PoolSettings settings)
         {
             m_Identifier = type.AssemblyQualifiedName;
             m_Settings = settings;
-            mLastTime = DTTime.TimeSinceStartup + UnityEngine.Random.Range(0, Settings.Speed);
+            mLastTime = DTTime.TimeSinceStartup + UnityEngine.Random.Range (0, Settings.Speed);
             if (Settings.Prewarm)
-                Reset();
+                Reset ();
         }
 
-        void Start()
+        void Start ()
         {
             if (Settings.Prewarm)
-                Reset();
+                Reset ();
         }
 
 #if UNITY_EDITOR
-        void OnValidate()
+        void OnValidate ()
         {
             Settings = m_Settings;
         }
 #endif
 
-        void OnEnable()
+        void OnEnable ()
         {
 #if !PRE_UNITY_5_4
             SceneManager.sceneLoaded += OnSceneLoaded;
 #endif
         }
 
-        void OnDisable()
-        {
-        }
+        void OnDisable ()
+        { }
 
-        public void Update()
+        public void Update ()
         {
             if (Application.isPlaying)
             {
@@ -118,28 +116,28 @@ namespace FluffyUnderware.DevTools
 
                 if (Settings.Speed > 0)
                 {
-                    int c = (int)(mDeltaTime / Settings.Speed);
+                    int c = (int) (mDeltaTime / Settings.Speed);
                     mDeltaTime -= c;
 
                     if (Count > Settings.Threshold)
                     {
-                        c = Mathf.Min(c, Count - Settings.Threshold);
+                        c = Mathf.Min (c, Count - Settings.Threshold);
                         while (c-- > 0)
                         {
                             if (Settings.Debug)
-                                log("Threshold exceeded: Deleting item");
-                            destroy(mObjects[0]);
-                            mObjects.RemoveAt(0);
+                                log ("Threshold exceeded: Deleting item");
+                            destroy (mObjects[0]);
+                            mObjects.RemoveAt (0);
                         }
                     }
                     else if (Count < Settings.MinItems)
                     {
-                        c = Mathf.Min(c, Settings.MinItems - Count);
+                        c = Mathf.Min (c, Settings.MinItems - Count);
                         while (c-- > 0)
                         {
                             if (Settings.Debug)
-                                log("Below MinItems: Adding item");
-                            mObjects.Add(create());
+                                log ("Below MinItems: Adding item");
+                            mObjects.Add (create ());
                         }
                     }
                 }
@@ -148,76 +146,76 @@ namespace FluffyUnderware.DevTools
             }
         }
 
-        public void Reset()
+        public void Reset ()
         {
             if (Application.isPlaying)
             {
                 while (Count < Settings.MinItems)
                 {
-                    mObjects.Add(create());
+                    mObjects.Add (create ());
                 }
                 while (Count > Settings.Threshold)
                 {
-                    destroy(mObjects[0]);
-                    mObjects.RemoveAt(0);
+                    destroy (mObjects[0]);
+                    mObjects.RemoveAt (0);
                 }
                 if (Settings.Debug)
-                    log("Prewarm/Reset");
+                    log ("Prewarm/Reset");
             }
         }
 #if !PRE_UNITY_5_4
-        public void OnSceneLoaded(Scene scn, LoadSceneMode mode)
+        public void OnSceneLoaded (Scene scn, LoadSceneMode mode)
         {
             for (int i = mObjects.Count - 1; i >= 0; i--)
                 if (mObjects[i] == null)
-                    mObjects.RemoveAt(i);
+                    mObjects.RemoveAt (i);
         }
 #endif
 
-        public void Clear()
+        public void Clear ()
         {
             if (Settings.Debug)
-                log("Clear");
+                log ("Clear");
             for (int i = 0; i < Count; i++)
-                destroy(mObjects[i]);
-            mObjects.Clear();
+                destroy (mObjects[i]);
+            mObjects.Clear ();
         }
 
-        public void Push(Component item)
+        public void Push (Component item)
         {
-            sendBeforePush(item);
+            sendBeforePush (item);
 #if UNITY_EDITOR
             if (!Application.isPlaying)
             {
-                DestroyImmediate(item.gameObject);
+                DestroyImmediate (item.gameObject);
             }
             else
 #endif
                 if (item != null)
-            {
-                mObjects.Add(item);
-                item.transform.parent = Manager.transform;
-                item.gameObject.hideFlags = (Settings.Debug) ? HideFlags.DontSave : HideFlags.HideAndDontSave;
-                if (Settings.AutoEnableDisable)
-                    item.gameObject.SetActive(false);
-            }
+                {
+                    mObjects.Add (item);
+                    item.transform.parent = Manager.transform;
+                    item.gameObject.hideFlags = (Settings.Debug) ? HideFlags.DontSave : HideFlags.HideAndDontSave;
+                    if (Settings.AutoEnableDisable)
+                        item.gameObject.SetActive (false);
+                }
         }
 
-        public Component Pop(Transform parent = null)
+        public Component Pop (Transform parent = null)
         {
             Component item = null;
             if (Count > 0)
             {
                 item = mObjects[0];
-                mObjects.RemoveAt(0);
+                mObjects.RemoveAt (0);
             }
             else
             {
                 if (Settings.AutoCreate || !Application.isPlaying)
                 {
                     if (Settings.Debug)
-                        log("Auto create item");
-                    item = create();
+                        log ("Auto create item");
+                    item = create ();
                 }
             }
             if (item)
@@ -225,56 +223,56 @@ namespace FluffyUnderware.DevTools
                 item.gameObject.hideFlags = HideFlags.None;
                 item.transform.parent = parent;
                 if (Settings.AutoEnableDisable)
-                    item.gameObject.SetActive(true);
-                sendAfterPop(item);
+                    item.gameObject.SetActive (true);
+                sendAfterPop (item);
                 if (Settings.Debug)
-                    log("Pop " + item);
+                    log ("Pop " + item);
             }
 
             return item;
         }
 
-        public T Pop<T>(Transform parent) where T : Component
+        public T Pop<T> (Transform parent) where T : Component
         {
-            return Pop(parent) as T;
+            return Pop (parent) as T;
         }
 
-        Component create()
+        Component create ()
         {
-            var go = new GameObject();
+            var go = new GameObject ();
             go.name = Identifier;
             go.transform.parent = Manager.transform;
             if (Settings.AutoEnableDisable)
-                go.SetActive(false);
-            var c = go.AddComponent(Type);
+                go.SetActive (false);
+            var c = go.AddComponent (Type);
             return c;
         }
 
-        void destroy(Component item)
+        void destroy (Component item)
         {
             if (item != null)
-                GameObject.Destroy(item.gameObject);
+                GameObject.Destroy (item.gameObject);
         }
 
-        void setParent(Component item, Transform parent)
+        void setParent (Component item, Transform parent)
         {
             if (item != null)
                 item.transform.parent = parent;
         }
 
-        void sendAfterPop(Component item)
+        void sendAfterPop (Component item)
         {
-            item.gameObject.SendMessage("OnAfterPop", SendMessageOptions.DontRequireReceiver);
+            item.gameObject.SendMessage ("OnAfterPop", SendMessageOptions.DontRequireReceiver);
         }
 
-        void sendBeforePush(Component item)
+        void sendBeforePush (Component item)
         {
-            item.gameObject.SendMessage("OnBeforePush", SendMessageOptions.DontRequireReceiver);
+            item.gameObject.SendMessage ("OnBeforePush", SendMessageOptions.DontRequireReceiver);
         }
 
-        void log(string msg)
+        void log (string msg)
         {
-            Debug.Log(string.Format("[{0}] ({1} items) {2}", Identifier, Count, msg));
+            Debug.Log (string.Format ("[{0}] ({1} items) {2}", Identifier, Count, msg));
         }
 
     }

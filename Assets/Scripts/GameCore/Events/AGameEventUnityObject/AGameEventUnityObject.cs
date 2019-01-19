@@ -5,22 +5,24 @@ using UnityEngine;
 namespace GameCore
 {
 	[CreateAssetMenu (fileName = "GameEventObject", menuName = "Events/GameCore/GameEvent/Object")]
-	public abstract class AGameEventUnityObject<TObject> : ScriptableObject
+	public abstract class AGameEventUnityObject<TObject, TEventListener> : ScriptableObject
 	where TObject : UnityEngine.Object
+	where TEventListener : AEventListenerUnityObject<TObject, TEventListener>
 	{
-		[SerializeField] protected List<AEventListenerUnityObject<TObject>> eventListeners = new List<AEventListenerUnityObject<TObject>> ();
+		[SerializeField]
+		abstract protected List<TEventListener> eventListeners { get; set; }
 		public void Raise (TObject obj)
 		{
 			for (int i = eventListeners.Count - 1; i >= 0; i--)
 				eventListeners[i].OnEventRaised (obj);
 		}
-		public virtual void RegisterListener (AEventListenerUnityObject<TObject> listener)
+		public virtual void RegisterListener (TEventListener listener)
 		{
 			if (!eventListeners.Contains (listener))
 				eventListeners.Add (listener);
 		}
 
-		public virtual void UnRegisterListener (AEventListenerUnityObject<TObject> listener)
+		public virtual void UnRegisterListener (TEventListener listener)
 		{
 			if (eventListeners.Contains (listener))
 				eventListeners.Remove (listener);

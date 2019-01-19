@@ -10,29 +10,22 @@ using UnityEngine;
 namespace CyberBeat
 {
 
-    public class SpeedTimeUser : MetaDataUser<SpeedTimeMetaData,SpeedTimeData>
+    public class SpeedTimeUser : MetaDataUser<SpeedTimeMetaData, SpeedTimeData>
     {
         private SplineController _splineController = null;
         public SplineController splineController { get { if (_splineController == null) { _splineController = GetComponent<SplineController> (); } return _splineController; } }
-        /* private void Awake ()
-        {
-            _SetSpeed (TracksCollection.instance.CurrentTrack.StartSpeed);
-        } */
 
-        [SerializeField] FloatVariable SpeedVariable;
-        public TweenCallback<float> OnSpeedUpdated;
+        [SerializeField] UnityEventFloat OnSpeedUpdated;
         Tweener tweener;
+        private float lastSpeed;
+
         public override void OnMetaReached (SpeedTimeMetaData meta)
         {
-            OnMetaData(meta.data);
+            OnMetaData (meta.data);
         }
         public override void OnMetaData (SpeedTimeData metaData)
         {
-            tweener = SpeedVariable.DO (metaData.Speed, metaData.TimeDuaration, speed =>
-            {
-                SpeedVariable.Value = speed;
-                OnSpeedUpdated (speed);
-            });
+            DOVirtual.Float (splineController.Speed, metaData.Speed, metaData.TimeDuaration, OnSpeedUpdated.Invoke);
         }
 
         public void _SetSpeed (FloatVariable newSpeed)
@@ -42,11 +35,10 @@ namespace CyberBeat
         public void _SetSpeed (float newSpeed)
         {
             splineController.Speed = newSpeed;
-            // Debug.LogFormat("newSpeed = {0}",newSpeed);
-            // splineController.Play ();
         }
         public void _SlowStop (float StopDuration = 2f)
         {
+            lastSpeed = splineController.Speed;
             splineController.Speed.Do (0f, StopDuration, _SetSpeed, splineController.Stop);
         }
 
@@ -61,7 +53,7 @@ namespace CyberBeat
             if (tweener != null && tweener.IsActive ())
                 tweener.TogglePause ();
             else
-                _SetSpeed (SpeedVariable);
+                _SetSpeed (lastSpeed);
         }
 
     }

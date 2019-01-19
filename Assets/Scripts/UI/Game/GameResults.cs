@@ -63,7 +63,7 @@ namespace CyberBeat
             ShowRewardsButtons (true);
             data.Calculate ();
             var progress = track.progressInfo;
-            ProgressText.text = "{0}/{1}".AsFormat (progress.Best.Value, progress.Max.Value);
+            ProgressText.text = "{0}/{1}".AsFormat (progress.Best, progress.Max);
             
             trackInfo.Init (track.music);
         }
