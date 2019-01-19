@@ -1,6 +1,4 @@
-﻿using DG.Tweening;
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,22 +10,14 @@ namespace GameCore
 {
     public class CDButton : MonoBehaviour, IPointerDownHandler
     {
-        [SerializeField] Image fillImage;
-        [SerializeField] float _CDTime = 1f;
-        public float CDTime { get { return _CDTime; } set { _CDTime = value; } }
-
-        [SerializeField] bool interractable = true;
-        public bool Interractable { get { return interractable; } set { interractable = value; } }
-
-        [Header ("Events")]
-        [SerializeField] UnityEvent onPress;
-        [SerializeField] UnityEvent onPressFaild;
-        [SerializeField] UnityEvent onFillComplete;
-        [SerializeField] UnityEventFloat onTickAsSeconds;
-        [SerializeField] UnityEventFloat onTickAsFillPercent;
-        Tween cdTween;
-        public void OnDown ()
+        [SerializeField] Image FillImage;
+        bool started;
+        [SerializeField] UnityEvent OnPress;
+        [SerializeField] UnityEvent OnFillComplete;
+        [SerializeField] float CDTime = 1f;
+        public void Init (float cdTime = 1f, UnityAction onPress = null)
         {
+<<<<<<< HEAD
             OnPointerDown (null);
         }
         public void OnPointerDown (PointerEventData eventData)
@@ -41,10 +31,15 @@ namespace GameCore
             if (TweenIsPlaying) return;
             // Debug.LogFormat ("Interractable = {0}", Interractable);
             if (!Interractable)
+=======
+            CDTime = cdTime;
+            if (onPress != null)
+>>>>>>> parent of 46a173b... Fix Some Problem with Booster and Memory
             {
-                onPressFaild.Invoke ();
-                return;
+                OnPress.RemoveAllListeners ();
+                OnPress.AddListener (onPress);
             }
+<<<<<<< HEAD
 
             onPress.Invoke ();
 
@@ -52,25 +47,34 @@ namespace GameCore
             cdTween = DOVirtual
                 .Float (0f, CDTime, CDTime, OnTick)
                 .OnComplete (onComlete);
+=======
+>>>>>>> parent of 46a173b... Fix Some Problem with Booster and Memory
         }
-        private void onComlete ()
+        public void OnPointerDown (PointerEventData eventData)
         {
-            cdTween.Kill (true);
-            onFillComplete.Invoke ();
-        }
-        private void OnTick (float value)
-        {
-            onTickAsSeconds.Invoke (value);
-
-            float fillPercent = value / CDTime.Abs ();
-
-            fillImage.fillAmount = fillPercent;
-
-            onTickAsFillPercent.Invoke (fillPercent);
+            if (started ) return;
+            started = true; 
+            OnPress.Invoke ();
+            StartCoroutine (cr_StartCDFill ());
         }
         public void Reset ()
         {
-            cdTween.Kill (true);
+            StopAllCoroutines ();
+            started = false;
+            FillImage.fillAmount = 1;
+        }
+        IEnumerator cr_StartCDFill ()
+        {
+            float seconds = CDTime.Abs ();
+            
+            while (seconds > 0)
+            {
+                seconds -= Time.deltaTime;
+                FillImage.fillAmount = 1f - seconds / CDTime.Abs ();
+                yield return new WaitForEndOfFrame ();
+            }
+            OnFillComplete.Invoke ();
+            started = false;
         }
     }
 }

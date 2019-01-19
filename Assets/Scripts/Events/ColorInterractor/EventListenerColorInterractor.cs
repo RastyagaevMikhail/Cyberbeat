@@ -8,25 +8,16 @@ using UnityEngine.Events;
 
 namespace CyberBeat
 {
-	[System.Serializable] public class EventListenerColorInterractor : AEventListenerUnityObject<ColorInterractor,EventListenerColorInterractor>
+	[System.Serializable] public class EventListenerColorInterractor : AEventListenerUnityObject<ColorInterractor>
 	{
 		[SerializeField] GameEventColorInterractor _Event;
-		AGameEventUnityObject<ColorInterractor, EventListenerColorInterractor> evnt;
-		public override AGameEventUnityObject<ColorInterractor, EventListenerColorInterractor> Event
-		{
-			get
-			{
-                GameEventColorInterractor _Event1 = _Event;
-                return _Event1;
-			}
-		}
+		public override AGameEventUnityObject<ColorInterractor> Event { get { return _Event; } set { _Event = value as GameEventColorInterractor; } }
 
 		[SerializeField] UnityEventColorInterractor responce;
 		public override UnityEvent<ColorInterractor> Responce { get { return responce; } }
-
 		public EventListenerColorInterractor (GameEventColorInterractor _evnet, UnityAction<ColorInterractor> action)
 		{
-			_Event = _evnet;
+			Event = _evnet;
 			responce = new UnityEventColorInterractor ();
 			Responce.AddListener (action);
 		}

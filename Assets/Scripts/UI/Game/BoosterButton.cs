@@ -19,18 +19,17 @@ namespace CyberBeat
 
         private void Awake ()
         {
-            boosterData.Count.OnValueChanged += InitCDButton;
-            InitCDButton (boosterData.Count.Value);
+            cdButton.Init (boosterData.LifeTime, boosterData.Activate);
+            boosterData.shopData.Count.OnValueChanged += InitCDButton;
         }
         private void OnDestroy ()
         {
-            boosterData.Count.OnValueChanged -= InitCDButton;
+            boosterData.shopData.Count.OnValueChanged -= InitCDButton;
         }
         private void InitCDButton (int count)
         {
-            cdButton.Interractable = count != 0;
-
-            cdButton.CDTime = boosterData.LifeTime;
+            if (count != 0)
+                cdButton.Init (boosterData.LifeTime, boosterData.Activate);
         }
 
         public void OnBoosterReseted (BoosterData boosterData)
@@ -38,7 +37,7 @@ namespace CyberBeat
             if (boosterData.Equals (this.boosterData))
             {
                 cdButton.Reset ();
-                cdButton.CDTime = boosterData.LifeTime;
+                cdButton.Init (boosterData.LifeTime, boosterData.Activate);
             }
         }
 

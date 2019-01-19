@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d349b086a7d334b804be2e8c6b3cd8, type: 3}
+  m_Name: Di Young - I Hear You
+  m_EditorClassIdentifier: 
+  music:
+    clip: {fileID: 8300000, guid: 44b72a01484627a47a3c5135b667b70a, type: 3}
+    AuthorName: Di Young
+    TrackName: I Hear You
+    AlbumImage: {fileID: 21300000, guid: f9c667be425bb00409bffad2c385f2e9, type: 3}
+  socials:
+  - Icon: {fileID: 21300000, guid: 78fc711090e8e0143931bf4b587b661b, type: 3}
+    URL: https://www.youtube.com/watch?v=YgVo0N9LtW0
+  shopInfo:
+    PlayByWatch: 0
+    Price: 2000
+    SaveKey: Di Young - I Hear You Buyed
+  progressInfo:
+    Best: {fileID: 11400000, guid: 0fee40a25f99ca24d90c573c83405fc2, type: 2}
+    Max: {fileID: 11400000, guid: 767eb5b9e807b7b428e8e1ddadbafd45, type: 2}
+    Percent: {fileID: 11400000, guid: 6bbbc118cbf583743b4dfe2f6466b345, type: 2}
+  StartSpeed: 50
+  koreography: {fileID: 11400000, guid: 8040f64837287ed4c86d87a2b26fa120, type: 2}
+  MinTimeOfBit: 0.2
+  BitsInfos: []
+  CountConstant: 0
+  LayerForGenerateTimEvents: 3

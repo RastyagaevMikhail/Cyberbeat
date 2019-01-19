@@ -24,7 +24,7 @@ namespace CyberBeat
 
 #endif
 
-		[SerializeField] IntVariable GeneratedBricks;
+		[SerializeField] float GeneratedBricks = 0;
 		[SerializeField] float DestroyedBricks = 0;
 
 		public BoolVariable DoubleNotes;
@@ -38,7 +38,7 @@ namespace CyberBeat
 		public Track currentTrack { get { return TracksCollection.instance.CurrentTrack; } }
 		public void ResetCurrentProgress ()
 		{
-			GeneratedBricks.Value = 0;
+			GeneratedBricks = 0;
 			DestroyedBricks = 0;
 			ProgressCurrentLevel.Value = 0;
 		}
@@ -49,13 +49,13 @@ namespace CyberBeat
 		}
 		public void SetGeneratedBrick ()
 		{
-			GeneratedBricks.SetValue (currentTrack.progressInfo.Max);
+			GeneratedBricks = currentTrack.progressInfo.Max.Value;
 		}
 		void ProgressLevel ()
 		{
-			if (!GeneratedBricks.IsZero () && DestroyedBricks != 0)
+			if (GeneratedBricks != 0 && DestroyedBricks != 0)
 			{
-				ProgressCurrentLevel.Value = (DestroyedBricks / GeneratedBricks.AsFloat ());
+				ProgressCurrentLevel.Value = (DestroyedBricks / GeneratedBricks);
 				// TotalProgressCurrentLevel.Value = bestScore.
 			}
 		}

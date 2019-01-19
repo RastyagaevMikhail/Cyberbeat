@@ -1,7 +1,6 @@
 using GameCore;
 
 using System;
-
 using UnityEngine;
 
 namespace CyberBeat
@@ -9,63 +8,26 @@ namespace CyberBeat
     [Serializable]
     public class ProgressInfo
     {
-        [SerializeField] IntVariable best;
-        public float Best { get { return best.Value; } private set { best.Value = (int) value; } }
-
-        [SerializeField] IntVariable max;
-        public float Max
-        {
-            get { return max.Value; }
-#if !UNITY_EDITOR
-            private
-#endif
-            set { max.Value = (int) value; }
-        }
-
-        [SerializeField] FloatVariable percent;
-        public float Percent { get { return percent.Value; } private set { percent.Value = (int) value; } }
+        public IntVariable Best;
+        public IntVariable Max;
+        public FloatVariable Percent;
 
         public void Progress (int Current)
         {
-            if (Current > Best)
-            {
-                Best = Current;
-                Percent = Best / Max;
-            }
+            if (Current > Best.Value) Best.Value = Current;
+            Percent.Value = Best.AsFloat () / Max.AsFloat ();
         }
 
-#if UNITY_EDITOR
-        public void Validate (string nameTrack)
+        public void Generate (string nameTrack)
         {
+            Best = ScriptableObject.CreateInstance<IntVariable>();
+            Best.CreateAsset ("Assets/Data/Tracks/ProgressInfo/{0}/Best_{0}.asset".AsFormat(nameTrack), true);
 
-            best = ValidateVariable<IntVariable> ("Assets/Data/Tracks/ProgressInfo/{0}/Best_{0}.asset".AsFormat (nameTrack), true);
-            // best.Validate ("Assets/Data/Tracks/ProgressInfo/{0}/Best_{0}.asset".AsFormat (nameTrack), true);
-            // Debug.Log (best, best);
+            Max = ScriptableObject.CreateInstance<IntVariable>();
+            Max.CreateAsset ("Assets/Data/Tracks/ProgressInfo/{0}/Max_{0}.asset".AsFormat(nameTrack));
 
-            max = ValidateVariable<IntVariable> ("Assets/Data/Tracks/ProgressInfo/{0}/Max_{0}.asset".AsFormat (nameTrack));
-
-            percent = ValidateVariable<FloatVariable> ("Assets/Data/Tracks/ProgressInfo/{0}/Percent_{0}.asset".AsFormat (nameTrack), true);
-        }
-        public T ValidateVariable<T> (string path, bool isSavable = false) where T : ASavableVariable
-        {
-            T variable = Tools.GetAssetAtPath<T> (path);
-            if (variable == null)
-            {
-                variable = ScriptableObject.CreateInstance<T> ();
-                variable.CreateAsset (path, isSavable);
-            }
-
-            return variable;
-        }
-        public void Save ()
-        {
-            max.Save ();
-        }
-#endif
-
-        public int AsPercent (IntVariable intValue)
-        {
-            return percent.AsPercent (intValue);
+            Percent = ScriptableObject.CreateInstance<FloatVariable>();
+            Percent.CreateAsset ("Assets/Data/Tracks/ProgressInfo/{0}/Percent_{0}.asset".AsFormat(nameTrack), true);
         }
     }
 }

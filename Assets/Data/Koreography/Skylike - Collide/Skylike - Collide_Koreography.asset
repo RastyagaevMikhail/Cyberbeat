@@ -4,8 +4,7 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -14,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mSourceClip: {fileID: 8300000, guid: 5ec2c704982075641913192963122e6b, type: 3}
   mAudioFilePath: 
-  mSampleRate: 44100
+  mSampleRate: -1
   mIgnoreLatencyOffset: 0
   mTempoSections:
   - sectionName: New Section
@@ -25,4 +24,5 @@ MonoBehaviour:
   mTracks:
   - {fileID: 11400000, guid: 7fcc06875a97c9f4d89d215151d60cfe, type: 2}
   - {fileID: 11400000, guid: 7b3fd07bebbaf114fae7d25d96c77999, type: 2}
+  - {fileID: 11400000, guid: fb63a6781214c064dbde54d270adcdd9, type: 2}
   - {fileID: 11400000, guid: 18285a6e902e0924597d96a521335441, type: 2}

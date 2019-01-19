@@ -11,10 +11,14 @@ namespace CyberBeat
 {
 	public class ColorProgress : MonoBehaviour
 	{
+		// private RectTransform _rectTransform = null;
+		// public RectTransform rectTransform { get { if (_rectTransform == null) _rectTransform = GetComponent<RectTransform> (); return _rectTransform; } }
+		private GameEventListeners _listeners = null;
+		public GameEventListeners listeners { get { if (_listeners == null) _listeners = GetComponent<GameEventListeners> (); return _listeners; } }
 
 		[SerializeField] ColorSliders colors = new ColorSliders ();
-		[SerializeField] ColorSlider colorPrefab;
-		[SerializeField] GameObject empty;
+		[SerializeField] ColorSlider ColorPrefab;
+		[SerializeField] GameObject Empty;
 		Colors data { get { return Colors.instance; } }
 
 		void Awake ()
@@ -24,21 +28,21 @@ namespace CyberBeat
 
 		public void _UpdateColors (int counrcolors)
 		{
-			empty.transform.SetParent (transform.parent);
+			Empty.transform.SetParent (transform.parent);
 			transform.DestroyAllChilds ();
 			colors = new ColorSliders ();
-			// var width = rectTransform.sizeDelta.x;
-			int count = data.AvalivableColors.Count;
+            // var width = rectTransform.sizeDelta.x;
+            int count = data.AvalivableColors.Count;
 			foreach (var colorInfo in data.AvalivableColors)
 			{
-				var clr = Instantiate (colorPrefab, transform);
+				var clr = Instantiate (ColorPrefab, transform);
 				clr.name = string.Format ("{0}", colorInfo.Name);
 				colors.sliders.Add (new SliderOfColor () { color = colorInfo.color, slider = clr });
 				clr.Init (colorInfo);
 			}
-			empty.transform.SetParent (transform);
+			Empty.transform.SetParent (transform);
 			bool emptyIsEnabled = count <= 6;
-			empty.SetActive (emptyIsEnabled);
+			Empty.SetActive (emptyIsEnabled);
 			// if (emptyIsEnabled)
 			// {
 			// 	Empty.transform.SetAsLastSibling ();

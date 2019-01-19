@@ -4,8 +4,7 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -14,15 +13,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Listener:
     Event: {fileID: 11400000, guid: 33d3e33827bdf4c4ebd32b8f95144604, type: 2}
-    Responce:
+    Response:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000, guid: 36edd8dc4ca5f2b4d82ffb3cf8e385fd, type: 2}
-          m_MethodName: 
+          m_MethodName: ResetRewardTime
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: fe17e835ce00d394496f4c8d30d8ce46, type: 2}
+          m_MethodName: Raise
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

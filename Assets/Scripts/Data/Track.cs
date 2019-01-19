@@ -45,10 +45,15 @@ namespace CyberBeat
 			this.Save ();
 		}
 
+<<<<<<< HEAD
 		[ContextMenu ("Validate ProgressInfo")]
 		public void ValidateProgressInfo ()
+=======
+#if UNITY_EDITOR
+		public void GenerateProgressInfo ()
+>>>>>>> parent of 46a173b... Fix Some Problem with Booster and Memory
 		{
-			progressInfo.Validate (name);
+			progressInfo.Generate (name);
 			this.Save ();
 		}
 
@@ -62,6 +67,7 @@ namespace CyberBeat
 			ValidateKoreographyTracksLayers ();
 		}
 
+<<<<<<< HEAD
 		[ContextMenu ("Validate Layers")]
 		void ValidateKoreographyTracksLayers ()
 		{
@@ -74,10 +80,14 @@ namespace CyberBeat
 					Koreography.AddTrack (trackLayer);
 			}
 		}
+=======
+		public Dictionary<LayerType, List<KoreographyEvent>> layerevents = new Dictionary<LayerType, List<KoreographyEvent>> ();
+>>>>>>> parent of 46a173b... Fix Some Problem with Booster and Memory
 
 		[ContextMenu ("CalculateConstant")]
 		void CalculateConstant ()
 		{
+<<<<<<< HEAD
 			progressInfo.Max = 0;
 			foreach (var bitInfo in BitsInfos)
 			{
@@ -90,6 +100,11 @@ namespace CyberBeat
 								return spwnObj.Get<MaterialSwitcher> ().Constant;
 							return false;
 						}));
+=======
+			get { return layerevents[layer]; }
+		}
+		public Koreography koreography;
+>>>>>>> parent of 46a173b... Fix Some Problem with Booster and Memory
 
 				if (isContainConstant) progressInfo.Max++;
 			}
@@ -101,7 +116,7 @@ namespace CyberBeat
 		{
 			var events = GetAllEventsByType (LayerType.Bit);
 			var keys = data.Presets.Keys.ToList ();
-			RandomStack<int> randStack = new RandomStack<int> (keys);
+			RandomStack<int> randStack = new RandomStack<int>(keys);
 			foreach (var evnt in events)
 			{
 				evnt.Payload = new IntPayload () { IntVal = randStack.Get () };
@@ -124,11 +139,27 @@ namespace CyberBeat
 			}
 		}
 
+<<<<<<< HEAD
 		[ContextMenu ("Convert To Text")]
 		void ConvertToText ()
 		{
 			UnityEditor.EditorUtility.SetDirty (GetTrack (LayerType.Bit));
 			foreach (var e in this [LayerType.Bit])
+=======
+		public LayerType LayerForGenerateTimEvents = LayerType.Combo;
+		[ContextMenu ("Generate Combo TimeEvent`s")]
+		void GenerateComboTimeEvents ()
+		{
+			var timeEventOfData = Tools.GetAssetAtPath<TimeOfEventsData> ("Assets/Data/TimeEvents/{0}/{1}.asset".AsFormat (name, LayerForGenerateTimEvents));
+			timeEventOfData.Init (koreography.SampleRate, GetAllEventsByType (LayerForGenerateTimEvents));
+		}
+
+		[ContextMenu ("CalculateConstant")]
+		void CalculateConstant ()
+		{
+			progressInfo.Max.Value = 0;
+			foreach (var bitInfo in BitsInfos)
+>>>>>>> parent of 46a173b... Fix Some Problem with Booster and Memory
 			{
 				int pld = e.GetIntValue ();
 				var payload = new TextPayload ();
@@ -138,6 +169,7 @@ namespace CyberBeat
 
 		}
 
+<<<<<<< HEAD
 		[ContextMenu ("Fix Paylaod")]
 		void FixPayload ()
 		{
@@ -232,6 +264,13 @@ namespace CyberBeat
 
 		public float MinTimeOfBit = 0.2f;
 		public List<BitInfo> BitsInfos = new List<BitInfo> ();
+=======
+				if (isContainConstant) progressInfo.Max.Increment ();
+			}
+			progressInfo.Max.Save();
+		}
+#endif
+>>>>>>> parent of 46a173b... Fix Some Problem with Booster and Memory
 
 		public bool GetGateState (int index)
 		{

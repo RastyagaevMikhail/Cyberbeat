@@ -29,7 +29,7 @@ namespace GameCore
             OnStartPlay.Invoke (length);
 
             this.DelayAction (length + Time.deltaTime, OnComplete.Invoke);
-            aSource.time = 0f;
+
             aSource.Play ();
         }
     }

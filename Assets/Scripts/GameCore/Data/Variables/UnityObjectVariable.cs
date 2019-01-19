@@ -25,10 +25,10 @@ namespace GameCore
             Value = value.Value;
         }
 
-        // public override void SaveValue ()
-        // {
-        //     PlayerPrefs.SetString (name, JsonUtility.ToJson (Value));
-        // }
+        public override void SaveValue ()
+        {
+            PlayerPrefs.SetString (name, JsonUtility.ToJson (Value));
+        }
 
         public override void LoadValue ()
         {

@@ -98,8 +98,8 @@ namespace GameCore
 		}
 		public void ShowRewardVideo (Action<double, string> OnVideoShown = null)
 		{
-			// Debug.LogFormat ("AdsController.ShowRewardVideo(OnVideoShown = {0})", OnVideoShown);
-			// Debug.LogFormat ("AdsController.ShowRewardVideo.CurrentAdsNetworks = {0}", CurrentAdsNetworks);
+			Debug.LogFormat ("AdsController.ShowRewardVideo(OnVideoShown = {0})", OnVideoShown);
+			Debug.LogFormat ("AdsController.ShowRewardVideo.CurrentAdsNetworks = {0}", CurrentAdsNetworks);
 			CurrentAdsNetworks.ShowRewardVideo (OnVideoShown);
 		}
 

@@ -17,7 +17,7 @@ namespace CyberBeat
         {
             var count = GameObject.FindObjectsOfType<GateStateController> ().Length;
             var gateController = GameObject.Instantiate (gateControllerPrefab, builder.parent);
-            gateController.name = "{0}_ComboTunnnel_{1}".AsFormat (builder.namePrefix, count);
+            gateController.name = "ComboTunnnel_{0}".AsFormat (count);
             GameObject start = null;
             GameObject end = null;
             foreach (var point in builder.DataSave[payloadFilter])

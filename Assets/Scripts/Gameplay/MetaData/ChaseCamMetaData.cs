@@ -17,11 +17,11 @@ namespace CyberBeat
                 return this.GetType ().Name.Replace ("MetaData", "").SplitPascalCase ();
             }
         }
-        [SerializeField] TransformVariable playerTransform;
+
         [ContextMenu ("Set Deafult values")]
         public void SetDefaultvalues ()
         {
-            Transform PlayerParent = playerTransform.parent;
+            Transform PlayerParent = Player.instance.transform.parent;
 
             Transform MoveTarget = PlayerParent.Find ("Move Target");
             Transform LookTarget = PlayerParent.Find ("Look Target");

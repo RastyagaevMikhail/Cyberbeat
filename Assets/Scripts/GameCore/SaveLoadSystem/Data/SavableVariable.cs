@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace GameCore
 {
+    [System.Serializable]
     public abstract class SavableVariable<TValue> : ASavableVariable
     {
         [Multiline]

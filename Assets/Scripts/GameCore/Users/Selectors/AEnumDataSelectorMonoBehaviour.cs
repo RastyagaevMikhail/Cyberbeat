@@ -7,7 +7,7 @@ namespace GameCore
 {
     public abstract class AEnumDataSelectorMonoBehaviour<TEnumType, TDataType> : MonoBehaviour,
         IEnumDataSelector<TEnumType, TDataType>
-        // where TEnumType : EnumScriptable
+        where TEnumType : EnumScriptable
     where TDataType : class
     {
         public virtual TDataType this [TEnumType type]

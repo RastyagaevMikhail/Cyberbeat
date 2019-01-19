@@ -17,16 +17,6 @@ namespace CyberBeat
             }
 
         }
-         private static List<Shapes> _shapes;
-        public static List<Shapes> shapes
-        {
-            get
-            {
-                if (_shapes == null) _shapes = Enum.GetValues (typeof (Shapes)).Cast<Shapes> ().ToList ();
-                return _shapes;
-            }
-
-        }
 
         private static List<InputType> inputTypes;
         public static List<InputType> InputTypes

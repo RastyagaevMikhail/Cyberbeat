@@ -1,5 +1,3 @@
-using System;
-
 namespace CyberBeat
 {
     public struct TimeEvent
@@ -11,12 +9,6 @@ namespace CyberBeat
             isTime = _isTime;
 			timeOfEvent = _timeOfevent ;
         }
-
-        public TimeEvent Init(bool isTime, TimeOfEvent timeOfEvent)
-        {
-            this.isTime = isTime;
-            this.timeOfEvent = timeOfEvent;
-            return this;
-        }
+        
     }
 }

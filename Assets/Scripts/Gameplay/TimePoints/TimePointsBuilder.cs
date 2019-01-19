@@ -15,6 +15,7 @@ namespace CyberBeat
     {
         public TimeOfEventsData dataTime;
         public TimePointsData DataSave { get { return dataTime.PointsData; } }
+        public List<TimePoints> points { get { return DataSave.points; } set { DataSave.points = value; } }
         public CurvySpline Spline;
         public CurvyGenerator generatorPrefab;
 // #if UNITY_EDITOR

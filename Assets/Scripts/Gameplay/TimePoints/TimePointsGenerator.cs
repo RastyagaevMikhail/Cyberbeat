@@ -57,7 +57,7 @@ namespace CyberBeat
         [SerializeField] TimeOfEventsData dataTime;
         TimePointsData DataSave { get { return dataTime.PointsData; } }
         List<TimePoints> points { get { return DataSave.points; } set { DataSave.points = value; } }
-        TimePoints LastPoint { get { return points.Last(); } }
+        TimePoints LastPoint { get { return points[points.Count - 1]; } }
 
         [SerializeField] SplineController controller;
         private void Start ()
@@ -70,6 +70,8 @@ namespace CyberBeat
 
         public override void _OnChanged (TimeEvent timeEvent)
         {
+            // Debug.Log("TimePointsGenerator._OnChanged {name}");
+            // Debug.LogFormat("timeOfEvent = {0}", timeEvent.timeOfEvent);
             if (!EditMode)
             {
                 return;
