@@ -9,11 +9,8 @@ using System.Linq;
 using UnityEngine;
 namespace CyberBeat
 {
-    [RequireComponent (typeof (BitGenerator))]
     public class EffectsGenerator : TransformObject
     {
-        private BitGenerator _generator = null;
-        public BitGenerator generator { get { if (_generator == null) _generator = GetComponent<BitGenerator> (); return _generator; } }
         public EffectSkinsDataCollection effectsColleciotns { get { return EffectSkinsDataCollection.instance; } }
         public Pool pool { get { return Pool.instance; } }
         public void OnBit (KoreographyEvent koreographyEvent)

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 993258109080104105}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   inputSettings:
     easeMove: 15
     SwipeDuration: 0.2
-    width: 4.48
+    width: 2.35
   inputController:
     controllers:
     - type: 0
@@ -376,6 +376,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  debug: 0
 --- !u!1 &1338616849
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +436,51 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  debug: 0
+--- !u!1 &1439889552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1439889553}
+  - component: {fileID: 1439889554}
+  m_Layer: 0
+  m_Name: BeatDespawner
+  m_TagString: BeatDeSpawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1439889553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439889552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -9}
+  m_LocalScale: {x: 12, y: 12, z: 6}
+  m_Children: []
+  m_Father: {fileID: 5924392697064619057}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1439889554
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439889552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1478566589
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +540,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  debug: 0
 --- !u!1 &1064311704352292133
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +649,7 @@ GameObject:
   - component: {fileID: 1121682823}
   - component: {fileID: 5026998036282736454}
   - component: {fileID: 1121682824}
+  - component: {fileID: 5924392697064619072}
   m_Layer: 0
   m_Name: '[PlayerController]'
   m_TagString: Untagged
@@ -624,6 +672,7 @@ Transform:
   - {fileID: 1478566590}
   - {fileID: 1338616850}
   - {fileID: 1015776691}
+  - {fileID: 1439889553}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -643,7 +692,7 @@ MonoBehaviour:
   UpdateIn: 0
   m_Space: 0
   m_PositionMode: 0
-  m_InitialPosition: 0.138
+  m_InitialPosition: 0
   m_MoveMode: 2
   m_Speed: 50
   m_Clamping: 1
@@ -699,29 +748,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   m_OnEndReached:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1121682823}
-        m_MethodName: UseFollowUp
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: f0816f1e26e23844cb3d379bfb6235da, type: 2}
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: FluffyUnderware.Curvy.CurvySplineMoveEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnSwitch:
@@ -741,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce9d8423452da1469f9a7e5345947df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 06e13aad05ffd664c9d1009fa9169044, type: 2}
+  Event: {fileID: 11400000, guid: 90eb89f99c281f746ab02608a92c1c73, type: 2}
   Responce:
     m_PersistentCalls:
       m_Calls:
@@ -758,6 +785,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: CyberBeat.GameEventListenerCurvySpline+UnityEventCurvySpline, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  debug: 1
 --- !u!114 &1121682823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,7 +833,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5924392697064619071}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ad320524be285f419d3e2cb8d0176df, type: 3}
   m_Name: 
@@ -838,4 +866,34 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  updateOnEnable: 0
+  updateOnEnable: 1
+--- !u!114 &5924392697064619072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924392697064619071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: f67eedcdb9b1bed48bc0764cb417d841, type: 2}
+        m_MethodName: SetValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5924392697064619070}
+          m_ObjectArgumentAssemblyTypeName: FluffyUnderware.Curvy.Controllers.SplineController,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  debug: 1

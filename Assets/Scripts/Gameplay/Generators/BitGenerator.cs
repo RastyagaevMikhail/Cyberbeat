@@ -1,54 +1,17 @@
-﻿using GameCore;
-
-using SonicBloom.Koreo;
+﻿using SonicBloom.Koreo;
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
 
 namespace CyberBeat
 {
-    public class BitGenerator : TransformObject
+    public abstract class BitGenerator<TBitData> : TimeController
+    where TBitData : IBitData
     {
-        [SerializeField] KoreographerVariable koreographer;
-        [SerializeField] LayerType TrackIDLayer;
-        [SerializeField] UnityEventKoreographyEvent OnBit;
-        [SerializeField] bool RegisterOnAwake;
-        [SerializeField] bool RegisterOnStart;
-        [SerializeField] bool debug;
-        private void Awake()
-        {
-            if(RegisterOnAwake)
-            {
-                RegisterEvents();
-                if(debug)
-                {
-                    Debug.Log("Register OnAwake");
-                    printDebug();
-                }
-            }
-        }
-        private void Start() {
-            if(RegisterOnStart)
-            {
-                RegisterEvents();
-                if(debug)
-                {
-                    Debug.Log("Register OnStart");
-                    printDebug();
-                }
-            }
-        }
-        public void RegisterEvents ()
-        {
-            Debug.LogFormat ("koreographer = {0}", koreographer);
-            koreographer.RegisterForEvents (TrackIDLayer.ToString (), OnBit.Invoke);
-        }
-
-        void printDebug()
-        {
-            Debug.LogFormat(this, "{0} {1} {2}", koreographer, TrackIDLayer, name);
-        }
+        public abstract IEnumerable<BitTimeItem<TBitData>> BitTimeItems{get;}
+        public override IEnumerable<ITimeUpdateable> TimeUpdateables { get { return BitTimeItems; } }
     }
 }

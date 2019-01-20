@@ -1,4 +1,5 @@
-﻿
+﻿using GameCore;
+
 using System;
 
 using UnityEngine;
@@ -12,9 +13,13 @@ namespace $NAMESPACE_NAME$
         [SerializeField] GameEvent$TYPE_NAME$ Event;
 
         [SerializeField] UnityEvent$TYPE_NAME$ Responce;
+        
+        [SerializeField] bool debug;
 
         public void OnEventRaised ($TYPE_NAME$ arg)
         {
+             if (debug)
+                Debug.Log ($"{("OnEvent".a())} {$"[{Event.name}]".so()}\n{arg.ToString().cyan()}\n{("Raised On".a())} {name.mb()}", this);
             Responce.Invoke (arg);
         }
         public void OnEnable ()

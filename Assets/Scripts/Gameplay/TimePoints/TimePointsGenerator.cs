@@ -33,15 +33,16 @@ namespace CyberBeat
         }
 
         [ContextMenu ("SetEditMode")]
-        void SetEditMode ()
+        public void SetEditMode ()
         {
             EditMode = true;
+            Debug.Log ("Edit Mode Enabled".warn ());
         }
 
         [SerializeField, HideInInspector]
         BoolVariable editMode;
 
-        bool EditMode
+        public bool EditMode
         {
             get
             {
@@ -54,16 +55,19 @@ namespace CyberBeat
             }
         }
 
-        [SerializeField] TimeOfEventsData dataTime;
+        [SerializeField] TimeOfEventsDataVariable dataTimeVariable;
+        TimeOfEventsData dataTime { get { return dataTimeVariable.Value; } }
         TimePointsData DataSave { get { return dataTime.PointsData; } }
         List<TimePoints> points { get { return DataSave.points; } set { DataSave.points = value; } }
         TimePoints LastPoint { get { return points[points.Count - 1]; } }
 
-        [SerializeField] SplineController controller;
+        [SerializeField] SplineControllerVariable controllerVariable;
+        [SerializeField] SplineController controller { get { return controllerVariable.Value; } }
         private void Start ()
         {
             if (EditMode)
             {
+                Debug.Log ("Edit Mode Enabled".warn ());
                 points = new List<TimePoints> ();
             }
         }
@@ -98,6 +102,7 @@ namespace CyberBeat
             {
                 DataSave.Save ();
                 EditMode = false;
+                Debug.Log ("Edit Mode Disabled".warn ());
             }
         }
 #endif

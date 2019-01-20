@@ -379,7 +379,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1797683492360651573}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1797683492096288026
 MonoBehaviour:
@@ -463,8 +463,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1797683492096288027}
   - {fileID: 1797683493974284450}
+  - {fileID: 1797683492096288027}
   - {fileID: 1797683491893248860}
   - {fileID: 1797683493626233927}
   - {fileID: 1797683491903003207}
@@ -495,8 +495,8 @@ MonoBehaviour:
     m_TypeName: FluffyUnderware.Curvy.CurvyCGEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Modules:
-  - {fileID: 1797683492096288026}
   - {fileID: 1797683493974284453}
+  - {fileID: 1797683492096288026}
   - {fileID: 1797683491893248863}
   - {fileID: 1797683493626233926}
   - {fileID: 1797683491903003206}
@@ -634,7 +634,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797683492840946561}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.00012030799, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -653,7 +653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3c8d58ac75eab43bd8d07d598ce5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AutoBakeOrientation: 0
+  m_AutoBakeOrientation: 1
   m_OrientationAnchor: 1
   m_Swirl: 0
   m_SwirlTurns: 0
@@ -672,9 +672,9 @@ MonoBehaviour:
   m_StartBias: 0
   m_EndBias: 0
   m_FollowUp: {fileID: 0}
-  m_FollowUpHeading: 2
-  m_ConnectionSyncPosition: 0
-  m_ConnectionSyncRotation: 0
+  m_FollowUpHeading: -1
+  m_ConnectionSyncPosition: 1
+  m_ConnectionSyncRotation: 1
   m_Connection: {fileID: 0}
 --- !u!1 &1797683493105177329
 GameObject:
@@ -908,6 +908,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  debug: 1
 --- !u!1 &1797683493626233924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,7 +1121,7 @@ Transform:
   m_Children:
   - {fileID: 1797683493105177328}
   m_Father: {fileID: 1797683492360651573}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1797683493974284453
 MonoBehaviour:

@@ -5,35 +5,36 @@
 // http://www.fluffyunderware.com
 // =====================================================================
 
-using UnityEngine;
-using System.Collections;
 using FluffyUnderware.DevTools;
+
+using System.Collections;
+
+using UnityEngine;
 
 namespace FluffyUnderware.Curvy.Controllers
 {
     /// <summary>
     /// Controller working with Splines
     /// </summary>
-    [AddComponentMenu("Curvy/Controller/Spline Controller",5)]
-    [HelpURL(CurvySpline.DOCLINK + "splinecontroller")]
+    [AddComponentMenu ("Curvy/Controller/Spline Controller", 5)]
+    [HelpURL (CurvySpline.DOCLINK + "splinecontroller")]
     public class SplineController : CurvyController
     {
         #region ### Serialized Fields ###
-        
-        [Section("General",Sort=0)]
-        [FieldCondition("m_Spline",null,false,ActionAttribute.ActionEnum.ShowWarning,"Missing Source")]
+
+        [Section ("General", Sort = 0)]
+        [FieldCondition ("m_Spline", null, false, ActionAttribute.ActionEnum.ShowWarning, "Missing Source")]
         [SerializeField]
         CurvySpline m_Spline;
         [SerializeField]
         bool m_UseCache;
-        [Section("Events", false, false, 1000, HelpURL = CurvySpline.DOCLINK + "splinecontroller_events")]
+        [Section ("Events", false, false, 1000, HelpURL = CurvySpline.DOCLINK + "splinecontroller_events")]
         [SerializeField]
         CurvySplineMoveEvent m_OnControlPointReached;
         [SerializeField]
         CurvySplineMoveEvent m_OnEndReached;
         [SerializeField]
         CurvySplineMoveEvent m_OnSwitch;
-        
 
         #endregion
 
@@ -50,11 +51,11 @@ namespace FluffyUnderware.Curvy.Controllers
                 if (m_Spline != value)
                 {
                     if (m_Spline != null)
-                        UnbindEvents();
+                        UnbindEvents ();
 
                     m_Spline = value;
                     if (m_Spline)
-                        BindEvents();
+                        BindEvents ();
                 }
             }
         }
@@ -75,7 +76,6 @@ namespace FluffyUnderware.Curvy.Controllers
             }
         }
 
-
         /// <summary>
         /// Gets or sets whether to keep position when the source length changes
         /// </summary>
@@ -90,7 +90,7 @@ namespace FluffyUnderware.Curvy.Controllers
                 if (base.AdaptOnChange != value)
                 {
                     base.AdaptOnChange = value;
-                    BindEvents();
+                    BindEvents ();
                 }
             }
         }
@@ -103,11 +103,11 @@ namespace FluffyUnderware.Curvy.Controllers
             get { return m_OnControlPointReached; }
             set
             {
-                if (m_OnControlPointReached!=value)
+                if (m_OnControlPointReached != value)
                     m_OnControlPointReached = value;
                 if (Spline)
-                    BindEvents();
-                
+                    BindEvents ();
+
             }
         }
 
@@ -122,7 +122,7 @@ namespace FluffyUnderware.Curvy.Controllers
                 if (m_OnEndReached != value)
                     m_OnEndReached = value;
                 if (Spline)
-                    BindEvents();
+                    BindEvents ();
 
             }
         }
@@ -139,7 +139,6 @@ namespace FluffyUnderware.Curvy.Controllers
                     m_OnSwitch = value;
             }
         }
-        
 
         /// <summary>
         /// Gets whether the Controller is switching splines
@@ -175,7 +174,7 @@ namespace FluffyUnderware.Curvy.Controllers
         #region ### Private fields ###
 
         static CurvyController _active; // set by advance to filter out events not raised by a certain controller
-        
+
         CurvySpline mInitialSpline;
         float mKeepDistanceAt;
         float mSwitchStartTime;
@@ -187,43 +186,43 @@ namespace FluffyUnderware.Curvy.Controllers
         #region ## Unity Callbacks ###
         /*! \cond UNITY */
 
-        protected override void OnEnable()
+        protected override void OnEnable ()
         {
-            base.OnEnable();
-            BindEvents();
+            base.OnEnable ();
+            BindEvents ();
         }
 
-        protected override void OnDisable()
+        protected override void OnDisable ()
         {
-            base.OnDisable();
-            UnbindEvents();
+            base.OnDisable ();
+            UnbindEvents ();
         }
 
-        IEnumerator Start()
+        IEnumerator Start ()
         {
             if (IsConfigured)
             {
                 while (!DependenciesInitialized)
                     yield return 0;
 
-                Prepare();
+                Prepare ();
             }
-            
+
         }
 
 #if UNITY_EDITOR
-        protected override void OnValidate()
+        protected override void OnValidate ()
         {
             Spline = m_Spline;
             OnControlPointReached = m_OnControlPointReached;
             OnEndReached = m_OnEndReached;
-            base.OnValidate();
+            base.OnValidate ();
         }
 #endif
 
-        protected override void Reset()
+        protected override void Reset ()
         {
-            base.Reset();
+            base.Reset ();
             Spline = null;
         }
 
@@ -235,39 +234,39 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <summary>
         /// Initialize the controller and set starting position
         /// </summary>
-        public override void Prepare()
+        public override void Prepare ()
         {
-            BindEvents();
-            base.Prepare();
+            BindEvents ();
+            base.Prepare ();
             mKeepDistanceAt = 0;
         }
 
         /// <summary>
         /// Refresh the controller and advance position
         /// </summary>
-        public override void Refresh()
+        public override void Refresh ()
         {
             if (IsSwitching)
             {
-                mSwitchEventArgs.Delta = Mathf.Clamp01((Time.time - mSwitchStartTime) / mSwitchDuration);
-                if (OnSwitch.HasListeners())
-                    onSwitchEvent(mSwitchEventArgs);
+                mSwitchEventArgs.Delta = Mathf.Clamp01 ((Time.time - mSwitchStartTime) / mSwitchDuration);
+                if (OnSwitch.HasListeners ())
+                    onSwitchEvent (mSwitchEventArgs);
                 else
                     mSwitchEventArgs.Data = mSwitchEventArgs.Delta;
             }
-            base.Refresh();
+            base.Refresh ();
 
             if (IsSwitching)
             {
                 Vector3 targetPos;
                 Vector3 targetTan;
                 Vector3 targetUp;
-                getInterpolatedSourcePosition(mSwitchEventArgs.Spline, mSwitchEventArgs.TF, out targetPos, out targetTan, out targetUp);
+                getInterpolatedSourcePosition (mSwitchEventArgs.Spline, mSwitchEventArgs.TF, out targetPos, out targetTan, out targetUp);
 
                 if (Space == Space.Self)
-                    Transform.localPosition = Vector3.Lerp(Transform.localPosition, targetPos, (float)mSwitchEventArgs.Data);
+                    Transform.localPosition = Vector3.Lerp (Transform.localPosition, targetPos, (float) mSwitchEventArgs.Data);
                 else
-                    Transform.position = Vector3.Lerp(Transform.localPosition, targetPos, (float)mSwitchEventArgs.Data);
+                    Transform.position = Vector3.Lerp (Transform.localPosition, targetPos, (float) mSwitchEventArgs.Data);
 
                 if (OrientationMode != OrientationModeEnum.None)
                 {
@@ -290,11 +289,11 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <param name="target">the target spline to switch to</param>
         /// <param name="targetTF">the target TF</param>
         /// <param name="duration">duration of the switch phase</param>
-        public virtual void SwitchTo(CurvySpline target, float targetTF, float duration)
+        public virtual void SwitchTo (CurvySpline target, float targetTF, float duration)
         {
             mSwitchStartTime = Time.time;
             mSwitchDuration = duration;
-            mSwitchEventArgs = new CurvySplineMoveEventArgs(this, target, null, targetTF, 0, Direction);
+            mSwitchEventArgs = new CurvySplineMoveEventArgs (this, target, null, targetTF, 0, Direction);
             mSwitchEventArgs.Data = 0f;
         }
 
@@ -304,10 +303,10 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <remarks>
         /// Use this to store settings, e.g. the initial VirtualPosition
         /// </remarks>
-        public override void BeginPreview()
+        public override void BeginPreview ()
         {
             mInitialSpline = Spline;
-            base.BeginPreview();
+            base.BeginPreview ();
         }
 
         /// <summary>
@@ -316,12 +315,11 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <remarks>
         /// Use this to restore settings, e.g. the initial VirtualPosition
         /// </remarks>
-        public override void EndPreview()
+        public override void EndPreview ()
         {
             Spline = mInitialSpline;
-            base.EndPreview();
+            base.EndPreview ();
         }
-
 
         #endregion
 
@@ -334,9 +332,9 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <returns>
         /// distance in world units from the source start
         /// </returns>
-        protected override float RelativeToAbsolute(float relativeDistance)
+        protected override float RelativeToAbsolute (float relativeDistance)
         {
-            return (Length>0) ?  Spline.TFToDistance(relativeDistance,Clamping) : 0;
+            return (Length > 0) ? Spline.TFToDistance (relativeDistance, Clamping) : 0;
         }
 
         /// <summary>
@@ -346,9 +344,9 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <returns>
         /// relative distance (TF) in the range 0..1
         /// </returns>
-        protected override float AbsoluteToRelative(float worldUnitDistance)
+        protected override float AbsoluteToRelative (float worldUnitDistance)
         {
-            return (Length>0) ? Spline.DistanceToTF(worldUnitDistance,Clamping) : 0;
+            return (Length > 0) ? Spline.DistanceToTF (worldUnitDistance, Clamping) : 0;
         }
 
         /// <summary>
@@ -358,15 +356,14 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <returns>
         /// a world position
         /// </returns>
-        protected override Vector3 GetInterpolatedSourcePosition(float tf)
+        protected override Vector3 GetInterpolatedSourcePosition (float tf)
         {
             Vector3 p = Spline.transform.localPosition;
-            if (Spline.Length>0)
-                p = (UseCache) ? Spline.InterpolateFast(tf) : Spline.Interpolate(tf);
+            if (Spline.Length > 0)
+                p = (UseCache) ? Spline.InterpolateFast (tf) : Spline.Interpolate (tf);
 
-            return (Space==Space.World) ? Spline.transform.TransformPoint(p) : p;
+            return (Space == Space.World) ? Spline.transform.TransformPoint (p) : p;
         }
-
 
         /// <summary>
         /// Gets the interpolated source position.
@@ -375,9 +372,9 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <param name="position">The position.</param>
         /// <param name="tangent">The tangent.</param>
         /// <param name="up">Up.</param>
-        protected override void GetInterpolatedSourcePosition(float tf, out Vector3 position, out Vector3 tangent, out Vector3 up)
+        protected override void GetInterpolatedSourcePosition (float tf, out Vector3 position, out Vector3 tangent, out Vector3 up)
         {
-            getInterpolatedSourcePosition(Spline, tf, out position, out tangent, out up);
+            getInterpolatedSourcePosition (Spline, tf, out position, out tangent, out up);
         }
 
         /// <summary>
@@ -385,12 +382,12 @@ namespace FluffyUnderware.Curvy.Controllers
         /// </summary>
         /// <param name="tf">relative position</param>
         /// <returns></returns>
-        protected override Vector3 GetTangent(float tf)
+        protected override Vector3 GetTangent (float tf)
         {
             if (Spline.Length == 0)
                 return Vector3.forward;
-            Vector3 t = (UseCache) ? Spline.GetTangentFast(tf) : Spline.GetTangent(tf);
-            return (Space == Space.World) ? Spline.transform.TransformDirection(t) : t;
+            Vector3 t = (UseCache) ? Spline.GetTangentFast (tf) : Spline.GetTangent (tf);
+            return (Space == Space.World) ? Spline.transform.TransformDirection (t) : t;
         }
 
         /// <summary>
@@ -400,13 +397,12 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <returns>
         /// the Up-Vector
         /// </returns>
-        protected override Vector3 GetOrientation(float tf)
+        protected override Vector3 GetOrientation (float tf)
         {
             if (Spline.Length == 0)
                 return Vector3.zero;
-            return (Space == Space.World) ? Spline.transform.TransformDirection(Spline.GetOrientationUpFast(tf)) : Spline.GetOrientationUpFast(tf);
+            return (Space == Space.World) ? Spline.transform.TransformDirection (Spline.GetOrientationUpFast (tf)) : Spline.GetOrientationUpFast (tf);
         }
-
 
         /// <summary>
         /// Advance the controller and return the new position
@@ -416,7 +412,7 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <param name="mode">movement mode</param>
         /// <param name="absSpeed">speed, always positive</param>
         /// <param name="clamping">clamping mode</param>
-        protected override void Advance(ref float tf, ref int direction, MoveModeEnum mode, float absSpeed, CurvyClamping clamping)
+        protected override void Advance (ref float tf, ref int direction, MoveModeEnum mode, float absSpeed, CurvyClamping clamping)
         {
             _active = this;
             switch (mode)
@@ -424,48 +420,48 @@ namespace FluffyUnderware.Curvy.Controllers
                 case MoveModeEnum.AbsoluteExtrapolate:
                     if (UseCache)
                     {
-                        Spline.MoveByFast(ref tf, ref direction, absSpeed, Clamping);
+                        Spline.MoveByFast (ref tf, ref direction, absSpeed, Clamping);
                         if (IsSwitching)
                         {
-                            mSwitchEventArgs.Spline.MoveByFast(ref mSwitchEventArgs.TF, ref mSwitchEventArgs.Direction, absSpeed, Clamping);
-                            onSwitchEvent(mSwitchEventArgs);
+                            mSwitchEventArgs.Spline.MoveByFast (ref mSwitchEventArgs.TF, ref mSwitchEventArgs.Direction, absSpeed, Clamping);
+                            onSwitchEvent (mSwitchEventArgs);
                         }
                     }
                     else
                     {
-                        Spline.MoveBy(ref tf, ref direction, absSpeed, Clamping);
+                        Spline.MoveBy (ref tf, ref direction, absSpeed, Clamping);
                         if (IsSwitching)
                         {
-                            mSwitchEventArgs.Spline.MoveBy(ref mSwitchEventArgs.TF, ref mSwitchEventArgs.Direction, absSpeed, Clamping);
-                            onSwitchEvent(mSwitchEventArgs);
+                            mSwitchEventArgs.Spline.MoveBy (ref mSwitchEventArgs.TF, ref mSwitchEventArgs.Direction, absSpeed, Clamping);
+                            onSwitchEvent (mSwitchEventArgs);
                         }
                     }
                     break;
                 case MoveModeEnum.AbsolutePrecise:
-                    Spline.MoveByLengthFast(ref tf, ref direction, absSpeed, Clamping);
+                    Spline.MoveByLengthFast (ref tf, ref direction, absSpeed, Clamping);
                     if (IsSwitching)
                     {
-                        mSwitchEventArgs.Spline.MoveByLengthFast(ref mSwitchEventArgs.TF, ref mSwitchEventArgs.Direction, absSpeed, Clamping);
-                        onSwitchEvent(mSwitchEventArgs);
+                        mSwitchEventArgs.Spline.MoveByLengthFast (ref mSwitchEventArgs.TF, ref mSwitchEventArgs.Direction, absSpeed, Clamping);
+                        onSwitchEvent (mSwitchEventArgs);
                     }
                     break;
                 default: // Relative
                     if (UseCache)
                     {
-                        Spline.MoveFast(ref tf, ref direction, absSpeed, Clamping);
+                        Spline.MoveFast (ref tf, ref direction, absSpeed, Clamping);
                         if (IsSwitching)
                         {
-                            mSwitchEventArgs.Spline.MoveFast(ref mSwitchEventArgs.TF, ref mSwitchEventArgs.Direction, absSpeed, Clamping);
-                            onSwitchEvent(mSwitchEventArgs);
+                            mSwitchEventArgs.Spline.MoveFast (ref mSwitchEventArgs.TF, ref mSwitchEventArgs.Direction, absSpeed, Clamping);
+                            onSwitchEvent (mSwitchEventArgs);
                         }
                     }
                     else
                     {
-                        Spline.Move(ref tf, ref direction, absSpeed, Clamping);
+                        Spline.Move (ref tf, ref direction, absSpeed, Clamping);
                         if (IsSwitching)
                         {
-                            mSwitchEventArgs.Spline.Move(ref mSwitchEventArgs.TF, ref mSwitchEventArgs.Direction, absSpeed, Clamping);
-                            onSwitchEvent(mSwitchEventArgs);
+                            mSwitchEventArgs.Spline.Move (ref mSwitchEventArgs.TF, ref mSwitchEventArgs.Direction, absSpeed, Clamping);
+                            onSwitchEvent (mSwitchEventArgs);
                         }
                     }
                     break;
@@ -477,24 +473,24 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <summary>
         /// Binds any external events
         /// </summary>
-        protected override void BindEvents()
+        protected override void BindEvents ()
         {
-            base.BindEvents();
+            base.BindEvents ();
             if (Spline)
             {
-                UnbindEvents();
-                m_OnControlPointReached.CheckForListeners();
-                m_OnEndReached.CheckForListeners();
-                if (m_OnControlPointReached!=null && m_OnControlPointReached.HasListeners())
-                    Spline.OnMoveControlPointReached.AddListenerOnce(onControlPointReachedEvent);
-                if (m_OnEndReached!=null && m_OnEndReached.HasListeners())
-                    Spline.OnMoveEndReached.AddListenerOnce(onEndReachedEvent);
+                UnbindEvents ();
+                m_OnControlPointReached.CheckForListeners ();
+                m_OnEndReached.CheckForListeners ();
+                if (m_OnControlPointReached != null && m_OnControlPointReached.HasListeners ())
+                    Spline.OnMoveControlPointReached.AddListenerOnce (onControlPointReachedEvent);
+                if (m_OnEndReached != null && m_OnEndReached.HasListeners ())
+                    Spline.OnMoveEndReached.AddListenerOnce (onEndReachedEvent);
 
-                Spline.OnRefresh.AddListener(OnRefreshSpline);
+                Spline.OnRefresh.AddListener (OnRefreshSpline);
                 if (AdaptOnChange)
                 {
-                    Spline.OnBeforeControlPointAdd.AddListener(onBeforeCPChange);
-                    Spline.OnBeforeControlPointDelete.AddListener(onBeforeCPChange);
+                    Spline.OnBeforeControlPointAdd.AddListener (onBeforeCPChange);
+                    Spline.OnBeforeControlPointDelete.AddListener (onBeforeCPChange);
                 }
             }
         }
@@ -502,22 +498,22 @@ namespace FluffyUnderware.Curvy.Controllers
         /// <summary>
         /// Unbinds any external events
         /// </summary>
-        protected override void UnbindEvents()
+        protected override void UnbindEvents ()
         {
             if (Spline)
             {
-                Spline.OnRefresh.RemoveListener(OnRefreshSpline);
-                Spline.OnMoveControlPointReached.RemoveListener(onControlPointReachedEvent);
-                Spline.OnMoveEndReached.RemoveListener(onEndReachedEvent);
-                Spline.OnBeforeControlPointAdd.RemoveListener(onBeforeCPChange);
-                Spline.OnBeforeControlPointDelete.RemoveListener(onBeforeCPChange);
+                Spline.OnRefresh.RemoveListener (OnRefreshSpline);
+                Spline.OnMoveControlPointReached.RemoveListener (onControlPointReachedEvent);
+                Spline.OnMoveEndReached.RemoveListener (onEndReachedEvent);
+                Spline.OnBeforeControlPointAdd.RemoveListener (onBeforeCPChange);
+                Spline.OnBeforeControlPointDelete.RemoveListener (onBeforeCPChange);
             }
         }
 
-        protected virtual void OnRefreshSpline(CurvySplineEventArgs e)
+        protected virtual void OnRefreshSpline (CurvySplineEventArgs e)
         {
             if (e.Sender is CurvySplineBase && e.Sender != Spline)
-                ((CurvySplineBase)e.Sender).OnRefresh.RemoveListener(OnRefreshSpline);
+                ((CurvySplineBase) e.Sender).OnRefresh.RemoveListener (OnRefreshSpline);
             else
             {
                 if (Active)
@@ -526,18 +522,18 @@ namespace FluffyUnderware.Curvy.Controllers
                     {
                         if (mKeepDistanceAt > 0 && IsPlaying)
                         {
-                            AbsolutePosition = Mathf.Max(0,mKeepDistanceAt);
+                            AbsolutePosition = Mathf.Max (0, mKeepDistanceAt);
                             mKeepDistanceAt = 0;
                         }
                         // Refresh if static (otherwise done in Update())
                         if (Speed == 0)
-                            Refresh();
+                            Refresh ();
                     }
                     else if (IsInitialized) // Align if not moving
-                        Prepare();
+                        Prepare ();
                 }
                 else
-                    UnbindEvents();
+                    UnbindEvents ();
             }
         }
 
@@ -546,97 +542,96 @@ namespace FluffyUnderware.Curvy.Controllers
         #region ### Privates ###
         /*! \cond PRIVATE */
 
-        void getInterpolatedSourcePosition(CurvySplineBase spline, float tf, out Vector3 position, out Vector3 tangent, out Vector3 up)
+        void getInterpolatedSourcePosition (CurvySplineBase spline, float tf, out Vector3 position, out Vector3 tangent, out Vector3 up)
         {
             if (spline.Length == 0)
             {
                 position = spline.transform.localPosition;
                 tangent = Vector3.forward;
                 up = Vector3.up;
-            } else
+            }
+            else
             {
                 if (UseCache)
                 {
-                    position = spline.InterpolateFast(tf);
-                    tangent = spline.GetTangentFast(tf);
+                    position = spline.InterpolateFast (tf);
+                    tangent = spline.GetTangentFast (tf);
                 }
                 else
                 {
-                    position = spline.Interpolate(tf);
-                    tangent = spline.GetTangent(tf, position);
+                    position = spline.Interpolate (tf);
+                    tangent = spline.GetTangent (tf, position);
                 }
-                up = spline.GetOrientationUpFast(tf);
+                up = spline.GetOrientationUpFast (tf);
             }
             if (Space == Space.World)
             {
-                position = spline.transform.TransformPoint(position);
-                tangent = spline.transform.TransformDirection(tangent);
-                up = spline.transform.TransformDirection(up);
+                position = spline.transform.TransformPoint (position);
+                tangent = spline.transform.TransformDirection (tangent);
+                up = spline.transform.TransformDirection (up);
             }
         }
 
-        void onBeforeCPChange(CurvyControlPointEventArgs e)
+        void onBeforeCPChange (CurvyControlPointEventArgs e)
         {
             if (e.Sender is CurvySplineBase && e.Sender != Spline)
-                ((CurvySplineBase)e.Sender).OnRefresh.RemoveListener(OnRefreshSpline);
+                ((CurvySplineBase) e.Sender).OnRefresh.RemoveListener (OnRefreshSpline);
             else
             {
-                if (Active && mKeepDistanceAt==0)
+                if (Active && mKeepDistanceAt == 0)
                 {
                     switch (e.Mode)
                     {
                         case CurvyControlPointEventArgs.ModeEnum.Delete:
-                                mKeepDistanceAt = this.AbsolutePosition - e.ControlPoint.Length;
-                            break;                            
+                            mKeepDistanceAt = this.AbsolutePosition - e.ControlPoint.Length;
+                            break;
                         case CurvyControlPointEventArgs.ModeEnum.None:
                             break;
                         default:
-                                mKeepDistanceAt = this.AbsolutePosition;
+                            mKeepDistanceAt = this.AbsolutePosition;
                             break;
                     }
                 }
                 else
-                    UnbindEvents();
+                    UnbindEvents ();
             }
         }
 
-        void onControlPointReachedEvent(CurvySplineMoveEventArgs e)
+        void onControlPointReachedEvent (CurvySplineMoveEventArgs e)
         {
             if (!(_active == this))
                 return;
             if (e.Spline && e.Spline != Spline)
-                e.Spline.OnMoveControlPointReached.RemoveListener(onControlPointReachedEvent);
+                e.Spline.OnMoveControlPointReached.RemoveListener (onControlPointReachedEvent);
             else
             {
                 e.Sender = this;
-                OnControlPointReached.Invoke(e);
+                OnControlPointReached.Invoke (e);
             }
         }
 
-        void onEndReachedEvent(CurvySplineMoveEventArgs e)
+        void onEndReachedEvent (CurvySplineMoveEventArgs e)
         {
             if (!(_active == this))
                 return;
             if (e.Spline && e.Spline != Spline)
-                e.Spline.OnMoveEndReached.RemoveListener(onEndReachedEvent);
+                e.Spline.OnMoveEndReached.RemoveListener (onEndReachedEvent);
             else
             {
                 e.Sender = this;
-                OnEndReached.Invoke(e);
+                OnEndReached.Invoke (e);
             }
         }
 
-        void onSwitchEvent(CurvySplineMoveEventArgs e)
+        void onSwitchEvent (CurvySplineMoveEventArgs e)
         {
-            OnSwitch.Invoke(e);
+            OnSwitch.Invoke (e);
             if (e.Cancel)
                 mSwitchEventArgs = null;
         }
 
-       
-
         /*! \endcond */
         #endregion
-        
+
     }
 }

@@ -4,7 +4,7 @@ using SonicBloom.Koreo;
 namespace CyberBeat
 {
     [System.Serializable]
-    public class TimeOfEvent
+    public class TimeOfEvent : ITimeItem
     {
         public TimeOfEvent (KoreographyEvent e, float SampleRate)
         {

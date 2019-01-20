@@ -25,7 +25,7 @@ namespace CyberBeat
         }
         public override void OnMetaData (SpeedTimeData metaData)
         {
-            DOVirtual.Float (splineController.Speed, metaData.Speed, metaData.TimeDuaration, OnSpeedUpdated.Invoke);
+            DOVirtual.Float (splineController.Speed, metaData.Speed, metaData.TimeDuaration, _SetSpeed);
         }
 
         public void _SetSpeed (FloatVariable newSpeed)
@@ -35,11 +35,12 @@ namespace CyberBeat
         public void _SetSpeed (float newSpeed)
         {
             splineController.Speed = newSpeed;
+            OnSpeedUpdated.Invoke (newSpeed);
         }
         public void _SlowStop (float StopDuration = 2f)
         {
             lastSpeed = splineController.Speed;
-            splineController.Speed.Do (0f, StopDuration, _SetSpeed, splineController.Stop);
+            DOVirtual.Float (splineController.Speed, 0f, StopDuration, _SetSpeed);
         }
 
         public void Pause ()

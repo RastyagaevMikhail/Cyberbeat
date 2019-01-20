@@ -93,7 +93,6 @@ namespace GameCore
         {
             return string.Format ("<b><color=\"#{0}\">{1}</color></b>", ColorUtility.ToHtmlStringRGB (color), text);
         }
-
         public static void Destroy (UnityEngine.Object obj)
         {
             if (Application.isPlaying)

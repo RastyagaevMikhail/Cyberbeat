@@ -44,42 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e27d19f83d1dd46b97e3edf819e305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeEventsItems:
-  - dataTimeVariable: {fileID: 11400000, guid: 3a88ecb46e879ee46951439df1162f95, type: 2}
-    OnTimneEventChanged:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11400000, guid: 73c37280616c865419ac36646280d954, type: 2}
-          m_MethodName: Raise
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: CyberBeat.UnityEventTimeEvent, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - dataTimeVariable: {fileID: 11400000, guid: be44356fcadf3834795eeb8a5b7a4993, type: 2}
-    OnTimneEventChanged:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11400000, guid: 11f49a8ed1cde5d418e12495a7c1e186, type: 2}
-          m_MethodName: Raise
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: CyberBeat.UnityEventTimeEvent, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
   time: 0
+  timeEventsItems:
+  - {fileID: 11400000, guid: 28f561175dc25ab40b1bfe804d552338, type: 2}
+  - {fileID: 11400000, guid: 9e6c898d251bf3346acb4fe16019b963, type: 2}
 --- !u!114 &5479331890449563221
 MonoBehaviour:
   m_ObjectHideFlags: 0

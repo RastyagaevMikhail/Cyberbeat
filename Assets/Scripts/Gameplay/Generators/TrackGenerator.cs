@@ -1,16 +1,11 @@
-﻿using DG.Tweening;
-
-using GameCore;
+﻿using GameCore;
 
 using SonicBloom.Koreo;
-using SonicBloom.Koreo.Players;
 
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
-using UnityEngine.Events;
 namespace CyberBeat
 {
     public class TrackGenerator : TransformObject
@@ -38,21 +33,19 @@ namespace CyberBeat
         }
         float lastBeat = 0;
         [SerializeField] Color LastRandomColor;
-        public void OnBit (KoreographyEvent koreographyEvent)
+        public void OnBit (IBitData bitData)
         {
-            if (!koreographyEvent.HasTextPayload ()) return;
+            // Debug.LogFormat ("bitData = {0}", bitData);
+            // if (!bitData.HasTextPayload ()) return;
 
-            float bitTime = (float) koreographyEvent.StartSample / 44100f;
+            float bitTime = bitData.BitTime;
 
             if (lastBeat >= bitTime)
                 return;
             else
                 lastBeat = bitTime;
 
-            var TextPayloadValue = koreographyEvent.GetTextValue ();
-            string[] SplitedPresetsStrings = TextPayloadValue.Split (',');
-
-            int randPreset = SplitedPresetsStrings.Select (strInt => int.Parse (strInt)).GetRandom ();
+            int randPreset = bitData.RandomInt;
             List<SpawnedObject> row = null;
             try
             {

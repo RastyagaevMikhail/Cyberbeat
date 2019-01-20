@@ -131,6 +131,7 @@ namespace GameCore
 
         private SpawnedObject Extend (string Key)
         {
+            // Debug.LogFormat ("Key = {0}", Key);
             var pObj = Settings.Find (ps => ps.Key == Key);
             if (pObj == null)
             {

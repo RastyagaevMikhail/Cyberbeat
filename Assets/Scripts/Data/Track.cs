@@ -68,7 +68,7 @@ namespace CyberBeat
 			foreach (var layer in Enums.LayerTypes)
 			{
 				var trackLayer = Tools.ValidateSO<KoreographyTrack> (("Assets/Data/Koreography/{0}/Tracks/{1}_{0}.asset").AsFormat (name, layer));
-				UnityEditor.EditorUtility.SetDirty(trackLayer);
+				UnityEditor.EditorUtility.SetDirty (trackLayer);
 				trackLayer.EventID = layer.ToString ();
 				if (Koreography.CanAddTrack (trackLayer))
 					Koreography.AddTrack (trackLayer);
@@ -162,6 +162,14 @@ namespace CyberBeat
 		{
 			this.Save ();
 		}
+
+		[ContextMenu ("ValidateBits")]
+		void ValidateBits ()
+		{
+			Bits = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/TrackBitsCollection/{name}.asset");
+			Bits.Init (GetAllEventsByType (LayerType.Bit));
+			Bits.Save();
+		}
 #endif
 		[ContextMenu ("Set Me As Current")]
 		public void SetMeAsCurrent ()
@@ -173,6 +181,7 @@ namespace CyberBeat
 		public List<SocialInfo> socials;
 		public ShopInfo shopInfo;
 		public ProgressInfo progressInfo;
+		public TrackBitsCollection Bits;
 		public TracksCollection data { get { return TracksCollection.instance; } }
 
 		public int TrackNumber { get { return data.Objects.IndexOf (this) + 1; } }
