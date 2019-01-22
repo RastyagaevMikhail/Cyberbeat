@@ -19,7 +19,7 @@ namespace CyberBeat
 
             [SerializeField] TUnityEvent unityEvent;
             public TUnityEvent UnityEvent => unityEvent;
-
+            [SerializeField] protected bool debug;
             public abstract ITimeItem CurrentTimeItem { get; set; }
             protected int indexOfTime;
             public bool TimesIsOver => indexOfTime >= TimeItems.Count ();
@@ -28,6 +28,7 @@ namespace CyberBeat
 
             public virtual bool Start ()
             {
+                indexOfTime = 0;
                 if (TimesIsOver)
                 {
                     OnTimeIsOver ();
@@ -40,7 +41,7 @@ namespace CyberBeat
 
             protected virtual void OnTimeIsOver ()
             {
-                Debug.Log ($"{("TimesIsOver".err())} {this.ToString().warn()}", this);
+                if (debug) Debug.Log ($"{("TimesIsOver".err())} {this.ToString().warn()}", this);
             }
 
             public abstract void UpdateInTime (float time);

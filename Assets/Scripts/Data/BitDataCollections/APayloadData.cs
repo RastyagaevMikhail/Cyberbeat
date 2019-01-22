@@ -11,16 +11,19 @@ namespace CyberBeat
     public abstract class APayloadData : IPayloadData
     {
         public int RandomInt =>
-            ints.GetRandom ();
+            Ints.GetRandom ();
 
         public string RandomString =>
             strings.GetRandom ();
 
         public int IntValue =>
-            ints.FirstOrDefault ();
+            Ints.FirstOrDefault ();
 
         public string StringValue =>
             strings.FirstOrDefault ();
+
+        public string[] Strings { get => strings; }
+        public int[] Ints { get => ints; }
 
         [SerializeField] string[] strings;
         [SerializeField] int[] ints;
@@ -35,7 +38,14 @@ namespace CyberBeat
             }
             catch (System.Exception)
             {
-                ints = new int[] { int.Parse (payloadValue) };
+                try
+                {
+                      ints = new int[] { int.Parse (payloadValue) };
+                }
+                catch (System.Exception)
+                {
+                        Debug.Log($"Is not int".warn());
+                }
             }
 
         }

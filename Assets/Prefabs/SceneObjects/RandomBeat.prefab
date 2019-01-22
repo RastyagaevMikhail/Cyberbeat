@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 114551148824255416}
   - component: {fileID: 114460927941135028}
   - component: {fileID: 114359091212655260}
+  - component: {fileID: 6570444389113832329}
   m_Layer: 0
   m_Name: RandomBeat
   m_TagString: Brick
@@ -161,7 +162,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114712336674342962
 MonoBehaviour:
@@ -180,7 +181,7 @@ MonoBehaviour:
     action:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 11400000, guid: d09fa85f63eb3af4e987ac2d4a02b0cd, type: 2}
+        - m_Target: {fileID: 11400000, guid: 54a4f727f6b6c6e478f8c70c668ebf4f, type: 2}
           m_MethodName: Raise
           m_Mode: 2
           m_Arguments:
@@ -223,15 +224,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feaa4d6d8642c174eab59e792f0daef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bit: 0
-  OnDeathCollorInterractor: {fileID: 11400000, guid: 47c53296d23de95469d924d930798c78,
-    type: 2}
-  OnColorTeked: {fileID: 11400000, guid: f848ac470e1c2d24085b4140d22da118, type: 2}
-  deathParticles_poolKey: getColor
-  PushOnDeath: 0
-  DeathParticlesOnMe: 0
-  Neighbors: []
-  DeathHashState: 646380074
+  OnDeathASColorInterractor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4b53aa55f7828834097e97538565fc61, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CyberBeat.UnityEventColorInterractor, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeathAsColor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 7826ae6dab0ad60489a9a08da94d0382, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnDeathAsBit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c2285b862b778ba4c9cce1b38df6074b, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8512347159991630916}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Death
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6570444389113832329}
+        m_MethodName: Pop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: getColor
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114460927941135028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,9 +314,25 @@ MonoBehaviour:
   OnSpawn:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114551148824255416}
-        m_MethodName: OnSpawn
-        m_Mode: 1
+      - m_Target: {fileID: 65426608238597218}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 65426608238597218}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -258,19 +341,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnDeSpawn:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 114551148824255416}
-        m_MethodName: OnDeSpawn
-        m_Mode: 1
+        m_MethodName: set_UniformLocalScale
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -291,3 +369,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MetaData: 
+--- !u!114 &6570444389113832329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215168562196926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0358ffcdd9312f44cb2ab84f2cb36abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parnet:
+    UseConstant: 0
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}

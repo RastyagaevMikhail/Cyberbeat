@@ -38,7 +38,7 @@ namespace CyberBeat
             // Debug.LogFormat ("bitData = {0}", bitData);
             // if (!bitData.HasTextPayload ()) return;
 
-            float bitTime = bitData.BitTime;
+            float bitTime = bitData.StartTime;
 
             if (lastBeat >= bitTime)
                 return;

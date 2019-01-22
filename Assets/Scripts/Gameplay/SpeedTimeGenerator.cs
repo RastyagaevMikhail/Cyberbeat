@@ -10,13 +10,12 @@ namespace CyberBeat
 {
     public class SpeedTimeGenerator : TransformObject
     {
-        private const int sampleRate = 44100;
         [SerializeField] SpeedTimeDataPresetSelector selector;
         [SerializeField] UnityEventSpeedTimeData OnBitEvent;
-        public void OnBit (KoreographyEvent koreographyEvent)
+        public void OnBit (IBitData BitData)
         {
-            var data = selector[koreographyEvent.GetTextValue ()].Data;
-            data.TimeDuaration = koreographyEvent.GetDurationTime (sampleRate);
+            var data = selector[BitData.StringValue].Data;
+            data.TimeDuaration = BitData.Duration;
             OnBitEvent.Invoke (data);
         }
     }

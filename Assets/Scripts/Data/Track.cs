@@ -168,7 +168,22 @@ namespace CyberBeat
 		{
 			Bits = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/TrackBitsCollection/{name}.asset");
 			Bits.Init (GetAllEventsByType (LayerType.Bit));
-			Bits.Save();
+			Bits.Save ();
+		}
+
+		[ContextMenu ("ValidateEffects")]
+		void ValidateEffects ()
+		{
+			Effects = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/TrackEffectsCollection/{name}.asset");
+			Effects.Init (GetAllEventsByType (LayerType.Effect));
+			Effects.Save ();
+		}
+		[ContextMenu ("ValidateSpeeds")]
+		void ValidateSpeeds ()
+		{
+			Speeds = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/TrackSpeedsCollection/{name}.asset");
+			Speeds.Init (GetAllEventsByType (LayerType.Speed));
+			Speeds.Save ();
 		}
 #endif
 		[ContextMenu ("Set Me As Current")]
@@ -181,7 +196,12 @@ namespace CyberBeat
 		public List<SocialInfo> socials;
 		public ShopInfo shopInfo;
 		public ProgressInfo progressInfo;
+		[ContextMenuItem("Valiadate","ValidateBits")]
 		public TrackBitsCollection Bits;
+		[ContextMenuItem("Valiadate","ValidateEffects")]
+		public TrackBitsCollection Effects;
+		[ContextMenuItem("Valiadate","ValidateSpeeds")]
+		public TrackBitsCollection Speeds;
 		public TracksCollection data { get { return TracksCollection.instance; } }
 
 		public int TrackNumber { get { return data.Objects.IndexOf (this) + 1; } }
@@ -212,7 +232,9 @@ namespace CyberBeat
 		[SerializeField] Koreography koreography;
 		public Koreography Koreography { get { return koreography; } set { koreography = value; } }
 
-		public List<KoreographyEvent> this [LayerType layer]
+        
+
+        public List<KoreographyEvent> this [LayerType layer]
 		{
 			get
 			{

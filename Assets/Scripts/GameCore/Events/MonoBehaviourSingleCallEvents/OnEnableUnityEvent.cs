@@ -9,10 +9,8 @@ namespace GameCore
 
         private void OnEnable ()
         {
-            if (debug)
-                Debug.Log ($"{("OnEnable".a())} {name.mb()}", this);
             onEnable.Invoke ();
-
+            if (debug) Debug.Log ($"{("OnEnable".a())} {name.mb()}\n{onEnable.Log()}", this);
         }
     }
 }

@@ -9,9 +9,12 @@ namespace GameCore
     {
 
         [SerializeField] UnityEvent onDisable;
+        [SerializeField] bool debug;
+
         private void OnDisable ()
         {
             onDisable.Invoke ();
+            if (debug) Debug.Log ($"{("OnEnable".a())} {name.mb()}\n{onDisable.Log()}", this);
         }
     }
 }

@@ -1,0 +1,37 @@
+using GameCore;
+
+using System;
+
+using UnityEngine;
+using UnityEngine.Events;
+
+namespace GameCore
+{
+    
+    public class GameEventListenerAudioClip : MonoBehaviour
+    {
+        [SerializeField] GameEventAudioClip Event;
+
+        [SerializeField] UnityEventAudioClip Responce;
+        
+        [SerializeField] bool debug;
+
+        public void OnEventRaised (AudioClip arg)
+        {
+             if (debug)
+                Debug.Log ($"{("OnEvent".a())} {$"[{Event.name}]".so()}\n{arg.ToString().cyan()}\n{("Raised On".a())} {name.mb()}", this);
+            Responce.Invoke (arg);
+        }
+        public void OnEnable ()
+        {
+            Event.RegisterListener (this);
+        }
+
+        public void OnDisable ()
+        {
+            Event.UnRegisterListener (this);
+        }
+    }
+    [Serializable] public class UnityEventAudioClip : UnityEvent<AudioClip>{}
+}
+

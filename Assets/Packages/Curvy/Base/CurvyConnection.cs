@@ -5,10 +5,12 @@
 // http://www.fluffyunderware.com
 // =====================================================================
 
-using System.Collections.Generic;
 using FluffyUnderware.Curvy;
 using FluffyUnderware.DevTools;
 using FluffyUnderware.DevTools.Extensions;
+
+using System.Collections.Generic;
+
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -20,13 +22,13 @@ namespace FluffyUnderware.Curvy
     /// Connection component
     /// </summary>
     [ExecuteInEditMode]
-    [HelpURL(CurvySpline.DOCLINK + "curvyconnection")]
+    [HelpURL (CurvySpline.DOCLINK + "curvyconnection")]
     public class CurvyConnection : MonoBehaviour
     {
         #region ### Serialized Fields ###
 
-        [SerializeField,Hide]
-        List<CurvySplineSegment> m_ControlPoints = new List<CurvySplineSegment>();
+        [SerializeField, Hide]
+        List<CurvySplineSegment> m_ControlPoints = new List<CurvySplineSegment> ();
 
         #endregion
 
@@ -55,7 +57,7 @@ namespace FluffyUnderware.Curvy
         /// </summary>
         /// <param name="idx">index of the Control Point</param>
         /// <returns>a Control Point</returns>
-        public CurvySplineSegment this[int idx]
+        public CurvySplineSegment this [int idx]
         {
             get
             {
@@ -71,7 +73,7 @@ namespace FluffyUnderware.Curvy
             get
             {
                 if (!mTTransform)
-                    mTTransform = new TTransform(transform);
+                    mTTransform = new TTransform (transform);
                 return mTTransform;
             }
         }
@@ -86,8 +88,8 @@ namespace FluffyUnderware.Curvy
 
         #region ### Unity Callbacks ###
         /*! \cond UNITY */
-        
-        void OnDestroy()
+
+        void OnDestroy ()
         {
             bool realDestroy = true;
 #if UNITY_EDITOR
@@ -99,46 +101,45 @@ namespace FluffyUnderware.Curvy
                 foreach (var cp in ControlPoints)
                 {
                     cp.Connection = null;
-                    cp.Disconnect();
+                    cp.Disconnect ();
                 }
-                ControlPoints.Clear();
+                ControlPoints.Clear ();
             }
         }
 
-        
-        public void Update()
+        public void Update ()
         {
             bool syncPos = TTransform.position != transform.position;
             bool syncRot = TTransform.rotation != transform.rotation;
             if (syncPos || syncRot)
             {
-                SynchronizeINTERNAL(transform);
+                SynchronizeINTERNAL (transform);
             }
         }
         /*! \endcond */
         #endregion
 
         #region ### Public Methods ###
-        
+
         /// <summary>
         /// Creates a connection and adds Control Points
         /// </summary>
         /// <param name="controlPoints">Control Points to add</param>
         /// <returns>the new connection</returns>
-        public static CurvyConnection Create(params CurvySplineSegment[] controlPoints)
+        public static CurvyConnection Create (params CurvySplineSegment[] controlPoints)
         {
-            var con = CurvyGlobalManager.Instance.AddChildGameObject<CurvyConnection>("Connection");
+            var con = CurvyGlobalManager.Instance.AddChildGameObject<CurvyConnection> ("Connection");
 #if UNITY_EDITOR
             if (!Application.isPlaying)
-                Undo.RegisterCreatedObjectUndo(con.gameObject, "Add Connection");
+                Undo.RegisterCreatedObjectUndo (con.gameObject, "Add Connection");
 #endif
             if (!con)
                 return null;
             if (controlPoints.Length > 0)
             {
                 con.transform.position = controlPoints[0].transform.position;
-                con.TTransform.FromTransform(con.transform);
-                con.AddControlPoints(controlPoints);
+                con.TTransform.FromTransform (con.transform);
+                con.AddControlPoints (controlPoints);
             }
 
             return con;
@@ -148,21 +149,24 @@ namespace FluffyUnderware.Curvy
         /// Adds Control Points to this connection
         /// </summary>
         /// <param name="controlPoints">the Control Points to add</param>
-        public void AddControlPoints(params CurvySplineSegment[] controlPoints)
+        public void AddControlPoints (params CurvySplineSegment[] controlPoints)
         {
             foreach (var cp in controlPoints)
-                addControlPoint(cp);
-            AutoSetFollowUp();
+                addControlPoint (cp);
+            AutoSetFollowUp ();
         }
 
-        public void AutoSetFollowUp()
+        public void AutoSetFollowUp ()
         {
-            if (Count == 2 && ControlPoints[0].position==ControlPoints[1].position && ControlPoints[0].ConnectionSyncPosition && ControlPoints[1].ConnectionSyncPosition)
+            CurvySplineSegment firstCP = ControlPoints[0];
+            CurvySplineSegment secondCP = ControlPoints[1];
+            
+            if (Count == 2 && firstCP.position == secondCP.position && firstCP.ConnectionSyncPosition && secondCP.ConnectionSyncPosition)
             {
-                if (ControlPoints[0].FollowUp==null && ControlPoints[0].CanHaveFollowUp)
-                    ControlPoints[0].SetFollowUp(ControlPoints[1]);
-                if (ControlPoints[1].FollowUp == null && ControlPoints[1].CanHaveFollowUp)
-                    ControlPoints[1].SetFollowUp(ControlPoints[0]);
+                if (firstCP.FollowUp == null && firstCP.CanHaveFollowUp)
+                    firstCP.SetFollowUp (secondCP);
+                if (secondCP.FollowUp == null && secondCP.CanHaveFollowUp)
+                    secondCP.SetFollowUp (firstCP);
             }
         }
 
@@ -171,26 +175,26 @@ namespace FluffyUnderware.Curvy
         /// </summary>
         /// <param name="controlPoint">the Control Point to remove</param>
         /// <param name="destroySelfIfEmpty">whether the connection should be destroyed when empty afterwards</param>
-        public void RemoveControlPoint(CurvySplineSegment controlPoint, bool destroySelfIfEmpty = true)
+        public void RemoveControlPoint (CurvySplineSegment controlPoint, bool destroySelfIfEmpty = true)
         {
             controlPoint.Connection = null;
-            ControlPoints.Remove(controlPoint);
+            ControlPoints.Remove (controlPoint);
             if (ControlPoints.Count == 0 && destroySelfIfEmpty)
-                Delete();
+                Delete ();
         }
 
         /// <summary>
         /// Deletes the connection
         /// </summary>
-        public void Delete()
+        public void Delete ()
         {
             if (Application.isPlaying)
             {
-                GameObject.Destroy(this.gameObject);
+                GameObject.Destroy (this.gameObject);
             }
 #if UNITY_EDITOR
             else
-                Undo.DestroyObjectImmediate(this.gameObject);
+                Undo.DestroyObjectImmediate (this.gameObject);
 #endif
         }
 
@@ -199,10 +203,10 @@ namespace FluffyUnderware.Curvy
         /// </summary>
         /// <param name="source">the Control Point to filter out</param>
         /// <returns>list of Control Points</returns>
-        public List<CurvySplineSegment> OtherControlPoints(CurvySplineSegment source)
+        public List<CurvySplineSegment> OtherControlPoints (CurvySplineSegment source)
         {
-            var res = new List<CurvySplineSegment>(ControlPoints);
-            res.Remove(source);
+            var res = new List<CurvySplineSegment> (ControlPoints);
+            res.Remove (source);
             return res;
         }
 
@@ -211,54 +215,53 @@ namespace FluffyUnderware.Curvy
         #region ### Privates & Internals ###
         /*! \cond PRIVATE */
 
-        void addControlPoint(CurvySplineSegment controlPoint)
+        void addControlPoint (CurvySplineSegment controlPoint)
         {
             if (!controlPoint.Connection)
             {
 #if UNITY_EDITOR
                 if (!Application.isPlaying)
-                    Undo.RecordObject(controlPoint, "Add Connection");
+                    Undo.RecordObject (controlPoint, "Add Connection");
 #endif
-                m_ControlPoints.Add(controlPoint);
+                m_ControlPoints.Add (controlPoint);
                 controlPoint.Connection = this;
             }
         }
 
-        void synchronize()
+        void synchronize ()
         {
             for (int i = 0; i < ControlPoints.Count; i++)
             {
 #if UNITY_EDITOR
-                Undo.RecordObject(ControlPoints[i].transform, Undo.GetCurrentGroupName());
+                Undo.RecordObject (ControlPoints[i].transform, Undo.GetCurrentGroupName ());
 #endif
                 if (ControlPoints[i].ConnectionSyncPosition)
                     ControlPoints[i].transform.position = transform.position;
                 if (ControlPoints[i].ConnectionSyncRotation)
                     ControlPoints[i].transform.rotation = transform.rotation;
-                ControlPoints[i].RefreshTransform(false);
+                ControlPoints[i].RefreshTransform (false);
             }
-            TTransform.FromTransform(transform);
+            TTransform.FromTransform (transform);
         }
 
-        public void SynchronizeINTERNAL(Transform tform)
+        public void SynchronizeINTERNAL (Transform tform)
         {
             if (tform != transform)
             {
 #if UNITY_EDITOR
-                Undo.RecordObject(transform, Undo.GetCurrentGroupName());
+                Undo.RecordObject (transform, Undo.GetCurrentGroupName ());
 #endif
                 transform.position = tform.position;
                 transform.rotation = tform.rotation;
 
             }
 
-            synchronize();
+            synchronize ();
         }
 
         /*! \endcond */
         #endregion
 
- 
     }
 
 }

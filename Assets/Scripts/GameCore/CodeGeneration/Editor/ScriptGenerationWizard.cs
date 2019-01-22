@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -21,11 +22,19 @@ namespace GameCore
         [MenuItem ("Game/Generation/Script")]
         static void CreateWizard ()
         {
-            ScriptableWizard.DisplayWizard<ScriptGenerationWizard> ("Create Scripts", "Generate");
+            var wizard = ScriptableWizard.DisplayWizard<ScriptGenerationWizard> ("Create Scripts", "Generate");
+            var nameOfNameSpace = EditorPrefs.GetString ("nameOfNameSpace", "GameCore");
+            wizard.UpdateNameSpace (nameOfNameSpace);
+        }
+
+        private void UpdateNameSpace (string nameOfNameSpace)
+        {
+            this.nameOfNameSpace = nameOfNameSpace;
         }
 
         void OnWizardCreate ()
         {
+            EditorPrefs.SetString ("nameOfNameSpace", nameOfNameSpace);
             if (runtimeSet)
             {
                 ScritpGenerator RuntimeSetScriptGenerator = new ScritpGenerator ()

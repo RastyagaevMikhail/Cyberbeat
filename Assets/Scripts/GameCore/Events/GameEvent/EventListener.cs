@@ -1,4 +1,3 @@
-
 using System;
 
 using UnityEngine;
@@ -23,9 +22,8 @@ namespace GameCore
 
         public void OnEventRaised ()
         {
-            if (debug)
-                Debug.LogFormat(" On Event \"{0}\" Raised", Event.name);
             Responce.Invoke ();
+            if (debug) Debug.Log ($"{("OnEvent".a())} {Event.name.so()} {("Raised").a()}\n{Responce.Log()}");
         }
         public bool OnEnable ()
         {
@@ -45,4 +43,3 @@ namespace GameCore
         }
     }
 }
-

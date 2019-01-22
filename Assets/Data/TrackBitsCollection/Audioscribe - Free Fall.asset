@@ -13,913 +13,1277 @@ MonoBehaviour:
   m_Name: Audioscribe - Free Fall
   m_EditorClassIdentifier: 
   bits:
-  - bitTime: 0
-    payloadData:
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 2.7361906
-    payloadData:
+    startTime: 0
+    endTime: 0
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 4.161769
-    payloadData:
+    startTime: 2.7361906
+    endTime: 2.7361906
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 5.495374
-    payloadData:
+    startTime: 4.161769
+    endTime: 4.161769
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 6.7676644
-    payloadData:
+    startTime: 5.495374
+    endTime: 5.495374
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 8.216236
-    payloadData:
+    startTime: 6.7676644
+    endTime: 6.7676644
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 9.63415
-    payloadData:
+    startTime: 8.216236
+    endTime: 8.216236
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 10.99551
-    payloadData:
+    startTime: 9.63415
+    endTime: 9.63415
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 12.387347
-    payloadData:
+    startTime: 10.99551
+    endTime: 10.99551
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 13.758095
-    payloadData:
+    startTime: 12.387347
+    endTime: 12.387347
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 15.065578
-    payloadData:
+    startTime: 13.758095
+    endTime: 13.758095
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 16.503809
-    payloadData:
+    startTime: 15.065578
+    endTime: 15.065578
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 17.874557
-    payloadData:
+    startTime: 16.503809
+    endTime: 16.503809
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 19.262177
-    payloadData:
+    startTime: 17.874557
+    endTime: 17.874557
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 20.54857
-    payloadData:
+    startTime: 19.262177
+    endTime: 19.262177
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 21.830748
-    payloadData:
+    startTime: 20.54857
+    endTime: 20.54857
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 22.071156
-    payloadData:
+    startTime: 21.830748
+    endTime: 21.830748
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 26.359592
-    payloadData:
+    startTime: 22.071156
+    endTime: 22.071156
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 27.549387
-    payloadData:
+    startTime: 26.359592
+    endTime: 26.359592
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 28.914286
-    payloadData:
+    startTime: 27.549387
+    endTime: 27.549387
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 30.296598
-    payloadData:
+    startTime: 28.914286
+    endTime: 28.914286
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 31.66839
-    payloadData:
+    startTime: 30.296598
+    endTime: 30.296598
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 33.04363
-    payloadData:
+    startTime: 31.66839
+    endTime: 31.66839
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 33.360546
-    payloadData:
+    startTime: 33.04363
+    endTime: 33.04363
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 34.43628
-    payloadData:
+    startTime: 33.360546
+    endTime: 33.360546
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 34.71746
-    payloadData:
+    startTime: 34.43628
+    endTime: 34.43628
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 35.775055
-    payloadData:
+    startTime: 34.71746
+    endTime: 34.71746
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 36.091156
-    payloadData:
+    startTime: 35.775055
+    endTime: 35.775055
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 37.203808
-    payloadData:
+    startTime: 36.091156
+    endTime: 36.091156
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 37.460316
-    payloadData:
+    startTime: 37.203808
+    endTime: 37.203808
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 38.485985
-    payloadData:
+    startTime: 37.460316
+    endTime: 37.460316
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 38.78068
-    payloadData:
+    startTime: 38.485985
+    endTime: 38.485985
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 39.87508
-    payloadData:
+    startTime: 38.78068
+    endTime: 38.78068
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 40.19211
-    payloadData:
+    startTime: 39.87508
+    endTime: 39.87508
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 41.248528
-    payloadData:
+    startTime: 40.19211
+    endTime: 40.19211
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 41.572517
-    payloadData:
+    startTime: 41.248528
+    endTime: 41.248528
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 43.964943
-    payloadData:
+    startTime: 41.572517
+    endTime: 41.572517
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 44.309162
-    payloadData:
+    startTime: 43.964943
+    endTime: 43.964943
+    duration: 0
+  - payloadData:
       strings:
       - 6
       ints: 06000000
-  - bitTime: 45.047142
-    payloadData:
+    startTime: 44.309162
+    endTime: 44.309162
+    duration: 0
+  - payloadData:
       strings:
       - 2
       ints: 02000000
-  - bitTime: 45.678005
-    payloadData:
+    startTime: 45.047142
+    endTime: 45.047142
+    duration: 0
+  - payloadData:
       strings:
       - 7
       ints: 07000000
-  - bitTime: 46.404285
-    payloadData:
+    startTime: 45.678005
+    endTime: 45.678005
+    duration: 0
+  - payloadData:
       strings:
       - 3
       ints: 03000000
-  - bitTime: 47.053196
-    payloadData:
+    startTime: 46.404285
+    endTime: 46.404285
+    duration: 0
+  - payloadData:
       strings:
       - 6
       ints: 06000000
-  - bitTime: 47.77102
-    payloadData:
+    startTime: 47.053196
+    endTime: 47.053196
+    duration: 0
+  - payloadData:
       strings:
       - 2
       ints: 02000000
-  - bitTime: 48.446396
-    payloadData:
+    startTime: 47.77102
+    endTime: 47.77102
+    duration: 0
+  - payloadData:
       strings:
       - 7
       ints: 07000000
-  - bitTime: 49.122585
-    payloadData:
+    startTime: 48.446396
+    endTime: 48.446396
+    duration: 0
+  - payloadData:
       strings:
       - 2
       ints: 02000000
-  - bitTime: 49.856327
-    payloadData:
+    startTime: 49.122585
+    endTime: 49.122585
+    duration: 0
+  - payloadData:
       strings:
       - 6
       ints: 06000000
-  - bitTime: 50.516327
-    payloadData:
+    startTime: 49.856327
+    endTime: 49.856327
+    duration: 0
+  - payloadData:
       strings:
       - 3
       ints: 03000000
-  - bitTime: 51.198414
-    payloadData:
+    startTime: 50.516327
+    endTime: 50.516327
+    duration: 0
+  - payloadData:
       strings:
       - 7
       ints: 07000000
-  - bitTime: 51.85805
-    payloadData:
+    startTime: 51.198414
+    endTime: 51.198414
+    duration: 0
+  - payloadData:
       strings:
       - 2
       ints: 02000000
-  - bitTime: 52.59864
-    payloadData:
+    startTime: 51.85805
+    endTime: 51.85805
+    duration: 0
+  - payloadData:
       strings:
       - 7
       ints: 07000000
-  - bitTime: 53.267345
-    payloadData:
+    startTime: 52.59864
+    endTime: 52.59864
+    duration: 0
+  - payloadData:
       strings:
       - 3
       ints: 03000000
-  - bitTime: 53.560318
-    payloadData:
+    startTime: 53.267345
+    endTime: 53.267345
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 53.922447
-    payloadData:
+    startTime: 53.560318
+    endTime: 53.560318
+    duration: 0
+  - payloadData:
       strings:
       - 6
       ints: 06000000
-  - bitTime: 54.60576
-    payloadData:
+    startTime: 53.922447
+    endTime: 53.922447
+    duration: 0
+  - payloadData:
       strings:
       - 2
       ints: 02000000
-  - bitTime: 55.29433
-    payloadData:
+    startTime: 54.60576
+    endTime: 54.60576
+    duration: 0
+  - payloadData:
       strings:
       - 7
       ints: 07000000
-  - bitTime: 56.00306
-    payloadData:
+    startTime: 55.29433
+    endTime: 55.29433
+    duration: 0
+  - payloadData:
       strings:
       - 2
       ints: 02000000
-  - bitTime: 56.670204
-    payloadData:
+    startTime: 56.00306
+    endTime: 56.00306
+    duration: 0
+  - payloadData:
       strings:
       - 6
       ints: 06000000
-  - bitTime: 57.36939
-    payloadData:
+    startTime: 56.670204
+    endTime: 56.670204
+    duration: 0
+  - payloadData:
       strings:
       - 2
       ints: 02000000
-  - bitTime: 58.02812
-    payloadData:
+    startTime: 57.36939
+    endTime: 57.36939
+    duration: 0
+  - payloadData:
       strings:
       - 7
       ints: 07000000
-  - bitTime: 58.717346
-    payloadData:
+    startTime: 58.02812
+    endTime: 58.02812
+    duration: 0
+  - payloadData:
       strings:
       - 3
       ints: 03000000
-  - bitTime: 59.417957
-    payloadData:
+    startTime: 58.717346
+    endTime: 58.717346
+    duration: 0
+  - payloadData:
       strings:
       - 6
       ints: 06000000
-  - bitTime: 60.0949
-    payloadData:
+    startTime: 59.417957
+    endTime: 59.417957
+    duration: 0
+  - payloadData:
       strings:
       - 2
       ints: 02000000
-  - bitTime: 60.774876
-    payloadData:
+    startTime: 60.0949
+    endTime: 60.0949
+    duration: 0
+  - payloadData:
       strings:
       - 7
       ints: 07000000
-  - bitTime: 61.474964
-    payloadData:
+    startTime: 60.774876
+    endTime: 60.774876
+    duration: 0
+  - payloadData:
       strings:
       - 3
       ints: 03000000
-  - bitTime: 62.14676
-    payloadData:
+    startTime: 61.474964
+    endTime: 61.474964
+    duration: 0
+  - payloadData:
       strings:
       - 6
       ints: 06000000
-  - bitTime: 62.832924
-    payloadData:
+    startTime: 62.14676
+    endTime: 62.14676
+    duration: 0
+  - payloadData:
       strings:
       - 3
       ints: 03000000
-  - bitTime: 63.551563
-    payloadData:
+    startTime: 62.832924
+    endTime: 62.832924
+    duration: 0
+  - payloadData:
       strings:
       - 7
       ints: 07000000
-  - bitTime: 64.21821
-    payloadData:
+    startTime: 63.551563
+    endTime: 63.551563
+    duration: 0
+  - payloadData:
       strings:
       - 2
       ints: 02000000
-  - bitTime: 64.393654
-    payloadData:
+    startTime: 64.21821
+    endTime: 64.21821
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 64.73986
-    payloadData:
+    startTime: 64.393654
+    endTime: 64.393654
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 65.0951
-    payloadData:
+    startTime: 64.73986
+    endTime: 64.73986
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 65.417145
-    payloadData:
+    startTime: 65.0951
+    endTime: 65.0951
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 65.76061
-    payloadData:
+    startTime: 65.417145
+    endTime: 65.417145
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 65.911224
-    payloadData:
+    startTime: 65.76061
+    endTime: 65.76061
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 66.25775
-    payloadData:
+    startTime: 65.911224
+    endTime: 65.911224
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 66.6
-    payloadData:
+    startTime: 66.25775
+    endTime: 66.25775
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 66.946144
-    payloadData:
+    startTime: 66.6
+    endTime: 66.6
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 67.281746
-    payloadData:
+    startTime: 66.946144
+    endTime: 66.946144
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 67.61281
-    payloadData:
+    startTime: 67.281746
+    endTime: 67.281746
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 67.95556
-    payloadData:
+    startTime: 67.61281
+    endTime: 67.61281
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 68.31406
-    payloadData:
+    startTime: 67.95556
+    endTime: 67.95556
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 68.65023
-    payloadData:
+    startTime: 68.31406
+    endTime: 68.31406
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 68.99886
-    payloadData:
+    startTime: 68.65023
+    endTime: 68.65023
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 69.31916
-    payloadData:
+    startTime: 68.99886
+    endTime: 68.99886
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 69.68991
-    payloadData:
+    startTime: 69.31916
+    endTime: 69.31916
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 70.02608
-    payloadData:
+    startTime: 69.68991
+    endTime: 69.68991
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 70.37302
-    payloadData:
+    startTime: 70.02608
+    endTime: 70.02608
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 70.710884
-    payloadData:
+    startTime: 70.37302
+    endTime: 70.37302
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 71.05896
-    payloadData:
+    startTime: 70.710884
+    endTime: 70.710884
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 71.39513
-    payloadData:
+    startTime: 71.05896
+    endTime: 71.05896
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 71.71599
-    payloadData:
+    startTime: 71.39513
+    endTime: 71.39513
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 72.08276
-    payloadData:
+    startTime: 71.71599
+    endTime: 71.71599
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 72.43261
-    payloadData:
+    startTime: 72.08276
+    endTime: 72.08276
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 72.767006
-    payloadData:
+    startTime: 72.43261
+    endTime: 72.43261
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 73.11961
-    payloadData:
+    startTime: 72.767006
+    endTime: 72.767006
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 73.4346
-    payloadData:
+    startTime: 73.11961
+    endTime: 73.11961
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 73.802155
-    payloadData:
+    startTime: 73.4346
+    endTime: 73.4346
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 74.13265
-    payloadData:
+    startTime: 73.802155
+    endTime: 73.802155
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 74.48073
-    payloadData:
+    startTime: 74.13265
+    endTime: 74.13265
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 74.83787
-    payloadData:
+    startTime: 74.48073
+    endTime: 74.48073
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 75.17256
-    payloadData:
+    startTime: 74.83787
+    endTime: 74.83787
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 75.49093
-    payloadData:
+    startTime: 75.17256
+    endTime: 75.17256
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 75.86054
-    payloadData:
+    startTime: 75.49093
+    endTime: 75.49093
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 76.18707
-    payloadData:
+    startTime: 75.86054
+    endTime: 75.86054
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 76.54365
-    payloadData:
+    startTime: 76.18707
+    endTime: 76.18707
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 76.88039
-    payloadData:
+    startTime: 76.54365
+    endTime: 76.54365
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 77.19161
-    payloadData:
+    startTime: 76.88039
+    endTime: 76.88039
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 77.55159
-    payloadData:
+    startTime: 77.19161
+    endTime: 77.19161
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 77.915535
-    payloadData:
+    startTime: 77.55159
+    endTime: 77.55159
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 78.264626
-    payloadData:
+    startTime: 77.915535
+    endTime: 77.915535
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 78.56227
-    payloadData:
+    startTime: 78.264626
+    endTime: 78.264626
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 78.94449
-    payloadData:
+    startTime: 78.56227
+    endTime: 78.56227
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 79.293564
-    payloadData:
+    startTime: 78.94449
+    endTime: 78.94449
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 79.62411
-    payloadData:
+    startTime: 79.293564
+    endTime: 79.293564
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 79.97415
-    payloadData:
+    startTime: 79.62411
+    endTime: 79.62411
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 80.301765
-    payloadData:
+    startTime: 79.97415
+    endTime: 79.97415
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 80.65766
-    payloadData:
+    startTime: 80.301765
+    endTime: 80.301765
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 80.977554
-    payloadData:
+    startTime: 80.65766
+    endTime: 80.65766
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 81.34313
-    payloadData:
+    startTime: 80.977554
+    endTime: 80.977554
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 81.69318
-    payloadData:
+    startTime: 81.34313
+    endTime: 81.34313
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 82.03152
-    payloadData:
+    startTime: 81.69318
+    endTime: 81.69318
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 82.37084
-    payloadData:
+    startTime: 82.03152
+    endTime: 82.03152
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 82.71796
-    payloadData:
+    startTime: 82.37084
+    endTime: 82.37084
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 83.0602
-    payloadData:
+    startTime: 82.71796
+    endTime: 82.71796
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 83.40537
-    payloadData:
+    startTime: 83.0602
+    endTime: 83.0602
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 83.75835
-    payloadData:
+    startTime: 83.40537
+    endTime: 83.40537
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 84.08499
-    payloadData:
+    startTime: 83.75835
+    endTime: 83.75835
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 84.4141
-    payloadData:
+    startTime: 84.08499
+    endTime: 84.08499
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 84.77728
-    payloadData:
+    startTime: 84.4141
+    endTime: 84.4141
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 85.1178
-    payloadData:
+    startTime: 84.77728
+    endTime: 84.77728
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 85.459526
-    payloadData:
+    startTime: 85.1178
+    endTime: 85.1178
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 85.79376
-    payloadData:
+    startTime: 85.459526
+    endTime: 85.459526
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 86.1556
-    payloadData:
+    startTime: 85.79376
+    endTime: 85.79376
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 87.87381
-    payloadData:
+    startTime: 86.1556
+    endTime: 86.1556
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 88.2381
-    payloadData:
+    startTime: 87.87381
+    endTime: 87.87381
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 89.26755
-    payloadData:
+    startTime: 88.2381
+    endTime: 88.2381
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 89.50014
-    payloadData:
+    startTime: 89.26755
+    endTime: 89.26755
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 89.759254
-    payloadData:
+    startTime: 89.50014
+    endTime: 89.50014
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 89.86204
-    payloadData:
+    startTime: 89.759254
+    endTime: 89.759254
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 90.61835
-    payloadData:
+    startTime: 89.86204
+    endTime: 89.86204
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 90.95725
-    payloadData:
+    startTime: 90.61835
+    endTime: 90.61835
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 91.99057
-    payloadData:
+    startTime: 90.95725
+    endTime: 90.95725
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 92.25347
-    payloadData:
+    startTime: 91.99057
+    endTime: 91.99057
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 92.56064
-    payloadData:
+    startTime: 92.25347
+    endTime: 92.25347
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 92.64095
-    payloadData:
+    startTime: 92.56064
+    endTime: 92.56064
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 93.358574
-    payloadData:
+    startTime: 92.64095
+    endTime: 92.64095
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 93.725716
-    payloadData:
+    startTime: 93.358574
+    endTime: 93.358574
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 94.727005
-    payloadData:
+    startTime: 93.725716
+    endTime: 93.725716
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 95.0024
-    payloadData:
+    startTime: 94.727005
+    endTime: 94.727005
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 95.27864
-    payloadData:
+    startTime: 95.0024
+    endTime: 95.0024
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 95.34467
-    payloadData:
+    startTime: 95.27864
+    endTime: 95.27864
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 96.14018
-    payloadData:
+    startTime: 95.34467
+    endTime: 95.34467
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 96.44204
-    payloadData:
+    startTime: 96.14018
+    endTime: 96.14018
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 97.47082
-    payloadData:
+    startTime: 96.44204
+    endTime: 96.44204
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 97.73243
-    payloadData:
+    startTime: 97.47082
+    endTime: 97.47082
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 97.9878
-    payloadData:
+    startTime: 97.73243
+    endTime: 97.73243
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 98.09265
-    payloadData:
+    startTime: 97.9878
+    endTime: 97.9878
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 98.8451
-    payloadData:
+    startTime: 98.09265
+    endTime: 98.09265
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 99.205215
-    payloadData:
+    startTime: 98.8451
+    endTime: 98.8451
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 100.21646
-    payloadData:
+    startTime: 99.205215
+    endTime: 99.205215
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 100.47714
-    payloadData:
+    startTime: 100.21646
+    endTime: 100.21646
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 100.69204
-    payloadData:
+    startTime: 100.47714
+    endTime: 100.47714
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 100.80075
-    payloadData:
+    startTime: 100.69204
+    endTime: 100.69204
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 101.59093
-    payloadData:
+    startTime: 100.80075
+    endTime: 100.80075
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 101.93238
-    payloadData:
+    startTime: 101.59093
+    endTime: 101.59093
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 102.10011
-    payloadData:
+    startTime: 101.93238
+    endTime: 101.93238
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 102.964424
-    payloadData:
+    startTime: 102.10011
+    endTime: 102.10011
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 103.21793
-    payloadData:
+    startTime: 102.964424
+    endTime: 102.964424
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 103.47469
-    payloadData:
+    startTime: 103.21793
+    endTime: 103.21793
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 103.55694
-    payloadData:
+    startTime: 103.47469
+    endTime: 103.47469
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 104.32721
-    payloadData:
+    startTime: 103.55694
+    endTime: 103.55694
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 104.680405
-    payloadData:
+    startTime: 104.32721
+    endTime: 104.32721
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 105.700294
-    payloadData:
+    startTime: 104.680405
+    endTime: 104.680405
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 105.963196
-    payloadData:
+    startTime: 105.700294
+    endTime: 105.700294
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 106.22803
-    payloadData:
+    startTime: 105.963196
+    endTime: 105.963196
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 106.30281
-    payloadData:
+    startTime: 106.22803
+    endTime: 106.22803
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
-  - bitTime: 107.07186
-    payloadData:
+    startTime: 106.30281
+    endTime: 106.30281
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 107.41803
-    payloadData:
+    startTime: 107.07186
+    endTime: 107.07186
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 108.44497
-    payloadData:
+    startTime: 107.41803
+    endTime: 107.41803
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 108.79422
-    payloadData:
+    startTime: 108.44497
+    endTime: 108.44497
+    duration: 0
+  - payloadData:
       strings:
       - 5
       ints: 05000000
-  - bitTime: 108.961136
-    payloadData:
+    startTime: 108.79422
+    endTime: 108.79422
+    duration: 0
+  - payloadData:
       strings:
       - 4
       ints: 04000000
-  - bitTime: 109.03515
-    payloadData:
+    startTime: 108.961136
+    endTime: 108.961136
+    duration: 0
+  - payloadData:
       strings:
       - 1
       ints: 01000000
+    startTime: 109.03515
+    endTime: 109.03515
+    duration: 0

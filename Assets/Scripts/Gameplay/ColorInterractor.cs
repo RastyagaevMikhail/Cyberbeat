@@ -11,6 +11,9 @@ namespace CyberBeat
     {
         protected MaterialSwitcher _matSwitch = null;
         public virtual MaterialSwitcher matSwitch { get { if (_matSwitch == null) { _matSwitch = GetComponent<MaterialSwitcher> (); } return _matSwitch; } }
+
+        public Color CurrentColor { get { return matSwitch.CurrentColor; } }
+
         float bit;
 
         public void Init (float bitTime)
@@ -29,7 +32,7 @@ namespace CyberBeat
 
             OnDeathAsBit.Invoke (bit);
 
-            OnDeathAsColor.Invoke (matSwitch.CurrentColor);
+            OnDeathAsColor.Invoke (CurrentColor);
 
             OnDeath.Invoke ();
 

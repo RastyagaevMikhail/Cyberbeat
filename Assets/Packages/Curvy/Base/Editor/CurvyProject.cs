@@ -181,8 +181,8 @@ namespace FluffyUnderware.CurvyEditor
             EditorApplication.update -= OnUpdate;
             EditorApplication.update += OnUpdate;
             EditorApplication.update += checkLaunch;
-            EditorApplication.hierarchyWindowChanged -= ScanConnections;
-            EditorApplication.hierarchyWindowChanged += ScanConnections;
+            EditorApplication.hierarchyChanged -= ScanConnections;
+            EditorApplication.hierarchyChanged += ScanConnections;
             EditorApplication.hierarchyWindowItemOnGUI -= OnHierarchyWindowItemOnGUI;
             EditorApplication.hierarchyWindowItemOnGUI += OnHierarchyWindowItemOnGUI;
             ScanConnections();

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1093172516268770085}
   - component: {fileID: 1093172516268770084}
+  - component: {fileID: 4212626767360100296}
   m_Layer: 0
   m_Name: CP0001
   m_TagString: Untagged
@@ -62,10 +63,40 @@ MonoBehaviour:
   m_StartBias: 0
   m_EndBias: 0
   m_FollowUp: {fileID: 0}
-  m_FollowUpHeading: 1
-  m_ConnectionSyncPosition: 1
-  m_ConnectionSyncRotation: 1
+  m_FollowUpHeading: 2
+  m_ConnectionSyncPosition: 0
+  m_ConnectionSyncRotation: 0
   m_Connection: {fileID: 0}
+--- !u!114 &4212626767360100296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093172516268770075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 638eb4569d82d064dbb74772f665eb60, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1093172516268770084}
+          m_ObjectArgumentAssemblyTypeName: FluffyUnderware.Curvy.CurvySplineSegment,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  debug: 0
 --- !u!1 &1093172516331658124
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1093172517933265847}
   - component: {fileID: 1093172517933265846}
-  - component: {fileID: 2141233245}
+  - component: {fileID: 365748642}
   m_Layer: 0
   m_Name: '[StartSpline]'
   m_TagString: Untagged
@@ -235,7 +266,7 @@ MonoBehaviour:
   ControlPoints:
   - {fileID: 1093172516331658125}
   - {fileID: 1093172516268770084}
---- !u!114 &2141233245
+--- !u!114 &365748642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +281,7 @@ MonoBehaviour:
   OnStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 90eb89f99c281f746ab02608a92c1c73, type: 2}
+      - m_Target: {fileID: 11400000, guid: c856bdfc9a9901b4bb209774de1105b2, type: 2}
         m_MethodName: Raise
         m_Mode: 2
         m_Arguments:

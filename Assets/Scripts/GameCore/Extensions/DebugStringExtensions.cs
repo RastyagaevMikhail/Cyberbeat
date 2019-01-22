@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
+using UnityEngine.Events;
 namespace GameCore
 {
     public static class DebugStringExtensions
@@ -41,6 +43,19 @@ namespace GameCore
         public static string warn (this string str)
         {
             return str.ToColor (settings.WarningColor);
+        }
+
+        public static string Log (this UnityEventBase EventBase)
+        {
+            string log = "null";
+            log = EventBase.GetType ().Name.a () + ":\n";
+            int EventCount = EventBase.GetPersistentEventCount ();
+            IEnumerable<string> methodsNames = Enumerable.Range (0, EventCount).Select (i => EventBase.GetPersistentMethodName (i));
+            IEnumerable<string> targetsNames = Enumerable.Range (0, EventCount).Select (i => EventBase.GetPersistentTarget (i).name);
+            IEnumerable<string> typeNames = Enumerable.Range (0, EventCount).Select (i => EventBase.GetPersistentTarget (i).GetType ().Name);
+            var methodsInfo = targetsNames.Select ((t, i) => $"{t.black()}: {typeNames.ElementAt(i).mb()}.{methodsNames.ElementAt(i).a()} \n");
+            log += string.Concat (methodsInfo);
+            return log;
         }
     }
 }

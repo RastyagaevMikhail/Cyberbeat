@@ -40,7 +40,9 @@ namespace CyberBeat
 
         public void OnContactWithColorInterractor (ColorInterractor colorInterractor)
         {
-            bool equalsColor = matSwitch.ChechColor (colorInterractor.matSwitch.CurrentColor);
+            // Debug.LogFormat ("colorInterractor = {0}", colorInterractor);
+            bool equalsColor = ChechColor (colorInterractor.CurrentColor);
+
             ColorBrick colorBrick = colorInterractor as ColorBrick;
             bool notDie = equalsColor;
             if (colorBrick)

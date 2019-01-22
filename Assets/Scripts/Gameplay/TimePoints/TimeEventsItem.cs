@@ -1,3 +1,5 @@
+using GameCore;
+
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -35,6 +37,8 @@ namespace CyberBeat
                 lastTime = isTime;
 
                 UnityEvent.Invoke (currentTimeEvent.Init (isTime, currentTimeOfEvent));
+                
+                if (debug) Debug.Log ($"{UnityEvent.Log()}");
             }
             if (currentTimeOfEvent.Start <= time)
             {

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,29 +7,21 @@ namespace GameCore
 {
     public class DelayAction : MonoBehaviour
     {
+        [SerializeField] bool asDeltaTime;
         [SerializeField] float delay;
         [SerializeField] UnityEvent action;
+        [SerializeField] bool debug;
 
-        public void Invoke()
+        public void StartInvokeDelayedAction ()
         {
-            StartCoroutine(IvokeDealayAction());
-        }
-        public void Invoke(float delayDuration, UnityAction _anction = null)
-        {
-            delay = delayDuration;
-
-            if (_anction != null)
-            {
-                action.AddListener(_anction);
-            }
-
-            Invoke();
+            Invoke ("IvokeDealayAction", asDeltaTime ? delay * Time.deltaTime : delay);
+               if (debug) Debug.Log ($"{("OnInvoke".black())}\n{action.Log()}", this);
         }
 
-        IEnumerator IvokeDealayAction()
+        void IvokeDealayAction ()
         {
-            yield return new WaitForSeconds(delay);
-            action.Invoke();
+            action.Invoke ();
+            if (debug) Debug.Log ($"{("DelayAction".black())}\n{action.Log()}", this);
         }
     }
 }

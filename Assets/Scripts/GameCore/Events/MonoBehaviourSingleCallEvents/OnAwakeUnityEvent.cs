@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,9 +12,11 @@ namespace GameCore
         [SerializeField] bool debug;
         private void Awake ()
         {
-            if (debug)
-                Debug.Log ($"{("OnAwake").a()} {name.mb()}", this);
             OnAwake.Invoke ();
+            {
+              
+                if (debug) Debug.Log ($"{("OnAwake").a()} {name.mb()}\n{OnAwake.Log()}", this);
+            }
         }
     }
 }

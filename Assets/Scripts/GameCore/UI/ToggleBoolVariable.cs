@@ -14,7 +14,13 @@ namespace CyberBeat
         [SerializeField] BoolVariable variable;
         private Toggle _toggle = null;
         public Toggle toggle { get { if (_toggle == null) _toggle = GetComponent<Toggle> (); return _toggle; } }
-
+        private void OnValidate ()
+        {
+            if (!variable) return;
+            
+            name = $"{variable.name}Toggle";
+            GetComponentInChildren<Text> ().text = variable.name;
+        }
         private void OnEnable ()
         {
             toggle.isOn = variable.Value;

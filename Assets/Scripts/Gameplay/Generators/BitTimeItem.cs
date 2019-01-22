@@ -22,7 +22,7 @@ namespace CyberBeat
             {
                 if (TimesIsOver) return;
 
-                if (currentBit.BitTime <= time)
+                if (currentBit.StartTime <= time)
                 {
                     UnityEvent.Invoke (currentBit);
 

@@ -14,8 +14,40 @@ namespace CyberBeat
     {
         private SkinnedMeshRenderer _mRend = null;
         public SkinnedMeshRenderer mRend { get { if (_mRend == null) _mRend = GetComponent<SkinnedMeshRenderer> (); return _mRend; } }
-        private Texture Texture { get { return mRend.sharedMaterial.GetTexture (TextureName); } set { mRend.sharedMaterial.SetTexture (TextureName, value); } }
-        private Vector2 Tilling { get { return mRend.sharedMaterial.GetTextureScale (TextureName); } set { mRend.sharedMaterial.SetTextureScale (TextureName, value); } }
+        private Texture _texture = null;
+        private Texture Texture
+        {
+            get
+            {
+                if (_texture == null) _texture = mRend.sharedMaterial.GetTexture (TextureName);
+                return _texture;
+            }
+            set
+            {
+                if (_texture != value)
+                {
+                    _texture = value;
+                    mRend.sharedMaterial.SetTexture (TextureName, value);
+                }
+            }
+        }
+        private Vector2 _tilling;
+        private Vector2 Tilling
+        {
+            get
+            {
+                if (_tilling == Vector2.zero) _tilling = mRend.sharedMaterial.GetTextureScale (TextureName);
+                return _tilling;
+            }
+            set
+            {
+                if (_tilling != value)
+                {
+                    _tilling = value;
+                    mRend.sharedMaterial.SetTextureScale (TextureName, value);
+                }
+            }
+        }
         public Color color { get { return mRend.sharedMaterial.GetColor (ColorName); } set { mRend.sharedMaterial.SetColor (ColorName, value); } }
         private int CountShapes { get { return mRend.sharedMesh.blendShapeCount; } }
         private List<int> ShapesIndxes { get { return Enumerable.Range (0, CountShapes).ToList (); } }
@@ -82,16 +114,20 @@ namespace CyberBeat
 
         public void SetShapeState (Shapes shape)
         {
-            Texture = data.texture;
-            Tilling = data.States[shape].Tilling;
+            if (CurrentShape == shape) return;
+            if (!Texture)
+                Texture = data.texture;
+            Vector2 newTilling = data.States[shape].Tilling;
+            Tilling = newTilling;
 
             Enums.shapes
                 .ForEach (s => SetWeight ((int) s, 0f));
 
-            Debug.Log (Tools.LogCollection (Enums.shapes));
+            // Debug.Log (Tools.LogCollection (Enums.shapes));
             if (shape != DefaultShape)
                 SetWeight ((int) shape, 100f);
 
+            CurrentShape = shape;
         }
 
         public void MoveState (Shapes shape)
@@ -129,7 +165,8 @@ namespace CyberBeat
         public void InitSkin (EffectSkinData data, Shapes shape)
         {
             this.data = data;
-            MoveState (shape);
+            // MoveState (shape);
+            SetShapeState (shape);
             // Color newColor = color;
             // newColor.a = 0;
             // mRend.sharedMaterial.SetColor ("_Color", newColor);

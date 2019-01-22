@@ -735,16 +735,13 @@ namespace FluffyUnderware.Curvy
 
         public virtual void Play ()
         {
-            Debug.Log ("Play");
-            Debug.LogFormat ("IsInitialized = {0}", IsInitialized);
             if (IsInitialized)
-            {Debug.LogFormat("IsPlaying && IsPaused = {0}",IsPlaying && IsPaused);
+            {
                 if (IsPlaying && IsPaused)
                 {
                     mIsPausing = false;
                     return;
                 }
-Debug.LogFormat("IsPlaying = {0}",IsPlaying);
                 if (IsPlaying)
                     Stop ();
                 mShotStartTF = mTF;
