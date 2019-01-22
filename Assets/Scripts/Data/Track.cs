@@ -109,82 +109,12 @@ namespace CyberBeat
 			events.First ().Payload = new IntPayload () { IntVal = 1 };
 		}
 
-		[ContextMenu ("Generate BitInfo by Events")]
-		public void GenerateBitInfoByEvnts ()
-		{
-			BitsInfos = new List<BitInfo> ();
-			var events = GetAllEventsByType (LayerType.Bit);
-			foreach (var e in events)
-			{
-				BitsInfos.Add (new BitInfo ()
-				{
-					presets = new int[] { e.GetIntValue () },
-						time = (float) e.StartSample / (float) Koreography.SampleRate,
-				});
-			}
-		}
-
-		[ContextMenu ("Convert To Text")]
-		void ConvertToText ()
-		{
-			UnityEditor.EditorUtility.SetDirty (GetTrack (LayerType.Bit));
-			foreach (var e in this [LayerType.Bit])
-			{
-				int pld = e.GetIntValue ();
-				var payload = new TextPayload ();
-				payload.TextVal = pld.ToString ();
-				e.Payload = payload;
-			}
-
-		}
-
-		[ContextMenu ("Fix Paylaod")]
-		void FixPayload ()
-		{
-			UnityEditor.EditorUtility.SetDirty (GetTrack (LayerType.Bit));
-			foreach (var e in this [LayerType.Bit])
-			{
-				string pld = e.GetTextValue ();
-				int value = -1;
-				int.TryParse (pld, out value);
-				if (value == -1 || !data.Presets.Keys.Contains (value))
-				{
-					TextPayload textPayload = new TextPayload ();
-					textPayload.TextVal = string.Format ("{0}", 1);
-					e.Payload = textPayload;
-				}
-			}
-
-		}
-
 		[ContextMenu ("Save ME")]
 		public void SaveME ()
 		{
 			this.Save ();
 		}
 
-		[ContextMenu ("ValidateBits")]
-		void ValidateBits ()
-		{
-			Bits = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/TrackBitsCollection/{name}.asset");
-			Bits.Init (GetAllEventsByType (LayerType.Bit));
-			Bits.Save ();
-		}
-
-		[ContextMenu ("ValidateEffects")]
-		void ValidateEffects ()
-		{
-			Effects = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/TrackEffectsCollection/{name}.asset");
-			Effects.Init (GetAllEventsByType (LayerType.Effect));
-			Effects.Save ();
-		}
-		[ContextMenu ("ValidateSpeeds")]
-		void ValidateSpeeds ()
-		{
-			Speeds = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/TrackSpeedsCollection/{name}.asset");
-			Speeds.Init (GetAllEventsByType (LayerType.Speed));
-			Speeds.Save ();
-		}
 #endif
 		[ContextMenu ("Set Me As Current")]
 		public void SetMeAsCurrent ()
@@ -196,12 +126,27 @@ namespace CyberBeat
 		public List<SocialInfo> socials;
 		public ShopInfo shopInfo;
 		public ProgressInfo progressInfo;
-		[ContextMenuItem("Valiadate","ValidateBits")]
-		public TrackBitsCollection Bits;
-		[ContextMenuItem("Valiadate","ValidateEffects")]
-		public TrackBitsCollection Effects;
-		[ContextMenuItem("Valiadate","ValidateSpeeds")]
-		public TrackBitsCollection Speeds;
+		[ContextMenuItem ("Valiadate", "ValidateLayerBits")]
+		[SerializeField] LayerTypeTrackBitsCollectionSelector layerBitsSelector;
+		[ContextMenu ("ValidateLayerBits")]
+		public void ValidateLayerBits ()
+		{
+			layerBitsSelector = Tools.ValidateSO<LayerTypeTrackBitsCollectionSelector> ($"Assets/Data/Selectors/Tracks/{name}_LayerBitsSelector.asset");
+			layerBitsSelector.datas = new List<LayerTypeTrackBitsCollectionSelector.LayerTypeTrackBitsCollectionTypeData> ();
+			foreach (var layer in Enums.LayerTypes)
+			{
+				var dataBits = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/Track{layer}sCollection/{name}_{layer}.asset");
+				dataBits.Init (GetAllEventsByType (layer));
+
+				layerBitsSelector.datas.Add (new LayerTypeTrackBitsCollectionSelector.LayerTypeTrackBitsCollectionTypeData ()
+				{
+					type = layer,
+						data = dataBits
+				});
+			}
+			layerBitsSelector.Save ();
+			this.Save ();
+		}
 		public TracksCollection data { get { return TracksCollection.instance; } }
 
 		public int TrackNumber { get { return data.Objects.IndexOf (this) + 1; } }
@@ -232,9 +177,7 @@ namespace CyberBeat
 		[SerializeField] Koreography koreography;
 		public Koreography Koreography { get { return koreography; } set { koreography = value; } }
 
-        
-
-        public List<KoreographyEvent> this [LayerType layer]
+		public List<KoreographyEvent> this [LayerType layer]
 		{
 			get
 			{

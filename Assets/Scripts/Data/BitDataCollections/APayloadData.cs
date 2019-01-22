@@ -29,7 +29,9 @@ namespace CyberBeat
         [SerializeField] int[] ints;
         public virtual void Init (IPayload payload)
         {
-            string payloadValue = (payload as TextPayload).TextVal;
+            TextPayload textPayload = (payload as TextPayload);
+            if (textPayload == null) return;
+            string payloadValue = textPayload.TextVal;
             string[] splited = payloadValue.Split (',');
             strings = splited;
             try
@@ -40,11 +42,11 @@ namespace CyberBeat
             {
                 try
                 {
-                      ints = new int[] { int.Parse (payloadValue) };
+                    ints = new int[] { int.Parse (payloadValue) };
                 }
                 catch (System.Exception)
                 {
-                        Debug.Log($"Is not int".warn());
+                    Debug.Log ($"Is not int".warn ());
                 }
             }
 

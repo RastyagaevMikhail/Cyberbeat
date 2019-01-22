@@ -12,4 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7299e44d7ac7f44fb903781cbf3a63b, type: 3}
   m_Name: Line
   m_EditorClassIdentifier: 
-  points: []
+  points:
+  - payload: 
+    Start:
+      position: {x: 1880.6222, y: -2380.622, z: 1489.3236}
+      Up: {x: 0, y: 1, z: 0}
+      rotation: {x: 0.18117483, y: -0.6360679, z: 0.6553797, w: -0.3647887}
+      F: 0.5155759
+      MetaData: 
+    End:
+      position: {x: 0, y: 0, z: 0}
+      Up: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 0}
+      F: 0
+      MetaData: 

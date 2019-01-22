@@ -37,7 +37,7 @@ namespace CyberBeat
             ChaseCam chaskeCam = ChaseCam.instance;
             data.TimeChase = chaskeCam.ChaseTime;
 
-            var comps = chaskeCam.GetComponentsInChildren<TestCameraShake> ();
+            var comps = chaskeCam.GetComponentsInChildren<CameraShakeController> ();
 
             var shakeData = stmd ? comps[1] : comps[0];
 

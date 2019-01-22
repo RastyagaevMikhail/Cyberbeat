@@ -18,6 +18,7 @@ namespace CyberBeat
         public override void Init (List<KoreographyEvent> events)
         {
             bits = events.Select (e => new TrackBit (e)).ToList ();
+            this.Save();
         }
     }
 

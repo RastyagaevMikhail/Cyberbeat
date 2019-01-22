@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882469965233035547}
-  m_LocalRotation: {x: 0, y: 0.9814236, z: -0.19185345, w: 0}
+  m_LocalRotation: {x: 0.000000053887998, y: -0.9814235, z: 0.19185399, w: 0.0000002756625}
   m_LocalPosition: {x: 0, y: 5, z: -87.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 882469965938557574}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.122002, y: -179.99998, z: 0}
 --- !u!114 &882469965233035548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +59,9 @@ GameObject:
   - component: {fileID: 882469965938557574}
   - component: {fileID: 882469965938557573}
   - component: {fileID: 882469965938557572}
+  - component: {fileID: 966740612}
+  - component: {fileID: 966740613}
+  - component: {fileID: 966740615}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -130,3 +133,65 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882469965938557571}
   m_Enabled: 1
+--- !u!114 &966740612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882469965938557571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+--- !u!114 &966740613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882469965938557571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd568b199ec43042991eac260e689c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 966740612}
+  Selector: {fileID: 11400000, guid: 9144348ffc7323f4ba2d05ecd94521d7, type: 2}
+  magnitude: 1
+  roughness: 2
+  fadeInTime: 1
+  fadeOutTime: 1
+--- !u!114 &966740615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882469965938557571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ccadaa979de16c4cbbb308970eb2421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: b040a8e9c6e1f914b984231eef214dbd, type: 2}
+  Responce:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 966740613}
+        m_MethodName: OnCameraBit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CyberBeat.GameEventListenerIBitData+UnityEventIBitData, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  debug: 1

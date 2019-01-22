@@ -11,15 +11,22 @@ namespace GameCore
 		[SerializeField] BoolVariable variable;
 		[SerializeField] UnityEventBool action;
 		[SerializeField] bool updateOnEnable;
+		[SerializeField] bool Inverse;
 
 		private void OnEnable ()
 		{
-			variable.OnValueChanged += action.Invoke;
-			if (updateOnEnable) action.Invoke (variable.Value);
+			variable.OnValueChanged += OnInvoke;
+			if (updateOnEnable) OnInvoke (variable.Value);
 		}
+
+		private void OnInvoke (bool value)
+		{
+			action.Invoke (Inverse ? !value : value);
+		}
+
 		private void OnDisable ()
 		{
-			variable.OnValueChanged -= action.Invoke;
+			variable.OnValueChanged -= OnInvoke;
 		}
 	}
 }

@@ -100,7 +100,7 @@ namespace CyberBeat
 
 		private void AvoidForward ()
 		{
-			(lastMove == Dir.Rigth ? (System.Action) inputControllerComponent.MoveLeft : inputControllerComponent.MoveRight) ();
+			// (lastMove == Dir.Rigth ? (System.Action) inputControllerComponent.MoveLeft : inputControllerComponent.MoveRight) ();
 		}
 	}
 }

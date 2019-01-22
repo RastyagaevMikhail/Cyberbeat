@@ -32,9 +32,11 @@ namespace CyberBeat
 		public Vector3 rotInfluence;
 
 		float timeDuaration;
-		public float TimeDuaration { get;set; }
+		public float TimeDuaration { get; set; }
 
-		// TODO Make EZ ShakeCameara
-
+		public override string ToString ()
+		{
+			return $"TargetMovePosition:{TargetMovePosition}\nTargetLookPosition:{TargetLookPosition}\nTimeChase:{TimeChase}\nDurationTimeOfMove:{DurationTimeOfMove}\nDurationTimeOfLook:{DurationTimeOfLook}\nuseShake:{useShake}\n:magnitude:{magnitude}\nroughness:{roughness}\nfadeInTime:{fadeInTime}\n:fadeOutTime:{fadeOutTime}\nposInfluence:{posInfluence}\nrotInfluence:{rotInfluence}\nTimeDuaration:{TimeDuaration }";
+		}
 	}
 }

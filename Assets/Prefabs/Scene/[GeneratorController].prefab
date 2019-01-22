@@ -50,6 +50,8 @@ MonoBehaviour:
   bitTimeItems:
   - {fileID: 11400000, guid: 9158e5b91f16b134faf9d6bb5573482b, type: 2}
   - {fileID: 11400000, guid: df1bdfc319b87034a90838995cd66afb, type: 2}
+  - {fileID: 11400000, guid: 7db4279112180af499712c470b8d10b0, type: 2}
+  - {fileID: 11400000, guid: c7b8be316bcc79648801dadac29239cf, type: 2}
 --- !u!114 &866606054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +295,7 @@ MonoBehaviour:
     m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   updateOnEnable: 1
+  Inverse: 0
 --- !u!1 &1721431477504494100
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +722,7 @@ MonoBehaviour:
     m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   updateOnEnable: 1
+  Inverse: 0
 --- !u!114 &1077981121
 MonoBehaviour:
   m_ObjectHideFlags: 0
