@@ -29,7 +29,7 @@ namespace CyberBeat
             Shapes shape = (Shapes) intShapeValue;
             // Debug.LogFormat ("shape = {0}", shape);
             skinSetter.InitSkin (data, shape);
-
+            skinSetter.FadeIn ();
             spawnedSkin.Get<Rotator> ().speed = (float) bitData.Ints[2];
         }
 

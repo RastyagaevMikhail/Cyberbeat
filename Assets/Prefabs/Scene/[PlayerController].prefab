@@ -790,7 +790,6 @@ MonoBehaviour:
   Constant: 1
   DefaultColorNameVariable: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd,
     type: 2}
-  defaultColorName: _Color
 --- !u!114 &1102798353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,11 +847,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaker: {fileID: 7598460526750223690}
-  Selector: {fileID: 11400000, guid: 9144348ffc7323f4ba2d05ecd94521d7, type: 2}
-  magnitude: 1
-  roughness: 2
-  fadeInTime: 1
-  fadeOutTime: 1
+  Selector: {fileID: 11400000, guid: ec7186cafd175664094ca3fcb5a1c30a, type: 2}
+  test: 0
+  data:
+    magnitude: 0
+    roughness: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    usePercent: 0
+    percent: 0.5
+    posInfluence: {x: 0, y: 0, z: 0}
+    rotInfluence: {x: 0, y: 0, z: 0}
+    timeDuaration: 0
+  PresetFromSave: {fileID: 0}
 --- !u!114 &9047753895996792391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,7 +877,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7440917254123037713}
-        m_MethodName: OnCameraBit
+        m_MethodName: OnShakeBit
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -990,7 +997,7 @@ MonoBehaviour:
     m_TypeName: FluffyUnderware.Curvy.CurvyControllerEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_Spline: {fileID: 0}
-  m_UseCache: 0
+  m_UseCache: 1
   m_OnControlPointReached:
     m_PersistentCalls:
       m_Calls: []

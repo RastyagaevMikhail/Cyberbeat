@@ -128,6 +128,7 @@ namespace CyberBeat
 		public ProgressInfo progressInfo;
 		[ContextMenuItem ("Valiadate", "ValidateLayerBits")]
 		[SerializeField] LayerTypeTrackBitsCollectionSelector layerBitsSelector;
+#if UNITY_EDITOR
 		[ContextMenu ("ValidateLayerBits")]
 		public void ValidateLayerBits ()
 		{
@@ -147,6 +148,7 @@ namespace CyberBeat
 			layerBitsSelector.Save ();
 			this.Save ();
 		}
+#endif
 		public TracksCollection data { get { return TracksCollection.instance; } }
 
 		public int TrackNumber { get { return data.Objects.IndexOf (this) + 1; } }

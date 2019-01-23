@@ -13,7 +13,7 @@ namespace CyberBeat
 	{
 		public Material CurrentMaterial { get { return renderer.sharedMaterial; } }
 
-		public Color CurrentColor { get { return this [DefaultColorName]; } }
+		public Color CurrentColor { get { return this [DefaultColorName]; } set { this [DefaultColorName] = value; } }
 		public Color this [string colorName]
 		{
 			get { return CurrentMaterial.GetColor (colorName); } set { CurrentMaterial.SetColor (colorName, value); }
@@ -22,9 +22,8 @@ namespace CyberBeat
 		public new Renderer renderer { get { if (_renderer == null) _renderer = GetComponent<Renderer> (); return _renderer; } }
 		public bool Constant = true;
 		[SerializeField] StringVariable DefaultColorNameVariable;
-		public string defaultColorName = "_Color";
+		const string defaultColorName = "_Color";
 		public string DefaultColorName { get { return DefaultColorNameVariable?DefaultColorNameVariable.Value : defaultColorName; } }
-		static string[] ColorNames = new string[] { "_Color", "_EmissionColor", "_Emis", "_TintColor", "_EmissiveColor" };
 
 		public void SetColor (Color newColor)
 		{

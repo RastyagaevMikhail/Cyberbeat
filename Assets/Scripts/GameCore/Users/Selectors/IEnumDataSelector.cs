@@ -7,7 +7,7 @@ using UnityEngine;
 namespace GameCore
 {
 
-	public interface IEnumDataSelector<TEnumType, TDataType>
+	public interface IEnumDataSelector<TEnumType, TDataType> : ISelector
 		// where TEnumType : EnumScriptable
 	where TDataType : class
 

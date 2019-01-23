@@ -1,6 +1,7 @@
 using FluffyUnderware.DevTools;
 
 using GameCore;
+
 using System;
 using System.Collections;
 
@@ -14,13 +15,13 @@ namespace CyberBeat
         public static ChaseCam instance { get { if (_instance == null) _instance = GameObject.FindObjectOfType<ChaseCam> (); return _instance; } }
 
         [SerializeField] TransformVariable lookAt;
-        public Transform LookAtTarget { get => lookAt ? lookAt.Value : null; set => lookAt.Value = value; }
+        public Transform LookAtTarget { get => lookAt ? lookAt.ValueFast : null; }
 
         [SerializeField] TransformVariable moveTo;
-        public Transform MoveTo { get => moveTo?moveTo.Value : null; set => moveTo.Value = value; }
+        public Transform MoveTo { get => moveTo?moveTo.ValueFast : null; }
 
         [SerializeField] TransformVariable rollTo;
-        public Transform RollTo { get => rollTo?rollTo.Value : null; set => rollTo.Value = value; }
+        public Transform RollTo { get => rollTo?rollTo.ValueFast : null; }
 
         [Positive]
         public float ChaseTime = 0.5f;
@@ -46,7 +47,6 @@ namespace CyberBeat
             }
         }
 
-        
 #endif
 
         // Update is called once per frame

@@ -31,6 +31,10 @@ namespace CyberBeat
             this.Save ();
         }
 #endif
+        private void OnEnable ()
+        {
+            dict = Objects.ToDictionary (obj => obj.name);
+        }
         Dictionary<string, EffectSkinData> dict = null;
         Dictionary<string, EffectSkinData> Dict { get { return dict??(dict = Objects.ToDictionary (obj => obj.name)); } }
         public EffectSkinData this [string nameSkin]

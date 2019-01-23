@@ -16,27 +16,18 @@ namespace CyberBeat
 		public float DurationTimeOfMove;
 		[Header ("Время для достижения камеры позиции TargetLookPosition")]
 		public float DurationTimeOfLook;
-		[Header ("Использовать тряску?")]
-		public bool useShake;
-		[Header ("Интенсивность встряхивания")]
-		public float magnitude;
-		[Header ("Шероховатость встряхивания. Более низкие значения более плавные, более высокие значения более резкие")]
-		public float roughness;
-		[Header ("Как долго исчезать в тряске, в секундах")]
-		public float fadeInTime;
-		[Header ("Как долго исчезать дрожь, через несколько секунд")]
-		public float fadeOutTime;
-		[Header ("Насколько это встряска влияет на положение.")]
-		public Vector3 posInfluence;
-		[Header ("Насколько это дрожание влияет на вращение.")]
-		public Vector3 rotInfluence;
 
 		float timeDuaration;
 		public float TimeDuaration { get; set; }
 
 		public override string ToString ()
 		{
-			return $"TargetMovePosition:{TargetMovePosition}\nTargetLookPosition:{TargetLookPosition}\nTimeChase:{TimeChase}\nDurationTimeOfMove:{DurationTimeOfMove}\nDurationTimeOfLook:{DurationTimeOfLook}\nuseShake:{useShake}\n:magnitude:{magnitude}\nroughness:{roughness}\nfadeInTime:{fadeInTime}\n:fadeOutTime:{fadeOutTime}\nposInfluence:{posInfluence}\nrotInfluence:{rotInfluence}\nTimeDuaration:{TimeDuaration }";
+			return 	$"TargetMovePosition:{TargetMovePosition}\n"+
+					$"TargetLookPosition:{TargetLookPosition}\n"+
+					$"TimeChase:{TimeChase}\n"+
+					$"DurationTimeOfMove:{DurationTimeOfMove}\n"+
+					$"DurationTimeOfLook:{DurationTimeOfLook}";
 		}
+
 	}
 }

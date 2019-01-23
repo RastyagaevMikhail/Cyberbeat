@@ -160,11 +160,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaker: {fileID: 966740612}
-  Selector: {fileID: 11400000, guid: 9144348ffc7323f4ba2d05ecd94521d7, type: 2}
-  magnitude: 1
-  roughness: 2
-  fadeInTime: 1
-  fadeOutTime: 1
+  Selector: {fileID: 11400000, guid: ec7186cafd175664094ca3fcb5a1c30a, type: 2}
+  test: 0
+  data:
+    magnitude: 0
+    roughness: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    posInfluence: {x: 0, y: 0, z: 0}
+    rotInfluence: {x: 0, y: 0, z: 0}
+  PresetFromSave: {fileID: 11400000, guid: a803f0f6868173d48bf50b4213dbedcb, type: 2}
 --- !u!114 &966740615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +187,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 966740613}
-        m_MethodName: OnCameraBit
+        m_MethodName: OnShakeBit
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

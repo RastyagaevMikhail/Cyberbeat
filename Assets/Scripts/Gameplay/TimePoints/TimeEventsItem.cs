@@ -9,8 +9,8 @@ namespace CyberBeat
     [CreateAssetMenu (menuName = "CyberBeat/ATimeUpdateable/TimeEventsItem")]
     public class TimeEventsItem : ATimeUpdateable<TimeOfEventsDataVariable, TimeOfEventsData, UnityEventTimeEvent, TimeEvent>
     {
-        List<TimeOfEvent> Times { get { return Variable.Value.Times; } }
-        public override IEnumerable<ITimeItem> TimeItems => Variable.Value.Times;
+        List<TimeOfEvent> Times { get { return Variable.ValueFast.Times; } }
+        public override IEnumerable<ITimeItem> TimeItems => Variable.ValueFast.Times;
 
         public override ITimeItem CurrentTimeItem { get => currentTimeOfEvent; set => currentTimeOfEvent = value as TimeOfEvent; }
         TimeOfEvent currentTimeOfEvent;

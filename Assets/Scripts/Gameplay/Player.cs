@@ -19,7 +19,7 @@ namespace CyberBeat
 
         public void SetColor (Color color)
         {
-            matSwitch.SetColorInMaterial (color);
+            matSwitch.CurrentColor = color;
             // OnColorChnaged.Raise (color);
         }
 
@@ -27,7 +27,7 @@ namespace CyberBeat
         {
             myTransform.Value = transform;
 
-            SetColor (Color.white);
+            
         }
         public void OnColorTeked (Color color)
         {

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c6115f02f38134db21fb0219a5fc23, type: 3}
+  m_Name: Selectors
+  m_EditorClassIdentifier: 
+  selectors:
+  - {fileID: 11400000, guid: 9144348ffc7323f4ba2d05ecd94521d7, type: 2}
+  - {fileID: 11400000, guid: ec7186cafd175664094ca3fcb5a1c30a, type: 2}
+  - {fileID: 11400000, guid: f566bc0dce43d20489ae83f42599b605, type: 2}
+  - {fileID: 11400000, guid: 099b14e6284abf34c8fa166824f22d71, type: 2}
+  - {fileID: 11400000, guid: 0a4dbf498b5698141abb95109706a301, type: 2}
+  - {fileID: 11400000, guid: 85d642dc10b2a914abe43e97e37d0c95, type: 2}

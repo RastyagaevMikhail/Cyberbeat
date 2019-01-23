@@ -2,6 +2,7 @@
 
 using GameCore;
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,7 @@ namespace CyberBeat
                 }
             }
         }
+        public float Opacity { get { return mRend.sharedMaterial.GetFloat ("_Opacity"); } set { mRend.sharedMaterial.SetFloat ("_Opacity", value); } }
         public Color color { get { return mRend.sharedMaterial.GetColor (ColorName); } set { mRend.sharedMaterial.SetColor (ColorName, value); } }
         private int CountShapes { get { return mRend.sharedMesh.blendShapeCount; } }
         private List<int> ShapesIndxes { get { return Enumerable.Range (0, CountShapes).ToList (); } }
@@ -77,7 +79,10 @@ namespace CyberBeat
         #endregion
         private void Awake ()
         {
-            // mRend.sharedMaterial = Instantiate (mRend.sharedMaterial);
+            mRend.sharedMaterial = Instantiate (mRend.sharedMaterial);
+            color = Color.white;
+            Opacity = 0f;
+
         }
 
         [ContextMenu ("AddSate")]
@@ -167,10 +172,24 @@ namespace CyberBeat
             this.data = data;
             // MoveState (shape);
             SetShapeState (shape);
-            // Color newColor = color;
-            // newColor.a = 0;
-            // mRend.sharedMaterial.SetColor ("_Color", newColor);
-            // mRend.sharedMaterial.DOFade (1, durationTransition);
+            // FadeOut();
+            // FadeIn();
+        }
+
+        public void FadeIn (float duration = 1f) => DOVirtualFloat (0f, 1f, duration, value => Opacity = value);
+        public void FadeOut (float duration = 1f) => DOVirtualFloat (1f, 0f, duration, value => Opacity = value);
+        void DOVirtualFloat (float startValue, float endValue, float duration, Action<float> action) =>
+            StartCoroutine (cr_DOVirtualFloat (startValue, endValue, duration, action));
+        IEnumerator cr_DOVirtualFloat (float startValue, float endValue, float duration, Action<float> action)
+        {
+            float t = 0;
+            while (t <= duration)
+            {
+                t += Time.deltaTime / duration;
+                action (Mathf.Lerp (startValue, endValue, t));
+                yield return null;
+            }
+            action (endValue);
         }
     }
     public enum Shapes

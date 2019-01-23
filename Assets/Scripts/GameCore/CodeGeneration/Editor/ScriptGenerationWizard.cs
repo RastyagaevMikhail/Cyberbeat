@@ -19,7 +19,7 @@ namespace GameCore
         [SerializeField] bool savableVariable;
         [SerializeField] bool gameEvent;
         [SerializeField] bool selector;
-        [SerializeField] string KeyType;
+        [SerializeField] bool nameSelector;
         [SerializeField] KeyValuePairStringType[] KeysValues;
 
         const string namesapaceKey = "$NAMESPACE_NAME$";
@@ -109,16 +109,20 @@ namespace GameCore
         void OnWizardOtherButton ()
         {
             if (selector)
-            {
-                var textAsset = Resources.Load<TextAsset> ("Selector");
-                var matchs = Regex.Matches (textAsset.text, @"\$[A-Z]*_[A-Z]*\$");
-
-                var strings = matchs.Cast<Match> ().Select (m => m.Value);
-                KeysValues = new HashSet<string> (strings).Distinct ()
-                    .Select (m => new KeyValuePairStringType () { Key = m, Value = "" }).ToArray ();
-            }
+                parseKeys ();
+            if (nameSelector)
+                parseKeys ();
         }
 
+        private void parseKeys ()
+        {
+            var textAsset = Resources.Load<TextAsset> (name);
+            var matchs = Regex.Matches (textAsset.text, @"\$[A-Z]*_[A-Z]*\$");
+
+            var strings = matchs.Cast<Match> ().Select (m => m.Value);
+            KeysValues = new HashSet<string> (strings).Distinct ()
+                .Select (m => new KeyValuePairStringType () { Key = m, Value = "" }).ToArray ();
+        }
     }
 
     [Serializable]

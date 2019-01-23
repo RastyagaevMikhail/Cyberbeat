@@ -6,25 +6,34 @@ namespace CyberBeat
     public class CameraShakeController : MonoBehaviour
     {
         public CameraShaker shaker;
-        [SerializeField] ChaseCamDataPresetSelector Selector;
-        public void OnCameraBit (IBitData bitData)
+        [SerializeField] ShakeDataPresetSelector Selector;
+        public void OnShakeBit (IBitData bitData)
         {
             var data = Selector[bitData.StringValue].Data;
-            Debug.LogFormat ("data = {0}", data);
-            shaker.ShakeOnce (data.magnitude, data.roughness, data.fadeInTime, data.fadeOutTime);
+            float duration = bitData.Duration;
+            // Debug.LogFormat ("bitData.Duration = {0}", duration);
+            data.TimeDuaration = duration;
+            // Debug.Log (data);
+            data.ShakeOnce (shaker);
         }
-        public float magnitude;
-        public float roughness;
-        public float fadeInTime;
-        public float fadeOutTime;
 
+        [SerializeField] bool test;
+        [SerializeField] ShakeData data;
         private void Update ()
         {
 
-            if (Input.GetMouseButtonDown (0))
+            if (Input.GetMouseButtonDown (0) && test)
             {
-                shaker.ShakeOnce (magnitude, roughness, fadeInTime, fadeOutTime);
+                data.ShakeOnce (shaker);
             }
+        }
+
+        [ContextMenuItem ("Copy to", "CopyToPreset")]
+        [SerializeField] ShakeDataPreset PresetFromSave;
+        [ContextMenu ("Copy To Preset")]
+        void CopyToPreset ()
+        {
+            PresetFromSave.CopyFrom (data);
         }
     }
 }

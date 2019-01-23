@@ -37,13 +37,13 @@
 
             var shakeData = /* stmd ? comps[1] : */ comps[0];
 
-            data.magnitude = shakeData.magnitude;
-            data.roughness = shakeData.roughness;
-            data.fadeInTime = shakeData.fadeInTime;
-            data.fadeOutTime = shakeData.fadeOutTime;
+            // data.magnitude = shakeData.magnitude;
+            // data.roughness = shakeData.roughness;
+            // data.fadeInTime = shakeData.fadeInTime;
+            // data.fadeOutTime = shakeData.fadeOutTime;
 
-            data.posInfluence = shakeData.shaker.DefaultPosInfluence;
-            data.rotInfluence = shakeData.shaker.DefaultRotInfluence;
+            // data.posInfluence = shakeData.shaker.DefaultPosInfluence;
+            // data.rotInfluence = shakeData.shaker.DefaultRotInfluence;
 
             this.Save();
         }

@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings:
-  - Name: Player._Color.1sec
+  - Name: Player._Color.0sec
     material: {fileID: 2100000, guid: 29485e37ebfafc242ad22f86fe3cbbee, type: 2}
     ColorName: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd, type: 2}
-    duration: 1
+    duration: 0
   - Name: Road._EmissionColor.1sec
     material: {fileID: 2100000, guid: 5b449dc69683b454d9d79053ecfbf311, type: 2}
     ColorName: {fileID: 11400000, guid: 40958cd5154efa84783f4e37b3800c3e, type: 2}
