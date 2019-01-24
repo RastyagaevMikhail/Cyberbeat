@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fe8237a6697ba459d25957f6c10880, type: 3}
+  m_Name: Di Young - I Have Nothing_Speed
+  m_EditorClassIdentifier: 
+  bits:
+  - payloadData:
+      strings:
+      - 75
+      ints: 4b000000
+    startTime: 34.94957
+    endTime: 35.093468
+    duration: 0.14389801
+  - payloadData:
+      strings:
+      - 30
+      ints: 1e000000
+    startTime: 50.364624
+    endTime: 50.511566
+    duration: 0.14694214
+  - payloadData:
+      strings:
+      - 90
+      ints: 5a000000
+    startTime: 52.408573
+    endTime: 52.55247
+    duration: 0.14389801
+  - payloadData:
+      strings:
+      - 30
+      ints: 1e000000
+    startTime: 68.85986
+    endTime: 69.00376
+    duration: 0.14389801
+  - payloadData:
+      strings:
+      - 90
+      ints: 5a000000
+    startTime: 69.93198
+    endTime: 70.075874
+    duration: 0.14389801

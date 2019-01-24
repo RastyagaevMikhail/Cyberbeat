@@ -20,5 +20,15 @@ namespace CyberBeat
         }
 
         [System.Serializable] public class SpeedTimeDataPresetTypeData : TypeData<string, SpeedTimeDataPreset> { }
+          [SerializeField] string ValiadtePath = "Assets/Data/";
+    #if UNITY_EDITOR
+        [ContextMenu ("Validate")]
+        void Validate ()
+        {
+            datas = Tools.GetAtPath<SpeedTimeDataPreset> (ValiadtePath)
+                .Select (p => new SpeedTimeDataPresetTypeData () { type = p.name, data = p }).ToList ();
+            this.Save ();
+        }
+    #endif
     }
 }

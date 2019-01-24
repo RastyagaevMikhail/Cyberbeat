@@ -17,7 +17,12 @@ MonoBehaviour:
   mSampleRate: 44100
   mIgnoreLatencyOffset: 0
   mTempoSections:
-  - sectionName: New Section
+  - sectionName: Zero Selection
+    startSample: 0
+    samplesPerBeat: 22050
+    beatsPerMeasure: 4
+    bStartNewMeasure: 1
+  - sectionName: Default Selection
     startSample: 0
     samplesPerBeat: 10844.262295081968
     beatsPerMeasure: 4
@@ -27,3 +32,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7e71634438e48b4cb20c424ccee7db9, type: 2}
   - {fileID: 11400000, guid: 2230627e6f482cc48a504079c788e0d2, type: 2}
   - {fileID: 11400000, guid: dff6b26ee5b77cd449e9d67397d48d35, type: 2}
+  - {fileID: 11400000, guid: 42579720a7de44adcbcafdd75ce85339, type: 2}
+  - {fileID: 11400000, guid: bd332205ef78940659b11462c3ba7ae3, type: 2}
+  - {fileID: 11400000, guid: c086689c0919f4f2195da9b18cbbfb4e, type: 2}
+  - {fileID: 11400000, guid: b8c0d6246b5914855b332783d7e17742, type: 2}

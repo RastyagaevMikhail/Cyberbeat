@@ -103,7 +103,7 @@ namespace CyberBeat
 		[Header ("For Generation Combo Info")]
 		[SerializeField] TimeOfEventsData events;
 		[SerializeField] string payloadFilter = "Combo";
-		[ContextMenu ("Init Combo")]
+	/* 	[ContextMenu ("Init Combo")]
 		public void InitCombo ()
 		{
 			combo = new ComboList ();
@@ -128,7 +128,7 @@ namespace CyberBeat
 				}
 				i++;
 			}
-		}
+		} */
 	}
 
 	[Serializable]

@@ -79,9 +79,9 @@ namespace CyberBeat
 		void CalculateConstant ()
 		{
 			progressInfo.Max = 0;
-			foreach (var bitInfo in BitsInfos)
+			foreach (var bitInfo in layerBitsSelector[LayerType.Bit].Bits)
 			{
-				List<int> presetList = bitInfo.presets.ToList ();
+				List<int> presetList = bitInfo.Ints.ToList ();
 				bool isContainConstant = presetList
 					.TrueForAll (p => data.Presets[p]
 						.Find (spwnObj =>
@@ -115,12 +115,25 @@ namespace CyberBeat
 			this.Save ();
 		}
 
+		[ContextMenu ("Convert To Text")]
+		void ConvertToText ()
+		{
+			UnityEditor.EditorUtility.SetDirty (GetTrack (LayerType.Bit));
+			foreach (var e in this [LayerType.Bit])
+			{
+				int pld = e.GetIntValue ();
+				var payload = new TextPayload ();
+				payload.TextVal = pld.ToString ();
+				e.Payload = payload;
+			}
+		}
+
 #endif
 		[ContextMenu ("Set Me As Current")]
 		public void SetMeAsCurrent ()
 		{
 			data.CurrentTrack = this;
-			data.UpdateCollections(layerBitsSelector);
+			data.UpdateCollections (layerBitsSelector);
 		}
 		#endregion
 		public MusicInfo music;
@@ -158,7 +171,7 @@ namespace CyberBeat
 		{
 			shopInfo.ResetDefault ();
 		}
-		public float StartSpeed = 50f;
+
 		public void LoadScene ()
 		{
 			LoadingManager.instance.LoadScene (name);
@@ -176,9 +189,10 @@ namespace CyberBeat
 			}
 
 		}
-
 		[SerializeField] Koreography koreography;
 		public Koreography Koreography { get { return koreography; } set { koreography = value; } }
+
+		public float StartSpeed = 50f;
 
 		public List<KoreographyEvent> this [LayerType layer]
 		{
@@ -206,9 +220,6 @@ namespace CyberBeat
 		{
 			return GetAllEventsByType (layer).FindAll (e => e.EndSample == e.StartSample);
 		}
-
-		public float MinTimeOfBit = 0.2f;
-		public List<BitInfo> BitsInfos = new List<BitInfo> ();
 
 		public bool GetGateState (int index)
 		{

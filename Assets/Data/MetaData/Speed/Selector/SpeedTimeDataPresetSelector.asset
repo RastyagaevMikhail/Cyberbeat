@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 892ffaa484203ea42b88607b9e0ec33f, type: 3}
+  m_Name: SpeedTimeDataPresetSelector
+  m_EditorClassIdentifier: 
+  datas:
+  - type: 30
+    data: {fileID: 11400000, guid: 30f027fa209224141a27105600ef2ffe, type: 2}
+  - type: 40
+    data: {fileID: 11400000, guid: cd979c248d7744f488ed4105513616fe, type: 2}
+  - type: 50
+    data: {fileID: 11400000, guid: 5aa87e6fae383674c9d7200207c2a8ea, type: 2}
+  - type: 60
+    data: {fileID: 11400000, guid: 1a037be34a66e49f88f50947430c2075, type: 2}
+  - type: 75
+    data: {fileID: 11400000, guid: 817b70feebe9243afab5b509dd32b44e, type: 2}
+  - type: 90
+    data: {fileID: 11400000, guid: 7374c7123da848b4dac6820df64a37da, type: 2}
+  ValiadtePath: Assets/Data/MetaData/Speed

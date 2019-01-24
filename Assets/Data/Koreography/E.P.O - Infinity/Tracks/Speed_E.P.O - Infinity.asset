@@ -14,8 +14,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: Speed
   mEventList:
-  - mStartSample: 564300
-    mEndSample: 620730
+  - mStartSample: 548000
+    mEndSample: 550226
+  - mStartSample: 562160
+    mEndSample: 564096
+  - mStartSample: 1682580
+    mEndSample: 1734440
+  - mStartSample: 2256070
+    mEndSample: 2257847
+  - mStartSample: 2819425
+    mEndSample: 2821350
+  - mStartSample: 2854957
+    mEndSample: 2857609
+  - mStartSample: 3382008
+    mEndSample: 3508288
+  - mStartSample: 3744140
+    mEndSample: 4810844
+  - mStartSample: 5026008
+    mEndSample: 5034965
+  - mStartSample: 5073258
+    mEndSample: 5075482
+  - mStartSample: 5604764
+    mEndSample: 5608320
+  - mStartSample: 5641594
+    mEndSample: 5644406
+  - mStartSample: 5925350
+    mEndSample: 5927386
+  - mStartSample: 5943400
+    mEndSample: 5945123
+  - mStartSample: 5961240
+    mEndSample: 5962819
+  - mStartSample: 5975720
+    mEndSample: 5977297
+  - mStartSample: 6773276
+    mEndSample: 6916722
   _SerializedPayloadTypes:
   - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
@@ -31,5 +63,21 @@ MonoBehaviour:
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
   _TextPayloads:
-  - mTextVal: Fast
-  _TextPayloadIdxs: 00000000
+  - mTextVal: 30
+  - mTextVal: 90
+  - mTextVal: 50
+  - mTextVal: 75
+  - mTextVal: 30
+  - mTextVal: 75
+  - mTextVal: 30
+  - mTextVal: 75
+  - mTextVal: 30
+  - mTextVal: 90
+  - mTextVal: 30
+  - mTextVal: 90
+  - mTextVal: 30
+  - mTextVal: 60
+  - mTextVal: 30
+  - mTextVal: 90
+  - mTextVal: 50
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000

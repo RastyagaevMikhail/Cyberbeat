@@ -17,6 +17,11 @@ MonoBehaviour:
   mSampleRate: 44100
   mIgnoreLatencyOffset: 0
   mTempoSections:
+  - sectionName: Zero Selection
+    startSample: 0
+    samplesPerBeat: 22050
+    beatsPerMeasure: 4
+    bStartNewMeasure: 1
   - sectionName: Default Selection
     startSample: 0
     samplesPerBeat: 22050
