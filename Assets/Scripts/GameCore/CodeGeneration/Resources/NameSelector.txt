@@ -1,0 +1,33 @@
+﻿using GameCore;
+
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+using UnityEngine;
+namespace $NAMESPACE_NAME$
+{
+    [CreateAssetMenu (menuName = "$NAMESPACE_NAME$/Selectors/$VALUE_TYPE$")]
+    public class $VALUE_TYPE$$SCRIPT_NAME$ : AEnumDataSelectorScriptableObject<string, $VALUE_TYPE$>
+    {
+        public List<$VALUE_TYPE$TypeData> datas;
+        public override List<TypeData<string, $VALUE_TYPE$>> Datas
+        {
+            get
+            {
+                return datas.Cast<TypeData<string, $VALUE_TYPE$>> ().ToList ();
+            }
+        }
+        [System.Serializable] public class $VALUE_TYPE$TypeData : TypeData<string, $VALUE_TYPE$> { }
+        [SerializeField] string ValiadtePath = "Assets/Data/";
+    #if UNITY_EDITOR
+        [ContextMenu ("Validate")]
+        void Validate ()
+        {
+            datas = Tools.GetAtPath<$VALUE_TYPE$> (ValiadtePath)
+                .Select (p => new $VALUE_TYPE$TypeData () { type = p.name, data = p }).ToList ();
+            this.Save ();
+        }
+    #endif
+    }
+}

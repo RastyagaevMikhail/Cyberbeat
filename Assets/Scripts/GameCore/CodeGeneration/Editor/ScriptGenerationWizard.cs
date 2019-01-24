@@ -99,6 +99,14 @@ namespace GameCore
                     NameScript = NameScript.Replace (kvp.Key, kvp.Value);
                 SelectorScriptGenerator.GenerateByKeys (() => NameScript, KeysValues);
             }
+            if (nameSelector)
+            {
+                ScriptGenerator SelectorScriptGenerator = new ScriptGenerator ("NameSelector");
+                string NameScript = "$VALUE_TYPE$$SCRIPT_NAME$";
+                foreach (var kvp in KeysValues)
+                    NameScript = NameScript.Replace (kvp.Key, kvp.Value);
+                SelectorScriptGenerator.GenerateByKeys (() => NameScript, KeysValues);
+            }
         }
 
         void OnWizardUpdate ()
@@ -109,14 +117,14 @@ namespace GameCore
         void OnWizardOtherButton ()
         {
             if (selector)
-                parseKeys ();
+                parseKeys ("Selector");
             if (nameSelector)
-                parseKeys ();
+                parseKeys ("NameSelector");
         }
 
-        private void parseKeys ()
+        private void parseKeys (string nameTemplate)
         {
-            var textAsset = Resources.Load<TextAsset> (name);
+            var textAsset = Resources.Load<TextAsset> (nameTemplate);
             var matchs = Regex.Matches (textAsset.text, @"\$[A-Z]*_[A-Z]*\$");
 
             var strings = matchs.Cast<Match> ().Select (m => m.Value);

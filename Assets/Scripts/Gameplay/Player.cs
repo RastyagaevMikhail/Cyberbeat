@@ -1,4 +1,6 @@
-﻿using GameCore;
+﻿using DG.Tweening;
+
+using GameCore;
 
 using System.Collections.Generic;
 
@@ -12,7 +14,6 @@ namespace CyberBeat
         private MaterialSwitcher _matSwitch;
         public MaterialSwitcher matSwitch { get { if (_matSwitch == null) { _matSwitch = GetComponentInChildren<MaterialSwitcher> (); } return _matSwitch; } }
 
-        [SerializeField] TransformVariable myTransform;
         [SerializeField] BoosterDataRuntimeSet activeBoosters;
         [Header ("Events")]
         [SerializeField] UnityEvent OnDeath;
@@ -20,18 +21,11 @@ namespace CyberBeat
         public void SetColor (Color color)
         {
             matSwitch.CurrentColor = color;
-            // OnColorChnaged.Raise (color);
         }
 
         private void Awake ()
         {
-            myTransform.Value = transform;
-
-            
-        }
-        public void OnColorTeked (Color color)
-        {
-
+            matSwitch.CurrentMaterial.DOColor (Color.white, 1f);
         }
         public bool ChechColor (Color color)
         {
@@ -40,18 +34,16 @@ namespace CyberBeat
 
         public void OnContactWithColorInterractor (ColorInterractor colorInterractor)
         {
-            // Debug.LogFormat ("colorInterractor = {0}", colorInterractor);
             bool equalsColor = ChechColor (colorInterractor.CurrentColor);
 
             ColorBrick colorBrick = colorInterractor as ColorBrick;
             bool notDie = equalsColor;
             if (colorBrick)
             {
-                activeBoosters.ForEach (boosterData =>
-                    notDie |= boosterData.Apply (colorBrick, equalsColor)
-                );
-                // Debug.LogFormat ("activeBoosters.Count = {0}", activeBoosters.Count);
-                // Debug.LogFormat ("notDie = {0}", notDie);
+                activeBoosters
+                    .ForEach (boosterData =>
+                        notDie |= boosterData.Apply (colorBrick, equalsColor)
+                    );
             }
             else
             {

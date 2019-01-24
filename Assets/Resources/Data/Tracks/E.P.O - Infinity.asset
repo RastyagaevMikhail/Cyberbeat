@@ -23,9 +23,10 @@ MonoBehaviour:
     Price: 2000
     SaveKey: E.P.O - Infinity Buyed
   progressInfo:
-    Best: {fileID: 11400000, guid: 71bee703492e9cd4c8376624660ca286, type: 2}
-    Max: {fileID: 11400000, guid: 461470124bc222c43b15b43b6ceb4a3c, type: 2}
-    Percent: {fileID: 11400000, guid: 5aacd7581903d2d45a88a29270e431e2, type: 2}
+    best: {fileID: 0}
+    max: {fileID: 0}
+    percent: {fileID: 0}
+  layerBitsSelector: {fileID: 11400000, guid: 033b379ccc0254149a07e02e022e2ecb, type: 2}
   StartSpeed: 50
   koreography: {fileID: 11400000, guid: 32d303d596b8b204a9289db2904df861, type: 2}
   MinTimeOfBit: 0.2
@@ -814,4 +815,3 @@ MonoBehaviour:
     presets: 02000000
   - time: 166.4985
     presets: 03000000
-  LayerForGenerateTimEvents: 3

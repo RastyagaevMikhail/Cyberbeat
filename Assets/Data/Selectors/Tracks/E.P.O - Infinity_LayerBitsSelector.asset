@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8353d97a1b2772847b189a32ef623dbd, type: 3}
+  m_Name: E.P.O - Infinity_LayerBitsSelector
+  m_EditorClassIdentifier: 
+  datas:
+  - type: 0
+    data: {fileID: 11400000, guid: ae788fd90c66fb84ebcfa0487a2f0eb5, type: 2}
+  - type: 1
+    data: {fileID: 11400000, guid: ec59038722a73d7498ccbb7b80369091, type: 2}
+  - type: 2
+    data: {fileID: 11400000, guid: 79ac6d3a3d1c6574a90d3b3e85ea93b8, type: 2}
+  - type: 3
+    data: {fileID: 11400000, guid: 2bbcfaada02c7534aae2aaf27083ee57, type: 2}
+  - type: 4
+    data: {fileID: 11400000, guid: 88d843510120dd046b6d5d8a019586d2, type: 2}
+  - type: 5
+    data: {fileID: 11400000, guid: 89f50d5f61c18f04789c64d60f21456c, type: 2}
+  - type: 6
+    data: {fileID: 11400000, guid: 78533aeff5c056b42a1c52ce466e1f8c, type: 2}
+  - type: 7
+    data: {fileID: 11400000, guid: 1a80146e23e893640b9e2166597b56b3, type: 2}

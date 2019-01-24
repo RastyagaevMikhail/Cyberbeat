@@ -1,5 +1,6 @@
 ﻿using GameCore;
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,7 +34,7 @@ namespace CyberBeat
 			}
 		}
 #endif
-
+		[SerializeField] LayerTypeABitDataCollectionVariableSelector CollectionSelector;
 		[SerializeField] TrackVariable currentTrack;
 		public Track CurrentTrack { get { return currentTrack.Value; } set { currentTrack.Value = value; } }
 
@@ -45,6 +46,15 @@ namespace CyberBeat
 			{
 				if (presets == null) presets = _presets.ToDictionary (p => p.Id, p => p.Objects);
 				return presets;
+			}
+		}
+
+		public void UpdateCollections (LayerTypeTrackBitsCollectionSelector layerBitsSelector)
+		{
+			foreach (var layer in CollectionSelector.Keys)
+			{
+				var collection = layerBitsSelector[layer];
+				CollectionSelector[layer].Value = collection;
 			}
 		}
 	}

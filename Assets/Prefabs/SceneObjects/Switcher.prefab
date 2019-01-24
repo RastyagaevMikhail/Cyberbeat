@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33738011384066670}
   - component: {fileID: 23270712249372548}
   - component: {fileID: 114366601351319264}
-  - component: {fileID: 4659213212582094378}
   - component: {fileID: 65213588606398728}
   - component: {fileID: 114213637515028564}
   - component: {fileID: 114675100915323678}
@@ -100,26 +99,6 @@ MonoBehaviour:
   Constant: 1
   DefaultColorNameVariable: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd,
     type: 2}
-  defaultColorName: _Color
---- !u!95 &4659213212582094378
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270562587347094}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &65213588606398728
 BoxCollider:
   m_ObjectHideFlags: 0

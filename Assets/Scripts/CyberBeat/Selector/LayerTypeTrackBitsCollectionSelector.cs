@@ -31,7 +31,10 @@ namespace CyberBeat
         {
             var key = property.FindPropertyRelative ("type");
             var value = property.FindPropertyRelative ("data");
-            var rect = EditorGUI.PrefixLabel (position, new GUIContent (((LayerType)key.intValue).ToString()));
+            var labelWidth = EditorGUIUtility.labelWidth;
+            EditorGUIUtility.labelWidth = 65f;
+            var rect = EditorGUI.PrefixLabel (position, new GUIContent (((LayerType) key.intValue).ToString ()));
+            EditorGUIUtility.labelWidth = labelWidth;
             EditorGUI.PropertyField (rect, value, GUIContent.none);
 
         }

@@ -120,6 +120,7 @@ namespace CyberBeat
 		public void SetMeAsCurrent ()
 		{
 			data.CurrentTrack = this;
+			data.UpdateCollections(layerBitsSelector);
 		}
 		#endregion
 		public MusicInfo music;
