@@ -9,9 +9,8 @@ namespace GameCore
     public class Selectors : SingletonData<Selectors>
     {
 #if UNITY_EDITOR
-#if UNITY_EDITOR
         [UnityEditor.MenuItem ("Game/Data/Selectors")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
-#endif
+        [ContextMenu("Validate Selectors")]
         public override void InitOnCreate ()
         {
             selectors = Tools.GetAtPath<ASelectorScriptableObject> ("Assets").ToList ();

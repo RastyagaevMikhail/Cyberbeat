@@ -7,12 +7,13 @@ namespace GameCore
 	public class AutoPushTimer : MonoBehaviour
 	{
 		[SerializeField] float TimeDelay = 0.5f;
+		[SerializeField] PoolVariable pool;
 
-		private void OnEnable()
+		private void OnEnable ()
 		{
-			Tools.DelayAction(this, TimeDelay, () =>
+			Tools.DelayAction (this, TimeDelay, () =>
 			{
-				Pool.instance.Push(gameObject);
+				pool.Push (gameObject);
 			});
 		}
 	}

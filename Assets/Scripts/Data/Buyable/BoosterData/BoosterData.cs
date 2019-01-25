@@ -18,6 +18,7 @@ namespace CyberBeat
 		[SerializeField] float boosterUsePercent = 0.1f;
 		[SerializeField] IntVariable levelUpgrade;
 		[SerializeField] BoosterDataRuntimeSet activeBoosters;
+		[SerializeField] PoolVariable pool;
 		RuntimeTimer timer;
 		[Header ("Events")]
 		[SerializeField] UnityEventBoosterData OnReseted;
@@ -50,12 +51,13 @@ namespace CyberBeat
 				activeBoosters.Remove (this);
 			}
 		}
+
 		public void Activate ()
 		{
 			bool canUse = TryUse ();
 			if (canUse)
 			{
-				InitTimer (Pool.instance.Pop<RuntimeTimer> ("RuntimeTimer"));
+				InitTimer (pool.Pop<RuntimeTimer> ("RuntimeTimer"));
 				activeBoosters.Add (this);
 
 				OnActivatedAsUsePrecent.Invoke (boosterUsePercent);

@@ -68,8 +68,6 @@ namespace CyberBeat
 
 		public int ColorsPerCell { get { return colorsByLevel.InRangeIndex (levelOnColorProgress.Value) ? colorsByLevel[levelOnColorProgress.Value] : 50; } }
 
-		public bool ColorsCounterIsFull;
-		//  { get { return colorsCounter.Variables.ToList ().FindAll (v => colors.Contains (v.color)).TrueForAll (v => v.Value >= ColorsPerCell); } }
 
 		[SerializeField] RandomStack<Color> randStack = null;
 		private Dictionary<Color, ColorInfo> infoByColor = null;
@@ -109,8 +107,6 @@ namespace CyberBeat
 			get
 			{
 				ColorInfo result = null;
-				Debug.LogFormat ("color = {0}", color);
-				Debug.Log (Tools.LogCollection (InfoByColor.Keys));
 				InfoByColor.TryGetValue (color, out result);
 				return result;
 			}

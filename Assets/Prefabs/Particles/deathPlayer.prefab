@@ -4781,7 +4781,6 @@ MonoBehaviour:
   Constant: 1
   DefaultColorNameVariable: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437,
     type: 2}
-  defaultColorName: _EmisColor
 --- !u!1 &6171535383522432815
 GameObject:
   m_ObjectHideFlags: 0
@@ -9549,6 +9548,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OffsetPosition: {x: 0, y: 0, z: 0}
+  OffsetRotation: {x: 0, y: 0, z: 0, w: 0}
+  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
 --- !u!114 &4650995454465978215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9562,6 +9563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeDelay: 1
+  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
 --- !u!1 &6297036707721048141
 GameObject:
   m_ObjectHideFlags: 0
@@ -14343,4 +14345,3 @@ MonoBehaviour:
   Constant: 1
   DefaultColorNameVariable: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437,
     type: 2}
-  defaultColorName: _EmisColor

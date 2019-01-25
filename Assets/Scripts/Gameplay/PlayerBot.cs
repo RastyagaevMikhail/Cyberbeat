@@ -12,6 +12,7 @@ namespace CyberBeat
 	[RequireComponent (typeof (GameEventFloat))] //  UpdateSpeed (float speed)
 	public class PlayerBot : MonoBehaviour
 	{
+
 		enum Dir { None, Left, Rigth }
 		private MaterialSwitcher _matSwitch;
 		public MaterialSwitcher matSwitch { get { if (_matSwitch == null) { _matSwitch = GetComponentInChildren<MaterialSwitcher> (); } return _matSwitch; } } private InputControllerComponent _inputControllerComponent = null;
@@ -29,7 +30,8 @@ namespace CyberBeat
 		Dir lastMove = Dir.None;
 		const float maxDistance = 6f;
 		private const float Radius = 1f;
-
+		[SerializeField] InputSettings inputSettings;
+		
 		//?ControlSwitchController.OnControlSwitched
 		public void OnControlSwitched (InputControlType type)
 		{
@@ -38,8 +40,8 @@ namespace CyberBeat
 
 		public void UpdateSpeed (float speed)
 		{
-			float width = inputControllerComponent.inputSettings.width;
-			float swipeDuration = inputControllerComponent.inputSettings.SwipeDuration;
+			float width = inputSettings.width;
+			float swipeDuration = inputSettings.SwipeDuration;
 			float time = swipeDuration / 2f;
 			float Vw = width * time;
 			float Swv = (speed.Sqr () + Vw.Sqr ()).Sqrt ();

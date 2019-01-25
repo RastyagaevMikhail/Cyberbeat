@@ -20,16 +20,5 @@ namespace CyberBeat
 
             ActivateGateButton.SetActive (activateGate);
         }
-        int countBeats = 0;
-        private void Start ()
-        {
-            countBeats = 0;
-        }
-        public void _OnDeathCollorinterractot (ColorInterractor interractor)
-        {
-            countBeats++;
-            bitstText.text = string.Format ("{0}/{1}", countBeats, 200);
-            DOVirtual.Float (100, 120, 0.2f, value => bitstText.fontSize = value).SetLoops (1, LoopType.Yoyo);
-        }
     }
 }

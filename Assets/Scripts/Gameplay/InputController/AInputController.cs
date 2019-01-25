@@ -1,5 +1,7 @@
 using DG.Tweening;
 
+using GameCore;
+
 using UnityEngine;
 namespace CyberBeat
 {
@@ -7,25 +9,13 @@ namespace CyberBeat
 	{
 		public abstract void MoveRight ();
 		public abstract void MoveLeft ();
-		protected Transform Target;
+		[SerializeField] TransformVariable targetVariable;
+		protected Transform Target { get { return targetVariable.ValueFast; } }
 		[SerializeField] protected InputSettings settings;
-		public void Init (Transform target, InputSettings inputSettings)
-		{
-			Target = target;
-			settings = inputSettings;
-		}
 	}
 	public enum InputControlType
 	{
 		Center = 0,
 		Side = 1
-	}
-
-	[System.Serializable]
-	public class InputSettings
-	{
-		public Ease easeMove = Ease.OutQuint;
-		public float SwipeDuration = 0.2f;
-		public float width = 2.35f;
 	}
 }

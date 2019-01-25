@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107f0750c6b07a140aca2f5d2a8a491c, type: 3}
   m_Name: SideInputController
   m_EditorClassIdentifier: 
-  settings:
-    easeMove: 15
-    SwipeDuration: 0.2
-    width: 2.35
+  targetVariable: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}
+  settings: {fileID: 11400000, guid: 4a419941b770bca49b91eaa2b275be6e, type: 2}

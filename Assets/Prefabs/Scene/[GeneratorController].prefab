@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 1879040863}
   - {fileID: 926352405}
+  - {fileID: 5370976500488161336}
   m_Father: {fileID: 8266133836757921763}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,6 +53,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: df1bdfc319b87034a90838995cd66afb, type: 2}
   - {fileID: 11400000, guid: 7db4279112180af499712c470b8d10b0, type: 2}
   - {fileID: 11400000, guid: c7b8be316bcc79648801dadac29239cf, type: 2}
+  - {fileID: 11400000, guid: a8c0bed1fad61c84687e4dbc1b324454, type: 2}
 --- !u!114 &866606054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9395ed3552d0d2548bb9500723139423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectsColleciotns: {fileID: 11400000, guid: 06f1209f150bd35488d087f96b778d1d, type: 2}
+  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
 --- !u!114 &1879040864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e826f842f6e030048a6ed70fcd9bb571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultColorName: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd, type: 2}
+  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
+  tracksCollection: {fileID: 11400000, guid: b670e399b603b2f49a642c6ac92e5589, type: 2}
   LastRandomColor: {r: 0.84313726, g: 0.20784314, b: 0.28627452, a: 1}
 --- !u!114 &6192236635829869182
 MonoBehaviour:
@@ -751,6 +756,112 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: CyberBeat.UnityEventSpeedTimeData, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  debug: 0
+--- !u!1 &8769414361638962201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5370976500488161336}
+  - component: {fileID: 5223426575269036049}
+  - component: {fileID: 2262246613996488211}
+  - component: {fileID: 1902692811}
+  m_Layer: 0
+  m_Name: ParticlesController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5370976500488161336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8769414361638962201}
+  m_LocalRotation: {x: -1, y: -0, z: -0, w: 0.00000017881392}
+  m_LocalPosition: {x: 0, y: 0, z: 30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 866606051}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
+--- !u!114 &5223426575269036049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8769414361638962201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f0d095c06241149825a05205750a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentVariable: {fileID: 11400000, guid: bf2467a7342757e44ba6172314277b49, type: 2}
+  selector: {fileID: 11400000, guid: e86f5ca2cd1532c40aacbf1ce73105e7, type: 2}
+--- !u!114 &2262246613996488211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8769414361638962201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ccadaa979de16c4cbbb308970eb2421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: d245e663c88153f49b27544cef245fa5, type: 2}
+  Responce:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5223426575269036049}
+        m_MethodName: OnBit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CyberBeat.GameEventListenerIBitData+UnityEventIBitData, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  debug: 0
+--- !u!114 &1902692811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8769414361638962201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: bf2467a7342757e44ba6172314277b49, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5370976500488161336}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   debug: 0
 --- !u!1001 &2963220657414841307

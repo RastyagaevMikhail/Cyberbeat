@@ -6,13 +6,13 @@ namespace GameCore
 {
     public class PoolComponentHelper : MonoBehaviour
     {
-        public Pool pool { get { return Pool.instance; } }
+        [SerializeField] PoolVariable pool;
 
         [SerializeField] TransformReference parnet;
 
         public void Pop (string key)
         {
-            pool.Pop (key, parnet);
+            pool.Pop (key, parnet.ValueFast);
         }
     }
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cfdf739126b2943af754a179b24c79, type: 3}
+  m_Name: ParticleSystemSelector
+  m_EditorClassIdentifier: 
+  datas:
+  - type: 1
+    data: {fileID: 6620745490704237879, guid: 9cb9ea360686e904bb0e59076f723874, type: 3}
+  - type: 2
+    data: {fileID: 4886741522718405339, guid: b7537f5ffa3eb5b419d19ee6d541d8b7, type: 3}
+  - type: 3
+    data: {fileID: 3843046767434404325, guid: 539a1e8d393674f4aadade99b4fdd1fd, type: 3}
+  ValiadtePath: Assets/Data/MetaData/Particles

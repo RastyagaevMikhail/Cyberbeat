@@ -11,13 +11,13 @@ namespace CyberBeat
     public class TrackGenerator : TransformObject
     {
         private const float width = 5f;
-        public Pool pool { get { return Pool.instance; } }
-        public TracksCollection tracksCollection { get { return TracksCollection.instance; } }
+        [SerializeField] PoolVariable pool;
+        [SerializeField] TracksCollection tracksCollection;
 
         RandomConstantMaterial rcm;
 
         List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
-        private void Start ()
+        private void Awake ()
         {
             LastRandomColor = Colors.instance.RandomColor;
 
@@ -25,11 +25,9 @@ namespace CyberBeat
             lastBeat = 0;
         }
 
-        [SerializeField] StringVariable DefaultColorName;
         private void InitRCM ()
         {
-            rcm = new RandomConstantMaterial (); //ScriptableObject.CreateInstance<RandomConstantMaterial> ();
-            rcm.Init (LastRandomColor, DefaultColorName.Value);
+            rcm = new RandomConstantMaterial (LastRandomColor);
         }
         float lastBeat = 0;
         [SerializeField] Color LastRandomColor;
@@ -45,8 +43,8 @@ namespace CyberBeat
             else
                 lastBeat = bitTime;
 
-            int randPreset = bitData.RandomInt;
-            List<SpawnedObject> row = null;
+            string randPreset = bitData.RandomString;
+            List<Material> row = null;
             try
             {
                 row = tracksCollection.Presets[randPreset];
@@ -87,38 +85,26 @@ namespace CyberBeat
             Neighbors.Clear ();
         }
 
-        SpawnedObject InstattiateObj (SpawnedObject spwn_obj, float xPos)
+        SpawnedObject InstattiateObj (Material baseMaterial, float xPos)
         {
-            if (!spwn_obj) return null;
-            string Key = spwn_obj.name;
+            if (!baseMaterial) return null;
+            string Key = baseMaterial.name;
             var obj = pool.Pop (Key);
             if (!obj) return null;
 
             obj.position = position + right * xPos + up * obj.y;
             obj.rotation = rotation;
 
-            MaterialSwitcher originalMaterialSwitcher = spwn_obj.Get<MaterialSwitcher> ();
-            if (originalMaterialSwitcher)
+            if (obj.Get<ColorSwitcher> ())
+                InitRCM ();
+
+            var matSwitcher = obj.Get<MaterialSwitcher> ();
+            if (matSwitcher)
             {
-                Material currentMaterial = originalMaterialSwitcher.CurrentMaterial;
-
-                if (obj.Get<ColorSwitcher> ())
-                {
-                    InitRCM ();
-                }
-                else
-                {
-                    obj.localScale = Vector3.one;
-                }
-
-                var matSwitcher = obj.Get<MaterialSwitcher> ();
-                if (matSwitcher)
-                {
-                    Material ConstantMaterial = rcm.Constant[currentMaterial];
-                    Material RandomMaterial = rcm.GetRandom (currentMaterial);
-                    matSwitcher.SetMaterial (matSwitcher.Constant ? ConstantMaterial : RandomMaterial);
-                    LastRandomColor = RandomMaterial.GetColor (matSwitcher.DefaultColorName);
-                }
+                Material ConstantMaterial = rcm.Constant[baseMaterial];
+                Material RandomMaterial = rcm.RandomSet[baseMaterial].Get ();
+                matSwitcher.SetMaterial (matSwitcher.Constant ? ConstantMaterial : RandomMaterial);
+                LastRandomColor = RandomMaterial.GetColor (matSwitcher.DefaultColorName);
             }
             return obj;
         }

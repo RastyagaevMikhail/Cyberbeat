@@ -7,24 +7,20 @@ namespace CyberBeat
     public class InputControllerComponent : MonoBehaviour
     {
         [SerializeField] InputControlType CurrentInputType;
-        public InputSettings inputSettings;
-        [SerializeField] InputController inputController;
-        private void Awake ()
-        {
-            inputSettings.SwipeDuration = 0.2f;
-            inputController.Init (transform, inputSettings);
-        }
+        
+        [SerializeField] InputControlTypeAInputControllerSelector InputControllerSelector;
+       
         public void SetControl (InputControlType controlTypeToSwitch)
         {
             CurrentInputType = controlTypeToSwitch;
         }
         public void MoveRight ()
         {
-            inputController[CurrentInputType].MoveRight ();
+            InputControllerSelector[CurrentInputType].MoveRight ();
         }
         public void MoveLeft ()
         {
-            inputController[CurrentInputType].MoveLeft ();
+            InputControllerSelector[CurrentInputType].MoveLeft ();
         }
     }
 }

@@ -24,15 +24,27 @@ namespace GameCore
             ActionWhithComponent (Get<T> ());
         }
 
-        public UnityEvent OnSpawn;
+        [SerializeField] UnityEvent onSpawn;
+        [SerializeField] bool useOnSpawn;
+        public void OnSpawn ()
+        {
+            if (useOnSpawn) onSpawn.Invoke ();
+        }
+        [SerializeField] UnityEvent onDeSpawn;
+        [SerializeField] bool useOnDeSpawn;
 
-        public UnityEvent OnDeSpawn;
+        public void OnDeSpawn ()
+        {
+            if (useOnDeSpawn)
+                onDeSpawn.Invoke ();
+        }
         public Vector3 OffsetPosition;
         public Quaternion OffsetRotation;
+        [SerializeField] PoolVariable pool;
+
         public void PushToPool ()
         {
-            // Debug.LogFormat (this, "PushToPool = {0}", this);
-            Pool.instance.Push (gameObject);
+            pool.Push (gameObject);
         }
 
         public void ApplyOffset (bool posistionApply = true, bool rotationApply = true)

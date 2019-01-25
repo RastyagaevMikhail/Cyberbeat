@@ -19,6 +19,11 @@ namespace CyberBeat
 			foreach (var set in settings)
 				set.OnValidate ();
 		}
+		private void OnEnable ()
+		{
+			foreach (var set in settings)
+				set.SetColor (Color.white);
+		}
 		public void GEColor_ChnageColorTo (Color color)
 		{
 			foreach (var set in settings)
@@ -42,9 +47,9 @@ namespace CyberBeat
 
 		public void OnValidate ()
 		{
-            string materialName = material ? material.name : "";
-            string colorName = ColorName ? ColorName.Value : "_Color";
-            Name = $"{materialName}.{colorName}.{duration}sec";
+			string materialName = material ? material.name : "";
+			string colorName = ColorName ? ColorName.Value : "_Color";
+			Name = $"{materialName}.{colorName}.{duration}sec";
 		}
 	}
 }

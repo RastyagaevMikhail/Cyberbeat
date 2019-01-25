@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f52f70634c881846834bbd5c65026e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnSpawn:
+  onSpawn:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 65213588606398728}
@@ -286,7 +286,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  OnDeSpawn:
+  useOnSpawn: 1
+  onDeSpawn:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 65213588606398728}
@@ -313,8 +314,10 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  OffsetPosition: {x: 0, y: 0, z: 0}
+  useOnDeSpawn: 1
+  OffsetPosition: {x: 0, y: 1, z: 0}
   OffsetRotation: {x: 0, y: 0, z: 0, w: 0}
+  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
 --- !u!114 &114759451436673612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0358ffcdd9312f44cb2ab84f2cb36abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
   parnet:
     UseConstant: 0
     ConstantValue: {fileID: 0}

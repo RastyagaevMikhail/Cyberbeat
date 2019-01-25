@@ -11,13 +11,6 @@ namespace CyberBeat
         protected override void OnTimeIsOver ()
         {
             base.OnTimeIsOver ();
-            Debug.LogFormat ("indexOfTime = {0}", indexOfTime);
-            Debug.LogFormat ("TimeItems.Count() = {0}", TimeItems.Count ());
-            Debug.LogFormat ("TimeItems.GetType() = {0}", TimeItems.GetType ());
-            foreach (var item in TimeItems)
-            {
-                Debug.LogFormat ("item = {0}", item);
-            }
         }
     }
 }

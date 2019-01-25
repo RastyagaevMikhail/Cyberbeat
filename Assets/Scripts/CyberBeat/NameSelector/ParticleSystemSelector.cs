@@ -18,16 +18,19 @@ namespace CyberBeat
                 return datas.Cast<TypeData<string, ParticleSystem>> ().ToList ();
             }
         }
+
         [System.Serializable] public class ParticleSystemTypeData : TypeData<string, ParticleSystem> { }
+
         [SerializeField] string ValiadtePath = "Assets/Data/";
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
         [ContextMenu ("Validate")]
         void Validate ()
         {
+            UnityEditor.Undo.RecordObject (this, name);
             datas = Tools.GetAtPath<ParticleSystem> (ValiadtePath)
                 .Select (p => new ParticleSystemTypeData () { type = p.name, data = p }).ToList ();
             this.Save ();
         }
-    #endif
+#endif
     }
 }

@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca3b5f3a03e4ad41ba16872d415d043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputSettings: {fileID: 11400000, guid: 4a419941b770bca49b91eaa2b275be6e, type: 2}
 --- !u!114 &635455006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,16 +240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentInputType: 0
-  inputSettings:
-    easeMove: 15
-    SwipeDuration: 0.2
-    width: 2.35
-  inputController:
-    controllers:
-    - type: 0
-      controller: {fileID: 11400000, guid: 10704a7d4d8fb034ba75dadd0a43a283, type: 2}
-    - type: 1
-      controller: {fileID: 11400000, guid: 8d05b0e16680143439e4f1a0c583a741, type: 2}
+  InputControllerSelector: {fileID: 11400000, guid: 7d46a540c2661e64093dc5afcbf4da22,
+    type: 2}
 --- !u!114 &2365926302763869585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0358ffcdd9312f44cb2ab84f2cb36abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pool: {fileID: 0}
   parnet:
     UseConstant: 1
     ConstantValue: {fileID: 5924392697064619057}
@@ -928,13 +922,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5924392697064619057}
+  - component: {fileID: 5924392697064619072}
   - component: {fileID: 5924392697064619070}
   - component: {fileID: 1121682823}
   - component: {fileID: 1075595674020835164}
   - component: {fileID: 6398877342527922117}
   - component: {fileID: 5026998036282736454}
   - component: {fileID: 1121682824}
-  - component: {fileID: 5924392697064619072}
   - component: {fileID: 228630732}
   m_Layer: 0
   m_Name: '[PlayerController]'
@@ -962,6 +956,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5924392697064619072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924392697064619071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: f67eedcdb9b1bed48bc0764cb417d841, type: 2}
+        m_MethodName: SetValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5924392697064619070}
+          m_ObjectArgumentAssemblyTypeName: FluffyUnderware.Curvy.Controllers.SplineController,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5924392697064619057}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  debug: 0
 --- !u!114 &5924392697064619070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1229,36 +1264,6 @@ MonoBehaviour:
       PublicKeyToken=null
   updateOnEnable: 0
   Inverse: 0
---- !u!114 &5924392697064619072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5924392697064619071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: f67eedcdb9b1bed48bc0764cb417d841, type: 2}
-        m_MethodName: SetValue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 5924392697064619070}
-          m_ObjectArgumentAssemblyTypeName: FluffyUnderware.Curvy.Controllers.SplineController,
-            Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!114 &228630732
 MonoBehaviour:
   m_ObjectHideFlags: 0

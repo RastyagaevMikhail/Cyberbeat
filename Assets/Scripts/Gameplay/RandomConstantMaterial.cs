@@ -9,18 +9,15 @@ namespace CyberBeat
 	[System.Serializable]
 	public class RandomConstantMaterial
 	{
-		[SerializeField]
-		Dictionary<Material, RandomStack<Material>> randStacks = new Dictionary<Material, RandomStack<Material>> ();
 		public Dictionary<Material, Material> Constant = new Dictionary<Material, Material> ();
+		public Dictionary<Material, RandomStack<Material>> RandomSet;
 		[SerializeField] Color currentConstatntColor;
-		[SerializeField] Dictionary<Material, RandomStack<Material>> RandomSet;
 		Materials materialsData { get { return Materials.instance; } }
 		public Colors colorsData { get { return Colors.instance; } }
-		string DefalutColorName;
-		public void Init (Color lastRandomColor, string ColorName)
+		Material[] BaseMaterials { get { return materialsData.BaseMaterials; } }
+
+		public RandomConstantMaterial (Color lastRandomColor)
 		{
-			DefalutColorName = ColorName;
-			var BaseMaterials = materialsData.BaseMaterials;
 			currentConstatntColor = colorsData.RandomColor;
 
 			//Generate Random
@@ -28,27 +25,18 @@ namespace CyberBeat
 				while (currentConstatntColor == lastRandomColor)
 					currentConstatntColor = colorsData.RandomColor;
 
-			// Debug.LogFormat ("currentConstatntColor == lastRandomColor  \n{0} == {1}", currentConstatntColor.ToString (false), lastRandomColor.ToString (false));
-			materialsData.Init (DefalutColorName);
+			RandomSet = new Dictionary<Material, RandomStack<Material>> ();
 			foreach (var baseMat in BaseMaterials)
 			{
+				Constant[baseMat] = materialsData.materials[baseMat][currentConstatntColor];
 
-				Constant[baseMat] = materialsData.GetMaterialWhithColor (baseMat, currentConstatntColor, DefalutColorName);
-				// Debug.LogFormat ("Constant[mat] = {0}", Constant[mat]);
-				RandomSet = new Dictionary<Material, RandomStack<Material>> ();
-
-				List<Material> ColoredMaterials = new List<Material> (materialsData.materials[baseMat]);
+				List<Material> ColoredMaterials = new List<Material> (materialsData.materials[baseMat].Values);
 
 				if (ColoredMaterials.Count > 1 && ColoredMaterials.Contains (Constant[baseMat]))
 					ColoredMaterials.Remove (Constant[baseMat]);
 
 				RandomSet[baseMat] = new RandomStack<Material> (ColoredMaterials);
-
-				if (randStacks == null) randStacks = new Dictionary<Material, RandomStack<Material>> ();
-				randStacks.Add (baseMat, RandomSet[baseMat]);
 			}
 		}
-
-		public Material GetRandom (Material mat) { return randStacks[mat].Get (); }
 	}
 }

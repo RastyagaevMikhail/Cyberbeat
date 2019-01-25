@@ -6,9 +6,6 @@ namespace GameCore
 {
     public class Pool : MonoBehaviour
     {
-        private static Pool _instance = null;
-        public static Pool instance { get { if (_instance == null) { _instance = GameObject.FindObjectOfType<Pool> (); } return _instance; } }
-
         public PoolSettingsData data;
         List<PoolSetteings> Settings { get { return data.Settings; } }
 
@@ -92,12 +89,12 @@ namespace GameCore
             NewObj.SetParent (Parent);
             NewObj.ApplyOffset ();
 
-            NewObj.OnSpawn.Invoke ();
+            NewObj.OnSpawn ();
             return NewObj;
         }
-        public T Pop<T> (string Key) where T : Component
+        public T Pop<T> (string Key, Transform parent = null) where T : Component
         {
-            return Pop (Key).Get<T> ();
+            return Pop (Key, parent).Get<T> ();
         }
 
         public void Push (GameObject go, bool force = false)
@@ -123,7 +120,7 @@ namespace GameCore
                     if (item.gameObject.Equals (go))
                     {
                         go.SetActive (false);
-                        spawnedObj.OnDeSpawn.Invoke ();
+                        spawnedObj.OnDeSpawn ();
                     }
                 }
             }

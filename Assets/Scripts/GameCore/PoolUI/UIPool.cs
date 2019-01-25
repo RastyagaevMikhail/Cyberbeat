@@ -65,7 +65,7 @@ namespace GameCore
 
             NewObj.gameObject.SetActive (true);
 
-            NewObj.OnSpawn.Invoke ();
+            NewObj.OnSpawn ();
             return NewObj;
         }
 
@@ -80,7 +80,7 @@ namespace GameCore
                     if (item.gameObject.Equals (go))
                     {
                         go.SetActive (false);
-                        spawnedObj.OnDeSpawn.Invoke ();
+                        spawnedObj.OnDeSpawn ();
                     }
                 }
             }

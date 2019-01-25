@@ -10,7 +10,6 @@ namespace CyberBeat
         public override bool Apply (ColorBrick brick, bool equalsColor)
         {
             OnApply.Invoke (this);
-            // Debug.Log ("Apply.BladeBoosterData");
 
             brick.KillNeighbors ();
             

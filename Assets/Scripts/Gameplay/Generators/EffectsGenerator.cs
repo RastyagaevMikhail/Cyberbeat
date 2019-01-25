@@ -11,8 +11,8 @@ namespace CyberBeat
 {
     public class EffectsGenerator : TransformObject
     {
-        public EffectSkinsDataCollection effectsColleciotns { get { return EffectSkinsDataCollection.instance; } }
-        public Pool pool { get { return Pool.instance; } }
+        [SerializeField] EffectSkinsDataCollection effectsColleciotns;
+        [SerializeField] PoolVariable pool;
         public void OnBit (IBitData bitData)
         {
             var spawnedSkin = pool.Pop ("Effects");

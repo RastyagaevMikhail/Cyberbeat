@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 114283711047911854}
   - component: {fileID: 8512347159991630916}
   - component: {fileID: 1615753148857422651}
+  - component: {fileID: 2586515330844822046}
   - component: {fileID: 65426608238597218}
   - component: {fileID: 114712336674342962}
   - component: {fileID: 114551148824255416}
@@ -101,7 +102,6 @@ MonoBehaviour:
   Constant: 0
   DefaultColorNameVariable: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd,
     type: 2}
-  defaultColorName: _Color
 --- !u!95 &8512347159991630916
 Animator:
   serializedVersion: 3
@@ -151,6 +151,21 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!114 &2586515330844822046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215168562196926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6595c46f710f14542a1836714dbb26ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - hash: 646380074
+    name: Death
 --- !u!65 &65426608238597218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -275,7 +290,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8512347159991630916}
+      - m_Target: {fileID: 2586515330844822046}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -311,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f52f70634c881846834bbd5c65026e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnSpawn:
+  onSpawn:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 65426608238597218}
@@ -327,7 +342,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  OnDeSpawn:
+  useOnSpawn: 1
+  onDeSpawn:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 65426608238597218}
@@ -354,8 +370,10 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  useOnDeSpawn: 1
   OffsetPosition: {x: 0, y: 1, z: 0}
   OffsetRotation: {x: 0, y: 0, z: 0, w: 0}
+  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
 --- !u!114 &114359091212655260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0358ffcdd9312f44cb2ab84f2cb36abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
   parnet:
     UseConstant: 0
     ConstantValue: {fileID: 0}

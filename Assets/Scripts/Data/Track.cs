@@ -81,13 +81,13 @@ namespace CyberBeat
 			progressInfo.Max = 0;
 			foreach (var bitInfo in layerBitsSelector[LayerType.Bit].Bits)
 			{
-				List<int> presetList = bitInfo.Ints.ToList ();
+				List<string> presetList = bitInfo.Strings.ToList ();
 				bool isContainConstant = presetList
 					.TrueForAll (p => data.Presets[p]
-						.Find (spwnObj =>
+						.Find (material =>
 						{
-							if (spwnObj)
-								return spwnObj.Get<MaterialSwitcher> ().Constant;
+							if (material)
+								return material.name == "Constant" || material.name == "Switcher";
 							return false;
 						}));
 
@@ -101,12 +101,12 @@ namespace CyberBeat
 		{
 			var events = GetAllEventsByType (LayerType.Bit);
 			var keys = data.Presets.Keys.ToList ();
-			RandomStack<int> randStack = new RandomStack<int> (keys);
+			RandomStack<string> randStack = new RandomStack<string> (keys);
 			foreach (var evnt in events)
 			{
-				evnt.Payload = new IntPayload () { IntVal = randStack.Get () };
+				evnt.Payload = new TextPayload () { TextVal = randStack.Get () };
 			}
-			events.First ().Payload = new IntPayload () { IntVal = 1 };
+			events.First ().Payload = new TextPayload () { TextVal = "1" };
 		}
 
 		[ContextMenu ("Save ME")]
@@ -189,6 +189,7 @@ namespace CyberBeat
 			}
 
 		}
+
 		[SerializeField] Koreography koreography;
 		public Koreography Koreography { get { return koreography; } set { koreography = value; } }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-    public abstract class AEnumDataSelectorScriptableObject<TEnumType, TDataType> : ASelectorScriptableObject ,
+    public abstract class AEnumDataSelectorScriptableObject<TEnumType, TDataType> : ASelectorScriptableObject,
         IEnumDataSelector<TEnumType, TDataType>
         // where TEnumType : EnumScriptable
         where TDataType : class
@@ -34,6 +34,7 @@ namespace GameCore
             private void OnEnable ()
             {
                 selector = Datas.ToDictionary (a => a.type, a => a.data);
+                // Debug.Log ($"OnEneable Selector {name}", this);
             }
             Dictionary<TEnumType, TDataType> selector = null;
             public Dictionary<TEnumType, TDataType> Selector { get { return selector ?? (selector = Datas.ToDictionary (a => a.type, a => a.data)); } }
