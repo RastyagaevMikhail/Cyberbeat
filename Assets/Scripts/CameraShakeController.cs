@@ -21,8 +21,7 @@ namespace CyberBeat
         [SerializeField] ShakeData data;
         private void Update ()
         {
-
-            if (Input.GetMouseButtonDown (0) && test)
+            if (test && Input.GetMouseButtonDown (0))
             {
                 data.ShakeOnce (shaker);
             }

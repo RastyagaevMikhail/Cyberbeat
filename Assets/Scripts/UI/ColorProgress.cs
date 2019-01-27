@@ -11,10 +11,6 @@ namespace CyberBeat
 {
 	public class ColorProgress : MonoBehaviour
 	{
-		// private RectTransform _rectTransform = null;
-		// public RectTransform rectTransform { get { if (_rectTransform == null) _rectTransform = GetComponent<RectTransform> (); return _rectTransform; } }
-		private GameEventListeners _listeners = null;
-		public GameEventListeners listeners { get { if (_listeners == null) _listeners = GetComponent<GameEventListeners> (); return _listeners; } }
 
 		[SerializeField] ColorSliders colors = new ColorSliders ();
 		[SerializeField] ColorSlider ColorPrefab;

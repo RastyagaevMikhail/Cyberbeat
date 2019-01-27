@@ -1,25 +1,27 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
+
 namespace GameCore
 {
     public class GameEventListener : MonoBehaviour
     {
-        [SerializeField] EventListener listener;
+        [SerializeField] GameEvent Event;
+        [SerializeField] UnityEvent Responce;
+        [SerializeField] bool debug;
 
-        private void OnEnable ()
+        public void OnEventRaised ()
         {
-            if (!listener.OnEnable ())
-            {
-                Debug.LogError ("Event not set On listener", this);
-            }
+            Responce.Invoke ();
+            if (debug) Debug.Log ($"{("OnEvent".a())} {Event.name.so()} {("Raised").a()}\n{Responce.Log()}");
+        }
+        public void OnEnable ()
+        {
+            Event.RegisterListener (this);
         }
 
-        private void OnDisable ()
+        public void OnDisable ()
         {
-            if (!listener.OnDisable ())
-            {
-                Debug.LogError ("Event not set On listener", this);
-            }
+            Event.UnRegisterListener (this);
         }
     }
 }

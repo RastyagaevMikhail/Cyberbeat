@@ -21,7 +21,6 @@ namespace CyberBeat
             public override void UpdateInTime (float time)
             {
                 if (TimesIsOver) return;
-
                 if (currentBit.StartTime <= time)
                 {
                     UnityEvent.Invoke (currentBit);

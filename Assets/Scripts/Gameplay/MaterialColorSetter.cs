@@ -14,6 +14,8 @@ namespace CyberBeat
 	public class MaterialColorSetter : MonoBehaviour
 	{
 		[SerializeField] List<MaterialColorSetterSettings> settings;
+		[SerializeField] int IndexOfRemove;
+
 		private void OnValidate ()
 		{
 			foreach (var set in settings)
@@ -29,6 +31,12 @@ namespace CyberBeat
 			foreach (var set in settings)
 				set.SetColor (color);
 		}
+
+		[ContextMenu ("RemoveByIndex")]
+		void RemoveByIndex ()
+		{
+			settings.RemoveAt (IndexOfRemove);
+		}
 	}
 
 	[System.Serializable]
@@ -39,10 +47,12 @@ namespace CyberBeat
 		[SerializeField] string Name;
 		[SerializeField] Material material;
 		[SerializeField] StringVariable ColorName;
+		string colorName => ColorName ? ColorName.Value : "_Color";
 		[SerializeField] float duration = 1f;
 		public void SetColor (Color color)
 		{
-			material.DOColor (color, ColorName ? ColorName.Value : "_Color", duration);
+			// material.DOColor (color, colorName, duration);
+			material.SetColor (colorName, color); 
 		}
 
 		public void OnValidate ()

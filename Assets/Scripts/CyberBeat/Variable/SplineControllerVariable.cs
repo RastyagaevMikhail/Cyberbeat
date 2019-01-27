@@ -27,7 +27,7 @@ namespace CyberBeat
         {
             Value = value.Value;
         }
-
+        public float Speed { set => ValueFast.Speed = value; }
         public override void SaveValue ()
         {
             // TODO: Save Code This From SplineControllerVariable

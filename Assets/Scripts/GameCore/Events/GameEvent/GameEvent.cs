@@ -8,7 +8,7 @@ namespace GameCore
     public class GameEvent : ScriptableObject
     {
         [SerializeField]
-        public List<EventListener> eventListeners = new List<EventListener> ();
+        public List<GameEventListener> eventListeners = new List<GameEventListener> ();
 
         public void Raise ()
         {
@@ -16,13 +16,13 @@ namespace GameCore
                 eventListeners[i].OnEventRaised ();
         }
 
-        public virtual void RegisterListener (EventListener listener)
+        public virtual void RegisterListener (GameEventListener listener)
         {
             if (!eventListeners.Contains (listener))
                 eventListeners.Add (listener);
         }
 
-        public virtual void UnRegisterListener (EventListener listener)
+        public virtual void UnRegisterListener (GameEventListener listener)
         {
             if (eventListeners.Contains (listener))
                 eventListeners.Remove (listener);

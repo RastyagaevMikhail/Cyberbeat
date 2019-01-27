@@ -129,12 +129,12 @@ MonoBehaviour:
     action:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 11400000, guid: 54a4f727f6b6c6e478f8c70c668ebf4f, type: 2}
-          m_MethodName: Raise
-          m_Mode: 2
+        - m_Target: {fileID: 114675100915323678}
+          m_MethodName: Death
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 114675100915323678}
-            m_ObjectArgumentAssemblyTypeName: CyberBeat.ColorInterractor, Assembly-CSharp
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -172,10 +172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e95247fad41ed448eeeb1f0ef4ca82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDeathASColorInterractor:
+  CurrentInfo:
+    isSwitcher: 1
+    color: {r: 0, g: 0, b: 0, a: 0}
+  OnDeathASColorInterractorInfo:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 4b53aa55f7828834097e97538565fc61, type: 2}
+      - m_Target: {fileID: 11400000, guid: 1ae2e10a6b378c64497a57f56beb20a2, type: 2}
         m_MethodName: Raise
         m_Mode: 0
         m_Arguments:
@@ -186,7 +189,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: CyberBeat.UnityEventColorInterractor, Assembly-CSharp, Version=0.0.0.0,
+    m_TypeName: CyberBeat.UnityEventColorInterractorInfo, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDeathAsColor:
     m_PersistentCalls:
@@ -344,7 +347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
-  parnet:
+  savePositionInLoacal: 0
+  parent:
     UseConstant: 0
     ConstantValue: {fileID: 0}
     Variable: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}

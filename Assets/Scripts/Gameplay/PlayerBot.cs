@@ -9,29 +9,21 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace CyberBeat
 {
-	[RequireComponent (typeof (GameEventFloat))] //  UpdateSpeed (float speed)
+	[RequireComponent (typeof (GameEventListenerFloat))] //  UpdateSpeed (float speed)
 	public class PlayerBot : MonoBehaviour
 	{
 
 		enum Dir { None, Left, Rigth }
-		private MaterialSwitcher _matSwitch;
-		public MaterialSwitcher matSwitch { get { if (_matSwitch == null) { _matSwitch = GetComponentInChildren<MaterialSwitcher> (); } return _matSwitch; } } private InputControllerComponent _inputControllerComponent = null;
-		public InputControllerComponent inputControllerComponent
-		{
-			get
-			{
-				if (_inputControllerComponent == null)
-					_inputControllerComponent = GetComponent<InputControllerComponent> ();
-				return _inputControllerComponent;
-			}
-		}
-		private SpeedTimeUser _speedTimeUser = null;
-		public SpeedTimeUser speedTimeUser { get { return _speedTimeUser ?? (_speedTimeUser = GetComponentInParent<SpeedTimeUser> ()); } }
+
+		[SerializeField] MaterialSwitcherVariable matSwitch;
+		[SerializeField] InputControllerComponentVariable inputControllerComponent;
+		[SerializeField] TransformVariable Target;
+		[SerializeField] Transform transform { get { return Target.ValueFast; } }
 		Dir lastMove = Dir.None;
 		const float maxDistance = 6f;
 		private const float Radius = 1f;
 		[SerializeField] InputSettings inputSettings;
-		
+
 		//?ControlSwitchController.OnControlSwitched
 		public void OnControlSwitched (InputControlType type)
 		{

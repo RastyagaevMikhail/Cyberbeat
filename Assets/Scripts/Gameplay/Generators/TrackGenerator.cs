@@ -17,24 +17,23 @@ namespace CyberBeat
         RandomConstantMaterial rcm;
 
         List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
-        private void Awake ()
+        protected override void Awake ()
         {
+            base.Awake ();
             LastRandomColor = Colors.instance.RandomColor;
 
             InitRCM ();
-            lastBeat = 0;
+            lastBeat = -1f;
         }
 
         private void InitRCM ()
         {
             rcm = new RandomConstantMaterial (LastRandomColor);
         }
-        float lastBeat = 0;
+        float lastBeat = -1f;
         [SerializeField] Color LastRandomColor;
         public void OnBit (IBitData bitData)
         {
-            // Debug.LogFormat ("bitData = {0}", bitData);
-            // if (!bitData.HasTextPayload ()) return;
 
             float bitTime = bitData.StartTime;
 
@@ -61,28 +60,28 @@ namespace CyberBeat
             for (float x = -half_width, i = 0; x <= half_width; x += step, i++)
             {
                 var spawnObj = InstattiateObj (row[(int) i], x);
+                if (spawnObj == null) continue;
 
-                if (spawnObj)
-                {
-                    ColorInterractor colorInterractor = spawnObj.Get<ColorInterractor> ();
+                ColorInterractor colorInterractor = spawnObj.Get<ColorInterractor> ();
 
-                    colorInterractor.Init (bitTime);
+                colorInterractor.Init (bitTime);
 
-                    Neighbors.Add (colorInterractor);
+                // Neighbors.Add (colorInterractor);
 
 #if UNITY_EDITOR
-                    string metadata = string.Format ("{0}", bitTime);
-                    spawnObj.Get<MetaDataGizmos> ().MetaData = Tools.LogTextInColor (metadata, Color.blue);
+                string metadata = string.Format ("{0}", bitTime);
+                spawnObj.Get<MetaDataGizmos> ().MetaData = Tools.LogTextInColor (metadata, Color.blue);
 #endif
-                }
+
             }
-            if (Neighbors.Count > 1)
-            {
-                foreach (var neighbor in Neighbors)
-                    foreach (var n in Neighbors)
-                        neighbor.AddNeighbor (n);
-            }
-            Neighbors.Clear ();
+
+            // if (Neighbors.Count > 1)
+            // {
+            //     foreach (var neighbor in Neighbors)
+            //         foreach (var n in Neighbors)
+            //             neighbor.AddNeighbor (n);
+            // }
+            // Neighbors.Clear ();
         }
 
         SpawnedObject InstattiateObj (Material baseMaterial, float xPos)

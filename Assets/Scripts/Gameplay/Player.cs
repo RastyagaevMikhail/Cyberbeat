@@ -9,12 +9,10 @@ using UnityEngine.Events;
 
 namespace CyberBeat
 {
-    public class Player : TransformObject
+    public class Player : MonoBehaviour
     {
-        private MaterialSwitcher _matSwitch;
-        public MaterialSwitcher matSwitch { get { if (_matSwitch == null) { _matSwitch = GetComponentInChildren<MaterialSwitcher> (); } return _matSwitch; } }
+        [SerializeField] MaterialSwitcherVariable matSwitch;
 
-        [SerializeField] BoosterDataRuntimeSet activeBoosters;
         [Header ("Events")]
         [SerializeField] UnityEvent OnDeath;
 
@@ -25,33 +23,22 @@ namespace CyberBeat
 
         private void Awake ()
         {
-            matSwitch.CurrentMaterial.DOColor (Color.white, 1f);
+            SetColor (Color.white);
         }
         public bool ChechColor (Color color)
         {
             return matSwitch.ChechColor (color);
         }
 
-        public void OnContactWithColorInterractor (ColorInterractor colorInterractor)
+        public void OnContactWithColorInterractor (ColorInterractor.Info info)
         {
-            bool equalsColor = ChechColor (colorInterractor.CurrentColor);
-
-            ColorBrick colorBrick = colorInterractor as ColorBrick;
-            bool notDie = equalsColor;
-            if (colorBrick)
+            if (info.isSwitcher)
             {
-                activeBoosters
-                    .ForEach (boosterData =>
-                        notDie |= boosterData.Apply (colorBrick, equalsColor)
-                    );
+                SetColor (info.color);
+                return;
             }
-            else
-            {
-                notDie = true;
-            }
-            colorInterractor.Death ();
 
-            if (notDie) return;
+            if (ChechColor(info.color)) return;
             Death ();
         }
 

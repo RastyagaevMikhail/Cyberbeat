@@ -45,17 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings:
-  - Name: Player._Color.0sec
-    material: {fileID: 2100000, guid: 29485e37ebfafc242ad22f86fe3cbbee, type: 2}
-    ColorName: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd, type: 2}
-    duration: 0
   - Name: Road._EmissionColor.1sec
     material: {fileID: 2100000, guid: 5b449dc69683b454d9d79053ecfbf311, type: 2}
     ColorName: {fileID: 11400000, guid: 40958cd5154efa84783f4e37b3800c3e, type: 2}
     duration: 1
-  - Name: Trail._EmisColor.1sec
+  - Name: Trail._Color.1sec
     material: {fileID: 2100000, guid: 88e9399e15225404f80937f2b76cab6f, type: 2}
-    ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
+    ColorName: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd, type: 2}
     duration: 1
   - Name: Tail_Particles._EmisColor.1sec
     material: {fileID: 2100000, guid: 3b731058cfc66f240b9b9a98dbdc5984, type: 2}
@@ -93,6 +89,7 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: 2d7c6d0fc45fbe24b945112ac05e93fa, type: 2}
     ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
     duration: 1
+  IndexOfRemove: 0
 --- !u!114 &4507617694825245076
 MonoBehaviour:
   m_ObjectHideFlags: 0

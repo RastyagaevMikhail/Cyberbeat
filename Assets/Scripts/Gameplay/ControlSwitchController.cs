@@ -6,7 +6,6 @@ using System.Linq;
 using UnityEngine;
 namespace CyberBeat
 {
-	[RequireComponent (typeof (InputControllerComponent))]
 	public class ControlSwitchController : TimeEventsCatcher
 	{
 

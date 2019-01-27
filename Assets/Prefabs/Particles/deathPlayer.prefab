@@ -4792,7 +4792,6 @@ GameObject:
   - component: {fileID: 6171535383522432810}
   - component: {fileID: 6171535383522432813}
   - component: {fileID: 6171535383522432812}
-  - component: {fileID: 2414060610904349744}
   - component: {fileID: 3318112207402492802}
   - component: {fileID: 4650995454465978215}
   m_Layer: 0
@@ -9484,47 +9483,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &2414060610904349744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6171535383522432815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listener:
-    EventObject: {fileID: 11400000, guid: f848ac470e1c2d24085b4140d22da118, type: 2}
-    Responce:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3508180515192969258}
-          m_MethodName: SetColor
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1478936871933025621}
-          m_MethodName: SetColor
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
 --- !u!114 &3318112207402492802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9537,16 +9495,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f52f70634c881846834bbd5c65026e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnSpawn:
+  onSpawn:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  OnDeSpawn:
+  useOnSpawn: 0
+  onDeSpawn:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  useOnDeSpawn: 0
   OffsetPosition: {x: 0, y: 0, z: 0}
   OffsetRotation: {x: 0, y: 0, z: 0, w: 0}
   pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}

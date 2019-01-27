@@ -21,9 +21,9 @@ namespace CyberBeat
         {
             if (!StartCountTime) return;
 
-            time += Time.deltaTime;
             foreach (var item in TimeUpdateables)
                 item.UpdateInTime (time);
+            time += Time.deltaTime;
         }
     }
 }

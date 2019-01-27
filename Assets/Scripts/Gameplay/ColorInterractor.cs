@@ -1,5 +1,6 @@
 ﻿using GameCore;
 
+using System;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -10,11 +11,19 @@ namespace CyberBeat
     public abstract class ColorInterractor : Interractor
     {
         protected MaterialSwitcher _matSwitch = null;
-        public virtual MaterialSwitcher matSwitch { get { if (_matSwitch == null) { _matSwitch = GetComponent<MaterialSwitcher> (); } return _matSwitch; } }
+        public MaterialSwitcher matSwitch { get { if (_matSwitch == null) { _matSwitch = GetComponent<MaterialSwitcher> (); } return _matSwitch; } }
 
         public Color CurrentColor { get { return matSwitch.CurrentColor; } }
 
         float bit;
+        [Serializable]
+        public struct Info
+        {
+            public bool isSwitcher;
+            public Color color;
+        }
+
+        [SerializeField] Info CurrentInfo;
 
         public void Init (float bitTime)
         {
@@ -22,13 +31,14 @@ namespace CyberBeat
         }
 
         [Header ("OnDeth Events")]
-        [SerializeField] UnityEventColorInterractor OnDeathASColorInterractor;
+        [SerializeField] UnityEventColorInterractorInfo OnDeathASColorInterractorInfo;
         [SerializeField] UnityEventColor OnDeathAsColor;
         [SerializeField] UnityEventFloat OnDeathAsBit;
         [SerializeField] UnityEvent OnDeath;
         public virtual void Death ()
         {
-            OnDeathASColorInterractor.Invoke (this);
+            CurrentInfo.color = CurrentColor;
+            OnDeathASColorInterractorInfo.Invoke (CurrentInfo);
 
             OnDeathAsBit.Invoke (bit);
 
@@ -36,7 +46,7 @@ namespace CyberBeat
 
             OnDeath.Invoke ();
 
-            neighbors.Clear ();
+            // neighbors.Clear ();
         }
 
         // [SerializeField] // Test neighbors

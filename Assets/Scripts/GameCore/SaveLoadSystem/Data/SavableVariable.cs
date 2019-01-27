@@ -44,7 +44,7 @@ namespace GameCore
         }
         public Action<TValue> OnValueChanged = (o) => { };
         public bool Loaded = false;
-        public TValue ValueFast { get { return _value; } }
+        public TValue ValueFast { get { return _value; } set { _value = value; } }
         public virtual TValue Value
         {
             get

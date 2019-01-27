@@ -12,23 +12,33 @@ namespace CyberBeat
     public class ToggleBoolVariable : MonoBehaviour
     {
         [SerializeField] BoolVariable variable;
+        public void Init (BoolVariable boolVariable)
+        {
+            variable = boolVariable;
+            OnValidate ();
+            OnEnable();
+            Awake();
+        }
         private Toggle _toggle = null;
         public Toggle toggle { get { if (_toggle == null) _toggle = GetComponent<Toggle> (); return _toggle; } }
+
         private void OnValidate ()
         {
             if (!variable) return;
-            
+
             name = $"{variable.name}Toggle";
             GetComponentInChildren<Text> ().text = variable.name;
         }
         private void OnEnable ()
         {
-            toggle.isOn = variable.Value;
+            if (variable)
+                toggle.isOn = variable.Value;
         }
 
         private void Awake ()
         {
-            toggle.onValueChanged.AddListener (variable.SetValue);
+            if (variable)
+                toggle.onValueChanged.AddListener (variable.SetValue);
         }
     }
 }

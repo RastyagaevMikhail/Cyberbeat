@@ -12,8 +12,8 @@ namespace CyberBeat
 
     public class SpeedTimeUser : MetaDataUser<SpeedTimeMetaData, SpeedTimeData>
     {
-        private SplineController _splineController = null;
-        public SplineController splineController { get { if (_splineController == null) { _splineController = GetComponent<SplineController> (); } return _splineController; } }
+        [SerializeField] SplineControllerVariable splineControllerVariable;
+        public SplineController splineController => splineControllerVariable.ValueFast;
 
         [SerializeField] UnityEventFloat OnSpeedUpdated;
         Tweener tweener;

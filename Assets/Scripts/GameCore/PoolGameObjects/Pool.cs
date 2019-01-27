@@ -9,11 +9,7 @@ namespace GameCore
         public PoolSettingsData data;
         List<PoolSetteings> Settings { get { return data.Settings; } }
 
-        Dictionary<string, SpawnedObject> _dictSettings = null;
-        Dictionary<string, SpawnedObject> dictSettings
-        {
-            get { return _dictSettings ?? (_dictSettings = Settings.ToDictionary (s => s.Key, s => s.Prefab)); }
-        }
+      
 
         [SerializeField] Dictionary<string, List<SpawnedObject>> PoolDict = new Dictionary<string, List<SpawnedObject>> ();
         [SerializeField] Dictionary<string, Transform> Parents = new Dictionary<string, Transform> ();
@@ -59,7 +55,7 @@ namespace GameCore
         {
             SpawnedObject pObj = null;
 
-            dictSettings.TryGetValue (Key, out pObj);
+            data.dictSettings.TryGetValue (Key, out pObj);
 
             if (pObj == null)
             {
@@ -75,7 +71,7 @@ namespace GameCore
             if (!NewObj)
             {
                 NewObj = Extend (Key);
-            }
+            } 
 
             if (!NewObj)
             {

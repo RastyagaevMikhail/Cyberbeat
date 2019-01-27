@@ -4,15 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameCore
 {
-    public class PoolComponentHelper : MonoBehaviour
+    public class PoolComponentHelper : TransformObject
     {
         [SerializeField] PoolVariable pool;
 
-        [SerializeField] TransformReference parnet;
+        [SerializeField] bool savePositionInLoacal;
+        Vector3 loacalPositoin;
+        [SerializeField] TransformReference parent;
 
         public void Pop (string key)
         {
-            pool.Pop (key, parnet.ValueFast);
+            bool CanLocal = savePositionInLoacal && parent != null;
+            if (CanLocal)
+                loacalPositoin = parent.ValueFast.InverseTransformPoint (position);
+            
+            var obj = pool.Pop (key, parent.ValueFast);
+
+            if (CanLocal) obj.position = localPosition;
         }
     }
 }

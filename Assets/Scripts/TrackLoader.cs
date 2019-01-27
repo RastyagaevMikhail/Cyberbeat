@@ -9,12 +9,10 @@ namespace CyberBeat
     public class TrackLoader : MonoBehaviour
     {
         [SerializeField] TrackVariable trackVariable;
-        [SerializeField] UnityEventAudioClip OnLoadAudioClip;
-
-        public void LoadAuiodClip ()
+        [SerializeField] AudioSource audioSource;
+        private void OnEnable ()
         {
-            OnLoadAudioClip.Invoke (trackVariable.Value.music.clip);
+            audioSource.clip = trackVariable.ValueFast.music.clip;
         }
-
     }
 }

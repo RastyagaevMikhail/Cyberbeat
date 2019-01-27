@@ -15,7 +15,6 @@ namespace GameCore
 		[SerializeField] BoolVariable Started;
 		[SerializeField] DateTimeVariable lastDisabled;
 		[SerializeField] GameObject TimerText;
-		EventListener listener;
 
 		[SerializeField] UnityEvent action;
 		public void reset ()
@@ -24,9 +23,7 @@ namespace GameCore
 		}
 		private void OnEnable ()
 		{
-			// Debug.Log ("OnEnable Timer");
-			if (listener == null) listener = new EventListener (RestartOn, StartTimer);
-			listener.OnEnable ();
+			
 			if (!lastDisabled.isNew)
 			{
 				// Debug.LogFormat ("lastDisabled.Value = {0}", lastDisabled.Value);
@@ -58,7 +55,6 @@ namespace GameCore
 		private void OnDisable ()
 		{
 			// Debug.Log ("OnDisable Timer");
-			listener.OnDisable ();
 			lastDisabled.Value = DateTime.Now;
 			// Debug.LogFormat ("lastDisabled.Value = {0}", lastDisabled.Value);
 		}
