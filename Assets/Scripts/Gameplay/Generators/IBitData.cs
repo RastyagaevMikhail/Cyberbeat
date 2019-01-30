@@ -10,10 +10,7 @@ namespace CyberBeat
         float Duration { get; }
 
         IPayloadData PayloadData { get; }
-        int RandomInt { get; }
-        int[] Ints { get; }
         string RandomString { get; }
-        int IntValue { get; }
         string StringValue { get; }
         string[] Strings { get; }
     }

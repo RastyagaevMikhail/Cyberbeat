@@ -4,11 +4,11 @@ using System.Linq;
 using UnityEngine;
 namespace CyberBeat
 {
-    public class TrackBitGenerator : BitGenerator<TrackBit>
-    {
-        [SerializeField] List<TrackBitItemData> bitTimeItems ;
-        public override IEnumerable<BitTimeItem<TrackBit>> BitTimeItems => bitTimeItems;
+    // public class TrackBitGenerator : BitGenerator<TrackBit>
+    // {
+    //     [SerializeField] List<TrackBitItemData> bitTimeItems ;
+    //     public override IEnumerable<BitTimeItem<TrackBit>> BitTimeItems => bitTimeItems;
 
         
-    }
+    // }
 }

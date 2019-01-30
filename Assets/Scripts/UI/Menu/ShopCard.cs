@@ -16,7 +16,7 @@ namespace CyberBeat
 		[SerializeField] LocalizeTextMeshProUGUI Title;
 		[SerializeField] IntVariableTextSetter CountSetter;
 		[SerializeField] TextMeshProUGUI Price;
-		[SerializeField] ShopCardData data;
+		[SerializeField] ABayable data;
 
 		public void Buy ()
 		{

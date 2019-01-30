@@ -23,7 +23,7 @@ namespace CyberBeat
 		[SerializeField] IntVariable CurrentComboBeatCount;
 		int currentComboIndex { get { return CurrentComboIndex.Value; } set { CurrentComboIndex.Value = value; } }
 
-		[SerializeField] ShopCardData Gates;
+		[SerializeField] ABayable Gates;
 		[SerializeField] BoolVariable IsCombo;
 		bool isCombo { get { return IsCombo.Value; } set { IsCombo.Value = value; } }
 		TimeOfEvent currentCombo = null;

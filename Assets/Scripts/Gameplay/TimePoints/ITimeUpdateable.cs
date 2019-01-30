@@ -3,7 +3,7 @@ namespace CyberBeat
 {
     public interface ITimeUpdateable
     {
-        bool Start ();
+        void Start ();
         void UpdateInTime (float time);
         bool TimesIsOver { get; }
         IEnumerable<ITimeItem> TimeItems { get; }

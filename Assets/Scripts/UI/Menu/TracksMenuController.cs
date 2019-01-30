@@ -14,8 +14,9 @@ namespace CyberBeat
 
 		[SerializeField] TrackScrollList trackScroll;
 		public TracksCollection tracksColletion { get { return TracksCollection.instance; } }
-		private void Awake ()
+		protected override void Awake ()
 		{
+			base.Awake();
 			trackScroll.UpdateData (tracksColletion.Objects.Select (t => new TrackScrollData (t)).ToList ());
 		}
 		private void OnEnable ()

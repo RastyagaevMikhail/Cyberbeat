@@ -8,12 +8,12 @@ using System.Linq;
 using UnityEngine;
 namespace CyberBeat
 {
-    public class TimeEventsController : TimeController
-    {
-        [SerializeField]
-        List<TimeEventsItem> timeEventsItems;
-        public override IEnumerable<ITimeUpdateable> TimeUpdateables => timeEventsItems;
-    }
+    // public class TimeEventsController : TimeController
+    // {
+    //     [SerializeField]
+    //     List<TimeEventsItem> timeEventsItems;
+    //     public override IEnumerable<ITimeUpdateable> TimeUpdateables => timeEventsItems;
+    // }
 
 
 }

@@ -26,17 +26,15 @@ namespace CyberBeat
 
             public abstract IEnumerable<ITimeItem> TimeItems { get; }
 
-            public virtual bool Start ()
+            public virtual void Start ()
             {
                 indexOfTime = 0;
                 if (TimesIsOver)
                 {
                     OnTimeIsOver ();
-                    return false;
+                    return ;
                 }
                 CurrentTimeItem = TimeItems.First ();
-
-                return true;
             }
 
             protected virtual void OnTimeIsOver ()

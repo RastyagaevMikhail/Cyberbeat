@@ -34,11 +34,8 @@ namespace CyberBeat
         [SerializeField] float duration;
         public float Duration => duration;
         public IPayloadData PayloadData { get => payloadData; }
-        public int RandomInt { get => PayloadData.RandomInt; }
         public string RandomString { get => PayloadData.RandomString; }
-        public int IntValue { get => PayloadData.IntValue; }
         public string StringValue { get => PayloadData.StringValue; }
-        public int[] Ints => payloadData.Ints;
         public string[] Strings => payloadData.Strings;
 
         public TrackBit (KoreographyEvent koreographyEvent)
@@ -54,6 +51,5 @@ namespace CyberBeat
             payloadData.Init (koreographyEvent.Payload);
         }
     }
-
     [System.Serializable] class TrackBitPayload : APayloadData { }
 }

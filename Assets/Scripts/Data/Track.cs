@@ -134,7 +134,7 @@ namespace CyberBeat
 		{
 			LayerType layer = LayerType.Effect;
 			UnityEditor.EditorUtility.SetDirty (GetTrack (layer));
-			List<string> payloads = new List<string> ();
+			List<string> payloads = Tools.GetAtPath<EffectDataPreset> ("Assets/Data/MetaData/Effects/").Select (pres => pres.name).ToList ();
 			foreach (var e in this [layer])
 			{
 				string pld = e.GetTextValue ();

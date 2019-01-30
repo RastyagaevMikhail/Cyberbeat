@@ -19,13 +19,12 @@ namespace CyberBeat
         bool isTime;
         bool lastTime;
 
-        public override bool Start ()
+        public override void Start ()
         {
-            bool baseStartResult = base.Start ();
+            base.Start ();
 
             currentTimeEvent = new TimeEvent (isTime, currentTimeOfEvent);
 
-            return baseStartResult;
         }
 
         public override void UpdateInTime (float time)
