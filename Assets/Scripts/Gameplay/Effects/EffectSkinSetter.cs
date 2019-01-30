@@ -13,6 +13,7 @@ namespace CyberBeat
 {
     public class EffectSkinSetter : MonoBehaviour
     {
+
         private SkinnedMeshRenderer _mRend = null;
         public SkinnedMeshRenderer mRend { get { if (_mRend == null) _mRend = GetComponent<SkinnedMeshRenderer> (); return _mRend; } }
         private Texture _texture = null;
@@ -56,6 +57,7 @@ namespace CyberBeat
 
         [SerializeField] EffectSkinData data;
         [SerializeField] Shapes TestNameState;
+        [SerializeField] Rotator rotator;
         [SerializeField] string TextureName = "_Base";
         [SerializeField] string ColorName = "_Color";
         [SerializeField] float durationTransition = 1f;
@@ -167,13 +169,13 @@ namespace CyberBeat
             MoveState (TestNameState);
         }
 
-        public void InitSkin (EffectSkinData data, Shapes shape)
+        public void InitSkin (EffectDataPreset preset)
         {
-            this.data = data;
-            // MoveState (shape);
-            SetShapeState (shape);
-            // FadeOut();
-            // FadeIn();
+            data = preset.SkinData;
+            // MoveState (preset.Shape);
+            SetShapeState (preset.Shape);
+            FadeIn (preset.FadeInTime);
+            rotator.speed = preset.SpeedRotation;
         }
 
         public void FadeIn (float duration = 1f) => DOVirtualFloat (0f, 1f, duration, value => Opacity = value);
@@ -191,13 +193,5 @@ namespace CyberBeat
             }
             action (endValue);
         }
-    }
-    public enum Shapes
-    {
-        Circle = -1,
-        Quad = 0,
-        Triangle = 1,
-        Pentagon = 2,
-        Heptagon = 3,
     }
 }

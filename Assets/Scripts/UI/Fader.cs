@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace GameCore
@@ -11,21 +12,17 @@ namespace GameCore
     [RequireComponent (typeof (CanvasGroup))]
     public class Fader : MonoBehaviour
     {
-        [SerializeField] float TimeIn = 1f;
-        [SerializeField] float TimeOut = 1f;
-        [SerializeField] GameEvent OnFadeOutComplete;
-        [SerializeField] GameEvent OnFadeInComplete;
+        [SerializeField] UnityEvent OnFadeInComplete;
+        [SerializeField] UnityEvent OnFadeOutComplete;
         private CanvasGroup _canvasGroup = null;
         public CanvasGroup canvasGroup { get { if (_canvasGroup == null) _canvasGroup = GetComponent<CanvasGroup> (); return _canvasGroup; } }
-        public void FadeIn ()
+        public void FadeIn (float TimeIn)
         {
-            // Debug.LogFormat("FadeIn.{0}",name);
-            canvasGroup.DOFade (1f, TimeIn).OnComplete (OnFadeInComplete.Raise);
+            canvasGroup.DOFade (1f, TimeIn).OnComplete (OnFadeInComplete.Invoke);
         }
-        public void FadeOut ()
+        public void FadeOut (float TimeOut)
         {
-            // Debug.LogFormat("FadeOut.{0}",name);
-            canvasGroup.DOFade (0f, TimeIn).OnComplete (OnFadeOutComplete.Raise);
+            canvasGroup.DOFade (0f, TimeOut).OnComplete (OnFadeOutComplete.Invoke);
         }
     }
 }

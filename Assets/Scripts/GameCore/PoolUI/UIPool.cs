@@ -65,7 +65,7 @@ namespace GameCore
 
             NewObj.gameObject.SetActive (true);
 
-            NewObj.OnSpawn ();
+            NewObj.OnSpawn (Key);
             return NewObj;
         }
 

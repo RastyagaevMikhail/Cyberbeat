@@ -12,12 +12,14 @@ namespace GameCore
         [SerializeField] UnityEvent action;
         [SerializeField] bool debug;
 
+        [ContextMenu ("Start Invoke DelayedAction")]
         public void StartInvokeDelayedAction ()
         {
             Invoke ("IvokeDealayAction", asDeltaTime ? delay * Time.deltaTime : delay);
-               if (debug) Debug.Log ($"{("OnInvoke".black())}\n{action.Log()}", this);
+            if (debug) Debug.Log ($"{("OnInvoke".black())}\n{action.Log()}", this);
         }
 
+        [ContextMenu ("Ivoke DealayAction")]
         void IvokeDealayAction ()
         {
             action.Invoke ();

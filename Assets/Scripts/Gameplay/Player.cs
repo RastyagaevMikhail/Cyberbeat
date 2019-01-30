@@ -13,7 +13,6 @@ namespace CyberBeat
     {
         [SerializeField] MaterialSwitcherVariable matSwitch;
 
-        [Header ("Events")]
         [SerializeField] UnityEvent OnDeath;
 
         public void SetColor (Color color)
@@ -21,7 +20,7 @@ namespace CyberBeat
             matSwitch.CurrentColor = color;
         }
 
-        private void Awake ()
+        private void Start ()
         {
             SetColor (Color.white);
         }

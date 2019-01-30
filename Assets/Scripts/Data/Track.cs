@@ -115,16 +115,38 @@ namespace CyberBeat
 			this.Save ();
 		}
 
-		[ContextMenu ("Convert To Text")]
-		void ConvertToText ()
+		[ContextMenu ("Convert To Name")]
+		void ConvertToName ()
 		{
-			UnityEditor.EditorUtility.SetDirty (GetTrack (LayerType.Bit));
-			foreach (var e in this [LayerType.Bit])
+			LayerType layer = LayerType.Effect;
+			UnityEditor.EditorUtility.SetDirty (GetTrack (layer));
+			foreach (var e in this [layer])
 			{
-				int pld = e.GetIntValue ();
+				string pld = e.GetTextValue ();
 				var payload = new TextPayload ();
-				payload.TextVal = pld.ToString ();
+				payload.TextVal = pld.Replace (',', '_');
 				e.Payload = payload;
+			}
+		}
+
+		[ContextMenu ("GenerateEffectsPresets")]
+		void GenerateEffectsPresets ()
+		{
+			LayerType layer = LayerType.Effect;
+			UnityEditor.EditorUtility.SetDirty (GetTrack (layer));
+			List<string> payloads = new List<string> ();
+			foreach (var e in this [layer])
+			{
+				string pld = e.GetTextValue ();
+				if (payloads.Contains (pld)) continue;
+				payloads.Add (pld);
+				var parameters = pld.Split ('_');
+				var effectPreset = CreateInstance<EffectDataPreset> ();
+				EffectSkinData skinData = EffectSkinsDataCollection.instance[parameters[0]];
+				Shapes shape = (Shapes) int.Parse (parameters[1]);
+				float speedRotation = int.Parse (parameters[2]);
+				effectPreset.Init (skinData, shape, speedRotation, 0.5f);
+				effectPreset.CreateAsset ($"Assets/Data/MetaData/Effects/{pld}.asset");
 			}
 		}
 

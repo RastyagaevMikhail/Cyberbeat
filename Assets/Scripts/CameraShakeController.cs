@@ -17,6 +17,7 @@ namespace CyberBeat
             data.ShakeOnce (shaker);
         }
 
+#if UNITY_EDITOR
         [SerializeField] bool test;
         [SerializeField] ShakeData data;
         private void Update ()
@@ -34,5 +35,6 @@ namespace CyberBeat
         {
             PresetFromSave.CopyFrom (data);
         }
+#endif
     }
 }

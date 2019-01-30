@@ -14,6 +14,10 @@ namespace GameCore
         [SerializeField] UnityEvent OnComplete;
         private AudioSource _aSource = null;
         public AudioSource aSource { get { if (_aSource == null) _aSource = GetComponent<AudioSource> (); return _aSource; } }
+        public void Play ()
+        {
+            Play (aSource.clip);
+        }
         public void Play (AudioClip clip = null)
         {
             if (!clip)

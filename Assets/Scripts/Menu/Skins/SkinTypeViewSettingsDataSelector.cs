@@ -20,8 +20,7 @@ namespace CyberBeat
 		}
 	}
 
-	[Serializable]
-	public class ViewSettingsSkinTypeData : TypeData<SkinType, ViewSettings> { }
+	[Serializable] public class ViewSettingsSkinTypeData : TypeData<SkinType, ViewSettings> { }
 
 	[Serializable]
 	public class ViewSettings

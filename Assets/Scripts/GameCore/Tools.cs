@@ -20,9 +20,9 @@ namespace GameCore
             return array[Random.Range (0, array.Length)];
         }
         public static bool RandomBool { get { return Random.value >= 0.5f; } }
-        public static int RandomOne { get { return RandomBool ? 1 : -1; } }
+        public static int RandomDir { get { return RandomBool ? 1 : -1; } }
 
-        public static int RandomZero { get { return RandomBool ? 1 : 0; } }
+        public static int RandomOneZero { get { return RandomBool ? 1 : 0; } }
         public static IEnumerable<object> ShuffleObjects (IEnumerable<object> collection)
         {
             List<object> result = new List<object> ();

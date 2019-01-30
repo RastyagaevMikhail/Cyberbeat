@@ -25,6 +25,8 @@ namespace FluffyUnderware.Curvy.Controllers
         [Section ("General", Sort = 0)]
         [FieldCondition ("m_Spline", null, false, ActionAttribute.ActionEnum.ShowWarning, "Missing Source")]
         [SerializeField]
+        CurvySplineVariable splineVariable;
+        [SerializeField]
         CurvySpline m_Spline;
         [SerializeField]
         bool m_UseCache;
@@ -45,7 +47,7 @@ namespace FluffyUnderware.Curvy.Controllers
         /// </summary>
         public CurvySpline Spline
         {
-            get { return m_Spline; }
+            get { return m_Spline ? m_Spline : splineVariable ? splineVariable.ValueFast : null; }
             set
             {
                 if (m_Spline != value)

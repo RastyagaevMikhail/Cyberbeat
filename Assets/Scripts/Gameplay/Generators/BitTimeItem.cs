@@ -1,5 +1,6 @@
 using GameCore;
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,8 +11,21 @@ namespace CyberBeat
     public abstract class BitTimeItem<TBitData> : ATimeUpdateable<ABitDataCollectionVariable, ABitDataCollection, GameEventListenerIBitData.UnityEventIBitData, IBitData>
         where TBitData : IBitData
         {
+
             List<IBitData> Bits { get { return Variable.ValueFast.Bits; } }
-            public override IEnumerable<ITimeItem> TimeItems => Bits;
+            private IEnumerable<ITimeItem> timeItems = null;
+            public override IEnumerable<ITimeItem> TimeItems => timeItems??InitItems ();
+
+            private IEnumerable<ITimeItem> InitItems ()
+            {
+                timeItems = Bits;
+                return timeItems;
+            }
+            private void OnEnable ()
+            {
+                InitItems ();
+            }
+
             public override ITimeItem CurrentTimeItem
             {
                 get => currentBit;
@@ -26,7 +40,11 @@ namespace CyberBeat
                     UnityEvent.Invoke (currentBit);
 
                     indexOfTime++;
-                    if (TimesIsOver) return;
+                    if (TimesIsOver)
+                    {
+                        OnTimeIsOver ();
+                        return;
+                    }
                     currentBit = Bits[indexOfTime];
                     // CurrentTimeItem = TimeItems.ElementAt(indexOfTime);
                 }

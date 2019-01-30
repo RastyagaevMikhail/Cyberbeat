@@ -9,6 +9,8 @@ using FluffyUnderware.Curvy.Utils;
 using FluffyUnderware.DevTools;
 using FluffyUnderware.DevTools.Extensions;
 
+using GameCore;
+
 using System.Collections;
 using System.Reflection;
 
@@ -441,6 +443,10 @@ namespace FluffyUnderware.Curvy
                 mForceUpdate = true;
             }
         }
+        public void SetSpeed (FloatVariable speedVariable)
+        {
+            Speed = speedVariable.ValueFast;
+        }
 
         /// <summary>
         /// Gets or sets the relative position on the source, respecting Clamping
@@ -615,8 +621,7 @@ namespace FluffyUnderware.Curvy
             mGameObject = gameObject;
         }
 
-        protected virtual void OnDisable ()
-        { }
+        protected virtual void OnDisable () { }
 
         protected virtual void Update ()
         {
@@ -938,8 +943,7 @@ namespace FluffyUnderware.Curvy
         /// <param name="mode">movement mode</param>
         /// <param name="absSpeed">speed, always positive</param>
         /// <param name="clamping">clamping mode</param>
-        protected virtual void Advance (ref float tf, ref int direction, MoveModeEnum mode, float absSpeed, CurvyClamping clamping)
-        { }
+        protected virtual void Advance (ref float tf, ref int direction, MoveModeEnum mode, float absSpeed, CurvyClamping clamping) { }
 
         /// <summary>
         /// Set the transform's localRotation
@@ -1089,8 +1093,7 @@ namespace FluffyUnderware.Curvy
         /// <summary>
         /// Unbinds any external events
         /// </summary>
-        protected virtual void UnbindEvents ()
-        { }
+        protected virtual void UnbindEvents () { }
 
         #endregion
 

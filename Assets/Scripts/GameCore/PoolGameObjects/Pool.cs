@@ -9,9 +9,7 @@ namespace GameCore
         public PoolSettingsData data;
         List<PoolSetteings> Settings { get { return data.Settings; } }
 
-      
-
-        [SerializeField] Dictionary<string, List<SpawnedObject>> PoolDict = new Dictionary<string, List<SpawnedObject>> ();
+        [SerializeField] Dictionary<string, Queue<SpawnedObject>> PoolDict = new Dictionary<string, Queue<SpawnedObject>> ();
         [SerializeField] Dictionary<string, Transform> Parents = new Dictionary<string, Transform> ();
         private void Awake ()
         {
@@ -41,9 +39,15 @@ namespace GameCore
         private void InitParent (PoolSetteings setting)
         {
             var Key = setting.Key;
-            var parent = new GameObject (Key).transform;
-            parent.SetParent (transform);
-            parent.name = Key;
+            Transform parent = null;
+            if (setting.Parent)
+                parent = setting.Parent.ValueFast;
+            else
+            {
+                parent = new GameObject (Key).transform;
+                parent.SetParent (transform);
+                parent.name = Key;
+            }
             Parents[Key] = parent;
         }
         public void Pop (PoolData data)
@@ -61,31 +65,28 @@ namespace GameCore
             {
                 return null;
             }
+            SpawnedObject NewObj = null;
 
-            if (!PoolDict.ContainsKey (Key))
-            {
-                PoolDict[Key] = new List<SpawnedObject> ();
-            }
+            if (PoolDict.ContainsKey (Key) && PoolDict[Key].Count > 0)
+                NewObj = PoolDict[Key].Dequeue ();
+            else
+                PoolDict[Key] = new Queue<SpawnedObject> ();
 
-            var NewObj = PoolDict[Key].Find (po => !po.isActiveAndEnabled);
             if (!NewObj)
-            {
                 NewObj = Extend (Key);
-            } 
 
             if (!NewObj)
-            {
                 return null;
-            }
 
             NewObj.gameObject.SetActive (true);
 
-            if (Parent == null) Parent = Parents[Key];
+            if (Parent != null)
+                NewObj.SetParent (Parent);
 
-            NewObj.SetParent (Parent);
             NewObj.ApplyOffset ();
 
-            NewObj.OnSpawn ();
+            NewObj.OnSpawn (Key);
+
             return NewObj;
         }
         public T Pop<T> (string Key, Transform parent = null) where T : Component
@@ -93,56 +94,36 @@ namespace GameCore
             return Pop (Key, parent).Get<T> ();
         }
 
-        public void Push (GameObject go, bool force = false)
+        public void Push (SpawnedObject spawnedObject)
         {
-            var spawnedObj = go.GetComponent<SpawnedObject> ();
-            if (!spawnedObj && !force)
-            {
+            if (!spawnedObject)
                 return;
-            }
 
-            if (force && !spawnedObj)
-            {
-                spawnedObj = go.AddComponent<SpawnedObject> ();
-                PoolSetteings setting = new PoolSetteings () { Key = spawnedObj.name, Prefab = spawnedObj };
-                Settings.Add (setting);
-                InitParent (setting);
-                Extend (setting.Key);
-            }
-            foreach (var ListItems in PoolDict.Values)
-            {
-                foreach (var item in ListItems)
-                {
-                    if (item.gameObject.Equals (go))
-                    {
-                        go.SetActive (false);
-                        spawnedObj.OnDeSpawn ();
-                    }
-                }
-            }
+            spawnedObject.gameObject.SetActive (false);
+            spawnedObject.OnDeSpawn ();
+            PoolDict[spawnedObject.Key].Enqueue (spawnedObject);
         }
 
         private SpawnedObject Extend (string Key)
         {
             // Debug.LogFormat ("Key = {0}", Key);
-            var pObj = Settings.Find (ps => ps.Key == Key);
+            SpawnedObject pObj = null;
+            data.dictSettings.TryGetValue (Key, out pObj);
             if (pObj == null)
-            {
                 return null;
-            }
 
-            var newObj = Instantiate (pObj.Prefab);
+            var newObj = Instantiate (pObj);
 
             newObj.name = string.Format ("{0}{1}", Key, newObj.GetInstanceID ());
 
-            newObj.transform.SetParent (Parents[Key]);
+            newObj.SetParent (Parents[Key]);
 
             if (!PoolDict.ContainsKey (Key))
             {
-                PoolDict[Key] = new List<SpawnedObject> ();
+                PoolDict[Key] = new Queue<SpawnedObject> ();
             }
 
-            PoolDict[Key].Add (newObj);
+            PoolDict[Key].Enqueue (newObj);
 
             newObj.gameObject.SetActive (false);
 
@@ -170,6 +151,7 @@ namespace GameCore
     {
         public string Key;
         public SpawnedObject Prefab;
+        public TransformVariable Parent;
         public int startCount;
     }
 

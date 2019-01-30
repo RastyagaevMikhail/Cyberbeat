@@ -8,23 +8,23 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "GameEventFloat", menuName = "Events/GameCore/GameEvent/float")]
 	public class GameEventFloat : ScriptableObject
 	{
-		List<EventListenerFloat> eventListeners = new List<EventListenerFloat> ();
+		[SerializeField] List<EventListenerFloat> eventListeners = new List<EventListenerFloat> ();
 		public void Raise (float arg)
 		{
 			for (int i = eventListeners.Count - 1; i >= 0; i--)
 				eventListeners[i].OnEventRaised (arg);
 		}
 
-		   public virtual void RegisterListener (EventListenerFloat listener)
-        {
-            if (!eventListeners.Contains (listener))
-                eventListeners.Add (listener);
-        }
+		public virtual void RegisterListener (EventListenerFloat listener)
+		{
+			if (!eventListeners.Contains (listener))
+				eventListeners.Add (listener);
+		}
 
-        public virtual void UnRegisterListener (EventListenerFloat listener)
-        {
-            if (eventListeners.Contains (listener))
-                eventListeners.Remove (listener);
-        }
+		public virtual void UnRegisterListener (EventListenerFloat listener)
+		{
+			if (eventListeners.Contains (listener))
+				eventListeners.Remove (listener);
+		}
 	}
 }

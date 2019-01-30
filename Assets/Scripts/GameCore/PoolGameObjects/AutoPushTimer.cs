@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
+using Timers;
+
 using UnityEngine;
 namespace GameCore
 {
@@ -8,13 +10,16 @@ namespace GameCore
 	{
 		[SerializeField] float TimeDelay = 0.5f;
 		[SerializeField] PoolVariable pool;
-
-		private void OnEnable ()
+		[SerializeField, HideInInspector] SpawnedObject spawnedObject = null;
+		private void OnValidate ()
 		{
-			Tools.DelayAction (this, TimeDelay, () =>
-			{
-				pool.Push (gameObject);
-			});
+			if (spawnedObject == null) spawnedObject = GetComponent<SpawnedObject> ();
 		}
+		
+		private void Start ()
+		{
+			TimersManager.SetTimer (this, TimeDelay, () => pool.Push (spawnedObject));
+		}
+
 	}
 }

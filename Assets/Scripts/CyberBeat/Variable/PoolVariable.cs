@@ -47,9 +47,9 @@ namespace GameCore
             return variable.Value;
         }
 
-        public void Push (GameObject gameObject)
+        public void Push (SpawnedObject spawnedObject)
         {
-            ValueFast.Push (gameObject);
+            ValueFast.Push (spawnedObject);
         }
         public SpawnedObject Pop (string key, Transform parent = null)
         {

@@ -14,22 +14,40 @@ namespace CyberBeat
         private CurvySpline _spline = null;
         public CurvySpline spline { get { if (_spline == null) _spline = GetComponent<CurvySpline> (); return _spline; } }
 
-        [ContextMenu ("AddPoint")]
-        void AddPoint ()
+        [SerializeField] float distance = 500f;
+        [SerializeField] int pointsCount = 18;
+        [ContextMenu ("Add N Points")]
+        void AddPoints ()
         {
-            CurvySplineSegment lastVisibleControlPoint = spline.LastVisibleControlPoint;
+            for (int i = 0; i < pointsCount; i++)
+            {
+                AddPointOnePointInEnd ();
+            }
+        }
+
+        [ContextMenu ("Add One Point in End")]
+        void AddPointOnePointInEnd ()
+        {
+            var lastVisibleControlPoint = spline.LastVisibleControlPoint ? spline.LastVisibleControlPoint.transform : spline.ControlPoints[0].transform;
+
             Vector3 newPos = lastVisibleControlPoint.position;
-            const float distance = 500f;
-            var x = Tools.RandomOne * Tools.RandomZero;
-            var y = Tools.RandomOne * Tools.RandomZero;
-            var z = Tools.RandomOne * Tools.RandomZero;
-            Vector3 offset = (new Vector3 (x, y, z) * distance);
-            offset -= (lastVisibleControlPoint.transform.forward * distance);
-            newPos = newPos + offset;
+
+            bool horizontal = Tools.RandomBool;
+
+            float dir = Tools.RandomDir;
+
+            var vecDir = ((horizontal ? lastVisibleControlPoint.right : lastVisibleControlPoint.up)) * dir;
+
+            Vector3 forward = lastVisibleControlPoint.forward;
+            int multiplayer = (horizontal ? 2 : 1);
+            newPos += ((vecDir + forward) * distance * multiplayer);
+
             var segments = spline.Add (newPos);
             var newSegment = segments.First ();
+            
             newSegment.AutoHandles = false;
-            newSegment.HandleIn = lastVisibleControlPoint.HandleIn - offset;
+            newSegment.HandleIn = newSegment.transform.InverseTransformPoint (lastVisibleControlPoint.position + forward * distance * multiplayer);
+            newSegment.transform.forward = vecDir;
         }
     }
 }

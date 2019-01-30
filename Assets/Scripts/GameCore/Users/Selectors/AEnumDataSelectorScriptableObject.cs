@@ -31,10 +31,10 @@ namespace GameCore
             }
 
             public abstract List<TypeData<TEnumType, TDataType>> Datas { get; }
-            private void OnEnable ()
+            public override void OnEnable ()
             {
                 selector = Datas.ToDictionary (a => a.type, a => a.data);
-                // Debug.Log ($"OnEneable Selector {name}", this);
+                // Debug.Log ($"OnEneable Selector {name}\n{Tools.LogCollection(selector)}", this);
             }
             Dictionary<TEnumType, TDataType> selector = null;
             public Dictionary<TEnumType, TDataType> Selector { get { return selector ?? (selector = Datas.ToDictionary (a => a.type, a => a.data)); } }

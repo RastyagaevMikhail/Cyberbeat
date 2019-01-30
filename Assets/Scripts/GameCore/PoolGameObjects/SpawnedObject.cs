@@ -26,8 +26,12 @@ namespace GameCore
 
         [SerializeField] UnityEvent onSpawn;
         [SerializeField] bool useOnSpawn;
-        public void OnSpawn ()
+        string key;
+        public string Key { get => key; }
+
+        public void OnSpawn (String _key)
         {
+            key = _key;
             if (useOnSpawn) onSpawn.Invoke ();
         }
         [SerializeField] UnityEvent onDeSpawn;
@@ -42,9 +46,10 @@ namespace GameCore
         public Quaternion OffsetRotation;
         [SerializeField] PoolVariable pool;
 
+
         public void PushToPool ()
         {
-            pool.Push (gameObject);
+            pool.Push (this);
         }
 
         public void ApplyOffset (bool posistionApply = true, bool rotationApply = true)
