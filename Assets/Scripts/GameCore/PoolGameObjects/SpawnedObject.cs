@@ -19,13 +19,8 @@ namespace GameCore
             T result = ChashedComponents[type] as T;
             return result;
         }
-        public void ActionWith<T> (Action<T> ActionWhithComponent) where T : Component
-        {
-            ActionWhithComponent (Get<T> ());
-        }
-
-        [SerializeField] UnityEvent onSpawn;
         [SerializeField] bool useOnSpawn;
+        [SerializeField] UnityEvent onSpawn;
         string key;
         public string Key { get => key; }
 
@@ -34,8 +29,8 @@ namespace GameCore
             key = _key;
             if (useOnSpawn) onSpawn.Invoke ();
         }
-        [SerializeField] UnityEvent onDeSpawn;
         [SerializeField] bool useOnDeSpawn;
+        [SerializeField] UnityEvent onDeSpawn;
 
         public void OnDeSpawn ()
         {
@@ -45,11 +40,13 @@ namespace GameCore
         public Vector3 OffsetPosition;
         public Quaternion OffsetRotation;
         [SerializeField] PoolVariable pool;
-
-
         public void PushToPool ()
         {
             pool.Push (this);
+        }
+        public void Pop (string key)
+        {           
+            pool.Pop (key);
         }
 
         public void ApplyOffset (bool posistionApply = true, bool rotationApply = true)

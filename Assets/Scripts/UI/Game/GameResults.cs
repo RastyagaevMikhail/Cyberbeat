@@ -17,7 +17,6 @@ namespace CyberBeat
         [SerializeField] GameObject PostGetReawardButtons;
         [SerializeField] Button DoubleReward;
         [SerializeField] Button GetReward;
-        [SerializeField] Text ProgressText;
         [SerializeField] ResultsTrackInfo trackInfo;
         [SerializeField] TrackVariable trackVariable;
         Track track { get { return trackVariable.ValueFast; } }

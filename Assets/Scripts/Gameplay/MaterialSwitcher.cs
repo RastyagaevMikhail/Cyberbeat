@@ -24,7 +24,10 @@ namespace CyberBeat
 		[SerializeField] StringVariable DefaultColorNameVariable;
 		const string defaultColorName = "_Color";
 		public string DefaultColorName { get { return DefaultColorNameVariable?DefaultColorNameVariable.Value : defaultColorName; } }
-
+		public void SetMyColorTo (MaterialSwitcher materialSwitcher)
+		{
+			materialSwitcher.SetColor (CurrentColor);
+		}
 		public void SetColor (Color newColor)
 		{
 			SetColorInMaterial (newColor);

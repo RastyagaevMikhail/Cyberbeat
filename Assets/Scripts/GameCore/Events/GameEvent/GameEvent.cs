@@ -9,7 +9,7 @@ namespace GameCore
     {
         [SerializeField]
         public List<GameEventListener> eventListeners = new List<GameEventListener> ();
-
+        [ContextMenu ("Raise")]
         public void Raise ()
         {
             for (int i = eventListeners.Count - 1; i >= 0; i--)

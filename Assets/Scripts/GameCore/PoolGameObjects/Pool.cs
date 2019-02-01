@@ -4,14 +4,15 @@ using System.Linq;
 using UnityEngine;
 namespace GameCore
 {
-    public class Pool : MonoBehaviour
+    public class Pool : TransformObject
     {
         public PoolSettingsData data;
         List<PoolSetteings> Settings { get { return data.Settings; } }
 
         [SerializeField] Dictionary<string, Queue<SpawnedObject>> PoolDict = new Dictionary<string, Queue<SpawnedObject>> ();
-        [SerializeField] Dictionary<string, Transform> Parents = new Dictionary<string, Transform> ();
-        private void Awake ()
+        Dictionary<string, Transform> _parents = null;
+        [SerializeField] Dictionary<string, Transform> Parents { get => _parents??(InitParents ()); }
+        protected override void Awake ()
         {
             InitParents ();
             InitStartCount ();
@@ -28,12 +29,14 @@ namespace GameCore
             }
         }
 
-        private void InitParents ()
+        private Dictionary<string, Transform> InitParents ()
         {
+            _parents = new Dictionary<string, Transform> ();
             foreach (var setting in Settings)
             {
                 InitParent (setting);
             }
+            return _parents;
         }
 
         private void InitParent (PoolSetteings setting)
@@ -48,7 +51,7 @@ namespace GameCore
                 parent.SetParent (transform);
                 parent.name = Key;
             }
-            Parents[Key] = parent;
+            _parents[Key] = parent;
         }
         public void Pop (PoolData data)
         {

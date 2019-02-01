@@ -10,7 +10,8 @@ namespace Timers
     public class TimersManager : MonoBehaviour
     {
         // Ensure we only have a single instance of the TimersManager loaded (singleton pattern).
-        private static TimersManager m_instance = null;
+        private static TimersManager _instance = null;
+        public static TimersManager instance { get{if(_instance == null) _instance = GameObject.FindObjectOfType<TimersManager>(); return _instance;} }
 
         // A map of weak references. When an object is garbage collected, all its timers are automatically removed.
         private static IDictionary<WeakReference, Timer> m_Timers = new Dictionary<WeakReference, Timer>();
@@ -18,20 +19,20 @@ namespace Timers
         // Whether the game is paused
         private static bool m_bPaused = false;
 
-        void Awake()
+     /*    void Awake()
         {
             if (m_instance != null)
             {
 #if UNITY_EDITOR
                 Debug.LogWarning("An instance of Timer has already been loaded. Multiple instances are not necessary and will be destroyed.");
 #endif
-                Destroy(this);
+                Destroy(gameObject);
             }
 
             DontDestroyOnLoad(this);
             DontDestroyOnLoad(gameObject);
             m_instance = this;
-        }
+        } */
 
         private static void FindAndRemove(UnityAction UnityAction)
         {
@@ -64,7 +65,6 @@ namespace Timers
                 }
             }
         }
-
         private void OnApplicationPause(bool pauseStatus)
         {
             m_bPaused = pauseStatus;

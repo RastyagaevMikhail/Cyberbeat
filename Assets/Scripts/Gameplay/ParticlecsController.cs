@@ -12,10 +12,10 @@ namespace CyberBeat
         [SerializeField] PoolVariable pool;
         [SerializeField] IntVariable ScoresPerBeat;
         [SerializeField] TransformVariable PlayerTransform;
+
         public void OnColorTaked (Color color)
         {
-            var scoreText = pool.Pop<ScoreText> ("ScoreText", PlayerTransform.parent);
-            scoreText.Init (ScoresPerBeat.Value, color);
+            
         }
     }
 }

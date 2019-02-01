@@ -9,33 +9,17 @@ namespace GameCore
 {
 	public class TimeSpanTimerAction : MonoBehaviour
 	{
-		[ContextMenuItem ("Reset", "reset")]
+		[ContextMenuItem ("Reset to Zero", "ResetToZero")]
+		[ContextMenuItem ("Reset to Defaut", "ResetToDefault")]
 		[SerializeField] TimeSpanVariable variable;
-		[SerializeField] GameEvent RestartOn;
-		[SerializeField] BoolVariable Started;
-		[SerializeField] DateTimeVariable lastDisabled;
-		[SerializeField] GameObject TimerText;
-
 		[SerializeField] UnityEvent action;
-		public void reset ()
+		public void ResetToZero ()
 		{
 			variable.Reset ().AddSeconds (1);
 		}
-		private void OnEnable ()
+		public void ResetToDefault ()
 		{
-			
-			if (!lastDisabled.isNew)
-			{
-				// Debug.LogFormat ("lastDisabled.Value = {0}", lastDisabled.Value);
-				TimeSpan ts = lastDisabled - DateTime.Now;
-				// Debug.LogFormat ("ts = {0}", ts);
-				int totalSeconds = (int) ts.TotalSeconds;
-				// Debug.LogFormat ("totalSeconds = {0}", totalSeconds);
-				variable.AddSeconds (totalSeconds);
-				if (!ChechComplete ())
-					if (Started.Value)
-						StartTimer ();
-			}
+			variable.ResetDefault();
 		}
 
 		private bool ChechComplete ()
@@ -43,40 +27,25 @@ namespace GameCore
 			bool IsCompeted = variable.Value.TotalSeconds <= 0;
 			if (IsCompeted)
 			{
-				if (TimerText)
-					TimerText.SetActive (false);
 				action.Invoke ();
-				Started.Value = false;
 			}
 			return IsCompeted;
-
 		}
 
-		private void OnDisable ()
-		{
-			// Debug.Log ("OnDisable Timer");
-			lastDisabled.Value = DateTime.Now;
-			// Debug.LogFormat ("lastDisabled.Value = {0}", lastDisabled.Value);
-		}
 		private void Start ()
 		{
 			StartTimer ();
 		}
 		public void StartTimer ()
 		{
-			// Debug.Log ("StartTimer.{0}".AsFormat (name));
-			Started.Value = true;
-			if (TimerText)
-				TimerText.SetActive (true);
+			if (ChechComplete ()) return;
 			StartCoroutine (cr_StartTimer ());
-
 		}
 		private IEnumerator cr_StartTimer ()
 		{
 			WaitForSeconds wts = new WaitForSeconds (1f);
 			while (variable.Value.TotalSeconds > 0)
 			{
-				// Debug.Log (variable.Value);
 				yield return wts;
 				variable.AddSeconds (-1);
 			}

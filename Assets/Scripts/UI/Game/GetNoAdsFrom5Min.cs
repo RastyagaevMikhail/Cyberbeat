@@ -14,7 +14,7 @@ namespace CyberBeat
         [SerializeField] Button WatchButton;
         [SerializeField] Button SkipButton;
         [SerializeField] GameObject Back;
-        [SerializeField] BoolVariable NoadsIsEnabled;
+        [SerializeField] BoolVariable NoAdsAutoRestartTime;
         [SerializeField] TimeSpanVariable NoAdsTime;
         [SerializeField] GameEvent ShowResults;
         [SerializeField] GameEvent RestartGame;
@@ -30,11 +30,11 @@ namespace CyberBeat
             WatchButton = Panel.transform.Find ("GetAndWatch").GetComponent<Button> ();
             SkipButton = Panel.transform.Find ("Skip").GetComponent<Button> ();
 
-            NoadsIsEnabled = Tools.GetAssetAtPath<BoolVariable> ("Assets/Data/NoAdsTimer/NoAdsIsEnabled.asset");
-            NoAdsTime = Tools.GetAssetAtPath<TimeSpanVariable> ("Assets/Data/NoAdsTimer/NoAdsTime.asset");
+            NoAdsAutoRestartTime = Tools.ValidateVaraiable<BoolVariable> ("Assets/Data/NoAdsTimer/NoAdsAutoRestartTime.asset");
+            NoAdsTime = Tools.ValidateVaraiable<TimeSpanVariable> ("Assets/Data/NoAdsTimer/NoAdsTime.asset");
 
-            ShowResults = Tools.GetAssetAtPath<GameEvent> ("Assets/Data/Events/GetNoAdsFrom5Min/Show Results.asset");
-            RestartGame = Tools.GetAssetAtPath<GameEvent> ("Assets/Data/Events/GameController/OnRestartGame.asset");
+            ShowResults = Tools.ValidateSO<GameEvent> ("Assets/Data/Events/GetNoAdsFrom5Min/Show Results.asset");
+            RestartGame = Tools.ValidateSO<GameEvent> ("Assets/Data/Events/GameController/OnRestartGame.asset");
         }
 #endif
 
@@ -69,7 +69,7 @@ namespace CyberBeat
 
         private void ResetNoAdsTimer (double arg1, string arg2)
         {
-            NoadsIsEnabled.Value = true;
+            NoAdsAutoRestartTime.Value = true;
             
             NoAdsTime.ResetDefault ();
         }

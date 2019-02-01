@@ -4,7 +4,7 @@ namespace GameCore
 {
     public class TransformObject : MonoBehaviour
     {
-        void OnEnable ()
+        protected virtual void OnEnable ()
         {
             if (_transform == null) _transform = GetComponent<Transform> ();
         }

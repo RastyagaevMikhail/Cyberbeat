@@ -5,13 +5,13 @@ namespace CyberBeat
 {
     public class CameraShakeController : MonoBehaviour
     {
-        public CameraShaker shaker;
+        [SerializeField] CameraShaker shaker;
         [SerializeField] ShakeDataPresetSelector Selector;
         public void OnShakeBit (IBitData bitData)
         {
             var data = Selector[bitData.StringValue].Data;
             float duration = bitData.Duration;
-            // Debug.LogFormat ("bitData.Duration = {0}", duration);
+            Debug.LogFormat ("bitData.Duration = {0}", duration);
             data.TimeDuaration = duration;
             // Debug.Log (data);
             data.ShakeOnce (shaker);

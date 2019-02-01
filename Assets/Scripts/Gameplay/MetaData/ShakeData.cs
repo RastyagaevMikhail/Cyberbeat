@@ -42,6 +42,9 @@ namespace CyberBeat
 
         public void ShakeOnce (CameraShaker shaker)
         {
+            Debug.LogFormat ("FadeInTime = {0}", FadeInTime);
+            Debug.LogFormat ("FadeOutTime = {0}", FadeOutTime);
+            Debug.LogFormat ("usePercent = {0}", usePercent);
             shaker.ShakeOnce (magnitude, roughness, FadeInTime, FadeOutTime, posInfluence, rotInfluence);
         }
         public override string ToString ()
