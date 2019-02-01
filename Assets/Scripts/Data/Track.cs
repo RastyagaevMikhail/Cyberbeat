@@ -1,5 +1,7 @@
 ﻿using GameCore;
 
+using Sirenix.OdinInspector;
+
 using SonicBloom.Koreo;
 
 using System;
@@ -150,7 +152,19 @@ namespace CyberBeat
 			}
 		}
 
+		[OnInspectorGUI]
+		[PropertyOrder (int.MaxValue - 1)]
+		private void InfoGUI ()
+		{
+			if (IsCurrentTrack)
+				Sirenix.Utilities.Editor.SirenixEditorGUI.InfoMessageBox ("ТЕКУЩИЙ ");
+			else
+				Sirenix.Utilities.Editor.SirenixEditorGUI.ErrorMessageBox ("НЕ ЯВЛЯЕТСЯ текущим ");
+		}
 #endif
+		public bool IsCurrentTrack { get { return this == data.CurrentTrack; } }
+
+		[Button (ButtonSizes.Medium)]
 		[ContextMenu ("Set Me As Current")]
 		public void SetMeAsCurrent ()
 		{
@@ -162,6 +176,7 @@ namespace CyberBeat
 		public List<SocialInfo> socials;
 		public ShopInfo shopInfo;
 		public ProgressInfo progressInfo;
+		[InlineButton("ValidateLayerBits","Validate")]
 		[ContextMenuItem ("Valiadate", "ValidateLayerBits")]
 		[SerializeField] LayerTypeTrackBitsCollectionSelector layerBitsSelector;
 #if UNITY_EDITOR
