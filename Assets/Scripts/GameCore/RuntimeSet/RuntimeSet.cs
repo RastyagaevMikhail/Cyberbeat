@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿
+using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,11 +11,13 @@ namespace GameCore
     {
         List<T> itemsFromRemove = new List<T> ();
         bool startIterrate = false;
-        [SerializeField] List<T> items = new List<T> ();
-        public List<T> Items { get { return items; } }
+        [SerializeField] protected List<T> items = new List<T> ();
+        public T[] ToArray () => items.ToArray ();
+        public T GetRandom () => items.GetRandom ();
+        
         protected abstract UnityEvent<T> OnAddComplete { get; }
         protected abstract UnityEvent<T> OnRemoveComplete { get; }
-        public int Count { get { return Items.Count; } }
+        public int Count { get { return items.Count; } }
         public void Add (T item)
         {
             if (!Contains (item))
@@ -29,7 +31,7 @@ namespace GameCore
         {
             if (action == null) return;
             startIterrate = true;
-            foreach (var item in Items)
+            foreach (var item in items)
                 action (item);
             startIterrate = false;
             if (_onItterrateComplete != null) _onItterrateComplete ();
@@ -65,7 +67,7 @@ namespace GameCore
         }
         public bool Contains (T item)
         {
-            return Items.Contains (item);
+            return items.Contains (item);
         }
     }
 }

@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dfeecda361dff14bb7050f05dd2c888, type: 3}
-  m_Name: Purure
+  m_Script: {fileID: 11500000, guid: dce1af8b6b1003e46bf64bcdaeb299be, type: 3}
+  m_Name: SqureWhole
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  categoryTag: ColorCount
-  _value: 0
-  DefaultValue: 0
+  categoryTag: Default
+  _value: {fileID: 2100000, guid: a2331ce24bae9f447b46f4fde19b4624, type: 2}
+  DefaultValue: {fileID: 0}
   ResetByDefault: 0
   Loaded: 0
+  ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}

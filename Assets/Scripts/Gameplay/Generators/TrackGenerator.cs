@@ -1,5 +1,7 @@
 ﻿using GameCore;
 
+using Sirenix.OdinInspector;
+
 using SonicBloom.Koreo;
 
 using System;
@@ -12,27 +14,35 @@ namespace CyberBeat
     public class TrackGenerator : TransformObject
     {
         private const float width = 5f;
+        [SerializeField] List<ColorInfoRuntimeSet> ColorsSets;
+        static RandomStack<ColorInfoRuntimeSet> ColorsSetsStack = null;
         [SerializeField] PoolVariable pool;
         [SerializeField] TracksCollection tracksCollection;
 
-        RandomConstantMaterial rcm;
+        RandomConstantMaterial rcm = null;
 
         List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
+        [SerializeField] ColorInfoRuntimeSetVariable currentSet;
+        ColorInfoRuntimeSet CurrentSet { get => currentSet.ValueFast; set => currentSet.ValueFast = value; }
+        Color LastRandomColor = default (Color);
+        float lastBeat = -1f;
         protected override void Awake ()
         {
             base.Awake ();
-            LastRandomColor = Colors.instance.RandomColor;
-
+            if (ColorsSetsStack == null) ColorsSetsStack = new RandomStack<ColorInfoRuntimeSet> (ColorsSets);
             InitRCM ();
             lastBeat = -1f;
         }
 
         private void InitRCM ()
         {
-            rcm = new RandomConstantMaterial (LastRandomColor);
+            initColors ();
+            if (rcm == null)
+                rcm = new RandomConstantMaterial (CurrentSet.GetColors ());
+
+            rcm.SetLastRandomColor (LastRandomColor);
         }
-        float lastBeat = -1f;
-        [SerializeField] Color LastRandomColor;
+
         public void OnBit (IBitData bitData)
         {
 
@@ -85,6 +95,15 @@ namespace CyberBeat
             // Neighbors.Clear ();
         }
 
+        private void initColors ()
+        {
+            if (CurrentSet == null) CurrentSet = ColorsSetsStack.Get ();
+            if (LastRandomColor == default (Color)) LastRandomColor = CurrentSet.GetRandom ().color;
+        }
+        private void OnDestroy ()
+        {
+            CurrentSet = null;
+        }
         SpawnedObject InstattiateObj (Material baseMaterial, float xPos)
         {
             if (!baseMaterial) return null;

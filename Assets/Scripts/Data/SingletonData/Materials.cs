@@ -17,31 +17,6 @@ namespace CyberBeat
 #endif
 		[SerializeField] StringVariable defalutColorName;
 		public string DefalutColorName { get { return defalutColorName.Value; } }
-		private void OnEnable ()
-		{
-			InitDict ();
-		}
-
-		public Dictionary<Material, Dictionary<Color, Material>> _materials = null;
-		public Dictionary<Material, Dictionary<Color, Material>> materials { get { if (_materials == null) InitDict (); return _materials; } }
 		public Material[] BaseMaterials;
-
-		private void InitDict ()
-		{
-			_materials = BaseMaterials
-				.ToDictionary (
-					m => m,
-					m => Colors.instance.colors
-					.ToDictionary (
-						c => c,
-						c =>
-						{
-							Material material = Instantiate (m);
-							material.SetColor (DefalutColorName, c);
-							return material;
-						}
-					)
-				);
-		}
 	}
 }

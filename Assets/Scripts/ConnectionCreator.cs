@@ -18,7 +18,7 @@ namespace FluffyUnderware.Curvy
 
         private void ConnectPointsInSet ()
         {
-            CurvySplineSegment[] controlPoints = segmentsForConntetionSet.Items.ToArray ();
+            CurvySplineSegment[] controlPoints = segmentsForConntetionSet.ToArray ();
             var connection = CurvyConnection.Create (controlPoints);
             connection.AutoSetFollowUp ();
             connection.ControlPoints.ForEach (cp => cp.ConnectionSyncRotation = cp.ConnectionSyncPosition = true);

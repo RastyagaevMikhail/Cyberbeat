@@ -1,9 +1,10 @@
 using EZCameraShake;
 
+using Sirenix.OdinInspector;
+
 using System;
 
 using UnityEngine;
-
 namespace CyberBeat
 {
     [System.Serializable]
@@ -14,15 +15,23 @@ namespace CyberBeat
         [Header ("Резкость встряхивания.")]
         [Tooltip ("Более низкие значения более плавные, более высокие значения более резкие")]
         [SerializeField] float roughness;
-        [Header ("Время разгона тряски")]
-        [Tooltip ("Как долго разгоняется тряска, в секундах")]
-        [SerializeField] float fadeInTime;
-        [Header ("Время затухания тряски")]
-        [Tooltip ("Как долго исчезает тряска, через несколько секунд")]
-        [SerializeField] float fadeOutTime;
+         [BoxGroup("Time")]
         [Header ("Использовать процент")]
         [Tooltip ("Fade In Time = Time Duration * Precent;\nFade Out Time = Time Duration * (1f- Percent);")]
         [SerializeField] bool usePercent;
+        [BoxGroup("Time")]
+        [HideIf ("usePercent")]
+        [Header ("Время разгона тряски")]
+        [Tooltip ("Как долго разгоняется тряска, в секундах")]
+        [SerializeField] float fadeInTime;
+        [BoxGroup("Time")]
+        [HideIf ("usePercent")]
+        [Header ("Время затухания тряски")]
+        [Tooltip ("Как долго исчезает тряска, через несколько секунд")]
+        [SerializeField] float fadeOutTime;
+       
+        [BoxGroup("Time")]
+        [ShowIf ("usePercent")]
         [Header ("Процент для времени")]
         [Tooltip ("Fade In Time = Time Duration * Precent;\nFade Out Time = Time Duration * (1f- Percent);")]
         [Range (0, 1f)]
@@ -42,9 +51,6 @@ namespace CyberBeat
 
         public void ShakeOnce (CameraShaker shaker)
         {
-            Debug.LogFormat ("FadeInTime = {0}", FadeInTime);
-            Debug.LogFormat ("FadeOutTime = {0}", FadeOutTime);
-            Debug.LogFormat ("usePercent = {0}", usePercent);
             shaker.ShakeOnce (magnitude, roughness, FadeInTime, FadeOutTime, posInfluence, rotInfluence);
         }
         public override string ToString ()

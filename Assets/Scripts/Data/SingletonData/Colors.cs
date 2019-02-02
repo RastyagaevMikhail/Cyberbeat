@@ -20,15 +20,9 @@ namespace CyberBeat
 		[ContextMenu ("Generate Colors Count")]
 		void GenerateColorsCount ()
 		{
-			// foreach (var clr in AllColors)
-			// {
-			// 	var colorCountVar = ScriptableObject.CreateInstance<ColorCountVariable> ();
-			// 	colorCountVar.color = clr;
-			// 	var nameVariable = "#{0}".AsFormat (clr.ToString (false));
-			// 	colorsCounter.counts.Add (new ColorCount () { color = clr, variable = colorCountVar });
-			// 	Tools.CreateAsset (colorCountVar, "Assets/Resources/Data/Variables/Colors/{0}.asset".AsFormat (nameVariable));
-			// }
-			// this.Save ();
+			foreach (var clr in AllColors)
+				clr.Count = Tools.ValidateVaraiable<IntVariable> ($"Assets/Resources/Data/Variables/Colors/{clr.Name}.asset");
+			this.Save ();
 		}
 		public override void ResetDefault ()
 		{
@@ -67,7 +61,6 @@ namespace CyberBeat
 		public int LevelOnColorProgress { get { return levelOnColorProgress.Value; } set { levelOnColorProgress.Value = value; } }
 
 		public int ColorsPerCell { get { return colorsByLevel.InRangeIndex (levelOnColorProgress.Value) ? colorsByLevel[levelOnColorProgress.Value] : 50; } }
-
 
 		[SerializeField] RandomStack<Color> randStack = null;
 		private Dictionary<Color, ColorInfo> infoByColor = null;

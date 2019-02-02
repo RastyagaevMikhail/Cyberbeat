@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sirenix.OdinInspector;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,6 +13,8 @@ namespace GameCore
 	{
 		[ContextMenuItem ("Reset to Zero", "ResetToZero")]
 		[ContextMenuItem ("Reset to Defaut", "ResetToDefault")]
+		[InlineButton ("ResetToZero", "Z")]
+		[InlineButton ("ResetToDefault", "D")]
 		[SerializeField] TimeSpanVariable variable;
 		[SerializeField] UnityEvent action;
 		public void ResetToZero ()
@@ -19,7 +23,7 @@ namespace GameCore
 		}
 		public void ResetToDefault ()
 		{
-			variable.ResetDefault();
+			variable.ResetDefault ();
 		}
 
 		private bool ChechComplete ()
@@ -36,6 +40,9 @@ namespace GameCore
 		{
 			StartTimer ();
 		}
+
+		[Button]
+
 		public void StartTimer ()
 		{
 			if (ChechComplete ()) return;
@@ -50,7 +57,6 @@ namespace GameCore
 				variable.AddSeconds (-1);
 			}
 			ChechComplete ();
-			yield return null;
 		}
 	}
 }

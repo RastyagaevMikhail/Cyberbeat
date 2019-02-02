@@ -1,5 +1,7 @@
 ﻿using EZCameraShake;
 
+using Sirenix.OdinInspector;
+
 using UnityEngine;
 namespace CyberBeat
 {
@@ -10,22 +12,18 @@ namespace CyberBeat
         public void OnShakeBit (IBitData bitData)
         {
             var data = Selector[bitData.StringValue].Data;
-            float duration = bitData.Duration;
-            Debug.LogFormat ("bitData.Duration = {0}", duration);
-            data.TimeDuaration = duration;
-            // Debug.Log (data);
+            data.TimeDuaration = bitData.Duration;
             data.ShakeOnce (shaker);
         }
 
 #if UNITY_EDITOR
         [SerializeField] bool test;
         [SerializeField] ShakeData data;
-        private void Update ()
+        
+        [Button]
+        public void Shake ()
         {
-            if (test && Input.GetMouseButtonDown (0))
-            {
-                data.ShakeOnce (shaker);
-            }
+            data.ShakeOnce (shaker);
         }
 
         [ContextMenuItem ("Copy to", "CopyToPreset")]

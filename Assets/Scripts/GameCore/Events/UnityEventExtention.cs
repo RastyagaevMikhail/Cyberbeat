@@ -38,6 +38,10 @@ namespace GameCore
 	[Serializable] public class UnityEventMaterial : UnityEvent<Material> { }
 
 	[Serializable] public class UnityEventScriptableObject : UnityEvent<ScriptableObject> { }
+
 	[Serializable] public class UnityEventSystemAction : UnityEvent<Action> { }
+
 	[Serializable] public class UnityEventBoolVariable : UnityEvent<BoolVariable> { }
+
+	
 }

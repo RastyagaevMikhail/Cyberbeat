@@ -164,7 +164,9 @@ namespace CyberBeat
 #endif
 		public bool IsCurrentTrack { get { return this == data.CurrentTrack; } }
 
-		[Button (ButtonSizes.Medium)]
+		[HideIf ("IsCurrentTrack")]
+		[Button ("Сделать меня текущим ", ButtonSizes.Medium)]
+		[PropertyOrder (int.MaxValue)]
 		[ContextMenu ("Set Me As Current")]
 		public void SetMeAsCurrent ()
 		{
@@ -176,7 +178,7 @@ namespace CyberBeat
 		public List<SocialInfo> socials;
 		public ShopInfo shopInfo;
 		public ProgressInfo progressInfo;
-		[InlineButton("ValidateLayerBits","Validate")]
+		[InlineButton ("ValidateLayerBits", "Validate")]
 		[ContextMenuItem ("Valiadate", "ValidateLayerBits")]
 		[SerializeField] LayerTypeTrackBitsCollectionSelector layerBitsSelector;
 #if UNITY_EDITOR

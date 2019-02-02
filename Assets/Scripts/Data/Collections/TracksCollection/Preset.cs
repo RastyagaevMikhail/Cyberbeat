@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
+using Sirenix.OdinInspector;
 #endif
 namespace CyberBeat
 {
@@ -10,6 +11,8 @@ namespace CyberBeat
 	public class Preset
 	{
 		public string Id;
+		[ListDrawerSettings()]
+		// [PreviewField]
 		public List<Material> Objects;
 	}/* 
 #if UNITY_EDITOR	

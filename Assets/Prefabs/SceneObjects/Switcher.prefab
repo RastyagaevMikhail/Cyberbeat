@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 114675100915323678}
   - component: {fileID: 114949869099189892}
   - component: {fileID: 114759451436673612}
+  - component: {fileID: 2506429622012862633}
   m_Layer: 0
   m_Name: Switcher
   m_TagString: Switcher
@@ -215,8 +216,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114366601351319264}
-        m_MethodName: set_CurrentColor
+      - m_Target: {fileID: 11400000, guid: 7249894a2bdf5b1459a4a76dd2a0ec5b, type: 2}
+        m_MethodName: SetColor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 1adfcde2149a3504c9c52a179f2c8dab, type: 2}
+        m_MethodName: SetColor
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -247,7 +259,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114949869099189892}
+      - m_Target: {fileID: 2506429622012862633}
         m_MethodName: Pop
         m_Mode: 5
         m_Arguments:
@@ -344,3 +356,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MetaData: 
+--- !u!114 &2506429622012862633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270562587347094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0358ffcdd9312f44cb2ab84f2cb36abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
+  parent:
+    UseConstant: 0
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}

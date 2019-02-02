@@ -1,6 +1,7 @@
 namespace CyberBeat
 {
     using GameCore;
+   
     using UnityEngine;
 
     [CreateAssetMenu (fileName = "ShakeDataPreset", menuName = "CyberBeat/MetaData/ShakeData", order = 0)]
