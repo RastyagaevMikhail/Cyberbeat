@@ -4,11 +4,8 @@ namespace CyberBeat
 	{
 		Bit,
 		Effect,
-		Line,
-		Combo,
 		Speed,
 		Camera,
-		Particles,
 		Shake
 	}
 }

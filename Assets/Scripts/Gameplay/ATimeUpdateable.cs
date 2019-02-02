@@ -6,42 +6,34 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace CyberBeat
-{
-    public abstract class ATimeUpdateable<TSavableVariable, TValue, TUnityEvent, TEventArgument>:
-        ScriptableObject,
-        ITimeUpdateableGeneric<TSavableVariable, TValue, TUnityEvent, TEventArgument>
-        where TSavableVariable : SavableVariable<TValue>
-        where TUnityEvent : UnityEvent<TEventArgument>
-        {
-            [SerializeField] protected TSavableVariable variable;
-            public TSavableVariable Variable => variable;
+namespace CyberBeat {
+    public abstract class ATimeUpdateable<TSavableVariable, TValue, TUnityEvent, TEventArgument> : ScriptableObject 
+    {
+        [SerializeField] protected TSavableVariable variable;
+        public TSavableVariable Variable => variable;
 
-            [SerializeField] TUnityEvent unityEvent;
-            public TUnityEvent UnityEvent => unityEvent;
-            [SerializeField] protected bool debug;
-            public abstract ITimeItem CurrentTimeItem { get; set; }
-            protected int indexOfTime;
-            public bool TimesIsOver => indexOfTime >= TimeItems.Count ();
+        [SerializeField] TUnityEvent unityEvent;
+        public TUnityEvent UnityEvent => unityEvent;
+        [SerializeField] protected bool debug;
+        public abstract ITimeItem CurrentTimeItem { get; set; }
+        protected int indexOfTime;
+        public bool TimesIsOver => indexOfTime >= TimeItems.Count();
 
-            public abstract IEnumerable<ITimeItem> TimeItems { get; }
+        public abstract IEnumerable<ITimeItem> TimeItems { get; }
 
-            public virtual void Start ()
-            {
-                indexOfTime = 0;
-                if (TimesIsOver)
-                {
-                    OnTimeIsOver ();
-                    return ;
-                }
-                CurrentTimeItem = TimeItems.First ();
+        public virtual void Start() {
+            indexOfTime = 0;
+            if (TimesIsOver) {
+                OnTimeIsOver();
+                return;
             }
-
-            protected virtual void OnTimeIsOver ()
-            {
-                if (debug) Debug.Log ($"{("TimesIsOver".err())} {this.ToString().warn()}", this);
-            }
-
-            public abstract void UpdateInTime (float time);
+            CurrentTimeItem = TimeItems.First();
         }
+
+        protected virtual void OnTimeIsOver() {
+            if (debug) Debug.Log($"{("TimesIsOver".err())} {this.ToString().warn()}", this);
+        }
+
+        public abstract void UpdateInTime(float time);
+    }
 }

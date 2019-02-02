@@ -18,18 +18,12 @@ namespace CyberBeat
 
         void Awake ()
         {
-            // foreach (var item in TimeUpdateables)
-            //     item.Start ();
             OnAwake.Invoke ();
         }
         void Update ()
         {
             if (!StartCountTime) return;
 
-            // foreach (var item in TimeUpdateables)
-            // {
-            //     item.UpdateInTime (time);
-            // }
             OnUpdate.Invoke (time);
             time += Time.deltaTime;
         }

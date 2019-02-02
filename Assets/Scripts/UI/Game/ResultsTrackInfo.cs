@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.UI;
 using Text = TMPro.TextMeshProUGUI;
@@ -11,8 +10,11 @@ namespace CyberBeat
         [SerializeField] Text TrackName;
         [SerializeField] Text AuthorName;
         [SerializeField] Image AlbumImage;
-        public void Init (MusicInfo info)
+        [SerializeField] TrackVariable currentTrack;
+        public void Awake()
         {
+            MusicInfo info = currentTrack.ValueFast.music;
+            
             TrackName.text = info.TrackName;
             AuthorName.text = info.AuthorName;
             AlbumImage.sprite = info.AlbumImage;

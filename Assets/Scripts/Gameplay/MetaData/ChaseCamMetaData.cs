@@ -29,26 +29,12 @@ namespace CyberBeat
             data.TargetMovePosition = MoveTarget.localPosition;
             data.TargetLookPosition = LookTarget.localPosition;
 
-            var stmd = GetComponent<SpeedTimeMetaData> ();
-
-            data.DurationTimeOfMove = stmd ? stmd.time : 1f;
-            data.DurationTimeOfLook = stmd ? stmd.time : 1f;
+            
+            data.DurationTimeOfMove = 1f;
+            data.DurationTimeOfLook = 1f;
 
             ChaseCam chaskeCam = ChaseCam.instance;
             data.TimeChase = chaskeCam.ChaseTime;
-
-            var comps = chaskeCam.GetComponentsInChildren<CameraShakeController> ();
-
-            var shakeData = stmd ? comps[1] : comps[0];
-
-            // data.magnitude = shakeData.magnitude;
-            // data.roughness = shakeData.roughness;
-            // data.fadeInTime = shakeData.fadeInTime;
-            // data.fadeOutTime = shakeData.fadeOutTime;
-
-            // data.posInfluence = shakeData.shaker.DefaultPosInfluence;
-            // data.rotInfluence = shakeData.shaker.DefaultRotInfluence;
-
         }
     }
 }

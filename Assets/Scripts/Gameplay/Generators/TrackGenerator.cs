@@ -76,23 +76,7 @@ namespace CyberBeat
                 ColorInterractor colorInterractor = spawnObj.Get<ColorInterractor> ();
 
                 colorInterractor.Init (bitTime);
-
-                // Neighbors.Add (colorInterractor);
-
-#if UNITY_EDITOR
-                string metadata = string.Format ("{0}", bitTime);
-                spawnObj.Get<MetaDataGizmos> ().MetaData = Tools.LogTextInColor (metadata, Color.blue);
-#endif
-
             }
-
-            // if (Neighbors.Count > 1)
-            // {
-            //     foreach (var neighbor in Neighbors)
-            //         foreach (var n in Neighbors)
-            //             neighbor.AddNeighbor (n);
-            // }
-            // Neighbors.Clear ();
         }
 
         private void initColors ()

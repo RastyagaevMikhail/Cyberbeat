@@ -7,41 +7,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace GameCore
-{
+namespace GameCore {
 	[ExecuteInEditMode]
-	public class IntVariableTextSetter : VariableTextSetter<IntVariable, int>
-	{
-		[SerializeField] int OldValue;
-		[SerializeField] UnityEvent OnComplete;
-		protected void Awake ()
-		{
-			OldValue = variable.Value;
-		}
+	public class IntVariableTextSetter : VariableTextSetter<IntVariable, int> {
 
-		protected override void OnValueChanged (int newValue)
-		{
-			if (newValue == OldValue)
-			{
-				text = string.Format (stringFormat, Mathf.Round (newValue));
-				return;
-			}
-			DOVirtual
-				.Float (OldValue, newValue, .5f, value => text = string.Format (stringFormat, Mathf.Round (value)))
-				.OnComplete (onComplete);
+		protected override void OnValueChanged(int newValue) {
+			text = string.Format(stringFormat, newValue);
 		}
-		void onComplete ()
-		{
-			OldValue = variable.Value;
-			OnComplete.Invoke ();
-		}
-#if UNITY_EDITOR
-
-		private void Update ()
-		{
-			if (!Application.isPlaying) OldValue = variable.Value;
-		}
-#endif
-
 	}
 }

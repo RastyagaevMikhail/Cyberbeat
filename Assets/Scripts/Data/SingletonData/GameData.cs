@@ -62,7 +62,7 @@ namespace CyberBeat
 
 		[SerializeField]
 		public IntVariable Notes;
-		public List<TimeOfEvent> currentLines;
+
 
 		public bool TryBuy (int price)
 		{
