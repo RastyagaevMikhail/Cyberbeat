@@ -56,9 +56,5 @@ namespace CyberBeat
 		{
 			return CurrentMaterial.Equals (otherMaterial);
 		}
-		public void SetRandomColor ()
-		{
-			SetColor (Colors.instance.RandomColor);
-		}
 	}
 }

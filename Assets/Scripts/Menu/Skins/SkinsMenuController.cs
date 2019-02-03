@@ -16,7 +16,7 @@ namespace CyberBeat
 {
     public class SkinsMenuController : RectTransformObject
     {
-        public MainMenuController menu { get { return MainMenuController.instance; } }
+        [SerializeField] HeaderController header ;
         public SkinsDataCollection skinsData { get { return SkinsDataCollection.instance; } }
         private Animator _animator = null;
         public Animator animator { get { if (_animator == null) _animator = GetComponent<Animator> (); return _animator; } }
@@ -40,8 +40,9 @@ namespace CyberBeat
         [SerializeField] SkinsScrollList scrollList;
         [SerializeField] Color selectedColor = Color.green, unselectedColor = Color.white;
 
-        private void Awake ()
+        private  void Awake ()
         {
+
             scrollList.UpdateData (skinsData.RoadSkins.Select (si => new SkinsScrollData (si)).ToList ());
 
             WatchAdsFromBuyButton.Init (OnWatchetdVideo);
@@ -98,7 +99,7 @@ namespace CyberBeat
             BuyButton.onClick.AddListener (
                 skin.CanBuy ?
                 (UnityAction) BuySkin :
-                () => menu.header.OnCantBuyAnimation (BuyButton.targetGraphic)
+                () => header.OnCantBuyAnimation (BuyButton.targetGraphic)
             );
 
             BuyButton.text = skin.Price.ToString ();

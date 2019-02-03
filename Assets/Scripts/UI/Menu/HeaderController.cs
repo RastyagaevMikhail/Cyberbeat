@@ -13,10 +13,6 @@
     {
         public class HeaderController : MonoBehaviour
         {
-
-            private static HeaderController _instance = null;
-            public static HeaderController instance { get { if (_instance == null) _instance = GameObject.FindObjectOfType<HeaderController> (); return _instance; } }
-
             [SerializeField] TextMeshProUGUI NotesText;
 
             //For any Text On ByuButton

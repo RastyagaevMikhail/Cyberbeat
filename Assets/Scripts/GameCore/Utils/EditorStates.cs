@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class EditorStates : MonoBehaviour
@@ -46,6 +46,7 @@ public class State
 	[ContextMenuItem ("ActivateState", "ActivateState")]
 	public string name;
 	public List<ObjectState> ObjectStates;
+	[Button]
 	public void ActivateState ()
 	{
 		foreach (var os in ObjectStates)
