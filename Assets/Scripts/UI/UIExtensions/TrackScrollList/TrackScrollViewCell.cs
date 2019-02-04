@@ -11,37 +11,25 @@ using UnityEngine.UI;
 using UnityEngine.UI.Extensions;
 namespace CyberBeat
 {
-	public class TrackScrollViewCell : FancyScrollViewCell<TrackScrollData, TrackScrollContext>
+	public class TrackScrollViewCell : MonoBehaviour
 	{
-		TracksCollection TracksCollection { get { return TracksCollection.instance; } }
-		public LoadingManager loadManger { get { return LoadingManager.instance; } }
-
 		[SerializeField] Track track;
-		[SerializeField] Animator animator;
 		[SerializeField] TrackPlayerCellView playerCellView;
-
-		[SerializeField] Image Frame;
 		[SerializeField] GameObject PlayButton;
 		[SerializeField] GameObject BuyButton;
 		[SerializeField] ButtonActionByVideoAds PlayByWatchButton;
+
+		TrackScrollContext context;
+
+		public int DataIndex { get; private set; }
 		private void Awake ()
 		{
 			PlayByWatchButton.Init (OnPlayByWatch);
 		}
-		readonly int scrollTriggerHash = Animator.StringToHash ("Scroll");
-		TrackScrollContext context;
-
-		public override void SetContext (TrackScrollContext context)
+		public void SetContext (TrackScrollContext context)
 		{
 			this.context = context;
 		}
-
-		public override void UpdatePosition (float position)
-		{
-			animator.Play (scrollTriggerHash, -1, position);
-			animator.speed = 0;
-		}
-
 		public void OnPressedCell ()
 		{
 			if (context != null)
@@ -49,16 +37,13 @@ namespace CyberBeat
 				context.OnPressedCell (this);
 			}
 		}
-		public override void UpdateContent (TrackScrollData data)
+		public void UpdateContent (TrackScrollData data)
 		{
-			// Frame.sprite = data.Frame;
-
 			this.track = data.track;
 			name = track.name;
 			playerCellView.UpdateContent (data);
 			ValidateTrackValues ();
 			ValidateButtons (track.shopInfo.Buyed);
-			// UpdatePosition (0);
 		}
 
 		[ContextMenu ("Validate Track Values")]
@@ -84,7 +69,7 @@ namespace CyberBeat
 			Debug.Log ("OnPlayByWatch {0}".AsFormat (this));
 			GameData.instance.WathedRewardVideo = true;
 			ValidateButtons (true);
-			OnPlay();
+			OnPlay ();
 		}
 
 		public void OnBuy ()
@@ -97,7 +82,6 @@ namespace CyberBeat
 
 		private void ValidateButtons (bool buyed)
 		{
-			// Debug.LogFormat ("ValidateButtons = {0}, {1}", buyed, this);
 			PlayButton.SetActive (buyed);
 			BuyButton.SetActive (!buyed);
 			PlayByWatchButton.gameObject.SetActive (!buyed);

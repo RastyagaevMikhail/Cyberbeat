@@ -13,7 +13,7 @@ namespace CyberBeat
 {
     public class WindowSlideController : RectTransformObject
     {
-        private const int PlayWindowIndex = 2;
+        private const int PlayWindowIndex = 1;
         [SerializeField] RectTransformObject Windows;
         [SerializeField] List<RectTransformObject> windows;
         [SerializeField] float timetransition = 0.5f;

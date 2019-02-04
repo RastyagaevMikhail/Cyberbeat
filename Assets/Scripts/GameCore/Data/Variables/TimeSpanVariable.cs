@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sirenix.OdinInspector;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,6 +11,7 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "TimeSpanVariable", menuName = "Variables/GameCore/TimeSpan")]
 	public class TimeSpanVariable : SavableVariable<TimeSpan>
 	{
+		[Button]
 		[ContextMenu ("ResetDefault")]
 		public override void ResetDefault ()
 		{
@@ -20,6 +23,7 @@ namespace GameCore
 		}
 
 		[SerializeField] CustomTimeSpan CustomDefault;
+		[Button]
 		public override void LoadValue ()
 		{
 			base.LoadValue ();
@@ -27,6 +31,7 @@ namespace GameCore
 			TimeSpan.TryParse (strTime, out _value);
 		}
 
+		[Button]
 		[ContextMenu ("SaveValue")]
 		public override void SaveValue ()
 		{
@@ -62,7 +67,9 @@ namespace GameCore
 			Value = new TimeSpan ();
 			return this;
 		}
-
+#if UNITY_EDITOR
+		[ShowInInspector] string savedValue => PlayerPrefs.GetString (name, string.Empty);
+#endif
 		[ContextMenu ("ShowValue")]
 		void ShowValue ()
 		{
