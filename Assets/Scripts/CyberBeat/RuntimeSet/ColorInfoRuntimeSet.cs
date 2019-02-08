@@ -1,9 +1,9 @@
-using System.Linq;
 using GameCore;
 
 using Sirenix.OdinInspector;
 
 using System;
+using System.Linq;
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,6 +14,8 @@ namespace CyberBeat
         menuName = "CyberBeat/RuntimeSet/ColorInfo")]
     public class ColorInfoRuntimeSet : RuntimeSet<ColorInfo>
     {
+#if UNITY_EDITOR
+
         [Button] public void Validate ()
         {
             ForEach (colorInfo =>
@@ -21,10 +23,12 @@ namespace CyberBeat
 
             this.Save ();
         }
-        public Color[] GetColors()
+#endif
+        public Color[] GetColors ()
         {
-            return items.Select( colorInfo =>colorInfo.color).ToArray();
+            return items.Select (colorInfo => colorInfo.color).ToArray ();
         }
+
         [SerializeField] UnityEventColorInfo onAddComplete;
         protected override UnityEvent<ColorInfo> OnAddComplete
         {
@@ -35,8 +39,6 @@ namespace CyberBeat
         }
 
         [SerializeField] UnityEventColorInfo onRemoveComplete;
-
-       
 
         protected override UnityEvent<ColorInfo> OnRemoveComplete
         {

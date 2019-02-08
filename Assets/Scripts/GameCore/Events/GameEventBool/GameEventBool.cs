@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,16 +17,19 @@ namespace GameCore
 				eventListeners[i].OnEventRaised (obj);
 		}
 
-		   public virtual void RegisterListener (EventListenerBool listener)
-        {
-            if (!eventListeners.Contains (listener))
-                eventListeners.Add (listener);
-        }
+		public virtual void RegisterListener (EventListenerBool listener)
+		{
+			if (!eventListeners.Contains (listener))
+				eventListeners.Add (listener);
+		}
 
-        public virtual void UnRegisterListener (EventListenerBool listener)
-        {
-            if (eventListeners.Contains (listener))
-                eventListeners.Remove (listener);
-        }
+		public virtual void UnRegisterListener (EventListenerBool listener)
+		{
+			if (eventListeners.Contains (listener))
+				eventListeners.Remove (listener);
+		}
+
+		[SerializeField, DisableInEditorMode] bool testArg;
+		[Button, DisableInEditorMode] public void Raise () => Raise (testArg);
 	}
 }

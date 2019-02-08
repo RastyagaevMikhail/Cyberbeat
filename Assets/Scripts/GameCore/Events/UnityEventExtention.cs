@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+
 namespace GameCore
 {
 	[Serializable] public class UnityEventBool : UnityEvent<bool> { }
@@ -42,6 +44,8 @@ namespace GameCore
 	[Serializable] public class UnityEventSystemAction : UnityEvent<Action> { }
 
 	[Serializable] public class UnityEventBoolVariable : UnityEvent<BoolVariable> { }
+	[Serializable] public class UnityGventgraphic : UnityEvent<Graphic> { }
+
 
 	
 }

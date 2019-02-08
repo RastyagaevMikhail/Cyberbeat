@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CyberBeat
 {
@@ -14,6 +15,8 @@ namespace CyberBeat
     {
 
         public AdsController adsController { get { return AdsController.instance; } }
+        private Button _button = null;
+        public Button button { get { if (_button == null) _button = GetComponent<Button> (); return _button; } }
 
         [SerializeField] GameObject Content;
         [SerializeField] GameObject NotInternet;
@@ -43,6 +46,7 @@ namespace CyberBeat
                 Content.SetActive (isLoaded);
             NotInternet.SetActive (!isLoaded && internetNotReachable);
             Waiting.SetActive (!isLoaded && !internetNotReachable);
+            button.interactable = isLoaded && !internetNotReachable;
         }
         static Action OnButtonVideoShown;
         Action _onVideShown;

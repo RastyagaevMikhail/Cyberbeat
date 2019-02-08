@@ -73,6 +73,10 @@ namespace GameCore {
 		public float AsFloat() {
 			return Value;
 		}
+		public override string ToString()
+		{
+			return base.ToString() + $" {Value}";
+		}
 #if UNITY_EDITOR
 		[ShowInInspector] string savedValue => PlayerPrefs.GetInt(name, 0).ToString();
 #endif

@@ -10,7 +10,7 @@ namespace CyberBeat
 	{
 		public Settings settings { get { return Settings.instance; } }
 		public bool MuteMusic { get { return settings.MuteMusic; } set { settings.MuteMusic = value; } }
-		public bool MuteSound { get { return settings.MuteSound; } set { settings.MuteSound = value; } }
+		public bool MuteSound { get { return settings.MuteUISound; } set { settings.MuteUISound = value; } }
 		public bool VibrationEnabled { get { return settings.VibrationEnabled; } set { settings.VibrationEnabled = value; if (value) Vibration.Vibrate (settings.VibrationTime); } }
 		public InputType inputType { get { return settings.inputType; } set { settings.inputType = value; } }
 		public void SetInputType (int type)

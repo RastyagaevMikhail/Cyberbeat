@@ -8,11 +8,10 @@ using UnityEngine.Events;
 
 namespace CyberBeat
 {
-    public abstract class ColorInterractor : Interractor
+    public class ColorInterractor : Interractor
     {
         protected MaterialSwitcher _matSwitch = null;
         public MaterialSwitcher matSwitch { get { if (_matSwitch == null) { _matSwitch = GetComponent<MaterialSwitcher> (); } return _matSwitch; } }
-
         public Color CurrentColor { get { return matSwitch.CurrentColor; } }
 
         float bit;
@@ -23,7 +22,8 @@ namespace CyberBeat
             public Color color;
         }
 
-        [SerializeField] Info CurrentInfo;
+        [SerializeField] Info currentInfo;
+        public Info CurrentInfo => currentInfo;
 
         public void Init (float bitTime)
         {
@@ -37,7 +37,7 @@ namespace CyberBeat
         [SerializeField] UnityEvent OnDeath;
         public virtual void Death ()
         {
-            CurrentInfo.color = CurrentColor;
+            currentInfo.color = CurrentColor;
             OnDeathASColorInterractorInfo.Invoke (CurrentInfo);
 
             OnDeathAsBit.Invoke (bit);

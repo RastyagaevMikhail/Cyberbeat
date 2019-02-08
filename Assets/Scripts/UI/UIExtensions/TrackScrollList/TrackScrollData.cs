@@ -1,22 +1,21 @@
 using System;
-
+using GameCore;
 using UnityEngine;
 
 namespace CyberBeat
 {
-	public class TrackScrollData
+	public class TrackScrollData : IDataItem
 	{
-
 		public Track track;
-		public Sprite Frame;
-		public Color color;
-		public TrackScrollData (Track track, Sprite frame = null, Color color = default (Color))
+		public TrackScrollData (Track track)
 		{
 			this.track = track;
-			Frame = frame;
-			this.color = color;
-
 		}
 
-	}
+        public void InitViewGameObject(GameObject go)
+        {
+            var cell = go.GetComponent<TrackScrollViewCell>();
+			cell.UpdateContent(track);
+        }
+    }
 }

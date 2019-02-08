@@ -13,20 +13,12 @@ namespace CyberBeat
 {
     public class BitMorph : MonoBehaviour
     {
-        Track track { get { return TracksCollection.instance.CurrentTrack; } }
-
-        [SerializeField] UnityEvent OnBit;
+        [SerializeField] UnityEvent OnBitEvent;
         [SerializeField] UnityEvent OnAwake;
         [SerializeField] List<IMorph> ScaleMorphs;
         [SerializeField] List<IMorph> RotationMorphs;
-        public GameData gameData { get { return GameData.instance; } }
-
-        [SerializeField] bool enable;
         private void Awake ()
         {
-            if (!enable || !Koreographer.Instance) return;
-
-            Koreographer.Instance.RegisterForEvents (String.Format ("Bit"), OnBitKoreograpHyEvent);
             InitMorph (ScaleMorphs);
             InitMorph (RotationMorphs);
             OnAwake.Invoke ();
@@ -36,10 +28,11 @@ namespace CyberBeat
             foreach (var morph in Morphs)
                 morph.Init (transform);
         }
-        private void OnBitKoreograpHyEvent (KoreographyEvent koreoEvent)
+        private void OnBit (IBitData bitData)
         {
-            var payload = koreoEvent.GetTextValue ();
-            OnBit.Invoke ();
+            InvokeScaleMorphs ();
+            InvokeRotrationMorphs ();
+            OnBitEvent.Invoke ();
         }
 
         public void InvokeScaleMorphs ()
@@ -53,7 +46,7 @@ namespace CyberBeat
                 morph.Invoke ();
         }
 
-        [System.Serializable]
+        [Serializable]
         public class ScaleMorph : Morph
         {
             [SerializeField] float SatrtValue = 1.5f, EndValue = 1f;
@@ -66,7 +59,7 @@ namespace CyberBeat
 
         }
 
-        [System.Serializable]
+        [Serializable]
         public class RotationMorph : Morph
         {
             [SerializeField] float duration = 1;
@@ -84,11 +77,11 @@ namespace CyberBeat
         }
 
         [System.Serializable]
-        public class Morph : IMorph
+        public abstract class Morph : IMorph
         {
             protected Transform transform;
             public void Init (Transform _transform) { transform = _transform; }
-            public virtual void Invoke () { }
+            public abstract void Invoke ();
         }
 
         public interface IMorph

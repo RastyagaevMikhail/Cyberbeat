@@ -13,29 +13,13 @@ MonoBehaviour:
   m_Name: RewardData
   m_EditorClassIdentifier: 
   rewardChnacePechent: 0.08
-  UserChance: {fileID: 0}
+  UserChance: {fileID: 11400000, guid: d6db5994df5265f4c82fa86a96ef8547, type: 2}
   RewardTime: {fileID: 11400000, guid: d460a35b7e7cef94e9a4ad138e8a99da, type: 2}
   RewardIndexes: {fileID: 11400000, guid: a3a214de3ca4d4a49afcf57766244426, type: 2}
   LastDateTimeRewardTaked: {fileID: 11400000, guid: d573b9c91cc2c8c4082cc988f73a5154,
     type: 2}
   rewards:
-  - LocTag: blade
-    Icon: {fileID: 21300000, guid: 24fc7b4bc0a49af41a98f06cdc568b3b, type: 3}
-    CountVarible: {fileID: 11400000, guid: 25844f6bc788dc54382c5bfb632e7a3c, type: 2}
-    CountsByChanche: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
-  - LocTag: onelife
-    Icon: {fileID: 21300000, guid: 0b9e8629f628b2a41b5615b09e40aba1, type: 3}
-    CountVarible: {fileID: 11400000, guid: 73795263a201448419966226411c8eb4, type: 2}
-    CountsByChanche: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
-  - LocTag: shield
-    Icon: {fileID: 21300000, guid: 44ef7dd79b0427c45ab764a870c6ae9d, type: 3}
-    CountVarible: {fileID: 11400000, guid: 1c62fecfd6685a24d8c5c351eb23bf02, type: 2}
-    CountsByChanche: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
-  - LocTag: gate
-    Icon: {fileID: 21300000, guid: 246873319afe5044b8fee9a1ab1bcfc7, type: 3}
-    CountVarible: {fileID: 11400000, guid: 18e008caf14f6bc4e968b9554548534a, type: 2}
-    CountsByChanche: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
   - LocTag: notes
-    Icon: {fileID: 21300000, guid: 869b098e28e285e4c9c5da0c936f0b33, type: 3}
-    CountVarible: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 5bc1df192a43a5144a993374ced36e2d, type: 3}
+    CountVarible: {fileID: 11400000, guid: d24936ab19265d7429fd28e90813e648, type: 2}
     CountsByChanche: 64000000c80000002c01000090010000f401000058020000bc0200002003000084030000e8030000

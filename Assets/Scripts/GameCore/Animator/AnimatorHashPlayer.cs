@@ -27,6 +27,10 @@ namespace GameCore
         {
             animator.Play (Hash[nameAnimation]);
         }
+        public void Rebind()
+        {
+            animator.Rebind();
+        }
 
         [ContextMenu ("Validate")]
         private void OnValidate ()

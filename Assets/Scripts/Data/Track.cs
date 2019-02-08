@@ -89,7 +89,7 @@ namespace CyberBeat
 						.Find (material =>
 						{
 							if (material)
-								return material.name == "Constant" || material.name == "Switcher";
+								return material.name == "ConstantBeat" || material.name == "Switcher";
 							return false;
 						}));
 
@@ -177,6 +177,8 @@ namespace CyberBeat
 		public MusicInfo music;
 		public List<SocialInfo> socials;
 		public ShopInfo shopInfo;
+		[InlineButton ("CalculateConstant", "Calculate")]
+		[InlineButton ("ValidateProgressInfo", "Validate")]
 		public ProgressInfo progressInfo;
 		[InlineButton ("ValidateLayerBits", "Validate")]
 		[ContextMenuItem ("Valiadate", "ValidateLayerBits")]

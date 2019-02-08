@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -8,9 +10,9 @@ namespace GameCore
 	public abstract class VariableReference<TVariable, TValue> where TVariable : SavableVariable<TValue>
 	{
 		public bool UseConstant;
-
+		[ShowIf ("UseConstant")]
 		public TValue ConstantValue;
-
+		[HideIf ("UseConstant")]
 		public TVariable Variable;
 		public TValue ValueFast
 		{

@@ -23,9 +23,11 @@ namespace CyberBeat
 
         List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
         [SerializeField] ColorInfoRuntimeSetVariable currentSet;
+        [SerializeField] GameEventColor onFirstColorChoosed;
         ColorInfoRuntimeSet CurrentSet { get => currentSet.ValueFast; set => currentSet.ValueFast = value; }
         Color LastRandomColor = default (Color);
         float lastBeat = -1f;
+        bool firstColorChoosed = false;
         protected override void Awake ()
         {
             base.Awake ();
@@ -81,12 +83,21 @@ namespace CyberBeat
 
         private void initColors ()
         {
-            if (CurrentSet == null) CurrentSet = ColorsSetsStack.Get ();
-            if (LastRandomColor == default (Color)) LastRandomColor = CurrentSet.GetRandom ().color;
+            if (CurrentSet == null)
+            {
+                CurrentSet = ColorsSetsStack.Get ();
+
+            }
+            if (LastRandomColor == default (Color))
+            {
+                LastRandomColor = CurrentSet.GetRandom ().color;
+
+            }
         }
         private void OnDestroy ()
         {
             CurrentSet = null;
+            firstColorChoosed = false;
         }
         SpawnedObject InstattiateObj (Material baseMaterial, float xPos)
         {
@@ -98,17 +109,28 @@ namespace CyberBeat
             obj.position = position + right * xPos + up * obj.y;
             obj.rotation = rotation;
 
-            if (obj.Get<ColorSwitcher> ())
+            if (obj.Get<ColorInterractor> ().CurrentInfo.isSwitcher)
                 InitRCM ();
 
             var matSwitcher = obj.Get<MaterialSwitcher> ();
             if (matSwitcher)
             {
-                Material ConstantMaterial = rcm.Constant[baseMaterial];
-                Material RandomMaterial = rcm.RandomSet[baseMaterial].Get ();
-                matSwitcher.SetMaterial (matSwitcher.Constant ? ConstantMaterial : RandomMaterial);
-                LastRandomColor = RandomMaterial.GetColor (matSwitcher.DefaultColorName);
+                bool constant = matSwitcher.Constant;
+
+                Material material = constant ? rcm.Constant[baseMaterial] : rcm.RandomSet[baseMaterial].Get ();
+
+                matSwitcher.SetMaterial (material);
+
+                if (!firstColorChoosed)
+                {
+                    firstColorChoosed = true;
+                    onFirstColorChoosed.Raise (material.GetColor (matSwitcher.DefaultColorName));
+                }
+                
+                if (!constant)
+                    LastRandomColor = material.GetColor (matSwitcher.DefaultColorName);
             }
+            obj.OnSpawn (Key);
             return obj;
         }
     }

@@ -16,8 +16,10 @@ namespace CyberBeat
 		[SerializeField] Track track;
 		[SerializeField] TrackPlayerCellView playerCellView;
 		[SerializeField] GameObject PlayButton;
-		[SerializeField] GameObject BuyButton;
+		[SerializeField] Image BuyButton;
 		[SerializeField] ButtonActionByVideoAds PlayByWatchButton;
+		[SerializeField] IntVariablesTextSetter progressTextSetter;
+		[SerializeField] UnityEventGraphic onCantNotEnuthMoney;
 
 		TrackScrollContext context;
 
@@ -37,9 +39,9 @@ namespace CyberBeat
 				context.OnPressedCell (this);
 			}
 		}
-		public void UpdateContent (TrackScrollData data)
+		public void UpdateContent (Track data)
 		{
-			this.track = data.track;
+			this.track = data;
 			name = track.name;
 			playerCellView.UpdateContent (data);
 			ValidateTrackValues ();
@@ -50,6 +52,8 @@ namespace CyberBeat
 		private void ValidateTrackValues ()
 		{
 			if (track == null) return;
+
+			progressTextSetter.SetVariables (new IntVariable[] { track.progressInfo.BestVariable, track.progressInfo.MaxVariable });
 
 			if (context == null) return;
 
@@ -78,12 +82,13 @@ namespace CyberBeat
 			Debug.LogFormat ("buyed = {0}", buyed);
 			ValidateButtons (buyed);
 			if (buyed) OnPlay ();
+			else onCantNotEnuthMoney.Invoke(BuyButton);
 		}
 
 		private void ValidateButtons (bool buyed)
 		{
 			PlayButton.SetActive (buyed);
-			BuyButton.SetActive (!buyed);
+			BuyButton.gameObject.SetActive (!buyed);
 			PlayByWatchButton.gameObject.SetActive (!buyed);
 		}
 	}

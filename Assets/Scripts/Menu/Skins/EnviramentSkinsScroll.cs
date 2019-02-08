@@ -7,7 +7,7 @@ using UnityEngine.UI.Extensions;
 
 namespace CyberBeat
 {
-    public class EnviramentSkinsScroll : MonoBehaviour
+	public class EnviramentSkinsScroll : MonoBehaviour
 	{
 		private ScrollPositionController _scrollPositionController = null;
 		public ScrollPositionController scrollPositionController { get { if (_scrollPositionController == null) _scrollPositionController = GetComponent<ScrollPositionController> (); return _scrollPositionController; } }
@@ -50,6 +50,7 @@ namespace CyberBeat
 			DoRandomSelctedColor ();
 		}
 
+		[SerializeField] ColorInfoRuntimeSet colors;
 		public void DoRandomSelctedColor ()
 		{
 			if (!skinType.OnSeleted)
@@ -57,7 +58,7 @@ namespace CyberBeat
 				Invoke ("DoRandomSelctedColor", 1f);
 				return;
 			}
-			skinType.OnSeleted.DOBlendableColor (Colors.instance.RandomColor, "_EmissionColor", 1f)
+			skinType.OnSeleted.DOBlendableColor (colors.GetRandom ().color, "_Color", 1f)
 				.OnComplete (DoRandomSelctedColor);
 		}
 

@@ -2,6 +2,8 @@
 
 using GameCore;
 
+using Sirenix.OdinInspector;
+
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -37,12 +39,13 @@ namespace CyberBeat
                 return;
             }
 
-            if (ChechColor(info.color)) return;
+            if (ChechColor (info.color)) return;
             Death ();
         }
 
+        [Button]
         [ContextMenu ("Death")]
-        private void Death ()
+        public void Death ()
         {
             OnDeath.Invoke ();
         }

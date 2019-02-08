@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace CyberBeat
 {
     using UnityEngine.UI.Extensions;
@@ -9,7 +10,9 @@ namespace CyberBeat
     using System.Collections.Generic;
     using System;
 
-    public class AuthorsViewCell : FancyScrollViewCell<AuthorsData, AuthorsContext>
+    using UnityEngine.Events;
+
+    public class AuthorsViewCell : MonoBehaviour
     {
         [SerializeField] Image AlbumeImage;
         [SerializeField] Text AuthorName;
@@ -18,8 +21,14 @@ namespace CyberBeat
         [SerializeField] GameObject Pause;
         [SerializeField] Transform SocialButtonsParent;
         [SerializeField] SocialButton SocialButtonPrefab;
+        [SerializeField] UnityEvent OnPlayEvent;
+        [SerializeField] UnityEvent OnPauseEvent;
 
-        bool playing { set { Play.SetActive (!value); Pause.SetActive (value); } get { return !Play.activeSelf & Pause.activeSelf; } }
+        bool playing
+        {
+            set { Play.SetActive (!value); Pause.SetActive (value); }
+            get { return !Play.activeSelf & Pause.activeSelf; }
+        }
         AudioClip clip;
         static Action<Audio> OnPlay;
         private void Awake ()
@@ -54,23 +63,14 @@ namespace CyberBeat
 
             }
         }
-        private Animator _animator = null;
-        public Animator animator { get { if (_animator == null) _animator = GetComponent<Animator> (); return _animator; } }
 
-        readonly int scrollTriggerHash = Animator.StringToHash ("Scroll");
         AuthorsContext context;
         private int ID;
         public Audio myAuido;
 
-        public override void SetContext (AuthorsContext context)
+        public void SetContext (AuthorsContext context)
         {
             this.context = context;
-        }
-
-        public override void UpdatePosition (float position)
-        {
-            animator.Play (scrollTriggerHash, -1, position);
-            animator.speed = 0;
         }
 
         public void OnPressedCell ()
@@ -80,21 +80,23 @@ namespace CyberBeat
                 context.OnPressedCell (this);
             }
         }
-        public override void UpdateContent (AuthorsData data)
+        MusicInfo music;
+        public void UpdateContent (Track track)
         {
-            clip = data.track.music.clip;
-            name = data.track.name;
-            AlbumeImage.sprite = data.track.music.AlbumImage;
-            TrackName.text = data.track.music.TrackName;
-            AuthorName.text = data.track.music.AuthorName;
+            music = track.music;
+            clip = music.clip;
+            name = track.name;
+            AlbumeImage.sprite = music.AlbumImage;
+            TrackName.text = music.TrackName;
+            AuthorName.text = music.AuthorName;
 
             if (SocialButtonsParent.childCount == 0)
-                InitSocialButtons (data);
+                InitSocialButtons (track.socials);
         }
 
-        private void InitSocialButtons (AuthorsData data)
+        private void InitSocialButtons (List<SocialInfo> socials)
         {
-            foreach (var social in data.track.socials)
+            foreach (var social in socials)
             {
                 var socButton = Instantiate (SocialButtonPrefab, SocialButtonsParent);
                 socButton.Init (social);
@@ -108,13 +110,16 @@ namespace CyberBeat
                 myAuido.Resume ();
             else
             {
-                int ID = SoundManager.PlayMusic (clip);
+                int ID = SoundManager.PlaySound (clip);
                 myAuido = SoundManager.GetAudio (ID);
+                myAuido.audioSource.time = music.StartPreviewSecond;
                 Invoke ("PauseMusic", clip.length);
             }
             playing = true;
             if (OnPlay != null)
                 OnPlay (myAuido);
+
+            OnPlayEvent.Invoke ();
         }
         public void PauseMusic ()
         {
@@ -122,6 +127,8 @@ namespace CyberBeat
             CancelInvoke ("PauseMusic");
             if (myAuido != null && myAuido.playing)
                 myAuido.Pause ();
+
+            OnPauseEvent.Invoke ();
 
         }
 

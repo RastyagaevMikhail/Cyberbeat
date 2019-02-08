@@ -57,5 +57,9 @@ namespace GameCore
             log += string.Concat (methodsInfo);
             return log;
         }
+        public static string Log (this Color color, bool useAlpha = false)
+        {
+            return color.ToString(useAlpha).ToColor(color);
+        }
     }
 }

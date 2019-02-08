@@ -1,37 +1,25 @@
-﻿using System.Collections;
+﻿using GameCore;
+
 using System.Collections.Generic;
 
 using UnityEngine;
 namespace CyberBeat
 {
-	using System;
-
-	using UnityEngine.UI.Extensions;
-	public class AuthorsScrolList : FancyScrollView<AuthorsData, AuthorsContext>
+	public class AuthorsScrolList : VerticalClampedScrolling<AuthorsData>
 	{
-
-		new void Awake ()
+		[SerializeField] TracksCollection collection;
+		List<Track> tracks => collection.Objects;
+		public override int panCount => tracks.Count;
+		void Awake ()
 		{
-			scrollPositionController.OnUpdatePosition.AddListener (UpdatePosition);
-
-			scrollPositionController.OnItemSelected.AddListener (CellSelected);
-
-			SetContext (new AuthorsContext ());
-			base.Awake ();
-		}
-		private void CellSelected (int cellIndex)
-		{
-	// Update context.SelectedIndex and call UpdateContents for updating cell's content.
-			context.SelectedIndex = cellIndex;
-			UpdateContents ();
+			Initialize ();
 		}
 
-		public void UpdateData (List<AuthorsData> data)
+		public override RectTransform GetPrefabInstance (int i)
 		{
-			cellData = data;
-			scrollPositionController.SetDataCount (cellData.Count);
-			UpdateContents ();
-			UpdatePosition (0);
+			RectTransform instnace = Instantiate (PrefabRect, ContentRect, false);
+			new AuthorsData (tracks[i]).InitViewGameObject (instnace.gameObject);
+			return instnace;
 		}
 	}
 }

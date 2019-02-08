@@ -10,9 +10,11 @@ namespace CyberBeat
     public class ProgressInfo
     {
         [SerializeField] IntVariable best;
+        public IntVariable BestVariable => best;
         public float Best { get { return best.Value; } private set { best.Value = (int) value; } }
 
         [SerializeField] IntVariable max;
+        public IntVariable MaxVariable => max;
         public float Max
         {
             get { return max.Value; }

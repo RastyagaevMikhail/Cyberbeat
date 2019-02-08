@@ -9,15 +9,19 @@
 
     using UnityEngine.UI;
     using UnityEngine;
-    namespace CyberBeat
+using UnityEngine.Events;
+
+namespace CyberBeat
     {
         public class HeaderController : MonoBehaviour
         {
             [SerializeField] TextMeshProUGUI NotesText;
+            [SerializeField] UnityEvent OnCantBuyEvent;
 
             //For any Text On ByuButton
             public void OnCantBuyAnimation (Graphic targetGraphic)
             {
+                 OnCantBuyEvent.Invoke();
                 CantByColorTweenAnimation (NotesText);
                 CantByColorTweenAnimation (targetGraphic);
             }

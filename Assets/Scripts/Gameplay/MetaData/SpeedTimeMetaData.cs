@@ -24,8 +24,8 @@ namespace CyberBeat
         public CurvySplineSegment ControlPoint { get { if (_ControlPoint == null) _ControlPoint = GetComponent<CurvySplineSegment> (); return _ControlPoint; } }
 
         public Vector3 Up { get { return ControlPoint.GetOrientationUpFast (0); } }
-        Track track { get { return GameData.instance.currentTrack; } }
-        float startSpeedOnTrack { get { return track.StartSpeed; } }
+        TrackVariable trackVariable;
+        float startSpeedOnTrack { get { return trackVariable.ValueFast.StartSpeed; } }
 
         [SerializeField] float startSpeed = 0;
         public float StartSpeed

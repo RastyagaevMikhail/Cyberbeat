@@ -21,7 +21,20 @@ namespace CyberBeat
 		public void ToggleState ()
 		{
 			currentStateIndex++;
+			currentStateIndex %= States.Count;
 			SetState (currentStateIndex);
+		}
+		public void SetState (int stateIndex)
+		{
+			SetState (stateIndex, true, false);
+		}
+		public void SetStateWithoutInvoke (int stateIndex)
+		{
+			SetState (stateIndex, false, false);
+		}
+		public void SetStateWithOverrideIndex (int stateIndex)
+		{
+			SetState (stateIndex, true, true);
 		}
 		public void SetState (int stateIndex, bool invoke = true, bool overrideStateIndex = false)
 		{

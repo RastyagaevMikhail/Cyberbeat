@@ -1,15 +1,13 @@
-﻿using System;
+﻿using GameCore;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
-
-
 
 using TMPro;
 
 using UnityEngine;
 using UnityEngine.UI;
-
-using GameCore;
 namespace CyberBeat
 {
 	public class TrackPlayerCellView : MonoBehaviour
@@ -57,9 +55,9 @@ namespace CyberBeat
 			}
 		}
 
-		public void UpdateContent (TrackScrollData data)
+		public void UpdateContent (Track data)
 		{
-			track = data.track;
+			track = data;
 			// AuthorName.color = data.color;
 
 			TrackName.text = track.music.TrackName;
@@ -74,8 +72,9 @@ namespace CyberBeat
 				myAuido.Resume ();
 			else
 			{
-				int ID = SoundManager.PlayMusic (track.music.clip);
+				int ID = SoundManager.PlaySound (track.music.clip);
 				myAuido = SoundManager.GetAudio (ID);
+				myAuido.audioSource.time = track.music.StartPreviewSecond;
 				Invoke ("PauseMusic", track.music.clip.length);
 			}
 			playing = true;
@@ -95,7 +94,7 @@ namespace CyberBeat
 		{
 			if (playing)
 			{
-				PauseMusic();
+				PauseMusic ();
 			}
 			else
 			{
