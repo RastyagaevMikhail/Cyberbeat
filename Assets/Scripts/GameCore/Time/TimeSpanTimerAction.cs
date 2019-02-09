@@ -46,6 +46,7 @@ namespace GameCore
 		public void StartTimer ()
 		{
 			if (ChechComplete ()) return;
+			StopAllCoroutines ();
 			StartCoroutine (cr_StartTimer ());
 		}
 		private IEnumerator cr_StartTimer ()

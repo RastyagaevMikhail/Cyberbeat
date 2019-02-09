@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Dino
   m_EditorClassIdentifier: 
   data:
-    magnitude: 1.5
+    magnitude: 1.3
     roughness: 4
-    fadeInTime: 1
-    fadeOutTime: 1
     usePercent: 0
-    percent: 0
+    fadeInTime: 4.8
+    fadeOutTime: 4.8
+    percent: 0.5
     posInfluence: {x: 0.15, y: 0.15, z: 0.15}
     rotInfluence: {x: 1.2, y: 1.2, z: 1.2}
-    timeDuaration: 2.5669403
+    timeDuaration: 4.12245

@@ -37,6 +37,11 @@ namespace  GameCore
             // TODO: Save Code This From TimeSpanTimerActionVariable
         }
 
+        public void ResetToDefault()
+        {
+            ValueFast.ResetToDefault();
+        }
+
         public override void LoadValue ()
         {
           // TODO: Load Code This From TimeSpanTimerActionVariable

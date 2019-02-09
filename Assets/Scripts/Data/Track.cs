@@ -67,14 +67,26 @@ namespace CyberBeat
 		[ContextMenu ("Validate Layers")]
 		void ValidateKoreographyTracksLayers ()
 		{
+			List<KoreographyTrack> tracks = Koreography.Tracks;
+			Debug.LogFormat ("tracks = {0}", Tools.LogCollection(tracks));
+			foreach (var track in tracks)
+			{
+				koreography.RemoveTrack(track);
+			}
+			tracks = Koreography.Tracks;
+			Debug.LogFormat ("tracks = {0}", Tools.LogCollection(tracks));
+			
+			// tracks.Clear ();
 			foreach (var layer in Enums.LayerTypes)
 			{
 				var trackLayer = Tools.ValidateSO<KoreographyTrack> (("Assets/Data/Koreography/{0}/Tracks/{1}_{0}.asset").AsFormat (name, layer));
 				UnityEditor.EditorUtility.SetDirty (trackLayer);
 				trackLayer.EventID = layer.ToString ();
-				if (Koreography.CanAddTrack (trackLayer))
+				// if (Koreography.CanAddTrack (trackLayer))
 					Koreography.AddTrack (trackLayer);
 			}
+			Koreography.Save();
+			SaveME();
 		}
 
 		[ContextMenu ("CalculateConstant")]
@@ -231,6 +243,8 @@ namespace CyberBeat
 
 		}
 
+		[InlineButton ("ValidateKoreographyTracksLayers", "L")]
+		[InlineButton ("ValidateKoreography", "K")]
 		[SerializeField] Koreography koreography;
 		public Koreography Koreography { get { return koreography; } set { koreography = value; } }
 

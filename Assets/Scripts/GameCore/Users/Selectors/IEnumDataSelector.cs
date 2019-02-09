@@ -9,7 +9,7 @@ namespace GameCore
 
 	public interface IEnumDataSelector<TEnumType, TDataType> : ISelector
 		// where TEnumType : EnumScriptable
-	where TDataType : class
+	// where TDataType : class
 
 	{
 		// public abstract List<TypeData<TEnumType, TDataType>> Datas { get; }
@@ -42,13 +42,13 @@ namespace GameCore
 	[Serializable]
 	public abstract class TypeData<TEnumType, TDataType> : EmptyData
 	// where TEnumType : EnumScriptable
-	where TDataType : class
+	// where TDataType : class
 	{
 		public TEnumType type;
 		public TDataType data;
 	}
 
 	[Serializable]
-	public class EmptyData { }
+	public abstract class EmptyData { }
 
 }

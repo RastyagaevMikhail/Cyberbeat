@@ -32,7 +32,10 @@ namespace GameCore
 			var str = PlayerPrefs.GetString (name, strDeafultValue);
 			DateTime.TryParse (str, out _value);
 		}
-
+		public void SetValueAsNow ()
+		{
+			Value = DateTime.Now;
+		}
 		public static implicit operator DateTimeVariable (DateTime value)
 		{
 			DateTimeVariable dateTimeVariable = CreateInstance<DateTimeVariable> ();

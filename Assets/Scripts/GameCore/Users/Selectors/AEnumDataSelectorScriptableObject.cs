@@ -8,7 +8,7 @@ namespace GameCore
     public abstract class AEnumDataSelectorScriptableObject<TEnumType, TDataType> : ASelectorScriptableObject,
         IEnumDataSelector<TEnumType, TDataType>
         // where TEnumType : EnumScriptable
-        where TDataType : class
+        // where TDataType : class
         {
             public virtual TDataType this [TEnumType type]
             {
@@ -17,7 +17,7 @@ namespace GameCore
             }
             public TDataType GetData (TEnumType type)
             {
-                if (!Selector.ContainsKey (type)) return null;
+                if (!Selector.ContainsKey (type)) return default(TDataType);
                 return Selector[type];
             }
 

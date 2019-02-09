@@ -7,12 +7,14 @@ namespace GameCore
     [CreateAssetMenu (menuName = "GameCore/AdsController/AdsNetwork/Dummy")]
     public class DummyAdsNetwork : AdsNetwork
     {
+        [SerializeField] bool _debug = true;
         [SerializeField] bool _isLoadedRewardVideo = true;
         public override bool isLoadedRewardVideo
         {
             get
             {
-                Debug.LogFormat ("DummyAdsNetwork.isLoadedRewardVideo = {0}", _isLoadedRewardVideo);
+                if (_debug)
+                    Debug.LogFormat ("DummyAdsNetwork.isLoadedRewardVideo = {0}", _isLoadedRewardVideo);
                 return _isLoadedRewardVideo;
             }
         }
@@ -22,7 +24,8 @@ namespace GameCore
         {
             get
             {
-                Debug.LogFormat ("DummyAdsNetwork.isLoadedInterstitial = {0}", _isLoadedInterstitial);
+                if (_debug)
+                    Debug.LogFormat ("DummyAdsNetwork.isLoadedInterstitial = {0}", _isLoadedInterstitial);
                 return _isLoadedInterstitial;
             }
         }
@@ -31,24 +34,27 @@ namespace GameCore
         {
             get
             {
-                return precache => Debug.LogFormat ("DummyAdsNetwork.OnRewardedVideoLoaded (precache = {0})", precache);
+                return precache => { if (_debug) Debug.LogFormat ("DummyAdsNetwork.OnRewardedVideoLoaded (precache = {0})", precache); };
             }
         }
 
         public override void Init (bool consestValue)
         {
-            Debug.LogFormat ("DummyAdsNetwork.Init(consestValue = {0})", consestValue);
+            if (_debug)
+                Debug.LogFormat ("DummyAdsNetwork.Init(consestValue = {0})", consestValue);
         }
 
         public override void ShowIntrastitial (string playsment = "default", Action _onIntrastitialShown = null)
         {
-            Debug.LogFormat ("DummyAdsNetwork.ShowIntrastitial(playsment = {0}, _onIntrastitialShown = {1})", playsment, _onIntrastitialShown);
+            if (_debug)
+                Debug.LogFormat ("DummyAdsNetwork.ShowIntrastitial(playsment = {0}, _onIntrastitialShown = {1})", playsment, _onIntrastitialShown);
             if (_onIntrastitialShown != null) _onIntrastitialShown ();
         }
 
         public override void ShowRewardVideo (Action<double, string> OnVideoShown = null)
         {
-            Debug.LogFormat ("DummyAdsNetwork.ShowRewardVideo(OnVideoShown = {0})", OnVideoShown);
+            if (_debug)
+                Debug.LogFormat ("DummyAdsNetwork.ShowRewardVideo(OnVideoShown = {0})", OnVideoShown);
             if (OnVideoShown != null) OnVideoShown (0, "");
         }
     }

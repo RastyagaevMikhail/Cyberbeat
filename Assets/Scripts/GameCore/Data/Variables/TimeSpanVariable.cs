@@ -69,7 +69,9 @@ namespace GameCore
 		}
 #if UNITY_EDITOR
 		[ShowInInspector] string savedValue => PlayerPrefs.GetString (name, string.Empty);
+
 #endif
+		public bool IsZero => Value.TotalSeconds == 0;
 		[ContextMenu ("ShowValue")]
 		void ShowValue ()
 		{

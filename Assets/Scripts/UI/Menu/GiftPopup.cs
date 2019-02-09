@@ -6,37 +6,28 @@ namespace CyberBeat
     using UnityEngine;
     using Text = TMPro.TextMeshProUGUI;
     using System;
+    using UnityEngine.Events;
 
     public class GiftPopup : MonoBehaviour
     {
         [SerializeField] Image Icon;
         [SerializeField] Text CountText;
         [SerializeField] Text TitleText;
-        [SerializeField] GameEvent OnRewardTaked;
-        [SerializeField] DateTimeVariable LastDateTimeRewardTaked;
+        [SerializeField] UnityEvent onRewardTaked;
         int reward;
         public RewardData rewardData { get { return RewardData.instance; } }
         IntVariable rewardVaribale;
-        public void Show ()
+        public void Init ()
         {
-            gameObject.SetActive (true);
-
             rewardData.InitReward (out rewardVaribale, Icon, TitleText, out reward);
 
             CountText.text = "+{0}".AsFormat (reward);
 
-        }
-
-        public void Close ()
-        {
-            gameObject.SetActive (false);
-        }
+        }   
         public void Take ()
         {
             rewardVaribale += reward;
-            OnRewardTaked.Raise ();
-            LastDateTimeRewardTaked.Value = DateTime.Now;
-            Close ();
+            onRewardTaked.Invoke ();
         }
     }
 }

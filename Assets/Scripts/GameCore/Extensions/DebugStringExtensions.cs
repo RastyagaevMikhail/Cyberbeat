@@ -57,6 +57,10 @@ namespace GameCore
             log += string.Concat (methodsInfo);
             return log;
         }
+        public static string Log<T> (this IEnumerable<T> collection) 
+        {
+            return Tools.LogCollection(collection);
+        }
         public static string Log (this Color color, bool useAlpha = false)
         {
             return color.ToString(useAlpha).ToColor(color);
