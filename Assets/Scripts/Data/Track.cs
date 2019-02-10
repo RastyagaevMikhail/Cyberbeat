@@ -55,7 +55,7 @@ namespace CyberBeat
 		}
 
 		[ContextMenu ("Validate Koreography")]
-		private void ValidateKoreography ()
+		public void ValidateKoreography ()
 		{
 			Koreography = Tools.ValidateSO<Koreography> ("Assets/Data/Koreography/{0}/{0}_Koreography.asset".AsFormat (name));
 			Koreography.GetTempoSectionAtIndex (0).SectionName = "Default Selection";
@@ -65,7 +65,7 @@ namespace CyberBeat
 		}
 
 		[ContextMenu ("Validate Layers")]
-		void ValidateKoreographyTracksLayers ()
+		public void ValidateKoreographyTracksLayers ()
 		{
 			List<KoreographyTrack> tracks = Koreography.Tracks;
 			Debug.LogFormat ("tracks = {0}", Tools.LogCollection(tracks));

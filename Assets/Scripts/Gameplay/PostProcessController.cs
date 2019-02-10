@@ -19,10 +19,9 @@ namespace CyberBeat
         public void OnColorChanged (Color color)
         {
             string colorName = CurrentColorSet.ValueFast.GetName (color);
-            Debug.LogFormat ("colorName = {0}", colorName);
+
             Color addColor = colorSelector[colorName];
-            Debug.LogFormat ("color   = {0}", color.Log ());
-            Debug.LogFormat ("addColor   = {0}", addColor.Log ());
+
             bloom.color.value = addColor;
         }
     }

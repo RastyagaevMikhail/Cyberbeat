@@ -67,6 +67,10 @@ namespace GameCore
 			Value = new TimeSpan ();
 			return this;
 		}
+		public void ResetToZero ()
+		{
+			Reset ().AddSeconds (1);
+		}
 #if UNITY_EDITOR
 		[ShowInInspector] string savedValue => PlayerPrefs.GetString (name, string.Empty);
 

@@ -14,6 +14,8 @@ namespace CyberBeat
 		protected Vector3[] leftPath;
 		[SerializeField] RigidbodyVariable targetVariable;
 		protected Rigidbody Target { get { return targetVariable.ValueFast; } }
+		protected MonoBehaviour monoTarget = null;
+		protected MonoBehaviour MonoTarget => monoTarget ?? (monoTarget = Target.GetComponent<MonoBehaviour> ());
 		[SerializeField] protected InputSettings settings;
 	}
 	public enum InputControlType

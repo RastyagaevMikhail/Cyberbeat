@@ -18,8 +18,8 @@ MonoBehaviour:
   OnPurchaseCompleted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 99b59dec7d071a941adba28d1e68de5e, type: 2}
-        m_MethodName: 
+      - m_Target: {fileID: 11400000, guid: d24936ab19265d7429fd28e90813e648, type: 2}
+        m_MethodName: ApplyChange
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

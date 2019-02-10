@@ -24,13 +24,10 @@ namespace GameCore
         private void CreateNoAdsVariable ()
         {
             const string NoAdsVariablePath = "Assets/Data/Variables/AdsController/NoAds.asset";
-            noAds = Tools.GetAssetAtPath<BoolVariable> (NoAdsVariablePath);
-            if (noAds == null)
-            {
-                noAds = ScriptableObject.CreateInstance<BoolVariable> ();
-                noAds.CreateAsset (NoAdsVariablePath);
-                noAds.isSavable = true;
-            }
+            noAds = Tools.ValidateSO<BoolVariable> (NoAdsVariablePath);
+            noAds.isSavable = true;
+            this.Save ();
+
         }
 #endif
 
@@ -80,7 +77,7 @@ namespace GameCore
         [SerializeField] BoolVariable noAds;
         [SerializeField] bool _debug;
 
-        private bool NoAds { get { return noAds.Value; } set { noAds.Value = value; } }
+        private bool NoAds { get { return noAds.Value; } set { noAds.Value = value; noAds.SaveValue (); } }
 
         public void ShowRewardVideo (GameEventRewardVideo OnVideoShown)
         {

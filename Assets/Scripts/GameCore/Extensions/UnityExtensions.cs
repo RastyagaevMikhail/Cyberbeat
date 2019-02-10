@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 using UnityEditor;
@@ -74,6 +75,25 @@ namespace GameCore
         {
             rt.SetRect (all, all, all, all);
         }
-
+        public static void DOVirtualFloat (this MonoBehaviour mono, float startValue, float endValue, float duration, Action<float> action, Action onComplete = null) =>
+            mono.StartCoroutine (cr_DOVirtualFloat (startValue, endValue, duration, action, onComplete));
+        static IEnumerator cr_DOVirtualFloat (float startValue, float endValue, float duration, Action<float> action, Action onComplete = null)
+        {
+            float t = 0;
+            while (t <= duration)
+            {
+                t += Time.deltaTime / duration;
+                float value = Mathf.Lerp (startValue, endValue, t);
+                Debug.Log (value);
+                action (value);
+                yield return null;
+            }
+            yield return null;
+            Debug.Log (endValue);
+            action (endValue);
+            yield return null;
+            if (onComplete != null)
+                onComplete ();
+        }
     }
 }

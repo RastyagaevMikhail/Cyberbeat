@@ -26,6 +26,10 @@ namespace GameCore
         {
             localizator.OnLanguageChanged -= UpdateText;
         }
+        private void Update ()
+        {
+            UpdateText ();
+        }
 
         [ContextMenu ("Update Text")]
         public void UpdateText ()

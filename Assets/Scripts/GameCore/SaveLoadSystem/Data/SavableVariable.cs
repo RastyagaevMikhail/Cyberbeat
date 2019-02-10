@@ -40,7 +40,10 @@ namespace GameCore
         public override void ResetDefault ()
         {
             if (ResetByDefault)
+            {
                 Value = DefaultValue;
+                SaveValue();
+            }
         }
         public Action<TValue> OnValueChanged = (o) => { };
         public bool Loaded = false;

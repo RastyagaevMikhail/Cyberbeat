@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d349b086a7d334b804be2e8c6b3cd8, type: 3}
+  m_Name: Inova - Desert
+  m_EditorClassIdentifier: 
+  music:
+    clip: {fileID: 8300000, guid: 264825cc0948937459f398817ee6a3a8, type: 3}
+    AuthorName: Inova
+    TrackName: Desert
+    AlbumImage: {fileID: 0}
+    StartPreviewSecond: 0
+  socials: []
+  shopInfo:
+    PlayByWatch: 0
+    Price: 2000
+    SaveKey: Inova - Desert Buyed
+  progressInfo:
+    best: {fileID: 11400000, guid: 1980b7c053702a942ba5b080dd6373e1, type: 2}
+    max: {fileID: 11400000, guid: 403c13c6b2d609e4d88056e18ff081d7, type: 2}
+    percent: {fileID: 11400000, guid: 07e6749d4056bbc4c9b46544ca8ce886, type: 2}
+  layerBitsSelector: {fileID: 11400000, guid: 6c8ab4843419c2e4fb8f309483b8ad71, type: 2}
+  koreography: {fileID: 11400000, guid: 24ce3e93b416e9d44b8fb34c932a0a53, type: 2}
+  StartSpeed: 50

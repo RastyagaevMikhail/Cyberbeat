@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8353d97a1b2772847b189a32ef623dbd, type: 3}
+  m_Name: Phantom Sage - Our Lives Past_LayerBitsSelector
+  m_EditorClassIdentifier: 
+  datas:
+  - type: 0
+    data: {fileID: 11400000, guid: 4ee36e0ac6073294e9d1f2eb3b34d028, type: 2}
+  - type: 1
+    data: {fileID: 11400000, guid: 424ae626b29d93c42928ee73c0b614e0, type: 2}
+  - type: 2
+    data: {fileID: 11400000, guid: 34b53301ff8e673449133fd3a80ec4b0, type: 2}
+  - type: 3
+    data: {fileID: 11400000, guid: 7bb7fa28fd84eea4e9b53ab0103b6555, type: 2}
+  - type: 4
+    data: {fileID: 11400000, guid: 28244ee5b4bf4184e9c234415f049999, type: 2}

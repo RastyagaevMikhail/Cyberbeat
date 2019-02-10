@@ -18,7 +18,8 @@ namespace CyberBeat
 		[SerializeField] MaterialSwitcherVariable matSwitch;
 		[SerializeField] InputControllerComponentVariable inputControllerComponent;
 		[SerializeField] TransformVariable Target;
-		[SerializeField] Transform transform { get { return Target.ValueFast; } }
+		[SerializeField] bool bitAll;
+		new Transform transform { get { return Target.ValueFast; } }
 		Dir lastMove = Dir.None;
 		const float maxDistance = 6f;
 		private const float Radius = 1f;
@@ -88,6 +89,7 @@ namespace CyberBeat
 			GameObject hitGO = hit.transform.gameObject;
 			bool isBit = hitGO.CompareTag ("Brick") || hitGO.CompareTag ("Switcher");
 			if (!isBit) return false;
+			if (bitAll) return true;
 			MaterialSwitcher materialSwitcher = hitGO.GetComponent<MaterialSwitcher> ();
 			return isBit && (materialSwitcher.Constant || materialSwitcher.CurrentColor == matSwitch.CurrentColor);
 		}

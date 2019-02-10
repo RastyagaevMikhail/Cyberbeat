@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d349b086a7d334b804be2e8c6b3cd8, type: 3}
+  m_Name: Nisci - Glory
+  m_EditorClassIdentifier: 
+  music:
+    clip: {fileID: 8300000, guid: 2acab6e0f5ab89d40a0c9c41933fdf0d, type: 3}
+    AuthorName: Nisci
+    TrackName: Glory
+    AlbumImage: {fileID: 0}
+    StartPreviewSecond: 0
+  socials: []
+  shopInfo:
+    PlayByWatch: 0
+    Price: 2000
+    SaveKey: Nisci - Glory Buyed
+  progressInfo:
+    best: {fileID: 11400000, guid: 4ef057f1ff44ead4882abf28961a5b64, type: 2}
+    max: {fileID: 11400000, guid: da36df7959ebd5c4aa613f75e1fdb38c, type: 2}
+    percent: {fileID: 11400000, guid: d031deb8b529abf4fb2b25ef48e61526, type: 2}
+  layerBitsSelector: {fileID: 11400000, guid: f87ad6894b69f204abe6105a2f77e674, type: 2}
+  koreography: {fileID: 11400000, guid: 1d55629e71c4d5d4b8681c3e5c291b41, type: 2}
+  StartSpeed: 50

@@ -1,3 +1,5 @@
+using Sirenix.OdinInspector;
+
 using UnityEngine;
 
 namespace GameCore
@@ -5,6 +7,7 @@ namespace GameCore
     [CreateAssetMenu (fileName = "BoolVariable", menuName = "Variables/GameCore/Bool")]
     public class BoolVariable : SavableVariable<bool>
     {
+        [Button]
         public override void ResetDefault ()
         {
             if (ResetByDefault)
@@ -13,12 +16,16 @@ namespace GameCore
                 SaveValue ();
             }
         }
+
+        [ShowInInspector] public string SavedValue => Tools.GetBool (name).ToString ();
+        [Button]
         public override void LoadValue ()
         {
             base.LoadValue ();
             _value = Tools.GetBool (name);
         }
 
+        [Button]
         public override void SaveValue ()
         {
             Tools.SetBool (name, Value);
@@ -33,7 +40,8 @@ namespace GameCore
         {
             Value = value.Value;
         }
-        [ContextMenu("Toggle")]
+
+        [ContextMenu ("Toggle")]
         public void Toggle ()
         {
             Value = !Value;

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8353d97a1b2772847b189a32ef623dbd, type: 3}
+  m_Name: Inova - Desert_LayerBitsSelector
+  m_EditorClassIdentifier: 
+  datas:
+  - type: 0
+    data: {fileID: 11400000, guid: ba03720d5eee73f489b5a4b310677c7d, type: 2}
+  - type: 1
+    data: {fileID: 11400000, guid: bbd6fde0b4ba03d498ae1b662a7679e1, type: 2}
+  - type: 2
+    data: {fileID: 11400000, guid: 9b9e1a7330ab7ec4e80015efea64e84a, type: 2}
+  - type: 3
+    data: {fileID: 11400000, guid: 15563ec3b71d9a441b714b16f1f10403, type: 2}
+  - type: 4
+    data: {fileID: 11400000, guid: 196811094df7e074cbfd928e61214d28, type: 2}

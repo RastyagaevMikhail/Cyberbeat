@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 866606051}
   - component: {fileID: 5134429152868945196}
   - component: {fileID: 866606054}
+  - component: {fileID: 8220608858885613136}
   m_Layer: 0
   m_Name: GeneratorForPlayerTime
   m_TagString: Untagged
@@ -187,6 +188,37 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   debug: 0
+--- !u!114 &8220608858885613136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866606050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad320524be285f419d3e2cb8d0176df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: 238cf5dc56143fa409ac15524180d6d3, type: 2}
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5134429152868945196}
+        m_MethodName: set_StartCountTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  updateOnEnable: 0
+  Inverse: 0
 --- !u!1 &926352404
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,8 +463,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ColorsSets:
-  - {fileID: 11400000, guid: ecbebf50a3ed066418e55f54f1c74813, type: 2}
-  - {fileID: 11400000, guid: a88b8842662326048944861fee48823d, type: 2}
+  - {fileID: 11400000, guid: d5ac257e156fa9245b04fb14ef7551b8, type: 2}
+  - {fileID: 11400000, guid: d191636e2d0cfb94696fcae842bcd41b, type: 2}
+  - {fileID: 11400000, guid: 1a23b999e0f78ee4cbfd531207230675, type: 2}
+  - {fileID: 11400000, guid: 68d3bd51c30edbf43becf5b800c8c609, type: 2}
+  - {fileID: 11400000, guid: 48f5f41150dad764c89559541171109e, type: 2}
   pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
   tracksCollection: {fileID: 11400000, guid: b670e399b603b2f49a642c6ac92e5589, type: 2}
   currentSet: {fileID: 11400000, guid: 25ea90141e644c04ab93a06e98f51be3, type: 2}
@@ -554,6 +589,7 @@ GameObject:
   - component: {fileID: 249353035916563813}
   - component: {fileID: 8615237440285140305}
   - component: {fileID: 1196134870385500052}
+  - component: {fileID: 2653738778360381800}
   m_Layer: 0
   m_Name: GeneratorsForGeneratorTime
   m_TagString: Untagged
@@ -673,6 +709,37 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   debug: 0
+--- !u!114 &2653738778360381800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3883768377240658668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad320524be285f419d3e2cb8d0176df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: 238cf5dc56143fa409ac15524180d6d3, type: 2}
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8615237440285140305}
+        m_MethodName: set_StartCountTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  updateOnEnable: 0
+  Inverse: 0
 --- !u!1 &4528274951139567500
 GameObject:
   m_ObjectHideFlags: 0

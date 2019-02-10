@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2076007791, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
+  m_Name: Phantom Sage - Our Lives Past_Koreography
+  m_EditorClassIdentifier: 
+  mSourceClip: {fileID: 8300000, guid: 735826cb3a6b2784cb5e1521d0a1d5c5, type: 3}
+  mAudioFilePath: 
+  mSampleRate: -1
+  mIgnoreLatencyOffset: 0
+  mTempoSections:
+  - sectionName: Zero Selection
+    startSample: 0
+    samplesPerBeat: 22050
+    beatsPerMeasure: 4
+    bStartNewMeasure: 1
+  - sectionName: Default Selection
+    startSample: 0
+    samplesPerBeat: 22050
+    beatsPerMeasure: 4
+    bStartNewMeasure: 1
+  mTracks:
+  - {fileID: 11400000, guid: 407813ce0d8bc334fa139b860eb82a70, type: 2}
+  - {fileID: 11400000, guid: 6a10d15b70dcedb4b9e1a8029e5542a1, type: 2}
+  - {fileID: 11400000, guid: aa7d4d7e50f544d4f833ef0b466c3425, type: 2}
+  - {fileID: 11400000, guid: eb9f9078d2c62b1479971ce0b595d01e, type: 2}
+  - {fileID: 11400000, guid: 46cd1d72d1b6ca64387ce285c3f0a8eb, type: 2}

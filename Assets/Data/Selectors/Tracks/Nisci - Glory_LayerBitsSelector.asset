@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8353d97a1b2772847b189a32ef623dbd, type: 3}
+  m_Name: Nisci - Glory_LayerBitsSelector
+  m_EditorClassIdentifier: 
+  datas:
+  - type: 0
+    data: {fileID: 11400000, guid: e6aac2eb8077ff34d9a87b7d8a323e62, type: 2}
+  - type: 1
+    data: {fileID: 11400000, guid: e23af73aa97d4c34cac2429a402d0897, type: 2}
+  - type: 2
+    data: {fileID: 11400000, guid: 3bee0ac9d43d5c74ca9023bbb23eda1a, type: 2}
+  - type: 3
+    data: {fileID: 11400000, guid: 0b91aea8b072fce4cb0ae26cc4a944ab, type: 2}
+  - type: 4
+    data: {fileID: 11400000, guid: 6ab7ca4788cb7fd4994e571848a9809e, type: 2}
