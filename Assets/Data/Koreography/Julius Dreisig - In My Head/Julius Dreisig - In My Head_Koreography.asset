@@ -24,12 +24,17 @@ MonoBehaviour:
     bStartNewMeasure: 1
   - sectionName: Default Selection
     startSample: 0
+    samplesPerBeat: 22050
+    beatsPerMeasure: 4
+    bStartNewMeasure: 1
+  - sectionName: Default Selection
+    startSample: 0
     samplesPerBeat: 10844.262295081968
     beatsPerMeasure: 4
     bStartNewMeasure: 1
   mTracks:
-  - {fileID: 11400000, guid: 35d75b72a0bb944f393c1c7cdc7579af, type: 2}
-  - {fileID: 11400000, guid: 498e6208d9f1948d395ac7ebcaa39356, type: 2}
+  - {fileID: 11400000, guid: 753ff51fc800e56448bc8460d03a1a3b, type: 2}
+  - {fileID: 11400000, guid: d7e71634438e48b4cb20c424ccee7db9, type: 2}
   - {fileID: 11400000, guid: 42579720a7de44adcbcafdd75ce85339, type: 2}
   - {fileID: 11400000, guid: bd332205ef78940659b11462c3ba7ae3, type: 2}
   - {fileID: 11400000, guid: b8c0d6246b5914855b332783d7e17742, type: 2}
