@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6620581a5eb294e900b3619c957556, type: 3}
+  m_Name: CurrentSkinIsRoadCondition
+  m_EditorClassIdentifier: 
+  skinType: {fileID: 11400000, guid: cd317585adcecc84d8a0a0dd259e3ede, type: 2}
+  skinTypeVariable: {fileID: 11400000, guid: 5ac1abc9c95d5454d96f5bb8ca540216, type: 2}

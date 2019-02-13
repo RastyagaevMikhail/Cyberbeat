@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -16,6 +18,12 @@ namespace GameCore
             EditorUtility.SetDirty (so);
             AssetDatabase.SaveAssets ();
             AssetDatabase.Refresh ();
+#endif
+        }
+        public static void SelectAsset (this ScriptableObject so)
+        {
+#if UNITY_EDITOR
+            Selection.activeObject = so;
 #endif
         }
 

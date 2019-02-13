@@ -11,19 +11,15 @@ namespace GameCore.DebugTools
 	[ExecuteInEditMode]
 	public class DebugSelfDirectionToTransfrom : TransformObject
 	{
-		[SerializeField] Transform Target;
+		[SerializeField] TransformReference TargetReference;
+		Transform target => TargetReference.ValueFast;
 		[SerializeField] Color color = Color.green;
 
 		private void OnDrawGizmos ()
 		{
 			Gizmos.color = color;
-			Gizmos.DrawLine (position, Target.position);
-			Gizmos.DrawCube (Target.position, Vector3.one);
-		}
-
-		public void SetTarget (Transform newTarget)
-		{
-			Target = newTarget;
+			Gizmos.DrawLine (position, target.position);
+			Gizmos.DrawCube (target.position, Vector3.one);
 		}
 	}
 }

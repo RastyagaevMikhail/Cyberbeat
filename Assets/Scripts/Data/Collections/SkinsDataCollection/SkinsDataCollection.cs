@@ -9,7 +9,7 @@ using System.Reflection;
 using UnityEngine;
 namespace CyberBeat
 {
-    public class SkinsDataCollection : DataCollections<SkinsDataCollection, SkinItem>
+    public class SkinsDataCollection : SingletonData<SkinsDataCollection>
     {
 #if UNITY_EDITOR
         [UnityEditor.MenuItem ("Game/Data/Skins")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
@@ -86,15 +86,14 @@ namespace CyberBeat
             public void AddNewSkins ()
             {
                 data.skinsSelector.Add (type, LoadSkinItems ());
-                data.skinsSelector.Save();
+                data.skinsSelector.Save ();
             }
         }
 #endif
-        public List<SkinType> AllTypes;
+        [SerializeField] List<SkinType> AllTypes;
         public SkinsEnumDataSelector skinsSelector;
         public SkinIndexSelector skinIndexsSelector;
         [SerializeField] SkinType RoadType;
-        public Material RoadMaterial;
         public bool isRoadType (SkinType skinType) { return RoadType.Equals (skinType); }
         public int RoadSkinTypeIndex { get { return skinIndexsSelector[RoadType].Value; } set { skinIndexsSelector[RoadType].Value = value; } }
         public List<SkinItem> RoadSkins { get { return skinsSelector[RoadType]; } }
@@ -107,17 +106,18 @@ namespace CyberBeat
             }
             set
             {
-                if (SkinType == RoadType) Debug.LogFormat ("skinIndex = {0}", value);
-                if (skinIndexsSelector.ContainsKey (SkinType)) skinIndexsSelector[SkinType].Value = value;
+                if (SkinType == RoadType)
+                    Debug.LogFormat ("skinIndex = {0}", value);
+                if (skinIndexsSelector.ContainsKey (SkinType))
+                    skinIndexsSelector[SkinType].Value = value;
             }
         }
         public int SkinIndex { get { return skinIndex.GetAsClamped (0, Items.Count - 1); } set { skinIndex = value; } }
 
-        [SerializeField] UnityObjectVariable CurrentSkinTypeObjecVariable;
-        public SkinType SkinType { get { return CurrentSkinTypeObjecVariable.As<SkinType> (); } }
+        [SerializeField] SkinTypeVariable skinTypeVariable;
+        public SkinType SkinType => skinTypeVariable.ValueFast;
         public List<SkinItem> Items { get { return skinsSelector[SkinType].ToList (); } }
-        public SkinItem currrentSkinItem { get { return Items[SkinIndex]; } }
-        public System.Action<int> OnSkinsChanged { get { return skinIndexsSelector[SkinType].OnValueChanged; } set { skinIndexsSelector[SkinType].OnValueChanged = value; } }
+
     }
 
 }

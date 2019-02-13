@@ -48,7 +48,7 @@ public class EditorMenuTools
 	[MenuItem ("Game/Scenes/Tracks/Mountkid - Dino")]
 	public static void OpenMountkid_Dino ()
 	{
-		OpenScene ("Tracks/Mountkid - Dino");
+		OpenScene ("Mountkid - Dino");
 	}
 	[MenuItem("Game/Current Track")]
 	public static void OpenCurrent ()

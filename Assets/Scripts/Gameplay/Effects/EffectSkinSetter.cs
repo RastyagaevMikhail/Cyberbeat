@@ -11,9 +11,10 @@ using UnityEngine;
 
 namespace CyberBeat
 {
-    public class EffectSkinSetter : MonoBehaviour
+    public class EffectSkinSetter : TransformObject
     {
-
+        private Transform _transform = null;
+        public new Transform transform { get { if (_transform == null) _transform = GetComponent<Transform> (); return _transform; } }
         private SkinnedMeshRenderer _mRend = null;
         public SkinnedMeshRenderer mRend { get { if (_mRend == null) _mRend = GetComponent<SkinnedMeshRenderer> (); return _mRend; } }
         private Texture _texture = null;
@@ -173,6 +174,7 @@ namespace CyberBeat
         {
             data = preset.SkinData;
             // MoveState (preset.Shape);
+            transform.position = transform.TransformPoint (preset.OffsetPosition);
             SetShapeState (preset.Shape);
             FadeIn (preset.FadeInTime);
             rotator.speed = preset.SpeedRotation;

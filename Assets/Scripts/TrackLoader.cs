@@ -17,9 +17,20 @@ namespace CyberBeat
         [SerializeField] AudioSource audioSource;
         private void OnEnable ()
         {
-            audioSource.clip = trackVariable.ValueFast.music.clip;
+            LoadAudioClip();
+            LoadStartSpeedToVariable();
+        }
+
+        public void LoadStartSpeedToVariable()
+        {
             SpeedSplineVariable.ValueFast = trackVariable.ValueFast.StartSpeed;
         }
+
+        public void LoadAudioClip()
+        {
+            audioSource.clip = trackVariable.ValueFast.music.clip;
+        }
+
         public void OnResumeTrack ()
         {
             if (audioSource.time - timeShift <= 0) return;

@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,12 +13,12 @@ namespace CyberBeat
     public class SkinsScrollList : FancyScrollView<SkinsScrollData, SkinsScrollContext>
     {
 
-        public SkinsDataCollection skinsData { get { return SkinsDataCollection.instance; } }
+        [SerializeField] SkinsDataCollection skinsData;
+        [SerializeField] Material material;
 
         [SerializeField] UnityEventSkinItem OnSkinSelected;
         [SerializeField] UnityEventInt OnItemSelected;
 
-        Material material { get { return skinsData.RoadMaterial; } }
         int index { get { return skinsData.RoadSkinTypeIndex; } set { skinsData.RoadSkinTypeIndex = value; } }
         new void Awake ()
         {
@@ -27,6 +28,7 @@ namespace CyberBeat
 
             UpdateData ();
             base.Awake ();
+            UpdateData (skinsData.RoadSkins.Select (si => new SkinsScrollData (si)).ToList ());
         }
 
         private void UpdateData ()
@@ -37,6 +39,10 @@ namespace CyberBeat
         }
 
         public void _OnSkinTypeChnaged (Object obj)
+        {
+            _OnSkinTypeChnaged (obj as SkinType);
+        }
+        public void _OnSkinTypeChnaged (SkinType skinType)
         {
             scrollPositionController.ScrollTo (index);
             CellSelected (index);

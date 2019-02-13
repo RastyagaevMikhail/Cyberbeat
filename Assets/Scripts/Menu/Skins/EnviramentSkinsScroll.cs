@@ -9,23 +9,29 @@ namespace CyberBeat
 {
 	public class EnviramentSkinsScroll : MonoBehaviour
 	{
-		private ScrollPositionController _scrollPositionController = null;
-		public ScrollPositionController scrollPositionController { get { if (_scrollPositionController == null) _scrollPositionController = GetComponent<ScrollPositionController> (); return _scrollPositionController; } }
+		[Header ("Conponents")]
+		[SerializeField] ScrollPositionController scrollPositionController;
 
-		public SkinsDataCollection skinsData { get { return SkinsDataCollection.instance; } }
+		[Header ("Data")]
+		[SerializeField] SkinsDataCollection skinsData;
+		[SerializeField] SkinIndexSelector skinIndexsSelector;
+		[SerializeField] SkinsEnumDataSelector skinsSelector;
+		[SerializeField] SkinTypeVariable skinTypeVariable;
+		private SkinType skinType => skinTypeVariable.ValueFast;
 
-		private SkinType skinType { get { return skinsData.SkinType; } }
-
-		SkinItem skin { get { return skinsData.skinsSelector[skinType][skinIdex]; } }
+		[SerializeField] ColorInfoRuntimeSet[] colorSets;
+		ColorInfoRuntimeSet colors => colorSets.GetRandom ();
 
 		TransformGroup transformGroup { get { return transfromGroupSelector[skinType]; } }
 		TransformObject TargetScroll { get { return transformGroup; } }
 
+		[Header ("Selectors")]
 		[SerializeField] SkinTypeActionSelector skinTypeActionSelector;
 		[SerializeField] ScrollSettingsDataSelector transfromGroupSelector;
 		[SerializeField] SkinSlelctorsSelector transfromObjectSelector;
 		float lastPosition;
-		public void _OnSkinTypeChnaged (UnityEngine.Object obj)
+		float currentPosition;
+		public void _OnSkinTypeChnaged (SkinType skinType)
 		{
 			if (skinsData.isRoadType (skinType))
 			{
@@ -40,7 +46,7 @@ namespace CyberBeat
 				scrollPositionController.ScrollTo (skinIdex);
 			}
 
-			SetDataCount (obj as SkinType);
+			SetDataCount (skinType);
 			_OnItemSelected (skinIdex);
 
 		}
@@ -50,7 +56,6 @@ namespace CyberBeat
 			DoRandomSelctedColor ();
 		}
 
-		[SerializeField] ColorInfoRuntimeSet colors;
 		public void DoRandomSelctedColor ()
 		{
 			if (!skinType.OnSeleted)
@@ -64,8 +69,8 @@ namespace CyberBeat
 
 		private void SetDataCount (SkinType skinType)
 		{
-			if (!skinsData.skinsSelector.ContainsKey (skinType)) return;
-			scrollPositionController.SetDataCount (skinsData.skinsSelector[skinType].Count);
+			if (!skinsSelector.ContainsKey (skinType)) return;
+			scrollPositionController.SetDataCount (skinsSelector[skinType].Count);
 		}
 
 		int previndex = 0;
@@ -73,12 +78,12 @@ namespace CyberBeat
 		{
 			get
 			{
-				if (!skinsData.skinIndexsSelector.ContainsKey (skinType)) return 0;
-				return skinsData.skinIndexsSelector[skinType].Value;
+				if (!skinIndexsSelector.ContainsKey (skinType)) return 0;
+				return skinIndexsSelector[skinType].Value;
 			}
 		}
-		PrefabSkinItem skinItem { get { return skinsData.skinsSelector[skinType][skinIdex] as PrefabSkinItem; } }
-		PrefabSkinItem prevskinItem { get { return skinsData.skinsSelector[skinType][previndex] as PrefabSkinItem; } }
+		PrefabSkinItem skinItem { get { return skinsSelector[skinType][skinIdex] as PrefabSkinItem; } }
+		PrefabSkinItem prevskinItem { get { return skinsSelector[skinType][previndex] as PrefabSkinItem; } }
 		public void _OnItemSelected (int index)
 		{
 			if (skinsData.isRoadType (skinType))
@@ -93,7 +98,6 @@ namespace CyberBeat
 			{
 				skinTypeActionSelector.InvokeAll ();
 			}
-
 			prevskinItem.ApplyStateMaterial (transformGroup.GetAt<Renderer> (previndex));
 
 			skinItem.ApplyStateMaterial (transformGroup.GetAt<Renderer> (index), true);
@@ -105,8 +109,6 @@ namespace CyberBeat
 
 			previndex = index;
 		}
-
-		public float currentPosition;
 		public void _UpdatePosition (float position)
 		{
 			if (!transformGroup) return;

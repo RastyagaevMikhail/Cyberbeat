@@ -10,11 +10,13 @@ namespace CyberBeat
         [SerializeField] Shapes shape;
         [SerializeField] float speedRotation;
         [SerializeField] float fadeInTime;
+        [SerializeField] Vector3 offsetPosition;
 
         public EffectSkinData SkinData { get => skinData; }
         public Shapes Shape { get => shape; }
         public float SpeedRotation { get => speedRotation; }
         public float FadeInTime { get => fadeInTime; }
+        public Vector3 OffsetPosition { get => offsetPosition; }
 
         public void Init (EffectSkinData skinData, Shapes shape, float speedRotation, float fadeInTime)
         {

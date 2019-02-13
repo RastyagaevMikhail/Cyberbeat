@@ -1,86 +1,57 @@
-﻿using DG.Tweening;
+﻿using GameCore;
 
-using GameCore;
-
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-
-using TMPro;
 
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
-
+using Text = TMPro.TextMeshProUGUI;
 namespace CyberBeat
 {
-    public class SkinsMenuController : RectTransformObject
+    public class SkinsMenuController : MonoBehaviour
     {
-        public SkinsDataCollection skinsData { get { return SkinsDataCollection.instance; } }
-        private Animator _animator = null;
-        public Animator animator { get { if (_animator == null) _animator = GetComponent<Animator> (); return _animator; } }
-        int hashShow,
-        hashHide;
-        SkinItem skin
-        {
-            get
-            {
-                if (!skinsData.skinsSelector.ContainsKey (skinType)) return null;
-                return skinsData.skinsSelector[skinsData.SkinType][_skinIndex];
-            }
-        }
-        int SkinIndex { get { return skinsData.SkinIndex; } set { skinsData.SkinIndex = value; } }
+        [Header ("Data")]
+        [SerializeField] SkinsDataCollection skinsData;
+        [SerializeField] SkinsEnumDataSelector skinsSelector;
 
         [Header ("UI")] //-----------------------------------------------------------------------
+        [SerializeField] Text videoCountTextComponent;
         [SerializeField] ContentButton BuyButton;
         [SerializeField] ContentButton SelectButton;
-
         [SerializeField] ButtonActionByVideoAds WatchAdsFromBuyButton;
         [SerializeField] SkinsScrollList scrollList;
         [SerializeField] Color selectedColor = Color.green, unselectedColor = Color.white;
+
+        [Header ("Events")] //-----------------------------------------------------------------------
         [SerializeField] UnityEventGraphic onCantNotEnuthMoney;
+        [SerializeField] UnityEventInt onSkinSelceted;
 
-        private void Awake ()
-        {
+        int _skinIndex;
+        SkinItem skin => skinsSelector[skinsData.SkinType][_skinIndex];
+        int SkinIndex { get { return skinsData.SkinIndex; } set { skinsData.SkinIndex = value; } }
+        private SkinType skinType;
 
-            scrollList.UpdateData (skinsData.RoadSkins.Select (si => new SkinsScrollData (si)).ToList ());
+        bool currentIsSelected { get { return _skinIndex == SkinIndex; } }
 
-            WatchAdsFromBuyButton.Init (OnWatchetdVideo);
-            hashShow = Animator.StringToHash ("Show");
-            hashHide = Animator.StringToHash ("Hide");
-            // CurrentSelectedIndex = SkinIndex;
-        }
-        public void Show ()
+        public void OnWatchetdVideo ()
         {
-            gameObject.SetActive (true);
-            animator.Play (hashShow);
-            scrollList.UpdateData (skinsData.RoadSkins.Select (si => new SkinsScrollData (si)).ToList ());
-        }
-
-        public void Hide ()
-        {
-            if (gameObject.activeInHierarchy)
-                animator.Play (hashHide);
-        }
-        private void OnWatchetdVideo ()
-        {
-            skin.getByVideo = true;
+            bool buyed = skin.BuyByVideo ();
+            if (buyed) _Select();
 
             _UpdateValues (skin);
         }
 
         bool currentSkinIsRaod = false;
-        public void _OnSkinTypeChanged (Object obj)
+
+        public void _OnSkinTypeChanged (SkinType skinType)
         {
-            skinType = obj as SkinType;
             currentSkinIsRaod = skinsData.isRoadType (skinType);
             if (currentSkinIsRaod)
                 _skinIndex = skinsData.RoadSkinTypeIndex;
             else
             {
+                //? При выходе из скинов дороги поставить текщий скин на материал
                 scrollList.ReSelectionTo (skinsData.RoadSkinTypeIndex);
             }
-            (currentSkinIsRaod ? (System.Action) Show : Hide) ();
             _UpdateValues (skin);
         }
         public void _SetSkinIndex (int skinIdex)
@@ -89,7 +60,6 @@ namespace CyberBeat
             _UpdateValues (skin);
         }
 
-        
         public void _UpdateValues (SkinItem skin)
         {
             if (!skin) return;
@@ -97,49 +67,34 @@ namespace CyberBeat
 
             BuyButton.SetActive (!skin.IsAvalivable);
 
-            BuyButton.onClick.RemoveAllListeners ();
-            BuyButton.onClick.AddListener (
-                skin.CanBuy ?
-                (UnityAction) BuySkin :
-                () => onCantNotEnuthMoney.Invoke (BuyButton.targetGraphic)
-            );
-
             BuyButton.text = skin.Price.ToString ();
+            videoCountTextComponent.text = skin.VideoCount.ToString ();
             UpdateSelection (skin);
         }
-        private void BuySkin ()
+        public void BuySkin ()
         {
             if (skin.TryBuy ())
                 _Select ();
+            else
+                onCantNotEnuthMoney.Invoke (BuyButton.targetGraphic);
 
             _UpdateValues (skin);
         }
 
-        [SerializeField]
-        int _skinIndex;
-
-        [SerializeField] UnityEventInt onSkinSelceted;
-        private SkinType skinType;
-
-        bool currentIsSelected { get { return _skinIndex == SkinIndex; } }
-
         void UpdateSelection (SkinItem skin)
         {
             if (!skin) return;
-            // Debug.Log ("Update Selection");
-            // Debug.LogFormat ("skinIsAvalivable = {0}", skinIsAvalivable);
-            // Debug.LogFormat ("currentSkinIsRaod = {0}", currentSkinIsRaod);
-            SelectButton.SetActive (skin.IsAvalivable /* && !currentSkinIsRaod */ );
-            // Debug.LogFormat ("currentIsSelected = {0}", currentIsSelected);
+
+            SelectButton.SetActive (skin.IsAvalivable);
+
             SelectButton.textLocalizationID = (currentIsSelected ? "selected" : "select");
             SelectButton.textColor = currentIsSelected ? selectedColor : unselectedColor;
             SelectButton.interactable = !currentIsSelected;
         }
         public void _Select ()
         {
-            // Debug.Log ("_Select");,, ,   ,SkinsMenuController.cs:56ty
             SkinIndex = _skinIndex;
-            UpdateSelection (skin);
+            _UpdateValues (skin);
             onSkinSelceted.Invoke (_skinIndex);
         }
     }

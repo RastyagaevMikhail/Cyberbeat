@@ -11,7 +11,7 @@ namespace GameCore
 		[SerializeField] TabButton lastSelcted;
 		private void Start ()
 		{
-			if (lastSelcted) lastSelcted.Active = true;
+			if (lastSelcted) lastSelcted.Select();
 		}
 		public bool IsSelected (TabButton tabButton)
 		{
@@ -23,11 +23,9 @@ namespace GameCore
 
 		public void Swith (TabButton tabButton)
 		{
-			if (lastSelcted) lastSelcted.Active = false;
-			lastSelcted.onDeSelect.Invoke ();
+			if (lastSelcted) lastSelcted.DeSelect ();
 			lastSelcted = tabButton;
-			lastSelcted.onSelect.Invoke ();
-			lastSelcted.Active = true;
+			lastSelcted.Select ();
 		}
 		public void RegistryTabButton (TabButton tabButton)
 		{
@@ -43,6 +41,6 @@ namespace GameCore
 				tabButton.Active = tabButton.Equals (lastSelcted);
 			}
 		}
-		
+
 	}
 }

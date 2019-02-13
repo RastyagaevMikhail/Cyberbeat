@@ -61,7 +61,8 @@ namespace GameCore
         public void onInterstitialExpired () { }
         public void onRewardedVideoLoaded (bool precache)
         {
-
+            // Appodeal.
+            // UserSettings userSettings = 
         }
         public void onRewardedVideoFailedToLoad () { }
         public void onRewardedVideoShown () { }

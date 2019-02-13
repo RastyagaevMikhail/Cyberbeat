@@ -5,12 +5,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
-namespace CyberBeat {
-    public class ResultsData : SingletonData<ResultsData> {
+namespace CyberBeat
+{
+    public class ResultsData : SingletonData<ResultsData>
+    {
 #if UNITY_EDITOR
-        [UnityEditor.MenuItem("Game/Data/ResultsData")] public static void Select() { UnityEditor.Selection.activeObject = instance; }
-        public override void InitOnCreate() { }
-        public override void ResetDefault() { Reset(); }
+        [UnityEditor.MenuItem ("Game/Data/ResultsData")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
+        public override void InitOnCreate () { }
+        public override void ResetDefault () { Reset (); }
 #endif
         [SerializeField] IntVariable attemps;
         [SerializeField] IntVariable totalBits;
@@ -30,36 +32,40 @@ namespace CyberBeat {
         [SerializeField] TrackVariable trackVariable;
         public ProgressInfo progressInfo { get { return trackVariable.ValueFast.progressInfo; } }
 
-        public void AccumulateAttems() {
-            attemps.Increment();
-            currentScore.ResetDefault();
+        public void AccumulateAttems ()
+        {
+            attemps.Increment ();
+            currentScore.ResetDefault ();
         }
-        public void AccumulateBeatsNotes() {
+        public void AccumulateBeatsNotes ()
+        {
             //Bits
-            totalBits.Increment();
-            currentScore.Increment();
-            progressInfo.Progress(currentScore.Value);
+            totalBits.Increment ();
+            currentScore.Increment ();
+            progressInfo.Progress (currentScore.Value);
             //Notes
-            totalNotes.ApplyChange(notesPerBeat);
+            totalNotes.ApplyChange (notesPerBeat);
         }
         public int DoubleReward =>
         totalBits.Value +
-        progressInfo.AsPercent(totalBits) +
+        progressInfo.AsPercent (totalBits) +
         totalNotes.Value;
 
-        public void TakeReward(bool doubleReward) {
-            notes.ApplyChange(doubleReward ? DoubleReward : Reward);
-            Reset();
+        public void TakeReward (bool doubleReward)
+        {
+            notes.ApplyChange (doubleReward ? DoubleReward : Reward);
         }
 
         public int Reward => DoubleReward / 2;
-        public void Reset() {
-            attemps.ResetDefault();
-            totalBits.ResetDefault();
-            totalNotes.ResetDefault();
-            scorePerBeat.ResetDefault();
+        public void Reset ()
+        {
+            attemps.ResetDefault ();
+            totalBits.ResetDefault ();
+            totalNotes.ResetDefault ();
+            scorePerBeat.ResetDefault ();
         }
-        public void Calculate() {
+        public void Calculate ()
+        {
             reward.ValueFast = Reward;
             doubleReward.ValueFast = DoubleReward;
 

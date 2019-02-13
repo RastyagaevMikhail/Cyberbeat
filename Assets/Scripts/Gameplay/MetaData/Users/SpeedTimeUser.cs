@@ -42,20 +42,5 @@ namespace CyberBeat
             lastSpeed = splineController.Speed;
             DOVirtual.Float (splineController.Speed, 0f, StopDuration, _SetSpeed);
         }
-
-        public void Pause ()
-        {
-            if (tweener != null)
-                tweener.Pause ();
-            _SetSpeed (0);
-        }
-        public void Resume ()
-        {
-            if (tweener != null && tweener.IsActive ())
-                tweener.TogglePause ();
-            else
-                _SetSpeed (lastSpeed);
-        }
-
     }
 }

@@ -24,10 +24,7 @@ namespace CyberBeat
 		TrackScrollContext context;
 
 		public int DataIndex { get; private set; }
-		private void Awake ()
-		{
-			PlayByWatchButton.Init (OnPlayByWatch);
-		}
+
 		public void SetContext (TrackScrollContext context)
 		{
 			this.context = context;
@@ -85,7 +82,7 @@ namespace CyberBeat
 			else onCantNotEnuthMoney.Invoke(BuyButton);
 		}
 
-		private void ValidateButtons (bool buyed)
+		public void ValidateButtons (bool buyed)
 		{
 			PlayButton.SetActive (buyed);
 			BuyButton.gameObject.SetActive (!buyed);

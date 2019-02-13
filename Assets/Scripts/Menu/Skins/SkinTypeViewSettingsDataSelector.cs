@@ -22,14 +22,4 @@ namespace CyberBeat
 
 	[Serializable] public class ViewSettingsSkinTypeData : TypeData<SkinType, ViewSettings> { }
 
-	[Serializable]
-	public class ViewSettings
-	{
-		public Transform LookTarget;
-		public Transform PositionTarget;
-		public float RotationAngle;
-		public float FogDensity;
-		public float DurationMove = 1f;
-
-	}
 }

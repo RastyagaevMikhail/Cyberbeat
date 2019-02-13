@@ -22,8 +22,9 @@ namespace CyberBeat
         public Color color { get { return textComponent.color; } set { textComponent.color = value; } }
         float alpha { set { color = new Color (color.r, color.g, color.b, value); } }
 
-        [SerializeField] IntVariable ScorePerBeat;
-        int countScore => ScorePerBeat.ValueFast;
+        [SerializeField] IntVariable scorePerBeat;
+        [SerializeField] BoolVariable doubleCoins;
+        int countScore => scorePerBeat.ValueFast;
         [SerializeField] float Duration = 0.5f;
         [SerializeField] float upDistance = 1f;
         [SerializeField] float startAlpha = 1f;
@@ -35,7 +36,7 @@ namespace CyberBeat
         {
             startLocalY = yLocal;
             path = new Vector3[] { Vector3.up * (startLocalY + upDistance) };
-            
+            scorePerBeat.Value = doubleCoins.ValueFast ? 2 : 1;
             Reset ();
         }
         public void OnColorTaked (Color color)

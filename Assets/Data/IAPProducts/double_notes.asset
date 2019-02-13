@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productID: double_notes
   productType: 1
-  NonConsumableVariable: {fileID: 0}
+  NonConsumableVariable: {fileID: 11400000, guid: e8b1e4d7158c8d444a6da1a4596ed911,
+    type: 2}
   OnPurchaseCompleted:
     m_PersistentCalls:
       m_Calls: []

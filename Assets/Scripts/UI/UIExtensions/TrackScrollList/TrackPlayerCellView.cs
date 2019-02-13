@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using TMPro;
 
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 namespace CyberBeat
 {
@@ -20,6 +21,8 @@ namespace CyberBeat
 		[SerializeField] Image Album;
 		[SerializeField] GameObject Play;
 		[SerializeField] GameObject Pause;
+		[SerializeField] UnityEvent OnPlayEvent;
+		[SerializeField] UnityEvent OnPauseEvent;
 		bool playing { set { Play.SetActive (!value); Pause.SetActive (value); } get { return !Play.activeSelf & Pause.activeSelf; } }
 		static Action<Audio> OnPlay;
 		private void Awake ()
@@ -80,6 +83,7 @@ namespace CyberBeat
 			playing = true;
 			if (OnPlay != null)
 				OnPlay (myAuido);
+			OnPlayEvent.Invoke ();
 		}
 		public void PauseMusic ()
 		{
@@ -87,6 +91,8 @@ namespace CyberBeat
 			CancelInvoke ("PauseMusic");
 			if (myAuido != null && myAuido.playing)
 				myAuido.Pause ();
+				
+			OnPauseEvent.Invoke ();
 
 		}
 

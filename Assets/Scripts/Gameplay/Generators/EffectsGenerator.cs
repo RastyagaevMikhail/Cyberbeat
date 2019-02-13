@@ -1,4 +1,6 @@
-﻿using GameCore;
+﻿using FluffyUnderware.Curvy;
+
+using GameCore;
 
 using SonicBloom.Koreo;
 
@@ -11,14 +13,23 @@ namespace CyberBeat
 {
     public class EffectsGenerator : TransformObject
     {
+
         [SerializeField] EffectDataPresetSelector selector;
         [SerializeField] PoolVariable pool;
+        [SerializeField] CurvySplineVariable splineVariable;
+        [SerializeField] float aheadDistance = 45f;
+        CurvySpline spline => splineVariable.ValueFast;
         public void OnBit (IBitData bitData)
         {
             var spawnedSkin = pool.Pop ("Effects");
 
-            spawnedSkin.Apply (this, true, true, false);
-            spawnedSkin.position += spawnedSkin.OffsetPosition;
+            float nearestPointTF = spline.GetNearestPointTF (position);
+            float distance = spline.TFToDistance (nearestPointTF);
+            distance += aheadDistance;
+            float aheadTF = spline.DistanceToTF (distance);
+
+            spawnedSkin.position = spline.InterpolateFast (aheadTF);
+            spawnedSkin.rotation = spline.GetOrientationFast (aheadTF);
 
             var skinSetter = spawnedSkin.Get<EffectSkinSetter> ();
 

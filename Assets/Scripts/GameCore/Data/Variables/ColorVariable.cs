@@ -5,9 +5,14 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameCore
 {
-    [CreateAssetMenu (fileName = "", menuName = "Variables/GameCore/Color")]
+	[CreateAssetMenu (fileName = "", menuName = "Variables/GameCore/Color")]
 	public class ColorVariable : SavableVariable<Color>
 	{
+		private void OnEnable ()
+		{
+			if (ValueFast == default (Color))
+				ValueFast = DefaultValue = Color.white;
+		}
 		public override void ResetDefault ()
 		{
 			if (ResetByDefault)
@@ -34,4 +39,3 @@ namespace GameCore
 		}
 	}
 }
-

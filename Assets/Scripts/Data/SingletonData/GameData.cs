@@ -16,7 +16,7 @@ namespace CyberBeat
 		}
 		public override void ResetDefault ()
 		{
-			Notes.Value = int.MaxValue;
+			Notes.ResetDefault();
 			Notes.Save ();
 			DoubleNotes.Value = false;
 			DoubleNotes.Save ();

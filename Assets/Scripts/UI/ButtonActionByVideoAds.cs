@@ -48,7 +48,7 @@ namespace CyberBeat
             Waiting.SetActive (!isLoaded && !internetNotReachable);
             button.interactable = isLoaded && !internetNotReachable;
         }
-        static Action OnButtonVideoShown;
+        Action OnButtonVideoShown;
         Action _onVideShown;
         public void Init (Action OnVideoShown)
         {

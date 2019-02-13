@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9ba7d5f36aa894aaa85486ddf0da6f, type: 3}
   m_Name: SkinsDataCollection
   m_EditorClassIdentifier: 
-  Objects: []
   SkinsFolders:
   - type: {fileID: 11400000, guid: 08af98337885bb94e94ed90869ce4e64, type: 2}
     searchedPrefabType: Object
@@ -39,6 +38,4 @@ MonoBehaviour:
   skinsSelector: {fileID: 11400000, guid: 0a4dbf498b5698141abb95109706a301, type: 2}
   skinIndexsSelector: {fileID: 11400000, guid: 099b14e6284abf34c8fa166824f22d71, type: 2}
   RoadType: {fileID: 11400000, guid: cd317585adcecc84d8a0a0dd259e3ede, type: 2}
-  RoadMaterial: {fileID: 2100000, guid: 5b449dc69683b454d9d79053ecfbf311, type: 2}
-  CurrentSkinTypeObjecVariable: {fileID: 11400000, guid: 488fa3b261b113e4f9909c158e0b70a7,
-    type: 2}
+  skinTypeVariable: {fileID: 11400000, guid: 5ac1abc9c95d5454d96f5bb8ca540216, type: 2}

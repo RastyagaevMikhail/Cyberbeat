@@ -17,8 +17,9 @@ namespace GameCore
             }
             public TDataType GetData (TEnumType type)
             {
-                if (!Selector.ContainsKey (type)) return default(TDataType);
-                return Selector[type];
+                TDataType value = default (TDataType);
+                Selector.TryGetValue (type, out value);
+                return value;
             }
 
             public virtual void Add (TEnumType type, TDataType data)

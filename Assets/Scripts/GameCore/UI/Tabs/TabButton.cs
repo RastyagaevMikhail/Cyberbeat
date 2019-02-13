@@ -14,9 +14,9 @@ namespace GameCore
 		[SerializeField] GameObject OnActiveObject;
 		[SerializeField] GameObject OnDontActiveObject;
 
-		public UnityEvent onSelect;
+		[SerializeField] UnityEvent onSelect;
 
-		public UnityEvent onDeSelect;
+		[SerializeField] UnityEvent onDeSelect;
 		private void OnEnable ()
 		{
 			if (controller)
@@ -44,10 +44,15 @@ namespace GameCore
 			if (controller.IsSelected (this)) return;
 			controller.Swith (this);
 		}
-		public void _DeSelect ()
+		public void DeSelect ()
 		{
 			Active = false;
 			onDeSelect.Invoke ();
+		}
+		public void Select ()
+		{
+			Active = true;
+			onSelect.Invoke ();
 		}
 	}
 

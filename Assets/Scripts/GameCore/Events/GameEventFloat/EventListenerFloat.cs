@@ -11,6 +11,7 @@ namespace GameCore
 		[SerializeField] GameEventFloat Event;
 
 		[SerializeField] UnityEventFloat Responce;
+		[SerializeField] bool debug;
 
 		public EventListenerFloat (GameEventFloat _event, UnityAction<float> action)
 		{
@@ -21,6 +22,7 @@ namespace GameCore
 		public void OnEventRaised (float arg)
 		{
 			Responce.Invoke (arg);
+			if (debug) Debug.Log ($"{("OnEvent".a())} {Event.name.so()} {("Raised").a()}\n{Responce.Log()}");
 		}
 		public bool OnEnable ()
 		{
