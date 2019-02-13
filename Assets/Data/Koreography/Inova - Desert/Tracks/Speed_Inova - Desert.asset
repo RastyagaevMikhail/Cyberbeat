@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Speed_Inova - Desert
   m_EditorClassIdentifier: 
   mEventID: Speed
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 984557
+    mEndSample: 986403
+  - mStartSample: 1941432
+    mEndSample: 1982268
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +32,7 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 75
+  - mTextVal: 50
+  _TextPayloadIdxs: 0000000001000000

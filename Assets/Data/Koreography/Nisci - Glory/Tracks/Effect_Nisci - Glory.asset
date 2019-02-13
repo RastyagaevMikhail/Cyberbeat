@@ -13,8 +13,97 @@ MonoBehaviour:
   m_Name: Effect_Nisci - Glory
   m_EditorClassIdentifier: 
   mEventID: Effect
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 92087
+    mEndSample: 92087
+  - mStartSample: 175015
+    mEndSample: 175015
+  - mStartSample: 257202
+    mEndSample: 257202
+  - mStartSample: 339910
+    mEndSample: 339910
+  - mStartSample: 422994
+    mEndSample: 422994
+  - mStartSample: 505710
+    mEndSample: 505710
+  - mStartSample: 588500
+    mEndSample: 588500
+  - mStartSample: 671217
+    mEndSample: 671217
+  - mStartSample: 755190
+    mEndSample: 755190
+  - mStartSample: 836463
+    mEndSample: 836463
+  - mStartSample: 919584
+    mEndSample: 919584
+  - mStartSample: 1002150
+    mEndSample: 1002150
+  - mStartSample: 1085335
+    mEndSample: 1085335
+  - mStartSample: 1168731
+    mEndSample: 1168731
+  - mStartSample: 1250866
+    mEndSample: 1250866
+  - mStartSample: 1331847
+    mEndSample: 1331847
+  - mStartSample: 1414369
+    mEndSample: 1414369
+  - mStartSample: 1497587
+    mEndSample: 1497587
+  - mStartSample: 1580517
+    mEndSample: 1580517
+  - mStartSample: 1663153
+    mEndSample: 1663153
+  - mStartSample: 1745985
+    mEndSample: 1745985
+  - mStartSample: 1830353
+    mEndSample: 1830353
+  - mStartSample: 1993280
+    mEndSample: 1993280
+  - mStartSample: 2076646
+    mEndSample: 2076646
+  - mStartSample: 2157435
+    mEndSample: 2157435
+  - mStartSample: 2240084
+    mEndSample: 2240084
+  - mStartSample: 2323600
+    mEndSample: 2323600
+  - mStartSample: 2405550
+    mEndSample: 2405550
+  - mStartSample: 2488935
+    mEndSample: 2488935
+  - mStartSample: 2571669
+    mEndSample: 2571669
+  - mStartSample: 2654340
+    mEndSample: 2654340
+  - mStartSample: 2737566
+    mEndSample: 2737566
+  - mStartSample: 2820207
+    mEndSample: 2820207
+  - mStartSample: 2902653
+    mEndSample: 2902653
+  - mStartSample: 2985606
+    mEndSample: 2985606
+  - mStartSample: 3068140
+    mEndSample: 3068140
+  - mStartSample: 3167710
+    mEndSample: 3167710
+  - mStartSample: 3188435
+    mEndSample: 3188435
+  - mStartSample: 3209090
+    mEndSample: 3209090
+  - mStartSample: 3229550
+    mEndSample: 3229550
+  - mStartSample: 3250400
+    mEndSample: 3250400
+  - mStartSample: 3271169
+    mEndSample: 3271169
+  - mStartSample: 3291770
+    mEndSample: 3291770
+  - mStartSample: 3312630
+    mEndSample: 3312630
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +116,49 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  - mTextVal: 3_-1_0
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b000000
