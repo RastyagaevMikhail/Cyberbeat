@@ -31,12 +31,13 @@ namespace CyberBeat
         {
             var key = property.FindPropertyRelative ("type");
             var value = property.FindPropertyRelative ("data");
-            var labelWidth = EditorGUIUtility.labelWidth;
-            EditorGUIUtility.labelWidth = 65f;
-            var rect = EditorGUI.PrefixLabel (position, new GUIContent (((LayerType) key.intValue).ToString ()));
-            EditorGUIUtility.labelWidth = labelWidth;
-            EditorGUI.PropertyField (rect, value, GUIContent.none);
 
+            var keyRect = new Rect (position) { width = position.width / 2f };
+            float offset = 50;
+            var valueRect = new Rect (keyRect) { x = (keyRect.width + offset), width = (keyRect.width - offset / 2) };
+
+            EditorGUI.PropertyField (keyRect, key, GUIContent.none);
+            EditorGUI.PropertyField (valueRect, value, GUIContent.none);
         }
     }
 #endif

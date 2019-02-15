@@ -1,5 +1,7 @@
 using GameCore;
 
+using Sirenix.OdinInspector;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,20 @@ namespace CyberBeat
                 return datas.Cast<TypeData<LayerType, ABitDataCollectionVariable>> ().ToList ();
             }
         }
+
         [System.Serializable] public class LayerTypeABitDataCollectionVariableTypeData : TypeData<LayerType, ABitDataCollectionVariable> { }
+
+        [Button]
+        public void Validate ()
+        {
+            datas = new List<LayerTypeABitDataCollectionVariableTypeData>();
+            foreach (var layer in Enums.instance.LayerTypes)
+            {
+                datas.Add(new LayerTypeABitDataCollectionVariableTypeData(){
+                    type = layer,
+                    data = Tools.ValidateSO<ABitDataCollectionVariable>($"Assets/Data/Variables/ABitDataCollection/Current{layer.name}Collection.asset")
+                });
+            }
+        }
     }
 }

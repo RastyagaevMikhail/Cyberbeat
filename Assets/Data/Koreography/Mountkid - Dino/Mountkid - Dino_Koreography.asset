@@ -27,24 +27,9 @@ MonoBehaviour:
     samplesPerBeat: 22050
     beatsPerMeasure: 4
     bStartNewMeasure: 1
-  - sectionName: Default Selection
-    startSample: 0
-    samplesPerBeat: 22050
-    beatsPerMeasure: 4
-    bStartNewMeasure: 1
-  - sectionName: Default Selection
-    startSample: 0
-    samplesPerBeat: 2947.4340837445557
-    beatsPerMeasure: 4
-    bStartNewMeasure: 1
-  - sectionName: beats
-    startSample: 0
-    samplesPerBeat: 22050
-    beatsPerMeasure: 4
-    bStartNewMeasure: 1
   mTracks:
   - {fileID: 11400000, guid: 02feb8892f33347ae952c4b06ee18f61, type: 2}
-  - {fileID: 11400000, guid: 0ec71d0e543ef434e907c661b8a92638, type: 2}
-  - {fileID: 11400000, guid: 8be6c4038cd1cb14193796b065cc661a, type: 2}
   - {fileID: 11400000, guid: 9bcd177a1c0df994c9c45b5f3765930b, type: 2}
+  - {fileID: 11400000, guid: 0ec71d0e543ef434e907c661b8a92638, type: 2}
   - {fileID: 11400000, guid: 7d565458fe001da4d9d1b238f9cd8e43, type: 2}
+  - {fileID: 11400000, guid: 8be6c4038cd1cb14193796b065cc661a, type: 2}

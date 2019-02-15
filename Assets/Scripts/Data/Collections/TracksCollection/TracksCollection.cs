@@ -56,7 +56,6 @@ namespace CyberBeat
 			foreach (var layer in CollectionSelector.Keys)
 			{
 				var collection = layerBitsSelector[layer];
-				// Debug.LogFormat ("layer = {0}", layer);
 				CollectionSelector[layer].Value = collection;
 			}
 		}

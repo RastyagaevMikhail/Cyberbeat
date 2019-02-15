@@ -77,7 +77,7 @@ namespace CyberBeat
 			Debug.LogFormat ("tracks = {0}", Tools.LogCollection(tracks));
 			
 			// tracks.Clear ();
-			foreach (var layer in Enums.LayerTypes)
+			foreach (var layer in Enums.instance.LayerTypes)
 			{
 				var trackLayer = Tools.ValidateSO<KoreographyTrack> (("Assets/Data/Koreography/{0}/Tracks/{1}_{0}.asset").AsFormat (name, layer));
 				UnityEditor.EditorUtility.SetDirty (trackLayer);
@@ -88,79 +88,13 @@ namespace CyberBeat
 			Koreography.Save();
 			SaveME();
 		}
-
-		[ContextMenu ("CalculateConstant")]
-		void CalculateConstant ()
-		{
-			progressInfo.Max = 0;
-			foreach (var bitInfo in layerBitsSelector[LayerType.Bit].Bits)
-			{
-				List<string> presetList = bitInfo.Strings.ToList ();
-				bool isContainConstant = presetList
-					.TrueForAll (p => data.Presets[p]
-						.Find (material =>
-						{
-							if (material)
-								return material.name == "ConstantBeat" || material.name == "Switcher";
-							return false;
-						}));
-
-				if (isContainConstant) progressInfo.Max++;
-			}
-			progressInfo.Save ();
-		}
-
-		[ContextMenu ("Generate Random Playeble")]
-		public void GenerateRandomPlayebles ()
-		{
-			var events = GetAllEventsByType (LayerType.Bit);
-			var keys = data.Presets.Keys.ToList ();
-			RandomStack<string> randStack = new RandomStack<string> (keys);
-			foreach (var evnt in events)
-			{
-				evnt.Payload = new TextPayload () { TextVal = randStack.Get () };
-			}
-			events.First ().Payload = new TextPayload () { TextVal = "1" };
-		}
-
 		[ContextMenu ("Save ME")]
 		public void SaveME ()
 		{
 			this.Save ();
 		}
 
-		[ContextMenu ("Convert To Name")]
-		void ConvertToName ()
-		{
-			LayerType layer = LayerType.Effect;
-			UnityEditor.EditorUtility.SetDirty (GetTrack (layer));
-			foreach (var e in this [layer])
-			{
-				string pld = e.GetTextValue ();
-				var payload = new TextPayload ();
-				payload.TextVal = pld.Replace (',', '_');
-				e.Payload = payload;
-			}
-		}
-
-		// [ContextMenu ("GenerateEffectsPresets")]
-		// void GenerateEffectsPresets ()
-		// {
-		// 	LayerType layer = LayerType.Effect;
-		// 	UnityEditor.EditorUtility.SetDirty (GetTrack (layer));
-		// 	List<string> payloads = Tools.GetAtPath<EffectDataPreset> ("Assets/Data/MetaData/Effects/").Select (pres => pres.name).ToList ();
-		// 	foreach (var e in this [layer])
-		// 	{
-		// 		string pld = e.GetTextValue ();
-		// 		if (payloads.Contains (pld)) continue;
-		// 		payloads.Add (pld);
-		// 		var parameters = pld.Split ('_');
-		// 		var effectPreset = CreateInstance<EffectDataPreset> ();
-		// 		float speedRotation = int.Parse (parameters[2]);
-		// 		effectPreset.Init ( speedRotation, 0.5f);
-		// 		effectPreset.CreateAsset ($"Assets/Data/MetaData/Effects/{pld}.asset");
-		// 	}
-		// }
+		
 
 		[OnInspectorGUI]
 		[PropertyOrder (int.MaxValue - 1)]
@@ -187,7 +121,6 @@ namespace CyberBeat
 		public MusicInfo music;
 		public List<SocialInfo> socials;
 		public ShopInfo shopInfo;
-		[InlineButton ("CalculateConstant", "Calculate")]
 		[InlineButton ("ValidateProgressInfo", "Validate")]
 		public ProgressInfo progressInfo;
 		[InlineButton ("ValidateLayerBits", "Validate")]
@@ -199,7 +132,7 @@ namespace CyberBeat
 		{
 			layerBitsSelector = Tools.ValidateSO<LayerTypeTrackBitsCollectionSelector> ($"Assets/Data/Selectors/Tracks/{name}_LayerBitsSelector.asset");
 			layerBitsSelector.datas = new List<LayerTypeTrackBitsCollectionSelector.LayerTypeTrackBitsCollectionTypeData> ();
-			foreach (var layer in Enums.LayerTypes)
+			foreach (var layer in Enums.instance.LayerTypes)
 			{
 				var dataBits = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/Track{layer}sCollection/{name}_{layer}.asset");
 				dataBits.Init (GetAllEventsByType (layer));
@@ -234,7 +167,7 @@ namespace CyberBeat
 			get
 			{
 				return _layerevents ??
-					(_layerevents = Enums.LayerTypes
+					(_layerevents = Enums.instance.LayerTypes
 						.Select (layer => new { Layer = layer, Events = GetTrack (layer).GetAllEvents () })
 						.ToDictionary (les => les.Layer, les => les.Events));
 			}
@@ -246,7 +179,9 @@ namespace CyberBeat
 		[SerializeField] Koreography koreography;
 		public Koreography Koreography { get { return koreography; } set { koreography = value; } }
 
-		public float StartSpeed = 50f;
+        public LayerTypeTrackBitsCollectionSelector LayerBitsSelector { get => layerBitsSelector; set => layerBitsSelector = value; }
+
+        public float StartSpeed = 50f;
 
 		public List<KoreographyEvent> this [LayerType layer]
 		{
@@ -260,7 +195,7 @@ namespace CyberBeat
 
 		public KoreographyTrack GetTrack (LayerType layer)
 		{
-			return Koreography.GetTrackByID (layer.ToString ());
+			return Koreography.GetTrackByID (layer.name);
 		}
 		public List<KoreographyEvent> GetAllEventsByType (LayerType layer)
 		{

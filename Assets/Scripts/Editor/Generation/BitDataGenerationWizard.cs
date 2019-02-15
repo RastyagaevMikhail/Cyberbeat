@@ -19,9 +19,11 @@ namespace CyberBeat.Generation
 
         private void OnWizardCreate ()
         {
-            var CurrentLayerBitItemData = Tools.ValidateSO<TrackBitItemData> ($"Assets/Data/ATimeUpdatable/Current{layer}ItemData.asset");
-            var LayerDataCollectionVariable = Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layer}Collection.asset");
-            var LayerGameEvent = Tools.ValidateSO<GameEventIBitData> ($"Assets/Data/Events/IBitData/On{layer}.asset");
+            string layerName = layer.ToString();
+            // string layerName = layer.name;
+            var CurrentLayerBitItemData = Tools.ValidateSO<TrackBitItemData> ($"Assets/Data/ATimeUpdatable/Current{layerName}ItemData.asset");
+            var LayerDataCollectionVariable = Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layerName}Collection.asset");
+            var LayerGameEvent = Tools.ValidateSO<GameEventIBitData> ($"Assets/Data/Events/IBitData/On{layerName}.asset");
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using CyberBeat;
 using UnityEngine;
 
 namespace GameCore
@@ -17,12 +17,12 @@ namespace GameCore
 		public float SoundVolume { get { return SoundManager.globalSoundsVolume; } set { SoundManager.globalSoundsVolume = value; } }
 		public float MusicVolume { get { return SoundManager.globalMusicVolume; } set { SoundManager.globalMusicVolume = value; } }
 
-        internal static object Find(Func<object, bool> p)
-        {
-            throw new NotImplementedException();
-        }
+		internal static object Find (Func<object, bool> p)
+		{
+			throw new NotImplementedException ();
+		}
 
-        public float UISoundsVolume { get { return SoundManager.globalUISoundsVolume; } set { SoundManager.globalUISoundsVolume = value; } }
+		public float UISoundsVolume { get { return SoundManager.globalUISoundsVolume; } set { SoundManager.globalUISoundsVolume = value; } }
 		public float GlobalVolume { get { return SoundManager.globalVolume; } set { SoundManager.globalVolume = value; } }
 
 		public bool MuteGameSound { get { return SoundManager.MuteSound; } set { SoundManager.MuteSound = value; } }
@@ -35,12 +35,8 @@ namespace GameCore
 		public bool VibrationEnabled { get { return PlayerPrefs.GetInt ("Vibration", 1) == 1; } set { PlayerPrefs.SetInt ("Vibration", value ? 1 : 0); } }
 		public long VibrationTime { get { return (long) PlayerPrefs.GetFloat ("VibrationTime", 55); } set { PlayerPrefs.SetFloat ("VibrationTime", value); } }
 
-		public InputType inputType { get { return (InputType) PlayerPrefs.GetInt ("InputType", (int) InputType.Tap); } set { PlayerPrefs.SetInt ("InputType", (int) value); } }
+	
 
 	}
-	public enum InputType
-	{
-		Tap,
-		Swipe
-	}
+	
 }
