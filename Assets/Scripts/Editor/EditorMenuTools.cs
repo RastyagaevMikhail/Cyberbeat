@@ -12,7 +12,8 @@ public class EditorMenuTools
 	public static void OpenScene (string SceneName)
 	{
 		string path = string.Format ("Assets/Scenes/{0}.unity", SceneName);
-		EditorSceneManager.OpenScene (path);
+		if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo ())
+			EditorSceneManager.OpenScene (path);
 	}
 
 	[MenuItem ("Game/Scenes/Loading")]
@@ -48,9 +49,10 @@ public class EditorMenuTools
 	[MenuItem ("Game/Scenes/Tracks/Mountkid - Dino")]
 	public static void OpenMountkid_Dino ()
 	{
-		OpenScene ("Mountkid - Dino");
+		OpenScene ("Tracks/Mountkid - Dino");
 	}
-	[MenuItem("Game/Current Track")]
+
+	[MenuItem ("Game/Current Track")]
 	public static void OpenCurrent ()
 	{
 		Selection.activeObject = CyberBeat.TracksCollection.instance.CurrentTrack;

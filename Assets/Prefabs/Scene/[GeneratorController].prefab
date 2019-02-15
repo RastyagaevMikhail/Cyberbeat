@@ -322,6 +322,8 @@ GameObject:
   - component: {fileID: 1879040865}
   - component: {fileID: 1879040864}
   - component: {fileID: 3514178173381107885}
+  - component: {fileID: 1529512033771293104}
+  - component: {fileID: 784940174354127204}
   m_Layer: 0
   m_Name: EffectGenerator
   m_TagString: Untagged
@@ -421,6 +423,66 @@ MonoBehaviour:
       PublicKeyToken=null
   updateOnEnable: 1
   Inverse: 0
+--- !u!114 &1529512033771293104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879040862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    EventObject: {fileID: 11400000, guid: d79f41bff46d52f4eb6d5826d6995ef5, type: 2}
+    Responce:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1879040865}
+          m_MethodName: set_color
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+--- !u!114 &784940174354127204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879040862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    EventObject: {fileID: 11400000, guid: 7826ae6dab0ad60489a9a08da94d0382, type: 2}
+    Responce:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1879040865}
+          m_MethodName: set_color
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
 --- !u!1 &1721431477504494100
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,7 +61,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363590674297502}
-  m_Mesh: {fileID: 4300004, guid: becca941ab1fb6b44bb02a488aee9b02, type: 3}
+  m_Mesh: {fileID: 4300000, guid: cbbce8e41cad3bc499b0413c21ca4099, type: 3}
 --- !u!23 &23634842161331732
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5108,7 +5108,7 @@ ParticleSystem:
 --- !u!199 &6700599063474054075
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9826,7 +9826,7 @@ ParticleSystem:
 --- !u!199 &6345327931785072975
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14672,7 +14672,7 @@ ParticleSystem:
 --- !u!199 &1917045389216787278
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

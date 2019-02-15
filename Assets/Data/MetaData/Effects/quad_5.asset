@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabName: quad_5
   speedRotation: 0
-  fadeInTime: 0
+  fadeInTime: 0.5
+  lifeTime: 1
+  fadeOutTime: 0.5
   offsetPosition: {x: 0, y: 0, z: 0}

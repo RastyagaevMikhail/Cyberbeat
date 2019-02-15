@@ -23,6 +23,7 @@ namespace CyberBeat
         [ShowIf ("fixedDistance")]
         [SerializeField] float aheadDistance = 45f;
         CurvySpline spline => splineVariable.ValueFast;
+        public Color color { get; set; }
         public void OnBit (IBitData bitData)
         {
             EffectDataPreset preset = selector[bitData.StringValue];
@@ -44,6 +45,7 @@ namespace CyberBeat
 
             var skinSetter = spawnedSkin.Get<EffectSkinSetter> ();
 
+            skinSetter.color = color;
             skinSetter.InitSkin (preset);
         }
 

@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Events;
 using Text = TMPro.TextMeshPro;
 
 namespace CyberBeat
@@ -28,6 +29,7 @@ namespace CyberBeat
         [SerializeField] float Duration = 0.5f;
         [SerializeField] float upDistance = 1f;
         [SerializeField] float startAlpha = 1f;
+        [SerializeField] UnityEvent onCompleteMove;
         Vector3[] path;
         float startLocalY;
         Tween moveTween = null;
@@ -37,7 +39,7 @@ namespace CyberBeat
             startLocalY = yLocal;
             path = new Vector3[] { Vector3.up * (startLocalY + upDistance) };
             scorePerBeat.Value = doubleCoins.ValueFast ? 2 : 1;
-            Reset ();
+            ResetTweens ();
         }
         public void OnColorTaked (Color color)
         {
@@ -45,12 +47,14 @@ namespace CyberBeat
             alpha = startAlpha;
 
             textComponent.text = "+" + countScore;
-            if (moveTween != null || fadeTween != null) Reset ();
-            moveTween = rb.DOLocalPath (path, Duration).SetEase (EaseMove);
-            // transform.DOLocalMoveY (yLocal + upDistance, Duration).SetEase (EaseMove);
-            fadeTween = textComponent.DOFade (0, Duration).SetEase (EaseFade).OnComplete (Reset);
+
+            if (moveTween != null || fadeTween != null) ResetTweens ();
+
+            moveTween = rb.DOLocalPath (path, Duration).SetEase (EaseMove).OnComplete (onCompleteMove.Invoke);
+
+            fadeTween = textComponent.DOFade (0, Duration).SetEase (EaseFade);
         }
-        private void Reset ()
+        public void ResetTweens ()
         {
             yLocal = startLocalY;
             alpha = 0f;

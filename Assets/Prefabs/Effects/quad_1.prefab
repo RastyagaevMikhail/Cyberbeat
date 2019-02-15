@@ -46,7 +46,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2791639008902382790}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!23 &7582797976882807473
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e98f3d1d943744cb806d6ae6b793a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalMesh: {fileID: 4300000, guid: 1ea769cfa5fb01245914df01fb6531e9, type: 2}
+  mf: {fileID: 734869861059922826}
 --- !u!114 &4512966588881828188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,9 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertexColorMeshSetter: {fileID: 4308217800725058539}
   rotator: {fileID: 3012890247331036527}
-  TextureName: _Base
-  ColorName: _Color
-  durationTransition: 0.25
 --- !u!114 &6365568048855953024
 MonoBehaviour:
   m_ObjectHideFlags: 0

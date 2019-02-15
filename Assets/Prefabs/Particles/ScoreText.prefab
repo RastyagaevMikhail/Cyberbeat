@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 2993883684593733291}
   - component: {fileID: 2993883684593733290}
   - component: {fileID: 418990245776786322}
+  - component: {fileID: 1625339562288484827}
+  - component: {fileID: 4299176519564248817}
   m_Layer: 0
   m_Name: ScoreText
   m_TagString: Untagged
@@ -193,11 +195,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2993883684593733288}
@@ -225,12 +227,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EaseFade: 14
   EaseMove: 15
-  textComponent: {fileID: 0}
-  rb: {fileID: 0}
-  ScorePerBeat: {fileID: 0}
+  textComponent: {fileID: 2993883684593733294}
+  rb: {fileID: 1625339562288484827}
+  scorePerBeat: {fileID: 11400000, guid: 083b6ed0d3eb97548ad223d5eea8f281, type: 2}
+  doubleCoins: {fileID: 11400000, guid: e8b1e4d7158c8d444a6da1a4596ed911, type: 2}
   Duration: 0.3
   upDistance: 3
-  startAlpha: 0.5
+  startAlpha: 1
+  onCompleteMove:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2993883684593733291}
+        m_MethodName: ResetTweens
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2993883684593733290}
+        m_MethodName: PushToPool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &2993883684593733290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,3 +300,49 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!54 &1625339562288484827
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993883684593733292}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 2
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &4299176519564248817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993883684593733292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    EventObject: {fileID: 11400000, guid: 7826ae6dab0ad60489a9a08da94d0382, type: 2}
+    Responce:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2993883684593733291}
+          m_MethodName: OnColorTaked
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
