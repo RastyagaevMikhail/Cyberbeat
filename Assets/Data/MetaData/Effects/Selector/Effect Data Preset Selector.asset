@@ -13,52 +13,48 @@ MonoBehaviour:
   m_Name: Effect Data Preset Selector
   m_EditorClassIdentifier: 
   datas:
-  - type: 1_0_+150
-    data: {fileID: 11400000, guid: 822453683e7cc834f8966d3d162f9b64, type: 2}
-  - type: 1_0_-150
-    data: {fileID: 11400000, guid: 24dc462fa6845be4a98c6d7d70217674, type: 2}
-  - type: 1_0_0
-    data: {fileID: 11400000, guid: ad6b4ff0f8b4ee349a32d896886acaa5, type: 2}
-  - type: 1_1_+70
-    data: {fileID: 11400000, guid: b12ac0d1b26948b44a395d1d97a105ca, type: 2}
-  - type: 1_1_+100
-    data: {fileID: 11400000, guid: a87de7583ed6b4e4f9bbdcee4c43f129, type: 2}
-  - type: 1_1_+120
-    data: {fileID: 11400000, guid: bc328830d058eba4194e8c570f355f3d, type: 2}
-  - type: 1_1_-70
-    data: {fileID: 11400000, guid: 95a6bba02c6150446b5ff156166b34a5, type: 2}
-  - type: 1_1_-100
-    data: {fileID: 11400000, guid: 692718bfc8bd1394486df46c0302da8f, type: 2}
-  - type: 1_1_-120
-    data: {fileID: 11400000, guid: a4302cdbb1ad1b2469e67d4f445f8fad, type: 2}
-  - type: 1_1_-130
-    data: {fileID: 11400000, guid: 4253d8faa3229cb4e8dd071a0f85a2b3, type: 2}
-  - type: 1_1_0
-    data: {fileID: 11400000, guid: 028ce11d65d640041b08de51c00ed0b7, type: 2}
-  - type: 1_1_100
-    data: {fileID: 11400000, guid: 86b1031e3a444364b8edad9a99a1e3df, type: 2}
-  - type: 1_1_130
-    data: {fileID: 11400000, guid: dd14c703582027140b0ac6d165ed9e6f, type: 2}
-  - type: 1_3_150
-    data: {fileID: 11400000, guid: c4b8550caefa0ed4e9978f5c45e10c61, type: 2}
-  - type: 2_0_+120
-    data: {fileID: 11400000, guid: 4050000585fb7bb43a615f186ae663c9, type: 2}
-  - type: 2_0_+150
-    data: {fileID: 11400000, guid: 924280d5e957e41428adcd166fe60af7, type: 2}
-  - type: 2_0_-120
-    data: {fileID: 11400000, guid: c8e7855aed6e6c14aba065c563b77dd9, type: 2}
-  - type: 2_0_-150
-    data: {fileID: 11400000, guid: b68f49fe7d76955408d4b44f33ff350f, type: 2}
-  - type: 2_0_0
-    data: {fileID: 11400000, guid: a5e17959599b19e4fa02589c8f04ed02, type: 2}
-  - type: 3_-1_0
-    data: {fileID: 11400000, guid: 6faa3e13dbdf5497a8837c324e6b57de, type: 2}
-  - type: 3_1_+130
-    data: {fileID: 11400000, guid: 3353c0990a2ef494fb4becd7c28b6bcc, type: 2}
-  - type: 3_1_+170
-    data: {fileID: 11400000, guid: 13f6f6100997384488ece6f0aaaac77a, type: 2}
-  - type: 3_1_-170
-    data: {fileID: 11400000, guid: 37037a44d4537e54ab5581ea98b6cb59, type: 2}
-  - type: 3_1_0
-    data: {fileID: 11400000, guid: 7377d5419273ca0408f3061c009844f7, type: 2}
+  - type: circle_1
+    data: {fileID: 11400000, guid: 8136f7582f36b8b44b8df137ef370dc8, type: 2}
+  - type: circle_2
+    data: {fileID: 11400000, guid: 0b6aa46c589588b4b8bbe2e4986af81c, type: 2}
+  - type: circle_3
+    data: {fileID: 11400000, guid: 6fa51fa9bcbc001488ca82913850f04e, type: 2}
+  - type: circle_4
+    data: {fileID: 11400000, guid: 9edf7019596b5a943886534565fcfb97, type: 2}
+  - type: circle_5
+    data: {fileID: 11400000, guid: cef47feb03001af478d3189544551091, type: 2}
+  - type: circle_6
+    data: {fileID: 11400000, guid: 12069cd47017b8445a39c4fbfeb7140b, type: 2}
+  - type: circle_7
+    data: {fileID: 11400000, guid: 6c078079f398893438bc92ac32f9d309, type: 2}
+  - type: Effects
+    data: {fileID: 11400000, guid: 20da973f914341348b200d9c2086d9e6, type: 2}
+  - type: quad_1
+    data: {fileID: 11400000, guid: 1402757ceb2d6be4f8fd36cd367bb554, type: 2}
+  - type: quad_2
+    data: {fileID: 11400000, guid: cee1490eb36336c4b9b0df4f9a74bd7c, type: 2}
+  - type: quad_3
+    data: {fileID: 11400000, guid: 9fd5052769b321a40a9739cd2bd00162, type: 2}
+  - type: quad_4
+    data: {fileID: 11400000, guid: 3c579d7e1d1596341a95f0e7034f1c31, type: 2}
+  - type: quad_5
+    data: {fileID: 11400000, guid: 3f74108314eb91d4ba3e485e7575c899, type: 2}
+  - type: quad_6
+    data: {fileID: 11400000, guid: 02e6fc6db9eb1a8499d0f3eeb6b53543, type: 2}
+  - type: quad_7
+    data: {fileID: 11400000, guid: 8168a129265547444aa2dfa3841555f0, type: 2}
+  - type: triangle_1
+    data: {fileID: 11400000, guid: 6605d3938301b0a459e479a47b42c529, type: 2}
+  - type: triangle_2
+    data: {fileID: 11400000, guid: 57a02c16c151686449c40da33c27d7c0, type: 2}
+  - type: triangle_3
+    data: {fileID: 11400000, guid: d87a90460c072fd45bf8ca3587c4ea0d, type: 2}
+  - type: triangle_4
+    data: {fileID: 11400000, guid: c7bbe68489dd7bc499b82b8c62d458b5, type: 2}
+  - type: triangle_5
+    data: {fileID: 11400000, guid: d3172bfef5d460e44bf556192fbf4209, type: 2}
+  - type: triangle_6
+    data: {fileID: 11400000, guid: ac9f55525f2215140928b76e164e2606, type: 2}
+  - type: triangle_7
+    data: {fileID: 11400000, guid: fbef8193e8701084abde61a1683310e4, type: 2}
   ValiadtePath: Assets/Data/MetaData/Effects

@@ -357,6 +357,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selector: {fileID: 11400000, guid: 7b5a75a2bd8f80e4996451a4f6edef77, type: 2}
   pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
+  splineVariable: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}
+  fixedDistance: 1
+  aheadDistance: 45
 --- !u!114 &1879040864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,6 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5178248d34e234d9f136b72b5497b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invokeOnEnable: 1
   _OnEnable:
     m_PersistentCalls:
       m_Calls:
@@ -896,6 +900,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  invokeOnAwake: 1
   OnAwake:
     m_PersistentCalls:
       m_Calls:
@@ -913,16 +918,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  invokeOnStart: 1
   OnStart:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  invokeOnDisable: 1
   _OnDisable:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  invokeOnDestroy: 1
   _OnDestroy:
     m_PersistentCalls:
       m_Calls: []

@@ -40,8 +40,105 @@ MonoBehaviour:
       type: 3}
     Parent: {fileID: 0}
     startCount: 3
-  - Key: Effects
-    Prefab: {fileID: 1473479160779373268, guid: d63af19b1ba565e41808fc4b1b2d7aba,
+  - Key: circle_1
+    Prefab: {fileID: 5228909091288708006, guid: 3e223b47ef555ed439e1be95710f1b5c,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: circle_2
+    Prefab: {fileID: 2742344672361425049, guid: dca9db2615211c14bb910fe81ddc4603,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: circle_4
+    Prefab: {fileID: 6653975852733104224, guid: 914e4aa86f8e09d4a9150c9c3c590c5c,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: circle_3
+    Prefab: {fileID: 1964826160030331167, guid: c3ed7a47b5e9e134ca13f7c49a282832,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: circle_5
+    Prefab: {fileID: 5689421347336767068, guid: 6c14c62bb674f024db3ec887afe0ad74,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: circle_6
+    Prefab: {fileID: 1174876384384556740, guid: f555951f963b20243aca901b704b171f,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: circle_7
+    Prefab: {fileID: 6949057944883448897, guid: 022cbd8e91f40894f87d0f50381056f6,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: quad_1
+    Prefab: {fileID: 6365568048855953024, guid: ae2539897ed6b0144a26bf25f31488f8,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: quad_2
+    Prefab: {fileID: 452658695962982627, guid: 5e95a1941d6208144b5d8e6d3d6ecb80, type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: quad_3
+    Prefab: {fileID: 1434756047947140384, guid: c612cc57a5b0c694ba424da391d7bdd0,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: quad_4
+    Prefab: {fileID: 2499191033703932356, guid: 44ea7fd50d5250044b2d8910a9d6aee5,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: quad_5
+    Prefab: {fileID: 5510752601134744614, guid: e01b43c684b49c74c984099ea1049a59,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: quad_6
+    Prefab: {fileID: 1888440171546530666, guid: 734a52ffe8a9d744396eceaf74092ba4,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: triangle_1
+    Prefab: {fileID: 5432602480520414630, guid: b2b3bf099259fd7479a045b37262de42,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: quad_7
+    Prefab: {fileID: 2395737224556712252, guid: c6ba9066b9dc1054a89ec214091dceda,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: triangle_3
+    Prefab: {fileID: 2113381649013304118, guid: 767903c6fdd3cbc429f6e037862ce6b0,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: triangle_2
+    Prefab: {fileID: 1826655007475618888, guid: 8c4a8b54947ede549b85c2b049b0151a,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: triangle_4
+    Prefab: {fileID: 655581438448345875, guid: 184fa4af34027b748b1d5f8a8770f58d, type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: triangle_5
+    Prefab: {fileID: 4235801772130672446, guid: 52b857015308c424f9dcf808edb91d9c,
+      type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: triangle_6
+    Prefab: {fileID: 678313021032975027, guid: e27bd904dbfb96e4bb395e1787870630, type: 3}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: triangle_7
+    Prefab: {fileID: 3425369816486058927, guid: 0f38f8d4cfb8ed14ba0a7272e4cc8448,
       type: 3}
     Parent: {fileID: 0}
     startCount: 10

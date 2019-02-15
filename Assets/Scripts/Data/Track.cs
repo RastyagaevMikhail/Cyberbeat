@@ -143,26 +143,24 @@ namespace CyberBeat
 			}
 		}
 
-		[ContextMenu ("GenerateEffectsPresets")]
-		void GenerateEffectsPresets ()
-		{
-			LayerType layer = LayerType.Effect;
-			UnityEditor.EditorUtility.SetDirty (GetTrack (layer));
-			List<string> payloads = Tools.GetAtPath<EffectDataPreset> ("Assets/Data/MetaData/Effects/").Select (pres => pres.name).ToList ();
-			foreach (var e in this [layer])
-			{
-				string pld = e.GetTextValue ();
-				if (payloads.Contains (pld)) continue;
-				payloads.Add (pld);
-				var parameters = pld.Split ('_');
-				var effectPreset = CreateInstance<EffectDataPreset> ();
-				EffectSkinData skinData = EffectSkinsDataCollection.instance[parameters[0]];
-				Shapes shape = (Shapes) int.Parse (parameters[1]);
-				float speedRotation = int.Parse (parameters[2]);
-				effectPreset.Init (skinData, shape, speedRotation, 0.5f);
-				effectPreset.CreateAsset ($"Assets/Data/MetaData/Effects/{pld}.asset");
-			}
-		}
+		// [ContextMenu ("GenerateEffectsPresets")]
+		// void GenerateEffectsPresets ()
+		// {
+		// 	LayerType layer = LayerType.Effect;
+		// 	UnityEditor.EditorUtility.SetDirty (GetTrack (layer));
+		// 	List<string> payloads = Tools.GetAtPath<EffectDataPreset> ("Assets/Data/MetaData/Effects/").Select (pres => pres.name).ToList ();
+		// 	foreach (var e in this [layer])
+		// 	{
+		// 		string pld = e.GetTextValue ();
+		// 		if (payloads.Contains (pld)) continue;
+		// 		payloads.Add (pld);
+		// 		var parameters = pld.Split ('_');
+		// 		var effectPreset = CreateInstance<EffectDataPreset> ();
+		// 		float speedRotation = int.Parse (parameters[2]);
+		// 		effectPreset.Init ( speedRotation, 0.5f);
+		// 		effectPreset.CreateAsset ($"Assets/Data/MetaData/Effects/{pld}.asset");
+		// 	}
+		// }
 
 		[OnInspectorGUI]
 		[PropertyOrder (int.MaxValue - 1)]

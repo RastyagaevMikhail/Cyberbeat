@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5527343176477025233}
   - component: {fileID: 5861399464100341208}
   - component: {fileID: 1478936871933025621}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square_Whole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4707,7 +4707,7 @@ ParticleSystem:
 --- !u!199 &5861399464100341208
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4795,7 +4795,7 @@ GameObject:
   - component: {fileID: 6171535383522432812}
   - component: {fileID: 3318112207402492802}
   - component: {fileID: 3902562311481391189}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: switchColor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9425,7 +9425,7 @@ ParticleSystem:
 --- !u!199 &6171535383522432812
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9549,7 +9549,7 @@ GameObject:
   - component: {fileID: 8852053017762370783}
   - component: {fileID: 1670877272227392813}
   - component: {fileID: 3508180515192969258}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14244,7 +14244,7 @@ ParticleSystem:
 --- !u!199 &1670877272227392813
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

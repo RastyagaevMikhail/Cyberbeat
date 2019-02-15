@@ -2,6 +2,8 @@
 
 using GameCore;
 
+using Sirenix.OdinInspector;
+
 using SonicBloom.Koreo;
 
 using System.Collections;
@@ -17,23 +19,32 @@ namespace CyberBeat
         [SerializeField] EffectDataPresetSelector selector;
         [SerializeField] PoolVariable pool;
         [SerializeField] CurvySplineVariable splineVariable;
+        [SerializeField] bool fixedDistance = true;
+        [ShowIf ("fixedDistance")]
         [SerializeField] float aheadDistance = 45f;
         CurvySpline spline => splineVariable.ValueFast;
         public void OnBit (IBitData bitData)
         {
-            var spawnedSkin = pool.Pop ("Effects");
+            EffectDataPreset preset = selector[bitData.StringValue];
+            var spawnedSkin = pool.Pop (preset.PrefabName);
+            if (fixedDistance)
+            {
+                float nearestPointTF = spline.GetNearestPointTF (position);
+                float distance = spline.TFToDistance (nearestPointTF);
+                distance += aheadDistance;
+                float aheadTF = spline.DistanceToTF (distance);
 
-            float nearestPointTF = spline.GetNearestPointTF (position);
-            float distance = spline.TFToDistance (nearestPointTF);
-            distance += aheadDistance;
-            float aheadTF = spline.DistanceToTF (distance);
-
-            spawnedSkin.position = spline.InterpolateFast (aheadTF);
-            spawnedSkin.rotation = spline.GetOrientationFast (aheadTF);
+                spawnedSkin.position = spline.InterpolateFast (aheadTF);
+                spawnedSkin.rotation = spline.GetOrientationFast (aheadTF);
+            }
+            else
+            {
+                spawnedSkin.Apply (this, true, true);
+            }
 
             var skinSetter = spawnedSkin.Get<EffectSkinSetter> ();
 
-            skinSetter.InitSkin (selector[bitData.StringValue]);
+            skinSetter.InitSkin (preset);
         }
 
     }
