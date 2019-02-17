@@ -21657,54 +21657,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &940737576 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8110972132581166561, guid: 0d02da4b306b38b47a3884c349fe84aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 8110972133333696845}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &940737577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940737576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ccadaa979de16c4cbbb308970eb2421, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 66b18ca738e2cda4da01bd10ba2b3099, type: 2}
-  Responce:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 940737579}
-        m_MethodName: OnBit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: CyberBeat.GameEventListenerIBitData+UnityEventIBitData, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  debug: 0
---- !u!114 &940737579 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8110972132581166560, guid: 0d02da4b306b38b47a3884c349fe84aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 8110972133333696845}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940737576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a4c11a66e5eddf46aaeb0f4e7b8c2ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &943156147
 Mesh:
   m_ObjectHideFlags: 0
@@ -36227,18 +36179,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1493266062 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7938904887657484278, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8266133836934056951}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150ec2c87c565f3468f5ed25d6f26381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &1501958486
 Mesh:
   m_ObjectHideFlags: 0
@@ -43951,130 +43891,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1807914784 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2263003265711161094, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8266133836934056951}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1807914787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807914784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150ec2c87c565f3468f5ed25d6f26381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTime:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  endTime:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  duration:
-    enabled: 1
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11400000, guid: b4902b23350b1b4418b2285dce10f467, type: 2}
-          m_MethodName: Rebind
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11400000, guid: b4902b23350b1b4418b2285dce10f467, type: 2}
-          m_MethodName: Play
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: OnBit
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  stringValue:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  randomString:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  setPosition:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  setLossyScale:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  setRotation:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventQuaternion, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  setLocalPosition:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  setLocalScale:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  setLocalRotation:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventQuaternion, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  setTransform:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventTransform, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
 --- !u!43 &1819553465
 Mesh:
   m_ObjectHideFlags: 0
@@ -53021,46 +52837,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7162959301609080956, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162959301609080956, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162959302847223753, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 30.299927
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162959302847223753, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -10.800049
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162959302847223753, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 132
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162959302847223753, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 132
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162959301964682103, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162959301964682103, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7162959301090417576, guid: ef77e30dba77edd49b31cd782260f4ef,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -53513,9 +53289,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8110972132581166589, guid: 0d02da4b306b38b47a3884c349fe84aa, type: 3}
-    - {fileID: 8110972132581166562, guid: 0d02da4b306b38b47a3884c349fe84aa, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d02da4b306b38b47a3884c349fe84aa, type: 3}
 --- !u!1001 &8201911561382607556
 PrefabInstance:
@@ -53653,30 +53427,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5429566060490198258, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-        type: 3}
-      propertyPath: Responce.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnBit
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429566060490198258, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-        type: 3}
-      propertyPath: Responce.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1807914787}
-    - target: {fileID: 7196163005291771282, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-        type: 3}
-      propertyPath: Responce.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnBit
-      objectReference: {fileID: 0}
-    - target: {fileID: 7196163005291771282, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-        type: 3}
-      propertyPath: Responce.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1493266062}
-    m_RemovedComponents:
-    - {fileID: 1493266062, guid: 976d5dc9bf38c784fa3223c6fec711f6, type: 3}
-    - {fileID: 4803037644567715708, guid: 976d5dc9bf38c784fa3223c6fec711f6, type: 3}
-    - {fileID: 130804739486557191, guid: 976d5dc9bf38c784fa3223c6fec711f6, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976d5dc9bf38c784fa3223c6fec711f6, type: 3}
 --- !u!1001 &8655948237113569388
 PrefabInstance:
