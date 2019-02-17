@@ -13,8 +13,151 @@ MonoBehaviour:
   m_Name: ColorChange_Julius Dreisig - In My Head
   m_EditorClassIdentifier: 
   mEventID: ColorChange
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 0
+    mEndSample: 0
+  - mStartSample: 48112
+    mEndSample: 48112
+  - mStartSample: 237985
+    mEndSample: 237985
+  - mStartSample: 301980
+    mEndSample: 301980
+  - mStartSample: 366025
+    mEndSample: 366025
+  - mStartSample: 430528
+    mEndSample: 430528
+  - mStartSample: 494835
+    mEndSample: 494835
+  - mStartSample: 558992
+    mEndSample: 558992
+  - mStartSample: 623100
+    mEndSample: 623100
+  - mStartSample: 687063
+    mEndSample: 687063
+  - mStartSample: 736516
+    mEndSample: 736516
+  - mStartSample: 799190
+    mEndSample: 799190
+  - mStartSample: 830995
+    mEndSample: 830995
+  - mStartSample: 863016
+    mEndSample: 863016
+  - mStartSample: 894608
+    mEndSample: 894608
+  - mStartSample: 926255
+    mEndSample: 926255
+  - mStartSample: 959684
+    mEndSample: 959684
+  - mStartSample: 991247
+    mEndSample: 991247
+  - mStartSample: 1023770
+    mEndSample: 1023770
+  - mStartSample: 1055682
+    mEndSample: 1055682
+  - mStartSample: 1087944
+    mEndSample: 1087944
+  - mStartSample: 1119712
+    mEndSample: 1119712
+  - mStartSample: 1151172
+    mEndSample: 1151172
+  - mStartSample: 1184964
+    mEndSample: 1184964
+  - mStartSample: 1215148
+    mEndSample: 1215148
+  - mStartSample: 1246388
+    mEndSample: 1246388
+  - mStartSample: 1280092
+    mEndSample: 1280092
+  - mStartSample: 1311728
+    mEndSample: 1311728
+  - mStartSample: 1343144
+    mEndSample: 1343144
+  - mStartSample: 1376320
+    mEndSample: 1376320
+  - mStartSample: 1408528
+    mEndSample: 1408528
+  - mStartSample: 1441240
+    mEndSample: 1441240
+  - mStartSample: 1471756
+    mEndSample: 1471756
+  - mStartSample: 1503260
+    mEndSample: 1503260
+  - mStartSample: 1566444
+    mEndSample: 1566444
+  - mStartSample: 1600852
+    mEndSample: 1600852
+  - mStartSample: 1632356
+    mEndSample: 1632356
+  - mStartSample: 1666324
+    mEndSample: 1666324
+  - mStartSample: 1695760
+    mEndSample: 1695760
+  - mStartSample: 1728364
+    mEndSample: 1728364
+  - mStartSample: 1759516
+    mEndSample: 1759516
+  - mStartSample: 1809324
+    mEndSample: 1809324
+  - mStartSample: 1841224
+    mEndSample: 1841224
+  - mStartSample: 1873388
+    mEndSample: 1873388
+  - mStartSample: 1905420
+    mEndSample: 1905420
+  - mStartSample: 2113936
+    mEndSample: 2113936
+  - mStartSample: 2178132
+    mEndSample: 2178132
+  - mStartSample: 2186008
+    mEndSample: 2186008
+  - mStartSample: 2242196
+    mEndSample: 2242196
+  - mStartSample: 2306260
+    mEndSample: 2306260
+  - mStartSample: 2370443
+    mEndSample: 2370443
+  - mStartSample: 2402539
+    mEndSample: 2402539
+  - mStartSample: 2434608
+    mEndSample: 2434608
+  - mStartSample: 2442664
+    mEndSample: 2442664
+  - mStartSample: 2498892
+    mEndSample: 2498892
+  - mStartSample: 2530856
+    mEndSample: 2530856
+  - mStartSample: 2563471
+    mEndSample: 2563471
+  - mStartSample: 2627163
+    mEndSample: 2627163
+  - mStartSample: 2658481
+    mEndSample: 2658481
+  - mStartSample: 2691281
+    mEndSample: 2691281
+  - mStartSample: 2699235
+    mEndSample: 2699235
+  - mStartSample: 2754221
+    mEndSample: 2754221
+  - mStartSample: 2787279
+    mEndSample: 2787279
+  - mStartSample: 2819454
+    mEndSample: 2819454
+  - mStartSample: 2883650
+    mEndSample: 2883650
+  - mStartSample: 2915885
+    mEndSample: 2915885
+  - mStartSample: 2945075
+    mEndSample: 2945075
+  - mStartSample: 2955820
+    mEndSample: 2955820
+  - mStartSample: 2979200
+    mEndSample: 2979200
+  - mStartSample: 3011965
+    mEndSample: 3011965
+  - mStartSample: 3044191
+    mEndSample: 3044191
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +170,76 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f00000040000000410000004200000043000000440000004500000046000000

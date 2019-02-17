@@ -13,7 +13,7 @@ namespace CyberBeat
     public class TrackBitItemData : BitTimeItem<TrackBit>
     {
         [SerializeField] UnityEventIBitData TimeIsOver;
-        protected override void OnTimeIsOver ()
+        public override void OnTimeIsOver ()
         {
             base.OnTimeIsOver ();
             if (TimeItems.Count () > 0)

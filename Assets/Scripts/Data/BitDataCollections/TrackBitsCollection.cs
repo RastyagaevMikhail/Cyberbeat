@@ -18,7 +18,7 @@ namespace CyberBeat
         public override void Init (List<KoreographyEvent> events)
         {
             bits = events.Select (e => new TrackBit (e)).ToList ();
-            this.Save();
+            this.Save ();
         }
     }
 
@@ -50,6 +50,15 @@ namespace CyberBeat
             payloadData = new TrackBitPayload ();
             payloadData.Init (koreographyEvent.Payload);
         }
+        public override string ToString ()
+        {
+            return base.ToString () +"\n"+
+                $"StartTime:{StartTime}\n" +
+                $"EndTime:{EndTime}\n" +
+                $"Duration:{Duration}\n" +
+                $"StringValue:{StringValue}\n";
+        }
     }
+
     [System.Serializable] class TrackBitPayload : APayloadData { }
 }

@@ -27,8 +27,6 @@ namespace CyberBeat
         public void OnBit (IBitData bitData)
         {
             EffectDataPreset preset = selector[bitData.StringValue];
-            Debug.LogFormat ("bitData.StringValue = {0}", bitData.StringValue);
-            Debug.LogFormat ("preset = {0}", preset);
             var spawnedSkin = pool.Pop (preset.PrefabName, null);
             if (fixedDistance)
             {

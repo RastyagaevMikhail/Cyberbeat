@@ -13,8 +13,73 @@ MonoBehaviour:
   m_Name: ColorChange_Audioscribe - Free Fall
   m_EditorClassIdentifier: 
   mEventID: ColorChange
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 0
+    mEndSample: 0
+  - mStartSample: 120666
+    mEndSample: 120666
+  - mStartSample: 970920
+    mEndSample: 970920
+  - mStartSample: 1471200
+    mEndSample: 1471200
+  - mStartSample: 1531338
+    mEndSample: 1531338
+  - mStartSample: 1591620
+    mEndSample: 1591620
+  - mStartSample: 1652000
+    mEndSample: 1652000
+  - mStartSample: 1713712
+    mEndSample: 1713712
+  - mStartSample: 1772472
+    mEndSample: 1772472
+  - mStartSample: 1833348
+    mEndSample: 1833348
+  - mStartSample: 1938854
+    mEndSample: 1938854
+  - mStartSample: 2198664
+    mEndSample: 2198664
+  - mStartSample: 2438480
+    mEndSample: 2438480
+  - mStartSample: 2680172
+    mEndSample: 2680172
+  - mStartSample: 2839760
+    mEndSample: 2839760
+  - mStartSample: 2906685
+    mEndSample: 2906685
+  - mStartSample: 2996840
+    mEndSample: 2996840
+  - mStartSample: 3118350
+    mEndSample: 3118350
+  - mStartSample: 3238466
+    mEndSample: 3238466
+  - mStartSample: 3359850
+    mEndSample: 3359850
+  - mStartSample: 3481452
+    mEndSample: 3481452
+  - mStartSample: 3602669
+    mEndSample: 3602669
+  - mStartSample: 3722662
+    mEndSample: 3722662
+  - mStartSample: 3963908
+    mEndSample: 3963908
+  - mStartSample: 4085248
+    mEndSample: 4085248
+  - mStartSample: 4206684
+    mEndSample: 4206684
+  - mStartSample: 4326930
+    mEndSample: 4326930
+  - mStartSample: 4447704
+    mEndSample: 4447704
+  - mStartSample: 4502615
+    mEndSample: 4502615
+  - mStartSample: 4569246
+    mEndSample: 4569246
+  - mStartSample: 4690506
+    mEndSample: 4690506
+  - mStartSample: 4811766
+    mEndSample: 4811766
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +92,37 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000

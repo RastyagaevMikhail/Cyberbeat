@@ -8,7 +8,13 @@ using UnityEngine.Events;
 
 namespace CyberBeat
 {
-    public abstract class ATimeUpdateable<TSavableVariable, TValue, TUnityEvent, TEventArgument> : ScriptableObject
+    public abstract class ATimeUpdateable : ScriptableObject
+    {
+        public abstract void Start ();
+        public abstract void OnTimeIsOver ();
+        public abstract void UpdateInTime (float time);
+    }
+    public abstract class ATimeUpdateable<TSavableVariable, TValue, TUnityEvent, TEventArgument> : ATimeUpdateable
     {
         [SerializeField] protected TSavableVariable variable;
         public TSavableVariable Variable
@@ -28,7 +34,7 @@ namespace CyberBeat
 
         public abstract IEnumerable<ITimeItem> TimeItems { get; }
 
-        public virtual void Start ()
+        public override void Start ()
         {
             indexOfTime = 0;
             if (TimesIsOver)
@@ -39,11 +45,11 @@ namespace CyberBeat
             CurrentTimeItem = TimeItems.First ();
         }
 
-        protected virtual void OnTimeIsOver ()
+        public override void OnTimeIsOver ()
         {
             if (debug) Debug.Log ($"{("TimesIsOver".err())} {this.ToString().warn()}", this);
         }
 
-        public abstract void UpdateInTime (float time);
+        public override abstract void UpdateInTime (float time);
     }
 }

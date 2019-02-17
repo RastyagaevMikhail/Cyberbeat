@@ -47,8 +47,8 @@ namespace CyberBeat
                 dataBits.Save ();
                 selector.datas.Add (new LayerTypeTrackBitsCollectionSelector.LayerTypeTrackBitsCollectionTypeData ()
                 {
-                type = layer,
-                data = dataBits
+                    type = layer,
+                    data = dataBits
                 });
             }
             selector.Save ();

@@ -13,8 +13,153 @@ MonoBehaviour:
   m_Name: Animation_Julius Dreisig - In My Head
   m_EditorClassIdentifier: 
   mEventID: Animation
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 110992
+    mEndSample: 110992
+  - mStartSample: 173848
+    mEndSample: 173848
+  - mStartSample: 269885
+    mEndSample: 269885
+  - mStartSample: 333850
+    mEndSample: 333850
+  - mStartSample: 398585
+    mEndSample: 398585
+  - mStartSample: 462990
+    mEndSample: 462990
+  - mStartSample: 526504
+    mEndSample: 526504
+  - mStartSample: 590820
+    mEndSample: 590820
+  - mStartSample: 655320
+    mEndSample: 655320
+  - mStartSample: 719356
+    mEndSample: 719356
+  - mStartSample: 751520
+    mEndSample: 751520
+  - mStartSample: 782936
+    mEndSample: 782936
+  - mStartSample: 815815
+    mEndSample: 815815
+  - mStartSample: 846868
+    mEndSample: 846868
+  - mStartSample: 879032
+    mEndSample: 879032
+  - mStartSample: 909764
+    mEndSample: 909764
+  - mStartSample: 943690
+    mEndSample: 943690
+  - mStartSample: 975370
+    mEndSample: 975370
+  - mStartSample: 1007820
+    mEndSample: 1007820
+  - mStartSample: 1039120
+    mEndSample: 1039120
+  - mStartSample: 1071888
+    mEndSample: 1071888
+  - mStartSample: 1103784
+    mEndSample: 1103784
+  - mStartSample: 1134276
+    mEndSample: 1134276
+  - mStartSample: 1168376
+    mEndSample: 1168376
+  - mStartSample: 1200232
+    mEndSample: 1200232
+  - mStartSample: 1232125
+    mEndSample: 1232125
+  - mStartSample: 1264076
+    mEndSample: 1264076
+  - mStartSample: 1295272
+    mEndSample: 1295272
+  - mStartSample: 1328580
+    mEndSample: 1328580
+  - mStartSample: 1360348
+    mEndSample: 1360348
+  - mStartSample: 1391960
+    mEndSample: 1391960
+  - mStartSample: 1424412
+    mEndSample: 1424412
+  - mStartSample: 1456912
+    mEndSample: 1456912
+  - mStartSample: 1488317
+    mEndSample: 1488317
+  - mStartSample: 1520860
+    mEndSample: 1520860
+  - mStartSample: 1552408
+    mEndSample: 1552408
+  - mStartSample: 1584912
+    mEndSample: 1584912
+  - mStartSample: 1616560
+    mEndSample: 1616560
+  - mStartSample: 1648400
+    mEndSample: 1648400
+  - mStartSample: 1680844
+    mEndSample: 1680844
+  - mStartSample: 1710720
+    mEndSample: 1710720
+  - mStartSample: 1744292
+    mEndSample: 1744292
+  - mStartSample: 1777160
+    mEndSample: 1777160
+  - mStartSample: 1825252
+    mEndSample: 1825252
+  - mStartSample: 1857328
+    mEndSample: 1857328
+  - mStartSample: 1889360
+    mEndSample: 1889360
+  - mStartSample: 1921524
+    mEndSample: 1921524
+  - mStartSample: 2033372
+    mEndSample: 2033372
+  - mStartSample: 2064920
+    mEndSample: 2064920
+  - mStartSample: 2097568
+    mEndSample: 2097568
+  - mStartSample: 2160884
+    mEndSample: 2160884
+  - mStartSample: 2209460
+    mEndSample: 2209460
+  - mStartSample: 2225740
+    mEndSample: 2225740
+  - mStartSample: 2290444
+    mEndSample: 2290444
+  - mStartSample: 2322408
+    mEndSample: 2322408
+  - mStartSample: 2339436
+    mEndSample: 2339436
+  - mStartSample: 2354220
+    mEndSample: 2354220
+  - mStartSample: 2417860
+    mEndSample: 2417860
+  - mStartSample: 2464528
+    mEndSample: 2464528
+  - mStartSample: 2481675
+    mEndSample: 2481675
+  - mStartSample: 2545785
+    mEndSample: 2545785
+  - mStartSample: 2609896
+    mEndSample: 2609896
+  - mStartSample: 2675865
+    mEndSample: 2675865
+  - mStartSample: 2720842
+    mEndSample: 2720842
+  - mStartSample: 2739046
+    mEndSample: 2739046
+  - mStartSample: 2802678
+    mEndSample: 2802678
+  - mStartSample: 2835558
+    mEndSample: 2835558
+  - mStartSample: 2850243
+    mEndSample: 2850243
+  - mStartSample: 2867271
+    mEndSample: 2867271
+  - mStartSample: 2931075
+    mEndSample: 2931075
+  - mStartSample: 2994880
+    mEndSample: 2994880
+  - mStartSample: 3060492
+    mEndSample: 3060492
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +172,77 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f0000004000000041000000420000004300000044000000450000004600000047000000

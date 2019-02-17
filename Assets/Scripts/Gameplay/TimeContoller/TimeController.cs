@@ -13,18 +13,24 @@ namespace CyberBeat
         [SerializeField] float time;
         [SerializeField] UnityEvent OnAwake;
         [SerializeField] UnityEventFloat OnUpdate;
-        // public abstract IEnumerable<ITimeUpdateable> TimeUpdateables { get; }
+        [SerializeField] List<TrackBitItemData> trackBitItemDatas;
         public bool StartCountTime { get; set; }
 
         void Awake ()
         {
             OnAwake.Invoke ();
+            foreach (var item in trackBitItemDatas)
+                item.Start ();
         }
         void Update ()
         {
             if (!StartCountTime) return;
 
             OnUpdate.Invoke (time);
+            
+            foreach (var item in trackBitItemDatas)
+                item.UpdateInTime (time);
+
             time += Time.deltaTime;
         }
     }

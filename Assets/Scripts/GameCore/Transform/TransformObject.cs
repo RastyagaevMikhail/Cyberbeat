@@ -46,5 +46,12 @@ namespace GameCore
         {
             transform.LookAt (target, worldUp);
         }
+
+        public void Reset ()
+        {
+            localPosition = Vector3.zero;
+            rotation = Quaternion.identity;
+            localScale = Vector3.one;
+        }
     }
 }

@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: Acceleration_Marmok - One More Time
   m_EditorClassIdentifier: 
   mEventID: Acceleration
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 2034175
+    mEndSample: 2377402
+  - mStartSample: 2415050
+    mEndSample: 2526400
+  - mStartSample: 2648657
+    mEndSample: 3116949
+  - mStartSample: 4066254
+    mEndSample: 4132606
+  - mStartSample: 4259634
+    mEndSample: 4729606
+  - mStartSample: 4853838
+    mEndSample: 6237384
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +40,11 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 
+  - mTextVal: 
+  - mTextVal: 
+  - mTextVal: 
+  - mTextVal: 
+  - mTextVal: 
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000

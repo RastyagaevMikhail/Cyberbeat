@@ -13,8 +13,43 @@ MonoBehaviour:
   m_Name: ColorChange_Nisci - Glory
   m_EditorClassIdentifier: 
   mEventID: ColorChange
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 0
+    mEndSample: 0
+  - mStartSample: 9656
+    mEndSample: 9656
+  - mStartSample: 1830353
+    mEndSample: 1830353
+  - mStartSample: 2076646
+    mEndSample: 2076646
+  - mStartSample: 2157435
+    mEndSample: 2157435
+  - mStartSample: 2240084
+    mEndSample: 2240084
+  - mStartSample: 2323600
+    mEndSample: 2323600
+  - mStartSample: 2405550
+    mEndSample: 2405550
+  - mStartSample: 2488935
+    mEndSample: 2488935
+  - mStartSample: 2571669
+    mEndSample: 2571669
+  - mStartSample: 2654340
+    mEndSample: 2654340
+  - mStartSample: 2737566
+    mEndSample: 2737566
+  - mStartSample: 2820207
+    mEndSample: 2820207
+  - mStartSample: 2902653
+    mEndSample: 2902653
+  - mStartSample: 2985606
+    mEndSample: 2985606
+  - mStartSample: 3068140
+    mEndSample: 3068140
+  - mStartSample: 3312630
+    mEndSample: 3312630
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +62,22 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000

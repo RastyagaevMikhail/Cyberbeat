@@ -13,8 +13,151 @@ MonoBehaviour:
   m_Name: Animation_Nisci - Glory
   m_EditorClassIdentifier: 
   mEventID: Animation
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 92087
+    mEndSample: 92087
+  - mStartSample: 175015
+    mEndSample: 175015
+  - mStartSample: 257202
+    mEndSample: 257202
+  - mStartSample: 339910
+    mEndSample: 339910
+  - mStartSample: 422994
+    mEndSample: 422994
+  - mStartSample: 505710
+    mEndSample: 505710
+  - mStartSample: 588500
+    mEndSample: 588500
+  - mStartSample: 671217
+    mEndSample: 671217
+  - mStartSample: 755190
+    mEndSample: 755190
+  - mStartSample: 836463
+    mEndSample: 836463
+  - mStartSample: 919584
+    mEndSample: 919584
+  - mStartSample: 1002150
+    mEndSample: 1002150
+  - mStartSample: 1085335
+    mEndSample: 1085335
+  - mStartSample: 1168731
+    mEndSample: 1168731
+  - mStartSample: 1250866
+    mEndSample: 1250866
+  - mStartSample: 1331847
+    mEndSample: 1331847
+  - mStartSample: 1414369
+    mEndSample: 1414369
+  - mStartSample: 1497587
+    mEndSample: 1497587
+  - mStartSample: 1580517
+    mEndSample: 1580517
+  - mStartSample: 1663153
+    mEndSample: 1663153
+  - mStartSample: 1745985
+    mEndSample: 1745985
+  - mStartSample: 1993280
+    mEndSample: 1993280
+  - mStartSample: 2014740
+    mEndSample: 2014740
+  - mStartSample: 2035500
+    mEndSample: 2035500
+  - mStartSample: 2056080
+    mEndSample: 2056080
+  - mStartSample: 2096040
+    mEndSample: 2096040
+  - mStartSample: 2116480
+    mEndSample: 2116480
+  - mStartSample: 2136840
+    mEndSample: 2136840
+  - mStartSample: 2178630
+    mEndSample: 2178630
+  - mStartSample: 2199470
+    mEndSample: 2199470
+  - mStartSample: 2219775
+    mEndSample: 2219775
+  - mStartSample: 2261133
+    mEndSample: 2261133
+  - mStartSample: 2281644
+    mEndSample: 2281644
+  - mStartSample: 2302547
+    mEndSample: 2302547
+  - mStartSample: 2343950
+    mEndSample: 2343950
+  - mStartSample: 2364705
+    mEndSample: 2364705
+  - mStartSample: 2385698
+    mEndSample: 2385698
+  - mStartSample: 2426914
+    mEndSample: 2426914
+  - mStartSample: 2447200
+    mEndSample: 2447200
+  - mStartSample: 2468210
+    mEndSample: 2468210
+  - mStartSample: 2509590
+    mEndSample: 2509590
+  - mStartSample: 2530050
+    mEndSample: 2530050
+  - mStartSample: 2550900
+    mEndSample: 2550900
+  - mStartSample: 2592270
+    mEndSample: 2592270
+  - mStartSample: 2613130
+    mEndSample: 2613130
+  - mStartSample: 2633995
+    mEndSample: 2633995
+  - mStartSample: 2675075
+    mEndSample: 2675075
+  - mStartSample: 2696190
+    mEndSample: 2696190
+  - mStartSample: 2716389
+    mEndSample: 2716389
+  - mStartSample: 2757790
+    mEndSample: 2757790
+  - mStartSample: 2778711
+    mEndSample: 2778711
+  - mStartSample: 2799440
+    mEndSample: 2799440
+  - mStartSample: 2840799
+    mEndSample: 2840799
+  - mStartSample: 2861430
+    mEndSample: 2861430
+  - mStartSample: 2882061
+    mEndSample: 2882061
+  - mStartSample: 2923518
+    mEndSample: 2923518
+  - mStartSample: 2944305
+    mEndSample: 2944305
+  - mStartSample: 2964936
+    mEndSample: 2964936
+  - mStartSample: 3006159
+    mEndSample: 3006159
+  - mStartSample: 3026907
+    mEndSample: 3026907
+  - mStartSample: 3047458
+    mEndSample: 3047458
+  - mStartSample: 3089133
+    mEndSample: 3089133
+  - mStartSample: 3109727
+    mEndSample: 3109727
+  - mStartSample: 3130897
+    mEndSample: 3130897
+  - mStartSample: 3167710
+    mEndSample: 3167710
+  - mStartSample: 3188435
+    mEndSample: 3188435
+  - mStartSample: 3209090
+    mEndSample: 3209090
+  - mStartSample: 3229550
+    mEndSample: 3229550
+  - mStartSample: 3250400
+    mEndSample: 3250400
+  - mStartSample: 3271169
+    mEndSample: 3271169
+  - mStartSample: 3291770
+    mEndSample: 3291770
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +170,76 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  - mTextVal: 6,7
+  - mTextVal: 4,5
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f00000040000000410000004200000043000000440000004500000046000000

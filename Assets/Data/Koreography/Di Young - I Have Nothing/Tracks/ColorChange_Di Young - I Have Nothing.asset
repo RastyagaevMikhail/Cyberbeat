@@ -13,8 +13,123 @@ MonoBehaviour:
   m_Name: ColorChange_Di Young - I Have Nothing
   m_EditorClassIdentifier: 
   mEventID: ColorChange
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 0
+    mEndSample: 0
+  - mStartSample: 62472
+    mEndSample: 62472
+  - mStartSample: 241942
+    mEndSample: 241942
+  - mStartSample: 338250
+    mEndSample: 338250
+  - mStartSample: 387283
+    mEndSample: 387283
+  - mStartSample: 434724
+    mEndSample: 434724
+  - mStartSample: 482760
+    mEndSample: 482760
+  - mStartSample: 530922
+    mEndSample: 530922
+  - mStartSample: 578880
+    mEndSample: 578880
+  - mStartSample: 627272
+    mEndSample: 627272
+  - mStartSample: 674976
+    mEndSample: 674976
+  - mStartSample: 723060
+    mEndSample: 723060
+  - mStartSample: 783864
+    mEndSample: 783864
+  - mStartSample: 879364
+    mEndSample: 879364
+  - mStartSample: 1168538
+    mEndSample: 1168538
+  - mStartSample: 1264038
+    mEndSample: 1264038
+  - mStartSample: 1618806
+    mEndSample: 1618806
+  - mStartSample: 1637374
+    mEndSample: 1637374
+  - mStartSample: 1805764
+    mEndSample: 1805764
+  - mStartSample: 1815920
+    mEndSample: 1815920
+  - mStartSample: 1828088
+    mEndSample: 1828088
+  - mStartSample: 1912508
+    mEndSample: 1912508
+  - mStartSample: 1924720
+    mEndSample: 1924720
+  - mStartSample: 2381220
+    mEndSample: 2381220
+  - mStartSample: 2478420
+    mEndSample: 2478420
+  - mStartSample: 2577498
+    mEndSample: 2577498
+  - mStartSample: 2654340
+    mEndSample: 2654340
+  - mStartSample: 2683824
+    mEndSample: 2683824
+  - mStartSample: 2689764
+    mEndSample: 2689764
+  - mStartSample: 2695750
+    mEndSample: 2695750
+  - mStartSample: 2701654
+    mEndSample: 2701654
+  - mStartSample: 2749440
+    mEndSample: 2749440
+  - mStartSample: 2765580
+    mEndSample: 2765580
+  - mStartSample: 2791800
+    mEndSample: 2791800
+  - mStartSample: 2845740
+    mEndSample: 2845740
+  - mStartSample: 2863800
+    mEndSample: 2863800
+  - mStartSample: 2887980
+    mEndSample: 2887980
+  - mStartSample: 2943060
+    mEndSample: 2943060
+  - mStartSample: 2958660
+    mEndSample: 2958660
+  - mStartSample: 2984160
+    mEndSample: 2984160
+  - mStartSample: 3038816
+    mEndSample: 3038816
+  - mStartSample: 3132692
+    mEndSample: 3132692
+  - mStartSample: 3152380
+    mEndSample: 3152380
+  - mStartSample: 3231876
+    mEndSample: 3231876
+  - mStartSample: 3247342
+    mEndSample: 3247342
+  - mStartSample: 3345910
+    mEndSample: 3345910
+  - mStartSample: 3441740
+    mEndSample: 3441740
+  - mStartSample: 3465272
+    mEndSample: 3465272
+  - mStartSample: 3467640
+    mEndSample: 3467640
+  - mStartSample: 3471266
+    mEndSample: 3471266
+  - mStartSample: 3535738
+    mEndSample: 3535738
+  - mStartSample: 3561516
+    mEndSample: 3561516
+  - mStartSample: 3615360
+    mEndSample: 3615360
+  - mStartSample: 3632328
+    mEndSample: 3632328
+  - mStartSample: 3657612
+    mEndSample: 3657612
+  - mStartSample: 3729852
+    mEndSample: 3729852
+  - mStartSample: 3753876
+    mEndSample: 3753876
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +142,62 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  - mTextVal: 1
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000
