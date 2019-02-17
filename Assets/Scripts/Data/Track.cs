@@ -18,21 +18,6 @@ namespace CyberBeat
 		#region EdiotHelpersFunctions
 
 #if UNITY_EDITOR
-		[ContextMenu ("Validate")]
-		void Validate ()
-		{
-			ValidateMusicInfo ();
-			ValidateShopInfo ();
-			ValidateProgressInfo ();
-			// CalculateConstant ();
-			ValidateKoreography ();
-			SetMeAsCurrent ();
-
-			data.Objects.Add (this);
-			this.Save ();
-			UnityEditor.Selection.activeObject = this;
-		}
-
 		[ContextMenu ("Validate MusicInfo")]
 		public void ValidateMusicInfo ()
 		{
@@ -53,48 +38,19 @@ namespace CyberBeat
 			progressInfo.Validate (name);
 			this.Save ();
 		}
-
-		[ContextMenu ("Validate Koreography")]
-		public void ValidateKoreography ()
+		public void CalculateConstantOn (LayerType layer)
 		{
-			Koreography = Tools.ValidateSO<Koreography> ("Assets/Data/Koreography/{0}/{0}_Koreography.asset".AsFormat (name));
-			Koreography.GetTempoSectionAtIndex (0).SectionName = "Default Selection";
-			Koreography.InsertTempoSectionAtIndex (0).SectionName = "Zero Selection";
-			Koreography.SourceClip = music.clip;
-			ValidateKoreographyTracksLayers ();
+			TrackBitsCollection trackBitsCollection = layerBitsSelector[layer];
+			List<IBitData> bits = trackBitsCollection.Bits;
+			int constants = helper.CalculateConstant (this, bits);
+			progressInfo.Validate (name, constants);
 		}
 
-		[ContextMenu ("Validate Layers")]
-		public void ValidateKoreographyTracksLayers ()
-		{
-			List<KoreographyTrack> tracks = Koreography.Tracks;
-			Debug.LogFormat ("tracks = {0}", Tools.LogCollection(tracks));
-			foreach (var track in tracks)
-			{
-				koreography.RemoveTrack(track);
-			}
-			tracks = Koreography.Tracks;
-			Debug.LogFormat ("tracks = {0}", Tools.LogCollection(tracks));
-			
-			// tracks.Clear ();
-			foreach (var layer in Enums.instance.LayerTypes)
-			{
-				var trackLayer = Tools.ValidateSO<KoreographyTrack> (("Assets/Data/Koreography/{0}/Tracks/{1}_{0}.asset").AsFormat (name, layer));
-				UnityEditor.EditorUtility.SetDirty (trackLayer);
-				trackLayer.EventID = layer.ToString ();
-				// if (Koreography.CanAddTrack (trackLayer))
-					Koreography.AddTrack (trackLayer);
-			}
-			Koreography.Save();
-			SaveME();
-		}
 		[ContextMenu ("Save ME")]
 		public void SaveME ()
 		{
 			this.Save ();
 		}
-
-		
 
 		[OnInspectorGUI]
 		[PropertyOrder (int.MaxValue - 1)]
@@ -105,6 +61,7 @@ namespace CyberBeat
 			else
 				Sirenix.Utilities.Editor.SirenixEditorGUI.ErrorMessageBox ("НЕ ЯВЛЯЕТСЯ текущим ");
 		}
+		public TrackHelper helper { get { return TrackHelper.instance; } }
 #endif
 		public bool IsCurrentTrack { get { return this == data.CurrentTrack; } }
 
@@ -123,29 +80,15 @@ namespace CyberBeat
 		public ShopInfo shopInfo;
 		[InlineButton ("ValidateProgressInfo", "Validate")]
 		public ProgressInfo progressInfo;
-		[InlineButton ("ValidateLayerBits", "Validate")]
-		[ContextMenuItem ("Valiadate", "ValidateLayerBits")]
+		[InlineButton ("ValidateLayerBitsSelector", "Valiadate")]
 		[SerializeField] LayerTypeTrackBitsCollectionSelector layerBitsSelector;
 #if UNITY_EDITOR
 		[ContextMenu ("ValidateLayerBits")]
-		public void ValidateLayerBits ()
+		public void ValidateLayerBitsSelector ()
 		{
-			layerBitsSelector = Tools.ValidateSO<LayerTypeTrackBitsCollectionSelector> ($"Assets/Data/Selectors/Tracks/{name}_LayerBitsSelector.asset");
-			layerBitsSelector.datas = new List<LayerTypeTrackBitsCollectionSelector.LayerTypeTrackBitsCollectionTypeData> ();
-			foreach (var layer in Enums.instance.LayerTypes)
-			{
-				var dataBits = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/Track{layer}sCollection/{name}_{layer}.asset");
-				dataBits.Init (GetAllEventsByType (layer));
-
-				layerBitsSelector.datas.Add (new LayerTypeTrackBitsCollectionSelector.LayerTypeTrackBitsCollectionTypeData ()
-				{
-					type = layer,
-						data = dataBits
-				});
-			}
-			layerBitsSelector.Save ();
-			this.Save ();
+			helper.ValidateLayerBitsSelector (this, layerBitsSelector);
 		}
+
 #endif
 		public TracksCollection data { get { return TracksCollection.instance; } }
 
@@ -174,14 +117,22 @@ namespace CyberBeat
 
 		}
 
-		[InlineButton ("ValidateKoreographyTracksLayers", "L")]
+		[InlineButton ("ValidateKoreographyTrackLayer", "L")]
 		[InlineButton ("ValidateKoreography", "K")]
 		[SerializeField] Koreography koreography;
-		public Koreography Koreography { get { return koreography; } set { koreography = value; } }
+#if UNITY_EDITOR
+		public void ValidateKoreography ()
+		{
+			koreography = helper.ValidateKoreography (this);
+		}
+		public void ValidateKoreographyTrackLayer ()
+		{
+			helper.ValidateKoreographyTrackLayer (koreography);
+		}
+#endif
+		public LayerTypeTrackBitsCollectionSelector LayerBitsSelector { get => layerBitsSelector; set => layerBitsSelector = value; }
 
-        public LayerTypeTrackBitsCollectionSelector LayerBitsSelector { get => layerBitsSelector; set => layerBitsSelector = value; }
-
-        public float StartSpeed = 50f;
+		public float StartSpeed = 50f;
 
 		public List<KoreographyEvent> this [LayerType layer]
 		{
@@ -195,7 +146,7 @@ namespace CyberBeat
 
 		public KoreographyTrack GetTrack (LayerType layer)
 		{
-			return Koreography.GetTrackByID (layer.name);
+			return koreography.GetTrackByID (layer.name);
 		}
 		public List<KoreographyEvent> GetAllEventsByType (LayerType layer)
 		{

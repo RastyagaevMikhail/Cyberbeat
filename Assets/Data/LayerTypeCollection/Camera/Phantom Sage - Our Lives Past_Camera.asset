@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fe8237a6697ba459d25957f6c10880, type: 3}
   m_Name: Phantom Sage - Our Lives Past_Camera
   m_EditorClassIdentifier: 
-  bits: []
+  bits:
+  - payloadData:
+      strings:
+      - OurLivesPast_low
+    startTime: 1.8408164
+    endTime: 2.2897959
+    duration: 0.4489795
+  - payloadData:
+      strings:
+      - OurLivesPast
+    startTime: 24.42449
+    endTime: 44.756462
+    duration: 20.331972

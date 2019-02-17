@@ -18,8 +18,16 @@ namespace CyberBeat
 
             private IEnumerable<ITimeItem> InitItems ()
             {
-                timeItems = Bits;
-                return timeItems;
+                try
+                {
+                    timeItems = Bits;
+                    return timeItems;
+                }
+                catch (System.Exception)
+                {
+                    return null;
+                }
+
             }
             private void OnEnable ()
             {

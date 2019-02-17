@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: FreeFall
   m_EditorClassIdentifier: 
   data:
-    magnitude: 1.5
+    magnitude: 0.6
     roughness: 3.5
-    usePercent: 0
-    fadeInTime: 3
-    fadeOutTime: 3
-    percent: 0
+    substructTimes: 0
+    fadeInTime: 0.1
+    fadeOutTime: 2
     posInfluence: {x: 0.15, y: 0.15, z: 0.15}
     rotInfluence: {x: 1.2, y: 1.2, z: 1.2}
-    timeDuaration: 5.836735
+    timeDuaration: 3.1877556

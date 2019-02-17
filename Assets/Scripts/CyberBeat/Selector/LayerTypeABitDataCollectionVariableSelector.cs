@@ -22,18 +22,21 @@ namespace CyberBeat
         }
 
         [System.Serializable] public class LayerTypeABitDataCollectionVariableTypeData : TypeData<LayerType, ABitDataCollectionVariable> { }
+#if UNITY_EDITOR
 
         [Button]
         public void Validate ()
         {
-            datas = new List<LayerTypeABitDataCollectionVariableTypeData>();
+            datas = new List<LayerTypeABitDataCollectionVariableTypeData> ();
             foreach (var layer in Enums.instance.LayerTypes)
             {
-                datas.Add(new LayerTypeABitDataCollectionVariableTypeData(){
+                datas.Add (new LayerTypeABitDataCollectionVariableTypeData ()
+                {
                     type = layer,
-                    data = Tools.ValidateSO<ABitDataCollectionVariable>($"Assets/Data/Variables/ABitDataCollection/Current{layer.name}Collection.asset")
+                    data = Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layer.name}Collection.asset")
                 });
             }
         }
+#endif    
     }
 }

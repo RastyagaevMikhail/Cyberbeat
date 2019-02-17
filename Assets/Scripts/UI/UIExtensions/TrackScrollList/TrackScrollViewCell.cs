@@ -50,7 +50,7 @@ namespace CyberBeat
 		{
 			if (track == null) return;
 
-			progressTextSetter.SetVariables (new IntVariable[] { track.progressInfo.BestVariable, track.progressInfo.MaxVariable });
+            progressTextSetter.SetVariables (track.progressInfo.pregressVariables);
 
 			if (context == null) return;
 

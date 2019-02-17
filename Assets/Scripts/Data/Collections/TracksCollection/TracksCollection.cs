@@ -57,6 +57,7 @@ namespace CyberBeat
 			{
 				var collection = layerBitsSelector[layer];
 				CollectionSelector[layer].Value = collection;
+				CollectionSelector[layer].Save();
 			}
 		}
 	}

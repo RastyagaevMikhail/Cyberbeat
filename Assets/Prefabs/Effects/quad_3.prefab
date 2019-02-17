@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertexColorMeshSetter: {fileID: 2693426596876103795}
   rotator: {fileID: 3577792549247413346}
+  spawnedObject: {fileID: 1434756047947140384}
 --- !u!114 &1434756047947140384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +151,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 50, y: 50, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2306568744294244256
 MonoBehaviour:

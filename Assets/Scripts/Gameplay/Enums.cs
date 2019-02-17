@@ -48,10 +48,18 @@ namespace CyberBeat
 #endif
         [SerializeField][InlineButton ("ValidateLayerType", "Validate")] List<LayerType> layerTypes;
         public List<LayerType> LayerTypes => layerTypes;
-        public void ValidateLayerType () => layerTypes = Tools.GetAtPath<LayerType> ("Assets/Data/Enums/LayerType").ToList ();
+        public void ValidateLayerType ()
+        {
+            layerTypes = Tools.GetAtPath<LayerType> ("Assets/Data/Enums/LayerType").ToList ();
+            instance.Save ();
+        }
 
         [SerializeField][InlineButton ("ValidateInputType", "Validate")] List<InputType> inputTypes;
-        public void ValidateInputType () => inputTypes = Tools.GetAtPath<InputType> ("Assets/Data/Enums/InputType").ToList ();
+        public void ValidateInputType ()
+        {
+            inputTypes = Tools.GetAtPath<InputType> ("Assets/Data/Enums/InputType").ToList ();
+            instance.Save ();
+        }
         public List<InputType> InputTypes => inputTypes;
 
     }

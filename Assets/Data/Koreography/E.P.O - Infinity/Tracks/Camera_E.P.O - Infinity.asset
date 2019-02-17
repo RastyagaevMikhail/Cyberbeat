@@ -13,8 +13,17 @@ MonoBehaviour:
   m_Name: Camera_E.P.O - Infinity
   m_EditorClassIdentifier: 
   mEventID: Camera
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 564900
+    mEndSample: 576952
+  - mStartSample: 5076720
+    mEndSample: 5590500
+  - mStartSample: 5644500
+    mEndSample: 5933500
+  - mStartSample: 5976354
+    mEndSample: 6213000
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +36,9 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: Infinity_low
+  - mTextVal: Infinity
+  - mTextVal: Infinity
+  - mTextVal: Infinity
+  _TextPayloadIdxs: 00000000010000000200000003000000

@@ -70,10 +70,15 @@ namespace GameCore
             }
             SpawnedObject NewObj = null;
 
-            if (PoolDict.ContainsKey (Key) && PoolDict[Key].Count > 0)
-                NewObj = PoolDict[Key].Dequeue ();
+            if (PoolDict.ContainsKey (Key))
+            {
+                if (PoolDict[Key].Count > 0)
+                    NewObj = PoolDict[Key].Dequeue ();
+            }
             else
+            {
                 PoolDict[Key] = new Queue<SpawnedObject> ();
+            }
 
             if (!NewObj)
                 NewObj = Extend (Key);
@@ -122,12 +127,8 @@ namespace GameCore
             newObj.SetParent (Parents[Key]);
 
             if (!PoolDict.ContainsKey (Key))
-            {
                 PoolDict[Key] = new Queue<SpawnedObject> ();
-            }
-
-            PoolDict[Key].Enqueue (newObj);
-
+                
             newObj.gameObject.SetActive (false);
 
             return newObj;

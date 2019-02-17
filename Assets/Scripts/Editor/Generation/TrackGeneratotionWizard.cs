@@ -32,9 +32,6 @@ namespace CyberBeat
             track.progressInfo = new ProgressInfo ();
             track.progressInfo.Validate (nameTrack);
 
-            track.ValidateKoreography ();
-
-            track.ValidateLayerBits ();
 
             track.SaveME ();
 

@@ -28,6 +28,7 @@ namespace GameCore
 	[Serializable] public class UnityEventVector3 : UnityEvent<Vector3> { }
 
 	[Serializable] public class UnityEventVector4 : UnityEvent<Vector4> { }
+	[Serializable] public class UnityEventQuaternion : UnityEvent<Quaternion> { }
 
 	[Serializable] public class UnityEventUnityObject : UnityEvent<UnityEngine.Object> { }
 

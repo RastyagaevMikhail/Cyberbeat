@@ -103,7 +103,7 @@ namespace CyberBeat
         {
             if (!baseMaterial) return null;
             string Key = baseMaterial.name;
-            var obj = pool.Pop (Key);
+            var obj = pool.Pop (Key,null);
             if (!obj) return null;
 
             obj.position = position + right * xPos + up * obj.y;

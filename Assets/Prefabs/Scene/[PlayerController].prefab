@@ -10050,7 +10050,6 @@ GameObject:
   - component: {fileID: 5641562952614379199}
   - component: {fileID: 7598460526750223690}
   - component: {fileID: 7440917254123037713}
-  - component: {fileID: 9047753895996792391}
   - component: {fileID: 1356535793}
   m_Layer: 0
   m_Name: B&W_Cube
@@ -10203,36 +10202,6 @@ MonoBehaviour:
     rotInfluence: {x: 0, y: 0, z: 0}
     timeDuaration: 0
   PresetFromSave: {fileID: 0}
---- !u!114 &9047753895996792391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064311704352292133}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ccadaa979de16c4cbbb308970eb2421, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 49b61ea66bde9c94fa98729a2196fdd9, type: 2}
-  Responce:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7440917254123037713}
-        m_MethodName: OnShakeBit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: CyberBeat.GameEventListenerIBitData+UnityEventIBitData, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!114 &1356535793
 MonoBehaviour:
   m_ObjectHideFlags: 0

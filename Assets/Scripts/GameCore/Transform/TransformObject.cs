@@ -25,6 +25,7 @@ namespace GameCore
         public Quaternion rotation { get { return transform.rotation; } set { transform.rotation = value; } }
         public Quaternion localRotation { get { return transform.localRotation; } set { transform.localRotation = value; } }
         public Vector3 localScale { get { return transform.localScale; } set { transform.localScale = value; } }
+        public Vector3 lossyScale { get { return transform.lossyScale; } }
         public float UniformLocalScale { set { localScale = Vector3.one * value; } }
         public void SetParent (Transform child) { transform.SetParent (child); }
 

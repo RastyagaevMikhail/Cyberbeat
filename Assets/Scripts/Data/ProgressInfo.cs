@@ -10,20 +10,12 @@ namespace CyberBeat
     public class ProgressInfo
     {
         [SerializeField] IntVariable best;
-        public IntVariable BestVariable => best;
-        public float Best { get { return best.Value; } private set { best.Value = (int) value; } }
+        private float Best { get { return best.Value; } set { best.Value = (int) value; } }
 
         [SerializeField] IntVariable max;
-        public IntVariable MaxVariable => max;
-        public float Max
-        {
-            get { return max.Value; }
-#if !UNITY_EDITOR
-            private
-#endif
-            set { max.Value = (int) value; }
-        }
+        public float Max => max.Value;
 
+        public new IntVariable[] pregressVariables => new IntVariable[] { best, max };
         [SerializeField] FloatVariable percent;
         public float Percent { get { return percent.Value; } private set { percent.Value = (int) value; } }
 
@@ -37,16 +29,17 @@ namespace CyberBeat
         }
 
 #if UNITY_EDITOR
-        public void Validate (string nameTrack)
+        public void Validate (string nameTrack, int max = 0)
         {
 
-            best = ValidateVariable<IntVariable> ("Assets/Data/Tracks/ProgressInfo/{0}/Best_{0}.asset".AsFormat (nameTrack), true);
+            best = ValidateVariable<IntVariable> ($"Assets/Data/Tracks/ProgressInfo/{nameTrack}/Best_{nameTrack}.asset", true);
             // best.Validate ("Assets/Data/Tracks/ProgressInfo/{0}/Best_{0}.asset".AsFormat (nameTrack), true);
             // Debug.Log (best, best);
 
-            max = ValidateVariable<IntVariable> ("Assets/Data/Tracks/ProgressInfo/{0}/Max_{0}.asset".AsFormat (nameTrack));
-
-            percent = ValidateVariable<FloatVariable> ("Assets/Data/Tracks/ProgressInfo/{0}/Percent_{0}.asset".AsFormat (nameTrack), true);
+            this.max = ValidateVariable<IntVariable> ($"Assets/Data/Tracks/ProgressInfo/{nameTrack}/Max_{nameTrack}.asset");
+            this.max.ValueFast = max;
+            this.max.Save ();
+            percent = ValidateVariable<FloatVariable> ($"Assets/Data/Tracks/ProgressInfo/{nameTrack}/Percent_{nameTrack}.asset", true);
         }
         public T ValidateVariable<T> (string path, bool isSavable = false) where T : ASavableVariable
         {

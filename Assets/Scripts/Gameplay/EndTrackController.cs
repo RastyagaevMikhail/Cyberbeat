@@ -10,35 +10,16 @@ namespace CyberBeat
     {
         [SerializeField] TrackVariable CurrentTrack;
         [SerializeField] UnityEventFloat OnTrackEnd;
-        [SerializeField] float timeFromEnd = float.MaxValue;
         [SerializeField] float DelayedInvokeEndTrackTime = 1f;
 
-        private void Start ()
+        public void OnBit (IBitData bitData)
         {
-            resetEnd ();
-        }
-
-        private void resetEnd ()
-        {
-            timeFromEnd = float.MaxValue;
-        }
-
-        public void OnTrackGeneratorEndGenerate (float time)
-        {
-            timeFromEnd = time;
-        }
-        public void OnUpdate (float time)
-        {
-            if (time >= timeFromEnd)
+            float timeSlowStop = CurrentTrack.ValueFast.music.clip.length - bitData.StartTime;
+            this.DelayAction (DelayedInvokeEndTrackTime, () =>
             {
-                float timeSlowStop = CurrentTrack.ValueFast.music.clip.length - timeFromEnd;
-                this.DelayAction (DelayedInvokeEndTrackTime, () =>
-                {
-                    OnTrackEnd.Invoke (timeSlowStop);
-                });
-                resetEnd ();
-            }
-
+                OnTrackEnd.Invoke (timeSlowStop);
+            });
         }
+
     }
 }

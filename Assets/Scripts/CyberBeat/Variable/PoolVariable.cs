@@ -55,6 +55,10 @@ namespace GameCore
         {
             return ValueFast.Pop (key, parent);
         }
+        public void Pop (string key)
+        {
+            ValueFast.Pop (key);
+        }
         public T Pop<T> (string key, Transform parent = null) where T : Component
         {
             return ValueFast.Pop<T> (key, parent);

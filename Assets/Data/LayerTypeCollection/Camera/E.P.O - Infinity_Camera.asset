@@ -12,4 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fe8237a6697ba459d25957f6c10880, type: 3}
   m_Name: E.P.O - Infinity_Camera
   m_EditorClassIdentifier: 
-  bits: []
+  bits:
+  - payloadData:
+      strings:
+      - Infinity_low
+    startTime: 12.809524
+    endTime: 13.082811
+    duration: 0.27328777
+  - payloadData:
+      strings:
+      - Infinity
+    startTime: 115.11837
+    endTime: 126.76871
+    duration: 11.650337
+  - payloadData:
+      strings:
+      - Infinity
+    startTime: 127.993195
+    endTime: 134.54648
+    duration: 6.5532837
+  - payloadData:
+      strings:
+      - Infinity
+    startTime: 135.51823
+    endTime: 140.88435
+    duration: 5.3661194

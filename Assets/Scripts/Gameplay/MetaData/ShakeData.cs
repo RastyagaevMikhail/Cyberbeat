@@ -1,8 +1,12 @@
 using EZCameraShake;
 
+using GameCore;
+
 using Sirenix.OdinInspector;
 
 using System;
+
+using Timers;
 
 using UnityEngine;
 namespace CyberBeat
@@ -15,27 +19,18 @@ namespace CyberBeat
         [Header ("Резкость встряхивания.")]
         [Tooltip ("Более низкие значения более плавные, более высокие значения более резкие")]
         [SerializeField] float roughness;
+
         [BoxGroup ("Time")]
-        [Header ("Использовать процент")]
-        [Tooltip ("Fade In Time = Time Duration * Precent;\nFade Out Time = Time Duration * (1f- Percent);")]
-        [SerializeField] bool usePercent;
+        [Header ("Вычитать время ?")]
+        [SerializeField] bool substructTimes;
         [BoxGroup ("Time")]
-        [HideIf ("usePercent")]
         [Header ("Время разгона тряски")]
         [Tooltip ("Как долго разгоняется тряска, в секундах")]
         [SerializeField] float fadeInTime;
         [BoxGroup ("Time")]
-        [HideIf ("usePercent")]
         [Header ("Время затухания тряски")]
         [Tooltip ("Как долго исчезает тряска, через несколько секунд")]
         [SerializeField] float fadeOutTime;
-
-        [BoxGroup ("Time")]
-        [ShowIf ("usePercent")]
-        [Header ("Процент для времени")]
-        [Tooltip ("Fade In Time = Time Duration * Precent;\nFade Out Time = Time Duration * (1f- Percent);")]
-        [Range (0, 1f)]
-        [SerializeField] float percent = 0.5f;
         [Header ("Сила перемещения")]
         [Tooltip ("Насколько это встряска влияет на положение.")]
         [SerializeField] Vector3 posInfluence;
@@ -45,19 +40,31 @@ namespace CyberBeat
         [Header ("Время, которое вычисляется автоматически")]
         [SerializeField]
         float timeDuaration;
+        private CameraShakeInstance shakeInstance;
+
         public float TimeDuaration { get => timeDuaration; set => timeDuaration = value; }
-        public float FadeInTime { get => usePercent & timeDuaration > 0f? timeDuaration * percent : fadeInTime; }
-        public float FadeOutTime { get => usePercent & timeDuaration > 0f ? timeDuaration * (1f - percent) : fadeOutTime; }
+        public float FadeInTime { get => fadeInTime; }
+        public float FadeOutTime { get => fadeOutTime; }
 
         public void ShakeOnce (CameraShaker shaker)
         {
-            shaker.ShakeOnce (magnitude, roughness, FadeInTime, FadeOutTime, posInfluence, rotInfluence);
+            shakeInstance = shaker.ShakeOnce (magnitude, roughness, FadeInTime, 0f, posInfluence, rotInfluence);
+
+            float timeDelay = substructTimes ? (timeDuaration - fadeInTime - fadeOutTime) : timeDuaration;
+            shaker.DelayAction (timeDelay, FadeOutInShakerInstance);
             Vibration.Vibrate (timeDuaration);
+        }
+        public void FadeOutInShakerInstance ()
+        {
+            if (shakeInstance == null) return;
+            shakeInstance.StartFadeOut (fadeOutTime);
         }
         public override string ToString ()
         {
-            return $"magnitude:{magnitude}\n" +
+            return $"timeDuaration:{timeDuaration}" +
+                $"magnitude:{magnitude}\n" +
                 $"roughness:{roughness}\n" +
+                $"substructTimes:{substructTimes}\n" +
                 $"fadeInTime:{FadeInTime}\n" +
                 $"fadeOutTime:{FadeOutTime}\n" +
                 $"posInfluence:{posInfluence}\n" +
