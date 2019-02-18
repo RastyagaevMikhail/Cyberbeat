@@ -1,5 +1,5 @@
 using GameCore;
-
+using Sirenix.OdinInspector;
 using UnityEngine;
 namespace CyberBeat
 {
@@ -46,5 +46,7 @@ namespace CyberBeat
         {
             return variable.Value;
         }
+
+        [Button] public void ShowPath () { Debug.Log (UnityEditor.AssetDatabase.GetAssetPath (this)); }
     }
 }

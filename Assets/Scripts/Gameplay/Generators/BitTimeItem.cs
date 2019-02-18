@@ -23,7 +23,7 @@ namespace CyberBeat
             }
             catch (System.Exception)
             {
-                return null;
+                return new List<ITimeItem> ();
             }
 
         }
@@ -41,6 +41,8 @@ namespace CyberBeat
         public override void UpdateInTime (float time)
         {
             if (TimesIsOver) return;
+
+            if (currentBit == null) return;//??? ЧТо делать не заню с этим, вроде работает
             if (currentBit.StartTime <= time)
             {
                 UnityEvent.Invoke (currentBit);

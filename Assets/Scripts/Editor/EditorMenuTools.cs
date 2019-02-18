@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
+using CyberBeat;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
@@ -55,6 +55,6 @@ public class EditorMenuTools
 	[MenuItem ("Game/Current Track")]
 	public static void OpenCurrent ()
 	{
-		Selection.activeObject = CyberBeat.TracksCollection.instance.CurrentTrack;
+		Selection.activeObject = GameCore.Tools.GetAssetAtPath<TrackVariable>("Assets/Data/Variables/Track/CurrentTrack.asset").Value;
 	}
 }

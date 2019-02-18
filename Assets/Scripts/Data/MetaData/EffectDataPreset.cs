@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using GameCore;
+using Sirenix.OdinInspector;
+
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -17,12 +20,14 @@ namespace CyberBeat
         public float FadeInTime { get => fadeInTime; }
         public Vector3 OffsetPosition { get => offsetPosition; }
         public string PrefabName { get => prefabName; }
-        public float LifeTime { get => lifeTime;  }
+        public float LifeTime { get => lifeTime; }
         public float FadeOutTime { get => fadeOutTime; }
 
         public void Init (string prefabName)
         {
             this.prefabName = prefabName;
         }
+
+        [Button] public void SaveMe () { this.Save (); }
     }
 }

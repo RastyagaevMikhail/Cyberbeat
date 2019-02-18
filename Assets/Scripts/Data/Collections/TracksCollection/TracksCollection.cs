@@ -36,7 +36,6 @@ namespace CyberBeat
 #endif
 		[SerializeField] LayerTypeABitDataCollectionVariableSelector CollectionSelector;
 		[SerializeField] TrackVariable currentTrack;
-		public Track CurrentTrack { get { return currentTrack.Value; } set { currentTrack.Value = value; } }
 
 		[SerializeField] List<Preset> _presets;
 		Dictionary<string, List<Material>> presets = null;
@@ -57,8 +56,19 @@ namespace CyberBeat
 			{
 				var collection = layerBitsSelector[layer];
 				CollectionSelector[layer].Value = collection;
-				CollectionSelector[layer].Save();
+				CollectionSelector[layer].Save ();
 			}
+		}
+
+		public bool CheckAsCurrent (Track track)
+		{
+			return currentTrack.ValueFast == track;
+		}
+
+		public void SetAsCurrent (Track track)
+		{
+			currentTrack.Value = track;
+			currentTrack.Save ();
 		}
 	}
 }

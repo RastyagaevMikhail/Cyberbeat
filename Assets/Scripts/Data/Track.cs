@@ -63,7 +63,7 @@ namespace CyberBeat
 		}
 		public TrackHelper helper { get { return TrackHelper.instance; } }
 #endif
-		public bool IsCurrentTrack { get { return this == data.CurrentTrack; } }
+		public bool IsCurrentTrack { get { return data.CheckAsCurrent(this); } }
 
 		[HideIf ("IsCurrentTrack")]
 		[Button ("Сделать меня текущим ", ButtonSizes.Medium)]
@@ -71,7 +71,7 @@ namespace CyberBeat
 		[ContextMenu ("Set Me As Current")]
 		public void SetMeAsCurrent ()
 		{
-			data.CurrentTrack = this;
+			data.SetAsCurrent(this);
 			data.UpdateCollections (layerBitsSelector);
 		}
 		#endregion
