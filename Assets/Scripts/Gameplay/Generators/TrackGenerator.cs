@@ -24,6 +24,7 @@ namespace CyberBeat
         List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
         [SerializeField] ColorInfoRuntimeSetVariable currentSet;
         [SerializeField] GameEventColor onFirstColorChoosed;
+        [SerializeField] GameEventIBitData onPresetChoosed;
         ColorInfoRuntimeSet CurrentSet { get => currentSet.ValueFast; set => currentSet.ValueFast = value; }
         Color LastRandomColor = default (Color);
         float lastBeat = -1f;
@@ -55,7 +56,12 @@ namespace CyberBeat
             else
                 lastBeat = bitTime;
 
-            string randPreset = bitData.RandomString;
+            string randomString = bitData.RandomString;
+            onPresetChoosed.Raise (new PresetBitInfo (bitData.StartTime, randomString));
+            string[] randomSplitedString = randomString.Split ("/".ToCharArray ());
+
+            string randPreset = randomSplitedString[0];
+
             List<Material> row = null;
             try
             {
@@ -103,7 +109,7 @@ namespace CyberBeat
         {
             if (!baseMaterial) return null;
             string Key = baseMaterial.name;
-            var obj = pool.Pop (Key,null);
+            var obj = pool.Pop (Key, null);
             if (!obj) return null;
 
             obj.position = position + right * xPos + up * obj.y;
@@ -126,12 +132,47 @@ namespace CyberBeat
                     firstColorChoosed = true;
                     onFirstColorChoosed.Raise (material.GetColor (matSwitcher.DefaultColorName));
                 }
-                
+
                 if (!constant)
                     LastRandomColor = material.GetColor (matSwitcher.DefaultColorName);
             }
             obj.OnSpawn (Key);
             return obj;
+        }
+    }
+    public class PresetBitInfo : IBitData
+    {
+        private readonly float startTime;
+        private readonly string stringValue;
+
+        public PresetBitInfo (float startTime, string stringValue)
+        {
+            this.startTime = startTime;
+            this.stringValue = stringValue;
+        }
+
+        public float StartTime => startTime;
+
+        public float EndTime =>
+            throw new NotImplementedException ();
+
+        public float Duration =>
+            throw new NotImplementedException ();
+
+        public IPayloadData PayloadData =>
+            throw new NotImplementedException ();
+
+        public string RandomString =>
+            throw new NotImplementedException ();
+
+        public string StringValue => stringValue;
+
+        public string[] Strings =>
+            throw new NotImplementedException ();
+
+        public void Init (KoreographyEvent koreographyEvent)
+        {
+            throw new NotImplementedException ();
         }
     }
 }

@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 3895946146517702214}
   - component: {fileID: 3401978713577932354}
   - component: {fileID: 882469967035462875}
+  - component: {fileID: 1389594578}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -203,14 +204,13 @@ MonoBehaviour:
   data:
     magnitude: 1
     roughness: 1
-    usePercent: 0
+    substructTimes: 0
     fadeInTime: 1
     fadeOutTime: 1
-    percent: 0.5
     posInfluence: {x: 0.15, y: 0.15, z: 0.15}
     rotInfluence: {x: 1, y: 1, z: 1}
     timeDuaration: 0
-  PresetFromSave: {fileID: 11400000, guid: a803f0f6868173d48bf50b4213dbedcb, type: 2}
+  PresetFromSave: {fileID: 0}
 --- !u!114 &966740615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882469965938557571}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
   m_Name: 
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882469965938557571}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
   m_Name: 
@@ -435,3 +435,33 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &1389594578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882469965938557571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 9e5b8834234ae3040a2cff76a2593f86, type: 2}
+        m_MethodName: Add
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7db4279112180af499712c470b8d10b0,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: CyberBeat.ATimeUpdateable, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  debug: 0

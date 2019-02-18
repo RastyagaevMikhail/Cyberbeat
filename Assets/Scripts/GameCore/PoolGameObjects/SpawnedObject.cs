@@ -63,5 +63,10 @@ namespace GameCore
             OffsetPosition = localPosition;
             OffsetRotation = localRotation;
         }
+        [ContextMenu("Add To Pool")]
+        void AddToPool()
+        {
+            pool.AddToPool(this);
+        }
     }
 }

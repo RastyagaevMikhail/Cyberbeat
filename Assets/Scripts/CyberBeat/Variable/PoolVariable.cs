@@ -63,5 +63,10 @@ namespace GameCore
         {
             return ValueFast.Pop<T> (key, parent);
         }
+
+        public void AddToPool(SpawnedObject spawnedObject)
+        {
+            ValueFast.AddToPool(spawnedObject);
+        }
     }
 }

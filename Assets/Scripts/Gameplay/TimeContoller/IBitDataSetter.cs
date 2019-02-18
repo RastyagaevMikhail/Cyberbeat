@@ -25,18 +25,18 @@ namespace CyberBeat
         [SerializeField] UnityEventTransformHandler setTransform;
         public void OnBit (IBitData bitData)
         {
-            startTime.Invoke (bitData.StartTime);
-            endTime.Invoke (bitData.EndTime);
-            duration.Invoke (bitData.Duration);
-            stringValue.Invoke (bitData.StringValue);
-            randomString.Invoke (bitData.RandomString);
-            setPosition.Invoke (position);
-            setLossyScale.Invoke (lossyScale);
-            setRotation.Invoke (rotation);
-            setLocalPosition.Invoke (localPosition);
-            setLocalScale.Invoke (localScale);
-            setLocalRotation.Invoke (localRotation);
-            setTransform.Invoke (transform);
+            startTime.Invoke (() => bitData.StartTime);
+            endTime.Invoke (() => bitData.EndTime);
+            duration.Invoke (() => bitData.Duration);
+            stringValue.Invoke (() => bitData.StringValue);
+            randomString.Invoke (() => bitData.RandomString);
+            setPosition.Invoke ( () => position);
+            setLossyScale.Invoke ( () => lossyScale);
+            setRotation.Invoke ( () => rotation);
+            setLocalPosition.Invoke ( () => localPosition);
+            setLocalScale.Invoke ( () => localScale);
+            setLocalRotation.Invoke ( () => localRotation);
+            setTransform.Invoke ( () => transform);
         }
     }
 
@@ -53,10 +53,10 @@ namespace CyberBeat
     {
         [SerializeField] bool enabled;
         [SerializeField] UntyEventType unityEvent;
-        public void Invoke (ValueType argumrnt)
+        public void Invoke (Func<ValueType> argumrnt)
         {
-            if (enabled)
-                unityEvent.Invoke (argumrnt);
+            if (enabled && argumrnt != null)
+                unityEvent.Invoke (argumrnt ());
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,7 +15,7 @@ namespace GameCore
         [SerializeField] Dictionary<string, Transform> Parents { get => _parents??(InitParents ()); }
         protected override void Awake ()
         {
-            InitParents ();
+            _parents = InitParents ();
             InitStartCount ();
         }
 
@@ -97,6 +98,15 @@ namespace GameCore
 
             return NewObj;
         }
+#if UNITY_EDITOR
+
+        public void AddToPool (SpawnedObject spawnedObject)
+        {
+            Settings.Add (new PoolSetteings () { Key = spawnedObject.name, Prefab = spawnedObject, startCount = 10 });
+            UnityEditor.Selection.activeObject = data;
+        }
+#endif
+
         public T Pop<T> (string Key, Transform parent = null) where T : Component
         {
             return Pop (Key, parent).Get<T> ();
@@ -128,7 +138,7 @@ namespace GameCore
 
             if (!PoolDict.ContainsKey (Key))
                 PoolDict[Key] = new Queue<SpawnedObject> ();
-                
+
             newObj.gameObject.SetActive (false);
 
             return newObj;
@@ -143,9 +153,7 @@ namespace GameCore
                 .FindAll (go => go.GetComponent<SpawnedObject> ())
                 .Select (go => go.GetComponent<SpawnedObject> ());
             foreach (var spwn in spwns)
-            {
-                Settings.Add (new PoolSetteings () { Key = spwn.name, Prefab = spwn, startCount = 10 });
-            }
+                AddToPool (spwn);
         }
 #endif
     }

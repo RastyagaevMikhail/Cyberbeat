@@ -25,6 +25,7 @@ public class AnimatorCallAnimationEvents : MonoBehaviour
 	public void CallEvent (string NameEvent)
 	{
 		DictEevnts[NameEvent].Invoke ();
+		
 	}
 
 	[System.Serializable]

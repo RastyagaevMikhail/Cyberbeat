@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fe8237a6697ba459d25957f6c10880, type: 3}
   m_Name: Marmok - One More Time_Vibration
   m_EditorClassIdentifier: 
-  bits: []
+  bits:
+  - payloadData:
+      strings:
+      - Marmok_low
+    startTime: 93.73342
+    endTime: 95.037506
+    duration: 1.3040848

@@ -3151,7 +3151,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054352471270630917}
-  m_LocalRotation: {x: 0.00012030799, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.00012217305, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -11848,8 +11848,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3640474080085266268}
   - {fileID: 6603104922290602201}
+  - {fileID: 3640474080085266268}
   - {fileID: 6781252403941429580}
   - {fileID: 4787018411955193966}
   - {fileID: 535148293331984010}
@@ -11880,8 +11880,8 @@ MonoBehaviour:
     m_TypeName: FluffyUnderware.Curvy.CurvyCGEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Modules:
-  - {fileID: 970242362532334310}
   - {fileID: 7409740819797534661}
+  - {fileID: 970242362532334310}
   - {fileID: 3424393074719052363}
   - {fileID: 5946576302736762131}
   - {fileID: 1671850958596779402}
@@ -20827,7 +20827,7 @@ Transform:
   m_Children:
   - {fileID: 6606843876506529148}
   m_Father: {fileID: 1849652563966759546}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7409740819797534661
 MonoBehaviour:
@@ -27421,7 +27421,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1849652563966759546}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &970242362532334310
 MonoBehaviour:

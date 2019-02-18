@@ -16,17 +16,16 @@ namespace CyberBeat
         }
         public void OnBeatDeath (float bitTime)
         {
-            if (bits.Count == 0) return;
-            IBitData bit = bits.Dequeue ();
-
-            if (bit.StartTime == bitTime)
+            IBitData bit = bits.Dequeue();
+            if(bit.StartTime != bitTime)
             {
-                pool.Pop (bit.StringValue);
+                OnBeatDeath (bitTime);
+                return;
             }
-            else
+            var randomSplitedString = bit.StringValue.Split('/');
+            if (randomSplitedString.Length > 1)
             {
-                while (bits.Count > 0 && bit.StartTime != bitTime) { bit = bits.Dequeue (); }
-                pool.Pop (bit.StringValue);
+                pool.Pop (randomSplitedString[1]);
             }
         }
     }
