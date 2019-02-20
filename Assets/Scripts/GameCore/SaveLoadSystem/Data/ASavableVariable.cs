@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-	public abstract class ASavableVariable : ScriptableObject
+	public abstract class ASavableVariable : ScriptableObject, IResetable
 	{
 		public abstract bool isSavable { get; set; }
 		public abstract string CategoryTag { get; set; }

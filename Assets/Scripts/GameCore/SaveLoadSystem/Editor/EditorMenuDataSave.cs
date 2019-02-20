@@ -5,17 +5,22 @@ using UnityEngine;
 namespace GameCore.Editor
 {
 	using GameCore;
-    using System;
-    using System.Linq;
+
+	using System.Linq;
+	using System;
+
+	using UnityEditor;
+	using Tools = Tools;
+
 	public class EditorMenuDataSave
 	{
 
-		[UnityEditor.MenuItem ("Game/Reset/Default")]
+		[MenuItem ("Game/Reset/Default/All")]
 		public static void ResetAllDefault ()
 		{
-			IEnumerable<ISingletonData> enumerable = Resources.LoadAll<ScriptableObject> ("Data").ToList ()
-				.FindAll (so => so is ISingletonData)
-				.Select (so => so as ISingletonData);
+			IEnumerable<IResetable> enumerable = Tools.GetAtPath<ScriptableObject> ("Assets").ToList ()
+				.FindAll (so => so is IResetable)
+				.Select (so => so as IResetable);
 
 			foreach (var data in enumerable)
 				data.ResetDefault ();
@@ -23,27 +28,38 @@ namespace GameCore.Editor
 			Debug.Log (Tools.LogCollection (enumerable));
 		}
 
-		[UnityEditor.MenuItem ("Game/Reset/PlayerPrefs")]
+		[MenuItem ("Game/Reset/Default/Singletons")]
+		private static void ResetDefaultSingletons ()
+		{
+			IEnumerable<ISingletonData> enumerable = Resources.LoadAll<ScriptableObject> ("Data").ToList ()
+			.FindAll (so => so is ISingletonData)
+			.Select (so => so as ISingletonData);
+
+			foreach (var data in enumerable)
+			data.ResetDefault ();
+
+			Debug.Log (Tools.LogCollection (enumerable));
+		}
+
+		[MenuItem ("Game/Reset/Default/Varaiables")]
+		private static void ResetDeafultVariables ()
+		{
+			List<ASavableVariable> variables = Tools.GetAtPath<ASavableVariable> ("Assets").ToList ();
+			foreach (var variable in variables)
+				variable.ResetDefault ();
+			Debug.Log (Tools.LogCollection (variables));
+		}
+
+		[MenuItem ("Game/Reset/PlayerPrefs")]
 		public static void ResetPlayerPrefs ()
 		{
 			PlayerPrefs.DeleteAll ();
 		}
-[UnityEditor.MenuItem ("Game/Actions/Add to Preloaded Assets")]
+
+		[MenuItem ("Game/Actions/Add to Preloaded Assets")]
 		public static void AddToPreloadedAssets ()
 		{
-			// var PreoloadedAssets = UnityEditor.PlayerSettings.GetPreloadedAssets ().ToList ();
-
-			// PreoloadedAssets.Clear ();
-
-			// IEnumerable<ScriptableObject> Singletons = Resources.LoadAll<ScriptableObject> ("Data")
-			// 	.ToList ()
-			// 	.FindAll (so => so is ISingletonData);
-
-			// foreach (var singleton in Singletons)
-			// 	PreoloadedAssets.Add (singleton);
-
-			// // UnityEditor.PlayerSettings.SetPreloadedAssets (PreoloadedAssets.ToArray ());
-			UnityEditor.PlayerSettings.SetPreloadedAssets (Array.FindAll (Resources.LoadAll<ScriptableObject> ("Data"), so => so is ISingletonData));
+			PlayerSettings.SetPreloadedAssets (Array.FindAll (Resources.LoadAll<ScriptableObject> ("Data"), so => so is ISingletonData));
 		}
 	}
 }

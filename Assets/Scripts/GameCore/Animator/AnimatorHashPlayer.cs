@@ -16,9 +16,12 @@ namespace GameCore
         Dictionary<string, int> hash = null;
         Dictionary<string, int> Hash { get { return (hash??(hash = names.ToDictionary (n => n.name, n => n.hash))); } }
 
+        public RandomStack<HashName> RandomStackNames => randomStackNames??(randomStackNames = new RandomStack<HashName> (names));
+        RandomStack<HashName> randomStackNames;
+
         public void PlayRandom ()
         {
-            animator.Play (names.GetRandom ().hash);
+            animator.Play (RandomStackNames.Get ().hash);
         }
 
         private void OnEnable ()
@@ -26,7 +29,6 @@ namespace GameCore
             if (_animator == null)
                 _animator = GetComponent<Animator> ();
             if (hash == null) hash = names.ToDictionary (n => n.name, n => n.hash);
-
         }
 
         public void Play (string nameAnimation)

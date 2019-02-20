@@ -14,19 +14,24 @@ namespace CyberBeat
     public class WindowSlideController : RectTransformObject
     {
         private const int PlayWindowIndex = 1;
-        [SerializeField] RectTransformObject Windows;
-        [SerializeField] List<RectTransformObject> windows;
+        [Header ("Animation Settings")]
+        [SerializeField] Ease easeMove = Ease.OutBack;
         [SerializeField] float timetransition = 0.5f;
+        [Header ("Data")]
         [SerializeField] IntVariable IndexofWindow;
+        [Header ("Links")]
+        [SerializeField] List<RectTransformObject> windows;
+
         int indexofWindow { get { return IndexofWindow.Value; } set { IndexofWindow.Value = value; } }
         private bool startTransition;
         int width { get { return (int) rectTransform.rect.width; } }
         public void ShowLastWindow ()
         {
-#if UNITY_EDITOR
+/* #if UNITY_EDITOR
             indexofWindow = PlayWindowIndex;
-#endif
-            windows[PlayWindowIndex].gameObject.SetActive (true);
+#endif */
+            MakeTransitionTo (PlayWindowIndex);
+            // windows[PlayWindowIndex].gameObject.SetActive (true);
         }
         public void SetIndexWindow (int newIndexofWindow)
         {
@@ -43,10 +48,12 @@ namespace CyberBeat
             if (newIndexofWindow == windows.Count && indexofWindow == 0) dir = -1;
             newWindow.x = dir * width;
             newWindow.gameObject.SetActive (true);
-            newWindow.rectTransform.DOAnchorPos3D (Vector3.zero, timetransition);
+            newWindow.rectTransform.DOAnchorPos3D (Vector2.zero, timetransition)
+                .SetEase (easeMove);
 
             currentWindow.rectTransform
-                .DOAnchorPos (Vector3.right * -dir * width, timetransition)
+                .DOAnchorPos (Vector2.right * -dir * width, timetransition)
+                .SetEase (easeMove)
                 .OnComplete (() =>
                 {
                     currentWindow.gameObject.SetActive (false);
