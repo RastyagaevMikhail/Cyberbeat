@@ -13,6 +13,7 @@ namespace GameCore
         [SerializeField] Dictionary<string, Queue<SpawnedObject>> PoolDict = new Dictionary<string, Queue<SpawnedObject>> ();
         Dictionary<string, Transform> _parents = null;
         [SerializeField] Dictionary<string, Transform> Parents { get => _parents??(InitParents ()); }
+
         protected override void Awake ()
         {
             _parents = InitParents ();
@@ -50,6 +51,7 @@ namespace GameCore
             {
                 parent = new GameObject (Key).transform;
                 parent.SetParent (transform);
+                parent.localPosition = Vector3.zero;
                 parent.name = Key;
             }
             _parents[Key] = parent;

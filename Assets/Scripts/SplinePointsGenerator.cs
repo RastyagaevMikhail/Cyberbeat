@@ -2,6 +2,8 @@
 
 using GameCore;
 
+using Sirenix.OdinInspector;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +17,8 @@ namespace CyberBeat
         public CurvySpline spline { get { if (_spline == null) _spline = GetComponent<CurvySpline> (); return _spline; } }
 
         [SerializeField] float distance = 500f;
-        [SerializeField] int pointsCount = 18;
-        [ContextMenu ("Add N Points")]
+        int pointsCount = 18;
+
         void AddPoints ()
         {
             for (int i = 0; i < pointsCount; i++)
@@ -25,6 +27,7 @@ namespace CyberBeat
             }
         }
 
+        [Button]
         [ContextMenu ("Add One Point in End")]
         void AddPointOnePointInEnd ()
         {
@@ -44,9 +47,11 @@ namespace CyberBeat
 
             var segments = spline.Add (newPos);
             var newSegment = segments.First ();
-            
+
             newSegment.AutoHandles = false;
             newSegment.HandleIn = newSegment.transform.InverseTransformPoint (lastVisibleControlPoint.position + forward * distance * multiplayer);
+            newSegment.HandleOut = Vector3.zero;
+            newSegment.position = newPos;
             newSegment.transform.forward = vecDir;
         }
     }

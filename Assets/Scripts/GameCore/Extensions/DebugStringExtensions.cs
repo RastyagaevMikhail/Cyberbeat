@@ -45,10 +45,10 @@ namespace GameCore
             return str.ToColor (settings.WarningColor);
         }
 
-        public static string Log (this UnityEventBase EventBase)
+        public static string Log (this UnityEventBase EventBase, object arg = null)
         {
             string log = "null";
-            log = EventBase.GetType ().Name.a () + ":\n";
+            log = EventBase.GetType ().Name.a () + $":{(arg != null ? arg.ToString().red():string.Empty)}\n";
             int EventCount = EventBase.GetPersistentEventCount ();
             IEnumerable<string> methodsNames = Enumerable.Range (0, EventCount).Select (i => EventBase.GetPersistentMethodName (i));
             IEnumerable<string> targetsNames = Enumerable.Range (0, EventCount).Select (i => EventBase.GetPersistentTarget (i).name);
@@ -57,13 +57,13 @@ namespace GameCore
             log += string.Concat (methodsInfo);
             return log;
         }
-        public static string Log<T> (this IEnumerable<T> collection) 
+        public static string Log<T> (this IEnumerable<T> collection)
         {
-            return Tools.LogCollection(collection);
+            return Tools.LogCollection (collection);
         }
         public static string Log (this Color color, bool useAlpha = false)
         {
-            return color.ToString(useAlpha).ToColor(color);
+            return color.ToString (useAlpha).ToColor (color);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace CyberBeat
         public void OnEventRaised (IBitData arg)
         {
             if (debug)
-                Debug.Log ($"{("OnEvent".a())} {$"[{Event.name}]".so()}\n{arg.ToString().cyan()}\n{("Raised On".a())} {name.mb()}", this);
+                Debug.Log ($"{("OnEvent".a())} {$"[{Event.name}]".so()}\n{arg.ToString().red()}\n{("Raised On".a())} {name.mb()}", this);
             Responce.Invoke (arg);
         }
         public void OnEnable ()

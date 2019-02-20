@@ -52,7 +52,6 @@ namespace CyberBeat
 
             float timeDelay = substructTimes ? (timeDuaration - fadeInTime - fadeOutTime) : timeDuaration;
             shaker.DelayAction (timeDelay, FadeOutInShakerInstance);
-            Vibration.Vibrate (timeDuaration);
         }
         public void FadeOutInShakerInstance ()
         {

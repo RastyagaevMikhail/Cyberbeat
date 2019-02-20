@@ -64,9 +64,11 @@ namespace GameCore
             return ValueFast.Pop<T> (key, parent);
         }
 
-        public void AddToPool(SpawnedObject spawnedObject)
+#if UNITY_EDITOR
+        public void AddToPool (SpawnedObject spawnedObject)
         {
-            ValueFast.AddToPool(spawnedObject);
+            ValueFast.AddToPool (spawnedObject);
         }
+#endif
     }
 }

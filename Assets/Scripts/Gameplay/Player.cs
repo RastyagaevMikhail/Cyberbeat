@@ -21,11 +21,6 @@ namespace CyberBeat
         {
             matSwitch.CurrentColor = color;
         }
-
-        private void Start ()
-        {
-            SetColor (Color.white);
-        }
         public bool ChechColor (Color color)
         {
             return matSwitch.ChechColor (color);

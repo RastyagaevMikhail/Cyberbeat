@@ -13,85 +13,8 @@ MonoBehaviour:
   m_Name: Vibration_Inova - Desert
   m_EditorClassIdentifier: 
   mEventID: Vibration
-  mEventList:
-  - mStartSample: 106950
-    mEndSample: 132300
-  - mStartSample: 165756
-    mEndSample: 188922
-  - mStartSample: 224166
-    mEndSample: 247332
-  - mStartSample: 282972
-    mEndSample: 306138
-  - mStartSample: 341778
-    mEndSample: 364944
-  - mStartSample: 400584
-    mEndSample: 423750
-  - mStartSample: 518196
-    mEndSample: 541362
-  - mStartSample: 577200
-    mEndSample: 600366
-  - mStartSample: 635412
-    mEndSample: 658578
-  - mStartSample: 694416
-    mEndSample: 717582
-  - mStartSample: 753420
-    mEndSample: 776586
-  - mStartSample: 812226
-    mEndSample: 835392
-  - mStartSample: 1047450
-    mEndSample: 1070616
-  - mStartSample: 1106256
-    mEndSample: 1129422
-  - mStartSample: 1164864
-    mEndSample: 1188030
-  - mStartSample: 1224462
-    mEndSample: 1247628
-  - mStartSample: 1282674
-    mEndSample: 1305840
-  - mStartSample: 1341282
-    mEndSample: 1364448
-  - mStartSample: 1458894
-    mEndSample: 1482060
-  - mStartSample: 1517898
-    mEndSample: 1541064
-  - mStartSample: 1576506
-    mEndSample: 1599672
-  - mStartSample: 1635312
-    mEndSample: 1658478
-  - mStartSample: 1694316
-    mEndSample: 1717482
-  - mStartSample: 1752924
-    mEndSample: 1776090
-  - mStartSample: 1988742
-    mEndSample: 2011908
-  - mStartSample: 2047746
-    mEndSample: 2070912
-  - mStartSample: 2105760
-    mEndSample: 2128926
-  - mStartSample: 2164764
-    mEndSample: 2187930
-  - mStartSample: 2223768
-    mEndSample: 2246934
-  - mStartSample: 2282178
-    mEndSample: 2305344
-  - mStartSample: 2341182
-    mEndSample: 2364348
-  - mStartSample: 2399790
-    mEndSample: 2422956
-  - mStartSample: 2458596
-    mEndSample: 2481762
-  - mStartSample: 2517600
-    mEndSample: 2540766
-  - mStartSample: 2576406
-    mEndSample: 2599572
-  - mStartSample: 2635608
-    mEndSample: 2658774
-  - mStartSample: 2694018
-    mEndSample: 2717184
-  - mStartSample: 2752626
-    mEndSample: 2775792
-  _SerializedPayloadTypes:
-  - SonicBloom.Koreo.TextPayload
+  mEventList: []
+  _SerializedPayloadTypes: []
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -104,43 +27,5 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads:
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  - mTextVal: Inova
-  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000
+  _TextPayloads: []
+  _TextPayloadIdxs: 

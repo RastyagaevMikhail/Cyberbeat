@@ -284,7 +284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1493266061
 Transform:
   m_ObjectHideFlags: 0
@@ -545,7 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selector: {fileID: 11400000, guid: 7b5a75a2bd8f80e4996451a4f6edef77, type: 2}
-  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
+  pool: {fileID: 11400000, guid: a57ed3e4f9314624d9120084889fb221, type: 2}
   splineVariable: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}
   fixedDistance: 1
   aheadDistance: 45
@@ -799,6 +799,8 @@ GameObject:
   - component: {fileID: 1991831851}
   - component: {fileID: 5429566060490198258}
   - component: {fileID: 1807914787}
+  - component: {fileID: 4741332625419332319}
+  - component: {fileID: 7632571340872194009}
   m_Layer: 0
   m_Name: SkinAnimationConteoller
   m_TagString: Untagged
@@ -835,11 +837,11 @@ MonoBehaviour:
   onEnable:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 9e5b8834234ae3040a2cff76a2593f86, type: 2}
+      - m_Target: {fileID: 11400000, guid: 49d4e01c11fb95d438a6f52b663aabcf, type: 2}
         m_MethodName: Add
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 4e0de421b7257c048b76e9774ba2fcac,
+          m_ObjectArgument: {fileID: 11400000, guid: 3950ed423b494cc4ca19543c26e2a5fc,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: CyberBeat.ATimeUpdateable, Assembly-CSharp
           m_IntArgument: 0
@@ -862,12 +864,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccadaa979de16c4cbbb308970eb2421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 0de4cae98c318c540910e473828bbcda, type: 2}
+  Event: {fileID: 11400000, guid: 05a945f6d6f1c5048b1068b5732242bd, type: 2}
   Responce:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1807914787}
-        m_MethodName: OnBit
+      - m_Target: {fileID: 4741332625419332319}
+        m_MethodName: OnGeneratorBit
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -887,7 +889,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2263003265711161094}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 150ec2c87c565f3468f5ed25d6f26381, type: 3}
   m_Name: 
@@ -998,6 +1000,51 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: GameCore.UnityEventTransform, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!114 &4741332625419332319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2263003265711161094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a302fd5472d79c945b8b4d4c4411d955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 11400000, guid: b4902b23350b1b4418b2285dce10f467, type: 2}
+  debug: 0
+--- !u!114 &7632571340872194009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2263003265711161094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a06bdadd64ce243857e66d2be77e95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    Event: {fileID: 11400000, guid: c2285b862b778ba4c9cce1b38df6074b, type: 2}
+    Responce:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4741332625419332319}
+          m_MethodName: OnBeatDeath
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    debug: 0
 --- !u!1 &3462308528971762642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1441,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8266133836757921766}
-  m_LocalRotation: {x: 0.00012030799, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.00012218293, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

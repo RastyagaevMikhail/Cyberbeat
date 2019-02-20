@@ -39,6 +39,7 @@ namespace GameCore
         public void AddToPool (SpawnedObject spawnedObject)
         {
             Settings.Add (new PoolSetteings () { Key = spawnedObject.name, Prefab = spawnedObject, startCount = 10 });
+            this.Save();
             UnityEditor.Selection.activeObject = this;
         }
 #endif

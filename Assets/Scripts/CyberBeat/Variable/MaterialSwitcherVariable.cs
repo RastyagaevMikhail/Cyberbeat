@@ -20,6 +20,10 @@ namespace CyberBeat
                 SaveValue ();
             }
         }
+        public void SetColor (ColorVariable colorVariable)
+        {
+                CurrentColor = colorVariable.ValueFast;
+        }
         public void SetValue (MaterialSwitcher value)
         {
             Value = value;

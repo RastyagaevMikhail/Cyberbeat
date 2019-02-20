@@ -22,7 +22,7 @@ namespace GameCore
 		public void OnEventRaised (float arg)
 		{
 			Responce.Invoke (arg);
-			if (debug) Debug.Log ($"{("OnEvent".a())} {Event.name.so()} {("Raised").a()}\n{Responce.Log()}");
+			if (debug) Debug.Log ($"{("OnEvent".a())} {Event.name.so()}\n{Responce.Log(arg)}");
 		}
 		public bool OnEnable ()
 		{

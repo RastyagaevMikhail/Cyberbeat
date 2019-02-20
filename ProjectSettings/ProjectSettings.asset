@@ -75,7 +75,7 @@ PlayerSettings:
   Force IOS Speakers When Recording: 0
   deferSystemGesturesMode: 0
   hideHomeButton: 0
-  submitAnalytics: 1
+  submitAnalytics: 0
   usePlayerLog: 1
   bakeCollisionMeshes: 1
   forceSingleInstance: 0
@@ -121,10 +121,9 @@ PlayerSettings:
   bundleVersion: 1.0
   preloadedAssets:
   - {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
-  - {fileID: 11400000, guid: fc5458fc19d83b844a1126a08b8f297d, type: 2}
   - {fileID: 11400000, guid: 85f9b9d59d9331848abcd4bb78a4ae00, type: 2}
   - {fileID: 11400000, guid: ffd270e580eddea4da071a80c266f5e3, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 92d0f060f9abbbf41aecd5a26184e479, type: 2}
   - {fileID: 11400000, guid: 374e7c64eb1851f4abcf20a98a3547c5, type: 2}
   - {fileID: 11400000, guid: 1f464ea588548cc4da9fc6eee1677d3d, type: 2}
   - {fileID: 11400000, guid: 56bd49594212d08449645a1a879fd982, type: 2}
@@ -137,10 +136,9 @@ PlayerSettings:
   - {fileID: 11400000, guid: 6026e8510bff7a04e8b2f54394dbdcc4, type: 2}
   - {fileID: 11400000, guid: 43ddb2644a58dba45a0cf343f849d88f, type: 2}
   - {fileID: 11400000, guid: 328fa3d301abe6a4f830c8ea5677a79a, type: 2}
-  - {fileID: 11400000, guid: b670e399b603b2f49a642c6ac92e5589, type: 2}
-  - {fileID: 11400000, guid: 92d0f060f9abbbf41aecd5a26184e479, type: 2}
-  - {fileID: 11400000, guid: 2851687ff8cc6f848884d2459f34f1e4, type: 2}
   - {fileID: 11400000, guid: fb054a1925d0745488de53eeb7fb7809, type: 2}
+  - {fileID: 11400000, guid: b670e399b603b2f49a642c6ac92e5589, type: 2}
+  - {fileID: 11400000, guid: 2851687ff8cc6f848884d2459f34f1e4, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -166,7 +164,7 @@ PlayerSettings:
       dashSupport: 1
     enable360StereoCapture: 0
   protectGraphicsMemory: 1
-  enableFrameTimingStats: 0
+  enableFrameTimingStats: 1
   useHDRDisplay: 0
   m_ColorGamuts: 00000000
   targetPixelDensity: 30
@@ -177,7 +175,7 @@ PlayerSettings:
     Android: com.suvorovgames.cyberbeat
   buildNumber: {}
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 16
+  AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -188,7 +186,7 @@ PlayerSettings:
   ForceSDCardPermission: 0
   CreateWallpaper: 0
   APKExpansionFiles: 0
-  keepLoadedShadersAlive: 0
+  keepLoadedShadersAlive: 1
   StripUnusedMeshComponents: 0
   VertexChannelCompressionMask: 4054
   iPhoneSdkVersion: 988

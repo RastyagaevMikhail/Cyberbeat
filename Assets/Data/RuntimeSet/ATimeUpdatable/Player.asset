@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dab35022d9e71d49baa57e3a828158b, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - {fileID: 11400000, guid: 9158e5b91f16b134faf9d6bb5573482b, type: 2}
+  - {fileID: 11400000, guid: 4329bec3f0f4ddf49943f77ac049abb2, type: 2}
+  - {fileID: 11400000, guid: df1bdfc319b87034a90838995cd66afb, type: 2}
+  - {fileID: 11400000, guid: 93aaf22320d983f49810c3e15c8ec00b, type: 2}
+  - {fileID: 11400000, guid: 7db4279112180af499712c470b8d10b0, type: 2}
   onAddComplete:
     m_PersistentCalls:
       m_Calls: []

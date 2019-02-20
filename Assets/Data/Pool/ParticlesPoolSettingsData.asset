@@ -16,24 +16,29 @@ MonoBehaviour:
   - Key: F
     Prefab: {fileID: 3318112207402492802, guid: f972710407e3163479382cb5bd795ca9,
       type: 3}
-    Parent: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}
+    Parent: {fileID: 0}
     startCount: 10
   - Key: H
     Prefab: {fileID: 7124556317954450404, guid: e68d73392f68d64448eb3f184901329c,
       type: 3}
-    Parent: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}
+    Parent: {fileID: 0}
     startCount: 10
   - Key: L
     Prefab: {fileID: 7124556317954450404, guid: 99969f53a97c73d469992044a61d0436,
       type: 3}
-    Parent: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}
+    Parent: {fileID: 0}
     startCount: 10
   - Key: R
     Prefab: {fileID: 7124556317954450404, guid: 1d844420f61ad7a4697971141adc16ab,
       type: 3}
-    Parent: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}
+    Parent: {fileID: 0}
     startCount: 10
   - Key: U
     Prefab: {fileID: 903604607808985972, guid: 9a7c45cc2082f1a488fe4599601f3ff9, type: 3}
-    Parent: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}
+    Parent: {fileID: 0}
+    startCount: 10
+  - Key: S
+    Prefab: {fileID: 3318112207402492802, guid: 2f1f4de2f34215642b36e3874fdd9e66,
+      type: 3}
+    Parent: {fileID: 0}
     startCount: 10

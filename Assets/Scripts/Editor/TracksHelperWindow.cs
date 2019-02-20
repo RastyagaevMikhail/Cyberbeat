@@ -68,7 +68,7 @@ namespace CyberBeat
 
             TrackBitItemData trackBitItemData = CreateInstance<TrackBitItemData> ();
             trackBitItemData.Variable = Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layerName}Collection.asset");
-            trackBitItemData.CreateAsset ($"Assets/Data/ATimeUpdatable/{layerName}{user}TrackBitItemData.asset");
+            trackBitItemData.CreateAsset ($"Assets/Data/ATimeUpdatable/TrackBitItemData/{user}/{layerName}.asset");
 
             Tools.ValidateSO<GameEventIBitData> ($"Assets/Data/Events/IBitData/On{layerName}{user}.asset");
             if (validateIsOver)

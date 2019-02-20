@@ -16,7 +16,7 @@ namespace GameCore.DebugUtils
         private Text m_Text;
         public int fpsLimit = -1;
 
-        private void Awake ()
+       /*  private void Awake ()
         {
             if (fpsLimit != -1)
             {
@@ -25,7 +25,7 @@ namespace GameCore.DebugUtils
             }
             if (Debug.isDebugBuild == false) Destroy (transform.parent.gameObject);
         }
-
+ */
         private void Start ()
         {
             m_FpsNextPeriod = Time.realtimeSinceStartup + fpsMeasurePeriod;

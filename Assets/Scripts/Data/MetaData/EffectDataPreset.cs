@@ -1,4 +1,5 @@
 ﻿using GameCore;
+
 using Sirenix.OdinInspector;
 
 using System.Collections;
@@ -29,5 +30,15 @@ namespace CyberBeat
         }
 
         [Button] public void SaveMe () { this.Save (); }
+        public override string ToString ()
+        {
+            return base.ToString () + "\n" +
+                $"prefabName:{prefabName}\n" +
+                $"speedRotation:{speedRotation}\n" +
+                $"fadeInTime:{fadeInTime}\n" +
+                $"lifeTime:{lifeTime}\n" +
+                $"fadeOutTime:{fadeOutTime}\n" +
+                $"offsetPosition:{offsetPosition}\n";
+        }
     }
 }

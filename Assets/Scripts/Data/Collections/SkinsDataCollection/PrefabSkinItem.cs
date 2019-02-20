@@ -16,21 +16,22 @@ namespace CyberBeat
 
 			bool isApplied = Applyed (out transGroup, target);
 			if (!isApplied) return;
-			if (transGroup.Contains (prefab)) return;
-			GameObject result = Instantiate (prefab, transGroup.transform);
+			if (transGroup.Contains (prefab.gameObject)) return;
+			SkinComponent skinPrefab = prefab.GetComponent<SkinComponent> ();
+			SkinComponent result = Instantiate (skinPrefab, transGroup.transform);
 			result.name = prefab.name;
-			
-			ApplyStateMaterial (result.GetComponent<Renderer> ());
 
-			transGroup.Add (result);
+			ApplyStateMaterial (result);
+
+			transGroup.Add (result.gameObject);
 		}
 
-		public void ApplyStateMaterial (Renderer rend, bool Select = false)
+		public void ApplyStateMaterial (SkinComponent rend, bool Select = false)
 		{
 			if (Select)
-				rend.material = Bougth ? type.OnSeleted : type.OnClosed;
+				rend.Renderer.material = Bougth ? type.OnSeleted : type.OnClosed;
 			else
-				rend.material = Bougth ? type.OnOpend : type.OnClosed;
+				rend.Renderer.material = Bougth ? type.OnOpend : type.OnClosed;
 		}
 	}
 }

@@ -15,16 +15,6 @@ namespace CyberBeat
         menuName = "CyberBeat/RuntimeSet/ColorInfo")]
     public class ColorInfoRuntimeSet : RuntimeSet<ColorInfo>
     {
-#if UNITY_EDITOR
-
-        [Button] public void Validate ()
-        {
-            ForEach (colorInfo =>
-                colorInfo.Count = Tools.ValidateVaraiable<IntVariable> ($"Assets/Resources/Data/Variables/Colors/{colorInfo.Name}.asset"));
-
-            this.Save ();
-        }
-#endif
         public Color[] GetColors ()
         {
             return items.Select (colorInfo => colorInfo.color).ToArray ();

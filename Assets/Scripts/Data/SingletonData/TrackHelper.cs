@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 namespace CyberBeat
 {
     using GameCore;
@@ -11,7 +12,6 @@ namespace CyberBeat
 
     public class TrackHelper : SingletonData<TrackHelper>
     {
-#if UNITY_EDITOR
         public override void InitOnCreate () { }
         public override void ResetDefault () { }
         public TracksCollection data { get { return TracksCollection.instance; } }
@@ -70,7 +70,6 @@ namespace CyberBeat
         }
         public void ValidateKoreographyTrackLayer (Koreography koreography)
         {
-
             foreach (var koreographyTrack in koreography.Tracks)
                 koreography.RemoveTrack (koreographyTrack);
 
@@ -88,6 +87,7 @@ namespace CyberBeat
             koreography.Save ();
         }
     }
-#endif
 
 }
+
+#endif

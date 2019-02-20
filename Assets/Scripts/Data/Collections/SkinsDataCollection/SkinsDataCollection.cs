@@ -1,6 +1,6 @@
 ﻿using GameCore;
 using GameCore.Utils;
-
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,7 +82,7 @@ namespace CyberBeat
 
                 return items;
             }
-
+            [Button]
             public void AddNewSkins ()
             {
                 data.skinsSelector.Add (type, LoadSkinItems ());

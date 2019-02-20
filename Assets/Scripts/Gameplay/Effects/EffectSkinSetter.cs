@@ -14,19 +14,7 @@ namespace CyberBeat
         public Color color
         {
             get => vertexColorMeshSetter.color;
-            set =>  vertexColorMeshSetter.color = value;
-            // {
-            //     float opOld = Opacity;
-            //     if (value.a != Opacity)
-            //     {
-            //         Opacity = opOld;
-            //         vertexColorMeshSetter.color = value;
-            //     }
-            //     else
-            //     {
-            //         vertexColorMeshSetter.color = value;
-            //     }
-            // }
+            set => vertexColorMeshSetter.color = value;
         }
 
         [SerializeField] VertexColorMeshSetter vertexColorMeshSetter;
@@ -50,9 +38,8 @@ namespace CyberBeat
         float LifeTime => preset?preset.LifeTime : 0f;
         public void InitSkin (EffectDataPreset preset)
         {
-            // position = transform.TransformPoint (preset.OffsetPosition);
-            this.preset = preset;
 
+            this.preset = preset;
             FadeIn ();
 
             rotator.speed = preset.SpeedRotation;
@@ -74,7 +61,7 @@ namespace CyberBeat
         {
             if (LifeTime != 0)
             {
-                Invoke ("FadeOut", LifeTime);
+                this.DelayAction (LifeTime, FadeOut);
             }
             else
             {
@@ -83,26 +70,31 @@ namespace CyberBeat
         }
         void FadeOut ()
         {
-            if (FadeInTime != 0)
+            if (FadeOutTime != 0)
             {
-                FadeOut (FadeInTime, PushToPool);
+                StopAllCoroutines ();
+                FadeOut (FadeOutTime, PushToPool);
             }
             else
             {
                 Opacity = 0;
-                PushToPool();
+                PushToPool ();
             }
         }
 
         private void PushToPool ()
         {
+            StopAllCoroutines ();
             spawnedObject.PushToPool ();
         }
 
         public void FadeIn (float duration = 1f, Action onComplete = null) => DOVirtualFloat (0f, 1f, duration, value => Opacity = value, onComplete);
         public void FadeOut (float duration = 1f, Action onComplete = null) => DOVirtualFloat (1f, 0f, duration, value => Opacity = value, onComplete);
-        void DOVirtualFloat (float startValue, float endValue, float duration, Action<float> action, Action onComplete = null) =>
+        void DOVirtualFloat (float startValue, float endValue, float duration, Action<float> action, Action onComplete = null)
+        {
+            if (!gameObject.activeInHierarchy) return;
             StartCoroutine (cr_DOVirtualFloat (startValue, endValue, duration, action, onComplete));
+        }
         IEnumerator cr_DOVirtualFloat (float startValue, float endValue, float duration, Action<float> action, Action onComplete = null)
         {
             float t = 0;
@@ -115,6 +107,7 @@ namespace CyberBeat
             action (endValue);
             if (onComplete != null)
                 onComplete ();
+            yield break;
         }
     }
 }

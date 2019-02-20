@@ -19,6 +19,7 @@ namespace GameCore
             T result = ChashedComponents[type] as T;
             return result;
         }
+
         [SerializeField] bool useOnSpawn;
         [SerializeField] UnityEvent onSpawn;
         string key;
@@ -29,9 +30,11 @@ namespace GameCore
             key = _key;
             if (useOnSpawn) onSpawn.Invoke ();
         }
+
         [SerializeField] bool useOnDeSpawn;
         [SerializeField] UnityEvent onDeSpawn;
 
+        [SerializeField] bool debug;
         public void OnDeSpawn ()
         {
             if (useOnDeSpawn)
@@ -42,10 +45,13 @@ namespace GameCore
         [SerializeField] PoolVariable pool;
         public void PushToPool ()
         {
+            if (debug)
+                Debug.LogFormat ("PushToPool = {0}", this);
+            StopAllCoroutines ();
             pool.Push (this);
         }
         public void Pop (string key)
-        {           
+        {
             pool.Pop (key);
         }
 
@@ -63,10 +69,13 @@ namespace GameCore
             OffsetPosition = localPosition;
             OffsetRotation = localRotation;
         }
-        [ContextMenu("Add To Pool")]
-        void AddToPool()
+#if UNITY_EDITOR
+
+        [ContextMenu ("Add To Pool")]
+        void AddToPool ()
         {
-            pool.AddToPool(this);
+            pool.AddToPool (this);
         }
+#endif
     }
 }

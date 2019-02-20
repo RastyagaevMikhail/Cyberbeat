@@ -72,9 +72,6 @@ namespace CyberBeat
 
 		public void SetPivot ()
 		{
-			Debug.LogFormat ("targetVariable = {0}", targetVariable);
-			Debug.LogFormat ("type = {0}", type);
-			Debug.LogFormat ("PivotsBySkinType[type] = {0}", PivotsBySkinType[type]);
 			targetVariable.Value = PivotsBySkinType[type].LookTarget;
 			if (isStarted)
 			{

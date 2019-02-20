@@ -17,6 +17,7 @@ namespace GameCore.DebugTools
 
 		private void OnDrawGizmos ()
 		{
+			if (target == null) return;
 			Gizmos.color = color;
 			Gizmos.DrawLine (position, target.position);
 			Gizmos.DrawCube (target.position, Vector3.one);

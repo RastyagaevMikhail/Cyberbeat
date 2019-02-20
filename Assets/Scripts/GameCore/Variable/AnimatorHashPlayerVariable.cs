@@ -27,7 +27,7 @@ namespace GameCore
         {
             ValueFast.Rebind ();
         }
-
+        public int AnimationsCount { get { return ValueFast.AnimationsCount; } }
         public void SetValue (AnimatorHashPlayer value)
         {
             Value = value;
@@ -41,6 +41,11 @@ namespace GameCore
         public override void SaveValue ()
         {
             // TODO: Save Code This From AnimatorHashPlayerVariable
+        }
+
+        public void PlayRandom()
+        {
+            ValueFast.PlayRandom();
         }
 
         public override void LoadValue ()

@@ -91,7 +91,7 @@ namespace CyberBeat
 			if (!isBit) return false;
 			if (bitAll) return true;
 			MaterialSwitcher materialSwitcher = hitGO.GetComponent<MaterialSwitcher> ();
-			return isBit && (materialSwitcher.Constant || materialSwitcher.CurrentColor == matSwitch.CurrentColor);
+			return isBit && (/* materialSwitcher.Constant || */ materialSwitcher.CurrentColor == matSwitch.CurrentColor);
 		}
 
 		private void AvoidForward ()

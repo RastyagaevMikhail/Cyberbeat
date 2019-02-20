@@ -10,10 +10,16 @@ namespace GameCore
     {
         private Animator _animator = null;
         public Animator animator { get { if (_animator == null) _animator = GetComponent<Animator> (); return _animator; } }
+        public int AnimationsCount { get { return names.Count; } }
 
         [SerializeField] List<HashName> names;
         Dictionary<string, int> hash = null;
         Dictionary<string, int> Hash { get { return (hash??(hash = names.ToDictionary (n => n.name, n => n.hash))); } }
+
+        public void PlayRandom ()
+        {
+            animator.Play (names.GetRandom ().hash);
+        }
 
         private void OnEnable ()
         {
@@ -27,9 +33,9 @@ namespace GameCore
         {
             animator.Play (Hash[nameAnimation]);
         }
-        public void Rebind()
+        public void Rebind ()
         {
-            animator.Rebind();
+            animator.Rebind ();
         }
 
         [ContextMenu ("Validate")]
@@ -39,7 +45,7 @@ namespace GameCore
                 n.OnValidate ();
         }
 
-        [Serializable] 
+        [Serializable]
         public class HashName
         {
             public int hash;

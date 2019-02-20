@@ -54,6 +54,7 @@ namespace GameCore
 		{
 			return Objects[index];;
 		}
+		public Transform this [int index] => Objects[index.GetAsClamped (0, Count)];
 		public T AddAt<T> (int index) where T : Component
 		{
 			T t = Objects[index].gameObject.AddComponent<T> ();
@@ -70,8 +71,8 @@ namespace GameCore
 				item.localPosition = Space * i;
 			}
 		}
-		public int Count { get { return Objects.Count; } }
+		public int Count => Objects.Count;
 
-		public Bounds rawBounds { get { return new Bounds (Vector3.zero, Count * Space.Abs ()); } }
+		public Bounds rawBounds => new Bounds (Vector3.zero, Count * Space.Abs ());
 	}
 }

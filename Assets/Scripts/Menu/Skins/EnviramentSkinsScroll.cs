@@ -98,9 +98,13 @@ namespace CyberBeat
 			{
 				skinTypeActionSelector.InvokeAll ();
 			}
-			prevskinItem.ApplyStateMaterial (transformGroup.GetAt<Renderer> (previndex));
+            SkinComponent prevSkinComponent = transformGroup.GetAt<SkinComponent>(previndex);
+			prevSkinComponent.StopAniamtion();
+            prevskinItem.ApplyStateMaterial (prevSkinComponent);
 
-			skinItem.ApplyStateMaterial (transformGroup.GetAt<Renderer> (index), true);
+            SkinComponent currentSkinComponent = transformGroup.GetAt<SkinComponent>(index);
+			currentSkinComponent.StartAniamtion();
+            skinItem.ApplyStateMaterial (currentSkinComponent, true);
 
 			var slector = transfromObjectSelector[skinType];
 
