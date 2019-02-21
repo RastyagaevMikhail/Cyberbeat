@@ -330,7 +330,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 593028528}
   m_HandleRect: {fileID: 593028527}
   m_Direction: 2
-  m_Value: 0.9999999
+  m_Value: 0.9999998
   m_Size: 0.27749467
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -444,6 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GDPR_PanelInfo: {fileID: 945062680}
+  tutorialComplited: {fileID: 11400000, guid: 15b52c2e61a68c9418e47511b51e0bf2, type: 2}
 --- !u!114 &64009221
 MonoBehaviour:
   m_ObjectHideFlags: 0

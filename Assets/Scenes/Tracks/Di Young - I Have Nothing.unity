@@ -9724,41 +9724,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1151408341 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4176359516942448847, guid: ef77e30dba77edd49b31cd782260f4ef,
-    type: 3}
-  m_PrefabInstance: {fileID: 4989302433297811102}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1151408342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151408341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd17ae48e5d65b74caee313854730d39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onDisable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 4d3ca0f8fbad3b146a0632bcc8cbec61, type: 2}
-        m_MethodName: Reset
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!43 &1155218321
 Mesh:
   m_ObjectHideFlags: 0
@@ -25211,12 +25176,12 @@ PrefabInstance:
     - target: {fileID: 3677562255580549099, guid: 1f9a28c107d47c74885d68a666c2e32a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3677562257460654674, guid: 1f9a28c107d47c74885d68a666c2e32a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4735843031018300239, guid: 1f9a28c107d47c74885d68a666c2e32a,
         type: 3}
@@ -26016,25 +25981,10 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7162959301090417576, guid: ef77e30dba77edd49b31cd782260f4ef,
+    - target: {fileID: 4985639297722017599, guid: ef77e30dba77edd49b31cd782260f4ef,
         type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162959301090417576, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4176359515676896271, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424415066087753522, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      propertyPath: m_inputSource
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef77e30dba77edd49b31cd782260f4ef, type: 3}

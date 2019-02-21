@@ -15,18 +15,13 @@ namespace CyberBeat
         [SerializeField] TrackVariable trackVariable;
         [SerializeField] FloatVariable SpeedSplineVariable;
         [SerializeField] AudioSource audioSource;
-        private void OnEnable ()
-        {
-            LoadAudioClip();
-            LoadStartSpeedToVariable();
-        }
 
-        public void LoadStartSpeedToVariable()
+        public void LoadStartSpeedToVariable ()
         {
             SpeedSplineVariable.ValueFast = trackVariable.ValueFast.StartSpeed;
         }
 
-        public void LoadAudioClip()
+        public void LoadAudioClip ()
         {
             audioSource.clip = trackVariable.ValueFast.music.clip;
         }

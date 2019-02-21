@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 #if UNITY_EDITOR
 namespace CyberBeat
 {
@@ -24,6 +25,13 @@ namespace CyberBeat
             {
                 List<string> presetList = bitInfo.Strings.ToList ();
                 bool isContainConstant = presetList
+                    .Select (s =>
+                    {
+                        var match = Regex.Match (s, @"\/[A-Z]");
+                        Debug.LogFormat ("s = {0}", s);
+                        Debug.LogFormat ("match.Value = {0}", match.Value);
+                        return match.Value != string.Empty ? s.Replace (match.Value, "") : s;
+                    }).ToList ()
                     .TrueForAll (p => data.Presets[p]
                         .Find (material =>
                         {
@@ -47,8 +55,8 @@ namespace CyberBeat
                 dataBits.Save ();
                 selector.datas.Add (new LayerTypeTrackBitsCollectionSelector.LayerTypeTrackBitsCollectionTypeData ()
                 {
-                    type = layer,
-                    data = dataBits
+                type = layer,
+                data = dataBits
                 });
             }
             selector.Save ();
