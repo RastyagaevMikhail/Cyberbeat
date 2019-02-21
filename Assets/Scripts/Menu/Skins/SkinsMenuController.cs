@@ -10,65 +10,54 @@ namespace CyberBeat
     public class SkinsMenuController : MonoBehaviour
     {
         [Header ("Data")]
-        [SerializeField] SkinsDataCollection skinsData;
         [SerializeField] SkinsEnumDataSelector skinsSelector;
+        [SerializeField] SkinIndexSelector skinIndexsSelector;
+        [SerializeField] SkinType currentSkinType;
 
         [Header ("UI")] //-----------------------------------------------------------------------
-        [SerializeField] Text videoCountTextComponent;
         [SerializeField] ContentButton BuyButton;
         [SerializeField] ContentButton SelectButton;
-        [SerializeField] ButtonActionByVideoAds WatchAdsFromBuyButton;
-        [SerializeField] SkinsScrollList scrollList;
+        [SerializeField] ContentButton WatchAdsFromBuyButton;
         [SerializeField] Color selectedColor = Color.green, unselectedColor = Color.white;
 
         [Header ("Events")] //-----------------------------------------------------------------------
         [SerializeField] UnityEventGraphic onCantNotEnuthMoney;
         [SerializeField] UnityEventInt onSkinSelceted;
 
-        int _skinIndex;
-        SkinItem skin => skinsSelector[skinsData.SkinType][_skinIndex];
-        int SkinIndex { get { return skinsData.SkinIndex; } set { skinsData.SkinIndex = value; } }
-        private SkinType skinType;
+        public int HighlightedSkinIndex { set { highlightedSkinIndex = value; UpdateValues (skin); } }
+        int highlightedSkinIndex;
+        SkinItem skin => skinsSelector[currentSkinType][highlightedSkinIndex];
+        int selectedSkinIndex
+        {
+            get { return skinIndexsSelector[currentSkinType].ValueFast; }
+            set { skinIndexsSelector[currentSkinType].ValueFast = value; }
+        }
 
-        bool currentIsSelected { get { return _skinIndex == SkinIndex; } }
+        bool currentHighlightedIsSelected { get { return highlightedSkinIndex == selectedSkinIndex; } }
 
         public void OnWatchetdVideo ()
         {
             bool buyed = skin.BuyByVideo ();
-            if (buyed) _Select();
+            if (buyed) _Select ();
 
-            _UpdateValues (skin);
+            UpdateValues (skin);
         }
-
-        bool currentSkinIsRaod = false;
-
         public void _OnSkinTypeChanged (SkinType skinType)
         {
-            currentSkinIsRaod = skinsData.isRoadType (skinType);
-            if (currentSkinIsRaod)
-                _skinIndex = skinsData.RoadSkinTypeIndex;
-            else
-            {
-                //? При выходе из скинов дороги поставить текщий скин на материал
-                scrollList.ReSelectionTo (skinsData.RoadSkinTypeIndex);
-            }
-            _UpdateValues (skin);
+            currentSkinType = skinType;
+            UpdateValues (skin);
         }
-        public void _SetSkinIndex (int skinIdex)
-        {
-            _skinIndex = skinIdex;
-            _UpdateValues (skin);
-        }
-
-        public void _UpdateValues (SkinItem skin)
+       
+        void UpdateValues (SkinItem skin)
         {
             if (!skin) return;
-            WatchAdsFromBuyButton.gameObject.SetActive (!skin.IsAvalivable);
+
+            WatchAdsFromBuyButton.SetActive (!skin.IsAvalivable);
+            WatchAdsFromBuyButton.text = skin.VideoCount.ToString ();
 
             BuyButton.SetActive (!skin.IsAvalivable);
-
             BuyButton.text = skin.Price.ToString ();
-            videoCountTextComponent.text = skin.VideoCount.ToString ();
+
             UpdateSelection (skin);
         }
         public void BuySkin ()
@@ -78,7 +67,7 @@ namespace CyberBeat
             else
                 onCantNotEnuthMoney.Invoke (BuyButton.targetGraphic);
 
-            _UpdateValues (skin);
+            UpdateValues (skin);
         }
 
         void UpdateSelection (SkinItem skin)
@@ -87,15 +76,15 @@ namespace CyberBeat
 
             SelectButton.SetActive (skin.IsAvalivable);
 
-            SelectButton.textLocalizationID = (currentIsSelected ? "selected" : "select");
-            SelectButton.textColor = currentIsSelected ? selectedColor : unselectedColor;
-            SelectButton.interactable = !currentIsSelected;
+            SelectButton.textLocalizationID = (currentHighlightedIsSelected ? "selected" : "select");
+            SelectButton.textColor = currentHighlightedIsSelected ? selectedColor : unselectedColor;
+            SelectButton.interactable = !currentHighlightedIsSelected;
         }
         public void _Select ()
         {
-            SkinIndex = _skinIndex;
-            _UpdateValues (skin);
-            onSkinSelceted.Invoke (_skinIndex);
+            selectedSkinIndex = highlightedSkinIndex;
+            UpdateValues (skin);
+            onSkinSelceted.Invoke (highlightedSkinIndex);
         }
     }
 }

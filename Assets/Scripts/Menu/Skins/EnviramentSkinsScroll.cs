@@ -98,13 +98,13 @@ namespace CyberBeat
 			{
 				skinTypeActionSelector.InvokeAll ();
 			}
-            SkinComponent prevSkinComponent = transformGroup.GetAt<SkinComponent>(previndex);
-			prevSkinComponent.StopAniamtion();
-            prevskinItem.ApplyStateMaterial (prevSkinComponent);
+			SkinComponent prevSkinComponent = transformGroup.GetAt<SkinComponent> (previndex);
+			prevSkinComponent.StopAniamtion ();
+			prevskinItem.ApplyStateMaterial (prevSkinComponent);
 
-            SkinComponent currentSkinComponent = transformGroup.GetAt<SkinComponent>(index);
-			currentSkinComponent.StartAniamtion();
-            skinItem.ApplyStateMaterial (currentSkinComponent, true);
+			SkinComponent currentSkinComponent = transformGroup.GetAt<SkinComponent> (index);
+			currentSkinComponent.StartAniamtion ();
+			skinItem.ApplyStateMaterial (currentSkinComponent, true);
 
 			var slector = transfromObjectSelector[skinType];
 
@@ -119,7 +119,7 @@ namespace CyberBeat
 			float count = transformGroup.Count;
 
 			float bounds = transformGroup.rawBounds.size.z;
-			currentPosition = position / count * bounds;
+			currentPosition = (position / count) * bounds;
 
 			TargetScroll.z = -currentPosition;
 

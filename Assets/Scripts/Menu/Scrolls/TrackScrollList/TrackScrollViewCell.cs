@@ -21,21 +21,6 @@ namespace CyberBeat
 		[SerializeField] IntVariablesTextSetter progressTextSetter;
 		[SerializeField] UnityEventGraphic onCantNotEnuthMoney;
 
-		TrackScrollContext context;
-
-		public int DataIndex { get; private set; }
-
-		public void SetContext (TrackScrollContext context)
-		{
-			this.context = context;
-		}
-		public void OnPressedCell ()
-		{
-			if (context != null)
-			{
-				context.OnPressedCell (this);
-			}
-		}
 		public void UpdateContent (Track data)
 		{
 			this.track = data;
@@ -50,13 +35,7 @@ namespace CyberBeat
 		{
 			if (track == null) return;
 
-            progressTextSetter.SetVariables (track.progressInfo.pregressVariables);
-
-			if (context == null) return;
-
-			if (context.SelectedIndex == DataIndex)
-				track.SetMeAsCurrent ();
-
+			progressTextSetter.SetVariables (track.progressInfo.pregressVariables);
 		}
 		public void OnPlay ()
 		{
@@ -67,8 +46,7 @@ namespace CyberBeat
 
 		public void OnPlayByWatch ()
 		{
-			Debug.Log ("OnPlayByWatch {0}".AsFormat (this));
-			GameData.instance.WathedRewardVideo = true;
+			Debug.Log ($"OnPlayByWatch {this}");
 			ValidateButtons (true);
 			OnPlay ();
 		}
@@ -79,7 +57,7 @@ namespace CyberBeat
 			Debug.LogFormat ("buyed = {0}", buyed);
 			ValidateButtons (buyed);
 			if (buyed) OnPlay ();
-			else onCantNotEnuthMoney.Invoke(BuyButton);
+			else onCantNotEnuthMoney.Invoke (BuyButton);
 		}
 
 		public void ValidateButtons (bool buyed)

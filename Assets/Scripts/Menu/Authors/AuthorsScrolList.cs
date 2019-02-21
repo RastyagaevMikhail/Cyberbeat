@@ -17,7 +17,7 @@ namespace CyberBeat
 
 		public override RectTransform GetPrefabInstance (int i)
 		{
-			RectTransform instnace = Instantiate (PrefabRect, ContentRect, false);
+			RectTransform instnace = Instantiate (PrefabRect, contentRect, false);
 			new AuthorsData (tracks[i]).InitViewGameObject (instnace.gameObject);
 			return instnace;
 		}

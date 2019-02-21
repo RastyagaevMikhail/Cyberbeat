@@ -47,6 +47,5 @@ namespace CyberBeat
 			return canBuy;
 		}
 
-		public bool WathedRewardVideo;
 	}
 }

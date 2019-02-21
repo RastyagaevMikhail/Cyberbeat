@@ -13,7 +13,7 @@ namespace CyberBeat
         public override int panCount => tracks.Count;
         public override RectTransform GetPrefabInstance (int i)
         {
-            var instance = Instantiate (PrefabRect, ContentRect, false);
+            var instance = Instantiate (PrefabRect, contentRect, false);
             var trackinfo = new TrackScrollData (tracks[i]);
             trackinfo.InitViewGameObject (instance.gameObject);
             return instance;
