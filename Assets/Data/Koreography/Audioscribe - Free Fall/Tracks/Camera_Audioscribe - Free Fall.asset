@@ -16,6 +16,10 @@ MonoBehaviour:
   mEventList:
   - mStartSample: 966240
     mEndSample: 1106820
+  - mStartSample: 1951290
+    mEndSample: 2827440
+  - mStartSample: 2919510
+    mEndSample: 3795660
   _SerializedPayloadTypes:
   - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
@@ -32,4 +36,6 @@ MonoBehaviour:
   _SpectrumPayloadIdxs: 
   _TextPayloads:
   - mTextVal: FreeFall
-  _TextPayloadIdxs: 00000000
+  - mTextVal: 90km
+  - mTextVal: 90km
+  _TextPayloadIdxs: 000000000100000002000000

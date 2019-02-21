@@ -14,8 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: Camera
   mEventList:
+  - mStartSample: 2177280
+    mEndSample: 2378379
+  - mStartSample: 2413152
+    mEndSample: 2524502
+  - mStartSample: 2648520
+    mEndSample: 3116812
   - mStartSample: 4134020
     mEndSample: 4191530
+  - mStartSample: 4258176
+    mEndSample: 4728148
+  - mStartSample: 4852276
+    mEndSample: 6235822
   _SerializedPayloadTypes:
   - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
@@ -31,5 +41,10 @@ MonoBehaviour:
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
   _TextPayloads:
+  - mTextVal: 90km
+  - mTextVal: 90km
+  - mTextVal: 90km
   - mTextVal: Marmok_low
-  _TextPayloadIdxs: 00000000
+  - mTextVal: 90km
+  - mTextVal: 90km
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000

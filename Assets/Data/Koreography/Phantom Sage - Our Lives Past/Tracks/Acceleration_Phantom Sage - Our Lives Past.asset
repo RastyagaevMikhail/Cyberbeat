@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Acceleration_Phantom Sage - Our Lives Past
   m_EditorClassIdentifier: 
   mEventID: Acceleration
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 1075140
+    mEndSample: 1971780
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +30,6 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 
+  _TextPayloadIdxs: 00000000

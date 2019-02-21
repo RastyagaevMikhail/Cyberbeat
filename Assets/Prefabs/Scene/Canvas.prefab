@@ -32,7 +32,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7162959301090417574
 RectTransform:
   m_ObjectHideFlags: 0
@@ -940,6 +940,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NoAdsTimer
       objectReference: {fileID: 0}
+    - target: {fileID: 591084007927070570, guid: b261a9cf5862d844889fe57512483b3a,
+        type: 3}
+      propertyPath: m_inputSource
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3342953813511737385, guid: b261a9cf5862d844889fe57512483b3a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1055,11 +1060,6 @@ PrefabInstance:
       propertyPath: onFalse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8801529231975390656}
-    - target: {fileID: 591084007927070570, guid: b261a9cf5862d844889fe57512483b3a,
-        type: 3}
-      propertyPath: m_inputSource
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 575960417554442030, guid: b261a9cf5862d844889fe57512483b3a,
         type: 3}
       propertyPath: onEnable.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1682,6 +1682,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Results
       objectReference: {fileID: 0}
+    - target: {fileID: 5949731401654204140, guid: a314058c478e9cb4db04f63b91e3af7d,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 4176359515676896270}
+    - target: {fileID: 2315902676025187793, guid: a314058c478e9cb4db04f63b91e3af7d,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5424415066087753533}
     - target: {fileID: 5949731401917083115, guid: a314058c478e9cb4db04f63b91e3af7d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1977,21 +1987,11 @@ PrefabInstance:
       propertyPath: m_Pivot.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5949731401654204140, guid: a314058c478e9cb4db04f63b91e3af7d,
-        type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 4176359515676896270}
     - target: {fileID: 2315902676489236580, guid: a314058c478e9cb4db04f63b91e3af7d,
         type: 3}
       propertyPath: m_Pivot.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2315902676025187793, guid: a314058c478e9cb4db04f63b91e3af7d,
-        type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 5424415066087753533}
     - target: {fileID: 8991710411899625668, guid: a314058c478e9cb4db04f63b91e3af7d,
         type: 3}
       propertyPath: m_textInfo.textComponent

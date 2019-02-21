@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ShakeDataPresetSelector
   m_EditorClassIdentifier: 
   datas:
+  - type: 90km
+    data: {fileID: 11400000, guid: 2bff250b080f848cd814ebe6a09f9150, type: 2}
   - type: Dino
     data: {fileID: 11400000, guid: c425dde3e54a344e4964cd2c03a245e1, type: 2}
   - type: FreeFall

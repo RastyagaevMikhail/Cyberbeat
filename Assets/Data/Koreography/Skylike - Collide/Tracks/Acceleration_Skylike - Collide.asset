@@ -13,8 +13,15 @@ MonoBehaviour:
   m_Name: Acceleration_Skylike - Collide
   m_EditorClassIdentifier: 
   mEventID: Acceleration
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 1822590
+    mEndSample: 1935450
+  - mStartSample: 1986930
+    mEndSample: 2606670
+  - mStartSample: 2649856
+    mEndSample: 3295110
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +34,8 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: 
+  - mTextVal: 
+  - mTextVal: 
+  _TextPayloadIdxs: 000000000100000002000000
