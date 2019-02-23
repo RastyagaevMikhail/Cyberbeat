@@ -17,6 +17,8 @@ namespace GameCore
             selectors = Tools.GetAtPath<ASelectorScriptableObject> ("Assets").ToList ();
         }
         public override void ResetDefault () { }
+#else
+        public override void ResetDefault () { }
 #endif
         public void Init (bool consentValue)
         {

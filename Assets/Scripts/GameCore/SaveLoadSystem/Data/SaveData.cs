@@ -14,6 +14,8 @@ namespace GameCore
                 save.ResetDefault ();
         }
         public override void InitOnCreate () { }
+#else
+        public override void ResetDefault () { }
 #endif
         public List<ASavableVariable> Saves;
 

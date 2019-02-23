@@ -45,7 +45,7 @@ namespace CyberBeat
                     return layer;
                 }).ToList ();
         }
-        
+
         public void ValidateLayerType ()
         {
             layerTypes = Tools.GetAtPath<LayerType> ("Assets/Data/Enums/LayerType").ToList ();
@@ -57,6 +57,8 @@ namespace CyberBeat
             inputTypes = Tools.GetAtPath<InputType> ("Assets/Data/Enums/InputType").ToList ();
             instance.Save ();
         }
+#else
+        public override void ResetDefault () { }
 #endif
         [SerializeField][InlineButton ("ValidateLayerType", "Validate")] List<LayerType> layerTypes;
         public List<LayerType> LayerTypes => layerTypes;

@@ -14,6 +14,8 @@ namespace GameCore
         [UnityEditor.MenuItem ("Game/Data/LocalizationManager")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
         public override void InitOnCreate () { ParseTranslations (); }
         public override void ResetDefault () { }
+#else
+        public override void ResetDefault () { }
 #endif
         private const string TranslationPathFolder = "Assets/Resources/";
         private const string TranslationsFilename = "translations.csv";

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using CyberBeat;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using CyberBeat;
+
 using UnityEngine;
 
 namespace GameCore
@@ -13,6 +15,8 @@ namespace GameCore
 		[UnityEditor.MenuItem ("Game/Data/Settings")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
 		public override void ResetDefault () { }
 		public override void InitOnCreate () { }
+#else
+		public override void ResetDefault () { }
 #endif		
 		public float SoundVolume { get { return SoundManager.globalSoundsVolume; } set { SoundManager.globalSoundsVolume = value; } }
 		public float MusicVolume { get { return SoundManager.globalMusicVolume; } set { SoundManager.globalMusicVolume = value; } }
@@ -35,8 +39,6 @@ namespace GameCore
 		public bool VibrationEnabled { get { return PlayerPrefs.GetInt ("Vibration", 1) == 1; } set { PlayerPrefs.SetInt ("Vibration", value ? 1 : 0); } }
 		public long VibrationTime { get { return (long) PlayerPrefs.GetFloat ("VibrationTime", 55); } set { PlayerPrefs.SetFloat ("VibrationTime", value); } }
 
-	
-
 	}
-	
+
 }

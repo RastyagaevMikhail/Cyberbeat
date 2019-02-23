@@ -34,7 +34,8 @@ namespace CyberBeat
 				products.Add (productData);
 			}
 		}
-
+#else
+		public override void ResetDefault () { }
 #endif
 		public List<IAPProductData> products = new List<IAPProductData> ();
 		public IAPProductData this [string key]

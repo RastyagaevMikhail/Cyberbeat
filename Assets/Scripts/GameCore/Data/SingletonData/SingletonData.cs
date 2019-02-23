@@ -11,8 +11,10 @@ namespace GameCore
 		#region  instance
 #if UNITY_EDITOR
 		//[UnityEditor.MenuItem ("Game/Data/T")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
-		[ContextMenu ("Reset Default")] public abstract void ResetDefault ();
 		[ContextMenu ("Init On Create")] public abstract void InitOnCreate ();
+		[ContextMenu ("Reset Default")] public abstract void ResetDefault ();
+#else
+		public abstract void ResetDefault ();
 #endif
 
 		static string typeName { get { return typeof (T).Name; } }

@@ -21,7 +21,19 @@ namespace GameCore
 				SaveValue ();
 			}
 		}
+		public override TimeSpan Value
+		{
+			get => _value = CustomValue;
+			set
+			{
+				CustomValue = value;
+				_value = value;
+				if (OnValueChanged != null)
+					OnValueChanged (value);
+			}
+		}
 
+		[SerializeField] CustomTimeSpan CustomValue;
 		[SerializeField] CustomTimeSpan CustomDefault;
 		[Button]
 		public override void LoadValue ()
@@ -55,10 +67,18 @@ namespace GameCore
 			return this;
 		}
 
-		internal TimeSpanVariable Add (TimeSpan ts)
+		public TimeSpanVariable Add (TimeSpan ts)
 		{
 			Value += ts;
 			return this;
+		}
+		public void Subtract (TimeSpan otherTimeSpan)
+		{
+			Value = Value.Subtract (otherTimeSpan);
+		}
+		public void SubtractToZero (TimeSpan otherTimeSpan)
+		{
+			Value = otherTimeSpan < Value ? Value.Subtract (otherTimeSpan) : TimeSpan.Zero;
 		}
 
 		[ContextMenu ("Reset")]

@@ -18,6 +18,8 @@ namespace GameCore
 		{
 
 		}
+#else
+		public override void ResetDefault () { }
 #endif
 		public List<K> Objects = new List<K> ();
 	}

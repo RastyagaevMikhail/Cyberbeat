@@ -1,6 +1,8 @@
 ﻿using GameCore;
 using GameCore.Utils;
+
 using Sirenix.OdinInspector;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,6 +84,7 @@ namespace CyberBeat
 
                 return items;
             }
+
             [Button]
             public void AddNewSkins ()
             {
@@ -89,6 +92,8 @@ namespace CyberBeat
                 data.skinsSelector.Save ();
             }
         }
+#else
+        public override void ResetDefault () { }
 #endif
         [SerializeField] List<SkinType> AllTypes;
         public SkinsEnumDataSelector skinsSelector;

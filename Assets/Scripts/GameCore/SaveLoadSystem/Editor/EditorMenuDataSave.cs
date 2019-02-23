@@ -15,7 +15,14 @@ namespace GameCore.Editor
 	public class EditorMenuDataSave
 	{
 
-		[MenuItem ("Game/Reset/Default/All")]
+		[MenuItem ("Game/Reset/All",priority  = 0)]
+		public static void ResetAll ()
+		{
+			ResetPlayerPrefs ();
+			ResetAllDefault ();
+		}
+
+		[MenuItem ("Game/Reset/Default/All",priority  = 1)]
 		public static void ResetAllDefault ()
 		{
 			IEnumerable<IResetable> enumerable = Tools.GetAtPath<ScriptableObject> ("Assets").ToList ()
@@ -28,7 +35,15 @@ namespace GameCore.Editor
 			Debug.Log (Tools.LogCollection (enumerable));
 		}
 
-		[MenuItem ("Game/Reset/Default/Singletons")]
+		[MenuItem ("Game/Reset/Default/Varaiables",priority  = 2)]
+		private static void ResetDeafultVariables ()
+		{
+			List<ASavableVariable> variables = Tools.GetAtPath<ASavableVariable> ("Assets").ToList ();
+			foreach (var variable in variables)
+				variable.ResetDefault ();
+			Debug.Log (Tools.LogCollection (variables));
+		}
+		[MenuItem ("Game/Reset/Default/Singletons",priority  = 3)]
 		private static void ResetDefaultSingletons ()
 		{
 			IEnumerable<ISingletonData> enumerable = Resources.LoadAll<ScriptableObject> ("Data").ToList ()
@@ -41,16 +56,8 @@ namespace GameCore.Editor
 			Debug.Log (Tools.LogCollection (enumerable));
 		}
 
-		[MenuItem ("Game/Reset/Default/Varaiables")]
-		private static void ResetDeafultVariables ()
-		{
-			List<ASavableVariable> variables = Tools.GetAtPath<ASavableVariable> ("Assets").ToList ();
-			foreach (var variable in variables)
-				variable.ResetDefault ();
-			Debug.Log (Tools.LogCollection (variables));
-		}
 
-		[MenuItem ("Game/Reset/PlayerPrefs")]
+		[MenuItem ("Game/Reset/PlayerPrefs",priority  = 4)]
 		public static void ResetPlayerPrefs ()
 		{
 			PlayerPrefs.DeleteAll ();

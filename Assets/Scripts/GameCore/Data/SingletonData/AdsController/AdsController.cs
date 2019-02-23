@@ -29,6 +29,8 @@ namespace GameCore
             this.Save ();
 
         }
+#else
+        public override void ResetDefault () { }
 #endif
 
         public bool isLoadedRewardVideo { get { return CurrentAdsNetworks.isLoadedRewardVideo; } }

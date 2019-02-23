@@ -19,8 +19,10 @@ namespace CyberBeat
 		[UnityEditor.MenuItem ("Game/Data/RewardData")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
 
 		public override void InitOnCreate () { }
-		public override void ResetDefault () { }
 
+		public override void ResetDefault () { }
+#else
+		public override void ResetDefault () { }
 #endif
 		[SerializeField] float rewardChnacePechent = 0.08f;
 		[SerializeField] TimeSpan TimeFoemNextReward = new TimeSpan (3, 0, 0);

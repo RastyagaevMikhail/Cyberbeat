@@ -21,7 +21,8 @@ namespace CyberBeat
 			DoubleNotes.Value = false;
 			DoubleNotes.Save ();
 		}
-
+#else
+		public override void ResetDefault () { }
 #endif
 
 		public BoolVariable DoubleNotes;

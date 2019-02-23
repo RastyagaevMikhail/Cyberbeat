@@ -10,6 +10,8 @@ namespace GameCore
         [UnityEditor.MenuItem ("Game/Data/Vibration")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
         public override void InitOnCreate () { }
         public override void ResetDefault () { }
+#else
+        public override void ResetDefault () { }
 #endif
         public void Vibrate ()
         {

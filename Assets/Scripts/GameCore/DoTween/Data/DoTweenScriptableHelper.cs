@@ -12,6 +12,8 @@ namespace GameCore.DoTween
         [UnityEditor.MenuItem ("Game/Data/DoTween")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
         public override void InitOnCreate () { }
         public override void ResetDefault () { }
+#else
+        public override void ResetDefault () { }
 
 #endif
         [Header ("Init Settings")]

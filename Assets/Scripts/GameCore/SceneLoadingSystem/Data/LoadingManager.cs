@@ -1,17 +1,19 @@
 namespace GameCore
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System;
 
-    using UnityEngine;
+	using UnityEngine;
 
-    public class LoadingManager : SingletonData<LoadingManager>
+	public class LoadingManager : SingletonData<LoadingManager>
 	{
 #if UNITY_EDITOR
 		[UnityEditor.MenuItem ("Game/Data/LoadingManager")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
 		public override void ResetDefault () { nextScene = "Menu"; }
 		public override void InitOnCreate () { }
+#else
+		public override void ResetDefault () { }
 #endif
 		public string nextScene = "Menu";
 		Loader _loader = null;
@@ -39,10 +41,10 @@ namespace GameCore
 			loader.LoadScene ("Loading");
 		}
 
-        public void ReloadScene()
-        {
-           loader.ReloadScene();
-        }
-    }
+		public void ReloadScene ()
+		{
+			loader.ReloadScene ();
+		}
+	}
 
 }

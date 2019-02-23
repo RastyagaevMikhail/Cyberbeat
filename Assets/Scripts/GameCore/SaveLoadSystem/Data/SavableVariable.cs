@@ -42,12 +42,16 @@ namespace GameCore
             if (ResetByDefault)
             {
                 Value = DefaultValue;
-                SaveValue();
+                SaveValue ();
             }
         }
         public Action<TValue> OnValueChanged = (o) => { };
         public bool Loaded = false;
-        public TValue ValueFast { get { return _value; } set { _value = value; } }
+        public TValue ValueFast
+        {
+            get => _value;
+            set => _value = value;
+        }
         public virtual TValue Value
         {
             get

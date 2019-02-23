@@ -13,6 +13,8 @@ namespace GameCore
 		[UnityEditor.MenuItem ("Game/Data/Managers/Notification")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
 		public override void InitOnCreate () { }
 		public override void ResetDefault () { }
+#else
+		public override void ResetDefault () { }
 #endif
 		private string oneSignalDebugMessage;
 		INotificationManager notificationManager;

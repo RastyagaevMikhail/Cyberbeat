@@ -13,6 +13,8 @@ namespace CyberBeat
         [UnityEditor.MenuItem ("Game/Data/ResultsData")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
         public override void InitOnCreate () { }
         public override void ResetDefault () { Reset (); }
+#else
+        public override void ResetDefault () { }
 #endif
         [SerializeField] IntVariable attemps;
         [SerializeField] IntVariable totalBits;
