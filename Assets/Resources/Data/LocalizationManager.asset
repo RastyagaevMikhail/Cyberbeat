@@ -79,62 +79,80 @@ MonoBehaviour:
     index: 31
   - key: notes
     index: 32
-  - key: play
+  - key: nots
     index: 33
-  - key: colors
+  - key: play
     index: 34
-  - key: life
+  - key: colors
     index: 35
-  - key: blade
+  - key: life
     index: 36
-  - key: shield
+  - key: blade
     index: 37
-  - key: gate
+  - key: shield
     index: 38
-  - key: you_have
+  - key: gate
     index: 39
-  - key: take_it
+  - key: you_have
     index: 40
-  - key: agreement
+  - key: take_it
     index: 41
-  - key: agree
+  - key: agreement
     index: 42
-  - key: remember_gift
+  - key: agree
     index: 43
-  - key: yes
+  - key: remember_gift
     index: 44
-  - key: no
+  - key: yes
     index: 45
-  - key: menu
+  - key: no
     index: 46
-  - key: restart
+  - key: menu
     index: 47
-  - key: resume
+  - key: restart
     index: 48
-  - key: pause
+  - key: resume
     index: 49
-  - key: select
+  - key: pause
     index: 50
-  - key: selected
+  - key: select
     index: 51
-  - key: upgrade
+  - key: selected
     index: 52
-  - key: noads_offer_title
+  - key: upgrade
     index: 53
-  - key: plus_autorestart
+  - key: noads_offer_title
     index: 54
-  - key: noads_title
+  - key: plus_autorestart
     index: 55
-  - key: activated
+  - key: noads_title
     index: 56
-  - key: blade_desc
+  - key: noads_desc
     index: 57
-  - key: life_desc
+  - key: activated
     index: 58
-  - key: shield_desc
+  - key: blade_desc
     index: 59
-  - key: nobooster_title
+  - key: life_desc
     index: 60
+  - key: shield_desc
+    index: 61
+  - key: nobooster_title
+    index: 62
+  - key: attemps
+    index: 63
+  - key: beats
+    index: 64
+  - key: porgress
+    index: 65
+  - key: skip
+    index: 66
+  - key: cubbits
+    index: 67
+  - key: road
+    index: 68
+  - key: gates
+    index: 69
   translations:
   - Lang: 10
     Items:
@@ -171,6 +189,7 @@ MonoBehaviour:
     - Boosters
     - Skins
     - Notes
+    - Notes
     - Play
     - Colors
     - Life
@@ -194,11 +213,19 @@ MonoBehaviour:
     - disable ads from 5 minuts
     - +autorestart
     - Disable Ads
+    - +autorestart always
     - Activated
     - Hit bits from two sides
     - Saves life once
     - Protect yourself death
     - <color=#ef3d50>need</color> a booster
+    - Attemps
+    - Beats
+    - Progress
+    - Skip
+    - Cubbits
+    - Road
+    - Gates
   - Lang: 30
     Items:
     - "\u0418\u0433\u0440\u0430\u0442\u044C"
@@ -234,6 +261,7 @@ MonoBehaviour:
     - "\u0411\u0443\u0441\u0442\u0435\u0440\u044B"
     - "\u0421\u043A\u0438\u043D\u044B"
     - "\u041D\u043E\u0442\u044B"
+    - "\u041D\u043E\u0442"
     - "\u0418\u0433\u0440\u0430\u0442\u044C"
     - "\u0426\u0432\u0435\u0442\u0430"
     - "\u0416\u0438\u0437\u043D\u044C"
@@ -258,6 +286,7 @@ MonoBehaviour:
       \u043D\u0430 5 \u043C\u0438\u043D"
     - "+\u0410\u0432\u0442\u043E\u0440\u0435\u0441\u0442\u0430\u0440\u0442"
     - "\u041E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0440\u0435\u043A\u043B\u0430\u043C\u0443"
+    - "+\u0410\u0432\u0442\u043E\u0440\u0435\u0441\u0442\u0430\u0440\u0442 \u043D\u0430\u0432\u0441\u0435\u0433\u0434\u0430"
     - "\u0410\u043A\u0442\u0438\u0432\u043D\u043E"
     - "\u0420\u0443\u0431\u0438\u0442 \u0431\u0438\u0442\u044B \u0441 \u0434\u0432\u0443\u0445
       \u0441\u0442\u043E\u0440\u043E\u043D"
@@ -266,4 +295,11 @@ MonoBehaviour:
     - "\u0417\u0430\u0449\u0438\u0449\u0430\u0435\u0442 \u043E\u0442 \u0441\u043C\u0435\u0440\u0442\u0438"
     - "<color=#ef3d50>\u041D\u0443\u0436\u0435\u043D</color> \u0431\u0443\u0441\u0442\u0435\u0440
       {0}?"
+    - "\u041F\u043E\u043F\u044B\u0442\u043A\u0438"
+    - "\u0411\u0438\u0442\u044B"
+    - "\u041F\u0440\u043E\u0433\u0440\u0435\u0441\u0441"
+    - "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C"
+    - "\u041A\u0443\u0431-\u0431\u0438\u0442\u044B"
+    - "\u0414\u043E\u0440\u043E\u0436\u043A\u0438"
+    - "\u0412\u0440\u0430\u0442\u0430"
   Languges: 0a0000001e000000

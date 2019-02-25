@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sirenix.OdinInspector;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +21,22 @@ namespace GameCore
 #endif
         private const string TranslationPathFolder = "Assets/Resources/";
         private const string TranslationsFilename = "translations.csv";
+        private Dictionary<SystemLanguage, string> UndefinedTranslations = new Dictionary<SystemLanguage, string>
+        { //
+            { SystemLanguage.English, "Undefined Translations!!!" },
+            { SystemLanguage.Russian, "Перевод не найден" }
+        };
+        string undefinedTranslation
+        {
+            get
+            {
+                string result = String.Empty;
+                UndefinedTranslations.TryGetValue (currentLanguage, out result);
+                if (result == string.Empty) return "Undefined Translations!!!";
+                return result;
+            }
+        }
+
         [Serializable]
         public class LanguageItems
         {
@@ -74,16 +92,21 @@ namespace GameCore
             }
         }
 
+        // [SerializeField] bool debug;
+        [Button]
         public void SetLanguage (SystemLanguage language)
         {
             currentLanguage = language;
             if (OnLanguageChanged != null)
                 OnLanguageChanged ();
         }
-
+        [Button]
         [ContextMenu ("Parse Translations")]
         public void ParseTranslations ()
         {
+            #if UNITY_EDITOR
+            UnityEditor.EditorUtility.SetDirty(this);
+            #endif
             ParseCSV (Resources.Load<TextAsset> ("translations"));
         }
         public void ParseCSV (TextAsset file)
@@ -166,19 +189,31 @@ namespace GameCore
             UnityEditor.AssetDatabase.Refresh ();
         }
 #endif
-        public string Localize (string str)
+
+        public string Localize (string str, bool debug = false)
         {
-            var result = "Undefined!";
-            if (Keys.ContainsKey (str))
-                result = Translations[currentLanguage][Keys[str]];
-            return result;
+            if (debug) Debug.LogFormat ("str = {0}", str);
+            if (String.IsNullOrEmpty (str)) return undefinedTranslation;
+            //? try get list transations
+            List<string> translations = null;
+            Translations.TryGetValue (currentLanguage, out translations);
+            if (debug) Debug.Log (translations.Log ());
+            if (translations == null) return undefinedTranslation;
+
+            //? try get index of key from transation
+            int indexOfTranslation = -1;
+            Keys.TryGetValue (str, out indexOfTranslation);
+            if (debug) Debug.LogFormat ("indexOfTranslation = {0}", indexOfTranslation);
+            if (indexOfTranslation == 0 && str != keys[0].key) return undefinedTranslation;
+            if (debug) Debug.LogFormat ("translations[indexOfTranslation] = {0}", translations[indexOfTranslation]);
+            return translations[indexOfTranslation];
         }
     }
     public static class LocalizatorExtention
     {
-        public static string localized (this string str)
+        public static string localized (this string str, bool debug = false)
         {
-            return LocalizationManager.instance.Localize (str);
+            return LocalizationManager.instance.Localize (str, debug);
         }
     }
 }

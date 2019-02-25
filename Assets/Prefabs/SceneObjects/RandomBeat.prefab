@@ -115,6 +115,33 @@ MonoBehaviour:
   newMaterialOnAwake: 0
   DefaultColorNameVariable: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd,
     type: 2}
+  OnColorChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6436949887745462141}
+        m_MethodName: set_color
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7218843777760596877}
+        m_MethodName: set_color
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!95 &8512347159991630916
 Animator:
   serializedVersion: 3
@@ -267,28 +294,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 114283711047911854}
-        m_MethodName: SetMyColorTo
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 4433538050555204946}
-          m_ObjectArgumentAssemblyTypeName: CyberBeat.MaterialSwitcher, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 114283711047911854}
-        m_MethodName: SetMyColorTo
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1850598969676714029}
-          m_ObjectArgumentAssemblyTypeName: CyberBeat.MaterialSwitcher, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   useOnDeSpawn: 1
@@ -413,7 +418,7 @@ GameObject:
   - component: {fileID: 1107264780683957904}
   - component: {fileID: 4728086503695380137}
   - component: {fileID: 6665124087743834272}
-  - component: {fileID: 1850598969676714029}
+  - component: {fileID: 7218843777760596877}
   m_Layer: 0
   m_Name: Square_Whole
   m_TagString: Untagged
@@ -5168,7 +5173,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &1850598969676714029
+--- !u!114 &7218843777760596877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5177,13 +5182,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 67574727131075014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81a107ccde2a91418723f08a1a606bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 755edcfef83b0aa42b96be6aa0f4b12e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Constant: 1
-  newMaterialOnAwake: 1
-  DefaultColorNameVariable: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437,
-    type: 2}
+  pSystem: {fileID: 4728086503695380137}
 --- !u!1 &6380802912881777239
 GameObject:
   m_ObjectHideFlags: 0
@@ -5195,8 +5197,6 @@ GameObject:
   - component: {fileID: 6380802912881777234}
   - component: {fileID: 6380802912881777237}
   - component: {fileID: 6380802912881777236}
-  - component: {fileID: 5597048614505445402}
-  - component: {fileID: 3460088547507279974}
   m_Layer: 0
   m_Name: switchColor
   m_TagString: Untagged
@@ -9886,86 +9886,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &5597048614505445402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6380802912881777239}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114283711047911854}
-        m_MethodName: SetMyColorTo
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 4433538050555204946}
-          m_ObjectArgumentAssemblyTypeName: CyberBeat.MaterialSwitcher, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 114283711047911854}
-        m_MethodName: SetMyColorTo
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1850598969676714029}
-          m_ObjectArgumentAssemblyTypeName: CyberBeat.MaterialSwitcher, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
---- !u!114 &3460088547507279974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6380802912881777239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b13bd6a092e6a04c8ca057866c16f9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnStart:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114283711047911854}
-        m_MethodName: SetMyColorTo
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 4433538050555204946}
-          m_ObjectArgumentAssemblyTypeName: CyberBeat.MaterialSwitcher, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 114283711047911854}
-        m_MethodName: SetMyColorTo
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1850598969676714029}
-          m_ObjectArgumentAssemblyTypeName: CyberBeat.MaterialSwitcher, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!1 &6506304322996649269
 GameObject:
   m_ObjectHideFlags: 0
@@ -9977,7 +9897,7 @@ GameObject:
   - component: {fileID: 1634809850007376442}
   - component: {fileID: 8642504009651181991}
   - component: {fileID: 1880462629217001557}
-  - component: {fileID: 4433538050555204946}
+  - component: {fileID: 6436949887745462141}
   m_Layer: 0
   m_Name: Square_Fill
   m_TagString: Untagged
@@ -14732,7 +14652,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &4433538050555204946
+--- !u!114 &6436949887745462141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14741,10 +14661,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6506304322996649269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81a107ccde2a91418723f08a1a606bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 755edcfef83b0aa42b96be6aa0f4b12e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Constant: 1
-  newMaterialOnAwake: 1
-  DefaultColorNameVariable: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437,
-    type: 2}
+  pSystem: {fileID: 8642504009651181991}

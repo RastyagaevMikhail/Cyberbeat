@@ -1,10 +1,4 @@
-﻿using DG.Tweening;
-
-using GameCore;
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using GameCore;
 
 using UnityEngine;
 namespace CyberBeat
@@ -13,7 +7,7 @@ namespace CyberBeat
 	{
 		public Material CurrentMaterial { get { return renderer.sharedMaterial; } set { renderer.sharedMaterial = value; } }
 
-		public Color CurrentColor { get { return this [DefaultColorName]; } set { this [DefaultColorName] = value; } }
+		public Color CurrentColor { get { return this [DefaultColorName]; } set { this [DefaultColorName] = value; OnColorChanged.Invoke (value); } }
 		public Color this [string colorName]
 		{
 			get { return CurrentMaterial.GetColor (colorName); } set { CurrentMaterial.SetColor (colorName, value); }
@@ -25,11 +19,13 @@ namespace CyberBeat
 		[SerializeField] StringVariable DefaultColorNameVariable;
 		const string defaultColorName = "_Color";
 		public string DefaultColorName { get { return DefaultColorNameVariable?DefaultColorNameVariable.Value : defaultColorName; } }
+
+		[SerializeField] UnityEventColor OnColorChanged;
 		private void Awake ()
 		{
 			if (newMaterialOnAwake)
-			{	
-				CurrentMaterial = Instantiate(CurrentMaterial);
+			{
+				CurrentMaterial = Instantiate (CurrentMaterial);
 			}
 		}
 		public void SetMyColorTo (MaterialSwitcher materialSwitcher)

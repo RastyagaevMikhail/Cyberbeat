@@ -16,7 +16,7 @@ namespace GameCore
         public Text mText { get { if (_mText == null) _mText = GetComponent<Text> (); return _mText; } }
 
         public string Id;
-
+        [SerializeField] bool debug;
         void OnEnable ()
         {
             UpdateText ();
@@ -34,13 +34,14 @@ namespace GameCore
         [ContextMenu ("Update Text")]
         public void UpdateText ()
         {
-            mText.text = Id.localized ();
+
 #if UNITY_EDITOR
             if (this != null)
             {
                 UnityEditor.EditorUtility.SetDirty (this);
             }
 #endif
+            mText.text = Id.localized (debug);
         }
     }
 }
