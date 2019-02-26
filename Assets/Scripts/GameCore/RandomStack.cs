@@ -1,11 +1,11 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
 namespace GameCore
 {
-    [System.Serializable]
+	[Serializable]
     public class RandomStack<T>
     {
         [SerializeField] IEnumerable<T> RandCollection;

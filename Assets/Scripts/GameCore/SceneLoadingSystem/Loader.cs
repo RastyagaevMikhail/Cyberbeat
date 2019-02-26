@@ -22,8 +22,9 @@ namespace GameCore
 		public void LoadScene (string SceneName)
 		{
 			FullScreenHolder.SetActive (true);
-			Debug.Log ("Loader.LoadScene");
-			Tools.DelayAction (this, 0.5f, () => SceneManager.LoadScene (SceneName));
+			Debug.Log ($"Loader.LoadScene {SceneName}");
+			// Tools.DelayAction (this, 0.5f, () => SceneManager.LoadScene (SceneName));
+			SceneManager.LoadScene (SceneName);
 		}
 		public void OnSceneLoaded ()
 		{

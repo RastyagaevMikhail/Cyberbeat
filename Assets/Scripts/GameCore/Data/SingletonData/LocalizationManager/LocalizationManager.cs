@@ -9,13 +9,15 @@ using System.Linq;
 using UnityEngine;
 
 namespace GameCore
-{
+{ 
     public class LocalizationManager : SingletonData<LocalizationManager>
     {
 #if UNITY_EDITOR
         [UnityEditor.MenuItem ("Game/Data/LocalizationManager")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
         public override void InitOnCreate () { ParseTranslations (); }
         public override void ResetDefault () { }
+
+        
 #else
         public override void ResetDefault () { }
 #endif
@@ -41,6 +43,7 @@ namespace GameCore
         public class LanguageItems
         {
             public SystemLanguage Lang;
+            [Multiline]
             public List<string> Items;
         }
 
@@ -100,17 +103,19 @@ namespace GameCore
             if (OnLanguageChanged != null)
                 OnLanguageChanged ();
         }
+
         [Button]
         [ContextMenu ("Parse Translations")]
         public void ParseTranslations ()
         {
-            #if UNITY_EDITOR
-            UnityEditor.EditorUtility.SetDirty(this);
-            #endif
+#if UNITY_EDITOR
+            UnityEditor.EditorUtility.SetDirty (this);
+#endif
             ParseCSV (Resources.Load<TextAsset> ("translations"));
         }
         public void ParseCSV (TextAsset file)
         {
+            _translations = null;
             string[] lines = file.text.Split ('\n');
             if (lines.Length == 0)
             {
@@ -138,10 +143,11 @@ namespace GameCore
                 for (int l = 1; l < line.Length; l++)
                 {
                     SystemLanguage currentLanguage = Languges[l - 1];
-                    if (!translations.Exists (t => t.Lang == currentLanguage))
-                        translations.Add (new LanguageItems () { Lang = currentLanguage, Items = new List<string> () { line[l] } });
+					string trans = line[l].Replace("<br>","\n");
+					if (!translations.Exists (t => t.Lang == currentLanguage))
+						translations.Add (new LanguageItems() { Lang = currentLanguage, Items = new List<string>() { trans } });
                     else
-                        translations.Find (t => t.Lang == currentLanguage).Items.Add (line[l]);
+						translations.Find (t => t.Lang == currentLanguage).Items.Add (trans);
                 }
             }
         }

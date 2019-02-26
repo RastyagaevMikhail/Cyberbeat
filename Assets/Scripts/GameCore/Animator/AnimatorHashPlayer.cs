@@ -17,11 +17,14 @@ namespace GameCore
         Dictionary<string, int> Hash { get { return (hash??(hash = names.ToDictionary (n => n.name, n => n.hash))); } }
 
         public RandomStack<HashName> RandomStackNames => randomStackNames??(randomStackNames = new RandomStack<HashName> (names));
-        RandomStack<HashName> randomStackNames;
+        [SerializeField] RandomStack<HashName> randomStackNames;
+        [SerializeField] bool debug;
 
         public void PlayRandom ()
         {
-            animator.Play (RandomStackNames.Get ().hash);
+            HashName hashName = RandomStackNames.Get ();
+            if (debug) Debug.LogFormat ("hashName = {0}", hashName);
+            animator.Play (hashName.hash);
         }
 
         private void OnEnable ()
@@ -56,6 +59,7 @@ namespace GameCore
             {
                 hash = Animator.StringToHash (name);
             }
+            public override string ToString () => $"{name}:{hash}";
         }
     }
 }

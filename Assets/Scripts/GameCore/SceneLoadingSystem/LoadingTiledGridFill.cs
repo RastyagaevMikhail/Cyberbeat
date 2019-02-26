@@ -6,12 +6,12 @@ using UnityEngine;
 namespace GameCore
 {
 	[ExecuteInEditMode]
-	public class LoadingTiledGridFill : MonoBehaviour, ILoadingProgressor
+	public class LoadingTiledGridFill : ALoadingProgressor
 	{
 
 		[SerializeField] List<GameObject> Tiles;
 
-		public float Value
+		public override float Value
 		{
 			set
 			{

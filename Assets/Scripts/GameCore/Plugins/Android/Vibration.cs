@@ -18,36 +18,44 @@ public static class Vibration
 
 	public static void Vibrate ()
 	{
-		if (isAndroid )
+		if (isAndroid)
 			vibrator.Call ("vibrate");
+#if UNITY_ANDROID
 		else
 			Handheld.Vibrate ();
+#endif
 	}
 
 	public static void Vibrate (long milliseconds)
 	{
-		if (isAndroid )
+		if (isAndroid)
 			vibrator.Call ("vibrate", milliseconds);
+#if UNITY_ANDROID
 		else
 			Handheld.Vibrate ();
+#endif
 	}
 	public static void Vibrate (float seconds)
 	{
-		if (isAndroid )
-        {
-            long milliseconds = (long)seconds * 1000;
-            vibrator.Call("vibrate", milliseconds);
-        }
-        else
+		if (isAndroid)
+		{
+			long milliseconds = (long) seconds * 1000;
+			vibrator.Call ("vibrate", milliseconds);
+		}
+#if UNITY_ANDROID
+		else
 			Handheld.Vibrate ();
+#endif
 	}
 
 	public static void Vibrate (long[] pattern, int repeat)
 	{
-		if (isAndroid )
+		if (isAndroid)
 			vibrator.Call ("vibrate", pattern, repeat);
+#if UNITY_ANDROID
 		else
 			Handheld.Vibrate ();
+#endif
 	}
 	public static void VibrrateWithAmlitude (long milliseconds, int amplitude)
 	{
@@ -58,19 +66,19 @@ public static class Vibration
 	}
 	public static bool HasVibrator ()
 	{
-		return isAndroid ;
+		return isAndroid;
 	}
 
 	public static void Cancel ()
 	{
-		if (isAndroid )
+		if (isAndroid)
 			vibrator.Call ("cancel");
 	}
 
-    private static bool isAndroid =>
+	private static bool isAndroid =>
 #if UNITY_ANDROID && !UNITY_EDITOR
 		true;
 #else
-        false;
+	false;
 #endif
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 using Text = TMPro.TextMeshProUGUI;
@@ -10,68 +11,39 @@ namespace GameCore
 {
 	public class Loading : MonoBehaviour
 	{
-		[SerializeField] ILoadingProgressor loadingProgressor;
-		float progress { set { if (loadingProgressor != null) loadingProgressor.Value = value; } get { return loadingProgressor.Value; } }
-		LoadingManager manager { get { return LoadingManager.instance; } }
-		RandomStack<string> loadingTextsRandStack;
-		[SerializeField] float fakePercent;
-		[SerializeField] float fakePercentStep = 0.1f;
+		[SerializeField] LoadingManager manager;
+		[SerializeField] float maxTimeFromLoading = 5f;
+		[SerializeField] UnityEventFloat onProgress;
+		[SerializeField] UnityEventFloat onFakeLoading;
+		[SerializeField] UnityEvent onLoadComplete;
+		private void OnValidate ()
+		{
+			if (manager == null)
+				manager = Resources.Load<LoadingManager> ("Data/LoadingManager");
+		}
 		IEnumerator Start ()
 		{
-
-			StartCoroutine (ShowLoadingText ());
-#if UNITY_EDITOR
-			yield return new WaitForSeconds (5f);
-#endif
 			var ao = SceneManager.LoadSceneAsync (manager.nextScene);
+			float startTime = Time.time;
 			while (!ao.isDone)
 			{
-				progress = ao.progress.GetAsClamped (fakePercent, 1);
+				onProgress.Invoke (ao.progress);
 				yield return null;
 			}
-			progress = 1f;
-			// yield return new WaitForSeconds (5f);
+			onProgress.Invoke (1f);
+
+			//?Fake waithing if needed
+			float elapsedTime = Time.time - startTime;
+			while (elapsedTime < maxTimeFromLoading)
+			{
+				onFakeLoading.Invoke (elapsedTime);
+				elapsedTime += Time.deltaTime;
+				yield return new WaitForEndOfFrame ();
+			}
 			manager.loader.OnSceneLoaded ();
+			onLoadComplete.Invoke ();
 			ao.allowSceneActivation = true;
 		}
-		public IEnumerator ShowLoadingText ()
-		{
-			loadingTextsRandStack = new RandomStack<string> (localizationTagsOfLoadingText);
-			loadingText.text = loadingTextsRandStack.Get ().localized ();
-			WaitForSeconds waitForSeconds = new WaitForSeconds (0.5f);
-			while (true)
-			{
-
-				loadingDots.text = ".";
-				yield return waitForSeconds;
-				AddFakePercent ();
-				loadingDots.text = "..";
-				yield return waitForSeconds;
-				AddFakePercent ();
-				loadingDots.text = "...";
-				yield return waitForSeconds;
-				AddFakePercent ();
-				loadingText.text = loadingTextsRandStack.Get ().localized ();
-			}
-		}
-
-		private void AddFakePercent ()
-		{
-			fakePercent += fakePercentStep;
-			progress = fakePercent;
-		}
-
-		[SerializeField] Text loadingText;
-		[SerializeField] Text loadingDots;
-
-		[SerializeField] List<string> localizationTagsOfLoadingText;
-
-#if UNITY_EDITOR
-		[ContextMenu ("Validate Tags")] public void ValidateTags ()
-		{
-			localizationTagsOfLoadingText = LocalizationManager.instance.Keys.Keys.ToList ().FindAll (key => key.Contains ("loading_text_"));
-		}
-#endif
 
 	}
 }

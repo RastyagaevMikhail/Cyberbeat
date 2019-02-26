@@ -64,9 +64,10 @@ namespace GameCore
         }
 
 #if UNITY_EDITOR
+        [SerializeField] bool updateInEditor;
         private void Update ()
         {
-            if (!Application.isPlaying)
+            if (!Application.isPlaying && updateInEditor)
                 OnValueChanged (variable.Value);
         }
 #endif

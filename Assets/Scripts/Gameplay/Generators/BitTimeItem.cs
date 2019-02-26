@@ -42,7 +42,7 @@ namespace CyberBeat
         {
             if (TimesIsOver) return;
 
-            if (currentBit == null) return;//??? ЧТо делать не заню с этим, вроде работает
+            if (currentBit == null || Bits.Count == 0) return; //??? ЧТо делать не заню с этим, вроде работает
             if (currentBit.StartTime <= time)
             {
                 UnityEvent.Invoke (currentBit);

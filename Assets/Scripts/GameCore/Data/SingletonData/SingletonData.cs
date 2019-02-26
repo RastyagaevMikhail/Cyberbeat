@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using UnityEngine;
 namespace GameCore
 {
@@ -50,7 +49,6 @@ namespace GameCore
 				return _instance;
 			}
 		}
-
 		protected virtual void InitOnLoaded () { }
 
 		[ContextMenu ("Create Asset")] public void CreateAsset () { this.CreateAsset ("Assets/Resources/Data/{0}.asset".AsFormat (typeName)); }

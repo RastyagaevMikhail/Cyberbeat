@@ -4,17 +4,25 @@ using System.Linq;
 
 using Text = TMPro.TextMeshProUGUI;
 
+using Sirenix.OdinInspector;
+
 using UnityEngine;
+
 namespace GameCore
 {
     [ExecuteInEditMode]
     [RequireComponent (typeof (Text))]
     public class LocalizeTextMeshProUGUI : MonoBehaviour
     {
-        public LocalizationManager localizator { get { return LocalizationManager.instance; } }
-        private Text _mText = null;
-        public Text mText { get { if (_mText == null) _mText = GetComponent<Text> (); return _mText; } }
-
+        [SerializeField]
+        [InlineButton ("Parse", "P")]
+        LocalizationManager localizator;
+        [HideInInspector][SerializeField] Text mText;
+        private void OnValidate ()
+        {
+            if (localizator == null) localizator = Resources.Load<LocalizationManager> ("Data/LocalizationManager");
+            if (mText == null) mText = GetComponent<Text> ();
+        }
         public string Id;
         [SerializeField] bool debug;
         void OnEnable ()
@@ -30,18 +38,20 @@ namespace GameCore
         {
             UpdateText ();
         }
+        public void Parse() {
+            localizator.ParseTranslations();
+        }
 
         [ContextMenu ("Update Text")]
         public void UpdateText ()
         {
-
 #if UNITY_EDITOR
             if (this != null)
             {
                 UnityEditor.EditorUtility.SetDirty (this);
             }
 #endif
-            mText.text = Id.localized (debug);
+            mText.text = localizator.Localize (Id, debug);
         }
     }
 }

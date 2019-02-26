@@ -103,6 +103,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  debug: 0
 --- !u!1 &3342953813511737384
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +446,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  debug: 0
 --- !u!1 &7075386718780592709
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   variable: {fileID: 11400000, guid: 2a66e0455282e6f4a885d8a3c177ae32, type: 2}
   stringFormat: '{0:mm'':''ss}'
+  updateInEditor: 0
 --- !u!114 &5559407531356977330
 MonoBehaviour:
   m_ObjectHideFlags: 0

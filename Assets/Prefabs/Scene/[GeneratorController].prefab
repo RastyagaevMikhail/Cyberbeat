@@ -251,6 +251,7 @@ MonoBehaviour:
       PublicKeyToken=null
   updateOnEnable: 0
   Inverse: 0
+  debug: 0
 --- !u!1 &926352404
 GameObject:
   m_ObjectHideFlags: 0
@@ -5415,6 +5416,7 @@ MonoBehaviour:
       PublicKeyToken=null
   updateOnEnable: 1
   Inverse: 0
+  debug: 0
 --- !u!114 &1529512033771293104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5603,7 +5605,6 @@ GameObject:
   - component: {fileID: 2933761498049461673}
   - component: {fileID: 1991831851}
   - component: {fileID: 5429566060490198258}
-  - component: {fileID: 1807914787}
   - component: {fileID: 4741332625419332319}
   - component: {fileID: 7632571340872194009}
   m_Layer: 0
@@ -5687,124 +5688,6 @@ MonoBehaviour:
     m_TypeName: CyberBeat.GameEventListenerIBitData+UnityEventIBitData, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   debug: 0
---- !u!114 &1807914787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2263003265711161094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150ec2c87c565f3468f5ed25d6f26381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTime:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  endTime:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  duration:
-    enabled: 1
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11400000, guid: b4902b23350b1b4418b2285dce10f467, type: 2}
-          m_MethodName: Rebind
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11400000, guid: b4902b23350b1b4418b2285dce10f467, type: 2}
-          m_MethodName: Play
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: OnBit
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  stringValue:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  randomString:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  setPosition:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  setLossyScale:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  setRotation:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventQuaternion, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  setLocalPosition:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  setLocalScale:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  setLocalRotation:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventQuaternion, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  setTransform:
-    enabled: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: GameCore.UnityEventTransform, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
 --- !u!114 &4741332625419332319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6097,6 +5980,7 @@ MonoBehaviour:
       PublicKeyToken=null
   updateOnEnable: 0
   Inverse: 0
+  debug: 0
 --- !u!1 &4528274951139567500
 GameObject:
   m_ObjectHideFlags: 0
@@ -6434,6 +6318,7 @@ MonoBehaviour:
       PublicKeyToken=null
   updateOnEnable: 0
   Inverse: 0
+  debug: 0
 --- !u!114 &8266133836934056953
 MonoBehaviour:
   m_ObjectHideFlags: 0

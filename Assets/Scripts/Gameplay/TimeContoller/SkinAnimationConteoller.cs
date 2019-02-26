@@ -10,29 +10,46 @@ namespace CyberBeat
     {
         [SerializeField] AnimatorHashPlayerVariable animator;
         [SerializeField] bool debug;
-        Queue<IBitData> bits = new Queue<IBitData> ();
+        List<IBitData> bits = new List<IBitData> ();
         public void OnGeneratorBit (IBitData bitData)
         {
-            bits.Enqueue (bitData);
+            bits.Add (bitData);
         }
         public void OnBeatDeath (float bitTime)
         {
             if (debug)
                 Debug.LogFormat ("bits.Count = {0}", bits.Count);
             if (bits.Count == 0) return;
-            IBitData bit = bits.Dequeue ();
+
             if (debug)
             {
                 Debug.LogFormat ("bitTime = {0}", bitTime);
-                Debug.LogFormat ("bit = {0}", bit);
             }
-            if (bit.StartTime != bitTime)
+            var bitsList = new List<IBitData> ();
+            foreach (var bit in bits)
             {
-                OnBeatDeath (bitTime);
-                return;
+                if (bit.StartTime == bitTime)
+                {
+                    animator.Rebind ();
+                    animator.PlayRandom ();
+                    break;
+                }
+                else
+                {
+                    bitsList.Add (bit);
+                }
             }
-            animator.Rebind ();
-            animator.PlayRandom();
+            foreach (var bit in bitsList)
+            {
+                if (bit.StartTime <= bitTime)
+                {
+                    if(bits.Contains(bit))
+                    {
+                        bits.Remove(bit);
+                    }
+                }
+            }
+
         }
     }
 }
