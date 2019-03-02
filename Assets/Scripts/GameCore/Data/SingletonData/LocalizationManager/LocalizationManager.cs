@@ -209,7 +209,7 @@ namespace GameCore
             //? try get index of key from transation
             int indexOfTranslation = -1;
             Keys.TryGetValue (str, out indexOfTranslation);
-            if (debug) Debug.LogFormat ("indexOfTranslation = {0}", indexOfTranslation);
+            if (debug) Debug.LogFormat ("indexOfTranslation = {0}", indexOfTranslation); 
             if (indexOfTranslation == 0 && str != keys[0].key) return undefinedTranslation;
             if (debug) Debug.LogFormat ("translations[indexOfTranslation] = {0}", translations[indexOfTranslation]);
             return translations[indexOfTranslation];

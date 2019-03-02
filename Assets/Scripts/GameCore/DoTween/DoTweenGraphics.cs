@@ -10,28 +10,43 @@ namespace GameCore
 {
     public class DoTweenGraphics : MonoBehaviour
     {
-        private Graphic _graphic = null;
-        public Graphic graphic { get { if (_graphic == null) _graphic = GetComponent<Graphic> (); return _graphic; } }
+        // [HideInInspector]
+        [SerializeField] Graphic graphic;
+        private void OnValidate ()
+        {
+            if (graphic == null) graphic = GetComponent<Graphic> ();
+        }
 
-        [SerializeField] Ease fadeInEase =  Ease.Linear;
+        [SerializeField] Ease fadeInEase = Ease.Linear;
         [SerializeField] Ease fadeOutEase = Ease.Linear;
         [SerializeField] Ease fadeEase = Ease.Linear;
-        [SerializeField] float fadeValue =  0.5f;
+        [SerializeField] float fadeValue = 0.5f;
+
+        public float FadeValue { set => fadeValue = value; }
+
         public void DoFadeOut (float duration)
         {
-            graphic.DOFade (0f, duration).SetEase (fadeOutEase);
+            DoFadeOutTween (duration);
+        }
+        public Tween DoFadeOutTween (float duration)
+        {
+            return graphic.DOFade (0f, duration).SetEase (fadeOutEase);
         }
         public void DoFadeIn (float duration)
         {
-            graphic.DOFade (1f, duration).SetEase (fadeInEase);
+            DoFadeInTween (duration);
         }
-          public void DoFade (float duration)
+        public Tween DoFadeInTween (float duration)
         {
-            graphic.DOFade (fadeValue, duration).SetEase (fadeEase);
+            return graphic.DOFade (1f, duration).SetEase (fadeInEase);
         }
-        public void DOFlip ()
+        public Tween DoFadeTween (float duration)
         {
-            graphic.DOFlip ();
+            return graphic.DOFade (fadeValue, duration).SetEase (fadeEase);
+        }
+        public void DoFade (float duration)
+        {
+            DoFadeTween (duration);
         }
     }
 }

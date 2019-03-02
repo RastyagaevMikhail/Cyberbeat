@@ -18,10 +18,5 @@ namespace CyberBeat
             trackinfo.InitViewGameObject (instance.gameObject);
             return instance;
         }
-
-        private void Awake ()
-        {
-            Initialize ();
-        }
     }
 }

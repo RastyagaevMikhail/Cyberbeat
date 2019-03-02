@@ -4,140 +4,115 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Pipes;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 
 using UnityEditor;
 
 using UnityEngine;
-namespace GameCore
+namespace GameCore.CodeGeneration
 {
     public class ScriptGenerationWizard : ScriptableWizard
     {
-        [SerializeField] string nameOfNameSpace = "GameCore";
-        [SerializeField] string nameOfType;
-        [SerializeField] bool runtimeSet;
-        [SerializeField] bool savableVariable;
-        [SerializeField] bool gameEvent;
-        [SerializeField] bool selector;
-        [SerializeField] bool nameSelector;
+        [SerializeField] ScriptGenerator scriptGenerator;
         [SerializeField] KeyValuePairStringType[] KeysValues;
-
-        const string namesapaceKey = "$NAMESPACE_NAME$";
-        const string typeKey = "$TYPE_NAME$";
-        const string typeKeyKeyType = "$TYPE_KEY$";
 
         [MenuItem ("Game/Generation/Script")]
         static void CreateWizard ()
         {
             var wizard = ScriptableWizard.DisplayWizard<ScriptGenerationWizard> ("Create Scripts", "Generate", "Get keys");
-            var nameOfNameSpace = EditorPrefs.GetString ("nameOfNameSpace", "GameCore");
-            wizard.UpdateNameSpace (nameOfNameSpace);
-        }
-
-        private void UpdateNameSpace (string nameOfNameSpace)
-        {
-            this.nameOfNameSpace = nameOfNameSpace;
         }
 
         void OnWizardCreate ()
         {
-            EditorPrefs.SetString ("nameOfNameSpace", nameOfNameSpace);
-            if (runtimeSet)
+            if (scriptGenerator && !ValuesIsEmpty)
             {
-                ScriptGenerator RuntimeSetScriptGenerator = new ScriptGenerator ()
-                {
-                    Name = "RuntimeSet",
-                    nameOfType = nameOfType,
-                    typeKey = typeKey,
-                    namesapaceKey = namesapaceKey,
-                    nameOfNameSpace = nameOfNameSpace
-                };
-                RuntimeSetScriptGenerator.Generate ();
-                // Selection.activeObject = Tools.GetAssetAtPath<TextAsset> ("Assets/" + filePath.Replace (Application.dataPath, ""));
-            }
-            if (savableVariable)
-            {
-                ScriptGenerator RuntimeSetScriptGenerator = new ScriptGenerator ()
-                {
-                    Name = "Variable",
-                    nameOfType = nameOfType,
-                    typeKey = typeKey,
-                    namesapaceKey = namesapaceKey,
-                    nameOfNameSpace = nameOfNameSpace
-                };
-                RuntimeSetScriptGenerator.Generate ();
-            }
+                Dictionary<string, string> keySelector = KeysValues.ToDictionary (kv => kv.Key, kv => kv.Value);
 
-            if (gameEvent)
-            {
-                ScriptGenerator GameEventScriptGenerator = new ScriptGenerator ()
-                {
-                    Name = "GameEvent",
-                    nameOfType = nameOfType,
-                    typeKey = typeKey,
-                    namesapaceKey = namesapaceKey,
-                    nameOfNameSpace = nameOfNameSpace
-                };
-                GameEventScriptGenerator.Generate (false);
+                if (ScriptGenerator.generatedScripts == null) ScriptGenerator.generatedScripts = new List<ScriptGenerator> ();
+                else ScriptGenerator.generatedScripts.Clear ();
 
-                ScriptGenerator GameEventListenerScriptGenerator = new ScriptGenerator ()
-                {
-                    Name = "GameEventListener",
-                    nameOfType = nameOfType,
-                    typeKey = typeKey,
-                    namesapaceKey = namesapaceKey,
-                    nameOfNameSpace = nameOfNameSpace
-                };
-                GameEventListenerScriptGenerator.Generate (false);
-            }
+                var pahtText = scriptGenerator.Generate (keySelector);
+                ScriptGenerator.generatedScripts.Clear ();
 
-            if (selector)
-            {
-                ScriptGenerator SelectorScriptGenerator = new ScriptGenerator ("Selector");
-                string NameScript = "$KEY_TYPE$$VALUE_TYPE$$SCRIPT_NAME$";
-                foreach (var kvp in KeysValues)
-                    NameScript = NameScript.Replace (kvp.Key, kvp.Value);
-                SelectorScriptGenerator.GenerateByKeys (() => NameScript, KeysValues);
-            }
-            if (nameSelector)
-            {
-                ScriptGenerator SelectorScriptGenerator = new ScriptGenerator ("NameSelector");
-                string NameScript = "$VALUE_TYPE$$SCRIPT_NAME$";
-                foreach (var kvp in KeysValues)
-                    NameScript = NameScript.Replace (kvp.Key, kvp.Value);
-                SelectorScriptGenerator.GenerateByKeys (() => NameScript, KeysValues);
+                Debug.Log (pahtText.Log ());
+
+                foreach (var pair in pahtText)
+                {
+                    Tools.ValidatePath (
+                        Path.GetDirectoryName ("Assets" + pair.Key.Replace (Application.dataPath, string.Empty)).Replace ('\\', '/')
+                    );
+                    File.WriteAllText (pair.Key, pair.Value);
+                    AssetDatabase.Refresh ();
+                }
             }
         }
 
         void OnWizardUpdate ()
         {
-            helpString = "Chose the Script type generation";
+            if (!scriptGenerator)
+            {
+                errorString = "Choose the Script type generation";
+                helpString = string.Empty;
+                isValid = false;
+            }
+            else
+            if (KeysIsNullOrEmpty)
+            {
+                errorString = "Press Get keys";
+                helpString = string.Empty;
+                isValid = true;
+            }
+            else
+            if (ValuesIsEmpty)
+            {
+                errorString = "Fill the keys.";
+                helpString = string.Empty;
+                isValid = false;
+            }
+            else
+            {
+                errorString = string.Empty;
+                helpString = "Ready To Generate. Press to \"Generate\" ";
+                isValid = true;
+            }
         }
+
+        private bool ValuesIsEmpty => !KeysIsNullOrEmpty && KeysValues.ToList ().Any (kv => kv.Value == string.Empty);
+
+        private bool KeysIsNullOrEmpty => KeysValues == null || KeysValues.Length == 0;
 
         void OnWizardOtherButton ()
         {
-            if (selector)
-                parseKeys ("Selector");
-            if (nameSelector)
-                parseKeys ("NameSelector");
-        }
+            if (!scriptGenerator) return;
 
-        private void parseKeys (string nameTemplate)
-        {
-            var textAsset = Resources.Load<TextAsset> (nameTemplate);
-            var matchs = Regex.Matches (textAsset.text, @"\$[A-Z]*_[A-Z]*\$");
-
-            var strings = matchs.Cast<Match> ().Select (m => m.Value);
-            KeysValues = new HashSet<string> (strings).Distinct ()
-                .Select (m => new KeyValuePairStringType () { Key = m, Value = "" }).ToArray ();
+            KeysValues = scriptGenerator
+                .GetKeysWithdependies ()
+                .Select (k => new KeyValuePairStringType (k, string.Empty))
+                .ToArray ();
         }
     }
 
     [Serializable]
     public class KeyValuePairStringType
     {
-        public string Key;
-        public string Value;
+        [SerializeField] string key;
+        [SerializeField] string value;
+
+        public string Key => key;
+        public string Value => value;
+
+        public KeyValuePairStringType (string key, string value)
+        {
+            this.key = key;
+            this.value = value;
+        }
+
+        public KeyValuePairStringType ()
+        {
+            key = "$_$";
+            value = string.Empty;
+        }
     }
 
     [CustomPropertyDrawer (typeof (KeyValuePairStringType))]
@@ -145,64 +120,11 @@ namespace GameCore
     {
         public override void OnGUI (Rect position, SerializedProperty property, GUIContent label)
         {
-            var key = property.FindPropertyRelative ("Key");
-            var value = property.FindPropertyRelative ("Value");
+            var key = property.FindPropertyRelative ("key");
+            var value = property.FindPropertyRelative ("value");
             var rect = EditorGUI.PrefixLabel (position, new GUIContent (key.stringValue));
             EditorGUI.PropertyField (rect, value, GUIContent.none);
-
         }
     }
 
-    public class ScriptGenerator
-    {
-        public string Name;
-        public string nameOfType;
-        public string typeKey;
-        public string namesapaceKey = "$NAMESPACE_NAME$";
-        public string nameOfNameSpace;
-
-        public ScriptGenerator () { }
-
-        public ScriptGenerator (string Name)
-        {
-            this.Name = Name;
-        }
-
-        public void Generate (bool ForwardTypeName = true)
-        {
-            var textAsset = Resources.Load<TextAsset> (Name);
-
-            string tempateText = textAsset.text;
-
-            string ScriptText = tempateText.Replace (namesapaceKey, nameOfNameSpace);
-            ScriptText = ScriptText.Replace (typeKey, nameOfType);
-
-            string directoryPath = Application.dataPath + "/Scripts/" + nameOfNameSpace + "/" + Name + "/";
-            Directory.CreateDirectory (directoryPath);
-            string name = ForwardTypeName ? nameOfType + Name : Name + nameOfType;
-            string filePath = directoryPath + name + ".cs";
-            File.WriteAllText (filePath, ScriptText);
-            AssetDatabase.Refresh ();
-        }
-
-        public void GenerateByKeys (Func<string> scriptNameSelcetor, params object[] keysParams)
-        {
-            var keys = keysParams.Select (p => (KeyValuePairStringType) p).ToDictionary (k => k.Key, k => k.Value);
-            var textAsset = Resources.Load<TextAsset> (Name);
-
-            string ScriptText = textAsset.text;
-
-            foreach (var kvp in keys)
-                ScriptText = ScriptText.Replace (kvp.Key, kvp.Value);
-
-            if (keys.ContainsKey (namesapaceKey))
-                nameOfNameSpace = keys[namesapaceKey];
-
-            string directoryPath = Application.dataPath + "/Scripts/" + nameOfNameSpace + "/" + Name + "/";
-            Directory.CreateDirectory (directoryPath);
-            string filePath = directoryPath + scriptNameSelcetor () + ".cs";
-            File.WriteAllText (filePath, ScriptText);
-            AssetDatabase.Refresh ();
-        }
-    }
 }

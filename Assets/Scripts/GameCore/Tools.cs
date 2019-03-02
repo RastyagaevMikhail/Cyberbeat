@@ -252,7 +252,7 @@ namespace GameCore
 
         public static void ValidatePath (string path)
         {
-            var m = Regex.Match (path, "(/[a-zA-Z0-9 ])+(.asset)");
+            var m = Regex.Match (path, "(/*[a-zA-Z0-9 ]*)+(.asset)*");
             // Debug.LogFormat ("regex \"{0}\" in Path {1}", m.Value, path);
             if (!m.Value.IsNullOrEmpty ())
                 path = path.Replace ("/" + m.Value, "/");

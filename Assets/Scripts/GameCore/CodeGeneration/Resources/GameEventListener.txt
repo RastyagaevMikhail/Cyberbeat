@@ -32,6 +32,5 @@ namespace $NAMESPACE_NAME$
             Event.UnRegisterListener (this);
         }
     }
-    [Serializable] public class UnityEvent$TYPE_NAME$ : UnityEvent<$TYPE_NAME$>{}
 }
 

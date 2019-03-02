@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using TMPro;
 
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.UI.Extensions;
 namespace CyberBeat
@@ -19,6 +20,7 @@ namespace CyberBeat
 		[SerializeField] Image BuyButton;
 		[SerializeField] ButtonActionByVideoAds PlayByWatchButton;
 		[SerializeField] IntVariablesTextSetter progressTextSetter;
+		[SerializeField] UnityEvent onBuyed;
 		[SerializeField] UnityEventGraphic onCantNotEnuthMoney;
 
 		public void UpdateContent (Track data)
@@ -37,26 +39,17 @@ namespace CyberBeat
 
 			progressTextSetter.SetVariables (track.progressInfo.pregressVariables);
 		}
-		public void OnPlay ()
-		{
-			PlayButton.SetActive (false);
-			track.SetMeAsCurrent ();
-			track.LoadScene ();
-		}
 
-		public void OnPlayByWatch ()
+		public void SetAsCurrent()
 		{
-			Debug.Log ($"OnPlayByWatch {this}");
-			ValidateButtons (true);
-			OnPlay ();
+			track.SetMeAsCurrent();
 		}
-
 		public void OnBuy ()
 		{
 			bool buyed = track.shopInfo.TryBuy ();
 			Debug.LogFormat ("buyed = {0}", buyed);
 			ValidateButtons (buyed);
-			if (buyed) OnPlay ();
+			if (buyed) onBuyed.Invoke();
 			else onCantNotEnuthMoney.Invoke (BuyButton);
 		}
 

@@ -24,7 +24,7 @@ namespace CyberBeat
         {
             get
             {
-                return onRemoveComplete;
+                return onAddComplete;
             }
         }
 

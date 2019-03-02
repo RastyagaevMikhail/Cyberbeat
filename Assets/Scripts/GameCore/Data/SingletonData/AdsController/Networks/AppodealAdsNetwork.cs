@@ -25,7 +25,8 @@ namespace GameCore
         [SerializeField] bool disableWriteExternalStoragePermissionCheck;
         private Action OnIntrastitialShown;
         // private Action onRewardedVideoLoaded;
-        public override Action<bool> OnRewardedVideoLoaded { get { return onRewardedVideoLoaded; } }
+        event Action<bool> _onRewardedVideoLoaded;
+        public override event Action<bool> OnRewardedVideoLoaded { add { _onRewardedVideoLoaded += value; } remove { _onRewardedVideoLoaded -= value; } }
         private Action<double, string> _onVideShown;
 
         public override void Init (bool consentValue)
@@ -61,8 +62,7 @@ namespace GameCore
         public void onInterstitialExpired () { }
         public void onRewardedVideoLoaded (bool precache)
         {
-            // Appodeal.
-            // UserSettings userSettings = 
+            if (_onRewardedVideoLoaded != null) _onRewardedVideoLoaded (precache);
         }
         public void onRewardedVideoFailedToLoad () { }
         public void onRewardedVideoShown () { }

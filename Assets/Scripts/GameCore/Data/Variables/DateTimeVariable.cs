@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sirenix.OdinInspector;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -49,6 +51,8 @@ namespace GameCore
 		{
 			Value = DateTime.Now;
 		}
+
+		[ShowInInspector] string savedValue => Value.ToString ();
 		public static implicit operator DateTimeVariable (DateTime value)
 		{
 			DateTimeVariable dateTimeVariable = CreateInstance<DateTimeVariable> ();

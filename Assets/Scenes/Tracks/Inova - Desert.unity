@@ -7991,11 +7991,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBot
       objectReference: {fileID: 0}
-    - target: {fileID: 286753681597786815, guid: e35ca1142e613cc4798d62bbd33bcc7d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 286753681597786812, guid: e35ca1142e613cc4798d62bbd33bcc7d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8049,11 +8044,6 @@ PrefabInstance:
     - target: {fileID: 286753681597786812, guid: e35ca1142e613cc4798d62bbd33bcc7d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 286753681597786814, guid: e35ca1142e613cc4798d62bbd33bcc7d,
-        type: 3}
-      propertyPath: bitAll
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15261,29 +15251,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2131913467368434124, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-        type: 3}
-      propertyPath: ColorsSets.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2131913467368434124, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-        type: 3}
-      propertyPath: ColorsSets.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 66e8451772b1be748ad2c8e9dce50b59,
-        type: 2}
-    - target: {fileID: 2131913467368434124, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-        type: 3}
-      propertyPath: ColorsSets.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 68d3bd51c30edbf43becf5b800c8c609,
-        type: 2}
-    - target: {fileID: 2131913467368434124, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-        type: 3}
-      propertyPath: ColorsSets.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 68d3bd51c30edbf43becf5b800c8c609,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976d5dc9bf38c784fa3223c6fec711f6, type: 3}
 --- !u!1001 &8655948237113569388

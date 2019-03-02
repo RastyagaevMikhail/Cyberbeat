@@ -29,13 +29,14 @@ namespace GameCore
                 return _isLoadedInterstitial;
             }
         }
-
-        public override Action<bool> OnRewardedVideoLoaded
+        public void onRewardVideoLoaded (bool precache)
         {
-            get
-            {
-                return precache => { if (_debug) Debug.LogFormat ("DummyAdsNetwork.OnRewardedVideoLoaded (precache = {0})", precache); };
-            }
+            if (_debug) Debug.LogFormat ("DummyAdsNetwork.OnRewardedVideoLoaded (precache = {0})", precache);
+        }
+        public override event Action<bool> OnRewardedVideoLoaded
+        {
+            add => value += onRewardVideoLoaded;
+            remove => value -= onRewardVideoLoaded;
         }
 
         public override void Init (bool consestValue)

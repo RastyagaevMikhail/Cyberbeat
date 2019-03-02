@@ -9,7 +9,7 @@ namespace GameCore
 	{
 		List<TabButton> tabs = new List<TabButton> ();
 		[SerializeField] TabButton lastSelcted;
-		private void Start ()
+		private void SelectLast ()
 		{
 			if (lastSelcted) lastSelcted.Select();
 		}

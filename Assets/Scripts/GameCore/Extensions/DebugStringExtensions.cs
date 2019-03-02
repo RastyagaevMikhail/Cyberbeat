@@ -57,9 +57,19 @@ namespace GameCore
             log += string.Concat (methodsInfo);
             return log;
         }
-        public static string Log<T> (this IEnumerable<T> collection)
+        public static string Log<T> (this IEnumerable<T> collection) => Log (collection, i => i);
+        public static string Log<T, TResult> (this IEnumerable<T> collection, System.Func<T, TResult> selector, string Format = "{0}", string separator = "\n")
         {
-            return Tools.LogCollection (collection);
+            string result = "";
+            result = collection != null ? collection.Count ().ToString () : "Null";
+            result += " items {0}\n------\n".AsFormat (typeof (T).Name);
+
+            foreach (var item in collection.Select (selector))
+            {
+                var parameters = new object[] { item };
+                result += string.Format (Format + separator, parameters);
+            }
+            return result;
         }
         public static string Log (this Color color, bool useAlpha = false)
         {

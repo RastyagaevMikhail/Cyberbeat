@@ -4707,7 +4707,7 @@ ParticleSystem:
 --- !u!199 &5861399464100341208
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4779,8 +4779,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Constant: 1
+  newMaterialOnAwake: 0
   DefaultColorNameVariable: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437,
     type: 2}
+  OnColorChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &6171535383522432815
 GameObject:
   m_ObjectHideFlags: 0
@@ -9424,7 +9430,7 @@ ParticleSystem:
 --- !u!199 &6171535383522432812
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9507,9 +9513,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  debug: 0
   OffsetPosition: {x: 0, y: 0, z: 0}
   OffsetRotation: {x: 0, y: 0, z: 0, w: 0}
-  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
+  pool: {fileID: 11400000, guid: ebca434c44cfe784dab371ac64dca0f1, type: 2}
 --- !u!114 &4650995454465978215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9523,7 +9530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeDelay: 1
-  pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
+  pool: {fileID: 11400000, guid: ebca434c44cfe784dab371ac64dca0f1, type: 2}
   spawnedObject: {fileID: 3318112207402492802}
 --- !u!1 &6297036707721048141
 GameObject:
@@ -14232,7 +14239,7 @@ ParticleSystem:
 --- !u!199 &1670877272227392813
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14304,5 +14311,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Constant: 1
+  newMaterialOnAwake: 0
   DefaultColorNameVariable: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437,
     type: 2}
+  OnColorChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

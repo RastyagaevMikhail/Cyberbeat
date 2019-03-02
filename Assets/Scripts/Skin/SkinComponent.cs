@@ -16,10 +16,10 @@ namespace CyberBeat
         {
             animator = GetComponent<AnimatorHashPlayer> ();
         }
-
         [SerializeField] float animationClipTime = 2f;
         public void StartAniamtion ()
         {
+            if (!gameObject.activeSelf || !gameObject.activeInHierarchy) return;
             StartCoroutine (cr_randomAnimation ());
         }
 

@@ -15,10 +15,6 @@ namespace  $NAMESPACE_NAME$
                 SaveValue ();
             }
         }
-        public void SetValue ($TYPE_NAME$ value)
-        {
-            Value = value;
-        }
 
         public void SetValue ($TYPE_NAME$Variable value)
         {

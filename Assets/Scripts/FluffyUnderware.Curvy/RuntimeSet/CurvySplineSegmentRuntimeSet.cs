@@ -14,7 +14,7 @@ namespace FluffyUnderware.Curvy
         {
             get
             {
-                return onRemoveComplete;
+                return onAddComplete;
             }
         }
         [SerializeField] UnityEventCurvySplineSegment onRemoveComplete;

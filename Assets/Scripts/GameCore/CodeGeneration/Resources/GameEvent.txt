@@ -3,7 +3,6 @@
 using UnityEngine;
 namespace $NAMESPACE_NAME$
 {
-
     [CreateAssetMenu (
         fileName = "GameEvent$TYPE_NAME$", 
         menuName = "$NAMESPACE_NAME$/GameEvent/$TYPE_NAME$")]

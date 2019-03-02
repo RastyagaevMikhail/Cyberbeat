@@ -1,0 +1,7 @@
+﻿using System;
+using UnityEngine.Events;
+
+namespace $NAMESPACE_NAME$
+{
+    [Serializable] public class UnityEvent$TYPE_NAME$ : UnityEvent<$TYPE_NAME$>{}
+}

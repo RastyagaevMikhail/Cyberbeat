@@ -9,8 +9,13 @@ namespace CyberBeat
 {
 	public class EnviramentSkinsScroll : MonoBehaviour
 	{
-		[Header ("Conponents")]
+
+		[HideInInspector]
 		[SerializeField] ScrollPositionController scrollPositionController;
+		private void OnValidate ()
+		{
+			scrollPositionController = GetComponent<ScrollPositionController> ();
+		}
 
 		[Header ("Data")]
 		[SerializeField] SkinsDataCollection skinsData;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace CyberBeat
 {
-
     [CreateAssetMenu (
         fileName = "GameEventMenuWindowType", 
         menuName = "CyberBeat/GameEvent/MenuWindowType")]

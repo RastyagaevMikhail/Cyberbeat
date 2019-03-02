@@ -98,11 +98,6 @@ namespace CyberBeat
 		{
 			shopInfo.ResetDefault ();
 		}
-
-		public void LoadScene ()
-		{
-			LoadingManager.instance.LoadScene (name);
-		}
 		Dictionary<LayerType, List<KoreographyEvent>> _layerevents = null;
 		Dictionary<LayerType, List<KoreographyEvent>> layerevents
 		{

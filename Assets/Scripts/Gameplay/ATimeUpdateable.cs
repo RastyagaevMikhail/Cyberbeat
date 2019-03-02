@@ -30,7 +30,7 @@ namespace CyberBeat
         [SerializeField] protected bool debug;
         public abstract ITimeItem CurrentTimeItem { get; set; }
         protected int indexOfTime;
-        public bool TimesIsOver => indexOfTime >= TimeItems.Count ();
+        public bool TimesIsOver => indexOfTime >= TimeItems.Count () || TimeItems.Count () == 0;
 
         public abstract IEnumerable<ITimeItem> TimeItems { get; }
 

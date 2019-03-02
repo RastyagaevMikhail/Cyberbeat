@@ -71,11 +71,15 @@ namespace GameCore
         public void Init (bool consentValue)
         {
             CurrentAdsNetworks.Init (consentValue);
-            OnRewardedVideoLoaded += CurrentAdsNetworks.OnRewardedVideoLoaded;
+            CurrentAdsNetworks.OnRewardedVideoLoaded += onRewardedVideoLoaded.Invoke;
+        }
+        private void OnDisable ()
+        {
+            CurrentAdsNetworks.OnRewardedVideoLoaded -= onRewardedVideoLoaded.Invoke;
         }
 
         Action<double, string> _onVideShown;
-        [NonSerialized] public Action<bool> OnRewardedVideoLoaded;
+        [SerializeField] UnityEventBool onRewardedVideoLoaded;
         [SerializeField] BoolVariable noAds;
         [SerializeField] bool _debug;
 

@@ -133,6 +133,11 @@ MonoBehaviour:
   newMaterialOnAwake: 0
   DefaultColorNameVariable: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd,
     type: 2}
+  OnColorChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &8545023658289225622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +295,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396564683}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -398,6 +403,9 @@ MonoBehaviour:
   names:
   - hash: -2082672713
     name: 1
+  - hash: 450215437
+    name: 2
+  debug: 0
 --- !u!114 &667845544041192235
 MonoBehaviour:
   m_ObjectHideFlags: 0

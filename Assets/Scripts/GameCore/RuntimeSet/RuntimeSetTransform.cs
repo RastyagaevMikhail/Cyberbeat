@@ -14,7 +14,7 @@ namespace GameCore
         {
             get
             {
-                return onRemoveComplete;
+                return onAddComplete;
             }
         }
         [SerializeField] UnityEventTransform onRemoveComplete;

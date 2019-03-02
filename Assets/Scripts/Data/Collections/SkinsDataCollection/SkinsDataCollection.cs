@@ -123,6 +123,22 @@ namespace CyberBeat
         public SkinType SkinType => skinTypeVariable.ValueFast;
         public List<SkinItem> Items { get { return skinsSelector[SkinType].ToList (); } }
 
+#if UNITY_EDITOR
+        [Button] public void RandomizePrices ()
+        {
+            foreach (var skinLists in skinsSelector.Values)
+            {
+                foreach (var skin in skinLists)
+                {
+                    if (skin.Price == 0) continue;
+                    skin.Price = Random.Range (750, 1250);
+                    skin.VideoCount = Random.Range (7, 15);
+                    skin.Save ();
+                }
+            }
+        }
+#endif
+
     }
 
 }

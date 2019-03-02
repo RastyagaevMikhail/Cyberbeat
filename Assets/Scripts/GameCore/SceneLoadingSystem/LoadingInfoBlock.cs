@@ -11,13 +11,10 @@ namespace CyberBeat
     {
         [SerializeField] BoolVariable TutorialComplited;
         [SerializeField] GameObject[] blocks;
-        static RandomStack<GameObject> blockStack = null;
         private void Awake ()
         {
-            if (blockStack == null)
-                blockStack = new RandomStack<GameObject> (blocks);
             if (TutorialComplited.ValueFast)
-                blockStack.Get ().SetActive (true);
+                blocks.GetRandom ().SetActive (true);
             else
                 blocks[0].SetActive (true);
         }

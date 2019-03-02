@@ -30,10 +30,13 @@ namespace CyberBeat
         [SerializeField] float upDistance = 1f;
         [SerializeField] float startAlpha = 1f;
         [SerializeField] UnityEvent onCompleteMove;
+        [SerializeField] bool debug;
         Vector3[] path;
         float startLocalY;
         Tween moveTween = null;
         Tween fadeTween = null;
+        private bool isMoving;
+
         protected override void Awake ()
         {
             startLocalY = yLocal;
@@ -43,6 +46,9 @@ namespace CyberBeat
         }
         public void OnColorTaked (Color color)
         {
+            if (isMoving) return;
+            isMoving = true;
+            if (debug) Debug.Log ($"{name}.OnColorTaked({color.Log()}) ", this);
             this.color = color;
             alpha = startAlpha;
 
@@ -50,10 +56,17 @@ namespace CyberBeat
 
             if (moveTween != null || fadeTween != null) ResetTweens ();
 
-            moveTween = rb.DOLocalPath (path, Duration).SetEase (EaseMove).OnComplete (onCompleteMove.Invoke);
+            moveTween = rb.DOLocalPath (path, Duration).SetEase (EaseMove).OnComplete (OnComplete);
 
             fadeTween = textComponent.DOFade (0, Duration).SetEase (EaseFade);
         }
+
+        private void OnComplete ()
+        {
+            onCompleteMove.Invoke ();
+            isMoving = false;
+        }
+
         public void ResetTweens ()
         {
             yLocal = startLocalY;

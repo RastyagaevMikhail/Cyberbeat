@@ -1,5 +1,7 @@
 ﻿using GameCore;
 
+using Sirenix.OdinInspector;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,5 +72,32 @@ namespace CyberBeat
 			currentTrack.Value = track;
 			currentTrack.Save ();
 		}
+#if UNITY_EDITOR
+		[Button]
+		public void SorByMaxConstants ()
+		{
+			Objects = Objects.OrderBy (track => track.progressInfo.Max).ToList ();
+		}
+
+		[Button] public void CalculateMaxs ()
+		{
+			string log = string.Empty;
+			foreach (var track in Objects)
+			{
+				log += $"{track.progressInfo.Max},";
+			}
+			Debug.Log (log);
+		}
+
+		[Button] public void CalculteTimes ()
+		{
+			string log = string.Empty;
+			foreach (var track in Objects)
+			{
+				log += $"{(int)track.music.clip.length},";
+			}
+			Debug.Log (log);
+		}
+#endif
 	}
 }

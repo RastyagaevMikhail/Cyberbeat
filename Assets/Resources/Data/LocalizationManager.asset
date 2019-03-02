@@ -89,7 +89,7 @@ MonoBehaviour:
     index: 36
   - key: you_have
     index: 37
-  - key: take_it
+  - key: "\u0441laim"
     index: 38
   - key: agreement
     index: 39
@@ -149,11 +149,13 @@ MonoBehaviour:
     index: 66
   - key: gates
     index: 67
+  - key: 
+    index: 68
   translations:
   - Lang: 10
     Items:
     - 7 500 notes
-    - Double notes
+    - Notes doubling
     - double all notes pickups
     - Loading
     - 'Use headphone for the
@@ -164,7 +166,7 @@ MonoBehaviour:
       high scores'
     - Caluculate beats
     - Settings
-    - Authors of tracks
+    - Track authors
     - other
     - on
     - off
@@ -194,7 +196,7 @@ MonoBehaviour:
     - Shield
     - Gate
     - 'You have:'
-    - Take it
+    - Claim
     - Agreement
     - Agree
     - Remember from next gift
@@ -207,10 +209,10 @@ MonoBehaviour:
     - Select
     - Selected
     - Upgrade
-    - disable ads from 5 minuts
+    - No ads for 5 minutes
     - +autorestart
     - Disable Ads
-    - +autorestart always
+    - +autorestart forever
     - Activated
     - Hit bits from two sides
     - Saves life once
@@ -236,7 +238,7 @@ MonoBehaviour:
       \u043E\u0447\u043A\u0438"
     - "\u041F\u043E\u0434\u0441\u0447\u0438\u0442\u044B\u0432\u0430\u0435\u043C \u0431\u0438\u0442\u044B"
     - "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
-    - "\u0410\u0432\u0442\u043E\u0440\u044B \u0442\u0440\u044D\u043A\u043E\u0432"
+    - "\u0410\u0432\u0442\u043E\u0440\u044B \u0442\u0440\u0435\u043A\u043E\u0432"
     - "\u0447\u0442\u043E-\u0442\u043E \u0435\u0449\u0451"
     - "\u0432\u043A\u043B"
     - "\u0432\u044B\u043A\u043B"

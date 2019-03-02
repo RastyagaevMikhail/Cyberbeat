@@ -5,7 +5,7 @@ namespace GameCore
 {
     public abstract class AdsNetwork : ScriptableObject
     {
-        public abstract Action<bool> OnRewardedVideoLoaded {get;}
+        public abstract event Action<bool> OnRewardedVideoLoaded;
 
         public abstract void Init (bool consestValue);
         public abstract bool isLoadedRewardVideo { get; }

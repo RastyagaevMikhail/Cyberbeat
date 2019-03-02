@@ -14,7 +14,7 @@ namespace $NAMESPACE_NAME$
         {
             get
             {
-                return onRemoveComplete;
+                return onAddComplete;
             }
         }
         [SerializeField] UnityEvent$TYPE_NAME$ onRemoveComplete;

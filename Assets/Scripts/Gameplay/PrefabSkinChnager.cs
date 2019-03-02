@@ -11,10 +11,13 @@ namespace CyberBeat
         [SerializeField] SkinType type;
         [SerializeField] IntVariable index;
         [SerializeField] SkinsEnumDataSelector selector;
+        [SerializeField] TransformReference parentReference;
+        Transform parent => parentReference.ValueFast;
         void Start ()
         {
             var prefab = selector[type][index.ValueFast].Prefab;
-            var instnce = Instantiate (prefab as GameObject, transform);
+
+            var instnce = Instantiate (prefab as GameObject, parent);
             instnce.transform.localPosition = Vector3.zero;
         }
     }

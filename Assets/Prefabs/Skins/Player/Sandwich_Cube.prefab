@@ -195,6 +195,9 @@ MonoBehaviour:
     name: 2
   - hash: 1842515611
     name: 3
+  - hash: -206169288
+    name: 4
+  debug: 0
 --- !u!114 &1614398467165350519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +345,11 @@ MonoBehaviour:
   newMaterialOnAwake: 0
   DefaultColorNameVariable: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd,
     type: 2}
+  OnColorChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &4834699813838661404
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,31 +11,39 @@ using UnityEngine.UI;
 
 namespace CyberBeat
 {
+    [RequireComponent(typeof(GameEventListernerBool))]
     public class ButtonActionByVideoAds : MonoBehaviour
     {
 
-        public AdsController adsController { get { return AdsController.instance; } }
-        private Button _button = null;
-        public Button button { get { if (_button == null) _button = GetComponent<Button> (); return _button; } }
+        [HideInInspector][SerializeField] AdsController adsController;
+        [HideInInspector][SerializeField] Button button;
 
         [SerializeField] GameObject Content;
         [SerializeField] GameObject NotInternet;
         [SerializeField] GameObject Waiting;
         private bool isLoaded { get { return adsController.isLoadedRewardVideo; } }
-        bool internetNotReachable { get { return adsController.internetNotReachable; } }
+        public bool internetNotReachable
+        {
+            get
+            {
+#if UNITY_EDITOR
+                return false;
+#else
+                return Application.internetReachability == NetworkReachability.NotReachable;
+#endif
+
+            }
+        }
+        private void OnValidate ()
+        {
+            if (adsController == null) adsController = Resources.Load<AdsController> ("Data/AdsController");
+            if (button == null) button = GetComponent<Button> ();
+        }
         private void Start ()
         {
-            adsController.OnRewardedVideoLoaded += OnRewardedVideoLoaded;
-            OnButtonVideoShown += UpdateSatate;
             UpdateSatate ();
         }
-
-        private void OnDestroy ()
-        {
-            OnButtonVideoShown -= UpdateSatate;
-            adsController.OnRewardedVideoLoaded -= OnRewardedVideoLoaded;
-        }
-        private void OnRewardedVideoLoaded (bool precache)
+        public void OnRewardedVideoLoaded (bool precache)
         {
             UpdateSatate ();
         }
@@ -47,20 +55,6 @@ namespace CyberBeat
             NotInternet.SetActive (!isLoaded && internetNotReachable);
             Waiting.SetActive (!isLoaded && !internetNotReachable);
             button.interactable = isLoaded && !internetNotReachable;
-        }
-        Action OnButtonVideoShown;
-        Action _onVideShown;
-        public void Init (Action OnVideoShown)
-        {
-            _onVideShown = OnVideoShown;
-        }
-        public void ShowVideo ()
-        {
-            adsController.ShowRewardVideo ((amount, name) =>
-            {
-                if (_onVideShown != null) _onVideShown ();
-            });
-            if (OnButtonVideoShown != null) OnButtonVideoShown ();
         }
     }
 }

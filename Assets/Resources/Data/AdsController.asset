@@ -14,5 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentAdsNetworks: {fileID: 11400000, guid: a326b853f4e032749a9be5feb7c99041, type: 2}
   dummyAdsNetwork: {fileID: 11400000, guid: a657b2656c805e3458b65680dd820e54, type: 2}
+  onRewardedVideoLoaded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: eedee9c857aee4346a0d6a8e69ab6255, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   noAds: {fileID: 11400000, guid: 3f232928d424d0342b415605601a21f5, type: 2}
   _debug: 0

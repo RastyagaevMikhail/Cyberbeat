@@ -118,7 +118,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 1.0.1
   preloadedAssets:
   - {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
   - {fileID: 11400000, guid: 85f9b9d59d9331848abcd4bb78a4ae00, type: 2}
@@ -174,7 +174,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.skillapp.cyberbeat
   buildNumber: {}
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -262,8 +262,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: D:/Unity/Projects/Cyberbeat/KeyStore/SKILLAPP_CYBERBEAT.keystore
+  AndroidKeyaliasName: skillapp_cyberbeat
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
   AndroidIsGame: 1

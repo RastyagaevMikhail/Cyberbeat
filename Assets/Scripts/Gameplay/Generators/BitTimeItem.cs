@@ -53,7 +53,16 @@ namespace CyberBeat
                     OnTimeIsOver ();
                     return;
                 }
-                currentBit = Bits[indexOfTime];
+                try
+                {
+                    currentBit = Bits[indexOfTime];
+
+                }
+                catch (System.Exception)
+                {
+                    // Debug.Log ($"{Bits.Count} == {indexOfTime}, count == i  ", this);
+                    // throw;
+                }
                 // CurrentTimeItem = TimeItems.ElementAt(indexOfTime);
             }
         }
