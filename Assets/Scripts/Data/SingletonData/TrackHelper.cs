@@ -36,7 +36,7 @@ namespace CyberBeat
                         .Find (material =>
                         {
                             if (material)
-                                return material.name == "ConstantBeat" || material.name == "Switcher";
+                                return material.name == "ConstantBeat";
                             return false;
                         }));
 
