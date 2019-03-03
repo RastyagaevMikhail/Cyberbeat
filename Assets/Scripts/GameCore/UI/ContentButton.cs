@@ -23,7 +23,7 @@ namespace GameCore
 		public string text { get { return textCompnent.text; } set { textCompnent.text = value; } }
 		private LocalizeTextMeshProUGUI _localText = null;
 		public LocalizeTextMeshProUGUI localText { get { if (_localText == null) _localText = textCompnent.GetComponent<LocalizeTextMeshProUGUI> (); return _localText; } }
-		public string textLocalizationID { get { return localText.Id; } set { localText.Id = value; localText.UpdateText (); } }
+		public string textLocalizationID { get { return localText.ID; } set { localText.SetID (value); } }
 		public Color textColor { get { return textCompnent.color; } set { textCompnent.color = value; } }
 	}
 }

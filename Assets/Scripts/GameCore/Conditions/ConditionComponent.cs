@@ -12,7 +12,6 @@ namespace GameCore
         [SerializeField] UnityEvent onTrue;
         [SerializeField] UnityEvent onFalse;
         [SerializeField] bool debug;
-        bool _value => condition.Value;
         [Button]
         public void DoCondition (bool value)
         {
@@ -36,7 +35,7 @@ namespace GameCore
         }
         public void DoCondition ()
         {
-            DoCondition(_value);
+            DoCondition(condition.Value);
         }
 
     }

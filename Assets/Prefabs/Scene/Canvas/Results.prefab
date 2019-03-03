@@ -3157,13 +3157,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
         m_MethodName: ShowRewardVideo
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: RewardVideo_DoubleReward
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 4d3ca0f8fbad3b146a0632bcc8cbec61, type: 2}
@@ -3259,6 +3259,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+    inverse: 0
 --- !u!1 &6968303048620095709
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,8 +50,7 @@ namespace CyberBeat
 				AddIcon.gameObject.SetActive (useAddIcon);
 			(state.UseAddIcon ? AddIcon : stateImage).sprite = state.icon;
 
-			stateName.Id = state.name;
-			stateName.UpdateText ();
+			stateName.SetID (state.name);
 			if (overrideStateIndex) currentStateIndex = stateIndex;
 		}
 

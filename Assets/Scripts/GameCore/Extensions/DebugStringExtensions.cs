@@ -75,5 +75,22 @@ namespace GameCore
         {
             return color.ToString (useAlpha).ToColor (color);
         }
+        public static string Log (this MonoBehaviour monoBehaviour, bool useType = false)
+        {
+            var Components = monoBehaviour.gameObject.GetComponents<Component> ();
+            return $"{(useType ? monoBehaviour.ToString().mb() : monoBehaviour.GetType().Name.mb())}[{System.Array.IndexOf(Components,monoBehaviour)}]";
+        }
+        public static string Log (this ScriptableObject scriptableObject, bool useType = false)
+        {
+            return $"{(useType ? scriptableObject.ToString().so() : scriptableObject.GetType().Name.mb())}";
+        }
+        public static string Log (this System.Action method)
+        {
+            return $"{(method!= null?method.ToString().a():"null".err())}";
+        }
+        public static string Log (this System.Action<double, string> method)
+        {
+            return $"{(method!= null?method.ToString().a():"null".err())}";
+        }
     }
 }

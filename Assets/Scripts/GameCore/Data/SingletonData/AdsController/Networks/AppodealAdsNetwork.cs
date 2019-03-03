@@ -44,15 +44,17 @@ namespace GameCore
                 Appodeal.disableNetwork (network.ToString ());
             Appodeal.initialize (appKey, (int) adType, consentValue);
         }
-        public override void ShowIntrastitial (string playsment = "default", Action _onIntrastitialShown = null)
+        public override void ShowIntrastitial (string placement = "Inrsatitial", Action _onIntrastitialShown = null)
         {
             OnIntrastitialShown = _onIntrastitialShown;
-            Appodeal.show (Appodeal.INTERSTITIAL);
+            if (placement == string.Empty) placement = "Inrsatitial";
+            Appodeal.show (Appodeal.INTERSTITIAL, placement);
         }
-        public override void ShowRewardVideo (Action<double, string> OnVideoShown = null)
+        public override void ShowRewardVideo (string placement, Action<double, string> OnVideoShown = null)
         {
             _onVideShown = OnVideoShown;
-            Appodeal.show (Appodeal.REWARDED_VIDEO);
+            if (placement == string.Empty) placement = "default";
+            Appodeal.show (Appodeal.REWARDED_VIDEO, placement);
         }
         public void onInterstitialLoaded (bool isPrecache) { }
         public void onInterstitialFailedToLoad () { }

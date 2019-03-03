@@ -48,14 +48,14 @@ namespace GameCore
         public override void ShowIntrastitial (string playsment = "default", Action _onIntrastitialShown = null)
         {
             if (_debug)
-                Debug.LogFormat ("DummyAdsNetwork.ShowIntrastitial(playsment = {0}, _onIntrastitialShown = {1})", playsment, _onIntrastitialShown);
+                Debug.Log ($"{this.Log()}.ShowIntrastitial( {playsment}, {_onIntrastitialShown})", this);
             if (_onIntrastitialShown != null) _onIntrastitialShown ();
         }
 
-        public override void ShowRewardVideo (Action<double, string> OnVideoShown = null)
+        public override void ShowRewardVideo (string placement, Action<double, string> OnVideoShown = null)
         {
             if (_debug)
-                Debug.LogFormat ("DummyAdsNetwork.ShowRewardVideo(OnVideoShown = {0})", OnVideoShown);
+                Debug.Log ($"{this.Log()}.ShowRewardVideo({placement},{OnVideoShown})", this);
             if (OnVideoShown != null) OnVideoShown (0, "");
         }
     }

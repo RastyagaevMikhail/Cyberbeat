@@ -28791,11 +28791,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBot
       objectReference: {fileID: 0}
-    - target: {fileID: 286753681597786815, guid: e35ca1142e613cc4798d62bbd33bcc7d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 286753681597786812, guid: e35ca1142e613cc4798d62bbd33bcc7d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49167,12 +49162,12 @@ PrefabInstance:
     - target: {fileID: 6271428922639683519, guid: 86fe73c2027953d459351e3a22fa209b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6271428922909176326, guid: 86fe73c2027953d459351e3a22fa209b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7091311395066922936, guid: 86fe73c2027953d459351e3a22fa209b,
         type: 3}

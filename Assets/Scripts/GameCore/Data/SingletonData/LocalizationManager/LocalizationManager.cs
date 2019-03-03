@@ -9,7 +9,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace GameCore
-{ 
+{
     public class LocalizationManager : SingletonData<LocalizationManager>
     {
 #if UNITY_EDITOR
@@ -17,7 +17,6 @@ namespace GameCore
         public override void InitOnCreate () { ParseTranslations (); }
         public override void ResetDefault () { }
 
-        
 #else
         public override void ResetDefault () { }
 #endif
@@ -110,6 +109,10 @@ namespace GameCore
         {
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty (this);
+            _translations = null;
+            _keys = null;
+            translations = null;
+            keys = null;
 #endif
             ParseCSV (Resources.Load<TextAsset> ("translations"));
         }
@@ -143,11 +146,11 @@ namespace GameCore
                 for (int l = 1; l < line.Length; l++)
                 {
                     SystemLanguage currentLanguage = Languges[l - 1];
-					string trans = line[l].Replace("<br>","\n");
-					if (!translations.Exists (t => t.Lang == currentLanguage))
-						translations.Add (new LanguageItems() { Lang = currentLanguage, Items = new List<string>() { trans } });
+                    string trans = line[l].Replace ("<br>", "\n");
+                    if (!translations.Exists (t => t.Lang == currentLanguage))
+                        translations.Add (new LanguageItems () { Lang = currentLanguage, Items = new List<string> () { trans } });
                     else
-						translations.Find (t => t.Lang == currentLanguage).Items.Add (trans);
+                        translations.Find (t => t.Lang == currentLanguage).Items.Add (trans);
                 }
             }
         }
@@ -209,7 +212,7 @@ namespace GameCore
             //? try get index of key from transation
             int indexOfTranslation = -1;
             Keys.TryGetValue (str, out indexOfTranslation);
-            if (debug) Debug.LogFormat ("indexOfTranslation = {0}", indexOfTranslation); 
+            if (debug) Debug.LogFormat ("indexOfTranslation = {0}", indexOfTranslation);
             if (indexOfTranslation == 0 && str != keys[0].key) return undefinedTranslation;
             if (debug) Debug.LogFormat ("translations[indexOfTranslation] = {0}", translations[indexOfTranslation]);
             return translations[indexOfTranslation];

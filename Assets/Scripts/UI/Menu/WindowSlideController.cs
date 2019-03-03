@@ -21,27 +21,29 @@ namespace CyberBeat
         [SerializeField] IntVariable IndexofWindow;
         [Header ("Links")]
         [SerializeField] List<RectTransformObject> windows;
+        [SerializeField] UnityEventBool startingTransition;
+        [SerializeField] bool debug;
 
         int indexofWindow { get { return IndexofWindow.Value; } set { IndexofWindow.Value = value; } }
         private bool startTransition;
         int width { get { return (int) rectTransform.rect.width; } }
         public void ShowLastWindow ()
         {
-/* #if UNITY_EDITOR
-            indexofWindow = PlayWindowIndex;
-#endif */
+            if (debug) Debug.Log ($"{this.Log()}");
             MakeTransitionTo (PlayWindowIndex);
-            // windows[PlayWindowIndex].gameObject.SetActive (true);
         }
         public void SetIndexWindow (int newIndexofWindow)
         {
+            if (debug) Debug.Log ($"{this.Log()}.SetIndexWindow({newIndexofWindow})\nindexofWindow = {indexofWindow}\nstartTransition = {startTransition}", this);
             if (indexofWindow == newIndexofWindow || startTransition) return;
             MakeTransitionTo (newIndexofWindow);
         }
 
         private void MakeTransitionTo (int newIndexofWindow)
         {
+
             startTransition = true;
+            startingTransition.Invoke (startTransition);
             var newWindow = windows[newIndexofWindow];
             var currentWindow = windows[indexofWindow];
             int dir = (newIndexofWindow - indexofWindow).Sign ();
@@ -58,6 +60,7 @@ namespace CyberBeat
                 {
                     currentWindow.gameObject.SetActive (false);
                     startTransition = false;
+                    startingTransition.Invoke (false);
                 });
             indexofWindow = newIndexofWindow;
         }

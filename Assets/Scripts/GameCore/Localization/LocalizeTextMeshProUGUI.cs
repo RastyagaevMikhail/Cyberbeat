@@ -7,6 +7,7 @@ using Text = TMPro.TextMeshProUGUI;
 using Sirenix.OdinInspector;
 
 using UnityEngine;
+using System;
 
 namespace GameCore
 {
@@ -23,7 +24,8 @@ namespace GameCore
             if (localizator == null) localizator = Resources.Load<LocalizationManager> ("Data/LocalizationManager");
             if (mText == null) mText = GetComponent<Text> ();
         }
-        public string Id;
+        [SerializeField] string Id;
+        public string ID => Id;
         [SerializeField] bool debug;
         void OnEnable ()
         {
@@ -38,12 +40,12 @@ namespace GameCore
         {
             UpdateText ();
         }
-        public void Parse() {
+        private void Parse() {
             localizator.ParseTranslations();
         }
 
         [ContextMenu ("Update Text")]
-        public void UpdateText ()
+        private void UpdateText ()
         {
 #if UNITY_EDITOR
             if (this != null)
@@ -53,5 +55,11 @@ namespace GameCore
 #endif
             mText.text = localizator.Localize (Id, debug);
         }
-    }
+
+		public void SetID(string localizationID)
+		{
+			Id = localizationID;
+            UpdateText();
+		}
+	}
 }

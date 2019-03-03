@@ -188,24 +188,6 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 1/L
-    startTime: 15.6285715
-    endTime: 15.6285715
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/R
-    startTime: 15.72898
-    endTime: 15.72898
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 15.827755
-    endTime: 15.827755
-    duration: 0
-  - payloadData:
-      strings:
       - 4/R
       - 5/L
     startTime: 16.029388
@@ -286,24 +268,6 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 1/R
-    startTime: 22.02585
-    endTime: 22.02585
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/L
-    startTime: 22.131973
-    endTime: 22.131973
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 22.231178
-    endTime: 22.231178
-    duration: 0
-  - payloadData:
-      strings:
       - 4/R
       - 5/L
     startTime: 22.428572
@@ -338,29 +302,26 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 24.828571
     endTime: 24.828571
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 25.095238
     endTime: 25.095238
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/U
     startTime: 25.361904
     endTime: 25.361904
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 6/R
+      - 7/L
     startTime: 25.62585
     endTime: 25.62585
     duration: 0
@@ -399,24 +360,6 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 1/L
-    startTime: 28.428572
-    endTime: 28.428572
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/R
-    startTime: 28.531973
-    endTime: 28.531973
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 28.634014
-    endTime: 28.634014
-    duration: 0
-  - payloadData:
-      strings:
       - 4/R
       - 5/L
     startTime: 28.831293
@@ -451,8 +394,7 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/S
     startTime: 31.232653
     endTime: 31.232653
     duration: 0
@@ -505,26 +447,8 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 1/U
-    startTime: 34.834015
-    endTime: 34.834015
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/H
-    startTime: 34.968708
-    endTime: 34.968708
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 35.104763
-    endTime: 35.104763
-    duration: 0
-  - payloadData:
-      strings:
-      - 4/R
-      - 5/L
+      - 6/R
+      - 7/L
     startTime: 35.235374
     endTime: 35.235374
     duration: 0
@@ -557,29 +481,26 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 37.632927
     endTime: 37.632927
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 37.900635
     endTime: 37.900635
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/U
     startTime: 38.165443
     endTime: 38.165443
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 6/R
+      - 7/L
     startTime: 38.434284
     endTime: 38.434284
     duration: 0
@@ -682,15 +603,13 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 48.309525
     endTime: 48.309525
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 48.561634
     endTime: 48.561634
     duration: 0
@@ -703,15 +622,13 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 49.09762
     endTime: 49.09762
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 49.365807
     endTime: 49.365807
     duration: 0
@@ -724,33 +641,32 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 49.908207
     endTime: 49.908207
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 50.190475
     endTime: 50.190475
     duration: 0
   - payloadData:
       strings:
-      - 1/U
+      - 4/R
+      - 5/L
     startTime: 50.43306
     endTime: 50.43306
     duration: 0
   - payloadData:
       strings:
-      - 1/H
+      - 1/R
     startTime: 50.707302
     endTime: 50.707302
     duration: 0
   - payloadData:
       strings:
-      - 1/U
+      - 1/L
     startTime: 50.98281
     endTime: 50.98281
     duration: 0
@@ -763,28 +679,25 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 1/U
+      - 1/L
     startTime: 52.047302
     endTime: 52.047302
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 52.317734
     endTime: 52.317734
     duration: 0
   - payloadData:
       strings:
       - 4/R
-      - 5/L
     startTime: 52.576008
     endTime: 52.576008
     duration: 0
   - payloadData:
       strings:
       - 4/R
-      - 5/L
     startTime: 52.84644
     endTime: 52.84644
     duration: 0
@@ -801,24 +714,6 @@ MonoBehaviour:
       - 5/L
     startTime: 53.62934
     endTime: 53.62934
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/L
-    startTime: 54.169388
-    endTime: 54.169388
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 54.30204
-    endTime: 54.30204
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/R
-    startTime: 54.442856
-    endTime: 54.442856
     duration: 0
   - payloadData:
       strings:
@@ -898,27 +793,24 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 1/S
+      - 1/R
     startTime: 58.442856
     endTime: 58.442856
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 58.71143
     endTime: 58.71143
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 58.982857
     endTime: 58.982857
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 59.245716
     endTime: 59.245716
@@ -928,24 +820,6 @@ MonoBehaviour:
       - 1/S
     startTime: 60.03322
     endTime: 60.03322
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/L
-    startTime: 60.56907
-    endTime: 60.56907
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 60.705215
-    endTime: 60.705215
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/R
-    startTime: 60.837914
-    endTime: 60.837914
     duration: 0
   - payloadData:
       strings:
@@ -976,8 +850,8 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 6/R
-      - 7/L
+      - 4/R
+      - 5/L
     startTime: 62.977234
     endTime: 62.977234
     duration: 0
@@ -1015,14 +889,12 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 65.39937
     endTime: 65.39937
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 65.64617
     endTime: 65.64617
@@ -1036,14 +908,12 @@ MonoBehaviour:
   - payloadData:
       strings:
       - 4/R
-      - 5/L
     startTime: 66.17461
     endTime: 66.17461
     duration: 0
   - payloadData:
       strings:
       - 4/R
-      - 5/L
     startTime: 66.439
     endTime: 66.439
     duration: 0
@@ -1133,35 +1003,31 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/S
     startTime: 70.43644
     endTime: 70.43644
     duration: 0
   - payloadData:
       strings:
-      - 1/S
+      - 1/L
     startTime: 71.23501
     endTime: 71.23501
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 71.50707
     endTime: 71.50707
     duration: 0
   - payloadData:
       strings:
       - 4/R
-      - 5/L
     startTime: 71.768845
     endTime: 71.768845
     duration: 0
   - payloadData:
       strings:
       - 4/R
-      - 5/L
     startTime: 72.03415
     endTime: 72.03415
     duration: 0
@@ -1170,24 +1036,6 @@ MonoBehaviour:
       - 1/S
     startTime: 72.8283
     endTime: 72.8283
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/L
-    startTime: 73.3751
-    endTime: 73.3751
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 73.49864
-    endTime: 73.49864
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/R
-    startTime: 73.63837
-    endTime: 73.63837
     duration: 0
   - payloadData:
       strings:
@@ -1218,35 +1066,31 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 75.75982
     endTime: 75.75982
     duration: 0
   - payloadData:
       strings:
-      - 1/U
+      - 1/R
     startTime: 76.03315
     endTime: 76.03315
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/U
     startTime: 76.3009
     endTime: 76.3009
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 76.57052
     endTime: 76.57052
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 76.82712
     endTime: 76.82712
     duration: 0
@@ -1426,13 +1270,11 @@ MonoBehaviour:
   - payloadData:
       strings:
       - 4/R
-      - 5/L
     startTime: 108.4471
     endTime: 108.4471
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 108.831795
     endTime: 108.831795
@@ -1445,20 +1287,18 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 109.23662
     endTime: 109.23662
     duration: 0
   - payloadData:
       strings:
-      - 1/U
+      - 1/L
     startTime: 109.42914
     endTime: 109.42914
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 109.63934
     endTime: 109.63934
@@ -1471,20 +1311,18 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 110.03771
     endTime: 110.03771
     duration: 0
   - payloadData:
       strings:
-      - 1/U
+      - 1/R
     startTime: 110.2358
     endTime: 110.2358
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 110.42655
     endTime: 110.42655
@@ -1497,20 +1335,18 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 110.828636
     endTime: 110.828636
     duration: 0
   - payloadData:
       strings:
-      - 1/U
+      - 1/L
     startTime: 111.03109
     endTime: 111.03109
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 111.22646
     endTime: 111.22646
@@ -1523,98 +1359,85 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 111.63712
     endTime: 111.63712
     duration: 0
   - payloadData:
       strings:
-      - 1/U
+      - 1/R
     startTime: 111.8398
     endTime: 111.8398
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 112.020836
     endTime: 112.020836
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/U
     startTime: 112.23145
     endTime: 112.23145
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 112.42955
     endTime: 112.42955
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 112.62955
     endTime: 112.62955
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 112.82646
     endTime: 112.82646
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/U
     startTime: 113.02914
     endTime: 113.02914
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 113.22646
     endTime: 113.22646
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 113.43374
     endTime: 113.43374
     duration: 0
   - payloadData:
       strings:
-      - 4/R
       - 5/L
     startTime: 113.6364
     endTime: 113.6364
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/U
     startTime: 114.248505
     endTime: 114.248505
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/L
     startTime: 114.43898
     endTime: 114.43898
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/R
     startTime: 114.6476
     endTime: 114.6476
     duration: 0
@@ -1663,24 +1486,6 @@ MonoBehaviour:
       - 1/S
     startTime: 117.64193
     endTime: 117.64193
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/L
-    startTime: 118.033806
-    endTime: 118.033806
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/R
-    startTime: 118.12682
-    endTime: 118.12682
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 118.22642
-    endTime: 118.22642
     duration: 0
   - payloadData:
       strings:
@@ -1764,24 +1569,6 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 1/L
-    startTime: 124.4324
-    endTime: 124.4324
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/R
-    startTime: 124.53462
-    endTime: 124.53462
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 124.63018
-    endTime: 124.63018
-    duration: 0
-  - payloadData:
-      strings:
       - 6/R
       - 7/L
     startTime: 124.834625
@@ -1862,24 +1649,6 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 1/R
-    startTime: 130.8397
-    endTime: 130.8397
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/L
-    startTime: 130.92451
-    endTime: 130.92451
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 131.00508
-    endTime: 131.00508
-    duration: 0
-  - payloadData:
-      strings:
       - 6/R
       - 7/L
     startTime: 131.2313
@@ -1900,8 +1669,8 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 6/R
-      - 7/L
+      - 4/R
+      - 5/L
     startTime: 133.02907
     endTime: 133.02907
     duration: 0
@@ -1914,43 +1683,38 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 6/R
-      - 7/L
+      - 1/H
     startTime: 133.62573
     endTime: 133.62573
     duration: 0
   - payloadData:
       strings:
-      - 6/R
-      - 7/L
+      - 4/R
+      - 5/L
     startTime: 134.02686
     endTime: 134.02686
     duration: 0
   - payloadData:
       strings:
-      - 6/R
-      - 7/L
+      - 5/L
     startTime: 134.43352
     endTime: 134.43352
     duration: 0
   - payloadData:
       strings:
       - 4/R
-      - 5/L
     startTime: 134.83209
     endTime: 134.83209
     duration: 0
   - payloadData:
       strings:
-      - 6/R
-      - 7/L
+      - 5/L
     startTime: 135.23082
     endTime: 135.23082
     duration: 0
   - payloadData:
       strings:
       - 4/R
-      - 5/L
     startTime: 135.56018
     endTime: 135.56018
     duration: 0
@@ -1994,8 +1758,7 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/S
     startTime: 137.62798
     endTime: 137.62798
     duration: 0
@@ -2079,24 +1842,6 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 1/L
-    startTime: 143.62709
-    endTime: 143.62709
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/R
-    startTime: 143.73119
-    endTime: 143.73119
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 143.83372
-    endTime: 143.83372
-    duration: 0
-  - payloadData:
-      strings:
       - 4/R
       - 5/L
     startTime: 144.028
@@ -2174,24 +1919,6 @@ MonoBehaviour:
       - 1/S
     startTime: 149.63358
     endTime: 149.63358
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/L
-    startTime: 150.03082
-    endTime: 150.03082
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/R
-    startTime: 150.12987
-    endTime: 150.12987
-    duration: 0
-  - payloadData:
-      strings:
-      - 1/U
-    startTime: 150.23273
-    endTime: 150.23273
     duration: 0
   - payloadData:
       strings:
@@ -2424,8 +2151,7 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 1/F
     startTime: 166.05803
     endTime: 166.05803
     duration: 0

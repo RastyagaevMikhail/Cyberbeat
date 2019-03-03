@@ -149,8 +149,12 @@ MonoBehaviour:
     index: 66
   - key: gates
     index: 67
-  - key: 
+  - key: hard_difficulty
     index: 68
+  - key: medium_difficulty
+    index: 69
+  - key: easy_difficulty
+    index: 70
   translations:
   - Lang: 10
     Items:
@@ -226,6 +230,9 @@ MonoBehaviour:
     - Cube-beats
     - Road
     - Gates
+    - hard
+    - medium
+    - easy
   - Lang: 30
     Items:
     - "7 500  \u043D\u043E\u0442"
@@ -302,4 +309,7 @@ MonoBehaviour:
     - "\u041A\u0443\u0431-\u0431\u0438\u0442\u044B"
     - "\u0414\u043E\u0440\u043E\u0436\u043A\u0438"
     - "\u0412\u0440\u0430\u0442\u0430"
+    - "\u0442\u044F\u0436\u0435\u043B\u043E"
+    - "\u043D\u043E\u0440\u043C"
+    - "\u043B\u0435\u0433\u043A\u043E"
   Languges: 0a0000001e000000

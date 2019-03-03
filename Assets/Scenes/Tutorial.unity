@@ -1589,21 +1589,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &234207013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5222270156055163716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7418ef668a6162843bdaad04fb6c51a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: {fileID: 11400000, guid: 1828cbbd5b4e19f41a383b9be456cf19, type: 2}
-  index: {fileID: 11400000, guid: 775e507b495e8574d913e5f39f4aac65, type: 2}
-  selector: {fileID: 11400000, guid: 0a4dbf498b5698141abb95109706a301, type: 2}
 --- !u!43 &265003586
 Mesh:
   m_ObjectHideFlags: 0
@@ -20876,7 +20861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2642643484365050220
 GameObject:
   m_ObjectHideFlags: 0
@@ -22188,6 +22173,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  debug: 0
 --- !u!114 &3888327152871098075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22454,12 +22440,12 @@ PrefabInstance:
     - target: {fileID: 644877976799394975, guid: 451ccbf91003ff8479b4bd38033f848a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7049380297450042138, guid: 451ccbf91003ff8479b4bd38033f848a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4212729295683896500, guid: 451ccbf91003ff8479b4bd38033f848a,
         type: 3}
@@ -28328,7 +28314,6 @@ GameObject:
   - component: {fileID: 5609109860751063545}
   - component: {fileID: 1194819890916975411}
   - component: {fileID: 5661963564180430074}
-  - component: {fileID: 234207013}
   - component: {fileID: 5222270156055163720}
   m_Layer: 0
   m_Name: Player
@@ -33543,11 +33528,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause
       objectReference: {fileID: 0}
-    - target: {fileID: 8640589452019424064, guid: 9ee9c59318a65174d9ce0c7bfb330cab,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8640589452736157398, guid: 9ee9c59318a65174d9ce0c7bfb330cab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33662,6 +33642,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Responce.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640589452019424064, guid: 9ee9c59318a65174d9ce0c7bfb330cab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8640589453409966375, guid: 9ee9c59318a65174d9ce0c7bfb330cab,
         type: 3}

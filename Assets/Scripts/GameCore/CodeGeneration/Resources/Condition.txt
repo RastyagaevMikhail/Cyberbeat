@@ -1,0 +1,14 @@
+﻿$ADDITIONAL_USING$
+
+using GameCore;
+
+using UnityEngine;
+
+namespace $NAMESPACE_NAME$ 
+{
+    [CreateAssetMenu (fileName = "$NAME_CONDITION$Condition", menuName = "$NAMESPACE_NAME$ /Condition/$NAME_CONDITION$")]
+	public class $NAME_CONDITION$Condition : ACondition
+	{
+		public override bool Value => throw new System.NotImplementedException();
+	}
+}

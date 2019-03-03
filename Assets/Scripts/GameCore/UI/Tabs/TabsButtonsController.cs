@@ -9,9 +9,10 @@ namespace GameCore
 	{
 		List<TabButton> tabs = new List<TabButton> ();
 		[SerializeField] TabButton lastSelcted;
+		[SerializeField] bool debug;
 		private void SelectLast ()
 		{
-			if (lastSelcted) lastSelcted.Select();
+			if (lastSelcted) lastSelcted.Select ();
 		}
 		public bool IsSelected (TabButton tabButton)
 		{
@@ -26,11 +27,15 @@ namespace GameCore
 			if (lastSelcted) lastSelcted.DeSelect ();
 			lastSelcted = tabButton;
 			lastSelcted.Select ();
+			if (debug) Debug.Log ($"{this}.Switch({lastSelcted})", this);
 		}
 		public void RegistryTabButton (TabButton tabButton)
 		{
 			if (!tabs.Contains (tabButton))
+			{
 				tabs.Add (tabButton);
+				if (debug) Debug.Log ($"{this}.RegistryTabButton({tabButton})", this);
+			}
 		}
 
 		public void UnRegistryTabButton (TabButton tabButton)
@@ -39,6 +44,7 @@ namespace GameCore
 			{
 				tabs.Remove (tabButton);
 				tabButton.Active = tabButton.Equals (lastSelcted);
+				if (debug) Debug.Log ($"{this}.RegistryTabButton({tabButton})", this);
 			}
 		}
 

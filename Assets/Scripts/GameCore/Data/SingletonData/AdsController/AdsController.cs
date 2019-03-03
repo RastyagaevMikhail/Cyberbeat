@@ -82,6 +82,7 @@ namespace GameCore
         [SerializeField] UnityEventBool onRewardedVideoLoaded;
         [SerializeField] BoolVariable noAds;
         [SerializeField] bool _debug;
+        public string CurrentPlacement { get; set; }
 
         private bool NoAds { get { return noAds.Value; } set { noAds.Value = value; noAds.SaveValue (); } }
 
@@ -101,19 +102,22 @@ namespace GameCore
         {
             ShowRewardVideo ((a, n) => { });
         }
+        public void ShowRewardVideo (string placemnt)
+        {
+            CurrentPlacement = placemnt;
+            ShowRewardVideo ((a, n) => { });
+        }
         public void ShowRewardVideo (Action OnVideoShown)
         {
             ShowRewardVideo ((a, n) => OnVideoShown ());
-
         }
         public void ShowRewardVideo (Action<double, string> OnVideoShown = null)
         {
             if (_debug)
             {
-                Debug.LogFormat ("AdsController.ShowRewardVideo(OnVideoShown = {0})", OnVideoShown);
-                Debug.LogFormat ("AdsController.ShowRewardVideo.CurrentAdsNetworks = {0}", CurrentAdsNetworks);
+                Debug.Log ($"{this.Log()}.ShowRewardVideo({CurrentPlacement.black()},{OnVideoShown.Log()})\n {CurrentAdsNetworks}", this);
             }
-            CurrentAdsNetworks.ShowRewardVideo (OnVideoShown);
+            CurrentAdsNetworks.ShowRewardVideo (CurrentPlacement, OnVideoShown);
         }
 
         public void ShowIntrastitial ()
@@ -123,18 +127,17 @@ namespace GameCore
 
         public void ShowIntrastitial_GE (GameEvent gameEvent)
         {
-            ShowIntrastitial ("default", gameEvent.Raise);
+            ShowIntrastitial ("Inrsatitial", gameEvent.Raise);
         }
-        public void ShowIntrastitial (string playsment = "default")
+        public void ShowIntrastitial (string playsment = "Inrsatitial")
         {
             ShowIntrastitial (playsment, null);
         }
-        public void ShowIntrastitial (string playsment = "default", Action _onIntrastitialShown = null)
+        public void ShowIntrastitial (string playsment = "Inrsatitial", Action _onIntrastitialShown = null)
         {
             if (_debug)
             {
-                Debug.LogFormat ("AdsController.ShowIntrastitial(playsment = {0}, _onIntrastitialShown = {1})", playsment, _onIntrastitialShown);
-                Debug.LogFormat ("AdsController.ShowIntrastitial.CurrentAdsNetworks = {0}", CurrentAdsNetworks);
+                Debug.Log ($"{this.Log()}.ShowIntrastitial({playsment.black()}, {_onIntrastitialShown.Log()})", this);
             }
 
             CurrentAdsNetworks.ShowIntrastitial (playsment, _onIntrastitialShown);

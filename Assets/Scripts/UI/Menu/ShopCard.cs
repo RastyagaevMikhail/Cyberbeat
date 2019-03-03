@@ -40,7 +40,7 @@ namespace CyberBeat
 		private void UpdateValues ()
 		{
 			Icon.sprite = data.Icon;
-			Title.Id = data.title;
+			Title.SetID (data.title);
 			Price.text = data.Price.ToString ();
 		}
 
