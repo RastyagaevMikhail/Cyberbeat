@@ -9,7 +9,6 @@ namespace CyberBeat
 	public class PrefabSkinItem : SkinItem
 	{
 		GameObject prefab { get { return (Prefab as GameObject); } }
-		public SkinsDataCollection skinsData { get { return SkinsDataCollection.instance; } }
 		TransformGroup transGroup = null;
 		public override void Apply (Object target, params object[] args)
 		{

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+
+using System.Collections;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
+
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +13,8 @@ namespace GameCore
         [SerializeField] ACondition condition;
         [SerializeField] UnityEvent onTrue;
         [SerializeField] UnityEvent onFalse;
+        [SerializeField] UnityEventBool onCondition;
+        [SerializeField] UnityEventBool onInverseCondition;
         [SerializeField] bool debug;
         [Button]
         public void DoCondition (bool value)
@@ -31,11 +35,13 @@ namespace GameCore
                 onFalse.Invoke ();
                 if (debug) log += $"{onFalse.Log ()} \n";
             }
+            onCondition.Invoke (value);
+            onInverseCondition.Invoke (!value);
             if (debug) Debug.Log (log);
         }
         public void DoCondition ()
         {
-            DoCondition(condition.Value);
+            DoCondition (condition.Value);
         }
 
     }

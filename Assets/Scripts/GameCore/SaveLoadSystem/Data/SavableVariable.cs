@@ -10,25 +10,23 @@ namespace GameCore
         [Multiline]
         public string DeveloperDescription = "";
         public string categoryTag = "Default";
-        public override string CategoryTag { get { return categoryTag; } set { categoryTag = value; } }
-        protected SaveData saveData { get { return SaveData.instance; } }
-
-        public override bool isSavable
+        [SerializeField, HideInInspector] SaveData saveData;
+        private void OnValidate ()
         {
-            get { return saveData.Contains (this); }
-            set
-            {
-                bool contains = saveData.Contains (this);
-                if (value && !contains)
-                {
-                    saveData.Add (this);
-#if UNITY_EDITOR
-                    UnityEditor.Selection.activeObject = saveData;
-#endif
-                }
-                else if (!value && contains) saveData.Remove (this);
-            }
+            if (!saveData)
+                saveData = Resources.Load<SaveData> ("Data/SaveData");
         }
+
+#if UNITY_EDITOR
+        public override void SetSavable (bool value)
+        {
+            isSavable = value;
+            this.Save ();
+        }
+#endif
+
+        [SerializeField] bool isSavable;
+        public override bool IsSavable => isSavable;
 
         [SerializeField]
         protected TValue _value;
@@ -56,9 +54,8 @@ namespace GameCore
         {
             get
             {
-                if (isSavable && !Loaded && Application.isPlaying)
+                if (IsSavable && !Loaded && Application.isPlaying)
                 {
-                    // Debug.LogFormat (this,"Get {1} = {0}", _value, name);
                     LoadValue ();
                 }
                 return _value;
@@ -68,7 +65,7 @@ namespace GameCore
                 _value = value;
                 if (OnValueChanged != null)
                     OnValueChanged (_value);
-                if (isSavable)
+                if (IsSavable)
                 {
                     if (Application.isPlaying)
                         saveData.CheckSaver ();
@@ -79,7 +76,7 @@ namespace GameCore
         }
 
         [ContextMenu ("Save Value")]
-        public override void SaveValue () { }
+        public override void SaveValue () { Debug.Log ($"SavableVariable.SaveValue.{name}"); }
 
         [ContextMenu ("Load Value")]
         public override void LoadValue ()
@@ -91,27 +88,16 @@ namespace GameCore
 #if UNITY_EDITOR
         public override void CreateAsset (string path = "", bool IsSaveble = false)
         {
-            if (path == "") path = "Assets/Data/Variables/{0}/{1}.asset".AsFormat (GetType ().Name, name);
+            if (string.IsNullOrEmpty (path))
+                path = $"Assets/Data/Variables/{GetType ().Name}/{name}.asset";
 
             Tools.CreateAsset (this, path);
-            if (IsSaveble) isSavable = IsSaveble;
+            isSavable = IsSaveble;
         }
         public override void ResetLoaded ()
         {
             Loaded = false;
-            UnityEditor.EditorUtility.SetDirty (this);
-        }
-
-        [ContextMenu ("Show Paths")] public void ShowPath () { Debug.Log (UnityEditor.AssetDatabase.GetAssetPath (this)); }
-
-        [ContextMenu ("Toggle Savable")]
-        void ToggleSavable () { isSavable = !isSavable; }
-
-        [ContextMenu ("Check Savable")]
-        void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
-        private void OnDestroy ()
-        {
-            if (isSavable) ToggleSavable ();
+            // this.Save ();
         }
 #endif
 

@@ -1,0 +1,23 @@
+﻿using GameCore;
+
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+using UnityEngine;
+namespace $NAMESPACE_NAME$
+{
+    [CreateAssetMenu (menuName = "$NAMESPACE_NAME$/Selectors/$KEY_TYPE$$VALUE_TYPE$")]
+    public class $KEY_TYPE$$VALUE_TYPE$$SCRIPT_NAME$ : AEnumDataSelectorMonoBehaviour<$KEY_TYPE$, $VALUE_TYPE$>
+    {
+        public List<$KEY_TYPE$$VALUE_TYPE$TypeData> datas;
+        public override List<TypeData<$KEY_TYPE$, $VALUE_TYPE$>> Datas
+        {
+            get
+            {
+                return datas.Cast<TypeData<$KEY_TYPE$, $VALUE_TYPE$>> ().ToList ();
+            }
+        }
+        [System.Serializable] public class $KEY_TYPE$$VALUE_TYPE$TypeData : TypeData<$KEY_TYPE$, $VALUE_TYPE$> { }
+    }
+}

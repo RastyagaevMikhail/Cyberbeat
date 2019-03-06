@@ -14,19 +14,20 @@ namespace GameCore
     {
         public static void Save (this ScriptableObject so)
         {
+            if (Application.isPlaying) return;
 #if UNITY_EDITOR
             EditorUtility.SetDirty (so);
             AssetDatabase.SaveAssets ();
             AssetDatabase.Refresh ();
 #endif
         }
-        public static void SelectAsset (this ScriptableObject so)
+
+        public static void SelectMeInEditor (this Object obj)
         {
 #if UNITY_EDITOR
-            Selection.activeObject = so;
+            Selection.activeObject = obj;
 #endif
         }
-
         public static void CreateAsset (this ScriptableObject so, string path)
         {
 #if UNITY_EDITOR

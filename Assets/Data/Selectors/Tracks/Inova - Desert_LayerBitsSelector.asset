@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8353d97a1b2772847b189a32ef623dbd, type: 3}
+  m_Script: {fileID: 0}
   m_Name: Inova - Desert_LayerBitsSelector
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp:CyberBeat:LayerTypeTrackBitsCollectionSelector
   datas:
   - type: {fileID: 11400000, guid: 5adf218e8b25612419649335648fe652, type: 2}
     data: {fileID: 11400000, guid: 6808f670210abc74bbed25a7bc2e173a, type: 2}
@@ -23,6 +23,8 @@ MonoBehaviour:
     data: {fileID: 11400000, guid: dcd6d3cb283387c4ea6a5d96735ecd18, type: 2}
   - type: {fileID: 11400000, guid: aa9dc1d0f27eaec428ba57fbc3cca851, type: 2}
     data: {fileID: 11400000, guid: 8b326feba1f74f94ca307f7a1b48e6e9, type: 2}
+  - type: {fileID: 11400000, guid: e54ce4d33c015b543b32097d3e38d67a, type: 2}
+    data: {fileID: 11400000, guid: 0162ecc9762138f4cba161575abc8014, type: 2}
   - type: {fileID: 11400000, guid: 7eda5a1551e60ae4395d5a05d8b6fddb, type: 2}
     data: {fileID: 11400000, guid: 4fc0bc142fcb9e4409886f02dd40e4d2, type: 2}
   - type: {fileID: 11400000, guid: 3c1effcbd716ae44898788c8100965e4, type: 2}

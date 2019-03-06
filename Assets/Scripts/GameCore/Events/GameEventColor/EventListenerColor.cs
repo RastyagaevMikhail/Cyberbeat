@@ -23,6 +23,7 @@ namespace GameCore
         {
             Responce.Invoke (obj);
         }
+        
         public bool OnEnable ()
         {
             if (EventObject)

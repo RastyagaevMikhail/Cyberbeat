@@ -11,12 +11,18 @@ namespace CyberBeat
 
     using UnityEngine;
 
-    public class TrackHelper : SingletonData<TrackHelper>
+    public class TrackHelper : ScriptableObject
     {
-        public override void InitOnCreate () { }
-        public override void ResetDefault () { }
-        public TracksCollection data { get { return TracksCollection.instance; } }
-        public Enums enums { get { return Enums.instance; } }
+        [SerializeField] TracksCollection data;
+        [SerializeField] Enums enums;
+        private void OnValidate ()
+        {
+            if (!data)
+                data = Resources.Load<TracksCollection> ("Data/TracksCollection");
+            if (!enums)
+                enums = Resources.Load<Enums> ("Data/Enums");
+        }
+
         public void UpdateCollections (LayerTypeTrackBitsCollectionSelector layerBitsSelector) { data.UpdateCollections (layerBitsSelector); }
         public int CalculateConstant (Track track, List<IBitData> bits)
         {
@@ -44,7 +50,7 @@ namespace CyberBeat
             }
             return Max;
         }
-        public void ValidateLayerBitsSelector (Track track, LayerTypeTrackBitsCollectionSelector selector)
+        public LayerTypeTrackBitsCollectionSelector ValidateLayerBitsSelector (Track track, LayerTypeTrackBitsCollectionSelector selector)
         {
             selector = Tools.ValidateSO<LayerTypeTrackBitsCollectionSelector> ($"Assets/Data/Selectors/Tracks/{track.name}_LayerBitsSelector.asset");
             selector.datas = new List<LayerTypeTrackBitsCollectionSelector.LayerTypeTrackBitsCollectionTypeData> ();
@@ -61,6 +67,7 @@ namespace CyberBeat
             }
             selector.Save ();
             track.Save ();
+            return selector;
         }
 
         public Koreography ValidateKoreography (Track track)

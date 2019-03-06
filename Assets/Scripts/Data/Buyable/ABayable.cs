@@ -18,9 +18,10 @@ namespace CyberBeat
         public string title;
         public string Description;
         [SerializeField] GameEventBayable IsOver;
+    
         public bool TryBuy ()
         {
-            bool canBuy = GameData.instance.TryBuy (Price);
+            bool canBuy = Buyer.TryBuyDefaultCurency (Price);
             if (canBuy) Increment ();
             return canBuy;
         }

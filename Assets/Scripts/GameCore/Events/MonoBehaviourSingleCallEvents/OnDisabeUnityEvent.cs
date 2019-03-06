@@ -14,7 +14,7 @@ namespace GameCore
         private void OnDisable ()
         {
             onDisable.Invoke ();
-            if (debug) Debug.Log ($"{("OnEnable".a())} {name.mb()}\n{onDisable.Log()}", this);
+            if (debug) Debug.Log ($"{("OnDisable".a())} {name.mb()}\n{onDisable.Log()}", this);
         }
     }
 }

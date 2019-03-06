@@ -24,7 +24,7 @@ namespace CyberBeat
 
         public void ResetDefault ()
         {
-            Bougth = Price == 0;
+            Bougth = (Price == 0);
             VideoCount = videoPrice;
         }
 
@@ -32,7 +32,7 @@ namespace CyberBeat
 
         public bool Bougth
         {
-            get => Tools.GetBool (bouthSaveKey, false);
+            get => Tools.GetBool (bouthSaveKey, (Price == 0));
             set => Tools.SetBool (bouthSaveKey, value);
         }
 
@@ -45,11 +45,12 @@ namespace CyberBeat
             Bougth = (Price == 0);
             this.type = type;
         }
-        public GameData gameData { get { return GameData.instance; } }
-        public bool TryBuy () { return Bougth = gameData.TryBuy (Price); }
+
+      
+        public bool TryBuy () { return Bougth = Buyer.TryBuyDefaultCurency (Price); }
         public bool BuyByVideo () => Bougth = (--VideoCount <= 0);
         public bool IsAvalivable { get { return Bougth; } }
-        public bool CanBuy { get { return gameData.CanBuy (Price); } }
+        // public bool CanBuy { get { return gameData.CanBuy (Price); } }
 
         public abstract void Apply (Object target, params object[] args);
         public bool Applyed<T> (out T target, Object targetObject) where T : UnityEngine.Object

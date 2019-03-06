@@ -37,7 +37,7 @@ namespace CyberBeat
                 IntVariable indexVariable = skinIndexsSelector[skinType];
                 indexVariable.name = "{0}SkinIndex".AsFormat (skinType.name);
                 Tools.CreateAsset (indexVariable, "Assets/Data/Skins/Indexes/{0}.asset".AsFormat (indexVariable.name));
-                indexVariable.isSavable = true;
+                indexVariable.SetSavable (true);
             }
 
         }
@@ -98,30 +98,6 @@ namespace CyberBeat
         [SerializeField] List<SkinType> AllTypes;
         public SkinsEnumDataSelector skinsSelector;
         public SkinIndexSelector skinIndexsSelector;
-        [SerializeField] SkinType RoadType;
-        public bool isRoadType (SkinType skinType) { return RoadType.Equals (skinType); }
-        public int RoadSkinTypeIndex { get { return skinIndexsSelector[RoadType].Value; } set { skinIndexsSelector[RoadType].Value = value; } }
-        public List<SkinItem> RoadSkins { get { return skinsSelector[RoadType]; } }
-        int skinIndex
-        {
-            get
-            {
-                if (!skinIndexsSelector.ContainsKey (SkinType)) return 0;
-                return skinIndexsSelector[SkinType].Value;
-            }
-            set
-            {
-                if (SkinType == RoadType)
-                    Debug.LogFormat ("skinIndex = {0}", value);
-                if (skinIndexsSelector.ContainsKey (SkinType))
-                    skinIndexsSelector[SkinType].Value = value;
-            }
-        }
-        public int SkinIndex { get { return skinIndex.GetAsClamped (0, Items.Count - 1); } set { skinIndex = value; } }
-
-        [SerializeField] SkinTypeVariable skinTypeVariable;
-        public SkinType SkinType => skinTypeVariable.ValueFast;
-        public List<SkinItem> Items { get { return skinsSelector[SkinType].ToList (); } }
 
 #if UNITY_EDITOR
         [Button] public void RandomizePrices ()

@@ -7,18 +7,12 @@ using UnityEngine;
 
 namespace GameCore
 {
-	public class NotificationManager : SingletonData<NotificationManager>, IStartInitializationData
+	public class NotificationManager : ScriptableObject, IResetable
 	{
-#if UNITY_EDITOR
-		[UnityEditor.MenuItem ("Game/Data/Managers/Notification")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
-		public override void InitOnCreate () { }
-		public override void ResetDefault () { }
-#else
-		public override void ResetDefault () { }
-#endif
+		public void ResetDefault () { }
 		private string oneSignalDebugMessage;
 		INotificationManager notificationManager;
-		public void Init (bool consentValue)
+		public void InitWithConsent (bool consentValue)
 		{
 			notificationManager = new OneSiganlNotifictionManager ();
 			notificationManager.Init ();

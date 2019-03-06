@@ -44,7 +44,6 @@ namespace GameCore
 			}
 
 		}
-
 		public static void CreateAsset (UnityEngine.Object asset, string path)
 		{
 			string[] splitedPath = path.Split ('/');

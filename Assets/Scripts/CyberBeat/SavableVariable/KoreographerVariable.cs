@@ -36,23 +36,14 @@ namespace CyberBeat
         {
             Value = value.Value;
         }
-
         public override void SaveValue ()
         {
             // TODO: Save Code This From KoreographerVariable
         }
-
         public override void LoadValue ()
         {
             // TODO: Load Code This From KoreographerVariable
         }
-
-        [ContextMenu ("Toggle Savable")]
-        void ToggleSavable () { isSavable = !isSavable; CheckSavable (); }
-
-        [ContextMenu ("Check Savable")]
-        void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
-
         public static implicit operator Koreographer (KoreographerVariable variable)
         {
             return variable.Value;

@@ -10,31 +10,22 @@ using UnityEngine.Events;
 
 namespace GameCore
 {
-    public partial class AdsController : SingletonData<AdsController>, IStartInitializationData
+    public partial class AdsController : ScriptableObject, IResetable
     {
-#if UNITY_EDITOR
-        [UnityEditor.MenuItem ("Game/Data/ADS")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
-        public override void ResetDefault () { }
-        public override void InitOnCreate ()
-        {
-            CreateNoAdsVariable ();
-        }
+        public void ResetDefault () { ValidateNoAds (); }
 
-        [ContextMenu ("Create NoAds Variable")]
-        private void CreateNoAdsVariable ()
+        [ContextMenu ("Validate NoAds Variable")]
+        private void ValidateNoAds ()
         {
             const string NoAdsVariablePath = "Assets/Data/Variables/AdsController/NoAds.asset";
             noAds = Tools.ValidateSO<BoolVariable> (NoAdsVariablePath);
-            noAds.isSavable = true;
+            noAds.SetSavable (true);
+            noAds.Save ();
             this.Save ();
-
         }
-#else
-        public override void ResetDefault () { }
-#endif
 
-        public bool isLoadedRewardVideo { get { return CurrentAdsNetworks.isLoadedRewardVideo; } }
-        public bool isLoadedInterstitial { get { return CurrentAdsNetworks.isLoadedInterstitial; } }
+        public bool IsLoadedRewardVideo { get { return CurrentAdsNetworks.IsLoadedRewardVideo; } }
+        public bool isLoadedInterstitial { get { return CurrentAdsNetworks.IsLoadedInterstitial; } }
 
         public void ActivateNoAds () { NoAds = true; }
         public bool internetNotReachable
@@ -68,7 +59,7 @@ namespace GameCore
             }
         }
 
-        public void Init (bool consentValue)
+        public void InitWithConsent (bool consentValue)
         {
             CurrentAdsNetworks.Init (consentValue);
             CurrentAdsNetworks.OnRewardedVideoLoaded += onRewardedVideoLoaded.Invoke;
@@ -101,6 +92,16 @@ namespace GameCore
         public void ShowRewardVideo ()
         {
             ShowRewardVideo ((a, n) => { });
+        }
+        public void ShowRewardVideo (string placemnt, Action OnVideoShown)
+        {
+            CurrentPlacement = placemnt;
+            ShowRewardVideo ((a, n) => OnVideoShown ());
+        }
+        public void ShowRewardVideo (string placemnt, Action<double, string> OnVideoShown = null)
+        {
+            CurrentPlacement = placemnt;
+            ShowRewardVideo (OnVideoShown);
         }
         public void ShowRewardVideo (string placemnt)
         {
@@ -141,6 +142,15 @@ namespace GameCore
             }
 
             CurrentAdsNetworks.ShowIntrastitial (playsment, _onIntrastitialShown);
+        }
+
+        public void Show_BANNER_BOTTOM (string placement)
+        {
+            CurrentAdsNetworks.Show_BANNER_BOTTOM (placement);
+        }
+        public void Hide_BANNER_BOTTOM ()
+        {
+            CurrentAdsNetworks.Hide_BANNER_BOTTOM ();
         }
     }
 

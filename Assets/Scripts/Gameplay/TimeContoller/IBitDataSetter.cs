@@ -30,13 +30,13 @@ namespace CyberBeat
             duration.Invoke (() => bitData.Duration);
             stringValue.Invoke (() => bitData.StringValue);
             randomString.Invoke (() => bitData.RandomString);
-            setPosition.Invoke ( () => position);
-            setLossyScale.Invoke ( () => lossyScale);
-            setRotation.Invoke ( () => rotation);
-            setLocalPosition.Invoke ( () => localPosition);
-            setLocalScale.Invoke ( () => localScale);
-            setLocalRotation.Invoke ( () => localRotation);
-            setTransform.Invoke ( () => transform);
+            setPosition.Invoke (() => position);
+            setLossyScale.Invoke (() => lossyScale);
+            setRotation.Invoke (() => rotation);
+            setLocalPosition.Invoke (() => localPosition);
+            setLocalScale.Invoke (() => localScale);
+            setLocalRotation.Invoke (() => localRotation);
+            setTransform.Invoke (() => transform);
         }
     }
 
@@ -49,14 +49,18 @@ namespace CyberBeat
     [Serializable] public class UnityEventQuaternionHandler : UnityEventHandler<UnityEventQuaternion, Quaternion> { }
 
     [Serializable] public class UnityEventTransformHandler : UnityEventHandler<UnityEventTransform, Transform> { }
+
+    [Serializable] public class UnityEventColorHandler : UnityEventHandler<UnityEventColor, Color> { }
     public abstract class UnityEventHandler<UntyEventType, ValueType> where UntyEventType : UnityEvent<ValueType>
     {
         [SerializeField] bool enabled;
+        [SerializeField] bool debug;
         [SerializeField] UntyEventType unityEvent;
-        public void Invoke (Func<ValueType> argumrnt)
+        public void Invoke (Func<ValueType> argument)
         {
-            if (enabled && argumrnt != null)
-                unityEvent.Invoke (argumrnt ());
+            if (debug) Debug.Log ($"argument = {argument},{argument.Method.ReturnParameter} \n enabled = {enabled}");
+            if (enabled && argument != null)
+                unityEvent.Invoke (argument ());
         }
     }
 

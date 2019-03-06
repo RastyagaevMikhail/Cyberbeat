@@ -16,6 +16,11 @@ namespace CyberBeat
         [SerializeField] FloatVariable SpeedSplineVariable;
         [SerializeField] AudioSource audioSource;
 
+        public void LoadCurrentTrackSpline ()
+        {
+            Instantiate (trackVariable.ValueFast.prefab);
+        }
+
         public void LoadStartSpeedToVariable ()
         {
             SpeedSplineVariable.ValueFast = trackVariable.ValueFast.StartSpeed;

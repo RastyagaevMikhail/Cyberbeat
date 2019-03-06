@@ -9,7 +9,8 @@ namespace GameCore
     {
         [SerializeField] bool _debug = true;
         [SerializeField] bool _isLoadedRewardVideo = true;
-        public override bool isLoadedRewardVideo
+
+        public override bool IsLoadedRewardVideo
         {
             get
             {
@@ -20,7 +21,8 @@ namespace GameCore
         }
 
         [SerializeField] bool _isLoadedInterstitial = true;
-        public override bool isLoadedInterstitial
+
+        public override bool IsLoadedInterstitial
         {
             get
             {
@@ -29,8 +31,15 @@ namespace GameCore
                 return _isLoadedInterstitial;
             }
         }
+
+        [ContextMenu ("onRewardVideoLoaded")]
+        void onRewardVideoLoaded ()
+        {
+            onRewardVideoLoaded (false);
+        }
         public void onRewardVideoLoaded (bool precache)
         {
+            _isLoadedRewardVideo = true;
             if (_debug) Debug.LogFormat ("DummyAdsNetwork.OnRewardedVideoLoaded (precache = {0})", precache);
         }
         public override event Action<bool> OnRewardedVideoLoaded
@@ -57,6 +66,18 @@ namespace GameCore
             if (_debug)
                 Debug.Log ($"{this.Log()}.ShowRewardVideo({placement},{OnVideoShown})", this);
             if (OnVideoShown != null) OnVideoShown (0, "");
+        }
+
+        public override void Show_BANNER_BOTTOM (string placement = null)
+        {
+            if (_debug)
+                Debug.Log ($"{this.Log()}.Show_BANNER_BOTTOM({placement})", this);
+        }
+
+        public override void Hide_BANNER_BOTTOM ()
+        {
+            if (_debug)
+                Debug.Log ($"{this.Log()}.Hide_BANNER_BOOTOM()", this);
         }
     }
 }

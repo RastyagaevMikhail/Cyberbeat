@@ -6,14 +6,18 @@ namespace GameCore
 {
 	public class Saver : MonoBehaviour
 	{
-		SaveData saveData { get { return SaveData.instance; } }
+		SaveData saveData => Resources.Load<SaveData> ("Data/SaveData");
 		private void OnApplicationQuit ()
 		{
+			Debug.Log ($"Saver.OnApplicationQuit()");
+			Debug.Log(saveData,saveData);
 			saveData.SaveAll ();
 		}
 
 		private void OnApplicationPause (bool pauseStatus)
 		{
+			Debug.Log ($"Saver.OnApplicationPause({pauseStatus})");
+			Debug.Log(saveData,saveData);
 			saveData.SaveAll ();
 		}
 

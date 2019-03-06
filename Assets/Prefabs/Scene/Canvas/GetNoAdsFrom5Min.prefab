@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3552483752051575716}
   - component: {fileID: 3552483752051575718}
   - component: {fileID: 3552483752051575719}
+  - component: {fileID: 4884525486327643609}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\u041E\u0442\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0440\u0435\u043A\u043B\u0430\u043C\u044B
+  m_text: "\u043E\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0440\u0435\u043A\u043B\u0430\u043C\u044B
     \u043D\u0430 5 \u043C\u0438\u043D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 3552483752051575719}
-    characterCount: 27
+    characterCount: 26
     spriteCount: 0
     spaceCount: 4
     wordCount: 5
@@ -148,8 +149,8 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
+  m_isInputParsingRequired: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -162,6 +163,22 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4884525486327643609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552483752051575717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf9b04ff7035dc47a3b37ca50410330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizator: {fileID: 11400000, guid: b53cddf60e805864380e74c79d200dd1, type: 2}
+  mText: {fileID: 3552483752051575719}
+  Id: noads_offer_title
+  debug: 0
 --- !u!1 &3552483752080633232
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +336,7 @@ GameObject:
   - component: {fileID: 3552483752925116713}
   - component: {fileID: 3552483752925116715}
   - component: {fileID: 3552483752925116712}
+  - component: {fileID: 6832672620227536991}
   m_Layer: 5
   m_Name: Title2
   m_TagString: Untagged
@@ -373,7 +391,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "+ \u0430\u0432\u0442\u043E\u0440\u0435\u0441\u0442\u0430\u0440\u0442"
+  m_text: "+\u0410\u0432\u0442\u043E\u0440\u0435\u0441\u0442\u0430\u0440\u0442"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
   m_sharedMaterial: {fileID: 21676424071739598, guid: e9861507bfb60474c94b6cc17f396fa0,
@@ -443,9 +461,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 3552483752925116712}
-    characterCount: 13
+    characterCount: 12
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 0
     wordCount: 2
     linkCount: 0
     lineCount: 1
@@ -455,8 +473,8 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
+  m_isInputParsingRequired: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -469,6 +487,22 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6832672620227536991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552483752925116718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf9b04ff7035dc47a3b37ca50410330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizator: {fileID: 11400000, guid: b53cddf60e805864380e74c79d200dd1, type: 2}
+  mText: {fileID: 3552483752925116712}
+  Id: plus_autorestart
+  debug: 0
 --- !u!1 &3552483753489504668
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +840,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000015258789, y: 0}
-  m_SizeDelta: {x: -216.70999, y: 0}
+  m_SizeDelta: {x: -72.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5565570688705551649
 CanvasRenderer:
@@ -836,7 +870,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Skip
+  m_text: "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
   m_sharedMaterial: {fileID: 21676424071739598, guid: e9861507bfb60474c94b6cc17f396fa0,
@@ -918,8 +952,8 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
+  m_isInputParsingRequired: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -1081,8 +1115,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
-        m_MethodName: ShowRewardVideo
+      - m_Target: {fileID: 6135443638890578273}
+        m_MethodName: TryShowRewardVideo
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1092,8 +1126,45 @@ MonoBehaviour:
           m_StringArgument: RewardVideo_AutoResatart
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: cc662000dd83abb419cbb99780f95129, type: 2}
+        m_MethodName: PlayClik
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &6135443638890578273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135443638890578278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf09c6482b379b74fbceb9df13139ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adsController: {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
+  Content: {fileID: 0}
+  NotInternet: {fileID: 0}
+  Waiting: {fileID: 0}
+  videoPreShow:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  videoShowed:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 11400000, guid: 64897335256bd544bb11728951bae425, type: 2}
-        m_MethodName: set_ValueFast
+        m_MethodName: set_Value
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1125,8 +1196,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  videoUnvailable:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 11400000, guid: cc662000dd83abb419cbb99780f95129, type: 2}
-        m_MethodName: PlayClik
+        m_MethodName: PlayNotMoney
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1134,27 +1210,21 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      - m_Target: {fileID: 11400000, guid: 4d06002d5379a31408f45cfe63b61cf4, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6135443638890578273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6135443638890578278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf09c6482b379b74fbceb9df13139ed4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adsController: {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
-  button: {fileID: 6135443638890578276}
-  Content: {fileID: 0}
-  NotInternet: {fileID: 6135443640828872283}
-  Waiting: {fileID: 6135443639319145437}
 --- !u!1 &6135443639319145437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -46.6, y: 0}
+  m_AnchoredPosition: {x: -75, y: -2}
   m_SizeDelta: {x: 96, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6135443639319145433
@@ -1283,7 +1353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -4.4}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 104, y: 104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6135443640540231970
@@ -1357,7 +1427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52.799995, y: -4.4000015}
+  m_AnchoredPosition: {x: -75, y: -2}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6135443640828872280

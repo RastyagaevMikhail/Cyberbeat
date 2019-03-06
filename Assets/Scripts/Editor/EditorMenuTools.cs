@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using CyberBeat;
+
+using System.Collections;
 using System.Collections.Generic;
-using CyberBeat;
+
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
@@ -15,46 +17,34 @@ public class EditorMenuTools
 		if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo ())
 			EditorSceneManager.OpenScene (path);
 	}
-
-	[MenuItem ("Game/Scenes/Loading")]
-	public static void OpenLoading ()
-	{
-		OpenScene ("Loading");
-	}
-
-	[MenuItem ("Game/Scenes/Menu")]
-	public static void OpenMenu ()
-	{
-		OpenScene ("Menu");
-	}
-
-	[MenuItem ("Game/Scenes/InitializeScene")]
+	[MenuItem ("Game/Scenes/InitializeScene", false, 0)]
 	public static void OpenInitializeScene ()
 	{
 		OpenScene ("InitializeScene");
 	}
-
-	[MenuItem ("Game/Scenes/Tutorial")]
+	[MenuItem ("Game/Scenes/Loading", false, 1)]
+	public static void OpenLoading ()
+	{
+		OpenScene ("Loading");
+	}
+	[MenuItem ("Game/Scenes/Tutorial", false, 2)]
 	public static void OpenTutorial ()
 	{
 		OpenScene ("Tutorial");
 	}
-
-	[MenuItem ("Game/Scenes/Tracks/E.P.O - Infinity")]
-	public static void OpenEPO_Infinity ()
+	[MenuItem ("Game/Scenes/Menu", false, 3)]
+	public static void OpenMenu ()
 	{
-		OpenScene ("Tracks/E.P.O - Infinity");
+		OpenScene ("Menu");
 	}
-
-	[MenuItem ("Game/Scenes/Tracks/Mountkid - Dino")]
-	public static void OpenMountkid_Dino ()
+	[MenuItem ("Game/Scenes/Track", false, 4)]
+	public static void OpenTrack ()
 	{
-		OpenScene ("Tracks/Mountkid - Dino");
+		OpenScene ("Track");
 	}
-
 	[MenuItem ("Game/Current Track")]
 	public static void OpenCurrent ()
 	{
-		Selection.activeObject = GameCore.Tools.GetAssetAtPath<TrackVariable>("Assets/Data/Variables/Track/CurrentTrack.asset").Value;
+		Selection.activeObject = GameCore.Tools.GetAssetAtPath<TrackVariable> ("Assets/Data/Variables/Track/CurrentTrack.asset").Value;
 	}
 }

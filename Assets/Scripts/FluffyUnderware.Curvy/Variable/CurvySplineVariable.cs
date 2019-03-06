@@ -35,11 +35,7 @@ namespace  FluffyUnderware.Curvy
           // TODO: Load Code This From CurvySplineVariable
         }
 
-        [ContextMenu ("Toggle Savable")]
-        void ToggleSavable () { isSavable = !isSavable; CheckSavable (); }
-
-        [ContextMenu ("Check Savable")]
-        void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
+       
         
         public static implicit operator CurvySpline (CurvySplineVariable variable)
         {

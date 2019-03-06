@@ -10,9 +10,8 @@ namespace CyberBeat
 {
     public class AnimationEventPlayer : MonoBehaviour
     {
-        [SerializeField] StringDoTweenGraphicsVariableSelector AnimationSelector;
+        [SerializeField] StringUnityEventSelector selector;
         [SerializeField] string regexExpretions = string.Empty;
-        [SerializeField] float fadeTime = 0.2f;
         Dictionary<float, string> animationTimeSlector = new Dictionary<float, string> ();
 
         public void OnBitGenerator (IBitData bitData)
@@ -23,7 +22,7 @@ namespace CyberBeat
             else
                 key = bitData.StringValue;
 
-            if (AnimationSelector.ContainsKey (key))
+            if (selector.ContainsKey (key))
                 animationTimeSlector.Add (bitData.StartTime, key);
         }
 
@@ -35,14 +34,8 @@ namespace CyberBeat
             {
                 string key = animationTimeSlector[startTime];
 
-                var doTweenGraphicsVariable = AnimationSelector[key];
-
-                var fadeInTween = doTweenGraphicsVariable.DoFadeInTween (Time.deltaTime);
-
-                fadeInTween.onComplete = () =>
-                {
-                    doTweenGraphicsVariable.DoFade (fadeTime);
-                };
+                selector[key].Invoke();
+                
                 animationTimeSlector.Remove (startTime);
             }
         }

@@ -78,6 +78,14 @@ namespace CyberBeat
 		{
 			Objects = Objects.OrderBy (track => track.progressInfo.Max).ToList ();
 		}
+		[Button] public void LogBalance() {
+			string log =string.Empty;
+			foreach (var item in Objects)
+			{
+				log += $"{item.name} {item.progressInfo.Max}\n";
+			}
+			Debug.Log(log);
+		}
 
 		[Button] public void CalculateMaxs ()
 		{

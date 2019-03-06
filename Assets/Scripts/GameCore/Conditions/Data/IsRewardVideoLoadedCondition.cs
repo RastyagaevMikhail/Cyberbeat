@@ -8,6 +8,6 @@ namespace GameCore
     public class IsRewardVideoLoadedCondition : ACondition
     {
         [SerializeField] AdsController adsController;
-        public override bool Value => adsController.isLoadedRewardVideo;
+        public override bool Value => adsController.IsLoadedRewardVideo;
     }
 }

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 286753681597786812}
   - component: {fileID: 286753681597786813}
-  - component: {fileID: 286753681597786814}
   - component: {fileID: 286753681597786787}
   - component: {fileID: 2145213408}
   - component: {fileID: 2145213409}
+  - component: {fileID: 788729288}
   m_Layer: 0
   m_Name: PlayerBot
   m_TagString: Untagged
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286753681597786815}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30a06bdadd64ce243857e66d2be77e95, type: 3}
   m_Name: 
@@ -52,8 +52,8 @@ MonoBehaviour:
     Responce:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 286753681597786814}
-          m_MethodName: UpdateSpeed
+        - m_Target: {fileID: 788729288}
+          m_MethodName: OnUpdateSpeed
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -66,7 +66,7 @@ MonoBehaviour:
       m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
     debug: 0
---- !u!114 &286753681597786814
+--- !u!114 &286753681597786787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,24 +75,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 286753681597786815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca3b5f3a03e4ad41ba16872d415d043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  matSwitch: {fileID: 11400000, guid: 4069d2c83674cdf4d928a7b1e547ec71, type: 2}
-  inputControllerComponent: {fileID: 11400000, guid: 600977fbc6ada0b4288a98658130f8b1,
-    type: 2}
-  Target: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}
-  bitAll: 0
-  inputSettings: {fileID: 11400000, guid: 4a419941b770bca49b91eaa2b275be6e, type: 2}
---- !u!114 &286753681597786787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286753681597786815}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ad320524be285f419d3e2cb8d0176df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -100,7 +82,7 @@ MonoBehaviour:
   action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 286753681597786814}
+      - m_Target: {fileID: 788729288}
         m_MethodName: set_enabled
         m_Mode: 0
         m_Arguments:
@@ -176,3 +158,26 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   debug: 0
+--- !u!114 &788729288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286753681597786815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca3b5f3a03e4ad41ba16872d415d043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matSwitch: {fileID: 11400000, guid: 4069d2c83674cdf4d928a7b1e547ec71, type: 2}
+  inputControllerComponent: {fileID: 11400000, guid: 600977fbc6ada0b4288a98658130f8b1,
+    type: 2}
+  Target: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}
+  bitAll: 0
+  collideBricksOffset: 6
+  Radius: 1
+  minRangeDistance: 0.5
+  maxRangeDistance: 4
+  inputSettings: {fileID: 11400000, guid: 4a419941b770bca49b91eaa2b275be6e, type: 2}
+  X: 10

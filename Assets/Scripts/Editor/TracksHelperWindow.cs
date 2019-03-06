@@ -20,48 +20,111 @@ namespace CyberBeat
         [MenuItem ("Game/Windows/Tracks Helper")]
         public static void Open ()
         {
-            TracksHelperWindow tracksHelperWindow = GetWindow<TracksHelperWindow>();
-            tracksHelperWindow.AddAlltracks();
+            TracksHelperWindow tracksHelperWindow = GetWindow<TracksHelperWindow> ();
+            tracksHelperWindow.Init ();
             tracksHelperWindow.Show ();
         }
-        public TrackHelper data { get { return TrackHelper.instance; } }
-
-        [PropertySpace]
-        [Button, PropertyOrder (int.MaxValue - 1)]
-        public void AddAlltracks ()
+        [SerializeField] TrackHelper data;
+        void Init ()
         {
             tracks = Resources.LoadAll<Track> ("Data/Tracks");
         }
 
-        [SerializeField, PropertyOrder (int.MaxValue)] Track[] tracks;
-        [Button] public void UpdateCollections (LayerTypeTrackBitsCollectionSelector layerBitsSelector) { data.UpdateCollections (layerBitsSelector); }
+        [TitleGroup ("From Layer")]
+        [SerializeField] LayerType layer;
 
-        [Button] public void ValidateLayerTypes ()
+        #region Valiadtors 
+        [FoldoutGroup ("Valiadtors")]
+        [Button ("LayerType", ButtonSizes.Large)]
+        public void ValidateLayerTypes ()
         {
             Enums.instance.ValidateLayerType ();
             Selection.activeObject = Enums.instance;
         }
 
-        [PropertyOrder (50), PropertySpace]
-        [TitleGroup ("From Layer")]
-        [SerializeField] LayerType layer;
-        [PropertyOrder (51)]
-        [Button ("Calculate Constant On Track [Bit]")]
+        [HorizontalGroup ("Valiadtors/CalculateConstantOnAllTracks")]
+        [Button]
         public void CalculateConstantOn (Track track)
         {
-            track.CalculateConstantOn(layer);
+            track.CalculateConstantOn (layer);
         }
 
-        [PropertyOrder (52)]
-        [Button ("Calculate Constant On All Tracks [Bit]")]
+        [HorizontalGroup ("Valiadtors/CalculateConstantOnAllTracks")]
+        [Button ("All [Bit]")]
         public void CalculateConstantOnAllTracks ()
         {
             foreach (Track track in tracks)
                 CalculateConstantOn (track);
         }
 
-        [PropertyOrder (53)]
-        [Button ("BitItemData Generattion")]
+        [HorizontalGroup ("Valiadtors/UpdateCollections")]
+        [Button]
+        public void UpdateCollections (LayerTypeTrackBitsCollectionSelector layerBitsSelector)
+        {
+            data.UpdateCollections (layerBitsSelector);
+        }
+
+        [HorizontalGroup ("Valiadtors/UpdateCollections")]
+        [Button ("All")]
+        public void UpdateALLCollections ()
+        {
+            LayerTypeTrackBitsCollectionSelector[] selectors = Tools.GetAtPath<LayerTypeTrackBitsCollectionSelector> ("Assets/Data/Selectors/Tracks");
+            Debug.Log(selectors.Log());
+            foreach (var layerBitsSelector in selectors)
+                data.UpdateCollections (layerBitsSelector);
+        }
+
+        [HorizontalGroup ("Valiadtors/Koreography")]
+        [Button]
+        public void ValidateKoreography (Track track)
+        {
+            track.ValidateKoreography ();
+        }
+
+        [HorizontalGroup ("Valiadtors/Koreography")]
+        [Button ("All")]
+        public void ValidateKoreography ()
+        {
+            foreach (var track in tracks)
+                ValidateKoreography (track);
+        }
+
+        [HorizontalGroup ("Valiadtors/Koreography Tracks")]
+        [Button]
+        public void ValidateKoreographyTrackLayer (Track track)
+        {
+            track.ValidateKoreographyTrackLayer ();
+        }
+
+        [HorizontalGroup ("Valiadtors/Koreography Tracks")]
+        [Button ("All")]
+        public void ValidateKoreographyTracksLayers ()
+        {
+            foreach (var track in tracks)
+                ValidateKoreographyTrackLayer (track);
+        }
+
+        [HorizontalGroup ("Valiadtors/Track LayerBits Selector")]
+        [Button]
+        public void ValidateLayerBitsSelector (Track track)
+        {
+            track.ValidateLayerBitsSelector ();
+        }
+
+        [HorizontalGroup ("Valiadtors/Track LayerBits Selector")]
+        [Button ("All")]
+        public void ValidateAsllLayerBitsSelectors ()
+        {
+            foreach (Track track in tracks)
+                ValidateLayerBitsSelector (track);
+        }
+
+        #endregion
+
+        #region Generators 
+        [PropertySpace]
+        [FoldoutGroup ("Generators")]
+        [Button]
         public void TrackBitItemDataGenerattion (TimeControllerType user, bool validateIsOver)
         {
             string layerName = layer.name;
@@ -75,51 +138,22 @@ namespace CyberBeat
                 Tools.ValidateSO<GameEventIBitData> ($"Assets/Data/Events/IBitData/On{layerName}{user}IsOver.asset");
         }
 
-        [TitleGroup ("Foldouts")]
-        [FoldoutGroup ("Koreography")]
-        [Button (ButtonSizes.Large)]
-        public void ValidateKoreography (Track track)
-        {
-            track.ValidateKoreography ();
-        }
+        #endregion
 
-        [FoldoutGroup ("Koreography")]
-        [Button (ButtonSizes.Large)]
-        public void ValidateKoreography ()
-        {
-            foreach (var track in tracks)
-                ValidateKoreography (track);
-        }
+        #region Tracks 
 
-        [FoldoutGroup ("Koreography Tracks")]
-        [Button (ButtonSizes.Large)]
-        public void ValidateKoreographyTrackLayer (Track track)
-        {
-            track.ValidateKoreographyTrackLayer ();
-        }
+        [ListDrawerSettings (
+            Expanded = true,
+            IsReadOnly = true,
+            HideAddButton = true,
+            HideRemoveButton = true,
+            ShowPaging = false)]
+        [Space]
+        [PropertyOrder (int.MaxValue)]
+        [SerializeField]
+        Track[] tracks;
 
-        [FoldoutGroup ("Koreography Tracks")]
-        [Button (ButtonSizes.Large)]
-        public void ValidateKoreographyTracksLayers ()
-        {
-            foreach (var track in tracks)
-                ValidateKoreographyTrackLayer (track);
-        }
-
-        [FoldoutGroup ("Track LayerBits Selector")]
-        [Button ("Validate LayerBitsSelector", ButtonSizes.Large)]
-        public void ValidateLayerBitsSelector (Track track)
-        {
-            track.ValidateLayerBitsSelector ();
-        }
-
-        [FoldoutGroup ("Track LayerBits Selector")]
-        [Button ("Validate All LayerBits Selectors", ButtonSizes.Large)]
-        public void ValidateAsllLayerBitsSelectors ()
-        {
-            foreach (Track track in tracks)
-                ValidateLayerBitsSelector (track);
-        }
+        #endregion
 
     }
 }

@@ -37,20 +37,9 @@ namespace CyberBeat
         {
             // TODO: Load Code This From TrackVariable
         }
-
-        [ContextMenu ("Toggle Savable")]
-        void ToggleSavable () { isSavable = !isSavable; CheckSavable (); }
-
-        [ContextMenu ("Check Savable")]
-        void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
-
         public static implicit operator Track (TrackVariable variable)
         {
             return variable.Value;
         }
-
-#if UNITY_EDITOR
-        [Button] public void ShowPath () { Debug.Log (UnityEditor.AssetDatabase.GetAssetPath (this)); }
-#endif
     }
 }

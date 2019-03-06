@@ -61,9 +61,13 @@ namespace CyberBeat
 			else
 				Sirenix.Utilities.Editor.SirenixEditorGUI.ErrorMessageBox ("НЕ ЯВЛЯЕТСЯ текущим ");
 		}
-		public TrackHelper helper { get { return TrackHelper.instance; } }
+		TrackHelper helper;
+		private void OnValidate ()
+		{
+			if (!helper) helper = Resources.Load<TrackHelper> ("Data/TrackHelper");
+		}
 #endif
-		public bool IsCurrentTrack { get { return data.CheckAsCurrent(this); } }
+		public bool IsCurrentTrack { get { return data.CheckAsCurrent (this); } }
 
 		[HideIf ("IsCurrentTrack")]
 		[Button ("Сделать меня текущим ", ButtonSizes.Medium)]
@@ -71,7 +75,7 @@ namespace CyberBeat
 		[ContextMenu ("Set Me As Current")]
 		public void SetMeAsCurrent ()
 		{
-			data.SetAsCurrent(this);
+			data.SetAsCurrent (this);
 			data.UpdateCollections (layerBitsSelector);
 		}
 		#endregion
@@ -80,6 +84,8 @@ namespace CyberBeat
 		public ShopInfo shopInfo;
 		[InlineButton ("ValidateProgressInfo", "Validate")]
 		public ProgressInfo progressInfo;
+		[InlineButton ("ValidatePrefab", "Validate")]
+		public GameObject prefab;
 		public TrackDifficulty difficulty;
 		public TrackStatus status;
 		[InlineButton ("ValidateLayerBitsSelector", "Valiadate")]
@@ -88,7 +94,13 @@ namespace CyberBeat
 		[ContextMenu ("ValidateLayerBits")]
 		public void ValidateLayerBitsSelector ()
 		{
-			helper.ValidateLayerBitsSelector (this, layerBitsSelector);
+			layerBitsSelector = helper.ValidateLayerBitsSelector (this, layerBitsSelector);
+			this.Save ();
+		}
+		public void ValidatePrefab ()
+		{
+			prefab = Tools.GetAssetAtPath<GameObject> ($"Assets/Prefabs/Tracks/{name}.prefab");
+			this.Save ();
 		}
 
 #endif
@@ -130,7 +142,6 @@ namespace CyberBeat
 		public LayerTypeTrackBitsCollectionSelector LayerBitsSelector { get => layerBitsSelector; set => layerBitsSelector = value; }
 
 		public float StartSpeed = 50f;
-		
 
 		public List<KoreographyEvent> this [LayerType layer]
 		{

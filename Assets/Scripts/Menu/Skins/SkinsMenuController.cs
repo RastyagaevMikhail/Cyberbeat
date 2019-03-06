@@ -45,9 +45,14 @@ namespace CyberBeat
         public void _OnSkinTypeChanged (SkinType skinType)
         {
             currentSkinType = skinType;
+            //  подсвечиваем скин при смене типа,
+            //  в который был выбран в другой категории при прошлом выборе,
+            //  на основе смены типа скина
+            HighlightedSkinIndex = selectedSkinIndex;
+            
             UpdateValues (skin);
         }
-       
+
         void UpdateValues (SkinItem skin)
         {
             if (!skin) return;
@@ -60,7 +65,7 @@ namespace CyberBeat
 
             UpdateSelection (skin);
         }
-        public void BuySkin ()
+        public void OnTryBuySkin ()
         {
             if (skin.TryBuy ())
                 _Select ();

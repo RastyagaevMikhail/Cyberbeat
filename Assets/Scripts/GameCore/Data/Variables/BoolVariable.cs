@@ -13,6 +13,7 @@ namespace GameCore
             if (ResetByDefault)
             {
                 Value = DefaultValue;
+                this.Save();
                 SaveValue ();
             }
         }
@@ -46,12 +47,5 @@ namespace GameCore
         {
             Value = !Value;
         }
-
-        [ContextMenu ("Toggle Savable")]
-        void ToggleSavable () { isSavable = !isSavable; }
-
-        [ContextMenu ("Check Savable")]
-        void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
-
     }
 }

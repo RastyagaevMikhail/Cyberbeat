@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8353d97a1b2772847b189a32ef623dbd, type: 3}
+  m_Script: {fileID: 0}
   m_Name: Phantom Sage - Our Lives Past_LayerBitsSelector
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp:CyberBeat:LayerTypeTrackBitsCollectionSelector
   datas:
   - type: {fileID: 11400000, guid: 5adf218e8b25612419649335648fe652, type: 2}
     data: {fileID: 11400000, guid: 279a7ca9f59b12c48a2c5b80e6dfc16a, type: 2}
@@ -23,6 +23,8 @@ MonoBehaviour:
     data: {fileID: 11400000, guid: 08d6adf9e9df7f744b40f4cb17438261, type: 2}
   - type: {fileID: 11400000, guid: aa9dc1d0f27eaec428ba57fbc3cca851, type: 2}
     data: {fileID: 11400000, guid: 930b02a44ea9fb4488924c4e751f35b6, type: 2}
+  - type: {fileID: 11400000, guid: e54ce4d33c015b543b32097d3e38d67a, type: 2}
+    data: {fileID: 11400000, guid: a13e44890dadb0a4588232450b2aa988, type: 2}
   - type: {fileID: 11400000, guid: 7eda5a1551e60ae4395d5a05d8b6fddb, type: 2}
     data: {fileID: 11400000, guid: ac788ad0dee07d448bb857a1bc6ffda3, type: 2}
   - type: {fileID: 11400000, guid: 3c1effcbd716ae44898788c8100965e4, type: 2}

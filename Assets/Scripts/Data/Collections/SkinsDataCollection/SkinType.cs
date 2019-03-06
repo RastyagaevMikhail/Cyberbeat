@@ -13,10 +13,16 @@ namespace CyberBeat
       public Material OnSeleted;
       public Material OnOpend;
       public Material OnClosed;
-      public SkinsDataCollection skinsData { get { return SkinsDataCollection.instance; } }
+      [SerializeField] SkinsEnumDataSelector skinsSelector;
+#if UNITY_EDITOR
+      private void OnValidate ()
+      {
+         skinsSelector = Tools.ValidateSO<SkinsEnumDataSelector> ("Assets/Data/Selectors/Skins/SkinsSelector.asset");
+      }
+#endif
       public void Apply (Object obj)
       {
-         foreach (var skin in skinsData.skinsSelector[this])
+         foreach (var skin in skinsSelector[this])
             skin.Apply (obj);
       }
    }

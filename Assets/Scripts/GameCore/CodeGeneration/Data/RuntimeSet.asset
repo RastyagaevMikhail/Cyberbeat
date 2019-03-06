@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: RuntimeSet
   m_EditorClassIdentifier: 
   template: {fileID: 4900000, guid: 241f72a27dd114d4b8ae2310025cd52c, type: 3}
+  pathTemplate: /Scripts/$NAMESPACE_NAME$/$SCRIPT_NAME$/$TYPE_NAME$RuntimeSet.cs
   dependies:
   - {fileID: 11400000, guid: 358ae6ed34518884daa90bcb6246d374, type: 2}
   keys:
   - $NAMESPACE_NAME$
   - $TYPE_NAME$
-  pathTemplate: /Scripts/$NAMESPACE_NAME$/$SCRIPT_NAME$/$SCRIPT_NAME$$TYPE_NAME$.cs

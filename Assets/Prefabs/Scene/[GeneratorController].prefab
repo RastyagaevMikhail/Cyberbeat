@@ -599,13 +599,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689539235}
-  m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 5, z: -12.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8266133836757921763}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 180}
 --- !u!198 &1689539238
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -1377,7 +1377,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 270
+      value: 360
       mode: 0
       spread: 0
       speed:
@@ -5552,13 +5552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e826f842f6e030048a6ed70fcd9bb571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorsSets:
-  - {fileID: 11400000, guid: d5ac257e156fa9245b04fb14ef7551b8, type: 2}
-  - {fileID: 11400000, guid: d191636e2d0cfb94696fcae842bcd41b, type: 2}
-  - {fileID: 11400000, guid: 1a23b999e0f78ee4cbfd531207230675, type: 2}
-  - {fileID: 11400000, guid: 68d3bd51c30edbf43becf5b800c8c609, type: 2}
-  - {fileID: 11400000, guid: 48f5f41150dad764c89559541171109e, type: 2}
-  - {fileID: 11400000, guid: 66e8451772b1be748ad2c8e9dce50b59, type: 2}
+  colorsSets: {fileID: 11400000, guid: cd6ff43d2d74f5842b6343152de74460, type: 2}
   pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
   tracksCollection: {fileID: 11400000, guid: b670e399b603b2f49a642c6ac92e5589, type: 2}
   currentSet: {fileID: 11400000, guid: 25ea90141e644c04ab93a06e98f51be3, type: 2}

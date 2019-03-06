@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea077b392c22e8e4dba60840f3a4e942, type: 3}
+  m_Name: EventCondition
+  m_EditorClassIdentifier: 
+  template: {fileID: 4900000, guid: 36b37ea61bee7174082a32fe146e27df, type: 3}
+  pathTemplate: /Scripts/$NAMESPACE_NAME$/EventCondition/$NAME_CONDITION$EventCondition.cs
+  dependies: []
+  keys:
+  - $ADDITIONAL_USING$
+  - $NAMESPACE_NAME$
+  - $NAME_CONDITION$

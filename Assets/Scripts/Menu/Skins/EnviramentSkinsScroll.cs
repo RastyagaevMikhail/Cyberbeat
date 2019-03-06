@@ -18,11 +18,9 @@ namespace CyberBeat
 		}
 
 		[Header ("Data")]
-		[SerializeField] SkinsDataCollection skinsData;
 		[SerializeField] SkinIndexSelector skinIndexsSelector;
 		[SerializeField] SkinsEnumDataSelector skinsSelector;
-		[SerializeField] SkinTypeVariable skinTypeVariable;
-		private SkinType skinType => skinTypeVariable.ValueFast;
+		[SerializeField] SkinType skinType;
 
 		[SerializeField] ColorInfoRuntimeSet[] colorSets;
 		ColorInfoRuntimeSet colors => colorSets.GetRandom ();
@@ -38,22 +36,21 @@ namespace CyberBeat
 		float currentPosition;
 		public void _OnSkinTypeChnaged (SkinType skinType)
 		{
-			if (skinsData.isRoadType (skinType))
-			{
-				scrollPositionController.ScrollTo (0);
-				foreach (var transformGroup in transfromGroupSelector.Values)
-					DOVirtual.Float (transformGroup.z, 0, 1, value => transformGroup.z = value);
+			if (!enabled) return;
+			this.skinType = skinType;
 
-				return;
-			}
-			else
-			{
-				scrollPositionController.ScrollTo (skinIdex);
-			}
+			scrollPositionController.ScrollTo (skinIndex);
 
 			SetDataCount (skinType);
-			_OnItemSelected (skinIdex);
+			_OnItemSelected (skinIndex);
 
+		}
+
+		public void ScrollAllSkinsToStart ()
+		{
+			scrollPositionController.ScrollTo (0);
+			foreach (var transformGroup in transfromGroupSelector.Values)
+				DOVirtual.Float (transformGroup.z, 0, 1, value => transformGroup.z = value);
 		}
 
 		private void Start ()
@@ -63,7 +60,7 @@ namespace CyberBeat
 
 		public void DoRandomSelctedColor ()
 		{
-			if (!skinType.OnSeleted)
+			if (skinType && !(skinType.OnSeleted))
 			{
 				Invoke ("DoRandomSelctedColor", 1f);
 				return;
@@ -79,25 +76,21 @@ namespace CyberBeat
 		}
 
 		int previndex = 0;
-		int skinIdex
+		IntVariable currentSkinIndexVariable => skinIndexsSelector[skinType];
+		int skinIndex
 		{
-			get
-			{
-				if (!skinIndexsSelector.ContainsKey (skinType)) return 0;
-				return skinIndexsSelector[skinType].Value;
-			}
+			get { if (!currentSkinIndexVariable) return 0; return currentSkinIndexVariable.Value; }
+			set { if (currentSkinIndexVariable) currentSkinIndexVariable.Value = value; }
 		}
-		PrefabSkinItem skinItem { get { return skinsSelector[skinType][skinIdex] as PrefabSkinItem; } }
+		PrefabSkinItem skinItem { get { return skinsSelector[skinType][skinIndex] as PrefabSkinItem; } }
 		PrefabSkinItem prevskinItem { get { return skinsSelector[skinType][previndex] as PrefabSkinItem; } }
 		public void _OnItemSelected (int index)
 		{
-			if (skinsData.isRoadType (skinType))
-			{
-				return;
-			}
+			if (!enabled) return;
+
 			if (!transformGroup) return;
 
-			skinsData.SkinIndex = index;
+			skinIndex = index;
 
 			if (transformGroup.Count == 0)
 			{

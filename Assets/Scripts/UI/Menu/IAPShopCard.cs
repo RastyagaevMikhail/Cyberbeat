@@ -17,6 +17,7 @@ namespace CyberBeat
 		[SerializeField] IAPButton BuyButton;
 		[SerializeField] GameObject Activated;
 		[SerializeField] IAPProductData productData;
+		[SerializeField] bool debug;
 		bool buyed { get { return productData.buyed; } }
 		private void OnValidate ()
 		{
@@ -26,22 +27,24 @@ namespace CyberBeat
 		}
 		private void Awake ()
 		{
+			if (debug) Debug.Log ($"{this.Log()}.Awake()\n buyed =  {buyed}");
 			productData.InitButton (BuyButton, UpdateData);
 			UpdateData ();
 		}
 
-		private void UpdateData ()
+		public void UpdateData ()
 		{
 			this.DelayAction (Time.deltaTime, Validate);
 		}
 
 		void Validate ()
 		{
+			if (debug) Debug.Log ($"{this.Log()}.Validate()\n buyed =  {buyed}");
 			MaskImage.enabled = !buyed;
 			BuyButton.gameObject.SetActive (!buyed);
 			Activated.SetActive (buyed);
 		}
-		
+
 #if UNITY_EDITOR
 
 		public void Init (IAPProductData productData)

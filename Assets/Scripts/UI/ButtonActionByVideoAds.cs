@@ -7,21 +7,23 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace CyberBeat
 {
-    [RequireComponent(typeof(GameEventListernerBool))]
+    [RequireComponent (typeof (GameEventListernerBool))]
     public class ButtonActionByVideoAds : MonoBehaviour
     {
 
         [HideInInspector][SerializeField] AdsController adsController;
-        [HideInInspector][SerializeField] Button button;
-
         [SerializeField] GameObject Content;
         [SerializeField] GameObject NotInternet;
         [SerializeField] GameObject Waiting;
-        private bool isLoaded { get { return adsController.isLoadedRewardVideo; } }
+        [SerializeField] UnityEvent videoPreShow;
+        [SerializeField] UnityEvent videoShowed;
+        [SerializeField] UnityEvent videoUnvailable;
+        private bool isLoaded => adsController.IsLoadedRewardVideo;
         public bool internetNotReachable
         {
             get
@@ -31,13 +33,12 @@ namespace CyberBeat
 #else
                 return Application.internetReachability == NetworkReachability.NotReachable;
 #endif
-
             }
         }
+        bool isVideoUnvailable => internetNotReachable || !isLoaded;
         private void OnValidate ()
         {
             if (adsController == null) adsController = Resources.Load<AdsController> ("Data/AdsController");
-            if (button == null) button = GetComponent<Button> ();
         }
         private void Start ()
         {
@@ -47,6 +48,21 @@ namespace CyberBeat
         {
             UpdateSatate ();
         }
+
+        public void TryShowRewardVideo (string placement)
+        {
+            if (isVideoUnvailable)
+                videoUnvailable.Invoke ();
+            else
+            {
+                videoPreShow.Invoke ();
+                adsController.ShowRewardVideo (placement, videoShowed.Invoke);
+            }
+        }
+        public void TryShowRewardVideo ()
+        {
+            TryShowRewardVideo ("RewardVideo");
+        }
         private void UpdateSatate ()
         {
             // Debug.LogFormat ("UpdateSatate = {0}.{1}", name, transform.parent.parent.name);
@@ -54,7 +70,6 @@ namespace CyberBeat
                 Content.SetActive (isLoaded);
             NotInternet.SetActive (!isLoaded && internetNotReachable);
             Waiting.SetActive (!isLoaded && !internetNotReachable);
-            button.interactable = isLoaded && !internetNotReachable;
         }
     }
 }

@@ -209,15 +209,15 @@ namespace GameCore
             // Debug.LogFormat ("results.Count() = {0}", results.Count ());
             return results;
         }
-        public static T ValidateVaraiable<T> (string path, bool isSavable = false) where T : ASavableVariable
+        public static T ValidateVariable<T> (string path, bool isSavable = false) where T : ASavableVariable
         {
-            T variable = GetAssetAtPath<T> (path);
+            T variable = Tools.GetAssetAtPath<T> (path);
             if (variable == null)
             {
                 variable = ScriptableObject.CreateInstance<T> ();
                 variable.CreateAsset (path, isSavable);
             }
-            string pathInstance = AssetDatabase.GetAssetPath (variable);
+
             return variable;
         }
         public static T ValidateSO<T> (string path) where T : ScriptableObject

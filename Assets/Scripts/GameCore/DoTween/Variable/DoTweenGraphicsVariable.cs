@@ -35,13 +35,6 @@ namespace GameCore.DoTween
         {
             // TODO: Load Code This From DoTweenGraphicsVariable
         }
-
-        [ContextMenu ("Toggle Savable")]
-        void ToggleSavable () { isSavable = !isSavable; CheckSavable (); }
-
-        [ContextMenu ("Check Savable")]
-        void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
-
         public static implicit operator DoTweenGraphics (DoTweenGraphicsVariable variable)
         {
             return variable.Value;

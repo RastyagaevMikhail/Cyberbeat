@@ -12,6 +12,12 @@ namespace CyberBeat
     [CreateAssetMenu (menuName = "CyberBeat/Selectors/LayerTypeTrackBitsCollection")]
     public class LayerTypeTrackBitsCollectionSelector : AEnumDataSelectorScriptableObject<LayerType, TrackBitsCollection>
     {
+        [Sirenix.OdinInspector.ListDrawerSettings(
+            Expanded = true,
+            IsReadOnly = true,
+            HideAddButton = true,
+            HideRemoveButton = true,
+            ShowPaging = false)]
         public List<LayerTypeTrackBitsCollectionTypeData> datas;
         public override List<TypeData<LayerType, TrackBitsCollection>> Datas
         {
@@ -33,8 +39,8 @@ namespace CyberBeat
             var value = property.FindPropertyRelative ("data");
 
             var keyRect = new Rect (position) { width = position.width / 2f };
-            float offset = 50;
-            var valueRect = new Rect (keyRect) { x = (keyRect.width + offset), width = (keyRect.width - offset / 2) };
+            float offset = 25;
+            var valueRect = new Rect (keyRect) { x = (keyRect.width + offset), width = (keyRect.width - offset / 4) };
 
             EditorGUI.PropertyField (keyRect, key, GUIContent.none);
             EditorGUI.PropertyField (valueRect, value, GUIContent.none);

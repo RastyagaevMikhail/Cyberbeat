@@ -53,11 +53,7 @@ namespace GameCore
             // TODO: Load Code This From AnimatorHashPlayerVariable
         }
 
-        [ContextMenu ("Toggle Savable")]
-        void ToggleSavable () { isSavable = !isSavable; CheckSavable (); }
-
-        [ContextMenu ("Check Savable")]
-        void CheckSavable () { Debug.LogFormat ("{0} isSavable = {1}", name, isSavable); }
+       
 
         public static implicit operator AnimatorHashPlayer (AnimatorHashPlayerVariable variable)
         {

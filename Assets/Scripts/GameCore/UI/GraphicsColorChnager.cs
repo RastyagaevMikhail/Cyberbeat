@@ -10,8 +10,8 @@ namespace GameCore
 	public class GraphicsColorChnager : MonoBehaviour
 	{
 		[SerializeField] List<Graphic> excludeGraphics = new List<Graphic> ();
-		List<Graphic> graphics = new List<Graphic> ();
-		private void Awake ()
+		[SerializeField] List<Graphic> graphics = new List<Graphic> ();
+		private void OnValidate ()
 		{
 			graphics = GetComponentsInChildren<Graphic> ().Except (excludeGraphics).ToList ();
 		}

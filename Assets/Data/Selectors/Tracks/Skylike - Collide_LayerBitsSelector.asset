@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8353d97a1b2772847b189a32ef623dbd, type: 3}
+  m_Script: {fileID: 0}
   m_Name: Skylike - Collide_LayerBitsSelector
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp:CyberBeat:LayerTypeTrackBitsCollectionSelector
   datas:
   - type: {fileID: 11400000, guid: 5adf218e8b25612419649335648fe652, type: 2}
     data: {fileID: 11400000, guid: df77fe875d877154eac113d1ff3c443d, type: 2}
@@ -23,6 +23,8 @@ MonoBehaviour:
     data: {fileID: 11400000, guid: b0cd0a118aef6aa48a62370aee5447bd, type: 2}
   - type: {fileID: 11400000, guid: aa9dc1d0f27eaec428ba57fbc3cca851, type: 2}
     data: {fileID: 11400000, guid: 42ffc79f48bd96c4cafd6a70021a4346, type: 2}
+  - type: {fileID: 11400000, guid: e54ce4d33c015b543b32097d3e38d67a, type: 2}
+    data: {fileID: 11400000, guid: a86c34a1b493c154f93fe4af6fa0f855, type: 2}
   - type: {fileID: 11400000, guid: 7eda5a1551e60ae4395d5a05d8b6fddb, type: 2}
     data: {fileID: 11400000, guid: 75140f78b93dfe94eaded6a655146ea6, type: 2}
   - type: {fileID: 11400000, guid: 3c1effcbd716ae44898788c8100965e4, type: 2}

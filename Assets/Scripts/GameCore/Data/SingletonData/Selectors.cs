@@ -1,30 +1,34 @@
+using Sirenix.OdinInspector;
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Versioning;
 
 using UnityEngine;
 
 namespace GameCore
 {
-    public class Selectors : SingletonData<Selectors>, IStartInitializationData
+    [CreateAssetMenu (menuName = "GameCore/Data/Selectors")]
+    public class Selectors : ScriptableObject
     {
-#if UNITY_EDITOR
-        [UnityEditor.MenuItem ("Game/Data/Selectors")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
-
+        [Button (ButtonSizes.Large)]
         [ContextMenu ("Validate Selectors")]
-        public override void InitOnCreate ()
+        public void Validate ()
         {
             selectors = Tools.GetAtPath<ASelectorScriptableObject> ("Assets").ToList ();
         }
-        public override void ResetDefault () { }
-#else
-        public override void ResetDefault () { }
-#endif
-        public void Init (bool consentValue)
+        public void Init ()
         {
             selectors.ForEach (s => s.OnEnable ());
         }
 
-        [SerializeField] List<ASelectorScriptableObject> selectors;
+        [ListDrawerSettings (
+            Expanded = true,
+            IsReadOnly = true,
+            HideAddButton = true,
+            HideRemoveButton = true,
+            ShowPaging = false)]
+        [PropertyOrder (int.MaxValue)]
+        [SerializeField]
+        List<ASelectorScriptableObject> selectors;
     }
 }

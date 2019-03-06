@@ -63,7 +63,6 @@ namespace CyberBeat
 			if (buyed) onBuyed.Invoke ();
 			else onCantNotEnuthMoney.Invoke (BuyButton);
 		}
-
 		public void ValidateButtons (bool buyed)
 		{
 			PlayButton.SetActive (buyed);

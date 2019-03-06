@@ -14,6 +14,7 @@ namespace GameCore
 			if (ResetByDefault)
 			{
 				Value = DefaultValue;
+				this.Save ();
 				SaveValue ();
 			}
 		}
@@ -76,6 +77,7 @@ namespace GameCore
 			variable.Value += other;
 			return variable;
 		}
+
 		public static IntVariable operator - (IntVariable variable, int other)
 		{
 			variable.Value -= other;
@@ -98,11 +100,5 @@ namespace GameCore
 #if UNITY_EDITOR
 		[ShowInInspector] string savedValue => PlayerPrefs.GetInt (name, 0).ToString ();
 #endif
-
-		[ContextMenu ("Toggle Savable")]
-		void ToggleSavable () { isSavable = !isSavable; CheckSavable (); }
-
-		[ContextMenu ("Check Savable")]
-		void CheckSavable () { Debug.LogFormat (this, "{0} isSavable = {1}", name, isSavable); }
 	}
 }

@@ -14,7 +14,8 @@ namespace CyberBeat
     public class TrackGenerator : TransformObject
     {
         private const float width = 5f;
-        [SerializeField] List<ColorInfoRuntimeSet> ColorsSets;
+        [SerializeField] ColorInfoRuntimeSetRuntimeSetVariable colorsSets;
+        ColorInfoRuntimeSetRuntimeSet ColorsSets => colorsSets.ValueFast;
         static RandomStack<ColorInfoRuntimeSet> ColorsSetsStack = null;
         [SerializeField] PoolVariable pool;
         [SerializeField] TracksCollection tracksCollection;
@@ -32,7 +33,7 @@ namespace CyberBeat
         protected override void Awake ()
         {
             base.Awake ();
-            if (ColorsSetsStack == null) ColorsSetsStack = new RandomStack<ColorInfoRuntimeSet> (ColorsSets);
+            if (ColorsSetsStack == null) ColorsSetsStack = new RandomStack<ColorInfoRuntimeSet> (ColorsSets.ToArray ());
             InitRCM ();
             lastBeat = -1f;
         }

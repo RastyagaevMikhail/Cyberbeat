@@ -8,12 +8,11 @@ using UnityEngine;
 namespace GameCore
 {
     [CreateAssetMenu (menuName = "GameCore/AdsController/AdsNetwork/Appodeal")]
-    public class AppodealAdsNetwork : AdsNetwork, IRewardedVideoAdListener, IInterstitialAdListener
+    public class AppodealAdsNetwork : AdsNetwork, IRewardedVideoAdListener, IInterstitialAdListener, IBannerAdListener
     {
-        public override bool isLoadedRewardVideo { get { return Appodeal.isLoaded (Appodeal.REWARDED_VIDEO); } }
-        public override bool isLoadedInterstitial { get { return Appodeal.isLoaded (Appodeal.INTERSTITIAL); } }
-
-        [Multiline]
+		public override bool IsLoadedRewardVideo => Appodeal.isLoaded(Appodeal.REWARDED_VIDEO);
+		public override bool IsLoadedInterstitial => Appodeal.isLoaded(Appodeal.INTERSTITIAL);
+		[Multiline]
         [SerializeField]
         string appKey;
         [SerializeField]
@@ -56,12 +55,27 @@ namespace GameCore
             if (placement == string.Empty) placement = "default";
             Appodeal.show (Appodeal.REWARDED_VIDEO, placement);
         }
+
+        public override void Show_BANNER_BOTTOM (string placement = null)
+        {
+            if (string.IsNullOrEmpty (placement)) placement = "Banner";
+            Appodeal.show (Appodeal.BANNER_BOTTOM, placement);
+        }
+        public override void Hide_BANNER_BOTTOM ()
+        {
+            Appodeal.hide (Appodeal.BANNER_BOTTOM);
+        }
+
+        #region Interstitial Callbacks 
         public void onInterstitialLoaded (bool isPrecache) { }
         public void onInterstitialFailedToLoad () { }
         public void onInterstitialShown () { if (OnIntrastitialShown != null) { OnIntrastitialShown (); } }
         public void onInterstitialClosed () { }
         public void onInterstitialClicked () { }
         public void onInterstitialExpired () { }
+
+        #endregion
+        #region RewardVideo Callbacks 
         public void onRewardedVideoLoaded (bool precache)
         {
             if (_onRewardedVideoLoaded != null) _onRewardedVideoLoaded (precache);
@@ -74,6 +88,16 @@ namespace GameCore
         }
         public void onRewardedVideoClosed (bool finished) { }
         public void onRewardedVideoExpired () { }
+
+        #endregion
+        #region Banner Callbacks
+        public void onBannerLoaded (bool isPrecache) { }
+        public void onBannerFailedToLoad () { }
+        public void onBannerShown () { }
+        public void onBannerClicked () { }
+        public void onBannerExpired () { }
+
+        #endregion
     }
 
     [System.Flags]

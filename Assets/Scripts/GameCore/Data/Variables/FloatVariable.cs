@@ -70,11 +70,5 @@ namespace GameCore {
 #if UNITY_EDITOR
         [ShowInInspector] string savedValue => PlayerPrefs.GetFloat(name, 0).ToString();
 #endif
-
-        [ContextMenu("Toggle Savable")]
-        void ToggleSavable() { isSavable = !isSavable; CheckSavable(); }
-
-        [ContextMenu("Check Savable")]
-        void CheckSavable() { Debug.LogFormat("{0} isSavable = {1}", name, isSavable); }
     }
 }

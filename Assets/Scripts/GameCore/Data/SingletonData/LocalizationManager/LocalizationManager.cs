@@ -68,7 +68,7 @@ namespace GameCore
         }
 
         [NonSerialized]
-        public Dictionary<SystemLanguage, List<string>> _translations = null;
+        /* [ShowInInspector] public */ Dictionary<SystemLanguage, List<string>> _translations = null;
         public Dictionary<SystemLanguage, List<string>> Translations
         {
             get
@@ -118,7 +118,6 @@ namespace GameCore
         }
         public void ParseCSV (TextAsset file)
         {
-            _translations = null;
             string[] lines = file.text.Split ('\n');
             if (lines.Length == 0)
             {

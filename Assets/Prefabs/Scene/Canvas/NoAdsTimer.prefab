@@ -103,6 +103,16 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  onCondition:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onInverseCondition:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   debug: 0
 --- !u!1 &3342953813511737384
 GameObject:
@@ -239,10 +249,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e3e7f867ecf854ba39df92011ba47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphic: {fileID: 1387783139393740062}
   fadeInEase: 5
   fadeOutEase: 6
   fadeEase: 1
   fadeValue: 0.5
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &5749548679280920462
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,10 +346,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e3e7f867ecf854ba39df92011ba47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphic: {fileID: 5175894030820184182}
   fadeInEase: 5
   fadeOutEase: 6
   fadeEase: 1
   fadeValue: 0.5
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &6335814335402583740
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +468,16 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  onCondition:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onInverseCondition:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   debug: 0
 --- !u!1 &7075386718780592709
 GameObject:
@@ -597,7 +629,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -637,7 +669,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e3e7f867ecf854ba39df92011ba47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphic: {fileID: 591084007927070570}
   fadeInEase: 5
   fadeOutEase: 6
   fadeEase: 1
   fadeValue: 0.5
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

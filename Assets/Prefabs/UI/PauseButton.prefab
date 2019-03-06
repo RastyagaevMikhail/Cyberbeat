@@ -194,10 +194,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e3e7f867ecf854ba39df92011ba47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphic: {fileID: 6347035454770704202}
   fadeInEase: 5
   fadeOutEase: 12
   fadeEase: 1
   fadeValue: 0.3
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &6347035455779531765
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -285,7 +291,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e3e7f867ecf854ba39df92011ba47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphic: {fileID: 6347035455779531767}
   fadeInEase: 5
   fadeOutEase: 12
   fadeEase: 1
   fadeValue: 0.3
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
