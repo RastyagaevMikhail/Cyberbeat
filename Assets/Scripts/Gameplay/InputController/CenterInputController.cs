@@ -30,5 +30,10 @@ namespace CyberBeat
 		{
 			Target.DOLocalPath (leftPath, duration);
 		}
+
+		public override void Tap ()
+		{
+			Jump ();
+		}
 	}
 }

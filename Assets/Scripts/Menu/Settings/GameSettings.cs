@@ -12,12 +12,19 @@ namespace CyberBeat
 		public bool MuteMusic { get { return settings.MuteMusic; } set { settings.MuteMusic = value; } }
 		public bool MuteSound { get { return settings.MuteUISound; } set { settings.MuteUISound = value; } }
 		public bool VibrationEnabled { get { return settings.VibrationEnabled; } set { settings.VibrationEnabled = value; if (value) Vibration.Vibrate (settings.VibrationTime); } }
+
+		[SerializeField] Enums enums;
+		private void OnValidate ()
+		{
+			if (!enums)
+			enums = Resources.Load<Enums> ("Data/Enums");
+		}
 		public InputType inputType
 		{
 			get
 			{
 				string nameInputType = PlayerPrefs.GetString ("InputType", "Tap");
-				return Enums.instance.InputTypes.Find (it => it.name == nameInputType);
+				return enums.GetValues<InputType>().Find (it => it.name == nameInputType);
 			}
 			set => PlayerPrefs.SetString ("InputType", value.name);
 

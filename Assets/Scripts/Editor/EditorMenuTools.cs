@@ -10,7 +10,6 @@ using UnityEngine;
 
 public class EditorMenuTools
 {
-
 	public static void OpenScene (string SceneName)
 	{
 		string path = string.Format ("Assets/Scenes/{0}.unity", SceneName);

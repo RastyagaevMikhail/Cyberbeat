@@ -13,6 +13,7 @@ namespace CyberBeat
 		public float SwipeDuration = 0.2f;
 		public float width = 2.35f;
 		[Header ("Jump Settings")]
+		public bool enabled;
 		public float jumpHeight = 2.5f;
 		[Header ("Up")]
 		public float jumpUpTime = 1f;

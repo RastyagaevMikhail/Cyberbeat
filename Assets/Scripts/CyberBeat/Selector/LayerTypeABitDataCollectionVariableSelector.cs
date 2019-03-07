@@ -12,6 +12,12 @@ namespace CyberBeat
     [CreateAssetMenu (menuName = "CyberBeat/Selectors/LayerTypeABitDataCollectionVariable")]
     public class LayerTypeABitDataCollectionVariableSelector : AEnumDataSelectorScriptableObject<LayerType, ABitDataCollectionVariable>
     {
+        [ListDrawerSettings (
+            Expanded = true,
+            IsReadOnly = true,
+            HideAddButton = true,
+            HideRemoveButton = true,
+            ShowPaging = false)]
         public List<LayerTypeABitDataCollectionVariableTypeData> datas;
         public override List<TypeData<LayerType, ABitDataCollectionVariable>> Datas
         {
@@ -24,16 +30,15 @@ namespace CyberBeat
         [System.Serializable] public class LayerTypeABitDataCollectionVariableTypeData : TypeData<LayerType, ABitDataCollectionVariable> { }
 #if UNITY_EDITOR
 
-        [Button]
-        public void Validate ()
+        public void Validate (Enums enums )
         {
             datas = new List<LayerTypeABitDataCollectionVariableTypeData> ();
-            foreach (var layer in Enums.instance.LayerTypes)
+            foreach (LayerType layer in enums.GetValues<LayerType> ())
             {
                 datas.Add (new LayerTypeABitDataCollectionVariableTypeData ()
                 {
-                    type = layer,
-                    data = Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layer.name}Collection.asset")
+                type = layer,
+                data = Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layer.name}Collection.asset")
                 });
             }
         }

@@ -1,0 +1,31 @@
+﻿$ADDITIONAL_USING$
+using GameCore;
+
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+using UnityEngine;
+using UnityEngine.Events;
+namespace $NAMESPACE_NAME$
+{
+    [CreateAssetMenu (menuName = "$NAMESPACE_NAME$/Selectors/$KEY_TYPE$ActionSelector")]
+    public class $KEY_TYPE$ActionSelector : AEnumDataSelectorScriptableObject<$KEY_TYPE$, UnityEvent>
+    {
+        public List<$KEY_TYPE$UnityEventTypeData> datas;
+        public override List<TypeData<$KEY_TYPE$, UnityEvent>> Datas
+        {
+            get
+            {
+                return datas.Cast<TypeData<$KEY_TYPE$, UnityEvent>> ().ToList ();
+            }
+        }
+        [System.Serializable] public class $KEY_TYPE$UnityEventTypeData : TypeData<$KEY_TYPE$, UnityEvent> { }
+        public void Invoke ($KEY_TYPE$ key)
+        {
+            UnityEvent action;
+            Selector.TryGetValue (key, out action);
+            if (action != null) action.Invoke ();
+        }
+    }
+}

@@ -16,7 +16,6 @@ namespace CyberBeat
 
     [Serializable] public class UnityEventSpeedTimeData : UnityEvent<SpeedTimeData> { }
 
-    [Serializable] public class UnityEventInputControlType : UnityEvent<InputControlType> { }
 
     [Serializable] public class UnityEventColorInfo : UnityEvent<ColorInfo> { }
 }

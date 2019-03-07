@@ -12,15 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07f208496f4b83409ca3bf67aea0dcc, type: 3}
   m_Name: Enums
   m_EditorClassIdentifier: 
-  layerTypes:
-  - {fileID: 11400000, guid: 5adf218e8b25612419649335648fe652, type: 2}
-  - {fileID: 11400000, guid: 5bc19e472918c0a4486d8da3d17935e0, type: 2}
-  - {fileID: 11400000, guid: 456819ebd5ce2db49b4771f0c42030d7, type: 2}
-  - {fileID: 11400000, guid: e5c5d1386a771ea4a899b40d21ccea5e, type: 2}
-  - {fileID: 11400000, guid: aa9dc1d0f27eaec428ba57fbc3cca851, type: 2}
-  - {fileID: 11400000, guid: e54ce4d33c015b543b32097d3e38d67a, type: 2}
-  - {fileID: 11400000, guid: 7eda5a1551e60ae4395d5a05d8b6fddb, type: 2}
-  - {fileID: 11400000, guid: 3c1effcbd716ae44898788c8100965e4, type: 2}
-  inputTypes:
-  - {fileID: 11400000, guid: d48299cb449f3b04aa6dc60ebac5fe53, type: 2}
-  - {fileID: 11400000, guid: b76af6fb4b3ab89409aedc7b5dab646e, type: 2}
+  validatePathTemplate: Assets/Data/Enums/$EnumName$
+  enumsHash:
+  - type: CyberBeat.SkinType
+    enumValues:
+    - {fileID: 11400000, guid: 08af98337885bb94e94ed90869ce4e64, type: 2}
+    - {fileID: 11400000, guid: 1828cbbd5b4e19f41a383b9be456cf19, type: 2}
+    - {fileID: 11400000, guid: cd317585adcecc84d8a0a0dd259e3ede, type: 2}
+  - type: CyberBeat.InputControlType
+    enumValues:
+    - {fileID: 11400000, guid: 84fb0430d8d0f394596a9f78996a59be, type: 2}
+    - {fileID: 11400000, guid: 1937477cdc2cab14eb1c92f6d9ce945b, type: 2}
+    - {fileID: 11400000, guid: 5d1709caef30f6f47bebeac0752ea32e, type: 2}
+  - type: CyberBeat.LayerType
+    enumValues:
+    - {fileID: 11400000, guid: 5adf218e8b25612419649335648fe652, type: 2}
+    - {fileID: 11400000, guid: 5bc19e472918c0a4486d8da3d17935e0, type: 2}
+    - {fileID: 11400000, guid: 456819ebd5ce2db49b4771f0c42030d7, type: 2}
+    - {fileID: 11400000, guid: e5c5d1386a771ea4a899b40d21ccea5e, type: 2}
+    - {fileID: 11400000, guid: aa9dc1d0f27eaec428ba57fbc3cca851, type: 2}
+    - {fileID: 11400000, guid: e54ce4d33c015b543b32097d3e38d67a, type: 2}
+    - {fileID: 11400000, guid: 7eda5a1551e60ae4395d5a05d8b6fddb, type: 2}
+    - {fileID: 11400000, guid: 2e976633d9d28734f832d31f606aedfa, type: 2}
+    - {fileID: 11400000, guid: 3c1effcbd716ae44898788c8100965e4, type: 2}
+  - type: CyberBeat.InputType
+    enumValues:
+    - {fileID: 11400000, guid: b76af6fb4b3ab89409aedc7b5dab646e, type: 2}
+    - {fileID: 11400000, guid: d48299cb449f3b04aa6dc60ebac5fe53, type: 2}
+  - type: CyberBeat.MenuWindowType
+    enumValues:
+    - {fileID: 11400000, guid: 107739b219b647d40ba77655f818ecaf, type: 2}
+    - {fileID: 11400000, guid: 99b59dec7d071a941adba28d1e68de5e, type: 2}
+    - {fileID: 11400000, guid: a55acf23edf77654ba5e5a94342aa932, type: 2}
+    - {fileID: 11400000, guid: 8905d3780e1e73d4ea5e5accb8847780, type: 2}
+    - {fileID: 11400000, guid: a0c4b8e8ebc001d49946e7be7d54e999, type: 2}

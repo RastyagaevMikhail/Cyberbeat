@@ -1,4 +1,5 @@
-﻿using GameCore;
+﻿$ADDITIONAL_USING$
+using GameCore;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using UnityEngine;
 namespace $NAMESPACE_NAME$
 {
     [CreateAssetMenu (menuName = "$NAMESPACE_NAME$/Selectors/$KEY_TYPE$$VALUE_TYPE$")]
-    public class $KEY_TYPE$$VALUE_TYPE$$SCRIPT_NAME$ : AEnumDataSelectorScriptableObject<$KEY_TYPE$, $VALUE_TYPE$>
+    public class $KEY_TYPE$$VALUE_TYPE$Selector : AEnumDataSelectorScriptableObject<$KEY_TYPE$, $VALUE_TYPE$>
     {
         public List<$KEY_TYPE$$VALUE_TYPE$TypeData> datas;
         public override List<TypeData<$KEY_TYPE$, $VALUE_TYPE$>> Datas

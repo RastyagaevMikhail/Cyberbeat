@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Selector
   m_EditorClassIdentifier: 
   template: {fileID: 4900000, guid: cc43f616cf21a7349b9d0b39854b28d0, type: 3}
-  pathTemplate: /Scripts/$NAMESPACE_NAME$/$SCRIPT_NAME$/$KEY_TYPE$$VALUE_TYPE$$SCRIPT_NAME$.cs
+  pathTemplate: /Scripts/$NAMESPACE_NAME$/Selector/$KEY_TYPE$$VALUE_TYPE$Selector.cs
   dependies: []
   keys:
+  - $ADDITIONAL_USING$
   - $NAMESPACE_NAME$
   - $KEY_TYPE$
   - $VALUE_TYPE$
-  - $SCRIPT_NAME$

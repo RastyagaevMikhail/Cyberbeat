@@ -9,7 +9,7 @@ namespace CyberBeat
     
     public class GameEventListenerInputControlType : MonoBehaviour
     {
-        [SerializeField] InputControlTypeGameEvent Event;
+        [SerializeField] GameEventInputControlType Event;
 
         [SerializeField] UnityEventInputControlType Responce;
 

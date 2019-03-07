@@ -10,17 +10,20 @@ namespace CyberBeat
     using System.Linq;
 
     using UnityEngine;
-
+    [CreateAssetMenu (fileName = "TrackHelper", menuName = "CuberBeat/TrackHelper")]
     public class TrackHelper : ScriptableObject
     {
         [SerializeField] TracksCollection data;
         [SerializeField] Enums enums;
+
+        public Enums Enums => enums;
+
         private void OnValidate ()
         {
             if (!data)
-                data = Resources.Load<TracksCollection> ("Data/TracksCollection");
+            data = Resources.Load<TracksCollection> ("Data/TracksCollection");
             if (!enums)
-                enums = Resources.Load<Enums> ("Data/Enums");
+            enums = Resources.Load<Enums> ("Data/Enums");
         }
 
         public void UpdateCollections (LayerTypeTrackBitsCollectionSelector layerBitsSelector) { data.UpdateCollections (layerBitsSelector); }
@@ -54,7 +57,8 @@ namespace CyberBeat
         {
             selector = Tools.ValidateSO<LayerTypeTrackBitsCollectionSelector> ($"Assets/Data/Selectors/Tracks/{track.name}_LayerBitsSelector.asset");
             selector.datas = new List<LayerTypeTrackBitsCollectionSelector.LayerTypeTrackBitsCollectionTypeData> ();
-            foreach (var layer in enums.LayerTypes)
+
+            foreach (var layer in enums.GetValues<LayerType> ())
             {
                 var dataBits = Tools.ValidateSO<TrackBitsCollection> ($"Assets/Data/LayerTypeCollection/{layer.name}/{track.name}_{layer.name}.asset");
                 dataBits.Init (track.GetAllEventsByType (layer));
@@ -66,7 +70,6 @@ namespace CyberBeat
                 });
             }
             selector.Save ();
-            track.Save ();
             return selector;
         }
 
@@ -80,7 +83,6 @@ namespace CyberBeat
             koreography.InsertTempoSectionAtIndex (0).SectionName = "Zero Selection";
             koreography.SourceClip = track.music.clip;
             koreography.Save ();
-            track.Save ();
             return koreography;
         }
         public void ValidateKoreographyTrackLayer (Koreography koreography)
@@ -89,7 +91,7 @@ namespace CyberBeat
                 koreography.RemoveTrack (koreographyTrack);
 
             string trackName = koreography.name.Replace ("_Koreography", "");
-            foreach (var layer in enums.LayerTypes)
+            foreach (var layer in enums.GetValues<LayerType>())
             {
                 string layerName = layer.name;
                 var trackLayer =

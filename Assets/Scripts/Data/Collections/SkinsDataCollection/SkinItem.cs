@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 using GameCore;
 namespace CyberBeat
 {
-    public abstract class SkinItem : EnumScriptable
+    public abstract class SkinItem : ScriptableObject
     {
         [Header ("Icon")]
         public Sprite Icon;

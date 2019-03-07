@@ -14,6 +14,7 @@ namespace CyberBeat
 		public abstract void Awake ();
 		public abstract void MoveRight ();
 		public abstract void MoveLeft ();
+		public abstract void Tap ();
 		protected Vector3[] rightPath;
 		protected Vector3[] leftPath;
 		protected Vector3[] jumpPathUp => new Vector3[] { Vector3.zero, Vector3.up * settings.jumpHeight };
@@ -25,31 +26,16 @@ namespace CyberBeat
 		Transform parent => Target.transform.parent;
 		[SerializeField] protected InputSettings settings;
 		[SerializeField] UnityEvent jumpCompleted;
+		[SerializeField] UnityEvent targetInUp;
 		public void Jump ()
 		{
-			if (!Target ||(Target && DOTween.IsTweening(Target))) return;
+			if (!Target ||(Target && DOTween.IsTweening(Target)) || !settings.enabled) return;
 
-			// var TweenUp = DOVirtual.Float (0, settings.jumpHeight, settings.jumpUpTime, MoveLocalY).SetEase (settings.easeJumpUp);
-			// var TweenDown = DOVirtual.Float (settings.jumpHeight, 0, settings.jumpDownTime, MoveLocalY).SetEase (settings.easeJumpDown);
-			// TweenUp
-			// 	.OnComplete (() => TweenDown
-			// 		.SetDelay (settings.jumpHoldTime)
-			// 		.OnComplete (OnJumpCompleted)
-			// 		.Play ())
-			// 	.Play ();
 
-			var TweenUp = Target.DOLocalPath (jumpPathUp, settings.jumpUpTime).SetEase (settings.easeJumpUp);
+			var TweenUp = Target.DOLocalPath (jumpPathUp, settings.jumpUpTime).SetEase (settings.easeJumpUp).OnComplete(targetInUp.Invoke);
 			var TweenDown = Target.DOLocalPath (jumpPathDown, settings.jumpDownTime).SetEase (settings.easeJumpDown)
 				.SetDelay (TweenUp.Duration () + settings.jumpHoldTime)
 				.OnComplete(jumpCompleted.Invoke);
-
-			// var seq = DOTween.Sequence ()	
-			// 	.Insert (0, TweenUp)
-			// 	// .AppendInterval (settings.jumpHoldTime)
-			// 	// .Insert (TweenUp.Duration (), TweenDown)
-			// 	;
-			// seq.Play ();
-
 		}
 
 		private void OnJumpCompleted ()
@@ -65,10 +51,5 @@ namespace CyberBeat
 			// Target.MovePosition ();
 			Target.velocity = parent.TransformPoint (Vector3.up * h) - Target.position;
 		}
-	}
-	public enum InputControlType
-	{
-		Center = 0,
-		Side = 1
 	}
 }

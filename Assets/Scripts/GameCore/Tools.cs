@@ -231,6 +231,18 @@ namespace GameCore
             // string pathInstance = AssetDatabase.GetAssetPath (so);
             return so;
         }
+        public static ScriptableObject ValidateSO (string path, Type type)
+        {
+            if (!type.IsAssignableFrom (typeof (ScriptableObject)))
+                return null;
+            ScriptableObject so = (ScriptableObject) AssetDatabase.LoadAssetAtPath (path, type);
+            if (so == null)
+            {
+                so = ScriptableObject.CreateInstance (type);
+                CreateAsset (so, path);
+            }
+            return so;
+        }
         public static T GetAssetAtPath<T> (string path) where T : UnityEngine.Object
         {
             return (T) AssetDatabase.LoadAssetAtPath (path, typeof (T));
@@ -271,7 +283,7 @@ namespace GameCore
                 }
                 validatedPath += "/" + subPath;
             }
-            Debug.Log ($"validatedPath = {validatedPath}", AssetDatabase.LoadAssetAtPath (validatedPath, typeof(UnityEngine.Object)));
+            Debug.Log ($"validatedPath = {validatedPath}", AssetDatabase.LoadAssetAtPath (validatedPath, typeof (UnityEngine.Object)));
             AssetDatabase.Refresh ();
         }
 

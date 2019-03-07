@@ -5,6 +5,7 @@ using Sirenix.OdinInspector.Editor;
 
 using SonicBloom.Koreo;
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,22 +25,30 @@ namespace CyberBeat
             tracksHelperWindow.Init ();
             tracksHelperWindow.Show ();
         }
+
         [SerializeField] TrackHelper data;
+        [SerializeField] LayerTypeABitDataCollectionVariableSelector collctionsSelector;
+        Enums enums => data.Enums;
         void Init ()
         {
+            data = Resources.Load<TrackHelper> ("Data/TrackHelper");
             tracks = Resources.LoadAll<Track> ("Data/Tracks");
+
+            collctionsSelector =
+                Tools.GetAssetAtPath<LayerTypeABitDataCollectionVariableSelector>
+                ("Assets/Data/Variables/ABitDataCollection/LayerTypeABitDataCollectionVariableSelector.asset");
         }
 
         [TitleGroup ("From Layer")]
         [SerializeField] LayerType layer;
-
         #region Valiadtors 
         [FoldoutGroup ("Valiadtors")]
         [Button ("LayerType", ButtonSizes.Large)]
         public void ValidateLayerTypes ()
         {
-            Enums.instance.ValidateLayerType ();
-            Selection.activeObject = Enums.instance;
+            enums.Validate ();
+            collctionsSelector.Validate (enums);
+            Selection.activeObject = enums;
         }
 
         [HorizontalGroup ("Valiadtors/CalculateConstantOnAllTracks")]
@@ -69,7 +78,7 @@ namespace CyberBeat
         public void UpdateALLCollections ()
         {
             LayerTypeTrackBitsCollectionSelector[] selectors = Tools.GetAtPath<LayerTypeTrackBitsCollectionSelector> ("Assets/Data/Selectors/Tracks");
-            Debug.Log(selectors.Log());
+            Debug.Log (selectors.Log ());
             foreach (var layerBitsSelector in selectors)
                 data.UpdateCollections (layerBitsSelector);
         }
@@ -136,6 +145,29 @@ namespace CyberBeat
             Tools.ValidateSO<GameEventIBitData> ($"Assets/Data/Events/IBitData/On{layerName}{user}.asset");
             if (validateIsOver)
                 Tools.ValidateSO<GameEventIBitData> ($"Assets/Data/Events/IBitData/On{layerName}{user}IsOver.asset");
+        }
+
+        [Button] public void GenerateNewLayerType (string nameLayer, bool validate = true)
+        {
+            var layer = Tools.ValidateSO<LayerType> ($"Assets/Data/Enums/LayerType/{nameLayer}.asset");
+
+            enums.TryAddEnumScriptable<LayerType> (layer);
+            enums.Save ();
+
+            if (validate)
+            {
+                ValidateKoreographyTracksLayers ();
+                ValidateAsllLayerBitsSelectors ();
+            }
+
+        }
+
+        [Button] public void GenerateNewEnum (Type type, string nameValue)
+        {
+            var value = Tools.ValidateSO ($"Assets/Data/Enums/LayerType/{nameValue}.asset", type);
+
+            enums.TryAddEnumScriptable (type, (EnumScriptable) value);
+            enums.Save ();
         }
 
         #endregion

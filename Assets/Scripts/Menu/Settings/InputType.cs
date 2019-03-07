@@ -1,14 +1,8 @@
+using GameCore;
+
+using UnityEngine;
 namespace CyberBeat
 {
-    // public enum InputType
-    // {
-    // 	Tap,
-    // 	Swipe
-    // }
-    using UnityEngine;
-
-    // [CreateAssetMenu (fileName = "InputType", menuName = "Cyberbeat/InputType", order = 0)]
-    public class InputType : ScriptableObject
-    {
-    }
+    [CreateAssetMenu (fileName = "InputType", menuName = "CyberBeat/Enums/InputType", order = 0)]
+    public class InputType : EnumScriptable { }
 }

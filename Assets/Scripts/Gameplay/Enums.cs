@@ -9,61 +9,93 @@ using System.Linq;
 using UnityEngine;
 namespace CyberBeat
 {
-    public class Enums : SingletonData<Enums>
+    [CreateAssetMenu (fileName = "Enums", menuName = "CyberBeat/Data/Enums")]
+    public class Enums : ScriptableObject
     {
 #if UNITY_EDITOR
-        [UnityEditor.MenuItem ("Game/Data/Enums")] public static void Select () { UnityEditor.Selection.activeObject = instance; }
-        public override void ResetDefault () { }
-
-        [Button]
-        public override void InitOnCreate ()
+        [Button] public void Validate ()
         {
-            layerTypes = new string[]
-                {
-                    "Bit",
-                    "Effect",
-                    "Speed",
-                    "Camera",
-                    "Shake"
-                }
-                .Select (s =>
-                {
-                    LayerType layer = CreateInstance<LayerType> ();
-                    Tools.CreateAsset<LayerType> (layer, $"Assets/Data/Enums/LayerType/{s}.asset");
-                    return layer;
-                }).ToList ();
+            Type EnumScriptableType = typeof (EnumScriptable);
+            var names = EnumScriptableType.Assembly
+                .GetTypes ()
+                .ToList ()
+                .FindAll (t => t.IsSubclassOf (EnumScriptableType))
+                .Select (t => Tuple.Create (t.Name, t.FullName));
+            Debug.Log (names.Log ());
+            enumsHash = new List<TypeEnumsList> ();
+            foreach (var nameType in names)
+            {
+                var path = validatePathTemplate.Replace ("$EnumName$", nameType.Item1);
+                List<EnumScriptable> scriptables = Tools.GetAtPath<EnumScriptable> (path).ToList ();
 
-            inputTypes = new string[]
-                {
-                    "Tap",
-                    "Swipe"
-                }
-                .Select (s =>
-                {
-                    InputType layer = CreateInstance<InputType> ();
-                    Tools.CreateAsset<InputType> (layer, $"Assets/Data/Enums/InputType/{s}.asset");
-                    return layer;
-                }).ToList ();
+                enumsHash.Add (new TypeEnumsList (nameType.Item2, scriptables));
+            }
+            this.Save ();
         }
 
-        public void ValidateLayerType ()
+        [SerializeField] string validatePathTemplate = "Assets/Data/Enums/$EnumName$";
+
+#endif      
+        [SerializeField] List<TypeEnumsList> enumsHash;
+        private Dictionary<Type, List<EnumScriptable>> _dict;
+        private Dictionary<Type, List<EnumScriptable>> dict => _dict ?? (_dict = InitDict ());
+
+        private Dictionary<Type, List<EnumScriptable>> InitDict ()
         {
-            layerTypes = Tools.GetAtPath<LayerType> ("Assets/Data/Enums/LayerType").ToList ();
-            instance.Save ();
+            return enumsHash.ToDictionary (tel => Type.GetType (tel.Type), tel => tel.EnumValues);
+        }
+        private void OnEnable ()
+        {
+            InitDict ();
+        }
+        public List<T> GetValues<T> () where T : EnumScriptable
+        {
+            return GetValues (typeof (T)).Cast<T> ().ToList ();
+        }
+        public List<EnumScriptable> GetValues (Type type)
+        {
+            List<EnumScriptable> list = null;
+            dict.TryGetValue (type, out list);
+            return list;
         }
 
-        public void ValidateInputType ()
+        public void TryAddEnumScriptable<T> (EnumScriptable enumScriptable) where T : EnumScriptable
         {
-            inputTypes = Tools.GetAtPath<InputType> ("Assets/Data/Enums/InputType").ToList ();
-            instance.Save ();
+            TryAddEnumScriptable (typeof (T), enumScriptable);
         }
-#else
-        public override void ResetDefault () { }
-#endif
-        [SerializeField][InlineButton ("ValidateLayerType", "Validate")] List<LayerType> layerTypes;
-        public List<LayerType> LayerTypes => layerTypes;
-        [SerializeField][InlineButton ("ValidateInputType", "Validate")] List<InputType> inputTypes;
-        public List<InputType> InputTypes => inputTypes;
+        public void TryAddEnumScriptable (Type type, EnumScriptable enumScriptable)
+        {
+            List<EnumScriptable> scriptables = null;
 
+            dict.TryGetValue (type, out scriptables);
+            if (scriptables == null) return;
+
+            if (!scriptables.Contains (enumScriptable))
+            scriptables.Add (enumScriptable);
+        }
+
+    }
+
+    [Serializable]
+    public class TypeEnumsList
+    {
+        [SerializeField] string type;
+        [ListDrawerSettings (
+            Expanded = true,
+            IsReadOnly = true,
+            HideAddButton = true,
+            HideRemoveButton = true,
+            ShowPaging = false)]
+        [SerializeField] List<EnumScriptable> enumValues;
+
+        public TypeEnumsList () { }
+        public TypeEnumsList (string name, List<EnumScriptable> scriptables)
+        {
+            type = name;
+            enumValues = scriptables;
+        }
+
+        public string Type => type;
+        public List<EnumScriptable> EnumValues => enumValues;
     }
 }

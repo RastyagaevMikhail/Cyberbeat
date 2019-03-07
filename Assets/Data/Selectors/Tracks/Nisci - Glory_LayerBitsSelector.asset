@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8353d97a1b2772847b189a32ef623dbd, type: 3}
   m_Name: Nisci - Glory_LayerBitsSelector
-  m_EditorClassIdentifier: Assembly-CSharp:CyberBeat:LayerTypeTrackBitsCollectionSelector
+  m_EditorClassIdentifier: 
   datas:
   - type: {fileID: 11400000, guid: 5adf218e8b25612419649335648fe652, type: 2}
     data: {fileID: 11400000, guid: 39a12a6ad8f2ccb4596b7b37b796af26, type: 2}
@@ -29,3 +29,5 @@ MonoBehaviour:
     data: {fileID: 11400000, guid: a5920e0609d2622478f76bf9a4fc02ef, type: 2}
   - type: {fileID: 11400000, guid: 3c1effcbd716ae44898788c8100965e4, type: 2}
     data: {fileID: 11400000, guid: 04871c729d6deb541ba1bdfd855e3835, type: 2}
+  - type: {fileID: 11400000, guid: 2e976633d9d28734f832d31f606aedfa, type: 2}
+    data: {fileID: 11400000, guid: e016884981c7d7e419c2133facc5c18a, type: 2}

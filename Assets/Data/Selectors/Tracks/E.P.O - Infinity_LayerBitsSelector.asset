@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8353d97a1b2772847b189a32ef623dbd, type: 3}
   m_Name: E.P.O - Infinity_LayerBitsSelector
-  m_EditorClassIdentifier: Assembly-CSharp:CyberBeat:LayerTypeTrackBitsCollectionSelector
+  m_EditorClassIdentifier: 
   datas:
   - type: {fileID: 11400000, guid: 5adf218e8b25612419649335648fe652, type: 2}
     data: {fileID: 11400000, guid: f6bf5a061fe699140bdad2a6d9b8756f, type: 2}
@@ -29,3 +29,5 @@ MonoBehaviour:
     data: {fileID: 11400000, guid: 2dd971d5a4153504c9bec5bf9064addd, type: 2}
   - type: {fileID: 11400000, guid: 3c1effcbd716ae44898788c8100965e4, type: 2}
     data: {fileID: 11400000, guid: ccecf3ac39959b74a96284fd8b809384, type: 2}
+  - type: {fileID: 11400000, guid: 2e976633d9d28734f832d31f606aedfa, type: 2}
+    data: {fileID: 11400000, guid: 0886264b8a3a8ee47892d79aae394522, type: 2}

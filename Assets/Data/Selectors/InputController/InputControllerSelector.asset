@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InputControllerSelector
   m_EditorClassIdentifier: 
   datas:
-  - type: 0
+  - type: {fileID: 11400000, guid: 1937477cdc2cab14eb1c92f6d9ce945b, type: 2}
     data: {fileID: 11400000, guid: 10704a7d4d8fb034ba75dadd0a43a283, type: 2}
-  - type: 1
+  - type: {fileID: 11400000, guid: 5d1709caef30f6f47bebeac0752ea32e, type: 2}
     data: {fileID: 11400000, guid: 8d05b0e16680143439e4f1a0c583a741, type: 2}
