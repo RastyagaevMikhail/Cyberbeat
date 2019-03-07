@@ -47,4 +47,13 @@ public class EditorMenuTools
 	{
 		Selection.activeObject = GameCore.Tools.GetAssetAtPath<TrackVariable> ("Assets/Data/Variables/Track/CurrentTrack.asset").Value;
 	}
+
+	[MenuItem ("Game/Player/Input/Settings")]
+	public static void OpenPlayerInputSettings() {
+		Selection.activeObject = AssetDatabase.LoadAssetAtPath("Assets/Data/InputControllers/InputSettings.asset",typeof(Object));
+	}
+	[MenuItem ("Game/Player/Input/Controllers")]
+	public static void OpenPlayerInputControllers() {
+		Selection.activeObject = AssetDatabase.LoadAssetAtPath("Assets/Data/InputControllers",typeof(Object));
+	}
 }

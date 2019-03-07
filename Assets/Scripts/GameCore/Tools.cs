@@ -271,7 +271,7 @@ namespace GameCore
                 }
                 validatedPath += "/" + subPath;
             }
-            Debug.LogFormat ("validatedPath = {0}", validatedPath);
+            Debug.Log ($"validatedPath = {validatedPath}", AssetDatabase.LoadAssetAtPath (validatedPath, typeof(UnityEngine.Object)));
             AssetDatabase.Refresh ();
         }
 

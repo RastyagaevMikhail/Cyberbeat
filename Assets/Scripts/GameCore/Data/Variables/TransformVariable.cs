@@ -13,5 +13,9 @@ namespace GameCore
         {
             ValueFast.SetParent(transform);
         }
+         public static implicit operator Transform (TransformVariable variable)
+        {
+            return variable.Value;
+        }
     }
 }

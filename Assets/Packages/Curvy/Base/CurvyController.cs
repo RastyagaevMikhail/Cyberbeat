@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 // =====================================================================
 // Copyright 2013-2016 Fluffy Underware
 // All rights reserved
@@ -22,7 +25,7 @@ namespace FluffyUnderware.Curvy
     /// Controller base class
     /// </summary>
     [ExecuteInEditMode]
-    public class CurvyController : DTVersionedMonoBehaviour
+    public partial class CurvyController : DTVersionedMonoBehaviour
     {
         #region ### Enums ###
         /// <summary>
@@ -104,6 +107,10 @@ namespace FluffyUnderware.Curvy
         [SerializeField]
         bool m_ResetOnStop = false;
 
+        [SerializeField]
+        APositionMover mover;
+        public IPositionMover Mover => mover;
+        [SerializeField] UnityEventVector3Space onApplyTransform;
         [Section ("Orientation & Offset", HelpURL = CurvySpline.DOCLINK + "curvycontroller_orientation")]
         [Label ("Source", "Source Vector")]
         [SerializeField]
@@ -961,10 +968,12 @@ namespace FluffyUnderware.Curvy
         /// <param name="position">the new position</param>
         protected virtual void ApplyTransformPosition (Vector3 position)
         {
-            if (Space == Space.Self)
-                Transform.localPosition = position;
-            else
-                Transform.position = position;
+            // if (Space == Space.Self)
+            //     Transform.localPosition = position;
+            // else
+            //     Transform.position = position;
+            Mover.MovePosition (position, Space);
+            onApplyTransform.Invoke (position, Space);
         }
 
         /// <summary>

@@ -1,0 +1,8 @@
+﻿$ADDITIONAL_USING$
+using System;
+using UnityEngine.Events;
+
+namespace $NAMESPACE_NAME$
+{
+    [Serializable] public class UnityEvent$FIRST_TYPE$$SECOND_TYPE$ : UnityEvent<$FIRST_TYPE$,$SECOND_TYPE$>{}
+}

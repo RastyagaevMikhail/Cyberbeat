@@ -9,7 +9,7 @@ namespace GameCore.CodeGeneration
     using UnityEngine;
 
     [CreateAssetMenu (fileName = "ScriptGenerator", menuName = "GameCore/CodeGeneration/ScriptGenerator", order = 0)]
-public class ScriptGenerator : ScriptableObject
+    public class ScriptGenerator : ScriptableObject
     {
         [SerializeField] TextAsset template;
         [Multiline]
@@ -35,9 +35,11 @@ public class ScriptGenerator : ScriptableObject
                 return null;
             else
                 generatedScripts.Add (this);
+
             string filePath = Application.dataPath + pathTemplate;
+
             foreach (var keyValue in keySelector)
-                filePath = filePath.Replace (keyValue.Key, keyValue.Value.Replace('.','/'));
+                filePath = filePath.Replace (keyValue.Key, keyValue.Value.Replace ('.', '/'));
 
             filePath = filePath.Replace ("$SCRIPT_NAME$", name);
 
@@ -60,10 +62,10 @@ public class ScriptGenerator : ScriptableObject
             foreach (var scriptGenerator in Dependies)
             {
                 var dict = scriptGenerator.Generate (keySelector);
-                if(dict == null) continue;
+                if (dict == null) continue;
                 foreach (var pair in dict)
                     if (!pathTextResult.ContainsKey (pair.Key))
-                        pathTextResult.Append (pair);
+                        pathTextResult.Add (pair.Key, pair.Value);
             }
 
             return pathTextResult;

@@ -26,5 +26,10 @@ namespace CyberBeat
         {
             InputControllerSelector[CurrentInputType].MoveLeft ();
         }
+
+        public void Jump ()
+        {
+            InputControllerSelector[CurrentInputType].Jump ();
+        }
     }
 }

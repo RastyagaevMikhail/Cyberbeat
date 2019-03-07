@@ -481,6 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTime:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -488,6 +489,7 @@ MonoBehaviour:
         PublicKeyToken=null
   endTime:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -495,6 +497,7 @@ MonoBehaviour:
         PublicKeyToken=null
   duration:
     enabled: 1
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls:
@@ -513,6 +516,7 @@ MonoBehaviour:
         PublicKeyToken=null
   stringValue:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -520,6 +524,7 @@ MonoBehaviour:
         PublicKeyToken=null
   randomString:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -527,6 +532,7 @@ MonoBehaviour:
         PublicKeyToken=null
   setPosition:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -534,6 +540,7 @@ MonoBehaviour:
         PublicKeyToken=null
   setLossyScale:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -541,6 +548,7 @@ MonoBehaviour:
         PublicKeyToken=null
   setRotation:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -548,6 +556,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
   setLocalPosition:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -555,6 +564,7 @@ MonoBehaviour:
         PublicKeyToken=null
   setLocalScale:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -562,6 +572,7 @@ MonoBehaviour:
         PublicKeyToken=null
   setLocalRotation:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -569,6 +580,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
   setTransform:
     enabled: 0
+    debug: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -6107,10 +6119,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8266133836757921763}
-  - component: {fileID: 2068044863658297142}
   - component: {fileID: 8266133836757921764}
   - component: {fileID: 725892906}
   - component: {fileID: 8266133836934056953}
+  - component: {fileID: 1716197505688389648}
+  - component: {fileID: 226649773}
+  - component: {fileID: 226649774}
   m_Layer: 0
   m_Name: '[GeneratorController]'
   m_TagString: Untagged
@@ -6135,72 +6149,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.014, y: 0, z: 0}
---- !u!114 &2068044863658297142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8266133836757921766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b5178248d34e234d9f136b72b5497b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  invokeOnEnable: 1
-  _OnEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: d0d2c4d4306f3db449742ff7dff45657, type: 2}
-        m_MethodName: set_ValueFast
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8266133836757921764}
-          m_ObjectArgumentAssemblyTypeName: FluffyUnderware.Curvy.Controllers.SplineController,
-            Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  invokeOnAwake: 1
-  OnAwake:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8266133836757921764}
-        m_MethodName: SetSpeed
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 0b6924a7092a05d4998f60eb08625dab,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: GameCore.FloatVariable, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  invokeOnStart: 0
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  invokeOnDisable: 0
-  _OnDisable:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  invokeOnDestroy: 0
-  _OnDestroy:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &8266133836757921764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6251,6 +6199,12 @@ MonoBehaviour:
   m_TimeScale: 1
   m_SingleShot: 0
   m_ResetOnStop: 0
+  mover: {fileID: 11400000, guid: 3f162563770125349ba1f6fc22064e91, type: 2}
+  onApplyTransform:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventVector3Space, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_OrientationMode: 1
   m_OrientationAxis: 0
   m_DampingDirection: 0
@@ -6344,3 +6298,59 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   debug: 0
+--- !u!114 &1716197505688389648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8266133836757921766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924fe7544bc25674481a436c3d31e1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: 01cefb7b27b08ec4abe5bdb06637fcef, type: 2}
+--- !u!114 &226649773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8266133836757921766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4b0acb421233a459ccb405d4cc1917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnAwake:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8266133836757921764}
+        m_MethodName: SetSpeed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 0b6924a7092a05d4998f60eb08625dab,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: GameCore.FloatVariable, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  debug: 0
+--- !u!114 &226649774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8266133836757921766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620f1285b0a64d14e8dfdd2b95b0f0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: d0d2c4d4306f3db449742ff7dff45657, type: 2}

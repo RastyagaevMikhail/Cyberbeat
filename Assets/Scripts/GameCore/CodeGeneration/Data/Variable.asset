@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Variable
   m_EditorClassIdentifier: 
   template: {fileID: 4900000, guid: 5b9bba9b65614fc4b91a43b393d178b2, type: 3}
-  pathTemplate: /Scripts/$NAMESPACE_NAME$/$SCRIPT_NAME$/$TYPE_NAME$$SCRIPT_NAME$.cs
+  pathTemplate: /Scripts/$NAMESPACE_NAME$/Data/Variables/$TYPE_NAME$Variable.cs
   dependies: []
   keys:
+  - $ADDITIONAL_USING$
   - $NAMESPACE_NAME$
   - $TYPE_NAME$

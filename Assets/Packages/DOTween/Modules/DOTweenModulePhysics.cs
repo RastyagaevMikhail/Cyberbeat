@@ -161,7 +161,7 @@ namespace DG.Tweening
         /// <param name="resolution">The resolution of the path: higher resolutions make for more detailed curved paths but are more expensive.
         /// Defaults to 10, but a value of 5 is usually enough if you don't have dramatic long curves between waypoints</param>
         /// <param name="gizmoColor">The color of the path (shown when gizmos are active in the Play panel and the tween is running)</param>
-        public static TweenerCore<Vector3, Path, PathOptions>   DOLocalPath(
+        public static TweenerCore<Vector3, Path, PathOptions> DOLocalPath(
             this Rigidbody target, Vector3[] path, float duration, PathType pathType = PathType.Linear,
             PathMode pathMode = PathMode.Full3D, int resolution = 10, Color? gizmoColor = null
         )

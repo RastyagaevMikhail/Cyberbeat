@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: UnityEvent
   m_EditorClassIdentifier: 
   template: {fileID: 4900000, guid: ad0142a3278b6c149ac3748bded2aa1b, type: 3}
+  pathTemplate: /Scripts/$NAMESPACE_NAME$/$SCRIPT_NAME$/$SCRIPT_NAME$$TYPE_NAME$.cs
   dependies: []
   keys:
+  - $ADDITIONAL_USING$
   - $NAMESPACE_NAME$
   - $TYPE_NAME$
-  pathTemplate: /Scripts/$NAMESPACE_NAME$/$SCRIPT_NAME$/$SCRIPT_NAME$$TYPE_NAME$.cs

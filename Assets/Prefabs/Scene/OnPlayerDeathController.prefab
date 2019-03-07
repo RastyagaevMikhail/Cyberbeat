@@ -55,7 +55,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 0.75
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asDeltaTime: 0
-  delay: 2
+  delay: 0.8
   action:
     m_PersistentCalls:
       m_Calls:

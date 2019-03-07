@@ -6,6 +6,6 @@ using UnityEngine;
 
 namespace GameCore 
 {
-	[CreateAssetMenu (fileName = "BoolCondition", menuName = "GameCore /EventCondition/Bool")]
+	[CreateAssetMenu (fileName = "BoolCondition", menuName = "GameCore/EventCondition/Bool")]
     public class BoolEventCondition : EventCondition<bool> { }
 }

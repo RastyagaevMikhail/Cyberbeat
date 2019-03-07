@@ -1,0 +1,26 @@
+﻿$ADDITIONAL_USING$
+using GameCore;
+using UnityEngine;
+namespace  $NAMESPACE_NAME$
+{
+    public class $TYPE_NAME$VariableSetter : MonoBehaviour
+    {
+        [SerializeField] $TYPE_NAME$Variable variable;
+        void OnEnable()
+        {
+            variable.Value = GetComponent<$TYPE_NAME$>();
+        }
+        void OnDisable()
+        {
+            variable = null;
+        }
+        [ContextMenu ("Create Variable Instance")]
+        void CreateVariableInstance ()
+        {
+            variable = ScriptableObject.CreateInstance<$TYPE_NAME$Variable> ();
+            var sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name;
+            variable.CreateAsset ($"Assets/$NAMESPACE_NAME$/Data/VariableSetter/$TYPE_NAME$/{sceneName}/{name.ReplaceByRegex("[^a-zA-Z ]", string.Empty)}$TYPE_NAME$.asset");
+        }
+    }
+}
+

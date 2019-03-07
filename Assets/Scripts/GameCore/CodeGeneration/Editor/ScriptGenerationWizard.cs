@@ -25,14 +25,17 @@ namespace GameCore.CodeGeneration
 
         void OnWizardCreate ()
         {
-            if (scriptGenerator && !ValuesIsEmpty)
+            if (scriptGenerator)
             {
                 Dictionary<string, string> keySelector = KeysValues.ToDictionary (kv => kv.Key, kv => kv.Value);
 
-                if (ScriptGenerator.generatedScripts == null) ScriptGenerator.generatedScripts = new List<ScriptGenerator> ();
-                else ScriptGenerator.generatedScripts.Clear ();
+                if (ScriptGenerator.generatedScripts == null)
+                    ScriptGenerator.generatedScripts = new List<ScriptGenerator> ();
+                else
+                    ScriptGenerator.generatedScripts.Clear ();
 
                 var pahtText = scriptGenerator.Generate (keySelector);
+
                 ScriptGenerator.generatedScripts.Clear ();
 
                 Debug.Log (pahtText.Log ());
@@ -42,7 +45,15 @@ namespace GameCore.CodeGeneration
                     Tools.ValidatePath (
                         Path.GetDirectoryName ("Assets" + pair.Key.Replace (Application.dataPath, string.Empty)).Replace ('\\', '/')
                     );
+
+                    if (File.Exists (pair.Key))
+                    {
+                        Debug.Log ($"File {pair.Key} Is Exist");
+                        continue;
+                    }
+
                     File.WriteAllText (pair.Key, pair.Value);
+
                     AssetDatabase.Refresh ();
                 }
             }
@@ -63,13 +74,13 @@ namespace GameCore.CodeGeneration
                 helpString = string.Empty;
                 isValid = true;
             }
-            else
-            if (ValuesIsEmpty)
-            {
-                errorString = "Fill the keys.";
-                helpString = string.Empty;
-                isValid = false;
-            }
+            // else
+            // if (ValuesIsEmpty)
+            // {
+            //     errorString = "Fill the keys.";
+            //     helpString = string.Empty;
+            //     isValid = false;
+            // }
             else
             {
                 errorString = string.Empty;
@@ -78,7 +89,7 @@ namespace GameCore.CodeGeneration
             }
         }
 
-        private bool ValuesIsEmpty => !KeysIsNullOrEmpty && KeysValues.ToList ().Any (kv => kv.Value == string.Empty);
+        // private bool ValuesIsEmpty => !KeysIsNullOrEmpty && KeysValues.ToList ().Any (kv => kv.Value == string.Empty);
 
         private bool KeysIsNullOrEmpty => KeysValues == null || KeysValues.Length == 0;
 
