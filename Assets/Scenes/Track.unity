@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 258792993}
   - component: {fileID: 258792994}
   m_Layer: 0
-  m_Name: SwypeTapController
+  m_Name: '[LinesSwitcher]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccadaa979de16c4cbbb308970eb2421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: ce125827248b11c42b39e9132de8e40d, type: 2}
+  Event: {fileID: 11400000, guid: 7ffcab1ea13743244ae134e4991a3869, type: 2}
   Responce:
     m_PersistentCalls:
       m_Calls:
@@ -315,7 +315,7 @@ MonoBehaviour:
         m_MethodName: Add
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c0deb22ea5b08c94fb385856c5f19a7f,
+          m_ObjectArgument: {fileID: 11400000, guid: e4c3cf2aacbc0d94d8df23c1b4e74aa2,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: CyberBeat.ATimeUpdateable, Assembly-CSharp
           m_IntArgument: 0
@@ -1720,25 +1720,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4985639297722017599, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985639297722017599, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985639297722017599, guid: ef77e30dba77edd49b31cd782260f4ef,
-        type: 3}
-      propertyPath: m_text
-      value: 00:00
-      objectReference: {fileID: 0}
     - target: {fileID: 8953863642404570087, guid: ef77e30dba77edd49b31cd782260f4ef,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162959301370427773, guid: ef77e30dba77edd49b31cd782260f4ef,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162959301370427773, guid: ef77e30dba77edd49b31cd782260f4ef,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162959301370427773, guid: ef77e30dba77edd49b31cd782260f4ef,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7162959301370427774, guid: ef77e30dba77edd49b31cd782260f4ef,
         type: 3}
@@ -1760,20 +1760,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: TapLeft
       objectReference: {fileID: 0}
-    - target: {fileID: 7162959301370427773, guid: ef77e30dba77edd49b31cd782260f4ef,
+    - target: {fileID: 4985639297722017599, guid: ef77e30dba77edd49b31cd782260f4ef,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
+      propertyPath: m_havePropertiesChanged
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7162959301370427773, guid: ef77e30dba77edd49b31cd782260f4ef,
+    - target: {fileID: 4985639297722017599, guid: ef77e30dba77edd49b31cd782260f4ef,
         type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
+      propertyPath: m_isInputParsingRequired
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7162959301370427773, guid: ef77e30dba77edd49b31cd782260f4ef,
+    - target: {fileID: 4985639297722017599, guid: ef77e30dba77edd49b31cd782260f4ef,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
+      propertyPath: m_text
+      value: 00:00
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef77e30dba77edd49b31cd782260f4ef, type: 3}

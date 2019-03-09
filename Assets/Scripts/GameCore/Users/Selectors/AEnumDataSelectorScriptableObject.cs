@@ -26,6 +26,7 @@ namespace GameCore
             {
                 Selector.Add (type, data);
             }
+            
             public bool ContainsKey (TEnumType type)
             {
                 return Selector.ContainsKey (type);

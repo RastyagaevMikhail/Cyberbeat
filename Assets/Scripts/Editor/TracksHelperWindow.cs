@@ -35,8 +35,8 @@ namespace CyberBeat
             tracks = Resources.LoadAll<Track> ("Data/Tracks");
 
             collctionsSelector =
-                Tools.GetAssetAtPath<LayerTypeABitDataCollectionVariableSelector>
-                ("Assets/Data/Variables/ABitDataCollection/LayerTypeABitDataCollectionVariableSelector.asset");
+            Tools.GetAssetAtPath<LayerTypeABitDataCollectionVariableSelector>
+            ("Assets/Data/Variables/ABitDataCollection/LayerTypeABitDataCollectionVariableSelector.asset");
         }
 
         [TitleGroup ("From Layer")]
@@ -147,24 +147,43 @@ namespace CyberBeat
                 Tools.ValidateSO<GameEventIBitData> ($"Assets/Data/Events/IBitData/On{layerName}{user}IsOver.asset");
         }
 
+        [FoldoutGroup ("Generators")]
         [Button] public void GenerateNewLayerType (string nameLayer, bool validate = true)
         {
             var layer = Tools.ValidateSO<LayerType> ($"Assets/Data/Enums/LayerType/{nameLayer}.asset");
 
-            enums.TryAddEnumScriptable<LayerType> (layer);
-            enums.Save ();
-
             if (validate)
             {
+                ValidateLayerTypes ();
                 ValidateKoreographyTracksLayers ();
                 ValidateAsllLayerBitsSelectors ();
             }
 
         }
 
+        [FoldoutGroup ("Generators")]
+        [Button ("Remove Layer[LayerType]", ButtonSizes.Large)] public void RemoveLayer ()
+        {
+            string layerName = layer.name;
+            foreach (Track track in tracks)
+            {
+                // var selector = Tools.ValidateSO<LayerTypeTrackBitsCollectionSelector> ($"Assets/Data/Selectors/Tracks/{track.name}_LayerBitsSelector.asset");
+                string trackName = track.name;
+                AssetDatabase.DeleteAsset ($"Assets/Data/LayerTypeCollection/{layerName}/{trackName}_{layerName}.asset");
+                AssetDatabase.DeleteAsset ($"Assets/Data/Koreography/{trackName}/Tracks/{layerName}_{trackName}.asset");
+            }
+            AssetDatabase.DeleteAsset ($"Assets/Data/Variables/ABitDataCollection/Current{layerName}Collection.asset");
+            AssetDatabase.DeleteAsset ($"Assets/Data/ATimeUpdatable/TrackBitItemData/Player/{layerName}.asset");
+            AssetDatabase.DeleteAsset ($"Assets/Data/Events/IBitData/On{layerName}Player.asset");
+            AssetDatabase.DeleteAsset ($"Assets/Data/Events/IBitData/On{layerName}Generator.asset");
+            AssetDatabase.DeleteAsset (AssetDatabase.GetAssetPath (layer));
+            AssetDatabase.Refresh ();
+        }
+
+        [FoldoutGroup ("Generators")]
         [Button] public void GenerateNewEnum (Type type, string nameValue)
         {
-            var value = Tools.ValidateSO ($"Assets/Data/Enums/LayerType/{nameValue}.asset", type);
+            var value = Tools.ValidateSO ($"Assets/Data/Enums/{type.Name}/{nameValue}.asset", type);
 
             enums.TryAddEnumScriptable (type, (EnumScriptable) value);
             enums.Save ();
