@@ -18,6 +18,8 @@ MonoBehaviour:
     mEndSample: 441000
   - mStartSample: 441000
     mEndSample: 705600
+  - mStartSample: 1940400
+    mEndSample: 1940400
   _SerializedPayloadTypes:
   - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
@@ -33,6 +35,7 @@ MonoBehaviour:
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
   _TextPayloads:
-  - mTextVal: ThreeLines
+  - mTextVal: OneLine
   - mTextVal: TwoLines
-  _TextPayloadIdxs: 0000000001000000
+  - mTextVal: ThreeLines
+  _TextPayloadIdxs: 000000000100000002000000

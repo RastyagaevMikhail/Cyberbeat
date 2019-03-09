@@ -15,7 +15,7 @@ MonoBehaviour:
   bits:
   - payloadData:
       strings:
-      - ThreeLines
+      - OneLine
     startTime: 0
     endTime: 10
     duration: 10
@@ -25,3 +25,9 @@ MonoBehaviour:
     startTime: 10
     endTime: 16
     duration: 6
+  - payloadData:
+      strings:
+      - ThreeLines
+    startTime: 44
+    endTime: 44
+    duration: 0

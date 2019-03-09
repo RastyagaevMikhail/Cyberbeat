@@ -18,18 +18,13 @@ namespace CyberBeat
         {
             CurrentInputType = controlTypeToSwitch;
         }
-        public void MoveRight ()
+        public void TapRight ()
         {
-            InputControllerSelector[CurrentInputType].MoveRight ();
+            InputControllerSelector[CurrentInputType].TapRight ();
         }
-        public void MoveLeft ()
+        public void TapLeft ()
         {
-            InputControllerSelector[CurrentInputType].MoveLeft ();
-        }
-
-        public void Tap ()
-        {
-            InputControllerSelector[CurrentInputType].Tap();
-        }
+            InputControllerSelector[CurrentInputType].TapLeft ();
+        }        
     }
 }

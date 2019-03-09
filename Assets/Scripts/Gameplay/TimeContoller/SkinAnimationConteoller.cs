@@ -30,8 +30,7 @@ namespace CyberBeat
             {
                 if (bit.StartTime == bitTime)
                 {
-                    animator.Rebind ();
-                    animator.PlayRandom ();
+                    PlayAnimation ();
                     break;
                 }
                 else
@@ -43,13 +42,18 @@ namespace CyberBeat
             {
                 if (bit.StartTime <= bitTime)
                 {
-                    if(bits.Contains(bit))
+                    if (bits.Contains (bit))
                     {
-                        bits.Remove(bit);
+                        bits.Remove (bit);
                     }
                 }
             }
 
+        }
+        public void PlayAnimation ()
+        {
+            animator.Rebind ();
+            animator.PlayRandom ();
         }
     }
 }

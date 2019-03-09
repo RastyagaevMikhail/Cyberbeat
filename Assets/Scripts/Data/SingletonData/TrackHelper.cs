@@ -10,7 +10,7 @@ namespace CyberBeat
     using System.Linq;
 
     using UnityEngine;
-    [CreateAssetMenu (fileName = "TrackHelper", menuName = "CuberBeat/TrackHelper")]
+    [CreateAssetMenu (fileName = "TrackHelper", menuName = "CyberBeat/TrackHelper")]
     public class TrackHelper : ScriptableObject
     {
         [SerializeField] TracksCollection data;

@@ -9,16 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 058461e02abeef04493bf45a38fd1f0a, type: 3}
+  m_Script: {fileID: 11500000, guid: db6707df123d3674fa3871756be4d055, type: 3}
   m_Name: CenterInputSettings
   m_EditorClassIdentifier: 
   easeMove: 15
   SwipeDuration: 0.35
   width: 3.2
-  enabled: 1
-  jumpHeight: 2
-  jumpUpTime: 0.25
-  easeJumpUp: 15
-  jumpHoldTime: 0
-  jumpDownTime: 0.25
-  easeJumpDown: 1

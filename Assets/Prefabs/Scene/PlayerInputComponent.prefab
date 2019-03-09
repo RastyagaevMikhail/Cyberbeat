@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5294440848138412232}
   - component: {fileID: 5294440848138412233}
-  - component: {fileID: 5294440848138412342}
+  - component: {fileID: 6573314246527353548}
   - component: {fileID: 5294440848138412343}
   - component: {fileID: 5294440848138412340}
-  - component: {fileID: 961581431}
   - component: {fileID: 4233444998711582577}
   m_Layer: 0
   m_Name: PlayerInputComponent
@@ -51,7 +50,7 @@ MonoBehaviour:
   CurrentInputType: {fileID: 11400000, guid: 1937477cdc2cab14eb1c92f6d9ce945b, type: 2}
   InputControllerSelector: {fileID: 11400000, guid: 7d46a540c2661e64093dc5afcbf4da22,
     type: 2}
---- !u!114 &5294440848138412342
+--- !u!114 &6573314246527353548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,26 +59,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5294440848138412341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
+  m_Script: {fileID: 11500000, guid: fbf143f8850141747a229a7f24cd80dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 600977fbc6ada0b4288a98658130f8b1, type: 2}
-        m_MethodName: set_Value
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 5294440848138412233}
-          m_ObjectArgumentAssemblyTypeName: CyberBeat.InputControllerComponent, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
+  variable: {fileID: 11400000, guid: 600977fbc6ada0b4288a98658130f8b1, type: 2}
 --- !u!114 &5294440848138412343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +80,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5294440848138412233}
-        m_MethodName: MoveLeft
+        m_MethodName: TapLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -127,37 +110,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5294440848138412233}
-        m_MethodName: MoveRight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
---- !u!114 &961581431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5294440848138412341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 0017118c968971747a9b85fd2bbc2140, type: 2}
-  Responce:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5294440848138412233}
-        m_MethodName: Tap
+        m_MethodName: TapRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

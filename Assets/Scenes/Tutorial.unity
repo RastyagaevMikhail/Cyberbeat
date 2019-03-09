@@ -1750,11 +1750,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[PlayerController]'
       objectReference: {fileID: 0}
-    - target: {fileID: 282119235109045992, guid: a4b9bfbd2d0f3c74c9711c79296e0c29,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5203492219541552161, guid: a4b9bfbd2d0f3c74c9711c79296e0c29,
         type: 3}
       propertyPath: m_Mesh
@@ -1825,6 +1820,16 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5924392697064619070, guid: a4b9bfbd2d0f3c74c9711c79296e0c29,
+        type: 3}
+      propertyPath: m_InitialPosition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 282119235109045992, guid: a4b9bfbd2d0f3c74c9711c79296e0c29,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8699814443735961603, guid: a4b9bfbd2d0f3c74c9711c79296e0c29,
         type: 3}
       propertyPath: OnAwake.m_PersistentCalls.m_Calls.Array.size
@@ -1833,11 +1838,6 @@ PrefabInstance:
     - target: {fileID: 8699814443735961603, guid: a4b9bfbd2d0f3c74c9711c79296e0c29,
         type: 3}
       propertyPath: invokeOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5924392697064619070, guid: a4b9bfbd2d0f3c74c9711c79296e0c29,
-        type: 3}
-      propertyPath: m_InitialPosition
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7084,6 +7084,12 @@ MonoBehaviour:
   m_TimeScale: 1
   m_SingleShot: 0
   m_ResetOnStop: 0
+  mover: {fileID: 11400000, guid: 3f162563770125349ba1f6fc22064e91, type: 2}
+  onApplyTransform:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventVector3Space, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_OrientationMode: 1
   m_OrientationAxis: 0
   m_DampingDirection: 0
@@ -7552,6 +7558,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882469965233035548, guid: abe71cab389c686478694df2087542f0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 882469965938557573, guid: abe71cab389c686478694df2087542f0,
         type: 3}
       propertyPath: far clip plane
@@ -7587,11 +7598,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 882469967035462875, guid: abe71cab389c686478694df2087542f0,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 882469965233035548, guid: abe71cab389c686478694df2087542f0,
         type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -9590,6 +9596,11 @@ PrefabInstance:
       propertyPath: Responce.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 8640589452019424064, guid: 9ee9c59318a65174d9ce0c7bfb330cab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8640589453409966375, guid: 9ee9c59318a65174d9ce0c7bfb330cab,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -9652,11 +9663,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7162959302842230189, guid: ef77e30dba77edd49b31cd782260f4ef,
         type: 3}
-    - target: {fileID: 8640589452019424064, guid: 9ee9c59318a65174d9ce0c7bfb330cab,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ee9c59318a65174d9ce0c7bfb330cab, type: 3}
 --- !u!224 &5887308603747188667 stripped
