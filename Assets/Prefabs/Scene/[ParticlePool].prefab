@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1356834808751864156}
-  - component: {fileID: 6238378244876343892}
   - component: {fileID: 110202909303191907}
+  - component: {fileID: 5581743916679754359}
   m_Layer: 0
   m_Name: '[ParticlePool]'
   m_TagString: Untagged
@@ -32,35 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6238378244876343892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6529920787145348095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: ebca434c44cfe784dab371ac64dca0f1, type: 2}
-        m_MethodName: set_ValueFast
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 110202909303191907}
-          m_ObjectArgumentAssemblyTypeName: GameCore.Pool, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!114 &110202909303191907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,3 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: c967a70827d3e754a88706aa7d736334, type: 2}
+--- !u!114 &5581743916679754359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6529920787145348095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf5acbcba78bf6458c9262327c3b098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: ebca434c44cfe784dab371ac64dca0f1, type: 2}

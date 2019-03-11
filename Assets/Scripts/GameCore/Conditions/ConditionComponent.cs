@@ -11,11 +11,18 @@ namespace GameCore
     public class ConditionComponent : MonoBehaviour
     {
         [SerializeField] ACondition condition;
+        [SerializeField] bool doConditonOnEnable;
         [SerializeField] UnityEvent onTrue;
         [SerializeField] UnityEvent onFalse;
         [SerializeField] UnityEventBool onCondition;
         [SerializeField] UnityEventBool onInverseCondition;
         [SerializeField] bool debug;
+        private void OnEnable ()
+        {
+            if (doConditonOnEnable)
+                DoCondition ();
+        }
+
         [Button]
         public void DoCondition (bool value)
         {
@@ -37,7 +44,7 @@ namespace GameCore
             }
             onCondition.Invoke (value);
             onInverseCondition.Invoke (!value);
-            if (debug) Debug.Log (log);
+            if (debug) Debug.Log (log, this);
         }
         public void DoCondition ()
         {

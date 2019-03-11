@@ -24,8 +24,8 @@ namespace CyberBeat
 
         List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
         [SerializeField] ColorInfoRuntimeSetVariable currentSet;
-        [SerializeField] GameEventColor onFirstColorChoosed;
-        [SerializeField] GameEventIBitData onPresetChoosed;
+        [SerializeField] UnityEventColor onFirstColorChoosed;
+        [SerializeField] ColorInterractorRuntimeSet nearBeats;
         ColorInfoRuntimeSet CurrentSet { get => currentSet.ValueFast; set => currentSet.ValueFast = value; }
         Color LastRandomColor = default (Color);
         float lastBeat = -1f;
@@ -58,10 +58,8 @@ namespace CyberBeat
                 lastBeat = bitTime;
 
             string randomString = bitData.RandomString;
-            onPresetChoosed.Raise (new PresetBitInfo (bitData.StartTime, randomString));
-            string[] randomSplitedString = randomString.Split ("/".ToCharArray ());
 
-            string randPreset = randomSplitedString[0];
+            string randPreset = randomString.Regex (@"\d");
 
             List<Material> row = null;
             try
@@ -81,11 +79,41 @@ namespace CyberBeat
             {
                 var spawnObj = InstattiateObj (row[(int) i], x);
                 if (spawnObj == null) continue;
-
                 ColorInterractor colorInterractor = spawnObj.Get<ColorInterractor> ();
+                if (colors.ContainsKey (bitTime))
+                    colors[bitTime].Add (colorInterractor);
+                else
+                    colors.Add (bitTime, new List<ColorInterractor> { colorInterractor });
 
-                colorInterractor.Init (bitTime);
+                colorInterractor.Init (bitTime, randomString.Regex (@"[A-Z]"));
             }
+            if (nearBeats.Count == 0)
+                foreach (var color in colors[bitTime])
+                    nearBeats.Add (color);
+        }
+
+        Dictionary<float, List<ColorInterractor>> colors = new Dictionary<float, List<ColorInterractor>> ();
+        public void OnPlayerBit (IBitData bitData)
+        {
+            if (colors.ContainsKey (bitData.StartTime))
+            {
+                nearBeats.Clear ();
+                colors.Remove (bitData.StartTime);
+
+                if (colors.Count == 0) return;
+
+                float keyOfNextTime = colors.Keys.Min ();
+
+                List<ColorInterractor> listColorInterractors = colors[keyOfNextTime];
+
+                foreach (var color in listColorInterractors)
+                    nearBeats.Add (color);
+
+            }
+        }
+        private void OnDisable ()
+        {
+            nearBeats.Clear ();
         }
 
         private void initColors ()
@@ -98,7 +126,6 @@ namespace CyberBeat
             if (LastRandomColor == default (Color))
             {
                 LastRandomColor = CurrentSet.GetRandom ().color;
-
             }
         }
         private void OnDestroy ()
@@ -116,10 +143,11 @@ namespace CyberBeat
             obj.position = position + right * xPos + up * obj.y;
             obj.rotation = rotation;
 
-            if (obj.Get<ColorInterractor> ().CurrentInfo.isSwitcher)
+			ColorInterractor colorInterractor = obj.Get<ColorInterractor>();
+			if (colorInterractor.IsSwitcher)
                 InitRCM ();
 
-            var matSwitcher = obj.Get<MaterialSwitcher> ();
+            var matSwitcher = colorInterractor.matSwitch;
             if (matSwitcher)
             {
                 bool constant = matSwitcher.Constant;
@@ -131,7 +159,7 @@ namespace CyberBeat
                 if (!firstColorChoosed)
                 {
                     firstColorChoosed = true;
-                    onFirstColorChoosed.Raise (material.GetColor (matSwitcher.DefaultColorName));
+                    onFirstColorChoosed.Invoke (material.GetColor (matSwitcher.DefaultColorName));
                 }
 
                 if (!constant)
@@ -139,41 +167,6 @@ namespace CyberBeat
             }
             obj.OnSpawn (Key);
             return obj;
-        }
-    }
-    public class PresetBitInfo : IBitData
-    {
-        private readonly float startTime;
-        private readonly string stringValue;
-
-        public PresetBitInfo (float startTime, string stringValue)
-        {
-            this.startTime = startTime;
-            this.stringValue = stringValue;
-        }
-
-        public float StartTime => startTime;
-
-        public float EndTime =>
-            throw new NotImplementedException ();
-
-        public float Duration =>
-            throw new NotImplementedException ();
-
-        public IPayloadData PayloadData =>
-            throw new NotImplementedException ();
-
-        public string RandomString =>
-            throw new NotImplementedException ();
-
-        public string StringValue => stringValue;
-
-        public string[] Strings =>
-            throw new NotImplementedException ();
-
-        public void Init (KoreographyEvent koreographyEvent)
-        {
-            throw new NotImplementedException ();
         }
     }
 }

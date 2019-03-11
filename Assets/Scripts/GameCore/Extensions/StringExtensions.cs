@@ -155,5 +155,9 @@ namespace GameCore
         {
             return System.Text.RegularExpressions.Regex.Replace (str, pattern, replacemnt);
         }
+        public static string Regex (this string str, string pattern)
+        {
+            return System.Text.RegularExpressions.Regex.Match (str, pattern).Value;
+        }
     }
 }

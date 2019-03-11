@@ -53,7 +53,15 @@ namespace GameCore
 		public override void SaveValue ()
 		{
 			// Debug.LogFormat("Save = {0}", name);
-			PlayerPrefs.SetInt (name, _value);
+			try
+			{
+				PlayerPrefs.SetInt (name, _value);
+			}
+			catch (System.Exception)
+			{
+				Debug.Log (this, this);
+				throw;
+			}
 		}
 
 		[Button]

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea077b392c22e8e4dba60840f3a4e942, type: 3}
+  m_Name: GameEventListener_2
+  m_EditorClassIdentifier: 
+  template: {fileID: 4900000, guid: 759446a1dbd4f394eab467fb0edd2a37, type: 3}
+  pathTemplate: /Scripts/$NAMESPACE_NAME$/GameEventListener/GameEventListener$FIRST_TYPE$$SECOND_TYPE$.cs
+  dependies:
+  - {fileID: 11400000, guid: 7d5ea7446c1477b4bb13d71d04c63b4a, type: 2}
+  - {fileID: 11400000, guid: 0b897a27837f2ed44b95e0aed796304d, type: 2}
+  keys:
+  - $ADDITIONAL_USING$
+  - $NAMESPACE_NAME$
+  - $FIRST_TYPE$
+  - $SECOND_TYPE$

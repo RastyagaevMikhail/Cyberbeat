@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 171292250969048425}
   - component: {fileID: 7323767341870187541}
-  - component: {fileID: 2345506679287548481}
   - component: {fileID: 2511027312942281082}
+  - component: {fileID: 6854177392756967332}
   m_Layer: 0
   m_Name: Julius Dreisig - In My Head
   m_TagString: Untagged
@@ -114,35 +114,6 @@ MonoBehaviour:
   - {fileID: 4889055476658736132}
   - {fileID: 4889055476541767788}
   - {fileID: 4889055476303486171}
---- !u!114 &2345506679287548481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2443365753175448925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}
-        m_MethodName: set_ValueFast
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 7323767341870187541}
-          m_ObjectArgumentAssemblyTypeName: FluffyUnderware.Curvy.CurvySpline, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!114 &2511027312942281082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +127,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 500
+--- !u!114 &6854177392756967332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443365753175448925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3719798228b5f243a548b0487f08c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}
 --- !u!1 &4889055474570072495
 GameObject:
   m_ObjectHideFlags: 0

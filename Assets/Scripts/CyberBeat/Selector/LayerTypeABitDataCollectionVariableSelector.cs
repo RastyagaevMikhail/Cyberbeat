@@ -29,6 +29,11 @@ namespace CyberBeat
 
         [System.Serializable] public class LayerTypeABitDataCollectionVariableTypeData : TypeData<LayerType, ABitDataCollectionVariable> { }
 #if UNITY_EDITOR
+        [ContextMenu("Validate")]
+        void Validate()
+        {
+            Validate(Tools.GetAssetAtPath<Enums>("Assets/Resources/Data/Enums.asset"));
+        }
 
         public void Validate (Enums enums )
         {

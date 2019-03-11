@@ -15,34 +15,30 @@ namespace CyberBeat
         public Color CurrentColor { get { return matSwitch.CurrentColor; } }
 
         float bit;
-        [Serializable]
-        public struct Info
-        {
-            public bool isSwitcher;
-            public Color color;
-        }
-
-        [SerializeField] Info currentInfo;
-        public Info CurrentInfo => currentInfo;
-
-        public void Init (float bitTime)
+        string particlesKey;
+        [SerializeField] bool isSwitcher;
+        public bool IsSwitcher => isSwitcher;
+        public void Init (float bitTime, string keyParticles)
         {
             bit = bitTime;
+            particlesKey = keyParticles;
+
         }
 
         [Header ("OnDeth Events")]
-        [SerializeField] UnityEventColorInterractorInfo OnDeathASColorInterractorInfo;
+        [SerializeField] UnityEventColorBool OnDeathWithColorIsSwitcher;
         [SerializeField] UnityEventColor OnDeathAsColor;
         [SerializeField] UnityEventFloat OnDeathAsBit;
+        [SerializeField] UnityEventString OnDeathAsString;
         [SerializeField] UnityEvent OnDeath;
         public virtual void Death ()
         {
-            currentInfo.color = CurrentColor;
-            OnDeathASColorInterractorInfo.Invoke (CurrentInfo);
+            OnDeathWithColorIsSwitcher.Invoke (CurrentColor, isSwitcher);
 
             OnDeathAsBit.Invoke (bit);
 
             OnDeathAsColor.Invoke (CurrentColor);
+            OnDeathAsString.Invoke (particlesKey);
 
             OnDeath.Invoke ();
 

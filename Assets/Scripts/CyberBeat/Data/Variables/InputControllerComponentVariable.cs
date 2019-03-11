@@ -45,12 +45,12 @@ namespace CyberBeat
             return variable.Value;
         }
 
-        public void MoveRight ()
+        public void TapRight ()
         {
             ValueFast.TapRight ();
         } 
 
-        public void MoveLeft ()
+        public void TapLeft ()
         {
             ValueFast.TapLeft ();
         }

@@ -16,7 +16,6 @@ namespace CyberBeat
         public SplineController splineController => splineControllerVariable.ValueFast;
 
         [SerializeField] UnityEventFloat OnSpeedUpdated;
-        Tweener tweener;
         private float lastSpeed;
 
         public override void OnMetaReached (SpeedTimeMetaData meta)

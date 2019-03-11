@@ -11,7 +11,7 @@ namespace CyberBeat
     public class TrackGeneratotionWizard : ScriptableWizard
     {
         [SerializeField] AudioClip clip;
-        [MenuItem ("Game/Generation/Track")]
+        [MenuItem ("Game/Generation/Track", priority = 1)]
         private static void MenuEntryCall ()
         {
             DisplayWizard<TrackGeneratotionWizard> ("Title", "Generate");
@@ -31,7 +31,6 @@ namespace CyberBeat
 
             track.progressInfo = new ProgressInfo ();
             track.progressInfo.Validate (nameTrack);
-
 
             track.SaveME ();
 

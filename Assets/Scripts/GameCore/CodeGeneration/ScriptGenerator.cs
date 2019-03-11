@@ -27,6 +27,7 @@ namespace GameCore.CodeGeneration
             var matchs = Regex.Matches (template.text, @"\$[A-Z]*_[A-Z]*\$");
 
             keys = matchs.Cast<Match> ().Select (m => m.Value).Distinct ().ToList ();
+            this.Save ();
         }
         public static List<ScriptGenerator> generatedScripts = new List<ScriptGenerator> ();
         public Dictionary<string, string> Generate (Dictionary<string, string> keySelector)

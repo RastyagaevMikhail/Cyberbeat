@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: d4d613afd5f97d847a3a2f48936a0181, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls: []
@@ -840,6 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: 2365017c7e580c9428f60dfde300fe45, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:
@@ -1758,6 +1760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: 92eb07f7deec7d9478e1272b2c2043c7, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:
@@ -2262,6 +2265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: 92eb07f7deec7d9478e1272b2c2043c7, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:
@@ -2869,7 +2873,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5949731402232633617}
   - component: {fileID: 8454265566615513829}
-  - component: {fileID: 3602674926742872604}
   - component: {fileID: 1775915881125813466}
   m_Layer: 5
   m_Name: RewardButtons
@@ -2923,35 +2926,6 @@ MonoBehaviour:
   m_Spacing: {x: 150, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
---- !u!114 &3602674926742872604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5949731402232633616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1775915881125813466}
-        m_MethodName: DoCondition
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!114 &1775915881125813466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2965,6 +2939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: 92eb07f7deec7d9478e1272b2c2043c7, type: 2}
+  doConditonOnEnable: 1
   onTrue:
     m_PersistentCalls:
       m_Calls: []
@@ -3826,6 +3801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: 92eb07f7deec7d9478e1272b2c2043c7, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls: []

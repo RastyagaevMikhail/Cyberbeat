@@ -43,7 +43,11 @@ namespace CyberBeat
 		}
 		public bool ChechColor (Color otherColor)
 		{
-			return CurrentColor.Equals (otherColor);
+			// return CurrentColor.Equals (otherColor);
+			return
+				CurrentColor.r == otherColor.r &&
+				CurrentColor.g == otherColor.g &&
+				CurrentColor.b == otherColor.b;
 		}
 	}
 }

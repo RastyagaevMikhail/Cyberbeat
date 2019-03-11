@@ -13,8 +13,23 @@ MonoBehaviour:
   m_Name: Lines_Marmok - One More Time
   m_EditorClassIdentifier: 
   mEventID: Lines
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 0
+    mEndSample: 0
+  - mStartSample: 964002
+    mEndSample: 964002
+  - mStartSample: 1854144
+    mEndSample: 1854144
+  - mStartSample: 3098520
+    mEndSample: 3098520
+  - mStartSample: 5295096
+    mEndSample: 5295096
+  - mStartSample: 5741876
+    mEndSample: 5741876
+  - mStartSample: 6252912
+    mEndSample: 6252912
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +42,12 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: OneLine
+  - mTextVal: ThreeLines
+  - mTextVal: OneLine
+  - mTextVal: ThreeLines
+  - mTextVal: OneLine
+  - mTextVal: ThreeLines
+  - mTextVal: OneLine
+  _TextPayloadIdxs: 00000000010000000200000003000000040000000500000006000000

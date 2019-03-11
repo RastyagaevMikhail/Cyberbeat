@@ -33,6 +33,7 @@ namespace CyberBeat
         {
             data = Resources.Load<TrackHelper> ("Data/TrackHelper");
             tracks = Resources.LoadAll<Track> ("Data/Tracks");
+            scenes = Tools.GetAtPath<SceneAsset>("Assets/Scenes");
 
             collctionsSelector =
             Tools.GetAssetAtPath<LayerTypeABitDataCollectionVariableSelector>
@@ -139,7 +140,8 @@ namespace CyberBeat
             string layerName = layer.name;
 
             TrackBitItemData trackBitItemData = CreateInstance<TrackBitItemData> ();
-            trackBitItemData.Variable = Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layerName}Collection.asset");
+            trackBitItemData.Variable =
+                Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layerName}Collection.asset");
             trackBitItemData.CreateAsset ($"Assets/Data/ATimeUpdatable/TrackBitItemData/{user}/{layerName}.asset");
 
             Tools.ValidateSO<GameEventIBitData> ($"Assets/Data/Events/IBitData/On{layerName}{user}.asset");
@@ -203,6 +205,20 @@ namespace CyberBeat
         [PropertyOrder (int.MaxValue)]
         [SerializeField]
         Track[] tracks;
+
+        #endregion
+        #region Scenes
+
+        [ListDrawerSettings (
+            Expanded = true,
+            IsReadOnly = true,
+            HideAddButton = true,
+            HideRemoveButton = true,
+            ShowPaging = false)]
+        [Space]
+        [PropertyOrder (int.MaxValue)]
+        [SerializeField]
+        SceneAsset[] scenes;
 
         #endregion
 

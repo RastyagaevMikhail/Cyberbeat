@@ -11,6 +11,7 @@ namespace GameCore
         [SerializeField] TransformReference parent;
         public void Pop (string key)
         {           
+            if(key.IsNullOrEmpty()) return;
             pool.Pop (key, parent.ValueFast);
         }
     }

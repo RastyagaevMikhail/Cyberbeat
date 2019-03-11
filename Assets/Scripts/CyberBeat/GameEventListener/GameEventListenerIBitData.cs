@@ -30,8 +30,5 @@ namespace CyberBeat
         {
             Event.UnRegisterListener (this);
         }
-
-        [Serializable]
-        public class UnityEventIBitData : UnityEvent<IBitData> { }
     }
 }

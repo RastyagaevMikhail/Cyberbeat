@@ -26,15 +26,15 @@ namespace CyberBeat
             return matSwitch.ChechColor (color);
         }
 
-        public void OnContactWithColorInterractor (ColorInterractor.Info info)
+        public void OnContactWithColorInterractor (Color color, bool isSwitcher)
         {
-            if (info.isSwitcher)
+            if (isSwitcher)
             {
-                SetColor (info.color);
+                SetColor (color);
                 return;
             }
 
-            if (ChechColor (info.color)) return;
+            if (ChechColor (color)) return;
             Death ();
         }
 

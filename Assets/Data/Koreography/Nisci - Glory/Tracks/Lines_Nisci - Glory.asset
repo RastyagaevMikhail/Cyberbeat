@@ -13,8 +13,15 @@ MonoBehaviour:
   m_Name: Lines_Nisci - Glory
   m_EditorClassIdentifier: 
   mEventID: Lines
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 0
+    mEndSample: 0
+  - mStartSample: 1830353
+    mEndSample: 1830353
+  - mStartSample: 3147768
+    mEndSample: 3147768
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +34,8 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: OneLine
+  - mTextVal: ThreeLines
+  - mTextVal: OneLine
+  _TextPayloadIdxs: 000000000100000002000000

@@ -17582,8 +17582,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7615140863257306412}
   - component: {fileID: 1039725380540130384}
-  - component: {fileID: 5422913138095254020}
   - component: {fileID: 5266415678825468223}
+  - component: {fileID: 3937401962918331557}
   m_Layer: 0
   m_Name: E.P.O - Infinity
   m_TagString: Untagged
@@ -17696,35 +17696,6 @@ MonoBehaviour:
   - {fileID: 2888932909991815095}
   - {fileID: 2888932909008515438}
   - {fileID: 2888932908863337005}
---- !u!114 &5422913138095254020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5343084543038094616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}
-        m_MethodName: set_ValueFast
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1039725380540130384}
-          m_ObjectArgumentAssemblyTypeName: FluffyUnderware.Curvy.CurvySpline, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!114 &5266415678825468223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17738,3 +17709,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 500
+--- !u!114 &3937401962918331557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5343084543038094616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3719798228b5f243a548b0487f08c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}

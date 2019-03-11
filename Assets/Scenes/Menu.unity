@@ -1057,6 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: 739dc95607d2cdf40b9f521ad96d057c, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:
@@ -6707,6 +6708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: 8330f2e89d7f1474abb8fcf5427fdbab, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:
@@ -15030,6 +15032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: db3b2e6d23c2e454990224369b07e48d, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:
@@ -15833,6 +15836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c247a578c5cdf5d489402d2e09a9e46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enums: {fileID: 11400000, guid: 92d0f060f9abbbf41aecd5a26184e479, type: 2}
   Music: {fileID: 646209994}
   Sound: {fileID: 2008599040}
   VibrationControl: {fileID: 2048925366}
@@ -16567,6 +16571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: d36573d1d141975428266e96cae73834, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:
@@ -26941,6 +26946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 0}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:
@@ -27438,7 +27444,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

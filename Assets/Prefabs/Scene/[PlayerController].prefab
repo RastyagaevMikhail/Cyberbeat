@@ -44,9 +44,10 @@ GameObject:
   - component: {fileID: 635455003}
   - component: {fileID: 7892282252818706616}
   - component: {fileID: 635455004}
-  - component: {fileID: 498332570405513638}
   - component: {fileID: 287179618}
   - component: {fileID: 8912963328117323763}
+  - component: {fileID: 8792365600961371109}
+  - component: {fileID: 627115239}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -179,36 +180,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &498332570405513638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635455000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 248faaa630ff84e4cbdc6411b1ed1437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 1ae2e10a6b378c64497a57f56beb20a2, type: 2}
-  Responce:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 635455004}
-        m_MethodName: OnContactWithColorInterractor
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: CyberBeat.UnityEventColorInterractorInfo, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!114 &287179618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +206,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variable: {fileID: 11400000, guid: 5fdb25b6cc61ba94da31e8180c72f397, type: 2}
+--- !u!114 &8792365600961371109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635455000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c78cda6e13ffb44b9b86dd8fb67cc2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: b724f840129b77e4485161cb7b92e253, type: 2}
+  Responce:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 635455004}
+        m_MethodName: OnContactWithColorInterractor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CyberBeat.UnityEventColorBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  debug: 0
+--- !u!114 &627115239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635455000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448864d5f212226459a1a2f47e088f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: ca8ac9c13c88e604584721a297ebc9e0, type: 2}
 --- !u!1 &750490913
 GameObject:
   m_ObjectHideFlags: 0
@@ -9770,7 +9784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1439889553
 Transform:
   m_ObjectHideFlags: 0
@@ -10069,18 +10083,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282119235109045992}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 1167efb2f9bd1654898b8df786466450, type: 2}
+  Event: {fileID: 11400000, guid: 8b2e066cfa602184baeb425f984063ff, type: 2}
   Responce:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2978165876372003921}
-        m_MethodName: set_enabled
+        m_MethodName: set_emitting
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 750490916}
+        m_MethodName: Pause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10109,8 +10134,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2978165876372003921}
-        m_MethodName: set_enabled
+        m_MethodName: set_emitting
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 750490916}
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10226,7 +10262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8020889173580211566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10397,11 +10433,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 3023614580428256309}
@@ -10638,13 +10674,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5924392697064619057}
+  - component: {fileID: 6004122128687205393}
   - component: {fileID: 5924392697064619070}
+  - component: {fileID: 6618455038699877967}
   - component: {fileID: 1121682823}
   - component: {fileID: 1531226082}
   - component: {fileID: 5924392697064619072}
-  - component: {fileID: 6004122128687205393}
-  - component: {fileID: 6618455038699877967}
-  - component: {fileID: 8010198159545383736}
+  - component: {fileID: 8234774509006318875}
+  - component: {fileID: 8622125100511654755}
   m_Layer: 0
   m_Name: '[PlayerController]'
   m_TagString: Untagged
@@ -10672,6 +10709,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6004122128687205393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924392697064619071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924fe7544bc25674481a436c3d31e1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: 560e5d0a445aef64b9eb32c094778102, type: 2}
 --- !u!114 &5924392697064619070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10781,6 +10831,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: FluffyUnderware.Curvy.CurvySplineMoveEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &6618455038699877967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924392697064619071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620f1285b0a64d14e8dfdd2b95b0f0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: f67eedcdb9b1bed48bc0764cb417d841, type: 2}
 --- !u!114 &1121682823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10855,7 +10918,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   debug: 0
---- !u!114 &6004122128687205393
+--- !u!114 &8234774509006318875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10864,11 +10927,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 5924392697064619071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 924fe7544bc25674481a436c3d31e1c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d8ba6ecef371e94c9737d504c39f151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variable: {fileID: 11400000, guid: 560e5d0a445aef64b9eb32c094778102, type: 2}
---- !u!114 &6618455038699877967
+  condition: {fileID: 11400000, guid: 92eb07f7deec7d9478e1272b2c2043c7, type: 2}
+  doConditonOnEnable: 1
+  onTrue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5924392697064619070}
+        m_MethodName: SetSpeed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 0b6924a7092a05d4998f60eb08625dab,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: GameCore.FloatVariable, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onFalse:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onCondition:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onInverseCondition:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  debug: 0
+--- !u!114 &8622125100511654755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10877,23 +10974,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5924392697064619071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 620f1285b0a64d14e8dfdd2b95b0f0ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variable: {fileID: 11400000, guid: f67eedcdb9b1bed48bc0764cb417d841, type: 2}
---- !u!114 &8010198159545383736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5924392697064619071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4b0acb421233a459ccb405d4cc1917, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnAwake:
+  Event: {fileID: 11400000, guid: 8572da4e81c8e3f4eb68c3e0303a3341, type: 2}
+  Responce:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5924392697064619070}
@@ -11011,11 +11096,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6238378244876343892, guid: 961e754a47ffbc149b4c99951b90e5ce,
-        type: 3}
-      propertyPath: onEnable.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 5805550923720232560}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 961e754a47ffbc149b4c99951b90e5ce, type: 3}
 --- !u!4 &4882609161385807439 stripped
@@ -11024,15 +11104,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5843122789849118483}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5805550923720232560 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 110202909303191907, guid: 961e754a47ffbc149b4c99951b90e5ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 5843122789849118483}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0727699a6916c54a8f8a19ac2e6cd84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

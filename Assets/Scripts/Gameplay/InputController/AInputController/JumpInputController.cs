@@ -13,8 +13,9 @@ namespace CyberBeat
 	[CreateAssetMenu (fileName = "CenterInputController", menuName = "CyberBeat/InputController/Jump")]
 	public class JumpInputController : AInputController
 	{
-		[SerializeField] UnityEvent jumpCompleted;
+		[SerializeField] UnityEvent jumpStarted;
 		[SerializeField] UnityEvent targetInUp;
+		[SerializeField] UnityEvent jumpCompleted;
 		JumpInputSettings mySettings => (JumpInputSettings) settings;
 		Vector3[] jumpPathUp;
 		Vector3[] jumpPathDown;
@@ -28,7 +29,7 @@ namespace CyberBeat
 		public void Jump ()
 		{
 			if (!Target || (Target && DOTween.IsTweening (Target))) return;
-
+			jumpStarted.Invoke ();
 			var TweenUp = Target.DOLocalPath (jumpPathUp, mySettings.jumpUpTime).SetEase (mySettings.easeJumpUp).OnComplete (targetInUp.Invoke);
 			var TweenDown = Target.DOLocalPath (jumpPathDown, mySettings.jumpDownTime).SetEase (mySettings.easeJumpDown)
 				.SetDelay (TweenUp.Duration () + mySettings.jumpHoldTime)

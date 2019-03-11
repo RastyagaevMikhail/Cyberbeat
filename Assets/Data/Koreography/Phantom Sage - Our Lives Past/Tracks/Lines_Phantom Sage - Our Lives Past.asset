@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Lines_Phantom Sage - Our Lives Past
   m_EditorClassIdentifier: 
   mEventID: Lines
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 41580
+    mEndSample: 41580
+  - mStartSample: 1024968
+    mEndSample: 1024968
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +32,7 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: OneLine
+  - mTextVal: ThreeLines
+  _TextPayloadIdxs: 0000000001000000

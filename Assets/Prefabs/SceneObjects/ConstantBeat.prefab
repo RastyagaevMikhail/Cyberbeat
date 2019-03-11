@@ -39,6 +39,7 @@ Transform:
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 8164367520211904783}
+  - {fileID: 446473377622226017}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -330,13 +331,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563172d5ba588164bbbea2064ad903fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentInfo:
-    isSwitcher: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
-  OnDeathASColorInterractorInfo:
+  isSwitcher: 0
+  OnDeathWithColorIsSwitcher:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 1ae2e10a6b378c64497a57f56beb20a2, type: 2}
+      - m_Target: {fileID: 11400000, guid: b724f840129b77e4485161cb7b92e253, type: 2}
         m_MethodName: Raise
         m_Mode: 0
         m_Arguments:
@@ -347,8 +346,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: CyberBeat.UnityEventColorInterractorInfo, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: CyberBeat.UnityEventColorBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   OnDeathAsColor:
     m_PersistentCalls:
       m_Calls:
@@ -381,6 +380,22 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  OnDeathAsString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1731036394431421189}
+        m_MethodName: Pop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -408,6 +423,54 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &2938489384013379595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446473377622226017}
+  - component: {fileID: 1731036394431421189}
+  m_Layer: 0
+  m_Name: ParticlesPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446473377622226017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938489384013379595}
+  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4241237560192338}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1731036394431421189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938489384013379595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0358ffcdd9312f44cb2ab84f2cb36abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: {fileID: 11400000, guid: ebca434c44cfe784dab371ac64dca0f1, type: 2}
+  parent:
+    UseConstant: 0
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 0}
 --- !u!1 &5581092152519517763
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: f687b80e4b2d7e84492612b7963fe9f3, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls: []

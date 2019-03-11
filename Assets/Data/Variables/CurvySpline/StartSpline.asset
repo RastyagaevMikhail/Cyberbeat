@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e262feacf4a7f254a8fdc5cc4bc9c733, type: 3}
+  m_Script: {fileID: 11500000, guid: cdcb25fa63b010648855446d470a8bd9, type: 3}
   m_Name: StartSpline
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   categoryTag: Default
+  saveData: {fileID: 0}
+  isSavable: 0
   _value: {fileID: 0}
   DefaultValue: {fileID: 0}
   ResetByDefault: 0

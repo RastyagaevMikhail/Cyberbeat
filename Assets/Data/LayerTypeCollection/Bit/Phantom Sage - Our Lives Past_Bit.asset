@@ -15,13 +15,13 @@ MonoBehaviour:
   bits:
   - payloadData:
       strings:
-      - 8
+      - 1
     startTime: 0
     endTime: 0
     duration: 0
   - payloadData:
       strings:
-      - 8
+      - 1/F
     startTime: 1.9062132
     endTime: 1.9062132
     duration: 0
@@ -129,8 +129,7 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 8
     startTime: 21.686213
     endTime: 21.686213
     duration: 0
@@ -381,19 +380,21 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 1/U
+      - 6/R
+      - 7/L
     startTime: 44.942856
     endTime: 44.942856
     duration: 0
   - payloadData:
       strings:
-      - 1/S
+      - 1/F
     startTime: 45.648254
     endTime: 45.648254
     duration: 0
   - payloadData:
       strings:
-      - 1/F
+      - 6/R
+      - 7/L
     startTime: 46.360634
     endTime: 46.360634
     duration: 0
@@ -406,15 +407,15 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 6/R
+      - 7/L
     startTime: 47.79238
     endTime: 47.79238
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 6/R
+      - 7/L
     startTime: 48.50476
     endTime: 48.50476
     duration: 0
@@ -434,15 +435,15 @@ MonoBehaviour:
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 6/R
+      - 7/L
     startTime: 50.610477
     endTime: 50.610477
     duration: 0
   - payloadData:
       strings:
-      - 4/R
-      - 5/L
+      - 6/R
+      - 7/L
     startTime: 51.284443
     endTime: 51.284443
     duration: 0

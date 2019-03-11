@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace CyberBeat
 {
-    public abstract class BitTimeItem<TBitData> : ATimeUpdateable<ABitDataCollectionVariable, ABitDataCollection, GameEventListenerIBitData.UnityEventIBitData, IBitData> where TBitData : IBitData
+    public abstract class BitTimeItem<TBitData> : ATimeUpdateable<ABitDataCollectionVariable, ABitDataCollection, UnityEventIBitData, IBitData> where TBitData : IBitData
     {
         List<IBitData> Bits { get { return Variable.ValueFast.Bits; } }
         private IEnumerable<ITimeItem> timeItems = null;

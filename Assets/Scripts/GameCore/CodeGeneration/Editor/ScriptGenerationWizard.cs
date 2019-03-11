@@ -17,7 +17,7 @@ namespace GameCore.CodeGeneration
         [SerializeField] ScriptGenerator scriptGenerator;
         [SerializeField] KeyValuePairStringType[] KeysValues;
 
-        [MenuItem ("Game/Generation/Script")]
+        [MenuItem ("Game/Generation/Script", priority = 0)]
         static void CreateWizard ()
         {
             var wizard = ScriptableWizard.DisplayWizard<ScriptGenerationWizard> ("Create Scripts", "Generate", "Get keys");

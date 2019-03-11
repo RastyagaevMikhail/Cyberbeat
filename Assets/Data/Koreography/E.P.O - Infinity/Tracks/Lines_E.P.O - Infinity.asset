@@ -13,8 +13,23 @@ MonoBehaviour:
   m_Name: Lines_E.P.O - Infinity
   m_EditorClassIdentifier: 
   mEventID: Lines
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 29160
+    mEndSample: 29160
+  - mStartSample: 522612
+    mEndSample: 522612
+  - mStartSample: 1651806
+    mEndSample: 1651806
+  - mStartSample: 2270744
+    mEndSample: 2270744
+  - mStartSample: 3911490
+    mEndSample: 3911490
+  - mStartSample: 5015814
+    mEndSample: 5015814
+  - mStartSample: 6809996
+    mEndSample: 6809996
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +42,12 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: OneLine
+  - mTextVal: ThreeLines
+  - mTextVal: OneLine
+  - mTextVal: ThreeLines
+  - mTextVal: OneLine
+  - mTextVal: ThreeLines
+  - mTextVal: OneLine
+  _TextPayloadIdxs: 00000000010000000200000003000000040000000500000006000000

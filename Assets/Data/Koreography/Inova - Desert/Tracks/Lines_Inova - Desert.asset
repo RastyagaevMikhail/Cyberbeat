@@ -13,8 +13,15 @@ MonoBehaviour:
   m_Name: Lines_Inova - Desert
   m_EditorClassIdentifier: 
   mEventID: Lines
-  mEventList: []
-  _SerializedPayloadTypes: []
+  mEventList:
+  - mStartSample: 13860
+    mEndSample: 13860
+  - mStartSample: 886984
+    mEndSample: 886984
+  - mStartSample: 1797968
+    mEndSample: 1797968
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -27,5 +34,8 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads: []
-  _TextPayloadIdxs: 
+  _TextPayloads:
+  - mTextVal: ThreeLines
+  - mTextVal: OneLine
+  - mTextVal: ThreeLines
+  _TextPayloadIdxs: 000000000100000002000000
