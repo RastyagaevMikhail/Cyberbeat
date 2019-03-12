@@ -11,6 +11,6 @@ namespace CyberBeat
     {
         [SerializeField] SkinType skinType;
         [SerializeField] SkinTypeVariable skinTypeVariable;
-        public override bool Value => skinType.Equals (skinTypeVariable.ValueFast);
+        public override bool Value => skinType.Equals (skinTypeVariable.Value);
     }
 }

@@ -12,7 +12,7 @@ namespace GameCore
         [SerializeField] bool debug;
         public void DoCondition (ValueType value)
         {
-            bool conditionResult = value.Equals (variable.ValueFast);
+            bool conditionResult = value.Equals (variable.Value);
             string log = string.Empty;
 
             if (debug)

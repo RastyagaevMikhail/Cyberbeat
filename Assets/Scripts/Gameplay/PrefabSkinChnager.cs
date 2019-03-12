@@ -15,7 +15,7 @@ namespace CyberBeat
         Transform parent => parentReference.ValueFast;
         void Start ()
         {
-            var prefab = selector[type][index.ValueFast].Prefab;
+            var prefab = selector[type][index.Value].Prefab;
 
             var instnce = Instantiate (prefab as GameObject, parent);
             instnce.transform.localPosition = Vector3.zero;

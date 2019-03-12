@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fe8237a6697ba459d25957f6c10880, type: 3}
   m_Name: Julius Dreisig - In My Head_Lines
   m_EditorClassIdentifier: 
-  bits: []
+  bits:
+  - payloadData:
+      strings:
+      - ThreeLines
+    startTime: 0
+    endTime: 0
+    duration: 0
+  - payloadData:
+      strings:
+      - OneLine
+    startTime: 17.199863
+    endTime: 17.199863
+    duration: 0
+  - payloadData:
+      strings:
+      - ThreeLines
+    startTime: 44.11102
+    endTime: 44.11102
+    duration: 0

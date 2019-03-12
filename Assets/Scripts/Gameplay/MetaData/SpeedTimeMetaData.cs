@@ -25,7 +25,7 @@ namespace CyberBeat
 
         public Vector3 Up { get { return ControlPoint.GetOrientationUpFast (0); } }
         TrackVariable trackVariable;
-        float startSpeedOnTrack { get { return trackVariable.ValueFast.StartSpeed; } }
+        float startSpeedOnTrack { get { return trackVariable.Value.StartSpeed; } }
 
         [SerializeField] float startSpeed = 0;
         public float StartSpeed

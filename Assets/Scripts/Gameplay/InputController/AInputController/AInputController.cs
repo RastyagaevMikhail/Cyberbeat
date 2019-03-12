@@ -17,7 +17,7 @@ namespace CyberBeat
 
 		[SerializeField] RigidbodyVariable targetVariable;
 		[SerializeField] protected InputSettings settings;
-		protected Rigidbody Target => targetVariable.ValueFast;
+		protected Rigidbody Target => targetVariable.Value;
 
 	}
 }

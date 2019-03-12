@@ -1407,6 +1407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: 92eb07f7deec7d9478e1272b2c2043c7, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:
@@ -1426,6 +1427,17 @@ MonoBehaviour:
   onFalse:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 11400000, guid: 62efd1f9acf538343a84b4250cbbffe0, type: 2}
+        m_MethodName: SetMeAsCurrent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Track
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 56bd49594212d08449645a1a879fd982, type: 2}
         m_MethodName: LoadScene
         m_Mode: 5
@@ -1434,7 +1446,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial
+          m_StringArgument: Track
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -1834,17 +1846,6 @@ MonoBehaviour:
   onEnable:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 3bad4eb4c624e434eaccdc90c653ae71, type: 2}
-        m_MethodName: SetValueAsNow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 690087804}
         m_MethodName: DoCondition
         m_Mode: 1
@@ -2146,6 +2147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: 99a9d6f7e70334d4b9729917664a2d13, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:

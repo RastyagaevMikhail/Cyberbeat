@@ -5,12 +5,16 @@ using Sirenix.OdinInspector;
 using System.Security.Cryptography.X509Certificates;
 
 using UnityEngine;
+using UnityEngine.Events;
+
 namespace CyberBeat
 {
 	[CreateAssetMenu (fileName = "CenterBotInutController", menuName = "CyberBeat/Bot/InputController/Center")]
 	public class CenterBotInutController : BotInputController
 	{
 		[SerializeField] MoveInputSettings inputSettings;
+		[SerializeField] UnityEvent onRigth;
+		[SerializeField] UnityEvent onLeft;
 		public override float Speed { set { } }
 		Transform _target;
 		float SqrWidth;
@@ -40,9 +44,9 @@ namespace CyberBeat
 				if (isBit)
 				{
 					if (dir.x > 0)
-						inputControllerComponent.TapRight ();
+						onRigth.Invoke ();
 					else if (dir.x < 0)
-						inputControllerComponent.TapLeft ();
+						onLeft.Invoke ();
 
 					if (dir.x != 0) StartMove = true;
 				}

@@ -10,7 +10,7 @@ namespace CyberBeat
 {
     public abstract class BitTimeItem<TBitData> : ATimeUpdateable<ABitDataCollectionVariable, ABitDataCollection, UnityEventIBitData, IBitData> where TBitData : IBitData
     {
-        List<IBitData> Bits { get { return Variable.ValueFast.Bits; } }
+        List<IBitData> Bits { get { return Variable.Value.Bits; } }
         private IEnumerable<ITimeItem> timeItems = null;
         public override IEnumerable<ITimeItem> TimeItems => timeItems??InitItems ();
 
@@ -38,6 +38,12 @@ namespace CyberBeat
             set => currentBit = value as IBitData;
         }
         IBitData currentBit;
+        [SerializeField] UnityEventIBitData onStart;
+        public override void Start ()
+        {
+            base.Start ();
+            onStart.Invoke (currentBit);
+        }
         public override void UpdateInTime (float time)
         {
             if (TimesIsOver) return;

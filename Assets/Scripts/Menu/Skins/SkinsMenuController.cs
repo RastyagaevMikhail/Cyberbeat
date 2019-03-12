@@ -29,8 +29,8 @@ namespace CyberBeat
         SkinItem skin => skinsSelector[currentSkinType][highlightedSkinIndex];
         int selectedSkinIndex
         {
-            get { return skinIndexsSelector[currentSkinType].ValueFast; }
-            set { skinIndexsSelector[currentSkinType].ValueFast = value; }
+            get { return skinIndexsSelector[currentSkinType].Value; }
+            set { skinIndexsSelector[currentSkinType].Value = value; }
         }
 
         bool currentHighlightedIsSelected { get { return highlightedSkinIndex == selectedSkinIndex; } }

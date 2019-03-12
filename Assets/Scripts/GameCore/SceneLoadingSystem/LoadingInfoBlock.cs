@@ -13,7 +13,7 @@ namespace CyberBeat
         [SerializeField] GameObject[] blocks;
         private void Awake ()
         {
-            if (TutorialComplited.ValueFast)
+            if (TutorialComplited.Value)
                 blocks.GetRandom ().SetActive (true);
             else
                 blocks[0].SetActive (true);

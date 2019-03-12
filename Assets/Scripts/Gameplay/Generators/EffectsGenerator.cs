@@ -22,7 +22,7 @@ namespace CyberBeat
         [SerializeField] bool fixedDistance = true;
         [ShowIf ("fixedDistance")]
         [SerializeField] float aheadDistance = 45f;
-        CurvySpline spline => splineVariable.ValueFast;
+        CurvySpline spline => splineVariable.Value;
         public Color color { get; set; }
         public void OnBit (IBitData bitData)
         {

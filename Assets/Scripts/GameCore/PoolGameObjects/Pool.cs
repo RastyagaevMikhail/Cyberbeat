@@ -46,7 +46,7 @@ namespace GameCore
             var Key = setting.Key;
             Transform parent = null;
             if (setting.Parent)
-                parent = setting.Parent.ValueFast;
+                parent = setting.Parent.Value;
             else
             {
                 parent = new GameObject (Key).transform;

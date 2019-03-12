@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fe8237a6697ba459d25957f6c10880, type: 3}
   m_Name: Nisci - Glory_Lines
   m_EditorClassIdentifier: 
-  bits: []
+  bits:
+  - payloadData:
+      strings:
+      - OneLine
+    startTime: 0
+    endTime: 0
+    duration: 0
+  - payloadData:
+      strings:
+      - ThreeLines
+    startTime: 41.504604
+    endTime: 41.504604
+    duration: 0
+  - payloadData:
+      strings:
+      - OneLine
+    startTime: 71.37796
+    endTime: 71.37796
+    duration: 0

@@ -47,7 +47,6 @@ namespace GameCore
         {
             if (debug)
                 Debug.LogFormat ("PushToPool = {0}", this);
-            StopAllCoroutines ();
             pool.Push (this);
         }
         public void Pop (string key)

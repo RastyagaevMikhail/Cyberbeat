@@ -45,25 +45,25 @@ namespace GameCore
 
         public void Push (SpawnedObject spawnedObject)
         {
-            ValueFast.Push (spawnedObject);
+            Value.Push (spawnedObject);
         }
         public SpawnedObject Pop (string key, Transform parent = null)
         {
-            return ValueFast.Pop (key, parent);
+            return Value.Pop (key, parent);
         }
         public void Pop (string key)
         {
-            ValueFast.Pop (key);
+            Value.Pop (key);
         }
         public T Pop<T> (string key, Transform parent = null) where T : Component
         {
-            return ValueFast.Pop<T> (key, parent);
+            return Value.Pop<T> (key, parent);
         }
 
 #if UNITY_EDITOR
         public void AddToPool (SpawnedObject spawnedObject)
         {
-            ValueFast.AddToPool (spawnedObject);
+            Value.AddToPool (spawnedObject);
         }
 #endif
     }

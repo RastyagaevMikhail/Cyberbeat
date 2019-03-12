@@ -13,8 +13,6 @@ namespace GameCore
 
 	[Serializable] public class UnityEventFloat : UnityEvent<float> { }
 
-	[Serializable] public class UnityEventString : UnityEvent<string> { }
-
 	[Serializable] public class UnityEventTimeSpan : UnityEvent<TimeSpan> { }
 
 	[Serializable] public class UnityEventDateTime : UnityEvent<DateTime> { }

@@ -18,6 +18,11 @@ namespace GameCore
             Invoke ("IvokeDealayAction", asDeltaTime ? delay * Time.deltaTime : delay);
             if (debug) Debug.Log ($"{("OnInvoke".black())}\n{action.Log()}", this);
         }
+          public void StartInvokeDelayedAction (float timeDelay)
+        {
+            Invoke ("IvokeDealayAction", timeDelay);
+            if (debug) Debug.Log ($"{("OnInvoke".black())}\n{action.Log()}", this);
+        }
 
         [ContextMenu ("Ivoke DealayAction")]
         void IvokeDealayAction ()

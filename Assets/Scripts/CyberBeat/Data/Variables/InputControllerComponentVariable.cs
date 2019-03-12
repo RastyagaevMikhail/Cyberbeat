@@ -47,16 +47,16 @@ namespace CyberBeat
 
         public void TapRight ()
         {
-            ValueFast.TapRight ();
+            Value.TapRight ();
         } 
 
         public void TapLeft ()
         {
-            ValueFast.TapLeft ();
+            Value.TapLeft ();
         }
         public void SetControl (InputControlType controlTypeToSwitch)
         {
-            ValueFast.SetControl(controlTypeToSwitch);
+            Value.SetControl(controlTypeToSwitch);
         }
     }
 }

@@ -5,7 +5,6 @@ namespace CyberBeat
 {
 	public abstract class BotInputController : ScriptableObject
 	{
-		[SerializeField] protected InputControllerComponentVariable inputControllerComponent;
 		[SerializeField] protected MaterialSwitcherVariable matSwitch;
 		[SerializeField] protected FloatVariable startSplineSpeedVariable;
 		[SerializeField] protected float RadiusShpereCast = 1f;

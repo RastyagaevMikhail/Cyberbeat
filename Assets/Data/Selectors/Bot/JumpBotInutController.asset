@@ -12,12 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b8c15e48c8d340aa0afff4968c1a9, type: 3}
   m_Name: JumpBotInutController
   m_EditorClassIdentifier: 
-  inputControllerComponent: {fileID: 11400000, guid: 600977fbc6ada0b4288a98658130f8b1,
-    type: 2}
   matSwitch: {fileID: 11400000, guid: 4069d2c83674cdf4d928a7b1e547ec71, type: 2}
   startSplineSpeedVariable: {fileID: 11400000, guid: 0b6924a7092a05d4998f60eb08625dab,
     type: 2}
   RadiusShpereCast: 1
   bitAll: 0
   nearBeats: {fileID: 11400000, guid: d4cad0ecad934d34389ca0e17b1fa5f7, type: 2}
+  StartMove: 0
   inputSettings: {fileID: 11400000, guid: e83ad74713802bb48aa2a9994483939e, type: 2}
+  onJump:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8717eb066406ab141b28175d6c03dd68, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

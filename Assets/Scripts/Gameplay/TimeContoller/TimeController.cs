@@ -15,7 +15,7 @@ namespace CyberBeat
         [SerializeField] UnityEventFloat OnUpdate;
         public bool StartCountTime { get; set; }
 
-        void Awake ()
+        void Start ()
         {
             OnAwake.Invoke ();
         }

@@ -10,8 +10,8 @@ namespace GameCore
 	{
 		private void OnEnable ()
 		{
-			if (ValueFast == default (Color))
-				ValueFast = DefaultValue = Color.white;
+			if (Value == default (Color))
+				Value = DefaultValue = Color.white;
 		}
 		public override void ResetDefault ()
 		{

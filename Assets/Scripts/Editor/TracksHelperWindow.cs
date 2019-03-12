@@ -28,12 +28,15 @@ namespace CyberBeat
 
         [SerializeField] TrackHelper data;
         [SerializeField] LayerTypeABitDataCollectionVariableSelector collctionsSelector;
-        Enums enums => data.Enums;
+        [SerializeField] Enums enums;
         void Init ()
         {
             data = Resources.Load<TrackHelper> ("Data/TrackHelper");
             tracks = Resources.LoadAll<Track> ("Data/Tracks");
-            scenes = Tools.GetAtPath<SceneAsset>("Assets/Scenes");
+            scenes = Tools.GetAtPath<SceneAsset> ("Assets/Scenes");
+            playerUpdateables = Tools.GetAtPath<ATimeUpdateable> ("Assets/Data/ATimeUpdatable/TrackBitItemData/Player");
+            generatorUpdateables = Tools.GetAtPath<ATimeUpdateable> ("Assets/Data/ATimeUpdatable/TrackBitItemData/Generator");
+            enums = data.Enums;
 
             collctionsSelector =
             Tools.GetAssetAtPath<LayerTypeABitDataCollectionVariableSelector>
@@ -49,6 +52,7 @@ namespace CyberBeat
         {
             enums.Validate ();
             collctionsSelector.Validate (enums);
+            collctionsSelector.Save ();
             Selection.activeObject = enums;
         }
 
@@ -203,8 +207,12 @@ namespace CyberBeat
             ShowPaging = false)]
         [Space]
         [PropertyOrder (int.MaxValue)]
+        // [InlineButton("SetCurrenttrack","Set Current")]
         [SerializeField]
         Track[] tracks;
+        // public void SetCurrenttrack(Track[] track,int index) {
+        //     // track.SetMeAsCurrent();
+        // }
 
         #endregion
         #region Scenes
@@ -219,6 +227,32 @@ namespace CyberBeat
         [PropertyOrder (int.MaxValue)]
         [SerializeField]
         SceneAsset[] scenes;
+
+        #endregion
+        #region Updateables
+
+        [HorizontalGroup ("updatables")]
+        [ListDrawerSettings (
+            Expanded = true,
+            IsReadOnly = true,
+            HideAddButton = true,
+            HideRemoveButton = true,
+            ShowPaging = false)]
+        [Space]
+        [PropertyOrder (int.MaxValue)]
+        [SerializeField]
+        ATimeUpdateable[] playerUpdateables;
+        [HorizontalGroup ("updatables")]
+        [ListDrawerSettings (
+            Expanded = true,
+            IsReadOnly = true,
+            HideAddButton = true,
+            HideRemoveButton = true,
+            ShowPaging = false)]
+        [Space]
+        [PropertyOrder (int.MaxValue)]
+        [SerializeField]
+        ATimeUpdateable[] generatorUpdateables;
 
         #endregion
 

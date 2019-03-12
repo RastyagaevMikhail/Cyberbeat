@@ -13,9 +13,7 @@ namespace GameCore
         private void Awake ()
         {
             OnAwake.Invoke ();
-            {              
-                if (debug) Debug.Log ($"{("OnAwake").a()} {name.mb()}\n{OnAwake.Log()}", this);
-            }
+            if (debug) Debug.Log ($"{("OnAwake").a()} {name.mb()}\n{OnAwake.Log()}", this);
         }
     }
 }

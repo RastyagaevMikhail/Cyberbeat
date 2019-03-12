@@ -112,7 +112,7 @@ namespace CyberBeat
             {
                 int ID = SoundManager.PlaySound (clip);
                 myAuido = SoundManager.GetAudio (ID);
-                myAuido.audioSource.time = music.StartPreviewSecond;
+                myAuido.audioSource.time = music.StartPreviewSecond.GetAsClamped (0, myAuido.audioSource.clip.length);
                 Invoke ("PauseMusic", clip.length);
             }
             playing = true;

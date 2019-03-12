@@ -63,8 +63,8 @@ namespace GameCore
             text = string.Format (stringFormat, obj);
         }
 
-#if UNITY_EDITOR
         [SerializeField] bool updateInEditor;
+#if UNITY_EDITOR
         private void Update ()
         {
             if (!Application.isPlaying && updateInEditor)

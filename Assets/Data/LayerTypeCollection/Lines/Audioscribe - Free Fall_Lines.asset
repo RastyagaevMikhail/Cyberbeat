@@ -12,4 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fe8237a6697ba459d25957f6c10880, type: 3}
   m_Name: Audioscribe - Free Fall_Lines
   m_EditorClassIdentifier: 
-  bits: []
+  bits:
+  - payloadData:
+      strings:
+      - OneLine
+    startTime: 0
+    endTime: 0
+    duration: 0
+  - payloadData:
+      strings:
+      - ThreeLines
+    startTime: 42.530296
+    endTime: 42.530296
+    duration: 0
+  - payloadData:
+      strings:
+      - OneLine
+    startTime: 64.30286
+    endTime: 64.30286
+    duration: 0
+  - payloadData:
+      strings:
+      - ThreeLines
+    startTime: 86.1556
+    endTime: 86.1556
+    duration: 0

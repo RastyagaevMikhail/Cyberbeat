@@ -15,7 +15,7 @@ namespace CyberBeat
         [SerializeField] IntVariable max;
         public float Max => max.Value;
 
-        public new IntVariable[] pregressVariables => new IntVariable[] { best, max };
+        public IntVariable[] progressVariables => new IntVariable[] { best, max };
         [SerializeField] FloatVariable percent;
         public float Percent { get { return percent.Value; } private set { percent.Value = (int) value; } }
 
@@ -37,7 +37,7 @@ namespace CyberBeat
             // Debug.Log (best, best);
 
             this.max = ValidateVariable<IntVariable> ($"Assets/Data/Tracks/ProgressInfo/{nameTrack}/Max_{nameTrack}.asset");
-            this.max.ValueFast = max;
+            this.max.Value = max;
             this.max.Save ();
             percent = ValidateVariable<FloatVariable> ($"Assets/Data/Tracks/ProgressInfo/{nameTrack}/Percent_{nameTrack}.asset", true);
         }

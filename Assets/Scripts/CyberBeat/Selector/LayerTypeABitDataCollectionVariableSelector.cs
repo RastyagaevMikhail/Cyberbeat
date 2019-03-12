@@ -46,6 +46,7 @@ namespace CyberBeat
                 data = Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layer.name}Collection.asset")
                 });
             }
+            this.Save();
         }
 #endif    
     }

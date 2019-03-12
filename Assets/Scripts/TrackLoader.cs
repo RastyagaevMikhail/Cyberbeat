@@ -18,17 +18,17 @@ namespace CyberBeat
 
         public void LoadCurrentTrackSpline ()
         {
-            Instantiate (trackVariable.ValueFast.prefab);
+            Instantiate (trackVariable.Value.prefab);
         }
 
         public void LoadStartSpeedToVariable ()
         {
-            SpeedSplineVariable.ValueFast = trackVariable.ValueFast.StartSpeed;
+            SpeedSplineVariable.Value = trackVariable.Value.StartSpeed;
         }
 
         public void LoadAudioClip ()
         {
-            audioSource.clip = trackVariable.ValueFast.music.clip;
+            audioSource.clip = trackVariable.Value.music.clip;
         }
 
         public void OnResumeTrack ()

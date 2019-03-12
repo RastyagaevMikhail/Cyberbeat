@@ -13,7 +13,7 @@ namespace CyberBeat
 
         public void OnBit (IBitData bitData)
         {
-            float timeSlowStop = CurrentTrack.ValueFast.music.clip.length - bitData.StartTime;
+            float timeSlowStop = CurrentTrack.Value.music.clip.length - bitData.StartTime;
             OnTrackEnd.Invoke (timeSlowStop);
         }
 

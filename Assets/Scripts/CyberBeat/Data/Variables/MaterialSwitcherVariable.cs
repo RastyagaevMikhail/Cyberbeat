@@ -10,7 +10,7 @@ namespace CyberBeat
         menuName = "Variables/CyberBeat/MaterialSwitcher")]
     public class MaterialSwitcherVariable : SavableVariable<MaterialSwitcher>
     {
-        public Color CurrentColor { get => ValueFast.CurrentColor; set => ValueFast.CurrentColor = value; }
+        public Color CurrentColor { get => Value.CurrentColor; set => Value.CurrentColor = value; }
 
         public override void ResetDefault ()
         {
@@ -22,7 +22,7 @@ namespace CyberBeat
         }
         public void SetColor (ColorVariable colorVariable)
         {
-                CurrentColor = colorVariable.ValueFast;
+                CurrentColor = colorVariable.Value;
         }
         public void SetValue (MaterialSwitcher value)
         {
@@ -31,7 +31,7 @@ namespace CyberBeat
 
         public bool ChechColor (Color color)
         {
-            return ValueFast.ChechColor (color);
+            return Value.ChechColor (color);
         }
 
         public void SetValue (MaterialSwitcherVariable value)

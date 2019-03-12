@@ -47,6 +47,9 @@ namespace GameCore
 			var str = PlayerPrefs.GetString (name, strDeafultValue);
 			DateTime.TryParse (str, out _value);
 		}
+
+		[Button]
+		[ContextMenu ("Set as Now")]
 		public void SetValueAsNow ()
 		{
 			Value = DateTime.Now;

@@ -60,6 +60,9 @@ namespace GameCore
 			catch (System.Exception)
 			{
 				Debug.Log (this, this);
+				#if UNITY_EDITOR
+					Debug.Log(UnityEditor.AssetDatabase.GetAssetPath(this));
+				#endif
 				throw;
 			}
 		}
@@ -103,7 +106,7 @@ namespace GameCore
 		}
 		public override string ToString ()
 		{
-			return base.ToString () + $" {Value}";
+			return base.ToString () + $" {Value}" + $"{name}";
 		}
 #if UNITY_EDITOR
 		[ShowInInspector] string savedValue => PlayerPrefs.GetInt (name, 0).ToString ();

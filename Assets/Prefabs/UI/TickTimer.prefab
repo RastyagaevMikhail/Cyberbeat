@@ -276,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   variable: {fileID: 11400000, guid: 7229246ae72b97342bed688f708f5e44, type: 2}
   stringFormat: '{0}'
+  updateInEditor: 0
 --- !u!95 &5679315910118489250
 Animator:
   serializedVersion: 3
@@ -310,6 +311,7 @@ MonoBehaviour:
   names:
   - hash: -1841531329
     name: Show
+  debug: 0
 --- !u!114 &5679315910118489261
 MonoBehaviour:
   m_ObjectHideFlags: 0

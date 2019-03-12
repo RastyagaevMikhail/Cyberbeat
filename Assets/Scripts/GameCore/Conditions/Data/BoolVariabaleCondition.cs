@@ -10,7 +10,7 @@ namespace GameCore
         {
             get
             {
-                return variable.ValueFast;
+                return variable.Value;
             }
         }
     }

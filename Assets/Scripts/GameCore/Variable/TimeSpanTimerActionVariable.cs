@@ -28,7 +28,7 @@ namespace  GameCore
 
         public void StartTimer()
         {
-            ValueFast.StartTimer();
+            Value.StartTimer();
         }
         
 
@@ -39,7 +39,7 @@ namespace  GameCore
 
         public void ResetToDefault()
         {
-            ValueFast.ResetToDefault();
+            Value.ResetToDefault();
         }
 
         public override void LoadValue ()

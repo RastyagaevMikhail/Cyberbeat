@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf4c5a197872304495315c18ebbca9e, type: 3}
   m_Name: CenterBotInutController
   m_EditorClassIdentifier: 
-  inputControllerComponent: {fileID: 11400000, guid: 600977fbc6ada0b4288a98658130f8b1,
-    type: 2}
   matSwitch: {fileID: 11400000, guid: 4069d2c83674cdf4d928a7b1e547ec71, type: 2}
   startSplineSpeedVariable: {fileID: 11400000, guid: 0b6924a7092a05d4998f60eb08625dab,
     type: 2}
@@ -22,8 +20,35 @@ MonoBehaviour:
   nearBeats: {fileID: 11400000, guid: d4cad0ecad934d34389ca0e17b1fa5f7, type: 2}
   StartMove: 0
   inputSettings: {fileID: 11400000, guid: 6eaacab199f485841914258ffc50c11e, type: 2}
-  collideBricksOffset: 12.1
-  playerVariable: {fileID: 11400000, guid: ca8ac9c13c88e604584721a297ebc9e0, type: 2}
-  minRangeDistance: 0
-  maxRangeDistance: 3.5
-  X: 8.75
+  onRigth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 1fb0d97afa0d294428ba2a9286964977, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeft:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: df6845d66baa15e47bc9e90dcf408551, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

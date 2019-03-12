@@ -72,6 +72,7 @@ MonoBehaviour:
     name: 1
   - hash: 450215437
     name: 2
+  debug: 0
 --- !u!114 &8370277139189113938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +89,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: b4902b23350b1b4418b2285dce10f467, type: 2}
-        m_MethodName: set_ValueFast
+        m_MethodName: set_Value
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 3191822355842052046}
@@ -115,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 895538729}
   animator: {fileID: 3191822355842052046}
-  animationClipTime: 2
+  animationClipTime: 0.5
 --- !u!1 &895538727
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +220,11 @@ MonoBehaviour:
   newMaterialOnAwake: 0
   DefaultColorNameVariable: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd,
     type: 2}
+  OnColorChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &1280841165423433833
 MonoBehaviour:
   m_ObjectHideFlags: 0

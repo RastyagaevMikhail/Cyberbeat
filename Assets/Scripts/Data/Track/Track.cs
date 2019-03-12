@@ -104,6 +104,7 @@ namespace CyberBeat
 		public ShopInfo shopInfo;
 		[InlineButton ("ValidateProgressInfo", "Validate")]
 		public ProgressInfo progressInfo;
+		public float tutorialTime;
 		[InlineButton ("ValidatePrefab", "Validate")]
 		public GameObject prefab;
 		public TrackDifficulty difficulty;

@@ -64,7 +64,7 @@ namespace CyberBeat
 
 		public bool CheckAsCurrent (Track track)
 		{
-			return currentTrack.ValueFast == track;
+			return currentTrack.Value == track;
 		}
 
 		public void SetAsCurrent (Track track)

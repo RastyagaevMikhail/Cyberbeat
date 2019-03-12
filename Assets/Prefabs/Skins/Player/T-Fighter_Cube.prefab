@@ -422,7 +422,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: b4902b23350b1b4418b2285dce10f467, type: 2}
-        m_MethodName: set_ValueFast
+        m_MethodName: set_Value
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 4000335963165696536}
@@ -449,4 +449,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 118524453}
   animator: {fileID: 4000335963165696536}
-  animationClipTime: 2
+  animationClipTime: 0.5

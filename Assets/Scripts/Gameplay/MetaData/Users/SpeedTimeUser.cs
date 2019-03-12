@@ -13,7 +13,7 @@ namespace CyberBeat
     public class SpeedTimeUser : MetaDataUser<SpeedTimeMetaData, SpeedTimeData>
     {
         [SerializeField] SplineControllerVariable splineControllerVariable;
-        public SplineController splineController => splineControllerVariable.ValueFast;
+        public SplineController splineController => splineControllerVariable.Value;
 
         [SerializeField] UnityEventFloat OnSpeedUpdated;
         private float lastSpeed;

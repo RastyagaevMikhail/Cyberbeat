@@ -1,5 +1,7 @@
 ﻿using GameCore;
 
+using Sirenix.OdinInspector;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,33 +13,24 @@ namespace CyberBeat
     public class AnimationEventPlayer : MonoBehaviour
     {
         [SerializeField] StringUnityEventSelector selector;
-        [SerializeField] string regexExpretions = string.Empty;
-        Dictionary<float, string> animationTimeSlector = new Dictionary<float, string> ();
-
-        public void OnBitGenerator (IBitData bitData)
+        Queue<string> presetsQueue = new Queue<string> ();
+        [SerializeField] bool debug;
+        public void OnBitGeneratorPresetChosed (string choosedPresetName)
         {
-            string key = "";
-            if (regexExpretions != string.Empty)
-                key = Regex.Match (bitData.StringValue, regexExpretions).Value;
-            else
-                key = bitData.StringValue;
-
-            if (selector.ContainsKey (key))
-                animationTimeSlector.Add (bitData.StartTime, key);
+            if (debug) Debug.Log (choosedPresetName, this);
+            presetsQueue.Enqueue (choosedPresetName);
         }
 
         public void OnBitPlayer (IBitData bitData)
         {
-            float startTime = bitData.StartTime;
+            if (debug)
+                Debug.Log (presetsQueue.Log (), this);
+            if (presetsQueue.Count == 0) return;
+            string key = presetsQueue.Dequeue ();
+            if (debug) Debug.Log (key, this);
 
-            if (animationTimeSlector.ContainsKey (startTime))
-            {
-                string key = animationTimeSlector[startTime];
+            selector[key]?.Invoke ();
 
-                selector[key].Invoke();
-                
-                animationTimeSlector.Remove (startTime);
-            }
         }
     }
 }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7264867793291079667}
   - component: {fileID: 114949869099189892}
   - component: {fileID: 2506429622012862633}
+  - component: {fileID: 2751525769198834595}
   m_Layer: 0
   m_Name: Switcher
   m_TagString: Switcher
@@ -287,7 +288,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3569218816555530693}
+      - m_Target: {fileID: 2751525769198834595}
         m_MethodName: DoCondition
         m_Mode: 1
         m_Arguments:
@@ -338,6 +339,52 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: {fileID: 0}
     Variable: {fileID: 11400000, guid: 354b0ba7e9b3f8c4f8b20e03aa50a332, type: 2}
+--- !u!114 &2751525769198834595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270562587347094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8ba6ecef371e94c9737d504c39f151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  condition: {fileID: 11400000, guid: cb0b52214a7de5e40bb54b813ccc22ed, type: 2}
+  doConditonOnEnable: 0
+  onTrue:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onFalse:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onCondition:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 908938398085155327}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onInverseCondition:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  debug: 0
 --- !u!1 &908938398085155327
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +396,6 @@ GameObject:
   - component: {fileID: 2470614418166756382}
   - component: {fileID: 6243335700513286247}
   - component: {fileID: 6570197870601383448}
-  - component: {fileID: 3569218816555530693}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -416,52 +462,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3569218816555530693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908938398085155327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d8ba6ecef371e94c9737d504c39f151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  condition: {fileID: 11400000, guid: f687b80e4b2d7e84492612b7963fe9f3, type: 2}
-  doConditonOnEnable: 0
-  onTrue:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onFalse:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onCondition:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  onInverseCondition:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 908938398085155327}
-        m_MethodName: SetActive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  debug: 0
 --- !u!1 &1613238626541615873
 GameObject:
   m_ObjectHideFlags: 0

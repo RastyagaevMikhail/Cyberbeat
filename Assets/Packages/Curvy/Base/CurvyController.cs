@@ -452,7 +452,7 @@ namespace FluffyUnderware.Curvy
         }
         public void SetSpeed (FloatVariable speedVariable)
         {
-            Speed = speedVariable.ValueFast;
+            Speed = speedVariable.Value;
         }
 
         /// <summary>

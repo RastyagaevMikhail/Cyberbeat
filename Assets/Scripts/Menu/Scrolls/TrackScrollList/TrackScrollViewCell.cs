@@ -48,7 +48,7 @@ namespace CyberBeat
 			if (track.status)
 				statusImage.sprite = track.status.Sprite;
 
-			progressTextSetter.SetVariables (track.progressInfo.pregressVariables);
+			progressTextSetter.SetVariables (track.progressInfo.progressVariables);
 		}
 
 		public void SetAsCurrent ()

@@ -29,7 +29,7 @@ namespace GameCore
         }
         public void SetColor (Color color)
         {
-            ValueFast.SetColor (colorName, color);
+            Value.SetColor (colorName, color);
         }
 
         public override void SaveValue ()

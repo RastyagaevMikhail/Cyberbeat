@@ -9,6 +9,6 @@ namespace CyberBeat
 	{
 		[SerializeField] MenuWindowType windowType;
 		[SerializeField] MenuWindowTypeVariable menuWindowTypeVariable;
-		public override bool Value => windowType.Equals (menuWindowTypeVariable.ValueFast);
+		public override bool Value => windowType.Equals (menuWindowTypeVariable.Value);
 	}
 }

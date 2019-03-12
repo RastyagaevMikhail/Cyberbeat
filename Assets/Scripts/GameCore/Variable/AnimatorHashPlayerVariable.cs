@@ -21,13 +21,13 @@ namespace GameCore
 
         public void Play (string stateName)
         {
-            ValueFast.Play (stateName);
+            Value.Play (stateName);
         }
         public void Rebind ()
         {
-            ValueFast.Rebind ();
+            Value.Rebind ();
         }
-        public int AnimationsCount { get { return ValueFast.AnimationsCount; } }
+        public int AnimationsCount { get { return Value.AnimationsCount; } }
         public void SetValue (AnimatorHashPlayer value)
         {
             Value = value;
@@ -45,7 +45,7 @@ namespace GameCore
 
         public void PlayRandom()
         {
-            ValueFast.PlayRandom();
+            Value.PlayRandom();
         }
 
         public override void LoadValue ()

@@ -46,7 +46,7 @@ namespace GameCore.DoTween
         }
         public Tween DoFadeTween (float durationTime)
         {
-            return ValueFast.DoFadeTween (durationTime);
+            return Value.DoFadeTween (durationTime);
         }
         public void DoFadeIn (float durationTime)
         {
@@ -54,7 +54,7 @@ namespace GameCore.DoTween
         }
         public Tween DoFadeInTween (float durationTime)
         {
-            return ValueFast.DoFadeInTween (durationTime);
+            return Value.DoFadeInTween (durationTime);
         }
         public void DoFadeOut (float durationTime)
         {
@@ -62,7 +62,7 @@ namespace GameCore.DoTween
         }
         public Tween DoFadeOutTween (float durationTime)
         {
-            return ValueFast.DoFadeOutTween (durationTime);
+            return Value.DoFadeOutTween (durationTime);
         }
     }
 }

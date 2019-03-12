@@ -4,14 +4,14 @@ namespace GameCore
     [CreateAssetMenu (fileName = "TransformVariable", menuName = "GameCore/Variable/Transform")]
     public class TransformVariable : SavableVariable<Transform>
     {
-        public Transform parent { get { return ValueFast ? ValueFast.parent : null; } }
+        public Transform parent { get { return Value ? Value.parent : null; } }
         public void SetParentFrom (Transform transform)
         {
-            transform.SetParent (ValueFast);
+            transform.SetParent (Value);
         }
         public void SetParentAs (Transform transform)
         {
-            ValueFast.SetParent(transform);
+            Value.SetParent(transform);
         }
          public static implicit operator Transform (TransformVariable variable)
         {

@@ -16,7 +16,7 @@ namespace GameCore
 		public TVariable Variable;
 		public TValue ValueFast
 		{
-			get { return !this.UseConstant && this.Variable ? this.Variable.ValueFast : this.ConstantValue; }
+			get { return !this.UseConstant && this.Variable ? this.Variable.Value : this.ConstantValue; }
 		}
 		public TValue Value
 		{

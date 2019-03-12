@@ -18,7 +18,7 @@ namespace GameCore
 		public Color color { set { graphics.ForEach (g => g.color = value); } }
 		public void SetColor (ColorVariable variable)
 		{
-			color = variable.ValueFast;
+			color = variable.Value;
 		}
 
 	}

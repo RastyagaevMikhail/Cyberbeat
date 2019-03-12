@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb7300070e47d24dbe6c710c67d90dd, type: 3}
   m_Name: JumpInputSettings
   m_EditorClassIdentifier: 
-  jumpHeight: 2.5
-  jumpUpTime: 0.1
+  jumpHeight: 2
+  jumpUpTime: 0.05
   easeJumpUp: 15
   jumpHoldTime: 0.1
   jumpDownTime: 0.1

@@ -15,7 +15,7 @@ namespace CyberBeat
     {
         private const float width = 5f;
         [SerializeField] ColorInfoRuntimeSetRuntimeSetVariable colorsSets;
-        ColorInfoRuntimeSetRuntimeSet ColorsSets => colorsSets.ValueFast;
+        ColorInfoRuntimeSetRuntimeSet ColorsSets => colorsSets.Value;
         static RandomStack<ColorInfoRuntimeSet> ColorsSetsStack = null;
         [SerializeField] PoolVariable pool;
         [SerializeField] TracksCollection tracksCollection;
@@ -25,8 +25,9 @@ namespace CyberBeat
         List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
         [SerializeField] ColorInfoRuntimeSetVariable currentSet;
         [SerializeField] UnityEventColor onFirstColorChoosed;
+        [SerializeField] UnityEventString onPresetChoosed;
         [SerializeField] ColorInterractorRuntimeSet nearBeats;
-        ColorInfoRuntimeSet CurrentSet { get => currentSet.ValueFast; set => currentSet.ValueFast = value; }
+        ColorInfoRuntimeSet CurrentSet { get => currentSet.Value; set => currentSet.Value = value; }
         Color LastRandomColor = default (Color);
         float lastBeat = -1f;
         bool firstColorChoosed = false;
@@ -57,9 +58,7 @@ namespace CyberBeat
             else
                 lastBeat = bitTime;
 
-            string randomString = bitData.RandomString;
-
-            string randPreset = randomString.Regex (@"\d");
+			string randPreset = bitData.RandomString.Regex (@"\d");
 
             List<Material> row = null;
             try
@@ -71,6 +70,7 @@ namespace CyberBeat
                 Debug.LogFormat ("randPreset = {0}", randPreset);
                 throw;
             }
+            onPresetChoosed.Invoke(randPreset);
 
             float half_width = width / 2;
             float step = half_width / 2;
@@ -85,7 +85,7 @@ namespace CyberBeat
                 else
                     colors.Add (bitTime, new List<ColorInterractor> { colorInterractor });
 
-                colorInterractor.Init (bitTime, randomString.Regex (@"[A-Z]"));
+                colorInterractor.Init (bitTime, bitData.RandomString.Regex (@"[A-Z]"));
             }
             if (nearBeats.Count == 0)
                 foreach (var color in colors[bitTime])

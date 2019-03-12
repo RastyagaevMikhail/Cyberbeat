@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: 5c40930755d127a4ea43ee6ac793a02d, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:
@@ -436,6 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condition: {fileID: 11400000, guid: f9c44a0830466a04cacf56e3a08af928, type: 2}
+  doConditonOnEnable: 0
   onTrue:
     m_PersistentCalls:
       m_Calls:

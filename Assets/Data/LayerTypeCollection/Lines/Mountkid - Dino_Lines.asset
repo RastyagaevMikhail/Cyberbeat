@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fe8237a6697ba459d25957f6c10880, type: 3}
   m_Name: Mountkid - Dino_Lines
   m_EditorClassIdentifier: 
-  bits: []
+  bits:
+  - payloadData:
+      strings:
+      - ThreeLines
+    startTime: 0
+    endTime: 0
+    duration: 0
+  - payloadData:
+      strings:
+      - OneLine
+    startTime: 31.537233
+    endTime: 31.537233
+    duration: 0
+  - payloadData:
+      strings:
+      - ThreeLines
+    startTime: 40.83095
+    endTime: 40.83095
+    duration: 0

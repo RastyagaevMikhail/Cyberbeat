@@ -25,7 +25,7 @@ namespace CyberBeat
 
         [SerializeField] IntVariable scorePerBeat;
         [SerializeField] BoolVariable doubleCoins;
-        int countScore => scorePerBeat.ValueFast;
+        int countScore => scorePerBeat.Value;
         [SerializeField] float Duration = 0.5f;
         [SerializeField] float upDistance = 1f;
         [SerializeField] float startAlpha = 1f;
@@ -41,7 +41,7 @@ namespace CyberBeat
         {
             startLocalY = yLocal;
             path = new Vector3[] { Vector3.up * (startLocalY + upDistance) };
-            scorePerBeat.Value = doubleCoins.ValueFast ? 2 : 1;
+            scorePerBeat.Value = doubleCoins.Value ? 2 : 1;
             ResetTweens ();
         }
         public void OnColorTaked (Color color)

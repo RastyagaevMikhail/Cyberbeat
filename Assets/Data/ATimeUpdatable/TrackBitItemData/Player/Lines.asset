@@ -30,6 +30,11 @@ MonoBehaviour:
     m_TypeName: CyberBeat.UnityEventIBitData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   debug: 0
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CyberBeat.UnityEventIBitData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   TimeIsOver:
     m_PersistentCalls:
       m_Calls: []

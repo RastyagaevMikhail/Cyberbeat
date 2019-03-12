@@ -13,15 +13,12 @@ MonoBehaviour:
   m_Name: Palette_1
   m_EditorClassIdentifier: 
   items:
-  - Name: DarkBlue
-    color: {r: 0.011764706, g: 0.6627451, b: 0.95686275, a: 1}
-    Count: {fileID: 11400000, guid: ea4b6e68bc8b76a479072de7ff1d3450, type: 2}
   - Name: Yellow
     color: {r: 1, g: 0.92156863, b: 0, a: 1}
-    Count: {fileID: 11400000, guid: e3988a7a00a5160408792808ed104ef0, type: 2}
   - Name: Purple
     color: {r: 0.6901961, g: 0.4, b: 1, a: 1}
-    Count: {fileID: 11400000, guid: 42c94e5cd1cc307409407dcb298d6c82, type: 2}
+  - Name: DarkBlue
+    color: {r: 0.011764706, g: 0.6627451, b: 0.95686275, a: 1}
   onAddComplete:
     m_PersistentCalls:
       m_Calls: []

@@ -151,7 +151,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 4069d2c83674cdf4d928a7b1e547ec71, type: 2}
-        m_MethodName: set_ValueFast
+        m_MethodName: set_Value
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 5937020901968584037}
@@ -299,7 +299,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: b4902b23350b1b4418b2285dce10f467, type: 2}
-        m_MethodName: set_ValueFast
+        m_MethodName: set_Value
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 5328907761584407478}
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 5704682993739276447}
   animator: {fileID: 5328907761584407478}
-  animationClipTime: 2
+  animationClipTime: 0.5
 --- !u!1 &5704682993752878493
 GameObject:
   m_ObjectHideFlags: 0

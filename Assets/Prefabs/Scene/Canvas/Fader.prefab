@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1503903148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410154569}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 0.019385014
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -224,6 +224,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+    debug: 0
 --- !u!114 &410154570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +255,4 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+    debug: 0

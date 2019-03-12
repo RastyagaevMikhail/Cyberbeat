@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Events;
+
 namespace CyberBeat
 {
     [CreateAssetMenu (fileName = "JumpBotInutController", menuName = "CyberBeat/Bot/InputController/Jump")]
@@ -12,6 +14,7 @@ namespace CyberBeat
         public override float Speed { set => distanceRaycast = value * inputSettings.jumpUpTime; }
         private Ray forwardRay;
         [SerializeField] JumpInputSettings inputSettings;
+        [SerializeField] UnityEvent onJump;
         private float distanceRaycast;
         Transform _target;
         private float SqrHeight;
@@ -32,7 +35,8 @@ namespace CyberBeat
 
             if (Physics.SphereCast (forwardRay, RadiusShpereCast, out hit, distanceRaycast))
                 if (Checkhit (hit))
-                    inputControllerComponent.TapRight ();
+                    onJump.Invoke ();
+            // inputControllerComponent.TapRight ();
 
         }
 
@@ -55,7 +59,8 @@ namespace CyberBeat
 
             bool isBrickNotMyColor = colorInterractor.gameObject.CompareTag ("Brick") && !matSwitch.ChechColor (colorInterractor.CurrentColor);
             if (isBrickNotMyColor)
-                inputControllerComponent.TapRight ();
+                onJump.Invoke ();
+            // inputControllerComponent.TapRight ();
         }
     }
 }

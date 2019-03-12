@@ -47,7 +47,7 @@ namespace FluffyUnderware.Curvy.Controllers
         /// </summary>
         public CurvySpline Spline
         {
-            get { return m_Spline ? m_Spline : splineVariable ? splineVariable.ValueFast : null; }
+            get { return m_Spline ? m_Spline : splineVariable ? splineVariable.Value : null; }
             set
             {
                 if (m_Spline != value)

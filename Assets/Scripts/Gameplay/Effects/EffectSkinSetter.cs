@@ -82,7 +82,7 @@ namespace CyberBeat
             }
         }
 
-        private void PushToPool ()
+        public void PushToPool ()
         {
             StopAllCoroutines ();
             spawnedObject.PushToPool ();

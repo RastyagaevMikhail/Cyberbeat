@@ -29,10 +29,10 @@ namespace CyberBeat
         [SerializeField] IntVariable reward;
 
         bool doubleCoins { get { return DoubleCoins.Value; } }
-        int notesPerBeat { get { return (doubleCoins ? 2 : 1) * scorePerBeat.ValueFast; } }
+        int notesPerBeat { get { return (doubleCoins ? 2 : 1) * scorePerBeat.Value; } }
 
         [SerializeField] TrackVariable trackVariable;
-        public ProgressInfo progressInfo { get { return trackVariable.ValueFast.progressInfo; } }
+        public ProgressInfo progressInfo { get { return trackVariable.Value.progressInfo; } }
 
         public void AccumulateAttems ()
         {
@@ -68,8 +68,8 @@ namespace CyberBeat
         }
         public void Calculate ()
         {
-            reward.ValueFast = Reward;
-            doubleReward.ValueFast = DoubleReward;
+            reward.Value = Reward;
+            doubleReward.Value = DoubleReward;
 
             currentMaxScore.Value = (int) progressInfo.Max;
         }

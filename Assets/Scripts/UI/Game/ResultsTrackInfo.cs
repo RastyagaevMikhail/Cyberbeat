@@ -13,7 +13,7 @@ namespace CyberBeat
         [SerializeField] TrackVariable currentTrack;
         public void Awake()
         {
-            MusicInfo info = currentTrack.ValueFast.music;
+            MusicInfo info = currentTrack.Value.music;
             
             TrackName.text = info.TrackName;
             AuthorName.text = info.AuthorName;

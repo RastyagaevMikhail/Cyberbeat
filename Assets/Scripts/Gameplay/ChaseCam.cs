@@ -15,13 +15,13 @@ namespace CyberBeat
         public static ChaseCam instance { get { if (_instance == null) _instance = GameObject.FindObjectOfType<ChaseCam> (); return _instance; } }
 
         [SerializeField] TransformVariable lookAt;
-        public Transform LookAtTarget { get => lookAt ? lookAt.ValueFast : null; }
+        public Transform LookAtTarget { get => lookAt ? lookAt.Value : null; }
 
         [SerializeField] TransformVariable moveTo;
-        public Transform MoveTo { get => moveTo?moveTo.ValueFast : null; }
+        public Transform MoveTo { get => moveTo?moveTo.Value : null; }
 
         [SerializeField] TransformVariable rollTo;
-        public Transform RollTo { get => rollTo?rollTo.ValueFast : null; }
+        public Transform RollTo { get => rollTo?rollTo.Value : null; }
 
         [Positive]
         public float ChaseTime = 0.5f;

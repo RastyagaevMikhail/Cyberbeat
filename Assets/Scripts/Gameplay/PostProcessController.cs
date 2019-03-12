@@ -18,7 +18,7 @@ namespace CyberBeat
         public Bloom bloom { get { if (_bloom == null) _bloom = currentProfile.GetSetting<Bloom> (); return _bloom; } }
         public void OnColorChanged (Color color)
         {
-            string colorName = CurrentColorSet.ValueFast.GetName (color);
+            string colorName = CurrentColorSet.Value.GetName (color);
 
             Color addColor = colorSelector[colorName];
 
