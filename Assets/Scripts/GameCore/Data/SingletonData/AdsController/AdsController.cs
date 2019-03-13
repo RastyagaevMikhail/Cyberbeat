@@ -12,8 +12,13 @@ namespace GameCore
 {
     public partial class AdsController : ScriptableObject, IResetable
     {
-        public void ResetDefault () { ValidateNoAds (); }
-
+        public void ResetDefault ()
+        {
+#if UNITY_EDITOR
+            ValidateNoAds ();
+#endif
+        }
+#if UNITY_EDITOR
         [ContextMenu ("Validate NoAds Variable")]
         private void ValidateNoAds ()
         {
@@ -23,6 +28,7 @@ namespace GameCore
             noAds.Save ();
             this.Save ();
         }
+#endif
 
         public bool IsLoadedRewardVideo { get { return CurrentAdsNetworks.IsLoadedRewardVideo; } }
         public bool isLoadedInterstitial { get { return CurrentAdsNetworks.IsLoadedInterstitial; } }

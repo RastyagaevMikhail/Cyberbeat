@@ -1,19 +1,21 @@
-
 using GameCore;
+
 using UnityEngine;
-namespace  CyberBeat
+namespace CyberBeat
 {
     public class PlayerVariableSetter : MonoBehaviour
     {
         [SerializeField] PlayerVariable variable;
-        void OnEnable()
+        void OnEnable ()
         {
-            variable.Value = GetComponent<Player>();
+            variable.Value = GetComponent<Player> ();
         }
-        void OnDisable()
+        void OnDisable ()
         {
             variable = null;
         }
+#if UNITY_EDITOR
+
         [ContextMenu ("Create Variable Instance")]
         void CreateVariableInstance ()
         {
@@ -21,6 +23,6 @@ namespace  CyberBeat
             var sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name;
             variable.CreateAsset ($"Assets/CyberBeat/Data/VariableSetter/Player/{sceneName}/{name.ReplaceByRegex("[^a-zA-Z ]", string.Empty)}Player.asset");
         }
+#endif
     }
 }
-

@@ -81,16 +81,16 @@ namespace GameCore
                 Loaded = true;
         }
 
+#if UNITY_EDITOR
         public override void CreateAsset (string path = "", bool IsSaveble = false)
         {
-#if UNITY_EDITOR
             if (string.IsNullOrEmpty (path))
                 path = $"Assets/Data/Variables/{GetType ().Name}/{name}.asset";
 
             Tools.CreateAsset (this, path);
             isSavable = IsSaveble;
-#endif
         }
+#endif
 #if UNITY_EDITOR
         public override void ResetLoaded ()
         {

@@ -1,19 +1,21 @@
-
 using GameCore;
+
 using UnityEngine;
-namespace  FluffyUnderware.Curvy
+namespace FluffyUnderware.Curvy
 {
     public class CurvySplineVariableSetter : MonoBehaviour
     {
         [SerializeField] CurvySplineVariable variable;
-        void OnEnable()
+        void OnEnable ()
         {
-            variable.Value = GetComponent<CurvySpline>();
+            variable.Value = GetComponent<CurvySpline> ();
         }
-        void OnDisable()
+        void OnDisable ()
         {
             variable = null;
         }
+#if UNITY_EDITOR
+
         [ContextMenu ("Create Variable Instance")]
         void CreateVariableInstance ()
         {
@@ -21,6 +23,6 @@ namespace  FluffyUnderware.Curvy
             var sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name;
             variable.CreateAsset ($"Assets/FluffyUnderware.Curvy/Data/VariableSetter/CurvySpline/{sceneName}/{name.ReplaceByRegex("[^a-zA-Z ]", string.Empty)}CurvySpline.asset");
         }
+#endif
     }
 }
-

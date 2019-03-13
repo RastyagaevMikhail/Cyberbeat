@@ -1,19 +1,21 @@
-
 using GameCore;
+
 using UnityEngine;
-namespace  GameCore
+namespace GameCore
 {
     public class PoolVariableSetter : MonoBehaviour
     {
         [SerializeField] PoolVariable variable;
-        void OnEnable()
+        void OnEnable ()
         {
-            variable.Value = GetComponent<Pool>();
+            variable.Value = GetComponent<Pool> ();
         }
-        void OnDisable()
+        void OnDisable ()
         {
             variable = null;
         }
+#if UNITY_EDITOR
+
         [ContextMenu ("Create Variable Instance")]
         void CreateVariableInstance ()
         {
@@ -21,6 +23,6 @@ namespace  GameCore
             var sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name;
             variable.CreateAsset ($"Assets/GameCore/Data/VariableSetter/Pool/{sceneName}/{name.ReplaceByRegex("[^a-zA-Z ]", string.Empty)}Pool.asset");
         }
+#endif
     }
 }
-

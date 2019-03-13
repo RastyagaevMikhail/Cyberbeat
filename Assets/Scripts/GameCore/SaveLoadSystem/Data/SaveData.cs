@@ -64,6 +64,8 @@ namespace GameCore
                 save.SaveValue ();
             }
         }
+#if UNITY_EDITOR
+
         public void ResetLoaded ()
         {
             foreach (var save in Saves)
@@ -71,7 +73,7 @@ namespace GameCore
                 save.ResetLoaded ();
             }
         }
+#endif
     }
-
 
 }

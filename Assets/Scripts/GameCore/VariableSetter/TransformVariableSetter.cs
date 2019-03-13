@@ -14,6 +14,7 @@ namespace GameCore
         {
             variable = null;
         }
+#if UNITY_EDITOR
 
         [ContextMenu ("CreateVariableInstance")]
         void CreateVariableInstance ()
@@ -22,5 +23,6 @@ namespace GameCore
             var sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name;
             variable.CreateAsset ($"Assets/GameCore/Data/VariableSetter/Transform/{sceneName}/{name.ReplaceByRegex("[^a-zA-Z ]", string.Empty)}Transform.asset");
         }
+#endif
     }
 }
