@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 namespace GameCore
 {
-	[Serializable]
+    [Serializable]
     public class RandomStack<T>
     {
         [SerializeField] IEnumerable<T> RandCollection;

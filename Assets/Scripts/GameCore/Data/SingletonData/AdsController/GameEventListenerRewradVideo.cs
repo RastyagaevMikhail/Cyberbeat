@@ -1,19 +1,26 @@
 namespace GameCore
 {
+    using System;
 
     using UnityEngine;
 
     public class GameEventListenerRewradVideo : MonoBehaviour
     {
-        [SerializeField] EventListenerRewardVideo listener;
+        [SerializeField] GameEventRewardVideo Event;
+        [SerializeField] UnityEventRewardVideo Responce;
 
         private void OnEnable ()
         {
-            listener.OnEnable ();
+            Event.RegisterListener (this);
         }
         private void OnDisable ()
         {
-            listener.OnDisable ();
+            Event.UnRegisterListener (this);
+        }
+
+        internal void OnEventRaised (double amount, string name)
+        {
+            Responce.Invoke (amount, name);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace CyberBeat
 		[SerializeField] Track track;
 		[SerializeField] TrackPlayerCellView playerCellView;
 		[SerializeField] GameObject PlayButton;
-		[SerializeField] Image BuyButton;
+		[SerializeField] ContentButton BuyButton;
 		[SerializeField] LocalizeTextMeshProUGUI difficultyText;
 		[SerializeField] Image statusImage;
 		[SerializeField] ButtonActionByVideoAds PlayByWatchButton;
@@ -44,6 +44,7 @@ namespace CyberBeat
 			difficultyText.SetID (track.difficulty.LocalizationID);
 
 			statusImage.enabled = track.status; // Если не указан статус то выключается
+			BuyButton.text = track.shopInfo.Price.ToString ();
 
 			if (track.status)
 				statusImage.sprite = track.status.Sprite;
@@ -61,12 +62,12 @@ namespace CyberBeat
 			// Debug.LogFormat ("buyed = {0}", buyed);
 			ValidateButtons (buyed);
 			if (buyed) onBuyed.Invoke ();
-			else onCantNotEnuthMoney.Invoke (BuyButton);
+			else onCantNotEnuthMoney.Invoke (BuyButton.targetGraphic);
 		}
 		public void ValidateButtons (bool buyed)
 		{
 			PlayButton.SetActive (buyed);
-			BuyButton.gameObject.SetActive (!buyed);
+			BuyButton.SetActive (!buyed);
 			PlayByWatchButton.gameObject.SetActive (!buyed);
 		}
 	}

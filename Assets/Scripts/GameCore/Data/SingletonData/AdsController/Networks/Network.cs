@@ -1,0 +1,31 @@
+namespace GameCore
+{
+	public enum Network
+	{
+		adcolony,
+		admob,
+		amazon_ads,
+		applovin,
+		appnext,
+		avocarrot,
+		chartboost,
+		facebook,
+		flurry,
+		inmobi,
+		inner_active,
+		ironsource,
+		mobvista,
+		mailru,
+		mmedia,
+		mopub,
+		ogury,
+		openx,
+		pubnative,
+		smaato,
+		startapp,
+		tapjoy,
+		unity_ads,
+		vungle,
+		yandex
+	}
+}

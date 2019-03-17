@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3552483752051575718}
   - component: {fileID: 3552483752051575719}
   - component: {fileID: 4884525486327643609}
+  - component: {fileID: 2570061930861921184}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -70,11 +71,12 @@ MonoBehaviour:
     \u043D\u0430 5 \u043C\u0438\u043D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
-  m_sharedMaterial: {fileID: 21676424071739598, guid: e9861507bfb60474c94b6cc17f396fa0,
-    type: 2}
-  m_fontSharedMaterials: []
+  m_sharedMaterial: {fileID: 0}
+  m_fontSharedMaterials:
+  - {fileID: 0}
   m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
+  m_fontMaterials:
+  - {fileID: 0}
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
@@ -148,7 +150,7 @@ MonoBehaviour:
   m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_spriteAnimator: {fileID: 0}
+  m_spriteAnimator: {fileID: 2570061930861921184}
   m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
@@ -179,6 +181,18 @@ MonoBehaviour:
   mText: {fileID: 3552483752051575719}
   Id: noads_offer_title
   debug: 0
+--- !u!114 &2570061930861921184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552483752051575717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6366ee97f6b541449155028b9487355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3552483752080633232
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +281,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3552483752336316535}
-  - component: {fileID: 3364405354940638408}
+  - component: {fileID: 4959831971803599067}
+  - component: {fileID: 1663680453870957588}
   m_Layer: 5
   m_Name: GetNoAdsFrom5Min
   m_TagString: Untagged
@@ -295,7 +310,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3364405354940638408
+--- !u!114 &4959831971803599067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,11 +319,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 3552483752336316532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
+  m_Script: {fileID: 11500000, guid: a7571f2b766d1cf4eb81b7269ef00e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 92c41e56485b00d4aae482c004c16fce, type: 2}
+  Event: {fileID: 11400000, guid: 610acf14522294845b705e811853ba43, type: 2}
   Responce:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1663680453870957588}
+        m_MethodName: DoCondition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  debug: 0
+--- !u!114 &1663680453870957588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552483752336316532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8e833b6072b72478f78d770c354a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comparisonValue: INTERSTITIAL_AutoRestart
+  onTrue:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3552483753616312926}
@@ -324,6 +369,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  onFalse:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   debug: 0
 --- !u!1 &3552483752925116718
 GameObject:
@@ -337,6 +387,7 @@ GameObject:
   - component: {fileID: 3552483752925116715}
   - component: {fileID: 3552483752925116712}
   - component: {fileID: 6832672620227536991}
+  - component: {fileID: 8437017069405762659}
   m_Layer: 5
   m_Name: Title2
   m_TagString: Untagged
@@ -394,11 +445,12 @@ MonoBehaviour:
   m_text: "+\u0410\u0432\u0442\u043E\u0440\u0435\u0441\u0442\u0430\u0440\u0442"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
-  m_sharedMaterial: {fileID: 21676424071739598, guid: e9861507bfb60474c94b6cc17f396fa0,
-    type: 2}
-  m_fontSharedMaterials: []
+  m_sharedMaterial: {fileID: 0}
+  m_fontSharedMaterials:
+  - {fileID: 0}
   m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
+  m_fontMaterials:
+  - {fileID: 0}
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
@@ -472,7 +524,7 @@ MonoBehaviour:
   m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_spriteAnimator: {fileID: 0}
+  m_spriteAnimator: {fileID: 8437017069405762659}
   m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
@@ -503,6 +555,18 @@ MonoBehaviour:
   mText: {fileID: 3552483752925116712}
   Id: plus_autorestart
   debug: 0
+--- !u!114 &8437017069405762659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552483752925116718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6366ee97f6b541449155028b9487355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3552483753489504668
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +880,7 @@ GameObject:
   - component: {fileID: 5565570688705551648}
   - component: {fileID: 5565570688705551655}
   - component: {fileID: 5027106834125709022}
+  - component: {fileID: 4541691063449292086}
   m_Layer: 5
   m_Name: Titile
   m_TagString: Untagged
@@ -873,11 +938,12 @@ MonoBehaviour:
   m_text: "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
-  m_sharedMaterial: {fileID: 21676424071739598, guid: e9861507bfb60474c94b6cc17f396fa0,
-    type: 2}
-  m_fontSharedMaterials: []
+  m_sharedMaterial: {fileID: 0}
+  m_fontSharedMaterials:
+  - {fileID: 0}
   m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
+  m_fontMaterials:
+  - {fileID: 0}
   m_fontColor32:
     serializedVersion: 2
     rgba: 4288256409
@@ -951,7 +1017,7 @@ MonoBehaviour:
   m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_spriteAnimator: {fileID: 0}
+  m_spriteAnimator: {fileID: 4541691063449292086}
   m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
@@ -996,6 +1062,18 @@ MonoBehaviour:
   mText: {fileID: 5565570688705551648}
   Id: skip
   debug: 0
+--- !u!114 &4541691063449292086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565570688705551653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6366ee97f6b541449155028b9487355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6135443638890578278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1086,8 @@ GameObject:
   - component: {fileID: 6135443638890578274}
   - component: {fileID: 6135443638890578275}
   - component: {fileID: 6135443638890578276}
-  - component: {fileID: 6135443638890578273}
+  - component: {fileID: 6135443638890578280}
+  - component: {fileID: 6135443638890578279}
   m_Layer: 5
   m_Name: GetAndWatch
   m_TagString: Untagged
@@ -1115,17 +1194,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6135443638890578273}
-        m_MethodName: TryShowRewardVideo
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: RewardVideo_AutoResatart
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: cc662000dd83abb419cbb99780f95129, type: 2}
         m_MethodName: PlayClik
         m_Mode: 1
@@ -1137,9 +1205,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
+        m_MethodName: ShowRewardVideo
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: REWARDED_VIDEO_AutoResatart
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6135443638890578273
+--- !u!114 &6135443638890578280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1148,19 +1227,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 6135443638890578278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf09c6482b379b74fbceb9df13139ed4, type: 3}
+  m_Script: {fileID: 11500000, guid: a7571f2b766d1cf4eb81b7269ef00e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adsController: {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
-  Content: {fileID: 0}
-  NotInternet: {fileID: 6135443640828872283}
-  Waiting: {fileID: 6135443639319145437}
-  videoPreShow:
+  Event: {fileID: 11400000, guid: 6734446f24c495d4cb2819faf58a50fe, type: 2}
+  Responce:
     m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  videoShowed:
+      m_Calls:
+      - m_Target: {fileID: 6135443638890578279}
+        m_MethodName: DoCondition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  debug: 0
+--- !u!114 &6135443638890578279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135443638890578278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8e833b6072b72478f78d770c354a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comparisonValue: REWARDED_VIDEO_AutoResatart
+  onTrue:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 64897335256bd544bb11728951bae425, type: 2}
@@ -1183,33 +1284,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: c4a64834ebe70c34bad9d3a68b06a598, type: 2}
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  videoUnvailable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: cc662000dd83abb419cbb99780f95129, type: 2}
-        m_MethodName: PlayNotMoney
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 4d06002d5379a31408f45cfe63b61cf4, type: 2}
@@ -1223,8 +1297,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3552483753616312926}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  onFalse:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  debug: 0
 --- !u!1 &6135443639319145437
 GameObject:
   m_ObjectHideFlags: 0

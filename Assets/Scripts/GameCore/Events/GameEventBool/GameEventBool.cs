@@ -10,7 +10,7 @@ namespace GameCore
 	[CreateAssetMenu (fileName = "GameEventBool", menuName = "Events/GameCore/GameEvent/bool")]
 	public class GameEventBool : ScriptableObject
 	{
-		List<EventListenerBool> eventListeners = new List<EventListenerBool> ();
+		[SerializeField] List<EventListenerBool> eventListeners = new List<EventListenerBool> ();
 		public void Raise (bool obj)
 		{
 			for (int i = eventListeners.Count - 1; i >= 0; i--)

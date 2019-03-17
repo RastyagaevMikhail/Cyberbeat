@@ -102,7 +102,8 @@ namespace IngameDebugConsole
 			try
 			{
 				assemblies.Add( Assembly.Load( "Assembly-CSharp" ) );
-			} catch { }
+			}
+			catch { }
 
 			foreach( var assembly in assemblies )
 			{
@@ -119,17 +120,16 @@ namespace IngameDebugConsole
 					}
 				}
 			}
-#else
+#endif
+
 			AddCommandStatic( "help", "Prints all commands", "LogAllCommands", typeof( DebugLogConsole ) );
 			AddCommandStatic( "sysinfo", "Prints system information", "LogSystemInfo", typeof( DebugLogConsole ) );
-#endif
 		}
 
 		// Logs the list of available commands
-		[ConsoleMethod( "help", "Prints all commands" )]
 		public static void LogAllCommands()
 		{
-			int length = 20;
+			int length = 25;
 			foreach( var entry in methods )
 			{
 				if( entry.Value.IsValid() )
@@ -149,7 +149,6 @@ namespace IngameDebugConsole
 		}
 
 		// Logs system information
-		[ConsoleMethod( "sysinfo", "Prints system information" )]
 		public static void LogSystemInfo()
 		{
 			StringBuilder stringBuilder = new StringBuilder( 1024 );
@@ -236,6 +235,18 @@ namespace IngameDebugConsole
 		{
 			if( !string.IsNullOrEmpty( command ) )
 				methods.Remove( command );
+		}
+
+		// Returns the first command that starts with the entered argument
+		public static string GetAutoCompleteCommand( string commandStart )
+		{
+			foreach( var entry in methods )
+			{
+				if( entry.Key.StartsWith( commandStart ) )
+					return entry.Key;
+			}
+
+			return null;
 		}
 
 		// Create a new command and set its properties
@@ -337,10 +348,10 @@ namespace IngameDebugConsole
 
 			if( command.Length == 0 )
 				return;
-			
+
 			// Parse the arguments
 			commandArguments.Clear();
-			
+
 			int endIndex = IndexOfChar( command, ' ', 0 );
 			commandArguments.Add( command.Substring( 0, endIndex ) );
 
@@ -360,7 +371,7 @@ namespace IngameDebugConsole
 					endIndex = IndexOfChar( command, ' ', i + 1 );
 					commandArguments.Add( command.Substring( i, endIndex - i ) );
 				}
-				
+
 				i = endIndex;
 			}
 

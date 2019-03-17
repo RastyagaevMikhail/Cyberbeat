@@ -45,7 +45,8 @@ namespace GameCore
         }
         public Action<TValue> OnValueChanged = (o) => { };
         public bool Loaded = false;
-       
+        [SerializeField] bool logChanges = false;
+
         public virtual TValue Value
         {
             get
@@ -58,7 +59,12 @@ namespace GameCore
             }
             set
             {
+                // if (_value != null && !_value.Equals (value))
+                // {
                 _value = value;
+                if (logChanges) Debug.Log ($"{name}:{value}");
+                // }
+
                 if (OnValueChanged != null)
                     OnValueChanged (_value);
                 if (IsSavable)

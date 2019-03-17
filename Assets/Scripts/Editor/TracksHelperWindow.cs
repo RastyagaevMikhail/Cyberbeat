@@ -22,14 +22,14 @@ namespace CyberBeat
         public static void Open ()
         {
             TracksHelperWindow tracksHelperWindow = GetWindow<TracksHelperWindow> ();
-            tracksHelperWindow.Init ();
+            tracksHelperWindow.Initialize ();
             tracksHelperWindow.Show ();
         }
-
+        
         [SerializeField] TrackHelper data;
         [SerializeField] LayerTypeABitDataCollectionVariableSelector collctionsSelector;
         [SerializeField] Enums enums;
-        void Init ()
+        protected override void Initialize ()
         {
             data = Resources.Load<TrackHelper> ("Data/TrackHelper");
             tracks = Resources.LoadAll<Track> ("Data/Tracks");
@@ -207,12 +207,8 @@ namespace CyberBeat
             ShowPaging = false)]
         [Space]
         [PropertyOrder (int.MaxValue)]
-        // [InlineButton("SetCurrenttrack","Set Current")]
         [SerializeField]
         Track[] tracks;
-        // public void SetCurrenttrack(Track[] track,int index) {
-        //     // track.SetMeAsCurrent();
-        // }
 
         #endregion
         #region Scenes

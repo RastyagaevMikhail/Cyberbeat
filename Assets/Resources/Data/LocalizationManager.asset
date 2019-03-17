@@ -155,6 +155,16 @@ MonoBehaviour:
     index: 69
   - key: easy_difficulty
     index: 70
+  - key: reconnect
+    index: 71
+  - key: reconnect_desc
+    index: 72
+  - key: or
+    index: 73
+  - key: tired_of_ads_question
+    index: 74
+  - key: why_i_see_it_question
+    index: 75
   translations:
   - Lang: 10
     Items:
@@ -233,6 +243,11 @@ MonoBehaviour:
     - hard
     - medium
     - easy
+    - reconnect
+    - "connect to internet \n to continue"
+    - or
+    - tired of advertising?
+    - why i see it?
   - Lang: 30
     Items:
     - "7 500  \u043D\u043E\u0442"
@@ -312,4 +327,10 @@ MonoBehaviour:
     - "\u0442\u044F\u0436\u0435\u043B\u043E"
     - "\u043D\u043E\u0440\u043C"
     - "\u043B\u0435\u0433\u043A\u043E"
+    - "\u043F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C"
+    - "\u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C
+      \n\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0438\u0442\u0435 \u0438\u043D\u0442\u0435\u0440\u043D\u0435\u0442"
+    - "\u0438\u043B\u0438"
+    - "\u043D\u0430\u0434\u043E\u0435\u043B\u0430 \u0440\u0435\u043A\u043B\u0430\u043C\u0430?"
+    - "\u043F\u043E\u0447\u0435\u043C\u0443 \u044F \u044D\u0442\u043E \u0432\u0438\u0436\u0443?"
   Languges: 0a0000001e000000

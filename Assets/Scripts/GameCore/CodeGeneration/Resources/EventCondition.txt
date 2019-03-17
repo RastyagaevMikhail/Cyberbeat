@@ -8,6 +8,6 @@ using UnityEngine;
 
 namespace $NAMESPACE_NAME$ 
 {
-	[CreateAssetMenu (fileName = "$NAME_CONDITION$Condition", menuName = "$NAMESPACE_NAME$/EventCondition/$NAME_CONDITION$")]
-    public class $NAME_CONDITION$EventCondition : EventCondition<$NAME_CONDITION$> { }
+	[CreateAssetMenu (fileName = "$TYPE_CONDITION$Condition", menuName = "$NAMESPACE_NAME$/EventCondition/$TYPE_CONDITION$")]
+	public class $TYPE_CONDITION$EventCondition : EventCondition<$TYPE_CONDITION$> { }
 }

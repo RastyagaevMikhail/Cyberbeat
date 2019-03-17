@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Sirenix.OdinInspector;
+
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EditorStates : MonoBehaviour
 {
@@ -13,14 +16,7 @@ public class EditorStates : MonoBehaviour
 	[ContextMenuItem ("Activate State", "ActivaeStateByIndex")]
 	[SerializeField] int StateIndex;
 	public List<State> States;
-	[ContextMenu ("AddState")]
-	void AddState ()
-	{
-#if UNITY_EDITOR
-		var objects = UnityEditor.Selection.gameObjects.Select (go => new ObjectState () { gameObject = go, active = go.activeSelf }).ToList ();
-		States.Add (new State () { ObjectStates = objects, name = NameState });
-#endif
-	}
+
 	public void ActivaeStateByIndex ()
 	{
 		var _state = States[StateIndex];
@@ -45,11 +41,11 @@ public class State
 {
 	[ContextMenuItem ("ActivateState", "ActivateState")]
 	public string name;
-	public List<ObjectState> ObjectStates;
+	public UnityEvent ObjectState;
+	
 	[Button]
 	public void ActivateState ()
 	{
-		foreach (var os in ObjectStates)
-			os.gameObject.SetActive (os.active);
+		ObjectState.Invoke ();
 	}
 }

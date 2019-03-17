@@ -30,8 +30,8 @@ namespace GameCore
         }
 #endif
 
-        public bool IsLoadedRewardVideo { get { return CurrentAdsNetworks.IsLoadedRewardVideo; } }
-        public bool isLoadedInterstitial { get { return CurrentAdsNetworks.IsLoadedInterstitial; } }
+        public bool IsLoadedRewardVideo { get { return CurrentAdsNetworks.IsLoaded_REWARDED_VIDEO; } }
+        public bool isLoadedInterstitial { get { return CurrentAdsNetworks.IsLoaded_INTERSTITIAL; } }
 
         public void ActivateNoAds () { NoAds = true; }
         public bool internetNotReachable
@@ -68,98 +68,55 @@ namespace GameCore
         public void InitWithConsent (bool consentValue)
         {
             CurrentAdsNetworks.Init (consentValue);
-            CurrentAdsNetworks.OnRewardedVideoLoaded += onRewardedVideoLoaded.Invoke;
         }
-        private void OnDisable ()
-        {
-            CurrentAdsNetworks.OnRewardedVideoLoaded -= onRewardedVideoLoaded.Invoke;
-        }
-
         Action<double, string> _onVideShown;
         [SerializeField] UnityEventBool onRewardedVideoLoaded;
         [SerializeField] BoolVariable noAds;
         [SerializeField] bool _debug;
-        public string CurrentPlacement { get; set; }
+        private string _currentPlacement;
+        public string CurrentPlacement { set => _currentPlacement = value; }
 
         private bool NoAds { get { return noAds.Value; } set { noAds.Value = value; noAds.SaveValue (); } }
-
-        public void ShowRewardVideo (GameEventRewardVideo OnVideoShown)
+        event Action LastAds;
+        public void ShowLastAdsShowed ()
         {
-            ShowRewardVideo (OnVideoShown.Raise);
+            CurrentAdsNetworks.CacheLastTryShowedAds ();
+            LastAds?.Invoke ();
         }
-        public void ShowRewardVideo (RewardVideoUnityEvent OnVideoShown)
-        {
-            ShowRewardVideo (OnVideoShown.Invoke);
-        }
-        public void ShowRewardVideo (GameEvent OnVideoShown)
-        {
-            ShowRewardVideo (OnVideoShown.Raise);
-        }
-        public void ShowRewardVideo ()
-        {
-            ShowRewardVideo ((a, n) => { });
-        }
-        public void ShowRewardVideo (string placemnt, Action OnVideoShown)
-        {
-            CurrentPlacement = placemnt;
-            ShowRewardVideo ((a, n) => OnVideoShown ());
-        }
-        public void ShowRewardVideo (string placemnt, Action<double, string> OnVideoShown = null)
-        {
-            CurrentPlacement = placemnt;
-            ShowRewardVideo (OnVideoShown);
-        }
-        public void ShowRewardVideo (string placemnt)
-        {
-            CurrentPlacement = placemnt;
-            ShowRewardVideo ((a, n) => { });
-        }
-        public void ShowRewardVideo (Action OnVideoShown)
-        {
-            ShowRewardVideo ((a, n) => OnVideoShown ());
-        }
-        public void ShowRewardVideo (Action<double, string> OnVideoShown = null)
+        public void Show_REWARDED_VIDEO () => Show_REWARDED_VIDEO ("REWARDED_VIDEO");
+        public void Show_REWARDED_VIDEO (string placement = "REWARDED_VIDEO")
         {
             if (_debug)
-            {
-                Debug.Log ($"{this.Log()}.ShowRewardVideo({CurrentPlacement.black()},{OnVideoShown.Log()})\n {CurrentAdsNetworks}", this);
-            }
-            CurrentAdsNetworks.ShowRewardVideo (CurrentPlacement, OnVideoShown);
-        }
+                Debug.Log ($"{this.Log()}.ShowRewardVideo({placement.black()})\n {CurrentAdsNetworks}", this);
 
-        public void ShowIntrastitial ()
-        {
-            ShowIntrastitial ("default", null);
+            LastAds = () => CurrentAdsNetworks.Show_REWARDED_VIDEO (placement);
+            LastAds.Invoke ();
         }
+        public void Show_INTERSTITIAL () => Show_INTERSTITIAL ("INTERSTITIAL");
 
-        public void ShowIntrastitial_GE (GameEvent gameEvent)
-        {
-            ShowIntrastitial ("Inrsatitial", gameEvent.Raise);
-        }
-        public void ShowIntrastitial (string playsment = "Inrsatitial")
-        {
-            ShowIntrastitial (playsment, null);
-        }
-        public void ShowIntrastitial (string playsment = "Inrsatitial", Action _onIntrastitialShown = null)
+        public void Show_INTERSTITIAL (string placesment = "INTERSTITIAL")
         {
             if (_debug)
-            {
-                Debug.Log ($"{this.Log()}.ShowIntrastitial({playsment.black()}, {_onIntrastitialShown.Log()})", this);
-            }
+                Debug.Log ($"{this.Log()}.Show INTERSTITIAL({placesment.black()}", this);
 
-            CurrentAdsNetworks.ShowIntrastitial (playsment, _onIntrastitialShown);
+            LastAds = () => CurrentAdsNetworks.Show_INTERSTITIAL (placesment);
+            LastAds.Invoke ();
+        }
+        public void Cache_INTERSTITIAL () => currentAdsNetworks.Cache (AdType.INTERSTITIAL);
+        public void Cache_REWARDED_VIDEO () => currentAdsNetworks.Cache (AdType.REWARDED_VIDEO);
+        public void CacheLastTryShowedAds ()
+        {
+            currentAdsNetworks.CacheLastTryShowedAds ();
         }
 
         public void Show_BANNER_BOTTOM (string placement)
         {
-            CurrentAdsNetworks.Show_BANNER_BOTTOM (placement);
+            LastAds = () => CurrentAdsNetworks.Show_BANNER_BOTTOM (placement);
+            LastAds.Invoke ();
         }
         public void Hide_BANNER_BOTTOM ()
         {
             CurrentAdsNetworks.Hide_BANNER_BOTTOM ();
         }
     }
-
-    [Serializable] public class RewardVideoUnityEvent : UnityEvent<double, string> { }
-
 }

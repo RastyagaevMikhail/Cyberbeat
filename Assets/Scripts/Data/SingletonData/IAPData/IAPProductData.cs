@@ -32,6 +32,7 @@ namespace GameCore
         [SerializeField] BoolVariable NonConsumableVariable;
         [Header ("IAP Actions")]
         public OnPurchaseCompletedEvent OnPurchaseCompleted;
+
         public OnPurchaseFailedEvent OnPurchaseFailed;
 
         [Header ("IAP Action Variables")]
@@ -89,7 +90,10 @@ namespace GameCore
                 if (onPurchaseFailed != null) onPurchaseFailed ();
             });
         }
-
+        public void InitButton (IAPButton button)
+        {
+            InitButton (button);
+        }
         private void Subscribe (Product arg0)
         {
             if (LasTimeSubsciption)

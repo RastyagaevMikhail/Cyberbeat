@@ -1,5 +1,4 @@
 ﻿#if UNITY_EDITOR
-
 using UnityEditor;
 using UnityEditor.Recorder;
 using UnityEditor.Recorder.Examples;
@@ -8,7 +7,7 @@ using UnityEngine;
 
 public class UnityRecorderHelper : MonoBehaviour
 {
-	[SerializeField] RecorderWindow window;
+	RecorderWindow window;
 
 	RecorderWindow recorderWindow => window??(window = EditorWindow.GetWindow<RecorderWindow> ());
 

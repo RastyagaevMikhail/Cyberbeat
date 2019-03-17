@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EventCondition
   m_EditorClassIdentifier: 
   template: {fileID: 4900000, guid: 36b37ea61bee7174082a32fe146e27df, type: 3}
-  pathTemplate: /Scripts/$NAMESPACE_NAME$/EventCondition/$NAME_CONDITION$EventCondition.cs
+  pathTemplate: /Scripts/$NAMESPACE_NAME$/EventCondition/$TYPE_CONDITION$EventCondition.cs
   dependies: []
   keys:
   - $ADDITIONAL_USING$
   - $NAMESPACE_NAME$
-  - $NAME_CONDITION$
+  - $TYPE_CONDITION$

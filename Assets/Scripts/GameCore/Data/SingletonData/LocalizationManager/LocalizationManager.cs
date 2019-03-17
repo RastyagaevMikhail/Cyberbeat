@@ -68,7 +68,8 @@ namespace GameCore
         }
 
         [NonSerialized]
-        /* [ShowInInspector] public */ Dictionary<SystemLanguage, List<string>> _translations = null;
+        /* [ShowInInspector] public */
+        Dictionary<SystemLanguage, List<string>> _translations = null;
         public Dictionary<SystemLanguage, List<string>> Translations
         {
             get
@@ -95,7 +96,6 @@ namespace GameCore
         }
 
         // [SerializeField] bool debug;
-        [Button]
         public void SetLanguage (SystemLanguage language)
         {
             currentLanguage = language;
@@ -216,6 +216,10 @@ namespace GameCore
             if (debug) Debug.LogFormat ("translations[indexOfTranslation] = {0}", translations[indexOfTranslation]);
             return translations[indexOfTranslation];
         }
+        [HorizontalGroup("Set Language")]
+        [Button] public void SetEnglish () { SetLanguage (SystemLanguage.English); }
+        [HorizontalGroup("Set Language")]
+        [Button] public void SetRussian () { SetLanguage (SystemLanguage.Russian); }
     }
     public static class LocalizatorExtention
     {

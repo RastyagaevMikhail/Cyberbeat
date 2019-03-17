@@ -25,7 +25,8 @@ namespace CyberBeat
         {
             if (currentMainTheme == 0)
             {
-                currentMainTheme = SoundManager.PlayMusic (mianMenuTrack, 1, true, false);
+                if (mianMenuTrack)
+                    currentMainTheme = SoundManager.PlayMusic (mianMenuTrack, 1, true, false);
             }
             else
             {

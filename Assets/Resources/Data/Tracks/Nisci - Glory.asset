@@ -22,15 +22,17 @@ MonoBehaviour:
   - Icon: {fileID: 21300000, guid: 78fc711090e8e0143931bf4b587b661b, type: 3}
     URL: https://www.youtube.com/watch?v=wiVDPLP_cnA
   shopInfo:
-    Price: 2000
+    Price: 185
     SaveKey: Nisci - Glory Buyed
+  maxReward: 90
   progressInfo:
     best: {fileID: 11400000, guid: 4ef057f1ff44ead4882abf28961a5b64, type: 2}
     max: {fileID: 11400000, guid: da36df7959ebd5c4aa613f75e1fdb38c, type: 2}
     percent: {fileID: 11400000, guid: d031deb8b529abf4fb2b25ef48e61526, type: 2}
+  tutorialTime: 0
   prefab: {fileID: 6098045239702120352, guid: b6f3bf259e057ca4a82909a5aa779cb1, type: 3}
   difficulty: {fileID: 11400000, guid: 7564e4589ba3bc94383dab38d2ae6211, type: 2}
-  status: {fileID: 11400000, guid: 434092d0f0116234cb1a3cc532ef0fc9, type: 2}
+  status: {fileID: 0}
   layerBitsSelector: {fileID: 11400000, guid: f87ad6894b69f204abe6105a2f77e674, type: 2}
   koreography: {fileID: 11400000, guid: 1d55629e71c4d5d4b8681c3e5c291b41, type: 2}
   StartSpeed: 50

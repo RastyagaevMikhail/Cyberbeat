@@ -56,12 +56,12 @@ namespace CyberBeat
             else
             {
                 videoPreShow.Invoke ();
-                adsController.ShowRewardVideo (placement, videoShowed.Invoke);
+                adsController.Show_REWARDED_VIDEO (placement);
             }
         }
         public void TryShowRewardVideo ()
         {
-            TryShowRewardVideo ("RewardVideo");
+            TryShowRewardVideo ("REWARDED_VIDEO");
         }
         private void UpdateSatate ()
         {

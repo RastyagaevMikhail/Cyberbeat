@@ -13,6 +13,9 @@ namespace CyberBeat
     {
         [SerializeField] string localizationID;
         public string LocalizationID => localizationID;
+
+        public float minRate;
+        public float maxRate;
     }
 
 }

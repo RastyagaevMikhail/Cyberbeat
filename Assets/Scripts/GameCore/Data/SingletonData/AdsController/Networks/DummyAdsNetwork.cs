@@ -10,7 +10,7 @@ namespace GameCore
         [SerializeField] bool _debug = true;
         [SerializeField] bool _isLoadedRewardVideo = true;
 
-        public override bool IsLoadedRewardVideo
+        public override bool IsLoaded_REWARDED_VIDEO
         {
             get
             {
@@ -21,8 +21,9 @@ namespace GameCore
         }
 
         [SerializeField] bool _isLoadedInterstitial = true;
+        [SerializeField] UnityEventString interstitialShown;
 
-        public override bool IsLoadedInterstitial
+        public override bool IsLoaded_INTERSTITIAL
         {
             get
             {
@@ -42,11 +43,6 @@ namespace GameCore
             _isLoadedRewardVideo = true;
             if (_debug) Debug.LogFormat ("DummyAdsNetwork.OnRewardedVideoLoaded (precache = {0})", precache);
         }
-        public override event Action<bool> OnRewardedVideoLoaded
-        {
-            add => value += onRewardVideoLoaded;
-            remove => value -= onRewardVideoLoaded;
-        }
 
         public override void Init (bool consestValue)
         {
@@ -54,18 +50,21 @@ namespace GameCore
                 Debug.LogFormat ("DummyAdsNetwork.Init(consestValue = {0})", consestValue);
         }
 
-        public override void ShowIntrastitial (string playsment = "default", Action _onIntrastitialShown = null)
+        public override void Show_INTERSTITIAL (string playsment = "default")
         {
             if (_debug)
-                Debug.Log ($"{this.Log()}.ShowIntrastitial( {playsment}, {_onIntrastitialShown})", this);
-            if (_onIntrastitialShown != null) _onIntrastitialShown ();
+                Debug.Log ($"{this.Log()}.ShowIntrastitial( {playsment})", this);
+            interstitialShown.Invoke (playsment);
         }
 
-        public override void ShowRewardVideo (string placement, Action<double, string> OnVideoShown = null)
+        [SerializeField] UnityEventRewardVideo onRewardVideoFinished;
+        [SerializeField] UnityEventString onRewardVideoShown;
+        public override void Show_REWARDED_VIDEO (string placement)
         {
             if (_debug)
-                Debug.Log ($"{this.Log()}.ShowRewardVideo({placement},{OnVideoShown})", this);
-            if (OnVideoShown != null) OnVideoShown (0, "");
+                Debug.Log ($"{this.Log()}.ShowRewardVideo({placement})", this);
+            onRewardVideoFinished.Invoke (0, "");
+            onRewardVideoShown.Invoke (placement);
         }
 
         public override void Show_BANNER_BOTTOM (string placement = null)
@@ -78,6 +77,16 @@ namespace GameCore
         {
             if (_debug)
                 Debug.Log ($"{this.Log()}.Hide_BANNER_BOOTOM()", this);
+        }
+
+        public override void CacheLastTryShowedAds ()
+        {
+            if (_debug) Debug.Log ("Cache Intrasititial");
+        }
+
+        public override void Cache (AdType adType)
+        {
+            if (_debug) Debug.Log ($"Cache {adType}");
         }
     }
 }

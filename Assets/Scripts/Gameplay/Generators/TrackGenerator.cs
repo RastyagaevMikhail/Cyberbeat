@@ -24,9 +24,9 @@ namespace CyberBeat
 
         List<ColorInterractor> Neighbors = new List<ColorInterractor> ();
         [SerializeField] ColorInfoRuntimeSetVariable currentSet;
+        [SerializeField] ColorInterractorRuntimeSet nearBeats;
         [SerializeField] UnityEventColor onFirstColorChoosed;
         [SerializeField] UnityEventString onPresetChoosed;
-        [SerializeField] ColorInterractorRuntimeSet nearBeats;
         ColorInfoRuntimeSet CurrentSet { get => currentSet.Value; set => currentSet.Value = value; }
         Color LastRandomColor = default (Color);
         float lastBeat = -1f;
@@ -42,7 +42,7 @@ namespace CyberBeat
         private void InitRCM ()
         {
             initColors ();
-            if (rcm == null)
+            if (rcm == null && CurrentSet != null)
                 rcm = new RandomConstantMaterial (CurrentSet.GetColors ());
 
             rcm.SetLastRandomColor (LastRandomColor);
@@ -58,7 +58,7 @@ namespace CyberBeat
             else
                 lastBeat = bitTime;
 
-			string randPreset = bitData.RandomString.Regex (@"\d");
+            string randPreset = bitData.RandomString.Regex (@"\d");
 
             List<Material> row = null;
             try
@@ -70,7 +70,7 @@ namespace CyberBeat
                 Debug.LogFormat ("randPreset = {0}", randPreset);
                 throw;
             }
-            onPresetChoosed.Invoke(randPreset);
+            onPresetChoosed.Invoke (randPreset);
 
             float half_width = width / 2;
             float step = half_width / 2;
@@ -80,10 +80,18 @@ namespace CyberBeat
                 var spawnObj = InstattiateObj (row[(int) i], x);
                 if (spawnObj == null) continue;
                 ColorInterractor colorInterractor = spawnObj.Get<ColorInterractor> ();
+                if (debug) Debug.Log ($"{("Before").red()}\n" + colors.Log ());
                 if (colors.ContainsKey (bitTime))
+                {
+                    if (debug) Debug.Log (colors[bitTime].Log ());
                     colors[bitTime].Add (colorInterractor);
+                    if (debug) Debug.Log (colors[bitTime].Log ());
+                }
                 else
                     colors.Add (bitTime, new List<ColorInterractor> { colorInterractor });
+
+                if (debug) Debug.Log (colors[bitTime].Log ());
+                if (debug) Debug.Log ($"{("After").green()}\n" + colors.Log ());
 
                 colorInterractor.Init (bitTime, bitData.RandomString.Regex (@"[A-Z]"));
             }
@@ -93,11 +101,19 @@ namespace CyberBeat
         }
 
         Dictionary<float, List<ColorInterractor>> colors = new Dictionary<float, List<ColorInterractor>> ();
+        [SerializeField] bool debug;
+
         public void OnPlayerBit (IBitData bitData)
         {
+            if (debug)
+            {
+                Debug.Log (colors.Log ());
+                Debug.Log (bitData.StartTime);
+            }
             if (colors.ContainsKey (bitData.StartTime))
             {
                 nearBeats.Clear ();
+
                 colors.Remove (bitData.StartTime);
 
                 if (colors.Count == 0) return;
@@ -121,9 +137,9 @@ namespace CyberBeat
             if (CurrentSet == null)
             {
                 CurrentSet = ColorsSetsStack.Get ();
-
+                if (debug) Debug.Log (CurrentSet);
             }
-            if (LastRandomColor == default (Color))
+            if (LastRandomColor == default (Color) && CurrentSet != null)
             {
                 LastRandomColor = CurrentSet.GetRandom ().color;
             }
@@ -143,8 +159,8 @@ namespace CyberBeat
             obj.position = position + right * xPos + up * obj.y;
             obj.rotation = rotation;
 
-			ColorInterractor colorInterractor = obj.Get<ColorInterractor>();
-			if (colorInterractor.IsSwitcher)
+            ColorInterractor colorInterractor = obj.Get<ColorInterractor> ();
+            if (colorInterractor.IsSwitcher)
                 InitRCM ();
 
             var matSwitcher = colorInterractor.matSwitch;

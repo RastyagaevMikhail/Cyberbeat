@@ -102,6 +102,7 @@ namespace CyberBeat
 		public MusicInfo music;
 		public List<SocialInfo> socials;
 		public ShopInfo shopInfo;
+		public int maxReward;
 		[InlineButton ("ValidateProgressInfo", "Validate")]
 		public ProgressInfo progressInfo;
 		public float tutorialTime;

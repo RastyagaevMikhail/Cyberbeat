@@ -6,8 +6,9 @@ namespace GameCore
 	[CreateAssetMenu(fileName =  "GameEventRewardVideo",menuName = "Events/AdsController/RewardVideo")]
 	public class GameEventRewardVideo : ScriptableObject
 	{
+		
 		[SerializeField]
-		public List<EventListenerRewardVideo> eventListeners = new List<EventListenerRewardVideo> ();
+		public List<GameEventListenerRewradVideo> eventListeners = new List<GameEventListenerRewradVideo> ();
 
 		public void Raise (double amount, string name)
 		{
@@ -15,13 +16,13 @@ namespace GameCore
 				eventListeners[i].OnEventRaised (amount,name);
 		}
 
-		public virtual void RegisterListener (EventListenerRewardVideo listener)
+		public virtual void RegisterListener (GameEventListenerRewradVideo listener)
 		{
 			if (!eventListeners.Contains (listener))
 				eventListeners.Add (listener);
 		}
 
-		public virtual void UnRegisterListener (EventListenerRewardVideo listener)
+		public virtual void UnRegisterListener (GameEventListenerRewradVideo listener)
 		{
 			if (eventListeners.Contains (listener))
 				eventListeners.Remove (listener);

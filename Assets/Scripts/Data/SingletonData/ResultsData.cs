@@ -31,7 +31,12 @@ namespace CyberBeat
         bool doubleCoins { get { return DoubleCoins.Value; } }
         int notesPerBeat { get { return (doubleCoins ? 2 : 1) * scorePerBeat.Value; } }
 
+        float onLastPausedTime;
+        public float OnLastPausedTime { set => onLastPausedTime = value; }
+
         [SerializeField] TrackVariable trackVariable;
+        private float trackLengthTime => trackVariable.Value.music.clip.length;
+
         public ProgressInfo progressInfo { get { return trackVariable.Value.progressInfo; } }
 
         public void AccumulateAttems ()
@@ -39,6 +44,14 @@ namespace CyberBeat
             attemps.Increment ();
             currentScore.ResetDefault ();
         }
+
+        public void CalculateTotalPercent ()
+        {
+            float timePercent = onLastPausedTime / trackLengthTime;
+            float beatPercent = currentScore.Value / progressInfo.Max;
+            totalPercent += ((timePercent + beatPercent) / 2);
+        }
+
         public void AccumulateBeatsNotes ()
         {
             //Bits
@@ -48,30 +61,45 @@ namespace CyberBeat
             //Notes
             totalNotes.ApplyChange (notesPerBeat);
         }
-        public int DoubleReward =>
-        totalBits.Value +
-        progressInfo.AsPercent (totalBits) +
-        totalNotes.Value;
+        public int DoubleReward => Reward + (int) (0.5f * Reward);
+        // totalBits.Value +
+        // progressInfo.AsPercent (totalBits) +
+        // totalNotes.Value;
 
         public void TakeReward (bool doubleReward)
         {
             notes.ApplyChange (doubleReward ? DoubleReward : Reward);
         }
 
-        public int Reward => DoubleReward / 2;
+        public int Reward;
         public void Reset ()
         {
             attemps.ResetDefault ();
             totalBits.ResetDefault ();
             totalNotes.ResetDefault ();
             scorePerBeat.ResetDefault ();
+            totalPercent = 0;
+            onLastPausedTime = 0;
         }
+        float totalPercent = 0;
         public void Calculate ()
         {
+            if (attemps.Value == 1)
+            {
+                float beatPercent = currentScore.Value / progressInfo.Max;
+                Reward = (int) (trackVariable.Value.maxReward * beatPercent);
+            }
+            else
+            {
+                CalculateTotalPercent ();
+                Reward = (int) ((totalPercent / attemps.Value) * trackVariable.Value.maxReward);
+            }
+
             reward.Value = Reward;
             doubleReward.Value = DoubleReward;
 
             currentMaxScore.Value = (int) progressInfo.Max;
+
         }
     }
 }
