@@ -15,7 +15,9 @@ MonoBehaviour:
   attemps: {fileID: 11400000, guid: 47713080a750c0543b93190344e86f95, type: 2}
   totalBits: {fileID: 11400000, guid: 74aaac8e60540af46a8bc2c2b917f9e5, type: 2}
   totalNotes: {fileID: 11400000, guid: 99609e74f2475624296bc3e43318a99b, type: 2}
-  currentScore: {fileID: 11400000, guid: 16e94a550b297c143a10f406422d2f69, type: 2}
+  _currentScore: {fileID: 11400000, guid: 16e94a550b297c143a10f406422d2f69, type: 2}
+  _BestInSessionScore: {fileID: 11400000, guid: 82cab07ced64f2d439d27bcef773923e,
+    type: 2}
   currentMaxScore: {fileID: 11400000, guid: 34d7348c6fbd6b043a5348513b5b014c, type: 2}
   scorePerBeat: {fileID: 11400000, guid: 083b6ed0d3eb97548ad223d5eea8f281, type: 2}
   notes: {fileID: 11400000, guid: d24936ab19265d7429fd28e90813e648, type: 2}
@@ -23,3 +25,5 @@ MonoBehaviour:
   doubleReward: {fileID: 11400000, guid: d36f347c2983b466baff7286d3bc6622, type: 2}
   reward: {fileID: 11400000, guid: c5272888f6f634905a7c1096ba93ba7b, type: 2}
   trackVariable: {fileID: 11400000, guid: cc3d36f0f95c0274ab88dbe8cbc31363, type: 2}
+  _TotalPercent: 0
+  _CompletePercent: {fileID: 11400000, guid: 31679fc52b766814e963b4d5dfd99ef7, type: 2}

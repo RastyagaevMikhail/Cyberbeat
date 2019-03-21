@@ -2,11 +2,13 @@
 using UnityEditor;
 using UnityEditor.Recorder;
 using UnityEditor.Recorder.Examples;
+#endif
 
 using UnityEngine;
 
 public class UnityRecorderHelper : MonoBehaviour
 {
+#if UNITY_EDITOR
 	RecorderWindow window;
 
 	RecorderWindow recorderWindow => window??(window = EditorWindow.GetWindow<RecorderWindow> ());
@@ -20,5 +22,5 @@ public class UnityRecorderHelper : MonoBehaviour
 	{
 		recorderWindow.StopRecording ();
 	}
-}
 #endif
+}

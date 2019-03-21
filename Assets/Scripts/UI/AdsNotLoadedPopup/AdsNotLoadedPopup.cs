@@ -28,7 +28,7 @@ namespace CyberBeat
         { { AdType.INTERSTITIAL, ads.Cache_INTERSTITIAL }, { AdType.REWARDED_VIDEO, ads.Cache_REWARDED_VIDEO }
         };
         Dictionary<AdType, bool> loadedSelector => new Dictionary<AdType, bool> ()
-        { { AdType.INTERSTITIAL, ads.isLoadedInterstitial }, { AdType.REWARDED_VIDEO, ads.IsLoadedRewardVideo }
+        { { AdType.INTERSTITIAL, ads.IsLoaded_INTERSTITIAL}, { AdType.REWARDED_VIDEO, ads.IsLoaded_REWARDED_VIDEO}
         };
         public void OnFailLoadOnShowWithPlacement (AdType adType, string placement)
         {

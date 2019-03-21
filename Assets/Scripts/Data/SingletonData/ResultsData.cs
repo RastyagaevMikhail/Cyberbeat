@@ -19,7 +19,12 @@ namespace CyberBeat
         [SerializeField] IntVariable attemps;
         [SerializeField] IntVariable totalBits;
         [SerializeField] IntVariable totalNotes;
-        [SerializeField] IntVariable currentScore;
+        [SerializeField] IntVariable _currentScore;
+        public int currentScore { get => _currentScore.Value; set => _currentScore.Value = value; }
+
+        [SerializeField] IntVariable _BestInSessionScore;
+        public int bestInSessionScore { get => _BestInSessionScore.Value; set => _BestInSessionScore.Value = value; }
+
         [SerializeField] IntVariable currentMaxScore;
         [SerializeField] IntVariable scorePerBeat;
         [SerializeField] IntVariable notes;
@@ -42,22 +47,18 @@ namespace CyberBeat
         public void AccumulateAttems ()
         {
             attemps.Increment ();
-            currentScore.ResetDefault ();
-        }
-
-        public void CalculateTotalPercent ()
-        {
-            float timePercent = onLastPausedTime / trackLengthTime;
-            float beatPercent = currentScore.Value / progressInfo.Max;
-            totalPercent += ((timePercent + beatPercent) / 2);
+            currentScore = 0;
         }
 
         public void AccumulateBeatsNotes ()
         {
             //Bits
             totalBits.Increment ();
-            currentScore.Increment ();
-            progressInfo.Progress (currentScore.Value);
+            _currentScore.Increment ();
+
+            if (bestInSessionScore < currentScore)
+                bestInSessionScore = currentScore;
+            progressInfo.Progress (currentScore);
             //Notes
             totalNotes.ApplyChange (notesPerBeat);
         }
@@ -70,36 +71,63 @@ namespace CyberBeat
         {
             notes.ApplyChange (doubleReward ? DoubleReward : Reward);
         }
-
-        public int Reward;
+        public float completePercent { get => _CompletePercent.Value; private set => _CompletePercent.Value = value; }
         public void Reset ()
         {
             attemps.ResetDefault ();
             totalBits.ResetDefault ();
             totalNotes.ResetDefault ();
             scorePerBeat.ResetDefault ();
-            totalPercent = 0;
+            _BestInSessionScore.ResetDefault ();
+            _CompletePercent.ResetDefault ();
+            _TotalPercent = 0;
             onLastPausedTime = 0;
+            CompleteTrack = false;
         }
-        float totalPercent = 0;
+
+        [SerializeField] float _TotalPercent = 0;
+        [SerializeField] FloatVariable _CompletePercent;
+        public bool CompleteTrack { get; set; }
+
+        [SerializeField] bool debug;
+        public void CalculateTotalPercent ()
+        {
+            if (debug)
+            {
+                Debug.LogFormat ("CompleteTrack = {0}", CompleteTrack);
+                Debug.LogFormat ("onLastPausedTime = {0}", onLastPausedTime);
+                Debug.LogFormat ("trackLengthTime = {0}", trackLengthTime);
+            }
+            float timePercent = (CompleteTrack ? 1f : (onLastPausedTime / trackLengthTime));
+            if (debug)
+            {
+                Debug.LogFormat ("timePercent = {0}", timePercent);
+                Debug.LogFormat ("bestInSessionScore = {0}", bestInSessionScore);
+                Debug.LogFormat ("progressInfo.Max = {0}", progressInfo.Max);
+            }
+            float beatPercent = bestInSessionScore / progressInfo.Max;
+            if (debug)
+            {
+                Debug.LogFormat ("beatPercent = {0}", beatPercent);
+                Debug.LogFormat ("totalPercent = {0}", _TotalPercent);
+            }
+            _TotalPercent += ((timePercent + beatPercent) / 2f);
+            if (debug) Debug.LogFormat ("totalPercent = {0}", _TotalPercent);
+
+        }
+        int Reward => (int) (completePercent * trackVariable.Value.maxReward);
         public void Calculate ()
         {
-            if (attemps.Value == 1)
-            {
-                float beatPercent = currentScore.Value / progressInfo.Max;
-                Reward = (int) (trackVariable.Value.maxReward * beatPercent);
-            }
-            else
-            {
-                CalculateTotalPercent ();
-                Reward = (int) ((totalPercent / attemps.Value) * trackVariable.Value.maxReward);
-            }
+            CalculateTotalPercent ();
+
+            completePercent = (_TotalPercent / attemps.Value.log (debug, "Value"));
+
+            completePercent.log (debug, "completePercent");
 
             reward.Value = Reward;
             doubleReward.Value = DoubleReward;
 
             currentMaxScore.Value = (int) progressInfo.Max;
-
         }
     }
 }

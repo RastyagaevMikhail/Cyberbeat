@@ -11,8 +11,8 @@ namespace CyberBeat
 	{
 		public override void Awake ()
 		{
-			rightPath = new Vector3[] { Vector3.right * mySettings.width };
-			leftPath = new Vector3[] { Vector3.left * mySettings.width };
+			rightPathMove = new Vector3[] { Vector3.right * mySettings.width };
+			leftPathMove = new Vector3[] { Vector3.left * mySettings.width };
 		}
 		float duration { get { return mySettings.SwipeDuration / 2f; } }
 		bool rigth;
@@ -29,12 +29,12 @@ namespace CyberBeat
 		public void MoveRight ()
 		{
 			rigth = false;
-			Target.DOLocalPath (rightPath, duration);
+			Target.DOLocalPath (rightPathMove, duration);
 		}
 		public void MoveLeft ()
 		{
 			rigth = true;
-			Target.DOLocalPath (leftPath, duration);
+			Target.DOLocalPath (leftPathMove, duration);
 		}
 
 	}

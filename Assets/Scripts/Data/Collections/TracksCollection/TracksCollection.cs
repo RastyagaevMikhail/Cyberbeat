@@ -189,17 +189,19 @@ namespace CyberBeat
 		{
 			int currentPrice = startPrice;
 			int currentReward = startReward;
+			string log = string.Empty;
 			foreach (var track in Objects)
 			{
-				Debug.Log ($"{track.name} : {currentPrice} {currentReward}");
-				track.shopInfo.Price = currentPrice;
-				track.maxReward = currentReward;
-				track.Save ();
+				log += $"{track.name} : {currentPrice} {currentReward}\n";
+				// track.shopInfo.Price = currentPrice;
+				// track.maxReward = currentReward;
+				// track.Save ();
 				int rewardRaw = (int) currentReward * 3;
 				currentPrice = rewardRaw + (5 - rewardRaw % 5);
 				int rawReward = (int) currentPrice / 2;
 				currentReward = rawReward - (rawReward % 5);
 			}
+			Debug.Log(log);
 		}
 
 	}

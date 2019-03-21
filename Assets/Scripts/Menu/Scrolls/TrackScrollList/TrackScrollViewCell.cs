@@ -20,7 +20,7 @@ namespace CyberBeat
 		[SerializeField] ContentButton BuyButton;
 		[SerializeField] LocalizeTextMeshProUGUI difficultyText;
 		[SerializeField] Image statusImage;
-		[SerializeField] ButtonActionByVideoAds PlayByWatchButton;
+		[SerializeField] GameObject PlayByWatchButton;
 		[SerializeField] IntVariablesTextSetter progressTextSetter;
 		[SerializeField] UnityEvent onBuyed;
 		[SerializeField] UnityEventGraphic onCantNotEnuthMoney;
@@ -68,7 +68,7 @@ namespace CyberBeat
 		{
 			PlayButton.SetActive (buyed);
 			BuyButton.SetActive (!buyed);
-			PlayByWatchButton.gameObject.SetActive (!buyed);
+			PlayByWatchButton.SetActive (!buyed);
 		}
 	}
 }

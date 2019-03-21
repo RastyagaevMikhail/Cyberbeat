@@ -42,7 +42,11 @@ namespace CyberBeat
                 OnTimeIsOver ();
                 return;
             }
+            if (debug) Debug.Log ($"{("Start".a())} {this.ToString().warn()}", this);
+            if (debug) Debug.Log (TimeItems.Log (), this);
+            if (debug) Debug.Log (CurrentTimeItem, this);
             CurrentTimeItem = TimeItems.First ();
+            if (debug) Debug.Log (CurrentTimeItem, this);
         }
 
         public override void OnTimeIsOver ()

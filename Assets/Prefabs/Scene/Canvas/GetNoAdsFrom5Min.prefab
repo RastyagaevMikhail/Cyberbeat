@@ -281,8 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3552483752336316535}
-  - component: {fileID: 4959831971803599067}
-  - component: {fileID: 1663680453870957588}
+  - component: {fileID: 6560946465609987916}
   m_Layer: 5
   m_Name: GetNoAdsFrom5Min
   m_TagString: Untagged
@@ -310,7 +309,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4959831971803599067
+--- !u!114 &6560946465609987916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,41 +318,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3552483752336316532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7571f2b766d1cf4eb81b7269ef00e3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 610acf14522294845b705e811853ba43, type: 2}
+  Event: {fileID: 11400000, guid: 92c41e56485b00d4aae482c004c16fce, type: 2}
   Responce:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1663680453870957588}
-        m_MethodName: DoCondition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  debug: 0
---- !u!114 &1663680453870957588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3552483752336316532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa8e833b6072b72478f78d770c354a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comparisonValue: INTERSTITIAL_AutoRestart
-  onTrue:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3552483753616312926}
@@ -367,11 +336,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onFalse:
-    m_PersistentCalls:
-      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   debug: 0
@@ -652,6 +616,7 @@ GameObject:
   - component: {fileID: 3552483753616312921}
   - component: {fileID: 3552483753616312923}
   - component: {fileID: 3552483753616312920}
+  - component: {fileID: 3714602383003076335}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -716,6 +681,21 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &3714602383003076335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552483753616312926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea326de53f128e4c90f561f81c83cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placementId: BANNER
+  gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
+  noAds: {fileID: 11400000, guid: 3f232928d424d0342b415605601a21f5, type: 2}
 --- !u!1 &5565570688640692369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,8 +1066,7 @@ GameObject:
   - component: {fileID: 6135443638890578274}
   - component: {fileID: 6135443638890578275}
   - component: {fileID: 6135443638890578276}
-  - component: {fileID: 6135443638890578280}
-  - component: {fileID: 6135443638890578279}
+  - component: {fileID: 7364254156466030571}
   m_Layer: 5
   m_Name: GetAndWatch
   m_TagString: Untagged
@@ -1205,8 +1184,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
-        m_MethodName: ShowRewardVideo
+      - m_Target: {fileID: 7364254156466030571}
+        m_MethodName: ShowAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1218,7 +1197,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6135443638890578280
+--- !u!114 &7364254156466030571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1227,65 +1206,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6135443638890578278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7571f2b766d1cf4eb81b7269ef00e3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 82a63284db8e8aa4990181ade2113b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 6734446f24c495d4cb2819faf58a50fe, type: 2}
-  Responce:
+  timeFromReady: 15
+  adsStartShowing:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  adsStopShowing:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6135443638890578279}
-        m_MethodName: DoCondition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  debug: 0
---- !u!114 &6135443638890578279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6135443638890578278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa8e833b6072b72478f78d770c354a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comparisonValue: REWARDED_VIDEO_AutoResatart
-  onTrue:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 64897335256bd544bb11728951bae425, type: 2}
-        m_MethodName: set_Value
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 2a66e0455282e6f4a885d8a3c177ae32, type: 2}
-        m_MethodName: ResetDefault
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 4d06002d5379a31408f45cfe63b61cf4, type: 2}
         m_MethodName: Raise
         m_Mode: 1
@@ -1310,12 +1242,49 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onFalse:
+  adsError:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  debug: 0
+  adsFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 64897335256bd544bb11728951bae425, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 2a66e0455282e6f4a885d8a3c177ae32, type: 2}
+        m_MethodName: ResetDefault
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  adsSkipped:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  adsFailed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
 --- !u!1 &6135443639319145437
 GameObject:
   m_ObjectHideFlags: 0

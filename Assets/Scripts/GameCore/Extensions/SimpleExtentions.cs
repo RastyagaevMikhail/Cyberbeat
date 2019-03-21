@@ -110,5 +110,34 @@ namespace GameCore
         {
             return Mathf.Lerp (from, to, t);
         }
+        public static float log (this float value, bool debug, string name)
+        {
+            if (debug)
+                Debug.LogFormat ("{0} = {1}", name, value);
+
+            return value;
+        }
+        public static int log (this int value, bool debug, string name)
+        {
+            if (debug)
+                Debug.LogFormat ("{0} = {1}", name, value);
+
+            return value;
+        }
+        public static bool log (this bool value, bool debug, string name)
+        {
+            if (debug)
+                Debug.LogFormat ("{0} = {1}", name, value);
+
+            return value;
+        }
+        public static T log<T> (this T value, bool debug, string name)
+        {
+            if (debug)
+                Debug.LogFormat ("{0} = {1}", name, value);
+
+            return value;
+        }
+
     }
 }

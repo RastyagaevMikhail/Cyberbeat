@@ -12,7 +12,7 @@ namespace CyberBeat
     {
         List<IBitData> Bits { get { return Variable.Value.Bits; } }
         private IEnumerable<ITimeItem> timeItems = null;
-        public override IEnumerable<ITimeItem> TimeItems => timeItems??InitItems ();
+        public override IEnumerable<ITimeItem> TimeItems => Bits;
 
         private IEnumerable<ITimeItem> InitItems ()
         {
@@ -27,10 +27,10 @@ namespace CyberBeat
             }
 
         }
-        private void OnEnable ()
+      /*   private void OnEnable ()
         {
             InitItems ();
-        }
+        } */
 
         public override ITimeItem CurrentTimeItem
         {
@@ -74,7 +74,7 @@ namespace CyberBeat
         }
         public override string ToString ()
         {
-            return $"{Variable}";
+            return $"{Variable} {(Variable ? Variable.Value:default(ABitDataCollection) )}";
         }
     }
 }

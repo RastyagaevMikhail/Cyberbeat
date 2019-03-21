@@ -36,7 +36,8 @@ namespace CyberBeat
 
         public void PauseMainTheme ()
         {
-            SoundManager.GetAudio (currentMainTheme).Pause ();
+            if (mianMenuTrack)
+                SoundManager.GetAudio (currentMainTheme).Pause ();
         }
 
         public void PlayNotMoney ()

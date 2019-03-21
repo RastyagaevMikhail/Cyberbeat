@@ -345,7 +345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 96, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5294868021500178981
@@ -461,7 +461,7 @@ MonoBehaviour:
   BuyButton: {fileID: 1519704747452613031}
   difficultyText: {fileID: 5307201511583304140}
   statusImage: {fileID: 7666950182910631060}
-  PlayByWatchButton: {fileID: 5294868023567168784}
+  PlayByWatchButton: {fileID: 5294868023567168789}
   progressTextSetter: {fileID: 2398029706355999524}
   onBuyed:
     m_PersistentCalls:
@@ -2519,10 +2519,9 @@ GameObject:
   - component: {fileID: 5294868023567168785}
   - component: {fileID: 5294868023567168790}
   - component: {fileID: 5294868023567168791}
-  - component: {fileID: 5294868023567168784}
-  - component: {fileID: 8638540118888133321}
-  - component: {fileID: 2448463280245542198}
-  - component: {fileID: 8966545018126216711}
+  - component: {fileID: 5009506044558699416}
+  - component: {fileID: 6330793419949614255}
+  - component: {fileID: 8986455305632101432}
   m_Layer: 5
   m_Name: WatchAdsButton
   m_TagString: Untagged
@@ -2640,20 +2639,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5294868023567168784}
-        m_MethodName: TryShowRewardVideo
+      - m_Target: {fileID: 5009506044558699416}
+        m_MethodName: ShowAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RewardVideo_TryTrack
+          m_StringArgument: REWARDED_VIDEO_TryTrack
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &5294868023567168784
+--- !u!114 &5009506044558699416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2662,34 +2661,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 5294868023567168789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf09c6482b379b74fbceb9df13139ed4, type: 3}
+  m_Script: {fileID: 11500000, guid: 82a63284db8e8aa4990181ade2113b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adsController: {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
-  Content: {fileID: 0}
-  NotInternet: {fileID: 5294868022152887809}
-  Waiting: {fileID: 5294868021500179001}
-  videoPreShow:
+  timeFromReady: 15
+  adsStartShowing:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: ae816dd25568ca44bbb35497832e10ca, type: 2}
-        m_MethodName: Raise
-        m_Mode: 4
+      - m_Target: {fileID: 5294868021500179001}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5294868023402563132}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  videoShowed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5294868021520365255}
-        m_MethodName: SetAsCurrent
+      - m_Target: {fileID: 5294868023567168791}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: aa75c5fae01f104469ece2da4a6da38b, type: 2}
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2699,6 +2712,65 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  adsStopShowing:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5294868021500179001}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5294868023402563132}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5294868023567168791}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 0c01263b3d8c9784098b1027091b7590, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  adsError:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  adsFinished:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 11400000, guid: 30d73f9a4e6b8f94e978705cd7aea857, type: 2}
         m_MethodName: set_Value
         m_Mode: 6
@@ -2710,14 +2782,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  videoUnvailable:
+      - m_Target: {fileID: 5294868021520365255}
+        m_MethodName: SetAsCurrent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 768b7138e6b7a4b44b235829f678f553, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  adsSkipped:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: cc662000dd83abb419cbb99780f95129, type: 2}
-        m_MethodName: PlayNotMoney
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: 83d2169c3a5e0c04ea40ceb9e1e529a2, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2726,51 +2820,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1032354734871572992}
-        m_MethodName: Play
-        m_Mode: 3
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  adsFailed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d1c847460adc457489e6686bba38948a, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 71804256
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &8638540118888133321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5294868023567168789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7a9dfb7f1260e40b903e4b68afc893, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listener:
-    Event: {fileID: 11400000, guid: eedee9c857aee4346a0d6a8e69ab6255, type: 2}
-    Responce:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5294868023567168784}
-          m_MethodName: OnRewardedVideoLoaded
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-    inverse: 0
---- !u!114 &2448463280245542198
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
+--- !u!114 &6330793419949614255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2782,13 +2851,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: a069afc2dc19c7f41b722c1c05aa9a3d, type: 2}
+  Event: {fileID: 11400000, guid: aa75c5fae01f104469ece2da4a6da38b, type: 2}
   Responce:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 1976810ef49e85a44a73c038c32c7ce5, type: 2}
-        m_MethodName: Raise
-        m_Mode: 1
+      - m_Target: {fileID: 5294868023567168791}
+        m_MethodName: set_interactable
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2800,7 +2869,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   debug: 0
---- !u!114 &8966545018126216711
+--- !u!114 &8986455305632101432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2809,53 +2878,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 5294868023567168789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d8ba6ecef371e94c9737d504c39f151, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  condition: {fileID: 11400000, guid: d4d613afd5f97d847a3a2f48936a0181, type: 2}
-  doConditonOnEnable: 0
-  onTrue:
+  Event: {fileID: 11400000, guid: 0c01263b3d8c9784098b1027091b7590, type: 2}
+  Responce:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 1976810ef49e85a44a73c038c32c7ce5, type: 2}
-        m_MethodName: Raise
-        m_Mode: 1
+      - m_Target: {fileID: 5294868023567168791}
+        m_MethodName: set_interactable
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onFalse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: ac60e23e1263ead48b2b2b70d1891741, type: 2}
-        m_MethodName: Raise
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.5
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onCondition:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  onInverseCondition:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   debug: 0
 --- !u!1 &7726577279927010262
 GameObject:

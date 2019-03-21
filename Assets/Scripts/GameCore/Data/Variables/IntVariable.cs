@@ -104,10 +104,6 @@ namespace GameCore
 		{
 			return Value;
 		}
-		public override string ToString ()
-		{
-			return base.ToString () + $" {Value}" + $"{name}";
-		}
 #if UNITY_EDITOR
 		[ShowInInspector] string savedValue => PlayerPrefs.GetInt (name, 0).ToString ();
 #endif

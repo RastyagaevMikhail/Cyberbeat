@@ -1,12 +1,6 @@
-﻿using AppodealAds.Unity.Api;
-using AppodealAds.Unity.Common;
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace GameCore
 {
@@ -29,10 +23,8 @@ namespace GameCore
             this.Save ();
         }
 #endif
-
-        public bool IsLoadedRewardVideo { get { return CurrentAdsNetworks.IsLoaded_REWARDED_VIDEO; } }
-        public bool isLoadedInterstitial { get { return CurrentAdsNetworks.IsLoaded_INTERSTITIAL; } }
-
+        public bool IsLoaded_REWARDED_VIDEO => CurrentAdsNetworks.IsLoaded_REWARDED_VIDEO;
+        public bool IsLoaded_INTERSTITIAL => CurrentAdsNetworks.IsLoaded_INTERSTITIAL;
         public void ActivateNoAds () { NoAds = true; }
         public bool internetNotReachable
         {
@@ -69,8 +61,7 @@ namespace GameCore
         {
             CurrentAdsNetworks.Init (consentValue);
         }
-        Action<double, string> _onVideShown;
-        [SerializeField] UnityEventBool onRewardedVideoLoaded;
+
         [SerializeField] BoolVariable noAds;
         [SerializeField] bool _debug;
         private string _currentPlacement;
@@ -102,11 +93,11 @@ namespace GameCore
             LastAds = () => CurrentAdsNetworks.Show_INTERSTITIAL (placesment);
             LastAds.Invoke ();
         }
-        public void Cache_INTERSTITIAL () => currentAdsNetworks.Cache (AdType.INTERSTITIAL);
-        public void Cache_REWARDED_VIDEO () => currentAdsNetworks.Cache (AdType.REWARDED_VIDEO);
+        public void Cache_INTERSTITIAL () => CurrentAdsNetworks.Load (AdType.INTERSTITIAL);
+        public void Cache_REWARDED_VIDEO () => CurrentAdsNetworks.Load (AdType.REWARDED_VIDEO);
         public void CacheLastTryShowedAds ()
         {
-            currentAdsNetworks.CacheLastTryShowedAds ();
+            CurrentAdsNetworks.CacheLastTryShowedAds ();
         }
 
         public void Show_BANNER_BOTTOM (string placement)

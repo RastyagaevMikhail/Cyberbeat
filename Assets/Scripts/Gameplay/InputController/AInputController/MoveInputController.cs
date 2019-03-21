@@ -11,8 +11,10 @@ namespace CyberBeat
 {
 	public abstract class MoveInputController : AInputController
 	{
-		protected Vector3[] rightPath;
-		protected Vector3[] leftPath;
+		protected Vector3[] rightPathMove;
+		protected Vector3[] rightPathReturn;
+		protected Vector3[] leftPathMove;
+		protected Vector3[] leftPathReturn;
 
 		[SerializeField] protected MoveInputSettings mySettings => (MoveInputSettings) settings;
 

@@ -84,7 +84,7 @@ namespace GameCore
             if (_debug) Debug.Log ("Cache Intrasititial");
         }
 
-        public override void Cache (AdType adType)
+        public override void Load (AdType adType)
         {
             if (_debug) Debug.Log ($"Cache {adType}");
         }
