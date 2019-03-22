@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placement: {fileID: 11400000, guid: 7e29045dbc7a4d94eb3445805e0f9652, type: 2}
-  intervalCheckUpdate: 2.5
+  intervalCheckUpdate: 5
   startUpdateOnEnable: 1
   onIsReady:
     m_PersistentCalls:
@@ -501,6 +501,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
 --- !u!1 &320377913 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3552483753616312926, guid: 130cbe3df0168e5479a8730ecef2eb5b,

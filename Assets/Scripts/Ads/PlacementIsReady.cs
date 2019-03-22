@@ -20,6 +20,13 @@ namespace GameCore
         [SerializeField] UnityEvent onReady;
         [SerializeField] UnityEvent onNOTReady;
 
+        [SerializeField] StringVariable gameID;
+#if UNITY_EDITOR
+        private void OnValidate ()
+        {
+            gameID = Tools.ValidateSO<StringVariable> ("Assets/Resources/Data/Variables/UnitAds/GameID.asset");
+        }
+#endif
         private void OnEnable ()
         {
             if (startUpdateOnEnable)
@@ -39,8 +46,15 @@ namespace GameCore
         }
 
         bool isReady => Monetization.IsReady (placement?placement.name: "INTERSITIAL");
+        private void InititalizeIfNeed ()
+        {
+            if (!Monetization.isInitialized)
+                Monetization.Initialize (gameID.Value, false);
+        }
         public void Check ()
         {
+            InititalizeIfNeed ();
+            Debug.LogFormat ("Check = {0}", name, this);
             onIsReady.Invoke (isReady);
             onIsReadyInverce.Invoke (!isReady);
             (isReady?(Action) onReady.Invoke : onNOTReady.Invoke) ();
