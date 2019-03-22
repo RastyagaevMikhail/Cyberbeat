@@ -36,6 +36,7 @@ namespace GameCore
         }
         public void ShowAd ()
         {
+            InititalizeIfNeed ();
             Debug.Log ($"Banner onShow NoAds {NoAds} {placementId} {name}");
             if (NoAds) return;
             StartCoroutine (ShowBannerWhenReady (placementId));
