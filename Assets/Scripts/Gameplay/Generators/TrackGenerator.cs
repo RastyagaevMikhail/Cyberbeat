@@ -58,7 +58,7 @@ namespace CyberBeat
             else
                 lastBeat = bitTime;
 
-            string randPreset = bitData.RandomString.Regex (@"\d");
+            string randPreset = bitData.RandomString.Regex (@"\d*");
 
             List<Material> row = null;
             try
