@@ -13,7 +13,7 @@ namespace GameCore
             if (ResetByDefault)
             {
                 Value = DefaultValue;
-                this.Save();
+                this.Save ();
                 SaveValue ();
             }
         }
@@ -23,7 +23,7 @@ namespace GameCore
         public override void LoadValue ()
         {
             base.LoadValue ();
-            _value = Tools.GetBool (name);
+            _value = Tools.GetBool (name, DefaultValue);
         }
 
         [Button]
