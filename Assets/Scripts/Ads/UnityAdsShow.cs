@@ -1,6 +1,4 @@
-﻿using GameCore;
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -10,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Monetization;
 
-namespace CyberBeat
+namespace GameCore
 {
     public class UnityAdsShow : MonoBehaviour
     {
@@ -38,6 +36,10 @@ namespace CyberBeat
                 Monetization.Initialize (gameID.Value, false);
         }
 
+        public void ShowAds (Placement placement)
+        {
+            ShowAds (placement?placement.name: "INTERSTITIAL");
+        }
         public void ShowAds (string placementId)
         {
             InititalizeIfNeed ();
