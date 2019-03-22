@@ -8,7 +8,8 @@ namespace GameCore
 {
     public class UnityAdsBanner : MonoBehaviour
     {
-        [SerializeField] string placementId = "BANNER";
+        [SerializeField] Placement placement;
+        string placementId => placement.name;
         private void OnEnable ()
         {
             Debug.Log ($"Banner OnEnabel {placementId} {name}");
@@ -23,6 +24,7 @@ namespace GameCore
         {
             gameID = Tools.ValidateSO<StringVariable> ("Assets/Resources/Data/Variables/UnitAds/GameID.asset");
             noAds = Tools.ValidateSO<BoolVariable> ("Assets/Data/Variables/AdsController/NoAds.asset");
+            if (!placement) placement = Tools.ValidateSO<Placement> ("Assets/Data/Enums/Placement/BANNER.asset");
         }
 #endif
 
