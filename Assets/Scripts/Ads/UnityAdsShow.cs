@@ -19,6 +19,7 @@ namespace GameCore
         [SerializeField] UnityEventString adsFinished;
         [SerializeField] UnityEventString adsSkipped;
         [SerializeField] UnityEventString adsFailed;
+        [SerializeField] UnityEventBool VideoShowing;
         [SerializeField] StringVariable gameID;
 #if UNITY_EDITOR
         private void OnValidate ()
@@ -44,6 +45,7 @@ namespace GameCore
         {
             InititalizeIfNeed ();
             adsStartShowing.Invoke ();
+            VideoShowing.Invoke (true);
             Debug.Log ($"adsStartShowing {placementId} {name}");
             TimersManager.SetTimer (this, timeFromReady, onAdsTimeIsExpiried);
             StartCoroutine (WaitForAd (placementId));
@@ -54,6 +56,7 @@ namespace GameCore
             Debug.Log ($"onAdsTimeIsExpiried {name}");
             adsError.Invoke ();
             adsStopShowing.Invoke ();
+            VideoShowing.Invoke (false);
         }
 
         IEnumerator WaitForAd (string placementId)
@@ -81,6 +84,7 @@ namespace GameCore
             }
             Debug.Log ($"Ads stop showing {placementId} {name}");
             adsStopShowing.Invoke ();
+            VideoShowing.Invoke (false);
         }
     }
 }
