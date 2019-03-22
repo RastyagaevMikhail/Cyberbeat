@@ -9,11 +9,6 @@ namespace CyberBeat
 	[CreateAssetMenu (fileName = "CenterInputController", menuName = "CyberBeat/InputController/Side")]
 	public class SideInputController : MoveInputController
 	{
-		public override void Awake ()
-		{
-			rightPathMove = new Vector3[] { Vector3.right * mySettings.width };
-			leftPathMove = new Vector3[] { Vector3.left * mySettings.width };
-		}
 		float duration { get { return mySettings.SwipeDuration / 2f; } }
 		bool rigth;
 
@@ -26,15 +21,16 @@ namespace CyberBeat
 			else
 				MoveLeft ();
 		}
+		float width => mySettings.width;
 		public void MoveRight ()
 		{
 			rigth = false;
-			Target.DOLocalPath (rightPathMove, duration);
+			Target.DOLocalMoveX (width, duration);
 		}
 		public void MoveLeft ()
 		{
 			rigth = true;
-			Target.DOLocalPath (leftPathMove, duration);
+			Target.DOLocalMoveX (-width, duration);
 		}
 
 	}

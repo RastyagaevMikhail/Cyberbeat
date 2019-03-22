@@ -9,11 +9,6 @@ namespace CyberBeat
         [SerializeField] InputControlType CurrentInputType;
 
         [SerializeField] InputControlTypeAInputControllerSelector InputControllerSelector;
-        private void Awake ()
-        {
-            InputControllerSelector.Values.ForEach (aic => aic.Awake ());
-        }
-
         public void SetControl (InputControlType controlTypeToSwitch)
         {
             CurrentInputType = controlTypeToSwitch;

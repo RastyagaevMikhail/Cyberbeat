@@ -17,22 +17,24 @@ namespace CyberBeat
 		[SerializeField] UnityEvent targetInUp;
 		[SerializeField] UnityEvent jumpCompleted;
 		JumpInputSettings mySettings => (JumpInputSettings) settings;
-		Vector3[] jumpPathUp;
-		Vector3[] jumpPathDown;
-		public override void Awake ()
-		{
-			jumpPathUp = new Vector3[] { Vector3.zero, Vector3.up * mySettings.jumpHeight };
-			jumpPathDown = new Vector3[] { Vector3.up * mySettings.jumpHeight, Vector3.zero };
-		}
+		Ease easeJumpUp => mySettings.easeJumpUp;
+		float jumpUpTime => mySettings.jumpUpTime;
+		float jumpHeight => mySettings.jumpHeight;
+		float jumpDownTime => mySettings.jumpDownTime;
+		Ease easeJumpDown => mySettings.easeJumpDown;
+		float jumpHoldTime => mySettings.jumpHoldTime;
+		
 		public override void TapRight () => Jump ();
 		public override void TapLeft () => Jump ();
 		public void Jump ()
 		{
 			if (!Target || (Target && DOTween.IsTweening (Target))) return;
+
 			jumpStarted.Invoke ();
-			var TweenUp = Target.DOLocalPath (jumpPathUp, mySettings.jumpUpTime).SetEase (mySettings.easeJumpUp).OnComplete (targetInUp.Invoke);
-			var TweenDown = Target.DOLocalPath (jumpPathDown, mySettings.jumpDownTime).SetEase (mySettings.easeJumpDown)
-				.SetDelay (TweenUp.Duration () + mySettings.jumpHoldTime)
+
+			var TweenUp = Target.DOLocalMoveY (jumpHeight, jumpUpTime).SetEase (easeJumpUp).OnComplete (targetInUp.Invoke);
+			var TweenDown = Target.DOLocalMoveY (0, jumpDownTime).SetEase (easeJumpDown)
+				.SetDelay (jumpUpTime + jumpHoldTime)
 				.OnComplete (jumpCompleted.Invoke);
 		}
 	}
