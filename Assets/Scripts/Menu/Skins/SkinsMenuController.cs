@@ -18,6 +18,7 @@ namespace CyberBeat
         [SerializeField] ContentButton BuyButton;
         [SerializeField] ContentButton SelectButton;
         [SerializeField] ContentButton WatchAdsFromBuyButton;
+        [SerializeField] GameObject RewardedVideoIsReady;
         [SerializeField] Color selectedColor = Color.green, unselectedColor = Color.white;
 
         [Header ("Events")] //-----------------------------------------------------------------------
@@ -49,7 +50,7 @@ namespace CyberBeat
             //  в который был выбран в другой категории при прошлом выборе,
             //  на основе смены типа скина
             HighlightedSkinIndex = selectedSkinIndex;
-            
+
             UpdateValues (skin);
         }
 
@@ -57,8 +58,11 @@ namespace CyberBeat
         {
             if (!skin) return;
 
+            RewardedVideoIsReady.SetActive (!skin.IsAvalivable);
+            
             WatchAdsFromBuyButton.SetActive (!skin.IsAvalivable);
             WatchAdsFromBuyButton.text = skin.VideoCount.ToString ();
+
 
             BuyButton.SetActive (!skin.IsAvalivable);
             BuyButton.text = skin.Price.ToString ();
