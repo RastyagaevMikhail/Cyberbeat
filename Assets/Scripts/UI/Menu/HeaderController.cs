@@ -7,11 +7,11 @@
 
     using TMPro;
 
+    using UnityEngine.Events;
     using UnityEngine.UI;
     using UnityEngine;
-using UnityEngine.Events;
 
-namespace CyberBeat
+    namespace CyberBeat
     {
         public class HeaderController : MonoBehaviour
         {
@@ -21,7 +21,7 @@ namespace CyberBeat
             //For any Text On ByuButton
             public void OnCantBuyAnimation (Graphic targetGraphic)
             {
-                 OnCantBuyEvent.Invoke();
+                OnCantBuyEvent.Invoke ();
                 CantByColorTweenAnimation (NotesText);
                 CantByColorTweenAnimation (targetGraphic);
             }

@@ -8,12 +8,16 @@ namespace GameCore
 {
     public class UnityAdsBanner : MonoBehaviour
     {
+        [SerializeField] bool showOnEnable = true;
         [SerializeField] Placement placement;
         string placementId => placement.name;
         private void OnEnable ()
         {
-            Debug.Log ($"Banner OnEnabel {placementId} {name}");
-            ShowAd ();
+            if (showOnEnable)
+            {
+                Debug.Log ($"Banner OnEnabel {placementId} {name}");
+                ShowAd ();
+            }
         }
 
         [SerializeField] StringVariable gameID;
@@ -49,6 +53,11 @@ namespace GameCore
             Advertisement.Banner.Show (placementId);
         }
         private void OnDisable ()
+        {
+            Hide ();
+        }
+
+        public void Hide ()
         {
             Debug.Log ($"Banner onHide NoAds {NoAds} {placementId} {name}");
             if (NoAds) return;

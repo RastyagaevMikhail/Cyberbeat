@@ -103,86 +103,88 @@ MonoBehaviour:
     index: 43
   - key: menu
     index: 44
-  - key: restart
+  - key: to_menu
     index: 45
-  - key: resume
+  - key: restart
     index: 46
-  - key: pause
+  - key: resume
     index: 47
-  - key: select
+  - key: pause
     index: 48
-  - key: selected
+  - key: select
     index: 49
-  - key: upgrade
+  - key: selected
     index: 50
-  - key: noads_offer_title
+  - key: upgrade
     index: 51
-  - key: plus_autorestart
+  - key: noads_offer_title
     index: 52
-  - key: noads_title
+  - key: plus_autorestart
     index: 53
-  - key: noads_desc
+  - key: noads_title
     index: 54
-  - key: activated
+  - key: noads_desc
     index: 55
-  - key: blade_desc
+  - key: activated
     index: 56
-  - key: life_desc
+  - key: blade_desc
     index: 57
-  - key: shield_desc
+  - key: life_desc
     index: 58
-  - key: nobooster_title
+  - key: shield_desc
     index: 59
-  - key: attemps
+  - key: nobooster_title
     index: 60
-  - key: beats
+  - key: attemps
     index: 61
-  - key: all_score
+  - key: beats
     index: 62
-  - key: porgress
+  - key: all_score
     index: 63
-  - key: skip
+  - key: porgress
     index: 64
-  - key: cubbits
+  - key: skip
     index: 65
-  - key: road
+  - key: cubbits
     index: 66
-  - key: gates
+  - key: road
     index: 67
-  - key: hard_difficulty
+  - key: gates
     index: 68
-  - key: medium_difficulty
+  - key: hard_difficulty
     index: 69
-  - key: easy_difficulty
+  - key: medium_difficulty
     index: 70
-  - key: reconnect
+  - key: easy_difficulty
     index: 71
-  - key: reconnect_desc
+  - key: reconnect
     index: 72
-  - key: or
+  - key: reconnect_desc
     index: 73
-  - key: tired_of_ads_question
+  - key: or
     index: 74
-  - key: why_i_see_it_question
+  - key: tired_of_ads_question
     index: 75
-  - key: money_pack1
+  - key: why_i_see_it_question
     index: 76
-  - key: whats_new_line_1
+  - key: money_pack1
     index: 77
-  - key: whats_new_line_2
+  - key: whats_new_line_1
     index: 78
-  - key: whats_new_line_3
+  - key: whats_new_line_2
     index: 79
-  - key: whats_new_line_4
+  - key: whats_new_line_3
     index: 80
-  - key: whats_new_line_5
+  - key: whats_new_line_4
     index: 81
-  - key: whats_new
+  - key: whats_new_line_5
     index: 82
-  - key: version_number
+  - key: whats_new
     index: 83
-  - key: help_to_the_project
+  - key: version_number
     index: 84
+  - key: help_to_the_project
+    index: 85
   translations:
   - Lang: 10
     Items:
@@ -234,6 +236,7 @@ MonoBehaviour:
     - Remember from next gift
     - yes
     - No
+    - Menu
     - Menu
     - Restart
     - Resume
@@ -324,6 +327,7 @@ MonoBehaviour:
     - "\u0414\u0430"
     - "\u041D\u0435\u0442"
     - "\u041C\u0435\u043D\u044E"
+    - "\u0432 \u043C\u0435\u043D\u044E"
     - "\u0420\u0435\u0441\u0442\u0430\u0440\u0442"
     - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
     - "\u041F\u0430\u0443\u0437\u0430"
