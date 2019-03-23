@@ -54,7 +54,6 @@ namespace GameCore
         public void Check ()
         {
             InititalizeIfNeed ();
-            Debug.LogFormat ("Check = {0}", name, this);
             onIsReady.Invoke (isReady);
             onIsReadyInverce.Invoke (!isReady);
             (isReady?(Action) onReady.Invoke : onNOTReady.Invoke) ();

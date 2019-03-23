@@ -10,6 +10,7 @@ namespace GameCore
 	{
 		[SerializeField] GameEventBool Event;
 		[SerializeField] UnityEventBool Responce;
+		[SerializeField] UnityEventBool ResponceInverce;
 		[SerializeField] bool inverse;
 
 		public EventListenerBool (GameEventBool _event, UnityAction<bool> action)
@@ -21,6 +22,7 @@ namespace GameCore
 		public void OnEventRaised (bool arg)
 		{
 			Responce.Invoke (inverse?!arg : arg);
+			ResponceInverce.Invoke(!arg);
 		}
 		public bool OnEnable ()
 		{

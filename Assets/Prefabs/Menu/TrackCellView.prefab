@@ -104,7 +104,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5294868023423726734}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -457,11 +457,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: {fileID: 0}
   playerCellView: {fileID: 5294868022192364960}
-  PlayButton: {fileID: 5294868022304808680}
-  BuyButton: {fileID: 1519704747452613031}
   difficultyText: {fileID: 5307201511583304140}
   statusImage: {fileID: 7666950182910631060}
+  BuyButton: {fileID: 1519704747452613031}
+  PlayButton: {fileID: 5294868022304808680}
   PlayByWatchButton: {fileID: 5294868023567168789}
+  AdsButtonValidator: {fileID: 7545726751393036852}
   progressTextSetter: {fileID: 2398029706355999524}
   onBuyed:
     m_PersistentCalls:
@@ -905,7 +906,7 @@ RectTransform:
   m_Children:
   - {fileID: 5294868022998614779}
   m_Father: {fileID: 5294868023423726734}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1224,7 +1225,7 @@ RectTransform:
   m_Children:
   - {fileID: 5294868021546908334}
   m_Father: {fileID: 5294868023423726734}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2170,6 +2171,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 892509265666015356}
   - {fileID: 5294868022304808683}
   - {fileID: 5294868022125444297}
   - {fileID: 5294868023567168788}
@@ -2544,7 +2546,7 @@ RectTransform:
   - {fileID: 5294868021500179000}
   - {fileID: 5294868023402563135}
   m_Father: {fileID: 5294868023423726734}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2841,6 +2843,89 @@ MonoBehaviour:
       m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
     inverse: 1
+--- !u!1 &7545726751393036852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 892509265666015356}
+  - component: {fileID: 7299046199547915099}
+  m_Layer: 5
+  m_Name: IsReadyAdsButtonValidator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &892509265666015356
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545726751393036852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5294868023423726734}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7299046199547915099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545726751393036852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1fe99c8165b5e348ab3a2e0283f1525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placement: {fileID: 11400000, guid: 32c484b5e6110354f90affdfebf91c44, type: 2}
+  intervalCheckUpdate: 2
+  startUpdateOnEnable: 1
+  onIsReady:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5294868023567168789}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onIsReadyInverce:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onReady:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onNOTReady:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
 --- !u!1 &7726577279927010262
 GameObject:
   m_ObjectHideFlags: 0
@@ -3050,7 +3135,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5294868023423726734}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

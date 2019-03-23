@@ -8,6 +8,6 @@ namespace GameCore
     public class TimeSpanIsZeroCondition : ACondition
     {
         [SerializeField] TimeSpanVariable variable;
-        public override bool Value => variable.IsZero ;
+        public override bool Value => variable.IsZero;
     }
 }

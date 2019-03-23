@@ -16,14 +16,16 @@ namespace CyberBeat
 	{
 		[SerializeField] Track track;
 		[SerializeField] TrackPlayerCellView playerCellView;
-		[SerializeField] GameObject PlayButton;
-		[SerializeField] ContentButton BuyButton;
 		[SerializeField] LocalizeTextMeshProUGUI difficultyText;
 		[SerializeField] Image statusImage;
+		[SerializeField] ContentButton BuyButton;
+		[SerializeField] GameObject PlayButton;
 		[SerializeField] GameObject PlayByWatchButton;
+		[SerializeField] GameObject AdsButtonValidator;
 		[SerializeField] IntVariablesTextSetter progressTextSetter;
 		[SerializeField] UnityEvent onBuyed;
 		[SerializeField] UnityEventGraphic onCantNotEnuthMoney;
+		
 
 		SystemLanguage currentLanguage => LocalizationManager.instance.currentLanguage;
 
@@ -69,6 +71,7 @@ namespace CyberBeat
 			PlayButton.SetActive (buyed);
 			BuyButton.SetActive (!buyed);
 			PlayByWatchButton.SetActive (!buyed);
+			AdsButtonValidator.SetActive(!buyed);
 		}
 	}
 }
