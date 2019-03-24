@@ -4,7 +4,7 @@ using UnityEngine;
 namespace GameCore
 {
 
-    [CreateAssetMenu (fileName = "GameEvent", menuName = "Events/GameCore/GameEvent/void")]
+    [CreateAssetMenu (fileName = "GameEvent", menuName = "GameCore/GameEvent/System/Void")]
     public class GameEvent : ScriptableObject
     {
         [SerializeField]

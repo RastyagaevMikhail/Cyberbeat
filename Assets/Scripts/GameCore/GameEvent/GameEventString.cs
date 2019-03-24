@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameCore
 {
-    [CreateAssetMenu (
-        fileName = "GameEventString", 
-        menuName = "GameCore/GameEvent/String")]
+    [CreateAssetMenu (fileName = "GameEventString", menuName = "GameCore/GameEvent/System/String")]
     public class GameEventString : ScriptableObject
     {
         [SerializeField]

@@ -7,7 +7,7 @@ namespace CyberBeat
 {
     [CreateAssetMenu (
         fileName = "InputControllerComponent",
-        menuName = "Variables/CyberBeat/InputControllerComponent")]
+        menuName = "CyberBeat/Variable/InputControllerComponent")]
     public class InputControllerComponentVariable : SavableVariable<InputControllerComponent>
     {
         public override void ResetDefault ()

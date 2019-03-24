@@ -28,6 +28,7 @@ namespace CyberBeat
 
         public override void UpdatePosition ()
         {
+            if (!matSwitch.Value) return;
             // nearBeats.ForEach (ForEachNear);
             Vector3 origin = _target.position;
             forwardRay = new Ray (origin, _target.forward);

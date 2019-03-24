@@ -7,7 +7,7 @@ using UnityEngine;
 namespace CyberBeat
 {
 
-   [CreateAssetMenu (fileName = "SkinType", menuName = "Variables/CyberBeat/Enum/SkinType", order = 0)]
+   [CreateAssetMenu (fileName = "SkinType", menuName = "CyberBeat/Variable/Enum/SkinType", order = 0)]
    public class SkinType : EnumScriptable
    {
       public Material OnSeleted;

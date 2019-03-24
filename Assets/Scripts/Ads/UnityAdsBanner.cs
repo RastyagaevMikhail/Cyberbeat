@@ -15,13 +15,14 @@ namespace GameCore
         {
             if (showOnEnable)
             {
-                Debug.Log ($"Banner OnEnabel {placementId} {name}");
+                if (debug) Debug.Log ($"Banner OnEnabel {placementId} {name}");
                 ShowAd ();
             }
         }
 
         [SerializeField] StringVariable gameID;
         [SerializeField] BoolVariable noAds;
+        [SerializeField] bool debug;
         bool NoAds => noAds.Value;
 #if UNITY_EDITOR
         private void OnValidate ()
@@ -41,7 +42,7 @@ namespace GameCore
         public void ShowAd ()
         {
             InititalizeIfNeed ();
-            Debug.Log ($"Banner onShow NoAds {NoAds} {placementId} {name}");
+            if (debug) Debug.Log ($"Banner onShow NoAds {NoAds} {placementId} {name}");
             if (NoAds) return;
             StartCoroutine (ShowBannerWhenReady (placementId));
         }
@@ -49,7 +50,7 @@ namespace GameCore
         {
             while (!Advertisement.IsReady (placementId))
                 yield return new WaitForSeconds (0.5f);
-            Debug.Log ($"Banner Ready {placementId} {name}");
+            if (debug) Debug.Log ($"Banner Ready {placementId} {name}");
             Advertisement.Banner.Show (placementId);
         }
         private void OnDisable ()
@@ -59,9 +60,9 @@ namespace GameCore
 
         public void Hide ()
         {
-            Debug.Log ($"Banner onHide NoAds {NoAds} {placementId} {name}");
+            if (debug) Debug.Log ($"Banner onHide NoAds {NoAds} {placementId} {name}");
             if (NoAds) return;
-            Debug.Log ($"Banner OnDisable {placementId} {name}");
+            if (debug) Debug.Log ($"Banner OnDisable {placementId} {name}");
             StopAllCoroutines ();
             Advertisement.Banner.Hide ();
         }

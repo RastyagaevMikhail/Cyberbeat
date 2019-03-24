@@ -5,7 +5,7 @@ namespace  GameCore
 {
     [CreateAssetMenu (
         fileName = "TimeSpanTimerAction", 
-    menuName = "Variables/GameCore/TimeSpanTimerAction")]
+    menuName = "GameCore/Variable/TimeSpanTimerAction")]
     public class TimeSpanTimerActionVariable : SavableVariable<TimeSpanTimerAction>
     {
         public override void ResetDefault ()

@@ -6,9 +6,7 @@ using UnityEngine.UI;
 namespace GameCore
 {
 
-    [CreateAssetMenu (
-        fileName = "GameEventGraphic", 
-        menuName = "GameCore/GameEvent/Graphic")]
+    [CreateAssetMenu (fileName = "GameEventGraphic", menuName = "GameCore/GameEvent/UnityEngine/Graphic")]
     public class GameEventGraphic : ScriptableObject
     {
         [SerializeField]

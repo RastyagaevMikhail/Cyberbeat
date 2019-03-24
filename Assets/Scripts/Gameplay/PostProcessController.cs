@@ -20,9 +20,9 @@ namespace CyberBeat
         {
             string colorName = CurrentColorSet.Value.GetName (color);
 
-            Color addColor = colorSelector[colorName];
-
-            bloom.color.value = addColor;
+            ColorBloom = colorSelector[colorName];
         }
+
+        public Color ColorBloom { set => bloom.color.value = value; }
     }
 }

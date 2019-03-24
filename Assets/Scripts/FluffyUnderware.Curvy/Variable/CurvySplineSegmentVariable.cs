@@ -1,10 +1,9 @@
 using GameCore;
+
 using UnityEngine;
-namespace  FluffyUnderware.Curvy
+namespace FluffyUnderware.Curvy
 {
-    [CreateAssetMenu (
-        fileName = "CurvySplineSegment", 
-    menuName = "Variables/FluffyUnderware.Curvy/CurvySplineSegment")]
+    [CreateAssetMenu (fileName = "CurvySplineSegment", menuName = "FluffyUnderware.Curvy/Variable/CurvySplineSegment")]
     public class CurvySplineSegmentVariable : SavableVariable<CurvySplineSegment>
     {
         public override void ResetDefault ()
@@ -32,15 +31,12 @@ namespace  FluffyUnderware.Curvy
 
         public override void LoadValue ()
         {
-          // TODO: Load Code This From CurvySplineSegmentVariable
+            // TODO: Load Code This From CurvySplineSegmentVariable
         }
 
-       
-        
         public static implicit operator CurvySplineSegment (CurvySplineSegmentVariable variable)
         {
             return variable.Value;
         }
     }
 }
-

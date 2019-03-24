@@ -5,7 +5,7 @@ namespace  CyberBeat
 {
     [CreateAssetMenu (
         fileName = "Player", 
-    menuName = "Variables/CyberBeat/Player")]
+    menuName = "CyberBeat/Variable/Player")]
     public class PlayerVariable : SavableVariable<Player>
     {
         public override void ResetDefault ()

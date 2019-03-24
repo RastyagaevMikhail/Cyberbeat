@@ -8,7 +8,7 @@ using UnityEngine;
 namespace GameCore
 {
 
-	[CreateAssetMenu (fileName = "List_int", menuName = "Variables/GameCore/List<int>", order = 0)]
+	[CreateAssetMenu (fileName = "List_int", menuName = "GameCore/Variable/System/List<int>", order = 0)]
 	public class IntListVariable : SavableVariable<List<int>>, IEnumerable<int>
 	{
 		public override void ResetDefault ()

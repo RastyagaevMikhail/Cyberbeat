@@ -7,7 +7,7 @@ namespace GameCore
 {
     [CreateAssetMenu (
         fileName = "AnimatorHashPlayer",
-        menuName = "Variables/GameCore/AnimatorHashPlayer")]
+        menuName = "GameCore/Variable/AnimatorHashPlayer")]
     public class AnimatorHashPlayerVariable : SavableVariable<AnimatorHashPlayer>
     {
         public override void ResetDefault ()

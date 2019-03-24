@@ -12,6 +12,7 @@ namespace CyberBeat
         [SerializeField] IntVariable index;
         [SerializeField] SkinsEnumDataSelector selector;
         [SerializeField] TransformReference parentReference;
+        [SerializeField] ColorVariable defaultColor;
         Transform parent => parentReference.ValueFast;
         void Start ()
         {
@@ -19,6 +20,7 @@ namespace CyberBeat
 
             var instnce = Instantiate (prefab as GameObject, parent);
             instnce.transform.localPosition = Vector3.zero;
+            instnce.GetComponent<SkinComponent>().StartInit (defaultColor);
         }
     }
 }

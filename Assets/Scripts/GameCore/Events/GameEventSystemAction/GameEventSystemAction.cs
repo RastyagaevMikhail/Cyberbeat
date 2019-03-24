@@ -5,7 +5,7 @@ using System;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventSystemAction", menuName = "Events/GameCore/GameEvent/System.Action")]
+	[CreateAssetMenu (fileName = "GameEventSystemAction", menuName = "GameCore/GameEvent/System/Action")]
 	public class GameEventSystemAction : ScriptableObject
 	{
 		protected List<EventListenerSystemAction> eventListeners = new List<EventListenerSystemAction> ();

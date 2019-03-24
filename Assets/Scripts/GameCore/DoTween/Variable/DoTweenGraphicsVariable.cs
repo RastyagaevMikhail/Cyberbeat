@@ -7,9 +7,7 @@ using System;
 using UnityEngine;
 namespace GameCore.DoTween
 {
-    [CreateAssetMenu (
-        fileName = "DoTweenGraphics",
-        menuName = "GameCore/Variables/DoTween/Graphics")]
+    [CreateAssetMenu (fileName = "DoTweenGraphics", menuName = "GameCore/Variable/DoTween/Graphics")]
     public class DoTweenGraphicsVariable : SavableVariable<DoTweenGraphics>
     {
         public override void ResetDefault ()

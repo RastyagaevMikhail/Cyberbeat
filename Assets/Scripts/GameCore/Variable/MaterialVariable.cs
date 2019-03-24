@@ -3,9 +3,7 @@ using GameCore;
 using UnityEngine;
 namespace GameCore
 {
-    [CreateAssetMenu (
-        fileName = "Material",
-        menuName = "Variables/GameCore/Material")]
+    [CreateAssetMenu (fileName = "Material", menuName = "GameCore/Variable/UnityEngine/Material")]
     public class MaterialVariable : SavableVariable<Material>
     {
         [SerializeField] StringVariable ColorName;
@@ -41,8 +39,6 @@ namespace GameCore
         {
             // TODO: Load Code This From MaterialVariable
         }
-
-       
 
         public static implicit operator Material (MaterialVariable variable)
         {

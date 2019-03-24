@@ -231,6 +231,10 @@ namespace GameCore
             // string pathInstance = AssetDatabase.GetAssetPath (so);
             return so;
         }
+        public static ScriptableObject ValidateSO (string path)
+        {
+            return ValidateSO (path, typeof (ScriptableObject));
+        }
         public static ScriptableObject ValidateSO (string path, Type type)
         {
             if (!type.IsAssignableFrom (typeof (ScriptableObject)))

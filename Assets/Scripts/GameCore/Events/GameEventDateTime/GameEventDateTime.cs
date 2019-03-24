@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventDateTime", menuName = "Events/GameCore/GameEvent/DateTime")]
+	[CreateAssetMenu (fileName = "GameEventDateTime", menuName = "GameCore/GameEvent/System/DateTime")]
 	public class GameEventDateTime : GameEventStruct<DateTime>
 	{
 		protected List<EventListenerDateTime> eventListeners = new List<EventListenerDateTime> ();

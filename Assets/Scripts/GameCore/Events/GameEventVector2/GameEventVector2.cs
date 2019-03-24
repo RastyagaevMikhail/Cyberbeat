@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventVector2", menuName = "Events/GameCore/GameEvent/Vector2")]
+	[CreateAssetMenu (fileName = "GameEventVector2", menuName = "GameCore/GameEvent/UnityEngine/Vector2")]
 	public class GameEventVector2 : GameEventStruct<Vector2>
 	{
 		protected List<EventListenerVector2> eventListeners = new List<EventListenerVector2> ();

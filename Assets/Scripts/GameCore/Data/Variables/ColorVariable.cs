@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "", menuName = "Variables/GameCore/Color")]
+	[CreateAssetMenu (fileName = "", menuName = "GameCore/Variable/UnityEngine/Color")]
 	public class ColorVariable : SavableVariable<Color>
 	{
 		private void OnEnable ()
@@ -36,6 +36,10 @@ namespace GameCore
 		public void SetValue (Color color)
 		{
 			Value = color;
+		}
+		
+		public static implicit operator Color(ColorVariable colorVariable) {
+			return colorVariable.Value;
 		}
 	}
 }

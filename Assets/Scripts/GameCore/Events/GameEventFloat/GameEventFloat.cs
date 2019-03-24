@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventFloat", menuName = "Events/GameCore/GameEvent/float")]
+	[CreateAssetMenu (fileName = "GameEventFloat", menuName = "GameCore/GameEvent/System/Float")]
 	public class GameEventFloat : ScriptableObject
 	{
 		[SerializeField] List<EventListenerFloat> eventListeners = new List<EventListenerFloat> ();

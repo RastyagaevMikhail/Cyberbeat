@@ -3,9 +3,7 @@ using GameCore;
 using UnityEngine;
 namespace  $NAMESPACE_NAME$
 {
-    [CreateAssetMenu (
-        fileName = "$TYPE_NAME$", 
-    menuName = "Variables/$NAMESPACE_NAME$/$TYPE_NAME$")]
+    [CreateAssetMenu (fileName = "$TYPE_NAME$", menuName = "$NAMESPACE_NAME$/Variable/$TYPE_NAME$")]
     public class $TYPE_NAME$Variable : SavableVariable<$TYPE_NAME$>
     {
         public override void ResetDefault ()

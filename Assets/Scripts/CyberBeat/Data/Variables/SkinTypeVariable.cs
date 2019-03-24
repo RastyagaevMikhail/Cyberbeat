@@ -4,7 +4,7 @@ namespace  CyberBeat
 {
     [CreateAssetMenu (
         fileName = "SkinType", 
-    menuName = "Variables/CyberBeat/SkinType")]
+    menuName = "CyberBeat/Variable/SkinType")]
     public class SkinTypeVariable : SavableVariable<SkinType>
     {
         public override void ResetDefault ()

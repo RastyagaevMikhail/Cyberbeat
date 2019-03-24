@@ -25,7 +25,7 @@ namespace CyberBeat
 			transGroup.Add (result.gameObject);
 		}
 
-		public void ApplyStateMaterial (SkinComponent rend, bool Select = false)
+		public void 	ApplyStateMaterial (SkinComponent rend, bool Select = false)
 		{
 			if (Select)
 				rend.Renderer.material = Bougth ? type.OnSeleted : type.OnClosed;

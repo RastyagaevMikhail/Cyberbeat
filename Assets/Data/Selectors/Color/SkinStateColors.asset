@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61edd8cc4c080b4a8fb55f6399a0cf9, type: 3}
+  m_Name: SkinStateColors
+  m_EditorClassIdentifier: 
+  datas:
+  - type: Highlighted
+    data: {fileID: 11400000, guid: 2ff2be8f508bd5342ba003bde970371f, type: 2}
+  - type: Closed
+    data: {fileID: 11400000, guid: d7436904a679c4340a4fece13bb4bfaa, type: 2}
+  - type: Selected
+    data: {fileID: 11400000, guid: 59a0454a700e7d642a8e4d2f921e4d76, type: 2}
+  ValiadtePath: Assets/Data/Variables/Color/SkinState

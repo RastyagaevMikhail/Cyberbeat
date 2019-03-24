@@ -7,7 +7,7 @@ namespace CyberBeat
 {
     [CreateAssetMenu (
         fileName = "Track",
-        menuName = "Variables/CyberBeat/Track")]
+        menuName = "CyberBeat/Variable/Track")]
     public class TrackVariable : SavableVariable<Track>
     {
         public override void ResetDefault ()

@@ -5,7 +5,7 @@ namespace  CyberBeat
 {
     [CreateAssetMenu (
         fileName = "InputControlType", 
-    menuName = "Variables/CyberBeat/InputControlType")]
+    menuName = "CyberBeat/Variable/InputControlType")]
     public class InputControlTypeVariable : SavableVariable<InputControlType>
     {
         public override void ResetDefault ()

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventTimeSpan", menuName = "Events/GameCore/GameEvent/TimeSpan")]
+	[CreateAssetMenu (fileName = "GameEventTimeSpan", menuName = "GameCore/GameEvent/System/TimeSpan")]
 	public class GameEventTimeSpan : GameEventStruct<TimeSpan>
 	{
 		protected List<EventListenerTimeSpan> eventListeners = new List<EventListenerTimeSpan> ();

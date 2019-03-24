@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,6 +28,19 @@ namespace GameCore
 
         protected RectTransform contentRect => scrollRect.content;
         protected RectTransform viewportRect => scrollRect.viewport;
+
+        public void ForeEach (Action<RectTransform> action)
+        {
+            instPans.ForEach (i => action (i));
+        }
+        public void ForeEach<T> (Action<T> action) where T : Component
+        {
+            instPans.ForEach (i => action (i.GetComponent<T> ()));
+        }
+        public void ForeEach<T> (Action<T, int> action) where T : Component
+        {
+            instPans.ForEach (i => action (i.GetComponent<T> (), instPans.IndexOf (i)));
+        }
 
         public void Initialize ()
         {

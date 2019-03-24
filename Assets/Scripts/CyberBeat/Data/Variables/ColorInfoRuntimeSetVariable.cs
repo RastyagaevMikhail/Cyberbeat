@@ -4,7 +4,7 @@ namespace  CyberBeat
 {
     [CreateAssetMenu (
         fileName = "ColorInfoRuntimeSet", 
-    menuName = "Variables/CyberBeat/ColorInfoRuntimeSet")]
+    menuName = "CyberBeat/Variable/ColorInfoRuntimeSet")]
     public class ColorInfoRuntimeSetVariable : SavableVariable<ColorInfoRuntimeSet>
     {
         public override void ResetDefault ()

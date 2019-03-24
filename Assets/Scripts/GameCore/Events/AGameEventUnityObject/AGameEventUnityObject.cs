@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventObject", menuName = "Events/GameCore/GameEvent/Object")]
 	public abstract class AGameEventUnityObject<TObject, TEventListener> : ScriptableObject
 	where TObject : UnityEngine.Object
 	where TEventListener : AEventListenerUnityObject<TObject, TEventListener>

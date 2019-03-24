@@ -42,19 +42,25 @@ namespace GameCore.CodeGeneration
 
                 foreach (var pair in pahtText)
                 {
-                    Tools.ValidatePath (
-                        Path.GetDirectoryName ("Assets" + pair.Key.Replace (Application.dataPath, string.Empty)).Replace ('\\', '/')
+					string scriptPath = pair.Key;
+                    string assetPath = scriptPath.Replace (Application.dataPath, "Asstes");
+					Tools.ValidatePath (
+						Path.GetDirectoryName ("Assets" + scriptPath.Replace (Application.dataPath, string.Empty)).Replace ('\\', '/')
                     );
 
-                    if (File.Exists (pair.Key))
+                    MonoScript ScriptObject = AssetDatabase.LoadAssetAtPath<MonoScript> (assetPath);
+
+                    if (File.Exists (scriptPath))
                     {
-                        Debug.Log ($"File {pair.Key} Is Exist");
+						Debug.Log ($"File {scriptPath} Is Exist", ScriptObject);
                         continue;
                     }
 
-                    File.WriteAllText (pair.Key, pair.Value);
+					File.WriteAllText (scriptPath, pair.Value);
 
                     AssetDatabase.Refresh ();
+                    Debug.Log(ScriptObject);  
+                    Debug.Log ($"Script Created From Path {assetPath}", ScriptObject);
                 }
             }
         }

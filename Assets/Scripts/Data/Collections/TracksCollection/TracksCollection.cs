@@ -3,6 +3,7 @@
 using Sirenix.OdinInspector;
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -184,25 +185,36 @@ namespace CyberBeat
 		}
 		public int startPrice = 50;
 		public int startReward = 25;
+
 		[ContextMenu ("CalculatePrices")]
 		void CalculatePrices ()
 		{
 			int currentPrice = startPrice;
 			int currentReward = startReward;
 			string log = string.Empty;
+			int index = 0;
+
 			foreach (var track in Objects)
 			{
 				log += $"{track.name} : {currentPrice} {currentReward}\n";
 				// track.shopInfo.Price = currentPrice;
 				// track.maxReward = currentReward;
 				// track.Save ();
-				int rewardRaw = (int) currentReward * 3;
+				int rewardRaw = (int) currentReward * Multiplayers[index];
 				currentPrice = rewardRaw + (5 - rewardRaw % 5);
 				int rawReward = (int) currentPrice / 2;
 				currentReward = rawReward - (rawReward % 5);
+				index++;
 			}
-			Debug.Log(log);
+			Debug.Log (log);
 		}
-
+		public List<int> Multiplayers;
+		[ContextMenu ("GenerateFib")]
+		private void GenerateFib ()
+		{
+			Func<int, int> fib = null;
+			fib = (x) => x > 1 ? fib (x - 1) + fib (x - 2) : x;
+			Multiplayers = Enumerable.Range (0, 11).Select (x => fib (x)).ToList ();
+		}
 	}
 }

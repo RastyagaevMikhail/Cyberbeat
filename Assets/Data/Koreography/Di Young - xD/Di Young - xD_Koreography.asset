@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2076007791, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
+  m_Name: Di Young - xD_Koreography
+  m_EditorClassIdentifier: 
+  mSourceClip: {fileID: 8300000, guid: 7be8dd2204f434717825d6881f528a6d, type: 3}
+  mAudioFilePath: 
+  mSampleRate: -1
+  mIgnoreLatencyOffset: 0
+  mTempoSections:
+  - sectionName: Zero Selection
+    startSample: 0
+    samplesPerBeat: 22050
+    beatsPerMeasure: 4
+    bStartNewMeasure: 1
+  - sectionName: New Section
+    startSample: 0
+    samplesPerBeat: 22050
+    beatsPerMeasure: 4
+    bStartNewMeasure: 1
+  mTracks:
+  - {fileID: 11400000, guid: f5bcdc6cc4abb46bd95a4970b9b5b522, type: 2}
+  - {fileID: 11400000, guid: e9ca3ecd7a49548b4aff764166f13202, type: 2}
+  - {fileID: 11400000, guid: 713bbea3521254fe69fc0da0159cfa63, type: 2}
+  - {fileID: 11400000, guid: 2de24d621a29845a4aee885a0498a728, type: 2}
+  - {fileID: 11400000, guid: 05890b8bd0fef434383f39a881d9c7f2, type: 2}
+  - {fileID: 11400000, guid: 664f987a488c04cecb85e3e19928b028, type: 2}
+  - {fileID: 11400000, guid: 60d928520f75d485da51634316ab3e40, type: 2}

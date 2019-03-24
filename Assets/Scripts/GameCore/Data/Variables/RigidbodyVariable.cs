@@ -3,7 +3,7 @@ using GameCore;
 using UnityEngine;
 namespace GameCore
 {
-    [CreateAssetMenu (fileName = "Rigidbody", menuName = "GameCore/Variables/Rigidbody")]
+    [CreateAssetMenu (fileName = "Rigidbody", menuName = "GameCore/Variable/UnityEngine/Rigidbody")]
     public class RigidbodyVariable : SavableVariable<Rigidbody>
     {
         public override void ResetDefault ()

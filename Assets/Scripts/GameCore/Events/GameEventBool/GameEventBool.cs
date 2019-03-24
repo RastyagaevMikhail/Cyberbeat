@@ -7,7 +7,7 @@ using System.Linq;
 using UnityEngine;
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventBool", menuName = "Events/GameCore/GameEvent/bool")]
+	[CreateAssetMenu (fileName = "GameEventBool", menuName = "GameCore/GameEvent/System/Bool")]
 	public class GameEventBool : ScriptableObject
 	{
 		[SerializeField] List<EventListenerBool> eventListeners = new List<EventListenerBool> ();

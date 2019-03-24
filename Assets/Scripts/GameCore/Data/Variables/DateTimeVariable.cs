@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "DateTime Variable", menuName = "Variables/GameCore/DateTime")]
+	[CreateAssetMenu (fileName = "DateTime Variable", menuName = "GameCore/Variable/System/DateTime")]
 	public class DateTimeVariable : SavableVariable<DateTime>
 	{
 		public override void ResetDefault ()

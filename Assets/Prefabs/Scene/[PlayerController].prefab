@@ -9938,6 +9938,7 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: {fileID: 671588576930329013}
     Variable: {fileID: 0}
+  defaultColor: {fileID: 11400000, guid: ae377c76dd8b378469ed800418b1d448, type: 2}
 --- !u!1 &282119235109045992
 GameObject:
   m_ObjectHideFlags: 0
@@ -11036,6 +11037,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6426927073497018422}
     m_Modifications:
+    - target: {fileID: 6529920787145348095, guid: 961e754a47ffbc149b4c99951b90e5ce,
+        type: 3}
+      propertyPath: m_Name
+      value: '[ParticlePool]'
+      objectReference: {fileID: 0}
     - target: {fileID: 1356834808751864156, guid: 961e754a47ffbc149b4c99951b90e5ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11090,11 +11096,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6529920787145348095, guid: 961e754a47ffbc149b4c99951b90e5ce,
-        type: 3}
-      propertyPath: m_Name
-      value: '[ParticlePool]'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 961e754a47ffbc149b4c99951b90e5ce, type: 3}

@@ -4,7 +4,7 @@ namespace  CyberBeat
 {
     [CreateAssetMenu (
         fileName = "MenuWindowType", 
-    menuName = "Variables/CyberBeat/MenuWindowType")]
+    menuName = "CyberBeat/Variable/MenuWindowType")]
     public class MenuWindowTypeVariable : SavableVariable<MenuWindowType>
     {
         public override void ResetDefault ()

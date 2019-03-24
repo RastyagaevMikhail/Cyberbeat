@@ -12,7 +12,7 @@ namespace  $NAMESPACE_NAME$
         }
         void OnDisable()
         {
-            variable = null;
+            variable.Value = null;
         }
         [ContextMenu ("Create Variable Instance")]
         void CreateVariableInstance ()

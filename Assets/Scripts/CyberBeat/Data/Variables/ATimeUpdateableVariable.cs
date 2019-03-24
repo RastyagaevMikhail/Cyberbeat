@@ -5,7 +5,7 @@ namespace  CyberBeat
 {
     [CreateAssetMenu (
         fileName = "ATimeUpdateable", 
-    menuName = "Variables/CyberBeat/ATimeUpdateable")]
+    menuName = "CyberBeat/Variable/ATimeUpdateable")]
     public class ATimeUpdateableVariable : SavableVariable<ATimeUpdateable>
     {
         public override void ResetDefault ()

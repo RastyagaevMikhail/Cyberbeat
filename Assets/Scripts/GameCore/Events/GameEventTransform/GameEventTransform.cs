@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventTransform", menuName = "Events/GameCore/GameEvent/Transform")]
+	[CreateAssetMenu (fileName = "GameEventTransform", menuName = "GameCore/GameEvent/UnityEngine/Transform")]
 	public class GameEventTransform : ScriptableObject
 	{
 		protected List<EventListenerTransform> eventListeners = new List<EventListenerTransform> ();

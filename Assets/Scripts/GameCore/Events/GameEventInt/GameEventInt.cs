@@ -5,10 +5,10 @@ using System.Linq;
 using UnityEngine;
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventInt", menuName = "Events/GameCore/GameEvent/int")]
+	[CreateAssetMenu (fileName = "GameEventInt", menuName = "GameCore/GameEvent/System/Int")]
 	public class GameEventInt : ScriptableObject
 	{
-		List<EventListenerInt> eventListeners = new List<EventListenerInt> ();
+		[SerializeField] List<EventListenerInt> eventListeners = new List<EventListenerInt> ();
 		public void Raise (int arg)
 		{
 			for (int i = eventListeners.Count - 1; i >= 0; i--)

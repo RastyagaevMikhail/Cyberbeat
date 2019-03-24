@@ -1,5 +1,6 @@
 using GameCore;
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,10 @@ namespace CyberBeat
         public Color this [string name] => selector[name];
         Dictionary<string, Color> _selector = null;
         Dictionary<string, Color> selector => _selector??(_selector = datas.ToDictionary (d => d.name, d => d.color));
+
+        public bool TryGetValue (string key, out Color color)
+        {
+            return selector.TryGetValue (key, out color);
+        }
     }
 }

@@ -26,6 +26,10 @@ namespace CyberBeat
 			foreach (var set in settings)
 				set.SetColor (Color.white);
 		}
+		public void GEColor_ChnageColorTo (ColorVariable color)
+		{
+			GEColor_ChnageColorTo (color.Value);
+		}
 		public void GEColor_ChnageColorTo (Color color)
 		{
 			foreach (var set in settings)
@@ -48,18 +52,7 @@ namespace CyberBeat
 		[SerializeField] Material material;
 		[SerializeField] StringVariable ColorName;
 		string colorName => ColorName ? ColorName.Value : "_Color";
-		[SerializeField] float duration = 1f;
-		public void SetColor (Color color)
-		{
-			// material.DOColor (color, colorName, duration);
-			material.SetColor (colorName, color); 
-		}
-
-		public void OnValidate ()
-		{
-			string materialName = material ? material.name : "";
-			string colorName = ColorName ? ColorName.Value : "_Color";
-			Name = $"{materialName}.{colorName}.{duration}sec";
-		}
+		public void SetColor(Color color) => material.SetColor(colorName, color);
+		public void OnValidate() => Name = $"{(material ? material.name : "")}.{(ColorName ? ColorName.Value : "_Color")}";
 	}
 }

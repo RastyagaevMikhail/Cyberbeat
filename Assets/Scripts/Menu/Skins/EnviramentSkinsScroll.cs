@@ -22,9 +22,6 @@ namespace CyberBeat
 		[SerializeField] SkinsEnumDataSelector skinsSelector;
 		[SerializeField] SkinType skinType;
 
-		[SerializeField] ColorInfoRuntimeSet[] colorSets;
-		ColorInfoRuntimeSet colors => colorSets.GetRandom ();
-
 		TransformGroup transformGroup { get { return transfromGroupSelector[skinType]; } }
 		TransformObject TargetScroll { get { return transformGroup; } }
 
@@ -32,7 +29,8 @@ namespace CyberBeat
 		[SerializeField] SkinTypeActionSelector skinTypeActionSelector;
 		[SerializeField] ScrollSettingsDataSelector transfromGroupSelector;
 		[SerializeField] SkinSlelctorsSelector transfromObjectSelector;
-		float lastPosition;
+		[Header("Events")]
+		[SerializeField] UnityEventInt skinSelected;
 		float currentPosition;
 		public void _OnSkinTypeChnaged (SkinType skinType)
 		{
@@ -42,7 +40,8 @@ namespace CyberBeat
 			scrollPositionController.ScrollTo (skinIndex);
 
 			SetDataCount (skinType);
-			_OnItemSelected (skinIndex);
+			skinSelected.Invoke(skinIndex);
+			// _OnItemSelected (skinIndex);
 
 		}
 
@@ -51,22 +50,6 @@ namespace CyberBeat
 			scrollPositionController.ScrollTo (0);
 			foreach (var transformGroup in transfromGroupSelector.Values)
 				DOVirtual.Float (transformGroup.z, 0, 1, value => transformGroup.z = value);
-		}
-
-		private void Start ()
-		{
-			DoRandomSelctedColor ();
-		}
-
-		public void DoRandomSelctedColor ()
-		{
-			if (skinType && !(skinType.OnSeleted))
-			{
-				Invoke ("DoRandomSelctedColor", 1f);
-				return;
-			}
-			skinType.OnSeleted.DOBlendableColor (colors.GetRandom ().color, "_Color", 1f)
-				.OnComplete (DoRandomSelctedColor);
 		}
 
 		private void SetDataCount (SkinType skinType)
@@ -104,13 +87,20 @@ namespace CyberBeat
 			currentSkinComponent.StartAniamtion ();
 			skinItem.ApplyStateMaterial (currentSkinComponent, true);
 
+			//? Skin Selector Object
+			#region Skin Selector Object 
+
 			var slector = transfromObjectSelector[skinType];
 
 			slector.SetParent (transformGroup.GetAt (index));
 			slector.localPosition = Vector3.zero;
 
+			#endregion
+
 			previndex = index;
 		}
+	
+
 		public void _UpdatePosition (float position)
 		{
 			if (!transformGroup) return;
@@ -120,7 +110,6 @@ namespace CyberBeat
 			currentPosition = (position / count) * bounds;
 
 			TargetScroll.z = -currentPosition;
-
 		}
 
 	}

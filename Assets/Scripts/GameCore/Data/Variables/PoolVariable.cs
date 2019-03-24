@@ -5,7 +5,7 @@ namespace GameCore
 {
     [CreateAssetMenu (
         fileName = "Pool",
-        menuName = "GameCore/Variables/Pool")]
+        menuName = "GameCore/Variable/Pool")]
     public class PoolVariable : SavableVariable<Pool>
     {
         public override void ResetDefault ()

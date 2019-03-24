@@ -5,7 +5,7 @@ namespace  FluffyUnderware.Curvy
 {
     [CreateAssetMenu (
         fileName = "CurvySpline", 
-    menuName = "Variables/FluffyUnderware.Curvy/CurvySpline")]
+    menuName = "FluffyUnderware.Curvy/Variable/CurvySpline")]
     public class CurvySplineVariable : SavableVariable<CurvySpline>
     {
         public override void ResetDefault ()

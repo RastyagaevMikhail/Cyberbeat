@@ -21,6 +21,7 @@ namespace GameCore
         [SerializeField] UnityEventString adsFailed;
         [SerializeField] UnityEventBool VideoShowing;
         [SerializeField] StringVariable gameID;
+        [SerializeField] bool debug;
 #if UNITY_EDITOR
         private void OnValidate ()
         {
@@ -46,14 +47,14 @@ namespace GameCore
             InititalizeIfNeed ();
             adsStartShowing.Invoke ();
             VideoShowing.Invoke (true);
-            Debug.Log ($"adsStartShowing {placementId} {name}");
+            if (debug) Debug.Log ($"adsStartShowing {placementId} {name}");
             TimersManager.SetTimer (this, timeFromReady, onAdsTimeIsExpiried);
             StartCoroutine (WaitForAd (placementId));
         }
 
         private void onAdsTimeIsExpiried ()
         {
-            Debug.Log ($"onAdsTimeIsExpiried {name}");
+            if (debug) Debug.Log ($"onAdsTimeIsExpiried {name}");
             adsError.Invoke ();
             adsStopShowing.Invoke ();
             VideoShowing.Invoke (false);
@@ -64,25 +65,25 @@ namespace GameCore
             while (!Monetization.IsReady (placementId))
                 yield return null;
             // if ready ads from placementId
-            Debug.Log ($"Ads Ready {placementId} {name}");
+            if (debug) Debug.Log ($"Ads Ready {placementId} {name}");
             TimersManager.ClearTimer (onAdsTimeIsExpiried);
 
             ShowAdPlacementContent ad = null;
             ad = Monetization.GetPlacementContent (placementId) as ShowAdPlacementContent;
-            Debug.Log ($"ad = {ad} {placementId} {name}");
+            if (debug) Debug.Log ($"ad = {ad} {placementId} {name}");
 
             if (ad != null)
                 ad.Show (result =>
                 {
-                    Debug.Log ($"Ads Show {placementId}", this);
+                    if (debug) Debug.Log ($"Ads Show {placementId}", this);
                     eventSelector[result] (placementId);
                 });
             else
             {
-                Debug.Log ($"Asd Error {placementId} {name}");
+                if (debug) Debug.Log ($"Asd Error {placementId} {name}");
                 adsError.Invoke ();
             }
-            Debug.Log ($"Ads stop showing {placementId} {name}");
+            if (debug) Debug.Log ($"Ads stop showing {placementId} {name}");
             adsStopShowing.Invoke ();
             VideoShowing.Invoke (false);
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventColor", menuName = "Events/GameCore/GameEvent/Color")]
+	[CreateAssetMenu (fileName = "GameEventColor", menuName = "GameCore/GameEvent/UnityEngine/Color")]
 	public class GameEventColor : ScriptableObject
 	{
 		[SerializeField] List<EventListenerColor> eventListeners = new List<EventListenerColor> ();

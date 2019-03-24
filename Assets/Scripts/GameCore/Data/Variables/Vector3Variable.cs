@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "Vector3Variable", menuName = "Variables/GameCore/Vector3")]
+	[CreateAssetMenu (fileName = "Vector3Variable", menuName = "GameCore/Variable/UnityEngine/Vector3")]
 	public class Vector3Variable : SavableVariable<Vector3>
 	{
 		public override void ResetDefault ()

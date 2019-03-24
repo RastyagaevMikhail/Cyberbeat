@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 namespace GameCore
 {
-    [CreateAssetMenu (fileName = "ObjectVariable", menuName = "Variables/GameCore/UnityEngine.Object")]
+    [CreateAssetMenu (fileName = "ObjectVariable", menuName = "GameCore/Variable/UnityEngine/Object")]
     public class UnityObjectVariable : SavableVariable<Object>
     {
         public override void ResetDefault ()

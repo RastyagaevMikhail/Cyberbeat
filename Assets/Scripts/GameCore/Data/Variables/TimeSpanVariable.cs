@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "TimeSpanVariable", menuName = "Variables/GameCore/TimeSpan")]
+	[CreateAssetMenu (fileName = "TimeSpanVariable", menuName = "GameCore/Variable/System/TimeSpan")]
 	public class TimeSpanVariable : SavableVariable<TimeSpan>
 	{
 		[Button]

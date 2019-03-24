@@ -5,7 +5,7 @@ namespace  CyberBeat
 {
     [CreateAssetMenu (
         fileName = "Koreography", 
-    menuName = "Variables/CyberBeat/Koreography")]
+    menuName = "CyberBeat/Variable/Koreography")]
     public class KoreographyVariable : SavableVariable<Koreography>
     {
         public override void ResetDefault ()

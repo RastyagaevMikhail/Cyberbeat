@@ -14,12 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: Effect
   mEventList:
-  - mStartSample: 541804
-    mEndSample: 541804
-  - mStartSample: 549024
-    mEndSample: 549024
-  - mStartSample: 556140
-    mEndSample: 556140
   - mStartSample: 570300
     mEndSample: 570300
   - mStartSample: 598424
@@ -28,12 +22,6 @@ MonoBehaviour:
     mEndSample: 612540
   - mStartSample: 626580
     mEndSample: 626580
-  - mStartSample: 655018
-    mEndSample: 655018
-  - mStartSample: 661972
-    mEndSample: 661972
-  - mStartSample: 669000
-    mEndSample: 669000
   - mStartSample: 682920
     mEndSample: 682920
   - mStartSample: 711480
@@ -44,28 +32,14 @@ MonoBehaviour:
     mEndSample: 739620
   - mStartSample: 768600
     mEndSample: 768600
-  - mStartSample: 782100
-    mEndSample: 782100
-  - mStartSample: 789450
-    mEndSample: 789450
-  - mStartSample: 796440
-    mEndSample: 796440
   - mStartSample: 824700
     mEndSample: 824700
   - mStartSample: 838800
     mEndSample: 838800
   - mStartSample: 852948
     mEndSample: 852948
-  - mStartSample: 866957
-    mEndSample: 866957
-  - mStartSample: 874208
-    mEndSample: 874208
   - mStartSample: 881433
     mEndSample: 881433
-  - mStartSample: 895492
-    mEndSample: 895492
-  - mStartSample: 902811
-    mEndSample: 902811
   - mStartSample: 909568
     mEndSample: 909568
   - mStartSample: 923913
@@ -161,70 +135,57 @@ MonoBehaviour:
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
   _TextPayloads:
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+55
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_-55
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+55
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_-55
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+55
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_-55
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+30
-  - mTextVal: circle_3_-30
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+30
-  - mTextVal: circle_3_-30
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+30
-  - mTextVal: circle_3_-30
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+30
-  - mTextVal: circle_3_-30
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+30
-  - mTextVal: circle_3_-30
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+30
-  - mTextVal: circle_3_-30
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+30
-  - mTextVal: circle_3_-30
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+30
-  - mTextVal: circle_3_-30
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+30
-  - mTextVal: circle_3_-30
-  - mTextVal: circle_3_0
-  - mTextVal: circle_3_+30
-  - mTextVal: circle_3_-30
-  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f0000004000000041000000
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  - mTextVal: circle_6_0
+  _TextPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f0000003000000031000000320000003300000034000000

@@ -132,8 +132,8 @@ GameObject:
   - component: {fileID: 9047329862198903128}
   - component: {fileID: 639629812946992636}
   - component: {fileID: 425428449030820238}
-  - component: {fileID: 1614398467165350519}
   - component: {fileID: 3693473833542562102}
+  - component: {fileID: 533573871226222732}
   m_Layer: 0
   m_Name: Sandwich_Cube
   m_TagString: Untagged
@@ -198,35 +198,6 @@ MonoBehaviour:
   - hash: -206169288
     name: 4
   debug: 0
---- !u!114 &1614398467165350519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5349461869955176330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: b4902b23350b1b4418b2285dce10f467, type: 2}
-        m_MethodName: set_Value
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 425428449030820238}
-          m_ObjectArgumentAssemblyTypeName: GameCore.AnimatorHashPlayer, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!114 &3693473833542562102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +212,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 2697293401200707531}
   animator: {fileID: 425428449030820238}
+  matSwitcher: {fileID: 1654262344792465052}
   animationClipTime: 0.5
+--- !u!114 &533573871226222732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5349461869955176330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407e8a003ad23724592b38a6661e4627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: b4902b23350b1b4418b2285dce10f467, type: 2}
 --- !u!1 &5915908692893236605
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,8 +238,8 @@ GameObject:
   - component: {fileID: 7329975807518307231}
   - component: {fileID: 2697293401200707531}
   - component: {fileID: 1654262344792465052}
-  - component: {fileID: 4834699813838661404}
   - component: {fileID: 5919654064263921425}
+  - component: {fileID: 4410567712472648363}
   m_Layer: 0
   m_Name: Sandwich_Cube
   m_TagString: Untagged
@@ -350,47 +335,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!114 &4834699813838661404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5915908692893236605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 4069d2c83674cdf4d928a7b1e547ec71, type: 2}
-        m_MethodName: set_Value
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1654262344792465052}
-          m_ObjectArgumentAssemblyTypeName: CyberBeat.MaterialSwitcher, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 4069d2c83674cdf4d928a7b1e547ec71, type: 2}
-        m_MethodName: SetColor
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: ae377c76dd8b378469ed800418b1d448,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: GameCore.ColorVariable, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!114 &5919654064263921425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +365,19 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+--- !u!114 &4410567712472648363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915908692893236605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720fdc6f50b57cc4a96b05d0d23a67e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: 4069d2c83674cdf4d928a7b1e547ec71, type: 2}
 --- !u!1 &7126865082681722403
 GameObject:
   m_ObjectHideFlags: 0

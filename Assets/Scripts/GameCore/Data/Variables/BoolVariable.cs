@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-    [CreateAssetMenu (fileName = "BoolVariable", menuName = "Variables/GameCore/Bool")]
+    [CreateAssetMenu (fileName = "BoolVariable", menuName = "GameCore/Variable/System/Bool")]
     public class BoolVariable : SavableVariable<bool>
     {
         [Button]

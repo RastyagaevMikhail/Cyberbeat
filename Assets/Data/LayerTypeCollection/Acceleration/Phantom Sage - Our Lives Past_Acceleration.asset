@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bits:
   - payloadData:
-      strings: []
+      strings:
+      - 1
     startTime: 24.379591
     endTime: 44.711563
     duration: 20.331972
+  - payloadData:
+      strings:
+      - 1
+    startTime: 47
+    endTime: 69.68163
+    duration: 22.681633

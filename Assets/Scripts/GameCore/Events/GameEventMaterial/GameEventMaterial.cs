@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "GameEventMaterial", menuName = "Events/GameCore/GameEvent/Material")]
+	[CreateAssetMenu (fileName = "GameEventMaterial", menuName = "GameCore/GameEvent/UnityEngine/Material")]
 	public class GameEventMaterial : ScriptableObject
 	{
 		protected List<EventListenerMaterial> eventListeners = new List<EventListenerMaterial> ();

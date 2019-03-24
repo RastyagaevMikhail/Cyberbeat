@@ -5,7 +5,7 @@ using System;
 using UnityEngine;
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "", menuName = "Variables/GameCore/Int")]
+	[CreateAssetMenu (fileName = "", menuName = "GameCore/Variable/System/Int")]
 	public class IntVariable : SavableVariable<int>
 	{
 		[Button]

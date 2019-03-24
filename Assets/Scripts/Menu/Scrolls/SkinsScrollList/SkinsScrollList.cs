@@ -19,6 +19,8 @@ namespace CyberBeat
         [SerializeField] SkinsEnumDataSelector selector;
         [SerializeField] IntVariable indexVariable;
         [SerializeField] Material material;
+        [SerializeField] UnityEventInt skinHightlighted;
+        [SerializeField] UnityEventInt skinSelected;
         Dictionary<int, SkinItem> skinsHash = new Dictionary<int, SkinItem> ();
 
         int indexSelected
@@ -35,6 +37,9 @@ namespace CyberBeat
         private void OnEnable ()
         {
             selector[skinType][indexSelected].Apply (material);
+            skinHightlighted.Invoke (indexSelected);
+            skinSelected.Invoke (indexSelected);
+            ForeEach<SkinsScrollViewCell> (cell => cell.OnSkinItemSelected (indexSelected));
         }
         private void OnDisable ()
         {
@@ -75,7 +80,7 @@ namespace CyberBeat
             if (DOTween.IsTweening (contentRect)) return;
 
             Vector2 endValue = contentRect.anchoredPosition + dir * PrefabRect.rect.size.x;
-            
+
             contentRect.DOAnchorPos (endValue, durationScroll);
         }
     }

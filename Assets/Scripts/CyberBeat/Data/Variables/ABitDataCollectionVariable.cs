@@ -5,7 +5,7 @@ namespace CyberBeat
 {
     [CreateAssetMenu (
         fileName = "ABitDataCollection",
-        menuName = "Variables/CyberBeat/ABitDataCollection")]
+        menuName = "CyberBeat/Variable/ABitDataCollection")]
     public class ABitDataCollectionVariable : SavableVariable<ABitDataCollection>
     {
         public override void ResetDefault ()

@@ -7,7 +7,7 @@ namespace CyberBeat
 {
     [CreateAssetMenu (
         fileName = "MaterialSwitcher",
-        menuName = "Variables/CyberBeat/MaterialSwitcher")]
+        menuName = "CyberBeat/Variable/MaterialSwitcher")]
     public class MaterialSwitcherVariable : SavableVariable<MaterialSwitcher>
     {
         public Color CurrentColor { get => Value.CurrentColor; set => Value.CurrentColor = value; }

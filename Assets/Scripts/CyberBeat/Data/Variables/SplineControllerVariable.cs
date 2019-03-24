@@ -7,7 +7,7 @@ namespace CyberBeat
 {
     [CreateAssetMenu (
         fileName = "SplineController",
-        menuName = "Variables/CyberBeat/SplineController")]
+        menuName = "CyberBeat/Variable/SplineController")]
     public class SplineControllerVariable : SavableVariable<SplineController>
     {
         public override void ResetDefault ()

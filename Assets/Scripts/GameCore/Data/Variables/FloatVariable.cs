@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 
 using UnityEngine;
 namespace GameCore {
-    [CreateAssetMenu(fileName = "", menuName = "Variables/GameCore/Float")]
+    [CreateAssetMenu(fileName = "", menuName = "GameCore/Variable/System/Float")]
     public class FloatVariable : SavableVariable<float> {
         [Button]
         public override void ResetDefault() {

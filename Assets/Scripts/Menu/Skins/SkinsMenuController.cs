@@ -24,6 +24,7 @@ namespace CyberBeat
         [Header ("Events")] //-----------------------------------------------------------------------
         [SerializeField] UnityEventGraphic onCantNotEnuthMoney;
         [SerializeField] UnityEventInt onSkinSelceted;
+        [SerializeField] UnityEventInt onSkinHighlighted;
 
         public int HighlightedSkinIndex { set { highlightedSkinIndex = value; UpdateValues (skin); } }
         int highlightedSkinIndex;
@@ -50,6 +51,7 @@ namespace CyberBeat
             //  в который был выбран в другой категории при прошлом выборе,
             //  на основе смены типа скина
             HighlightedSkinIndex = selectedSkinIndex;
+            onSkinHighlighted.Invoke(highlightedSkinIndex);
 
             UpdateValues (skin);
         }
@@ -59,10 +61,9 @@ namespace CyberBeat
             if (!skin) return;
 
             RewardedVideoIsReady.SetActive (!skin.IsAvalivable);
-            
+
             WatchAdsFromBuyButton.SetActive (!skin.IsAvalivable);
             WatchAdsFromBuyButton.text = skin.VideoCount.ToString ();
-
 
             BuyButton.SetActive (!skin.IsAvalivable);
             BuyButton.text = skin.Price.ToString ();

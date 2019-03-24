@@ -4,9 +4,7 @@ using UnityEngine;
 namespace GameCore
 {
 
-    [CreateAssetMenu (
-        fileName = "GameEventAudioClip", 
-        menuName = "GameCore/GameEvent/AudioClip")]
+    [CreateAssetMenu (fileName = "GameEventAudioClip", menuName = "GameCore/GameEvent/UnityEngine/AudioClip")]
     public class GameEventAudioClip : ScriptableObject
     {
         [SerializeField]
