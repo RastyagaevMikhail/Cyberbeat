@@ -2485,7 +2485,6 @@ MonoBehaviour:
   placement: {fileID: 11400000, guid: 730f5b5d36963ee4883f775f4a6c2dea, type: 2}
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
   noAds: {fileID: 11400000, guid: 3f232928d424d0342b415605601a21f5, type: 2}
-  debug: 0
 --- !u!114 &136632530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2896,7 +2895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5220,7 +5219,6 @@ MonoBehaviour:
   placement: {fileID: 11400000, guid: 730f5b5d36963ee4883f775f4a6c2dea, type: 2}
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
   noAds: {fileID: 11400000, guid: 3f232928d424d0342b415605601a21f5, type: 2}
-  debug: 0
 --- !u!222 &354634330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6363,7 +6361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6437,7 +6435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6622,7 +6620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9490196}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6662,7 +6660,6 @@ MonoBehaviour:
   placement: {fileID: 11400000, guid: 730f5b5d36963ee4883f775f4a6c2dea, type: 2}
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
   noAds: {fileID: 11400000, guid: 3f232928d424d0342b415605601a21f5, type: 2}
-  debug: 0
 --- !u!114 &434177537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6712,7 +6709,6 @@ MonoBehaviour:
     m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
-  debug: 0
 --- !u!114 &434177538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7382,17 +7378,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 11400000, guid: 618546309ca958b4086ae51297f91a35, type: 2}
-          m_MethodName: set_Value
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   - name: low
@@ -7402,17 +7387,6 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000, guid: b47479694347afa41bd2d62243cbc45d, type: 2}
-          m_MethodName: set_Value
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11400000, guid: 618546309ca958b4086ae51297f91a35, type: 2}
           m_MethodName: set_Value
           m_Mode: 6
           m_Arguments:
@@ -10789,7 +10763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15667,7 +15641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15707,7 +15681,6 @@ MonoBehaviour:
   placement: {fileID: 11400000, guid: 730f5b5d36963ee4883f775f4a6c2dea, type: 2}
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
   noAds: {fileID: 11400000, guid: 3f232928d424d0342b415605601a21f5, type: 2}
-  debug: 0
 --- !u!114 &1123515152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15757,7 +15730,6 @@ MonoBehaviour:
     m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
-  debug: 0
 --- !u!114 &1123515153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16779,7 +16751,6 @@ MonoBehaviour:
     m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
-  debug: 0
 --- !u!114 &1198564701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18131,7 +18102,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1961105082}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1316613809
 MonoBehaviour:
@@ -26375,8 +26346,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2043566024}
   - {fileID: 1316613808}
+  - {fileID: 2043566024}
   - {fileID: 1610098694}
   - {fileID: 127337705}
   - {fileID: 1029003829}
@@ -26450,8 +26421,8 @@ MonoBehaviour:
     m_TypeName: FluffyUnderware.Curvy.CurvyCGEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Modules:
-  - {fileID: 2043566025}
   - {fileID: 1316613809}
+  - {fileID: 2043566025}
   - {fileID: 1610098695}
   - {fileID: 127337706}
   - {fileID: 1029003830}
@@ -27427,7 +27398,7 @@ Transform:
   m_Children:
   - {fileID: 2017710839}
   m_Father: {fileID: 1961105082}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2043566025
 MonoBehaviour:
@@ -29395,7 +29366,6 @@ MonoBehaviour:
     m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
-  debug: 0
 --- !u!114 &7507027622209759553
 MonoBehaviour:
   m_ObjectHideFlags: 0

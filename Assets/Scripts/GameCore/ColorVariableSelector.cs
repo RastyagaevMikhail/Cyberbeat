@@ -21,16 +21,6 @@ namespace GameCore
         }
 
         [System.Serializable] public class ColorVariableTypeData : TypeData<string, ColorVariable> { }
-        public bool TryGetValue (string key, out Color color)
-        {
-            ColorVariable variable = null;
-
-            bool result = Selector.TryGetValue (key, out variable);
-
-            color = result ? variable : default (Color);
-
-            return result;
-        }
 
         [SerializeField] string ValiadtePath = "Assets/Data/";
 #if UNITY_EDITOR
@@ -42,6 +32,17 @@ namespace GameCore
             datas = colorVariable
                 .Select (p => new ColorVariableTypeData () { type = p.name, data = p }).ToList ();
             this.Save ();
+        }
+
+        public bool TryGetValue (string key, out Color color)
+        {
+            ColorVariable variable = null;
+            
+            bool result = Selector.TryGetValue (key, out variable);
+
+            color = result ? variable : default (Color);
+
+            return result;
         }
 #endif
     }

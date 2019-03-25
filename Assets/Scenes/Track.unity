@@ -1992,53 +1992,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1773099147}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1875111201
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1875111203}
-  - component: {fileID: 1875111202}
-  m_Layer: 0
-  m_Name: SkinRaodSetter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1875111202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875111201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e613850bb64e028449da3288149f5a76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 5b449dc69683b454d9d79053ecfbf311, type: 2}
-  skinType: {fileID: 11400000, guid: cd317585adcecc84d8a0a0dd259e3ede, type: 2}
-  selector: {fileID: 11400000, guid: 0a4dbf498b5698141abb95109706a301, type: 2}
-  skinIndex: {fileID: 11400000, guid: 783d695bb4920e9439e9fdd31d544f56, type: 2}
---- !u!4 &1875111203
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875111201}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &1887311255
 Material:
   serializedVersion: 6
@@ -5370,50 +5323,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976d5dc9bf38c784fa3223c6fec711f6, type: 3}
---- !u!1 &8266133836934056952 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1879040862, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8266133836934056951}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8266133836934056953 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 866606050, guid: 976d5dc9bf38c784fa3223c6fec711f6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8266133836934056951}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8266133836934056954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8266133836934056953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad320524be285f419d3e2cb8d0176df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  variable: {fileID: 11400000, guid: 618546309ca958b4086ae51297f91a35, type: 2}
-  action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8266133836934056952}
-        m_MethodName: SetActive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  updateOnEnable: 1
-  Inverse: 0
-  debug: 0
 --- !u!114 &8757818550528480436
 MonoBehaviour:
   m_ObjectHideFlags: 0

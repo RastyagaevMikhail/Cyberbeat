@@ -1,25 +1,31 @@
 ﻿using GameCore;
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+using TMPro;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Text = TMPro.TextMeshProUGUI;
+using UnityEngine.UI.Extensions;
 namespace CyberBeat
 {
-	[ExecuteInEditMode]
 	public class TrackScrollViewCell : MonoBehaviour
 	{
 		[SerializeField] Track track;
 		[SerializeField] TrackPlayerCellView playerCellView;
 		[SerializeField] LocalizeTextMeshProUGUI difficultyText;
 		[SerializeField] Image statusImage;
-		[SerializeField] Text maxRewardValue;
 		[SerializeField] ContentButton BuyButton;
 		[SerializeField] GameObject PlayButton;
-		[SerializeField] ContentButton PlayByWatchButton;
+		[SerializeField] GameObject PlayByWatchButton;
 		[SerializeField] GameObject AdsButtonValidator;
+		[SerializeField] IntVariablesTextSetter progressTextSetter;
 		[SerializeField] UnityEvent onBuyed;
 		[SerializeField] UnityEventGraphic onCantNotEnuthMoney;
+		
 
 		SystemLanguage currentLanguage => LocalizationManager.instance.currentLanguage;
 
@@ -45,7 +51,7 @@ namespace CyberBeat
 			if (track.status)
 				statusImage.sprite = track.status.Sprite;
 
-			maxRewardValue.text = track.maxReward.ToString ();
+			progressTextSetter.SetVariables (track.progressInfo.progressVariables);
 		}
 
 		public void SetAsCurrent ()
@@ -64,27 +70,8 @@ namespace CyberBeat
 		{
 			PlayButton.SetActive (buyed);
 			BuyButton.SetActive (!buyed);
-
-			track.videoInfo.CheckAvalivable ();
-			int videoCount = track.videoInfo.VideoCount;
-
-			bool isAvaliavableVideo = videoCount != 0 && !buyed;
-
-			PlayByWatchButton.SetActive (isAvaliavableVideo);
-			AdsButtonValidator.SetActive (isAvaliavableVideo);
-
-		}
-		public void OnVideoWatched ()
-		{
-			track.videoInfo.VideoCount--;
-		}
-
-		private void Update ()
-		{
-			if (track)
-			{
-				ValidateTrackValues ();
-			}
+			PlayByWatchButton.SetActive (!buyed);
+			AdsButtonValidator.SetActive(!buyed);
 		}
 	}
 }
