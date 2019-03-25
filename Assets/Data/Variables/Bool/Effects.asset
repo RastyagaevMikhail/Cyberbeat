@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   categoryTag: Default
+  saveData: {fileID: 11400000, guid: 6fe5bebdb9e7ca0408546aedab6fd868, type: 2}
+  isSavable: 1
   _value: 1
-  DefaultValue: 0
-  ResetByDefault: 0
+  DefaultValue: 1
+  ResetByDefault: 1
   Loaded: 0
+  logChanges: 0

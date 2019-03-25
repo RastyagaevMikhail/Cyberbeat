@@ -26,6 +26,10 @@ MonoBehaviour:
   shopInfo:
     Price: 620
     SaveKey: Track Di Young - I Have Nothing Buyed
+  videoInfo:
+    SaveKey_VideoCount: Di Young - I Have Nothing VideoCount
+    videoCount: 3
+    SaveKey_LastDataExpired: Di Young - I Have Nothing LastDataExpired
   maxReward: 310
   progressInfo:
     best: {fileID: 11400000, guid: ccd50f21d2a2ae0409d32cafd8a0e9fb, type: 2}
@@ -36,5 +40,5 @@ MonoBehaviour:
   difficulty: {fileID: 11400000, guid: 7564e4589ba3bc94383dab38d2ae6211, type: 2}
   status: {fileID: 0}
   layerBitsSelector: {fileID: 11400000, guid: a70456081b656744894f51ac2ed8c074, type: 2}
-  koreography: {fileID: 11400000, guid: ae2146a2ef3044e47a182f04ec71c3bc, type: 2}
+  koreography: {fileID: 11400000, guid: c380af230f782ea408c624da019a2599, type: 2}
   StartSpeed: 50

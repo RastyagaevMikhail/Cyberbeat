@@ -38,6 +38,14 @@ namespace CyberBeat
 				track.ValidateProgressInfo ();
 			}
 		}
+		[ContextMenu ("Validate VideoInfo")]
+		void ValidateVideoInfo ()
+		{
+			foreach (var track in Objects)
+			{
+				track.ValidateVideoInfo ();
+			}
+		}
 
 		[ContextMenu ("CalculateBits")]
 		void CalculateBits ()

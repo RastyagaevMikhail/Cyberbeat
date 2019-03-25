@@ -28,6 +28,10 @@ MonoBehaviour:
   shopInfo:
     Price: 405
     SaveKey: Mountkid - Dino Buyed
+  videoInfo:
+    SaveKey_VideoCount: Mountkid - Dino VideoCount
+    videoCount: 3
+    SaveKey_LastDataExpired: Mountkid - Dino LastDataExpired
   maxReward: 40
   progressInfo:
     best: {fileID: 11400000, guid: ca9681043e24648fa8d698f10cde37d2, type: 2}
@@ -38,5 +42,5 @@ MonoBehaviour:
   difficulty: {fileID: 11400000, guid: 7564e4589ba3bc94383dab38d2ae6211, type: 2}
   status: {fileID: 0}
   layerBitsSelector: {fileID: 11400000, guid: 2b9c9ca5e4a1fdd46907ab42c250509f, type: 2}
-  koreography: {fileID: 11400000, guid: 6bc33ba4241084a55856c983ae4767e9, type: 2}
+  koreography: {fileID: 11400000, guid: c380af230f782ea408c624da019a2599, type: 2}
   StartSpeed: 50

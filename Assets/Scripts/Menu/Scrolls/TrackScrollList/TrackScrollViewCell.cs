@@ -1,31 +1,25 @@
 ﻿using GameCore;
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
-using TMPro;
-
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using UnityEngine.UI.Extensions;
+using Text = TMPro.TextMeshProUGUI;
 namespace CyberBeat
 {
+	[ExecuteInEditMode]
 	public class TrackScrollViewCell : MonoBehaviour
 	{
 		[SerializeField] Track track;
 		[SerializeField] TrackPlayerCellView playerCellView;
 		[SerializeField] LocalizeTextMeshProUGUI difficultyText;
 		[SerializeField] Image statusImage;
+		[SerializeField] Text MaxRedardValueText;
 		[SerializeField] ContentButton BuyButton;
 		[SerializeField] GameObject PlayButton;
 		[SerializeField] GameObject PlayByWatchButton;
 		[SerializeField] GameObject AdsButtonValidator;
-		[SerializeField] IntVariablesTextSetter progressTextSetter;
 		[SerializeField] UnityEvent onBuyed;
 		[SerializeField] UnityEventGraphic onCantNotEnuthMoney;
-		
 
 		SystemLanguage currentLanguage => LocalizationManager.instance.currentLanguage;
 
@@ -51,8 +45,14 @@ namespace CyberBeat
 			if (track.status)
 				statusImage.sprite = track.status.Sprite;
 
-			progressTextSetter.SetVariables (track.progressInfo.progressVariables);
+			MaxRedardValueText.text = track.maxReward.ToString ("### ### ##0");
 		}
+#if UNITY_EDITOR
+		private void Update ()
+		{
+			ValidateTrackValues ();
+		}
+#endif
 
 		public void SetAsCurrent ()
 		{
@@ -70,8 +70,22 @@ namespace CyberBeat
 		{
 			PlayButton.SetActive (buyed);
 			BuyButton.SetActive (!buyed);
-			PlayByWatchButton.SetActive (!buyed);
-			AdsButtonValidator.SetActive(!buyed);
+
+			VideoInfo videoInfo = track.videoInfo;
+			videoInfo.CheckAcalivable ();
+
+			int VideoCount = videoInfo.VideoCount;
+
+			bool HasVideo = VideoCount != 0;
+
+			bool VideoIsAvaliavable = !buyed && HasVideo;
+
+			PlayByWatchButton.SetActive (VideoIsAvaliavable);
+			AdsButtonValidator.SetActive (VideoIsAvaliavable);
+		}
+		public void OnVideoWatched ()
+		{
+			track.videoInfo.VideoCount--;
 		}
 	}
 }
