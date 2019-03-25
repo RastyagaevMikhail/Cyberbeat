@@ -75,8 +75,6 @@ namespace CyberBeat
 
 		public void UpdateCollections (LayerTypeTrackBitsCollectionSelector layerBitsSelector)
 		{
-			// Debug.LogFormat ("CollectionSelector.Keys = {0}", CollectionSelector.Keys.Log ());
-			// Debug.LogFormat ("CollectionSelector.Values = {0}", CollectionSelector.Values.Log ());
 			foreach (var layer in CollectionSelector.Keys)
 			{
 				var collection = layerBitsSelector[layer];
