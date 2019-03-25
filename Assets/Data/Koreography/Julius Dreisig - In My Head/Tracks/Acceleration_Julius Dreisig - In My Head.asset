@@ -14,14 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: Acceleration
   mEventList:
-  - mStartSample: 1296900
-    mEndSample: 1772100
   - mStartSample: 1808730
     mEndSample: 1929032
-  - mStartSample: 2062080
-    mEndSample: 2546560
-  - mStartSample: 2615680
-    mEndSample: 3054080
   _SerializedPayloadTypes:
   - SonicBloom.Koreo.TextPayload
   _ColorPayloads: []
@@ -38,7 +32,4 @@ MonoBehaviour:
   _SpectrumPayloadIdxs: 
   _TextPayloads:
   - mTextVal: 1
-  - mTextVal: 1
-  - mTextVal: 1
-  - mTextVal: 1
-  _TextPayloadIdxs: 00000000010000000200000003000000
+  _TextPayloadIdxs: 00000000

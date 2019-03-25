@@ -15,15 +15,22 @@ namespace CyberBeat
     {
         [SerializeField] TracksCollection data;
         [SerializeField] Enums enums;
+        [SerializeField] StringMaterialsSelector Presets;
+
         [SerializeField] bool debug;
         public Enums Enums => enums;
+#if UNITY_EDITOR
         private void OnValidate ()
         {
             if (!data)
             data = Resources.Load<TracksCollection> ("Data/TracksCollection");
             if (!enums)
             enums = Resources.Load<Enums> ("Data/Enums");
+            if (!Presets)
+            Presets = Tools.GetAssetAtPath<StringMaterialsSelector> ("Assets/Data/Selectors/Preset/Presets.asset");
+
         }
+#endif
 
         public void UpdateCollections (LayerTypeTrackBitsCollectionSelector layerBitsSelector) { data.UpdateCollections (layerBitsSelector); }
         public int CalculateConstant (Track track, List<IBitData> bits)
@@ -35,7 +42,7 @@ namespace CyberBeat
                 bool isContainConstant = presetList
                     .Select (s => s.Regex (@"\d"))
                     .ToList ()
-                    .TrueForAll (p => data.Presets[p]
+                    .TrueForAll (p => Presets[p]
                         .Find (material =>
                         {
                             if (material)
@@ -86,7 +93,7 @@ namespace CyberBeat
         }
         public void ValidateKoreographyTrackLayer (Koreography koreography)
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             foreach (var koreographyTrack in koreography.Tracks)
                 koreography.RemoveTrack (koreographyTrack);
 
@@ -102,7 +109,7 @@ namespace CyberBeat
                 koreography.AddTrack (trackLayer);
             }
             koreography.Save ();
-            #endif
+#endif
         }
     }
 

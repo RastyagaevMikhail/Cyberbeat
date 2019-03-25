@@ -41,5 +41,9 @@ namespace CyberBeat
             lastSpeed = splineController.Speed;
             DOVirtual.Float (splineController.Speed, 0f, StopDuration, _SetSpeed);
         }
+        private void OnDisable ()
+        {
+            DOTween.CompleteAll();
+        }
     }
 }

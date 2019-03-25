@@ -18,6 +18,10 @@ namespace CyberBeat
                 SaveValue ();
             }
         }
+        public void SetStartSpeedToVariable (FloatVariable variable)
+        {
+            variable.Value = Value.StartSpeed;
+        }
         public void SetValue (Track value)
         {
             Value = value;

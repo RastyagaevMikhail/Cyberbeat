@@ -71,10 +71,10 @@ GameObject:
   m_Component:
   - component: {fileID: 286753681597786812}
   - component: {fileID: 6543078304453488193}
-  - component: {fileID: 286753681597786813}
   - component: {fileID: 1017547224009435048}
   - component: {fileID: 788729288}
   - component: {fileID: 8938122269409306725}
+  - component: {fileID: 9154112821574026862}
   m_Layer: 0
   m_Name: PlayerBot
   m_TagString: Untagged
@@ -111,37 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   set: {fileID: 11400000, guid: 3a23582dc69ea8f489639df5a742ec86, type: 2}
   value: {fileID: 11400000, guid: 6c30f9d2f08ac5f458a08dea96a95ed6, type: 2}
---- !u!114 &286753681597786813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286753681597786815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30a06bdadd64ce243857e66d2be77e95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listener:
-    Event: {fileID: 11400000, guid: 50caf609f32b6024d88fa9f49776a71e, type: 2}
-    Responce:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 788729288}
-          m_MethodName: set_Speed
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-    debug: 0
 --- !u!114 &1017547224009435048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +187,37 @@ MonoBehaviour:
     m_TypeName: CyberBeat.UnityEventIBitData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   debug: 0
+--- !u!114 &9154112821574026862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286753681597786815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a06bdadd64ce243857e66d2be77e95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    Event: {fileID: 11400000, guid: 50caf609f32b6024d88fa9f49776a71e, type: 2}
+    Responce:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 788729288}
+          m_MethodName: set_Speed
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    debug: 0
 --- !u!1 &600140911700537942
 GameObject:
   m_ObjectHideFlags: 0

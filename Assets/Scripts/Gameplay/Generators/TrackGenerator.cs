@@ -18,7 +18,7 @@ namespace CyberBeat
         ColorInfoRuntimeSetRuntimeSet ColorsSets => colorsSets.Value;
         static RandomStack<ColorInfoRuntimeSet> ColorsSetsStack = null;
         [SerializeField] PoolVariable pool;
-        [SerializeField] TracksCollection tracksCollection;
+        [SerializeField] StringMaterialsSelector Presets;
 
         RandomConstantMaterial rcm = null;
 
@@ -63,7 +63,7 @@ namespace CyberBeat
             List<Material> row = null;
             try
             {
-                row = tracksCollection.Presets[randPreset];
+                row = Presets[randPreset];
             }
             catch (System.Exception)
             {

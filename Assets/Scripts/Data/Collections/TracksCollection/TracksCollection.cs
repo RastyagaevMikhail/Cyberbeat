@@ -62,18 +62,6 @@ namespace CyberBeat
 #endif
 		[SerializeField] LayerTypeABitDataCollectionVariableSelector CollectionSelector;
 		[SerializeField] TrackVariable currentTrack;
-
-		[SerializeField] List<Preset> _presets;
-		Dictionary<string, List<Material>> presets = null;
-		public Dictionary<string, List<Material>> Presets
-		{
-			get
-			{
-				if (presets == null) presets = _presets.ToDictionary (p => p.Id, p => p.Objects);
-				return presets;
-			}
-		}
-
 		public void UpdateCollections (LayerTypeTrackBitsCollectionSelector layerBitsSelector)
 		{
 			foreach (var layer in CollectionSelector.Keys)
@@ -152,7 +140,7 @@ namespace CyberBeat
 				track.Save ();
 
 				log += $"{track.name} : {track.shopInfo.Price} {currentReward}\n";
-				
+
 				int rewardRaw = (int) (currentReward * Multiplayers[index]);
 				currentPrice = rewardRaw + (5 - rewardRaw % 5);
 				int rawReward = (int) currentPrice / 2;

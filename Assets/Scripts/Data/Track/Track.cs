@@ -38,6 +38,7 @@ namespace CyberBeat
 			progressInfo.Validate (name);
 			this.Save ();
 		}
+
 		[ContextMenu ("Validate VideoInfo")]
 		public void ValidateVideoInfo ()
 		{
@@ -88,11 +89,7 @@ namespace CyberBeat
 			else
 				Sirenix.Utilities.Editor.SirenixEditorGUI.ErrorMessageBox ("НЕ ЯВЛЯЕТСЯ текущим ");
 		}
-		TrackHelper helper;
-		private void OnValidate ()
-		{
-			if (!helper) helper = Resources.Load<TrackHelper> ("Data/TrackHelper");
-		}
+		TrackHelper helper => Resources.Load<TrackHelper> ("Data/TrackHelper");
 #endif
 
 		[HideIf ("IsCurrentTrack")]
@@ -124,7 +121,7 @@ namespace CyberBeat
 		[InlineButton ("ValidateKoreography", "K")]
 		[SerializeField] Koreography koreography;
 		public float StartSpeed = 50f;
-		public TracksCollection data { get { return TracksCollection.instance; } }
+		public TracksCollection data => Resources.Load<TracksCollection> ("Data/TracksCollection");
 		public bool IsCurrentTrack { get { return data.CheckAsCurrent (this); } }
 		public int TrackNumber { get { return data.Objects.IndexOf (this) + 1; } }
 
@@ -135,15 +132,6 @@ namespace CyberBeat
 		public List<KoreographyEvent> GetAllEventsByType (LayerType layer)
 		{
 			return GetTrack (layer).GetAllEvents ();
-		}
-
-		public bool GetGateState (int index)
-		{
-			return Tools.GetBool ("{0} Gate {1}".AsFormat (name, index), true);
-		}
-		public void SetGateState (int index, bool value = true)
-		{
-			Tools.SetBool ("{0} Gate {1}".AsFormat (name, index), value);
 		}
 		public void ResetDefault ()
 		{
