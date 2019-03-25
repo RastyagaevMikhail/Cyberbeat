@@ -38,6 +38,11 @@ namespace CyberBeat
 			progressInfo.Validate (name);
 			this.Save ();
 		}
+		public void ValidateVideoInfo ()
+		{
+			videoInfo.Validate (name);
+			this.Save ();
+		}
 		public void CalculateConstantOn (LayerType layer)
 		{
 			TrackBitsCollection trackBitsCollection = layerBitsSelector[layer];
@@ -102,6 +107,8 @@ namespace CyberBeat
 		public MusicInfo music;
 		public List<SocialInfo> socials;
 		public ShopInfo shopInfo;
+		[InlineButton ("ValidateVideoInfo", "Validate")]
+		public VideoInfo videoInfo;
 		public int maxReward;
 		[InlineButton ("ValidateProgressInfo", "Validate")]
 		public ProgressInfo progressInfo;

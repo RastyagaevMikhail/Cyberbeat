@@ -52,19 +52,7 @@ namespace GameCore
 		[ContextMenu ("Save Value")]
 		public override void SaveValue ()
 		{
-			// Debug.LogFormat("Save = {0}", name);
-			try
-			{
-				PlayerPrefs.SetInt (name, _value);
-			}
-			catch (System.Exception)
-			{
-				Debug.Log (this, this);
-				#if UNITY_EDITOR
-					Debug.Log(UnityEditor.AssetDatabase.GetAssetPath(this));
-				#endif
-				throw;
-			}
+			PlayerPrefs.SetInt (name, _value);
 		}
 
 		[Button]
@@ -103,6 +91,11 @@ namespace GameCore
 		public float AsFloat ()
 		{
 			return Value;
+		}
+
+		public static implicit operator int (IntVariable value)
+		{
+			return value.Value;
 		}
 #if UNITY_EDITOR
 		[ShowInInspector] string savedValue => PlayerPrefs.GetInt (name, 0).ToString ();
