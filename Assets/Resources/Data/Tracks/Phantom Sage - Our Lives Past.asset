@@ -24,13 +24,13 @@ MonoBehaviour:
   - Icon: {fileID: 21300000, guid: 879ade18d165a644fb097ad7fd3f26b9, type: 3}
     URL: https://www.facebook.com/phaantomsage
   shopInfo:
-    Price: 205
+    Price: 0
     SaveKey: Phantom Sage - Our Lives Past Buyed
   videoInfo:
     SaveKey_VideoCount: Phantom Sage - Our Lives Past VideoCount
     videoCount: 3
     SaveKey_LastDataExpired: Phantom Sage - Our Lives Past LastDataExpired
-  maxReward: 25
+  maxReward: 40
   progressInfo:
     best: {fileID: 11400000, guid: 2111199c5708f6c4983995f13133c82f, type: 2}
     max: {fileID: 11400000, guid: 75dadaa2ade9ce94eb81ae72bf99b540, type: 2}
@@ -40,5 +40,5 @@ MonoBehaviour:
   difficulty: {fileID: 11400000, guid: 7564e4589ba3bc94383dab38d2ae6211, type: 2}
   status: {fileID: 0}
   layerBitsSelector: {fileID: 11400000, guid: d52ff4e72391a514b99db380f700109a, type: 2}
-  koreography: {fileID: 11400000, guid: c380af230f782ea408c624da019a2599, type: 2}
-  StartSpeed: 50
+  koreography: {fileID: 11400000, guid: 13c308fb3384c834599569abdf967217, type: 2}
+  StartSpeed: 35

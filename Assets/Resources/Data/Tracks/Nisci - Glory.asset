@@ -22,13 +22,13 @@ MonoBehaviour:
   - Icon: {fileID: 21300000, guid: 78fc711090e8e0143931bf4b587b661b, type: 3}
     URL: https://www.youtube.com/watch?v=wiVDPLP_cnA
   shopInfo:
-    Price: 185
+    Price: 200
     SaveKey: Nisci - Glory Buyed
   videoInfo:
     SaveKey_VideoCount: Nisci - Glory VideoCount
     videoCount: 3
     SaveKey_LastDataExpired: Nisci - Glory LastDataExpired
-  maxReward: 90
+  maxReward: 100
   progressInfo:
     best: {fileID: 11400000, guid: 4ef057f1ff44ead4882abf28961a5b64, type: 2}
     max: {fileID: 11400000, guid: da36df7959ebd5c4aa613f75e1fdb38c, type: 2}
@@ -38,5 +38,5 @@ MonoBehaviour:
   difficulty: {fileID: 11400000, guid: 7564e4589ba3bc94383dab38d2ae6211, type: 2}
   status: {fileID: 0}
   layerBitsSelector: {fileID: 11400000, guid: f87ad6894b69f204abe6105a2f77e674, type: 2}
-  koreography: {fileID: 11400000, guid: c380af230f782ea408c624da019a2599, type: 2}
-  StartSpeed: 50
+  koreography: {fileID: 11400000, guid: 1d55629e71c4d5d4b8681c3e5c291b41, type: 2}
+  StartSpeed: 35

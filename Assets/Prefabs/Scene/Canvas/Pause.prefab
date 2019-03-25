@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6120084693900359328}
   - component: {fileID: 8812163345323623949}
   - component: {fileID: 6720569797681282501}
+  - component: {fileID: 6605099129507606509}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -96,6 +97,38 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8640589453409966373}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  updateOnEnable: 1
+  Inverse: 1
+  debug: 0
+--- !u!114 &6605099129507606509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451881469159242654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad320524be285f419d3e2cb8d0176df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: 30d73f9a4e6b8f94e978705cd7aea857, type: 2}
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8640589452334301478}
         m_MethodName: SetActive
         m_Mode: 0
         m_Arguments:
@@ -413,6 +446,7 @@ MonoBehaviour:
   placement: {fileID: 11400000, guid: 730f5b5d36963ee4883f775f4a6c2dea, type: 2}
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
   noAds: {fileID: 11400000, guid: 3f232928d424d0342b415605601a21f5, type: 2}
+  debug: 0
 --- !u!114 &6879537808845411952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,6 +1050,7 @@ MonoBehaviour:
     m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
+  debug: 0
 --- !u!1 &8640589452736157399
 GameObject:
   m_ObjectHideFlags: 0

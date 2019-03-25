@@ -13,106 +13,66 @@ MonoBehaviour:
   m_Name: Effect Data Preset Selector
   m_EditorClassIdentifier: 
   datas:
-  - type: circle_1
-    data: {fileID: 11400000, guid: 8136f7582f36b8b44b8df137ef370dc8, type: 2}
-  - type: circle_1_+95
-    data: {fileID: 11400000, guid: e9296e1eaaefd4a2b82c8b68b187d0f6, type: 2}
-  - type: circle_1_-95
-    data: {fileID: 11400000, guid: b6746f5dd6cd0466c8bd3cfa22ee6100, type: 2}
-  - type: circle_1_0
-    data: {fileID: 11400000, guid: d20336e6d5e784d8bbce0a8b5e442a5a, type: 2}
-  - type: circle_2
-    data: {fileID: 11400000, guid: 0b6aa46c589588b4b8bbe2e4986af81c, type: 2}
-  - type: circle_3
-    data: {fileID: 11400000, guid: 6fa51fa9bcbc001488ca82913850f04e, type: 2}
-  - type: circle_4
-    data: {fileID: 11400000, guid: 9edf7019596b5a943886534565fcfb97, type: 2}
-  - type: circle_4_+95
-    data: {fileID: 11400000, guid: 35e8e79d168f04be8bb33cdb2d56e13c, type: 2}
-  - type: circle_4_-95
-    data: {fileID: 11400000, guid: 84aaa266155954fffb0bc871f205a3d9, type: 2}
-  - type: circle_4_0
-    data: {fileID: 11400000, guid: abab4752c30a64a28a4ce17bc673b065, type: 2}
-  - type: circle_5
-    data: {fileID: 11400000, guid: cef47feb03001af478d3189544551091, type: 2}
-  - type: circle_6
-    data: {fileID: 11400000, guid: 12069cd47017b8445a39c4fbfeb7140b, type: 2}
-  - type: circle_6_0
-    data: {fileID: 11400000, guid: 43667291e495f49c9b70dfa816a63e25, type: 2}
-  - type: circle_7
-    data: {fileID: 11400000, guid: 6c078079f398893438bc92ac32f9d309, type: 2}
-  - type: quad_1
-    data: {fileID: 11400000, guid: 1402757ceb2d6be4f8fd36cd367bb554, type: 2}
-  - type: quad_1_+95
+  - type: Desert_+45
     data: {fileID: 11400000, guid: 021b121d486dc42e397d3ac0f6151988, type: 2}
-  - type: quad_1_-95
+  - type: Desert_-45
     data: {fileID: 11400000, guid: 46b5cb895f2bc467ab9df098fdbd356d, type: 2}
-  - type: quad_1_0
+  - type: Desert_0
     data: {fileID: 11400000, guid: a27e01d2955bc4015a6b9632d4952a13, type: 2}
-  - type: quad_2
-    data: {fileID: 11400000, guid: cee1490eb36336c4b9b0df4f9a74bd7c, type: 2}
-  - type: quad_3
-    data: {fileID: 11400000, guid: 9fd5052769b321a40a9739cd2bd00162, type: 2}
-  - type: quad_4
-    data: {fileID: 11400000, guid: 3c579d7e1d1596341a95f0e7034f1c31, type: 2}
-  - type: quad_4_+30
-    data: {fileID: 11400000, guid: f0ed4393d65d949a4961f29b96220c7c, type: 2}
-  - type: quad_4_-30
-    data: {fileID: 11400000, guid: 5fa42dc72dca04cd1a667e84d48795e3, type: 2}
-  - type: quad_4_0
-    data: {fileID: 11400000, guid: cb034de24bcbb4b3a9e06f111f13586b, type: 2}
-  - type: quad_5
-    data: {fileID: 11400000, guid: 3f74108314eb91d4ba3e485e7575c899, type: 2}
-  - type: quad_6_+45
-    data: {fileID: 11400000, guid: 37f25849f3bc94e4ea41b0a7245eefac, type: 2}
-  - type: quad_6_-45
-    data: {fileID: 11400000, guid: 34e2779e4dbc34486a9fa0c37beac93f, type: 2}
-  - type: quad_6_0
-    data: {fileID: 11400000, guid: 02e6fc6db9eb1a8499d0f3eeb6b53543, type: 2}
-  - type: quad_7
-    data: {fileID: 11400000, guid: 8168a129265547444aa2dfa3841555f0, type: 2}
-  - type: quad_7_+55
-    data: {fileID: 11400000, guid: d3c39e15615c64cd6b134a194abf7800, type: 2}
-  - type: quad_7_-55
-    data: {fileID: 11400000, guid: 76ab10f02b2a14e1dbd0c520780a2827, type: 2}
-  - type: quad_7_0
-    data: {fileID: 11400000, guid: 701a43e8d650a49afadd2355b5f0b879, type: 2}
-  - type: triangle_1
-    data: {fileID: 11400000, guid: 6605d3938301b0a459e479a47b42c529, type: 2}
-  - type: triangle_2
-    data: {fileID: 11400000, guid: 57a02c16c151686449c40da33c27d7c0, type: 2}
-  - type: triangle_2_+55
-    data: {fileID: 11400000, guid: 383d937a413be49119cbb44f3b3e507a, type: 2}
-  - type: triangle_2_-55
-    data: {fileID: 11400000, guid: 438d9bdc8645944bcaef42b82846b357, type: 2}
-  - type: triangle_2_0
-    data: {fileID: 11400000, guid: 6908430d038d54930bc3cd8c49c25991, type: 2}
-  - type: triangle_3
-    data: {fileID: 11400000, guid: d87a90460c072fd45bf8ca3587c4ea0d, type: 2}
-  - type: triangle_4
-    data: {fileID: 11400000, guid: c7bbe68489dd7bc499b82b8c62d458b5, type: 2}
-  - type: triangle_4_+55
-    data: {fileID: 11400000, guid: b101f3eb1a23a4a8b8a119afea264c20, type: 2}
-  - type: triangle_4_-55
-    data: {fileID: 11400000, guid: 2d61837a35e964d0b902f634e3d02922, type: 2}
-  - type: triangle_4_0
-    data: {fileID: 11400000, guid: d03a82865c43149798b476eb4625684b, type: 2}
-  - type: triangle_5
-    data: {fileID: 11400000, guid: d3172bfef5d460e44bf556192fbf4209, type: 2}
-  - type: triangle_6
-    data: {fileID: 11400000, guid: ac9f55525f2215140928b76e164e2606, type: 2}
-  - type: triangle_6_+95
-    data: {fileID: 11400000, guid: 722d4253fcd894e1f948faea99139c74, type: 2}
-  - type: triangle_6_-95
-    data: {fileID: 11400000, guid: 37f97fac70ae4498f830e054241833c4, type: 2}
-  - type: triangle_6_0
-    data: {fileID: 11400000, guid: c3595dbebb6cd49ac99c7f935a1fe3bf, type: 2}
-  - type: triangle_7
-    data: {fileID: 11400000, guid: fbef8193e8701084abde61a1683310e4, type: 2}
-  - type: triangle_7_+55
+  - type: Dino_0
+    data: {fileID: 11400000, guid: 43667291e495f49c9b70dfa816a63e25, type: 2}
+  - type: FreeFall_+55
     data: {fileID: 11400000, guid: 81c004309003f4e4fa133a00fb76f6a1, type: 2}
-  - type: triangle_7_-55
+  - type: FreeFall_-55
     data: {fileID: 11400000, guid: fb9c3d56c862940ec9ca2223f2c08306, type: 2}
-  - type: triangle_7_0
+  - type: FreeFall_0
     data: {fileID: 11400000, guid: d2fddd45fb7474d2c9acb010b34a66de, type: 2}
+  - type: Glory_+55
+    data: {fileID: 11400000, guid: 383d937a413be49119cbb44f3b3e507a, type: 2}
+  - type: Glory_-55
+    data: {fileID: 11400000, guid: 438d9bdc8645944bcaef42b82846b357, type: 2}
+  - type: Glory_0
+    data: {fileID: 11400000, guid: 6908430d038d54930bc3cd8c49c25991, type: 2}
+  - type: IHaveNothing_+45
+    data: {fileID: 11400000, guid: 35e8e79d168f04be8bb33cdb2d56e13c, type: 2}
+  - type: IHaveNothing_-45
+    data: {fileID: 11400000, guid: 84aaa266155954fffb0bc871f205a3d9, type: 2}
+  - type: IHaveNothing_0
+    data: {fileID: 11400000, guid: abab4752c30a64a28a4ce17bc673b065, type: 2}
+  - type: Infinity_+95
+    data: {fileID: 11400000, guid: 722d4253fcd894e1f948faea99139c74, type: 2}
+  - type: Infinity_-95
+    data: {fileID: 11400000, guid: 37f97fac70ae4498f830e054241833c4, type: 2}
+  - type: Infinity_0
+    data: {fileID: 11400000, guid: c3595dbebb6cd49ac99c7f935a1fe3bf, type: 2}
+  - type: InMyHead_+30
+    data: {fileID: 11400000, guid: f0ed4393d65d949a4961f29b96220c7c, type: 2}
+  - type: InMyHead_-30
+    data: {fileID: 11400000, guid: 5fa42dc72dca04cd1a667e84d48795e3, type: 2}
+  - type: InMyHead_0
+    data: {fileID: 11400000, guid: cb034de24bcbb4b3a9e06f111f13586b, type: 2}
+  - type: OneMoreTime_+65
+    data: {fileID: 11400000, guid: e9296e1eaaefd4a2b82c8b68b187d0f6, type: 2}
+  - type: OneMoreTime_-65
+    data: {fileID: 11400000, guid: b6746f5dd6cd0466c8bd3cfa22ee6100, type: 2}
+  - type: OneMoreTime_0
+    data: {fileID: 11400000, guid: d20336e6d5e784d8bbce0a8b5e442a5a, type: 2}
+  - type: OurLivesPast_+55
+    data: {fileID: 11400000, guid: b101f3eb1a23a4a8b8a119afea264c20, type: 2}
+  - type: OurLivesPast_-55
+    data: {fileID: 11400000, guid: 2d61837a35e964d0b902f634e3d02922, type: 2}
+  - type: OurLivesPast_0
+    data: {fileID: 11400000, guid: d03a82865c43149798b476eb4625684b, type: 2}
+  - type: Skylike_+55
+    data: {fileID: 11400000, guid: d3c39e15615c64cd6b134a194abf7800, type: 2}
+  - type: Skylike_-55
+    data: {fileID: 11400000, guid: 76ab10f02b2a14e1dbd0c520780a2827, type: 2}
+  - type: Skylike_0
+    data: {fileID: 11400000, guid: 701a43e8d650a49afadd2355b5f0b879, type: 2}
+  - type: xD_+30
+    data: {fileID: 11400000, guid: 37f25849f3bc94e4ea41b0a7245eefac, type: 2}
+  - type: xD_-30
+    data: {fileID: 11400000, guid: 34e2779e4dbc34486a9fa0c37beac93f, type: 2}
+  - type: xD_0
+    data: {fileID: 11400000, guid: 02e6fc6db9eb1a8499d0f3eeb6b53543, type: 2}
   ValiadtePath: Assets/Data/MetaData/Effects

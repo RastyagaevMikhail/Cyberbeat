@@ -15,6 +15,12 @@ MonoBehaviour:
   bits:
   - payloadData:
       strings:
+      - 55_60km
+    startTime: 15.346939
+    endTime: 39.823673
+    duration: 24.476734
+  - payloadData:
+      strings:
       - Marmok_low
     startTime: 40.136055
     endTime: 41.36145
@@ -22,6 +28,6 @@ MonoBehaviour:
   - payloadData:
       strings:
       - 90km
-    startTime: 41.692516
-    endTime: 67.39184
-    duration: 25.699322
+    startTime: 54.94
+    endTime: 67.16825
+    duration: 12.228252

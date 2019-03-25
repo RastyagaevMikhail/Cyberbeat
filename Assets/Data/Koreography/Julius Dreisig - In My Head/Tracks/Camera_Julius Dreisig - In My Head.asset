@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: Camera
   mEventList:
+  - mStartSample: 1296900
+    mEndSample: 1772100
   - mStartSample: 1808352
     mEndSample: 1922202
   - mStartSample: 2061612
@@ -35,7 +37,8 @@ MonoBehaviour:
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
   _TextPayloads:
+  - mTextVal: 55_60km
   - mTextVal: InMyHead
-  - mTextVal: 90km
-  - mTextVal: 90km
-  _TextPayloadIdxs: 000000000100000002000000
+  - mTextVal: 55_60km
+  - mTextVal: 55_60km
+  _TextPayloadIdxs: 00000000010000000200000003000000

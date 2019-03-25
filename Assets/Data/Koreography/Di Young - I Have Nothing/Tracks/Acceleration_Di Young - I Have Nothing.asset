@@ -13,13 +13,8 @@ MonoBehaviour:
   m_Name: Acceleration_Di Young - I Have Nothing
   m_EditorClassIdentifier: 
   mEventID: Acceleration
-  mEventList:
-  - mStartSample: 2320862
-    mEndSample: 3036602
-  - mStartSample: 3092630
-    mEndSample: 3815656
-  _SerializedPayloadTypes:
-  - SonicBloom.Koreo.TextPayload
+  mEventList: []
+  _SerializedPayloadTypes: []
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -32,7 +27,5 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads:
-  - mTextVal: 
-  - mTextVal: 
-  _TextPayloadIdxs: 0000000001000000
+  _TextPayloads: []
+  _TextPayloadIdxs: 

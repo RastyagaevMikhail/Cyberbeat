@@ -14,14 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bits:
   - payloadData:
-      strings:
-      - StartRecording
-    startTime: 12
-    endTime: 12
+      strings: []
+    startTime: 0
+    endTime: 0
     duration: 0
   - payloadData:
       strings:
-      - StopRecording
-    startTime: 49.5
-    endTime: 49.5
-    duration: 0
+      - OurLivesPast_low
+    startTime: 1.8408164
+    endTime: 2.2897959
+    duration: 0.4489795
+  - payloadData:
+      strings:
+      - OurLivesPast
+    startTime: 24.42449
+    endTime: 44.756462
+    duration: 20.331972
+  - payloadData:
+      strings:
+      - OurLivesPast
+    startTime: 46.963264
+    endTime: 69
+    duration: 22.036736

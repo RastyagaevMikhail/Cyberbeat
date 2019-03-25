@@ -13,15 +13,8 @@ MonoBehaviour:
   m_Name: Acceleration_Mountkid - Dino
   m_EditorClassIdentifier: 
   mEventID: Acceleration
-  mEventList:
-  - mStartSample: 1700669
-    mEndSample: 1809724
-  - mStartSample: 1871620
-    mEndSample: 2733560
-  - mStartSample: 2776802
-    mEndSample: 3567108
-  _SerializedPayloadTypes:
-  - SonicBloom.Koreo.TextPayload
+  mEventList: []
+  _SerializedPayloadTypes: []
   _ColorPayloads: []
   _ColorPayloadIdxs: 
   _CurvePayloads: []
@@ -34,7 +27,5 @@ MonoBehaviour:
   _IntPayloadIdxs: 
   _SpectrumPayloads: []
   _SpectrumPayloadIdxs: 
-  _TextPayloads:
-  - mTextVal: 
-  - mTextVal: 
-  _TextPayloadIdxs: 0000000001000000
+  _TextPayloads: []
+  _TextPayloadIdxs: 

@@ -461,6 +461,11 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+    ResponceInverce:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     inverse: 0
 --- !u!114 &64009221
 MonoBehaviour:
@@ -1427,7 +1432,7 @@ MonoBehaviour:
   onFalse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 62efd1f9acf538343a84b4250cbbffe0, type: 2}
+      - m_Target: {fileID: 11400000, guid: 0a35c883cd781a249aa2f95924f6b126, type: 2}
         m_MethodName: SetMeAsCurrent
         m_Mode: 1
         m_Arguments:
@@ -1766,6 +1771,11 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+      m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    ResponceInverce:
+      m_PersistentCalls:
+        m_Calls: []
       m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
     inverse: 0
