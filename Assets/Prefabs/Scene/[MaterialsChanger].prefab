@@ -45,50 +45,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings:
-  - Name: Road._EmissionColor.1sec
+  - Name: Road._EmissionColor
     material: {fileID: 2100000, guid: 5b449dc69683b454d9d79053ecfbf311, type: 2}
     ColorName: {fileID: 11400000, guid: 40958cd5154efa84783f4e37b3800c3e, type: 2}
-    duration: 1
-  - Name: Trail._Color.1sec
+  - Name: Trail._Color
     material: {fileID: 2100000, guid: 88e9399e15225404f80937f2b76cab6f, type: 2}
     ColorName: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd, type: 2}
-    duration: 1
-  - Name: Tail_Particles._EmisColor.1sec
+  - Name: Tail_Particles._EmisColor
     material: {fileID: 2100000, guid: 3b731058cfc66f240b9b9a98dbdc5984, type: 2}
     ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-    duration: 1
-  - Name: TrailSquare_whole._EmisColor.1sec
+  - Name: TrailSquare_whole._EmisColor
     material: {fileID: 2100000, guid: 042d6827960710745bc5c1380fd2b36b, type: 2}
     ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-    duration: 1
-  - Name: square_fill._EmisColor.1sec
+  - Name: square_fill._EmisColor
     material: {fileID: 2100000, guid: d58fc857659afc9419a56fa415544999, type: 2}
     ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-    duration: 1
-  - Name: Square_whole._EmisColor.1sec
+  - Name: Square_whole._EmisColor
     material: {fileID: 2100000, guid: a2331ce24bae9f447b46f4fde19b4624, type: 2}
     ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-    duration: 1
-  - Name: Portal._Color.1sec
-    material: {fileID: 2100000, guid: f5759c35e2bb75f48a99352093993bde, type: 2}
-    ColorName: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd, type: 2}
-    duration: 1
-  - Name: PortalBeam._EmisColor.1sec
-    material: {fileID: 2100000, guid: e7bd3b9be3c8e9c4cbb4317ea83a6cf7, type: 2}
-    ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-    duration: 1
-  - Name: PortalParicles._EmisColor.1sec
-    material: {fileID: 2100000, guid: 7005508bb07789c4987e2a2e45cf9635, type: 2}
-    ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-    duration: 1
-  - Name: Clouds._EmisColor.1sec
-    material: {fileID: 2100000, guid: 3fac4d753d480fd4d95642367cfdec68, type: 2}
-    ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-    duration: 1
-  - Name: Circle._EmisColor.1sec
-    material: {fileID: 2100000, guid: 2d7c6d0fc45fbe24b945112ac05e93fa, type: 2}
-    ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-    duration: 1
   IndexOfRemove: 0
 --- !u!114 &4507617694825245076
 MonoBehaviour:
