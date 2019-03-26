@@ -37,7 +37,10 @@ namespace GameCore
         {
             if (NoAds) return;
             if (!Advertisement.isInitialized)
+            {
                 Advertisement.Initialize (gameID.Value, false);
+                StartCoroutine (LoadBanner ());
+            }
         }
         public void ShowAd ()
         {
@@ -64,7 +67,15 @@ namespace GameCore
             if (NoAds) return;
             if (debug) Debug.Log ($"Banner OnDisable {placementId} {name}");
             StopAllCoroutines ();
+            if (!Advertisement.isInitialized) return;
             Advertisement.Banner.Hide ();
+        }
+        IEnumerator LoadBanner ()
+        {
+            while (!Advertisement.IsReady (placementId))
+                yield return new WaitForSeconds (0.5f);
+            // Load won't show the banner, but just load it.
+            Advertisement.Banner.Load (placementId);
         }
     }
 }

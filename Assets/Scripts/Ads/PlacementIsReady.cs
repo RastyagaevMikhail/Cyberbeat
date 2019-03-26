@@ -54,6 +54,7 @@ namespace GameCore
         public void Check ()
         {
             InititalizeIfNeed ();
+            if(!Monetization.isInitialized) return;
             onIsReady.Invoke (isReady);
             onIsReadyInverce.Invoke (!isReady);
             (isReady?(Action) onReady.Invoke : onNOTReady.Invoke) ();

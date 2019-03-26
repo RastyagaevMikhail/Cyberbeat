@@ -73,11 +73,13 @@ namespace GameCore
             if (debug) Debug.Log ($"ad = {ad} {placementId} {name}");
 
             if (ad != null)
+            {
                 ad.Show (result =>
                 {
                     if (debug) Debug.Log ($"Ads Show {placementId}", this);
                     eventSelector[result] (placementId);
                 });
+            }
             else
             {
                 if (debug) Debug.Log ($"Asd Error {placementId} {name}");

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ddd656d3c9ded49965d031ca8390fa, type: 3}
-  m_Name: TracksPlayed
+  m_Name: StartMenuIsShowed
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   categoryTag: Default
   saveData: {fileID: 11400000, guid: 6fe5bebdb9e7ca0408546aedab6fd868, type: 2}
-  isSavable: 0
+  isSavable: 1
   _value: 0
   DefaultValue: 0
   ResetByDefault: 1

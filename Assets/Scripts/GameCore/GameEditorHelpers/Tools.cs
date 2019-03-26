@@ -169,6 +169,7 @@ namespace GameCore
         public static void SetBool (string HashKey, bool value)
         {
             PlayerPrefs.SetInt (HashKey, value ? 1 : 0);
+            PlayerPrefs.Save();
         }
         public static bool GetBool (string HashKey, bool deafultValue = false)
         {
