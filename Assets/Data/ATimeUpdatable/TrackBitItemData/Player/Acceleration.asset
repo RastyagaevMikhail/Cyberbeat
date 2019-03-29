@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2774dd02c1370f44e98520a5014f2c75, type: 3}
   m_Name: Acceleration
   m_EditorClassIdentifier: 
-  variable: {fileID: 11400000, guid: 0eefbb9afcc38e0419059778245c4bd8, type: 2}
+  Variable: {fileID: 11400000, guid: 0eefbb9afcc38e0419059778245c4bd8, type: 2}
   unityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -27,11 +27,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: CyberBeat.GameEventListenerIBitData+UnityEventIBitData, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: CyberBeat.UnityEventIBitData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   debug: 0
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CyberBeat.UnityEventIBitData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   TimeIsOver:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: CyberBeat.GameEventListenerIBitData+UnityEventIBitData, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: CyberBeat.UnityEventIBitData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

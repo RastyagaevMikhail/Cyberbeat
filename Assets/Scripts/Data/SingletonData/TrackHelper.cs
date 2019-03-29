@@ -33,7 +33,7 @@ namespace CyberBeat
 #endif
 
         public void UpdateCollections (LayerTypeTrackBitsCollectionSelector layerBitsSelector) { data.UpdateCollections (layerBitsSelector); }
-        public int CalculateConstant (Track track, List<IBitData> bits)
+        public int CalculateConstant (Track track, List<TrackBit> bits)
         {
             int Max = 0;
             foreach (var bitInfo in bits)

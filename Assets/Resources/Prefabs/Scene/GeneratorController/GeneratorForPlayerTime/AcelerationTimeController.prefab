@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7255090016619250468
+--- !u!1 &7243943623061535038
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,91 +8,75 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7255090016619250469}
-  - component: {fileID: 8428266159094543344}
-  - component: {fileID: 7255090016619250471}
-  - component: {fileID: 7255090016619250470}
+  - component: {fileID: 7243943623061535039}
+  - component: {fileID: 7579525512255768812}
+  - component: {fileID: 7243943623061535034}
+  - component: {fileID: 7243943623061535033}
   m_Layer: 0
-  m_Name: SpeedTimeGenerator
+  m_Name: AcelerationTimeController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7255090016619250469
+--- !u!4 &7243943623061535039
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7255090016619250468}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 7243943623061535038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8428266159094543344
+--- !u!114 &7579525512255768812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7255090016619250468}
+  m_GameObject: {fileID: 7243943623061535038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a44b167e33872146b64182ff63a6c99, type: 3}
+  m_Script: {fileID: 11500000, guid: 922f436e4313c9744a949b968d5b107e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  set: {fileID: 11400000, guid: 9e5b8834234ae3040a2cff76a2593f86, type: 2}
-  value: {fileID: 11400000, guid: df1bdfc319b87034a90838995cd66afb, type: 2}
---- !u!114 &7255090016619250471
+  set: {fileID: 11400000, guid: e923228ce7e36394aa7d913ab7cf7740, type: 2}
+  value: {fileID: 11400000, guid: 13e9888a9c792c54182170f5af32773c, type: 2}
+--- !u!114 &7243943623061535034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7255090016619250468}
+  m_GameObject: {fileID: 7243943623061535038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa563d1be2a38241bcab10d522c1ce7, type: 3}
+  m_Script: {fileID: 11500000, guid: 0646f0c49dd6f464a9d835a0a371301d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selector: {fileID: 11400000, guid: f566bc0dce43d20489ae83f42599b605, type: 2}
-  OnBitEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: beacd0d9c0e6d9a4ba9f9024749e868f, type: 2}
-        m_MethodName: Raise
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: CyberBeat.UnityEventSpeedTimeData, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &7255090016619250470
+  particles: {fileID: 0}
+--- !u!114 &7243943623061535033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7255090016619250468}
+  m_GameObject: {fileID: 7243943623061535038}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ccadaa979de16c4cbbb308970eb2421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 84a80a028b0b03e4e8b7d4ce1205a640, type: 2}
+  Event: {fileID: 11400000, guid: 3649110b5f1bf9b47b85ed308e3de13b, type: 2}
   Responce:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7255090016619250471}
+      - m_Target: {fileID: 7243943623061535034}
         m_MethodName: OnBit
         m_Mode: 0
         m_Arguments:

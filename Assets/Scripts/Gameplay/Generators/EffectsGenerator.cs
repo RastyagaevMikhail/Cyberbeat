@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 
 using SonicBloom.Koreo;
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +18,31 @@ namespace CyberBeat
     {
 
         [SerializeField] EffectDataPresetSelector selector;
-        [SerializeField] PoolVariable pool;
+        [SerializeField] TrackVariable track;
         [SerializeField] CurvySplineVariable splineVariable;
         [SerializeField] bool fixedDistance = true;
         [ShowIf ("fixedDistance")]
         [SerializeField] float aheadDistance = 45f;
         CurvySpline spline => splineVariable.Value;
         public Color color { get; set; }
+        Queue<SpawnedObject> EffectsPool;
+        private void Start ()
+        {
+            EffectsPool = new Queue<SpawnedObject> ();
+            var originalInstance = Instantiate (Resources.Load<SpawnedObject> ($"Prefabs/Effects/{track.Value.name}"));
+            originalInstance.gameObject.SetActive (false);
+            EffectsPool.Enqueue (originalInstance);
+            for (int i = 0; i < 9; i++)
+            {
+				SpawnedObject item = Instantiate(originalInstance);
+                item.gameObject.SetActive(false);
+				EffectsPool.Enqueue(item);
+            }
+        }
         public void OnBit (IBitData bitData)
         {
             EffectDataPreset preset = selector[bitData.StringValue];
-            var spawnedSkin = pool.Pop (preset.PrefabName, null);
+            var spawnedSkin = GameEventSkinItem ();
             if (fixedDistance)
             {
                 float nearestPointTF = spline.GetNearestPointTF (position);
@@ -49,5 +64,11 @@ namespace CyberBeat
             skinSetter.InitSkin (preset);
         }
 
+        private SpawnedObject GameEventSkinItem ()
+        {
+            SpawnedObject result = null;
+
+            return result;
+        }
     }
 }

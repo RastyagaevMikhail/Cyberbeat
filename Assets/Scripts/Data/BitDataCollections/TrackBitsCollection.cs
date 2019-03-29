@@ -11,13 +11,12 @@ using UnityEngine;
 namespace CyberBeat
 {
     [CreateAssetMenu (menuName = "CyberBeat/BitDataCollection/Track")]
-    public class TrackBitsCollection : ABitDataCollection
+    public class TrackBitsCollection : ScriptableObject//ABitDataCollection
     {
-        [SerializeField] List<TrackBit> bits;
-        public override List<IBitData> Bits => bits.Cast<IBitData> ().ToList ();
-        public override void Init (List<KoreographyEvent> events)
+        public  TrackBit[] Bits ;
+        public  void Init (List<KoreographyEvent> events)
         {
-            bits = events.Select (e => new TrackBit (e)).ToList ();
+            Bits = events.Select (e => new TrackBit (e)).ToArray ();
             this.Save ();
         }
     }

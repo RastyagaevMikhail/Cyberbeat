@@ -34,8 +34,8 @@ namespace CyberBeat
             data = Resources.Load<TrackHelper> ("Data/TrackHelper");
             tracks = Resources.LoadAll<Track> ("Data/Tracks");
             scenes = Tools.GetAtPath<SceneAsset> ("Assets/Scenes");
-            playerUpdateables = Tools.GetAtPath<ATimeUpdateable> ("Assets/Data/ATimeUpdatable/TrackBitItemData/Player");
-            generatorUpdateables = Tools.GetAtPath<ATimeUpdateable> ("Assets/Data/ATimeUpdatable/TrackBitItemData/Generator");
+            playerUpdateables = Tools.GetAtPath<TrackBitItemData> ("Assets/Data/ATimeUpdatable/TrackBitItemData/Player");
+            generatorUpdateables = Tools.GetAtPath<TrackBitItemData> ("Assets/Data/ATimeUpdatable/TrackBitItemData/Generator");
             enums = data.Enums;
 
             collctionsSelector =
@@ -145,7 +145,7 @@ namespace CyberBeat
 
             TrackBitItemData trackBitItemData = CreateInstance<TrackBitItemData> ();
             trackBitItemData.Variable =
-                Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layerName}Collection.asset");
+                Tools.ValidateSO<TrackBitsCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layerName}Collection.asset");
             trackBitItemData.CreateAsset ($"Assets/Data/ATimeUpdatable/TrackBitItemData/{user}/{layerName}.asset");
 
             Tools.ValidateSO<GameEventIBitData> ($"Assets/Data/Events/IBitData/On{layerName}{user}.asset");
@@ -237,7 +237,7 @@ namespace CyberBeat
         [Space]
         [PropertyOrder (int.MaxValue)]
         [SerializeField]
-        ATimeUpdateable[] playerUpdateables;
+        TrackBitItemData[] playerUpdateables;
         [HorizontalGroup ("updatables")]
         [ListDrawerSettings (
             Expanded = true,
@@ -248,7 +248,7 @@ namespace CyberBeat
         [Space]
         [PropertyOrder (int.MaxValue)]
         [SerializeField]
-        ATimeUpdateable[] generatorUpdateables;
+        TrackBitItemData[] generatorUpdateables;
 
         #endregion
 

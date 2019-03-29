@@ -10,7 +10,7 @@ using UnityEngine;
 namespace CyberBeat
 {
     [CreateAssetMenu (menuName = "CyberBeat/Selectors/LayerTypeABitDataCollectionVariable")]
-    public class LayerTypeABitDataCollectionVariableSelector : AEnumDataSelectorScriptableObject<LayerType, ABitDataCollectionVariable>
+    public class LayerTypeABitDataCollectionVariableSelector : AEnumDataSelectorScriptableObject<LayerType, TrackBitsCollectionVariable>
     {
         [ListDrawerSettings (
             Expanded = true,
@@ -19,15 +19,15 @@ namespace CyberBeat
             HideRemoveButton = true,
             ShowPaging = false)]
         public List<LayerTypeABitDataCollectionVariableTypeData> datas;
-        public override List<TypeData<LayerType, ABitDataCollectionVariable>> Datas
+        public override List<TypeData<LayerType, TrackBitsCollectionVariable>> Datas
         {
             get
             {
-                return datas.Cast<TypeData<LayerType, ABitDataCollectionVariable>> ().ToList ();
+                return datas.Cast<TypeData<LayerType, TrackBitsCollectionVariable>> ().ToList ();
             }
         }
 
-        [System.Serializable] public class LayerTypeABitDataCollectionVariableTypeData : TypeData<LayerType, ABitDataCollectionVariable> { }
+        [System.Serializable] public class LayerTypeABitDataCollectionVariableTypeData : TypeData<LayerType, TrackBitsCollectionVariable> { }
 #if UNITY_EDITOR
         [ContextMenu("Validate")]
         void Validate()
@@ -43,7 +43,7 @@ namespace CyberBeat
                 datas.Add (new LayerTypeABitDataCollectionVariableTypeData ()
                 {
                 type = layer,
-                data = Tools.ValidateSO<ABitDataCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layer.name}Collection.asset")
+                data = Tools.ValidateSO<TrackBitsCollectionVariable> ($"Assets/Data/Variables/ABitDataCollection/Current{layer.name}Collection.asset")
                 });
             }
             this.Save();

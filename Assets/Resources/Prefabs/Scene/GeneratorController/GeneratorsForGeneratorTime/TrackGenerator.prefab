@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6891300854806384573}
-  - component: {fileID: 4012846781369421454}
+  - component: {fileID: 3256984727118466239}
   - component: {fileID: 8016844441542403472}
   - component: {fileID: 2826193355885663778}
   - component: {fileID: 2769756720259522310}
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4012846781369421454
+--- !u!114 &3256984727118466239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,10 +43,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7292551851088152136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a44b167e33872146b64182ff63a6c99, type: 3}
+  m_Script: {fileID: 11500000, guid: 922f436e4313c9744a949b968d5b107e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  set: {fileID: 11400000, guid: 49d4e01c11fb95d438a6f52b663aabcf, type: 2}
+  set: {fileID: 11400000, guid: 7d59736a1e45e804aa636d717b229730, type: 2}
   value: {fileID: 11400000, guid: e0f73987be34911448604aee40016dcf, type: 2}
 --- !u!114 &8016844441542403472
 MonoBehaviour:
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorsSets: {fileID: 11400000, guid: cd6ff43d2d74f5842b6343152de74460, type: 2}
   pool: {fileID: 11400000, guid: fae18d4078fd04a44ad4195c4ed8861c, type: 2}
-  tracksCollection: {fileID: 11400000, guid: b670e399b603b2f49a642c6ac92e5589, type: 2}
+  Presets: {fileID: 11400000, guid: 0b848b5096d72db489188106f493390d, type: 2}
   currentSet: {fileID: 11400000, guid: 25ea90141e644c04ab93a06e98f51be3, type: 2}
   nearBeats: {fileID: 11400000, guid: d4cad0ecad934d34389ca0e17b1fa5f7, type: 2}
   onFirstColorChoosed:

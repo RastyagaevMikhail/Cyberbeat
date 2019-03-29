@@ -128,12 +128,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 267418966}
-  - component: {fileID: 267418971}
-  - component: {fileID: 267418970}
   - component: {fileID: 267418969}
   - component: {fileID: 267418968}
   - component: {fileID: 267418967}
   - component: {fileID: 267418965}
+  - component: {fileID: 267418970}
   m_Layer: 0
   m_Name: UnityRecorderHelper
   m_TagString: Untagged
@@ -372,57 +371,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 267418964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd17ae48e5d65b74caee313854730d39, type: 3}
+  m_Script: {fileID: 11500000, guid: 922f436e4313c9744a949b968d5b107e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onDisable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 9e5b8834234ae3040a2cff76a2593f86, type: 2}
-        m_MethodName: Remove
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b73ed2e09dc5ff84abc20eb53b35a0c1,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: CyberBeat.ATimeUpdateable, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
---- !u!114 &267418971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  set: {fileID: 11400000, guid: e923228ce7e36394aa7d913ab7cf7740, type: 2}
+  value: {fileID: 11400000, guid: b73ed2e09dc5ff84abc20eb53b35a0c1, type: 2}
+--- !u!4 &286804759 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 866606051, guid: 976d5dc9bf38c784fa3223c6fec711f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8266133836934056951}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267418964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e45e075193bd6748912284f15657e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 9e5b8834234ae3040a2cff76a2593f86, type: 2}
-        m_MethodName: Add
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b73ed2e09dc5ff84abc20eb53b35a0c1,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: CyberBeat.ATimeUpdateable, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  debug: 0
 --- !u!1 &310966874
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +468,75 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1663680453870957586}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &483108035
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 286804759}
+    m_Modifications:
+    - target: {fileID: 122608409818707574, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_Name
+      value: EffectGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608409818707575, guid: 29bb64f932aeb75488931a15a2cdbbaa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29bb64f932aeb75488931a15a2cdbbaa, type: 3}
 --- !u!1 &514984248
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +615,12 @@ Transform:
   m_Father: {fileID: 952447171}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &558444252 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8405215760930011, guid: edd34e085ec2a9944a1095718753ffa7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8405216554136463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &576707725 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5679315910118489254, guid: 98980e92a96d7f041b44b8487232d742,
@@ -890,6 +924,75 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   debug: 0
+--- !u!1001 &727825556
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 558444252}
+    m_Modifications:
+    - target: {fileID: 5694419438790934943, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_Name
+      value: '[EffectsPool]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 525837059689048892, guid: b2a87a82946107242bc953ce12876b57,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2a87a82946107242bc953ce12876b57, type: 3}
 --- !u!1 &730134573
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +1079,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &952447169
 GameObject:
@@ -1434,7 +1537,7 @@ PrefabInstance:
     - target: {fileID: 7422594681919369848, guid: 55254041153b1de4c93bf4eebdef7d3f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7422594681919369848, guid: 55254041153b1de4c93bf4eebdef7d3f,
         type: 3}
@@ -1485,8 +1588,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 2.48, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28855401055156874, guid: e9861507bfb60474c94b6cc17f396fa0,
-          type: 2}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -1655,8 +1757,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 2.48, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28855401055156874, guid: e9861507bfb60474c94b6cc17f396fa0,
-          type: 2}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -2061,8 +2162,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 2.48, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28855401055156874, guid: e9861507bfb60474c94b6cc17f396fa0,
-          type: 2}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -2387,16 +2487,6 @@ PrefabInstance:
     - target: {fileID: 3342953813511737385, guid: b261a9cf5862d844889fe57512483b3a,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 591084007927070570, guid: b261a9cf5862d844889fe57512483b3a,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 591084007927070570, guid: b261a9cf5862d844889fe57512483b3a,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2898,7 +2988,6 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 514
-  m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -2925,6 +3014,7 @@ MonoBehaviour:
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
@@ -2939,12 +3029,9 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
-  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -3304,7 +3391,6 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 514
-  m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -3331,6 +3417,7 @@ MonoBehaviour:
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
@@ -3345,12 +3432,9 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
-  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
