@@ -8,7 +8,6 @@ using UnityEngine;
 using UnityEngine.Events;
 namespace CyberBeat
 {
-    [CreateAssetMenu (menuName = "CyberBeat/Selectors/InputControlTypeUnityEvent")]
     public class InputControlTypeUnityEventSelector : AEnumDataSelectorMonoBehaviour<InputControlType, UnityEvent>
     {
         public List<InputControlTypeUnityEventTypeData> datas;

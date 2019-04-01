@@ -1,25 +1,21 @@
 using System;
-using GameCore;
-
-using System;
 
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace GameCore
 {
-    
+
     public class GameEventListenerString : MonoBehaviour
     {
         [SerializeField] GameEventString Event;
 
         [SerializeField] UnityEventString Responce;
-        
+
         [SerializeField] bool debug;
 
         public void OnEventRaised (String arg)
         {
-             if (debug)
+            if (debug)
                 Debug.Log ($"{("OnEvent".a())} {$"[{Event.name}]".so()}\n{arg.ToString().cyan()}\n{("Raised On".a())} {name.mb()}", this);
             Responce.Invoke (arg);
         }
@@ -34,4 +30,3 @@ namespace GameCore
         }
     }
 }
-

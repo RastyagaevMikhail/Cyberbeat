@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db3217ef0e897204f949955d753594ff, type: 3}
-  m_Name: Phantom Sage - Our Lives Past
+  m_Script: {fileID: 11500000, guid: 402f66641fd2009428c01607711f71af, type: 3}
+  m_Name: LoadScene
   m_EditorClassIdentifier: 
-  Settings:
-  - Key: OurLivesPast
-    Prefab: {fileID: 5638886922024955628, guid: 184fa4af34027b748b1d5f8a8770f58d,
-      type: 3}
-    Parent: {fileID: 0}
-    startCount: 10
+  eventListeners: []

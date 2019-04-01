@@ -11,38 +11,50 @@ namespace GameCore
 {
 	public class Loading : MonoBehaviour
 	{
-		[SerializeField] LoadingManager manager;
 		[SerializeField] float maxTimeFromLoading = 5f;
+		[SerializeField] GameObject back;
 		[SerializeField] UnityEventFloat onProgress;
 		[SerializeField] UnityEventFloat onFakeLoading;
 		[SerializeField] UnityEvent onLoadComplete;
-		private void OnValidate ()
+		[SerializeField] bool debug;
+
+		public void LoadScene (string sceneName)
 		{
-			if (manager == null)
-				manager = Resources.Load<LoadingManager> ("Data/LoadingManager");
+			back.SetActive (true);
+			StartCoroutine (cr_LoadScene (sceneName));
 		}
-		IEnumerator Start ()
+		IEnumerator cr_LoadScene (string sceneName)
 		{
-			var ao = SceneManager.LoadSceneAsync (manager.nextScene);
+			if (debug) Debug.Log ($"Loading.LoadScene(\"{sceneName}\")");
+			var ao = SceneManager.LoadSceneAsync (sceneName);
 			float startTime = Time.time;
+			if (debug) Debug.LogFormat ("startTime = {0}", startTime);
 			while (!ao.isDone)
 			{
+				if (debug) Debug.LogFormat ("ao.progress = {0}", ao.progress);
 				onProgress.Invoke (ao.progress);
 				yield return null;
 			}
 			onProgress.Invoke (1f);
 
-			//?Fake waithing if needed
+			//?---Fake waithing if needed
 			float elapsedTime = Time.time - startTime;
+			if (debug)
+			{
+				Debug.LogFormat ("elapsedTime = {0}", elapsedTime);
+				Debug.LogFormat ("maxTimeFromLoading = {0}", maxTimeFromLoading);
+			}
 			while (elapsedTime < maxTimeFromLoading)
 			{
 				onFakeLoading.Invoke (elapsedTime);
 				elapsedTime += Time.deltaTime;
+				if (debug) Debug.LogFormat ("elapsedTime = {0}", elapsedTime);
+
 				yield return new WaitForEndOfFrame ();
 			}
-			manager.loader.OnSceneLoaded ();
 			onLoadComplete.Invoke ();
 			ao.allowSceneActivation = true;
+			if (debug) Debug.LogFormat ("ao.allowSceneActivation = {0}", ao.allowSceneActivation);
 		}
 
 	}

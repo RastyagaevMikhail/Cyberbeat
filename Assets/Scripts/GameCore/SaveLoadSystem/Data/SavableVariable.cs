@@ -45,7 +45,7 @@ namespace GameCore
         }
         public Action<TValue> OnValueChanged = (o) => { };
         public bool Loaded = false;
-        [SerializeField] bool logChanges = false;
+        [SerializeField] protected bool logChanges = false;
 
         public virtual TValue Value
         {

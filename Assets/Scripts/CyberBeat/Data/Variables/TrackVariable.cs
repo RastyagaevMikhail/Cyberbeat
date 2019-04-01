@@ -35,15 +35,31 @@ namespace CyberBeat
 
         public override void SaveValue ()
         {
+            if (logChanges)
+            {
+                Debug.Log ("!!!---TrackVariable.SaveValue---!!!");
+                Debug.LogFormat ("Value = {0}", Value);
+            }
+
             if (Value) PlayerPrefs.SetString (name, Value.name);
+
+            if (logChanges) Debug.Log ("---!!!TrackVariable.SaveValue!!!---");
         }
 
         public override void LoadValue ()
         {
+            if (logChanges) Debug.Log ("!!!---TrackVariable.LoadValue---!!!");
+            
             string SavedName = PlayerPrefs.GetString (name, DefaultValue ? DefaultValue.name : "Julius Dreisig - In My Head");
 
+            if (logChanges) Debug.LogFormat ("SavedName = {0}", SavedName);
+
             string path = $"Data/Tracks/{SavedName}";
-            base.Value = Resources.Load<Track> (path);
+            if (logChanges) Debug.LogFormat ("path = {0}", path);
+            Value = Resources.Load<Track> (path);
+            if (logChanges) Debug.LogFormat ("Value = {0}", Value);
+
+            if (logChanges) Debug.Log ("---!!!TrackVariable.LoadValue!!!---");
         }
         public static implicit operator Track (TrackVariable variable)
         {

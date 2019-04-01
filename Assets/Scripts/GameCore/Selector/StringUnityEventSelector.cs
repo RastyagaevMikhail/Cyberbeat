@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.Events;
 namespace GameCore
 {
-    [CreateAssetMenu (fileName = "StringUnityEventSelector", menuName = "GameCore/Selectors/StringUnityEvent")]
     public class StringUnityEventSelector : AEnumDataSelectorMonoBehaviour<String, UnityEvent>
     {
         public List<StringUnityEventTypeData> datas;
