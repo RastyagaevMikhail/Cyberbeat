@@ -34,16 +34,7 @@ namespace GameCore
 						Debug.LogError (e.Message);
 					}
 					_instance.CreateAsset ("Assets/Resources/Data/{0}.asset".AsFormat (typeName));
-
 				}
-#if UNITY_2018_2_OR_NEWER
-				var PreoloadedAssets = UnityEditor.PlayerSettings.GetPreloadedAssets ().ToList ();
-				if (!PreoloadedAssets.Contains (_instance))
-				{
-					PreoloadedAssets.Add (_instance);
-					UnityEditor.PlayerSettings.SetPreloadedAssets (PreoloadedAssets.ToArray ());
-				}
-#endif
 #endif
 				_instance.InitOnLoaded ();
 				return _instance;

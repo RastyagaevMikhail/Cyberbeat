@@ -37,7 +37,7 @@ namespace CyberBeat
         Tween fadeTween = null;
         private bool isMoving;
 
-        protected override void Awake ()
+        void Awake ()
         {
             startLocalY = yLocal;
             path = new Vector3[] { Vector3.up * (startLocalY + upDistance) };

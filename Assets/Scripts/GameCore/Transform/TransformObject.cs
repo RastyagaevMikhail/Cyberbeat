@@ -8,10 +8,6 @@ namespace GameCore
         {
             if (_transform == null) _transform = GetComponent<Transform> ();
         }
-        protected virtual void Awake ()
-        {
-            if (_transform == null) _transform = GetComponent<Transform> ();
-        }
         private Transform _transform = null;
         public new Transform transform { get { if (_transform == null) _transform = GetComponent<Transform> (); return _transform; } }
         public Vector3 position { get { return transform.position; } set { transform.position = value; } }

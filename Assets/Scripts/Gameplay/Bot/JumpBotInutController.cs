@@ -12,7 +12,10 @@ namespace CyberBeat
     public class JumpBotInutController : BotInputController
     {
         public override float Speed { set => distanceRaycast = value * inputSettings.jumpUpTime; }
-        private Ray forwardRay;
+
+		private const string BrickTag = "Brick";
+		private const string SwitcherTag = "Switcher";
+		private Ray forwardRay;
         [SerializeField] JumpInputSettings inputSettings;
         [SerializeField] UnityEvent onJump;
         private float distanceRaycast;
@@ -45,7 +48,7 @@ namespace CyberBeat
         {
             if (bitAll) return true;
             GameObject hitGO = hit.transform.gameObject;
-            bool isBit = hitGO.CompareTag ("Brick") || hitGO.CompareTag ("Switcher");
+            bool isBit = hitGO.CompareTag (BrickTag) || hitGO.CompareTag (SwitcherTag);
             if (!isBit) return false;
             MaterialSwitcher materialSwitcher = hitGO.GetComponent<MaterialSwitcher> ();
             bool isHit = !materialSwitcher.Constant && !(materialSwitcher.ChechColor (matSwitch.CurrentColor));
@@ -58,7 +61,7 @@ namespace CyberBeat
             bool isDistance = dir.sqrMagnitude <= SqrHeight;
             if (!isDistance) return;
 
-            bool isBrickNotMyColor = colorInterractor.gameObject.CompareTag ("Brick") && !matSwitch.ChechColor (colorInterractor.CurrentColor);
+            bool isBrickNotMyColor = colorInterractor.gameObject.CompareTag (BrickTag) && !matSwitch.ChechColor (colorInterractor.CurrentColor);
             if (isBrickNotMyColor)
                 onJump.Invoke ();
             // inputControllerComponent.TapRight ();

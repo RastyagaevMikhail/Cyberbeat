@@ -79,7 +79,9 @@ namespace CyberBeat
 
 		public void SetAsCurrent (Track track)
 		{
+
 			currentTrack.Value = track;
+
 			currentTrack.Save ();
 		}
 #if UNITY_EDITOR

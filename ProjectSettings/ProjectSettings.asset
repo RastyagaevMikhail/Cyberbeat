@@ -85,7 +85,7 @@ PlayerSettings:
   useMacAppStoreValidation: 0
   macAppStoreCategory: public.app-category.games
   gpuSkinning: 1
-  graphicsJobs: 0
+  graphicsJobs: 1
   xboxPIXTextureCapture: 0
   xboxEnableAvatar: 0
   xboxEnableKinect: 0
@@ -113,34 +113,15 @@ PlayerSettings:
   switchNVNShaderPoolsGranularity: 33554432
   switchNVNDefaultPoolsGranularity: 16777216
   switchNVNOtherPoolsGranularity: 16777216
-  vulkanEnableSetSRGBWrite: 0
+  vulkanEnableSetSRGBWrite: 1
   m_SupportedAspectRatios:
     4:3: 1
     5:4: 1
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.1.0
-  preloadedAssets:
-  - {fileID: 11400000, guid: bccd610e46458994b90573dfe92ba20a, type: 2}
-  - {fileID: 11400000, guid: 85f9b9d59d9331848abcd4bb78a4ae00, type: 2}
-  - {fileID: 11400000, guid: ffd270e580eddea4da071a80c266f5e3, type: 2}
-  - {fileID: 11400000, guid: 92d0f060f9abbbf41aecd5a26184e479, type: 2}
-  - {fileID: 11400000, guid: 374e7c64eb1851f4abcf20a98a3547c5, type: 2}
-  - {fileID: 11400000, guid: 1f464ea588548cc4da9fc6eee1677d3d, type: 2}
-  - {fileID: 11400000, guid: 56bd49594212d08449645a1a879fd982, type: 2}
-  - {fileID: 11400000, guid: b53cddf60e805864380e74c79d200dd1, type: 2}
-  - {fileID: 11400000, guid: e7ba042f74bcbc349a301c61bc07f326, type: 2}
-  - {fileID: 11400000, guid: 11999941d5235fa4ab2efb3ebc143126, type: 2}
-  - {fileID: 11400000, guid: 4d3ca0f8fbad3b146a0632bcc8cbec61, type: 2}
-  - {fileID: 11400000, guid: 36edd8dc4ca5f2b4d82ffb3cf8e385fd, type: 2}
-  - {fileID: 11400000, guid: 6fe5bebdb9e7ca0408546aedab6fd868, type: 2}
-  - {fileID: 11400000, guid: 6026e8510bff7a04e8b2f54394dbdcc4, type: 2}
-  - {fileID: 11400000, guid: 43ddb2644a58dba45a0cf343f849d88f, type: 2}
-  - {fileID: 11400000, guid: 328fa3d301abe6a4f830c8ea5677a79a, type: 2}
-  - {fileID: 11400000, guid: fb054a1925d0745488de53eeb7fb7809, type: 2}
-  - {fileID: 11400000, guid: b670e399b603b2f49a642c6ac92e5589, type: 2}
-  - {fileID: 11400000, guid: 2851687ff8cc6f848884d2459f34f1e4, type: 2}
+  bundleVersion: 1.1.3
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -176,7 +157,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.skillapp.cyberbeat
   buildNumber: {}
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 6
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

@@ -35,7 +35,7 @@ namespace GameCore
 
 		public void LoadScene (string next_scene)
 		{
-			Debug.Log ("LoadingManager.LoadScene");
+			Debug.Log ($"LoadingManager.LoadScene(\"{nextScene}\")");
 			nextScene = next_scene;
 
 			loader.LoadScene ("Loading");

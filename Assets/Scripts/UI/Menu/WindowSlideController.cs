@@ -30,6 +30,9 @@ namespace CyberBeat
         public void ShowLastWindow ()
         {
             if (debug) Debug.Log ($"{this.Log()}");
+#if UNITY_EDITOR
+            indexofWindow = 2;
+#endif
             MakeTransitionTo (PlayWindowIndex);
         }
         public void SetIndexWindow (int newIndexofWindow)
@@ -45,7 +48,9 @@ namespace CyberBeat
             startTransition = true;
             startingTransition.Invoke (startTransition);
             var newWindow = windows[newIndexofWindow];
+            if (debug) Debug.LogFormat ("newWindow = {0}", newWindow);
             var currentWindow = windows[indexofWindow];
+            if (debug) Debug.LogFormat ("currentWindow = {0}", currentWindow);
             int dir = (newIndexofWindow - indexofWindow).Sign ();
             if (newIndexofWindow == windows.Count && indexofWindow == 0) dir = -1;
             newWindow.x = dir * width;

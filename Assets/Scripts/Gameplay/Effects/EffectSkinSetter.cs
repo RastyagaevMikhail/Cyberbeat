@@ -8,27 +8,71 @@ using Timers;
 using UnityEngine;
 namespace CyberBeat
 {
+    [RequireComponent (typeof (MeshFilter), typeof (MeshRenderer))]
+    [RequireComponent (typeof (Rotator), typeof (SpawnedObject))]
+    [RequireComponent (typeof (BoxCollider), typeof (TriggerTagActions))]
+    [RequireComponent (typeof (GameEventListenerColor))]
+    [ExecuteInEditMode]
     public class EffectSkinSetter : TransformObject
     {
-        public float Opacity { get => vertexColorMeshSetter.alpha; set => vertexColorMeshSetter.alpha = value; }
+        MaterialPropertyBlock prop;
+        [SerializeField, HideInInspector] int OpacityIDProp;
+
+        [SerializeField, HideInInspector] int ColorIDProp;
+
+        public float Opacity
+        {
+            get
+            {
+                mRend.GetPropertyBlock (prop);
+                return prop.GetFloat (OpacityIDProp);
+            }
+            set
+            {
+                mRend.GetPropertyBlock (prop);
+                prop.SetFloat (OpacityIDProp, value);
+                mRend.SetPropertyBlock (prop);
+            }
+        }
         public Color color
         {
-            get => vertexColorMeshSetter.color;
-            set => vertexColorMeshSetter.color = value;
+            get
+            {
+                mRend.GetPropertyBlock (prop);
+                return prop.GetColor (ColorIDProp);
+            }
+            set
+            {
+                mRend.GetPropertyBlock (prop);
+                prop.SetColor (ColorIDProp, value);
+                mRend.SetPropertyBlock (prop);
+            }
         }
 
-        [SerializeField] VertexColorMeshSetter vertexColorMeshSetter;
-        [SerializeField] Rotator rotator;
-        [SerializeField] SpawnedObject spawnedObject;
+        [SerializeField] Color _color = Color.white;
+        [Range (0, 1)]
+        [SerializeField] float _opacity = 1f;
+        [SerializeField, HideInInspector] MeshRenderer mRend;
+        [SerializeField, HideInInspector] Rotator rotator;
+        [SerializeField, HideInInspector] SpawnedObject spawnedObject;
+#if UNITY_EDITOR
+
         private void OnValidate ()
         {
-            vertexColorMeshSetter = GetComponent<VertexColorMeshSetter> ();
+            mRend = GetComponent<MeshRenderer> ();
+
+            OpacityIDProp = Shader.PropertyToID ("_Opacity");
+            ColorIDProp = Shader.PropertyToID ("_Color");
+
+            if (prop == null) prop = new MaterialPropertyBlock ();
+
             rotator = GetComponent<Rotator> ();
             spawnedObject = GetComponent<SpawnedObject> ();
         }
-        protected override void Awake ()
+#endif
+        void Awake ()
         {
-            base.Awake ();
+            prop = new MaterialPropertyBlock ();
             color = Color.white;
             Opacity = 0f;
         }
@@ -109,5 +153,15 @@ namespace CyberBeat
                 onComplete ();
             yield break;
         }
+#if UNITY_EDITOR
+        private void Update ()
+        {
+            if (!Application.isPlaying)
+            {
+                color = _color;
+                Opacity = _opacity;
+            }
+        }
+#endif
     }
 }

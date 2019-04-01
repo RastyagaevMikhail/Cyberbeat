@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: Acceleration
   mEventList:
+  - mStartSample: 1296900
+    mEndSample: 1772100
   - mStartSample: 1808730
     mEndSample: 1929032
   _SerializedPayloadTypes:
@@ -32,4 +34,5 @@ MonoBehaviour:
   _SpectrumPayloadIdxs: 
   _TextPayloads:
   - mTextVal: 1
-  _TextPayloadIdxs: 00000000
+  - mTextVal: 1
+  _TextPayloadIdxs: 0000000001000000

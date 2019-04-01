@@ -12,6 +12,7 @@ namespace CyberBeat
 	[CreateAssetMenu (fileName = "CenterBotInutController", menuName = "CyberBeat/Bot/InputController/Center")]
 	public class CenterBotInutController : BotInputController
 	{
+		private const string BrickTag = "Brick";
 		[SerializeField] MoveInputSettings inputSettings;
 		[SerializeField] UnityEvent onRigth;
 		[SerializeField] UnityEvent onLeft;
@@ -31,7 +32,7 @@ namespace CyberBeat
 		public override void ForEachNear (ColorInterractor colorInterractor)
 		{
 			if (StartMove) return;
-			bool isBrickMyColor = colorInterractor.gameObject.CompareTag ("Brick") && matSwitch.ChechColor (colorInterractor.CurrentColor);
+			bool isBrickMyColor = colorInterractor.gameObject.CompareTag (BrickTag) && matSwitch.ChechColor (colorInterractor.CurrentColor);
 
 			if (isBrickMyColor)
 			{

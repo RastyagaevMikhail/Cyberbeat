@@ -10,6 +10,7 @@ namespace CyberBeat
         menuName = "CyberBeat/Variable/Track")]
     public class TrackVariable : SavableVariable<Track>
     {
+        [ContextMenu ("Reset Default")]
         public override void ResetDefault ()
         {
             if (ResetByDefault)
@@ -34,12 +35,15 @@ namespace CyberBeat
 
         public override void SaveValue ()
         {
-            // TODO: Save Code This From TrackVariable
+            if (Value) PlayerPrefs.SetString (name, Value.name);
         }
 
         public override void LoadValue ()
         {
-            // TODO: Load Code This From TrackVariable
+            string SavedName = PlayerPrefs.GetString (name, DefaultValue ? DefaultValue.name : "Julius Dreisig - In My Head");
+
+            string path = $"Data/Tracks/{SavedName}";
+            base.Value = Resources.Load<Track> (path);
         }
         public static implicit operator Track (TrackVariable variable)
         {

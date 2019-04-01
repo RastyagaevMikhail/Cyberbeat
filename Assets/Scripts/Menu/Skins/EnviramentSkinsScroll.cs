@@ -28,7 +28,6 @@ namespace CyberBeat
 		[Header ("Selectors")]
 		[SerializeField] SkinTypeActionSelector skinTypeActionSelector;
 		[SerializeField] ScrollSettingsDataSelector transfromGroupSelector;
-		[SerializeField] SkinSlelctorsSelector transfromObjectSelector;
 		[Header("Events")]
 		[SerializeField] UnityEventInt skinSelected;
 		float currentPosition;
@@ -86,16 +85,6 @@ namespace CyberBeat
 			SkinComponent currentSkinComponent = transformGroup.GetAt<SkinComponent> (index);
 			currentSkinComponent.StartAniamtion ();
 			skinItem.ApplyStateMaterial (currentSkinComponent, true);
-
-			//? Skin Selector Object
-			#region Skin Selector Object 
-
-			var slector = transfromObjectSelector[skinType];
-
-			slector.SetParent (transformGroup.GetAt (index));
-			slector.localPosition = Vector3.zero;
-
-			#endregion
 
 			previndex = index;
 		}

@@ -31,9 +31,8 @@ namespace CyberBeat
         Color LastRandomColor = default (Color);
         float lastBeat = -1f;
         bool firstColorChoosed = false;
-        protected override void Awake ()
+        void Awake ()
         {
-            base.Awake ();
             if (ColorsSetsStack == null) ColorsSetsStack = new RandomStack<ColorInfoRuntimeSet> (ColorsSets.ToArray ());
             InitRCM ();
             lastBeat = -1f;

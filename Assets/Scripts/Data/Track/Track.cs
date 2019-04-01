@@ -48,7 +48,7 @@ namespace CyberBeat
 		public void CalculateConstantOn (LayerType layer)
 		{
 			TrackBitsCollection trackBitsCollection = layerBitsSelector[layer];
-			List<TrackBit> bits = trackBitsCollection.Bits.ToList();
+			List<TrackBit> bits = trackBitsCollection.Bits.ToList ();
 			int constants = helper.CalculateConstant (this, bits);
 			progressInfo.Validate (name, constants);
 		}

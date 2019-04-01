@@ -51,19 +51,19 @@ namespace GameCore
         {
             get
             {
+                
                 if (IsSavable && !Loaded && Application.isPlaying)
                 {
                     LoadValue ();
                 }
+                if (logChanges) Debug.Log ($"get_{name}:{_value} id : {GetInstanceID()}");
                 return _value;
             }
             set
             {
-                // if (_value != null && !_value.Equals (value))
-                // {
+
                 _value = value;
-                if (logChanges) Debug.Log ($"{name}:{value}");
-                // }
+                if (logChanges) Debug.Log ($"set_{name}:{_value} id : {GetInstanceID()}");
 
                 if (OnValueChanged != null)
                     OnValueChanged (_value);

@@ -3144,7 +3144,7 @@ MonoBehaviour:
     m_GlyphIndex: 244
     m_Scale: 1
   m_AtlasTextures:
-  - {fileID: 28268459870791784}
+  - {fileID: 28828927860906118}
   m_AtlasTextureIndex: 0
   m_UsedGlyphRects:
   - m_X: 0
@@ -4067,7 +4067,7 @@ MonoBehaviour:
     atlasWidth: 1024
     atlasHeight: 1024
     characterSetSelectionMode: 6
-    characterSequence: 00,1D,20-7E,401,404,406-407,40E,410-44F,451,454,456-457,45E,490-491
+    characterSequence: 00,1D,20-7E,401,404,406-407,40E,410-44F,451,454,456-457,45E,490-491,85,205,133
     referencedFontAssetGUID: e9861507bfb60474c94b6cc17f396fa0
     referencedTextAssetGUID: 
     fontStyle: 0
@@ -4154,7 +4154,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 2.48, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28268459870791784}
+        m_Texture: {fileID: 28828927860906118}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -4222,7 +4222,7 @@ Material:
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5019608}
---- !u!28 &28268459870791784
+--- !u!28 &28828927860906118
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

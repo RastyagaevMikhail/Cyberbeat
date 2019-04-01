@@ -14,7 +14,12 @@ namespace GameCore
         Dictionary<string, Transform> _parents = null;
         [SerializeField] Dictionary<string, Transform> Parents { get => _parents??(InitParents ()); }
 
-        protected override void Awake ()
+        // protected override void Awake ()
+        // {
+        //     _parents = InitParents ();
+        //     InitStartCount ();
+        // }
+        protected void Start ()
         {
             _parents = InitParents ();
             InitStartCount ();
@@ -167,6 +172,10 @@ namespace GameCore
         public SpawnedObject Prefab;
         public TransformVariable Parent;
         public int startCount;
+        public override string ToString ()
+        {
+            return $"{Key}\n{Prefab}\n{Parent}\n{startCount}";
+        }
     }
 
     [System.Serializable]

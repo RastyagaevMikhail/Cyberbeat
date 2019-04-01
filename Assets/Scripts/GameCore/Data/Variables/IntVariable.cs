@@ -52,19 +52,7 @@ namespace GameCore
 		[ContextMenu ("Save Value")]
 		public override void SaveValue ()
 		{
-			// Debug.LogFormat("Save = {0}", name);
-			try
-			{
-				PlayerPrefs.SetInt (name, _value);
-			}
-			catch (System.Exception)
-			{
-				Debug.Log (this, this);
-				#if UNITY_EDITOR
-					Debug.Log(UnityEditor.AssetDatabase.GetAssetPath(this));
-				#endif
-				throw;
-			}
+				PlayerPrefs.SetInt (name, _value);		
 		}
 
 		[Button]

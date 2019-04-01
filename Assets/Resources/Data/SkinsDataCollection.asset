@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: SkinsDataCollection
   m_EditorClassIdentifier: 
   SkinsFolders:
-  - type: {fileID: 11400000, guid: 08af98337885bb94e94ed90869ce4e64, type: 2}
-    searchedPrefabType: Object
-    SkinItemTypeName: PrefabSkinItem
-    prefabsPath: Assets/Prefabs/Skins/{0}
-    iconsPath: Assets/Images/Sprites/Skins/{0}
-    pathFromSave: Assets/Data/Skins/{0}/{1}.asset
   - type: {fileID: 11400000, guid: 1828cbbd5b4e19f41a383b9be456cf19, type: 2}
     searchedPrefabType: Object
     SkinItemTypeName: PrefabSkinItem
@@ -32,10 +26,7 @@ MonoBehaviour:
     iconsPath: Assets/Sprites/UI/Skins/{0}
     pathFromSave: Assets/Data/Skins/{0}/{1}.asset
   AllTypes:
-  - {fileID: 11400000, guid: 08af98337885bb94e94ed90869ce4e64, type: 2}
   - {fileID: 11400000, guid: 1828cbbd5b4e19f41a383b9be456cf19, type: 2}
   - {fileID: 11400000, guid: cd317585adcecc84d8a0a0dd259e3ede, type: 2}
   skinsSelector: {fileID: 11400000, guid: 0a4dbf498b5698141abb95109706a301, type: 2}
   skinIndexsSelector: {fileID: 11400000, guid: 099b14e6284abf34c8fa166824f22d71, type: 2}
-  RoadType: {fileID: 11400000, guid: cd317585adcecc84d8a0a0dd259e3ede, type: 2}
-  skinTypeVariable: {fileID: 11400000, guid: 5ac1abc9c95d5454d96f5bb8ca540216, type: 2}

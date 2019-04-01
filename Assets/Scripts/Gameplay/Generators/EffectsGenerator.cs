@@ -17,6 +17,7 @@ namespace CyberBeat
     public class EffectsGenerator : TransformObject
     {
 
+        [SerializeField] TransformVariable pools;
         [SerializeField] EffectDataPresetSelector selector;
         [SerializeField] TrackVariable track;
         [SerializeField] CurvySplineVariable splineVariable;
@@ -25,24 +26,20 @@ namespace CyberBeat
         [SerializeField] float aheadDistance = 45f;
         CurvySpline spline => splineVariable.Value;
         public Color color { get; set; }
-        Queue<SpawnedObject> EffectsPool;
-        private void Start ()
+        Pool pool;
+        [SerializeField] PoolVariable EffectsPoolVariable;
+        void Awake ()
         {
-            EffectsPool = new Queue<SpawnedObject> ();
-            var originalInstance = Instantiate (Resources.Load<SpawnedObject> ($"Prefabs/Effects/{track.Value.name}"));
-            originalInstance.gameObject.SetActive (false);
-            EffectsPool.Enqueue (originalInstance);
-            for (int i = 0; i < 9; i++)
-            {
-				SpawnedObject item = Instantiate(originalInstance);
-                item.gameObject.SetActive(false);
-				EffectsPool.Enqueue(item);
-            }
+            pool = new GameObject ("[Effects Pool]").AddComponent<Pool> ();
+            pool.SetParent (pools.Value);
+            var settings = Resources.Load<PoolSettingsData> ($"Data/Pool/Settings/Effects/{track.Value.name}");
+            pool.data = settings;
+            EffectsPoolVariable.Value = pool;
         }
         public void OnBit (IBitData bitData)
         {
             EffectDataPreset preset = selector[bitData.StringValue];
-            var spawnedSkin = GameEventSkinItem ();
+            var spawnedSkin = pool.Pop (preset.PrefabName);
             if (fixedDistance)
             {
                 float nearestPointTF = spline.GetNearestPointTF (position);

@@ -16,4 +16,16 @@ MonoBehaviour:
   defaultEditorBehaviour: 11
   processMouseMoveInInspector: 1
   drawingConfig:
-    configs: []
+    configs:
+    - DrawnTypeName: TMPro.TMP_Dropdown+DropdownItem, Unity.TextMeshPro
+      EditorTypeName: 
+    - DrawnTypeName: TMPro.TMP_Asset, Unity.TextMeshPro
+      EditorTypeName: 
+    - DrawnTypeName: TMPro.TMP_ScrollbarEventHandler, Unity.TextMeshPro
+      EditorTypeName: 
+    - DrawnTypeName: TMPro.TMP_SelectionCaret, Unity.TextMeshPro
+      EditorTypeName: 
+    - DrawnTypeName: TMPro.TMP_SerializedPropertyHolder, Unity.TextMeshPro.Editor
+      EditorTypeName: 
+    - DrawnTypeName: TMPro.TMP_SpriteAnimator, Unity.TextMeshPro
+      EditorTypeName: 
