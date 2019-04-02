@@ -17,7 +17,10 @@ namespace GameCore
 		[SerializeField] UnityEventFloat onFakeLoading;
 		[SerializeField] UnityEvent onLoadComplete;
 		[SerializeField] bool debug;
-
+		public void ReloadScene ()
+		{
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		}
 		public void LoadScene (string sceneName)
 		{
 			back.SetActive (true);

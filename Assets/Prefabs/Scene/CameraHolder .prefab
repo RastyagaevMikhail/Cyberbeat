@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882469965233035547}
-  m_LocalRotation: {x: 0.16018225, y: 0, z: 0, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018273, y: 0, z: 0, w: 0.9870874}
   m_LocalPosition: {x: 0, y: 6, z: -95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 882469965938557574}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 22.122002, y: -179.99998, z: 0}
+  m_LocalEulerAnglesHint: {x: 18.435001, y: 0, z: 0}
 --- !u!114 &882469965233035548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,8 +99,8 @@ GameObject:
   - component: {fileID: 1646690676602921009}
   - component: {fileID: 4063712310700991409}
   - component: {fileID: 3895946146517702214}
-  - component: {fileID: 3401978713577932354}
-  - component: {fileID: 882469967035462875}
+  - component: {fileID: 2296718599515335813}
+  - component: {fileID: 4819633976406958348}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -161,7 +161,7 @@ Camera:
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 1
-  m_OcclusionCulling: 0
+  m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!81 &882469965938557572
@@ -346,18 +346,7 @@ MonoBehaviour:
   action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3401978713577932354}
-        m_MethodName: set_enabled
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 882469967035462875}
+      - m_Target: {fileID: 2296718599515335813}
         m_MethodName: set_enabled
         m_Mode: 0
         m_Arguments:
@@ -373,7 +362,7 @@ MonoBehaviour:
   updateOnEnable: 1
   Inverse: 0
   debug: 0
---- !u!114 &3401978713577932354
+--- !u!114 &2296718599515335813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -433,7 +422,7 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &882469967035462875
+--- !u!114 &4819633976406958348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
