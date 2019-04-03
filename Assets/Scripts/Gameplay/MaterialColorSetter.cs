@@ -15,7 +15,7 @@ namespace CyberBeat
 	{
 		[SerializeField] List<MaterialColorSetterSettings> settings;
 		[SerializeField] int IndexOfRemove;
-
+		[SerializeField] bool debug;
 		private void OnValidate ()
 		{
 			foreach (var set in settings)
@@ -52,7 +52,7 @@ namespace CyberBeat
 		[SerializeField] Material material;
 		[SerializeField] StringVariable ColorName;
 		string colorName => ColorName ? ColorName.Value : "_Color";
-		public void SetColor(Color color) => material.SetColor(colorName, color);
-		public void OnValidate() => Name = $"{(material ? material.name : "")}.{(ColorName ? ColorName.Value : "_Color")}";
+		public void SetColor (Color color) => material.SetColor (colorName, color);
+		public void OnValidate () => Name = $"{(material ? material.name : "")}.{(ColorName ? ColorName.Value : "_Color")}";
 	}
 }

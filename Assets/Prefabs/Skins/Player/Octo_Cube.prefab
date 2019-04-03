@@ -417,11 +417,13 @@ MonoBehaviour:
   newMaterialOnAwake: 0
   DefaultColorNameVariable: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd,
     type: 2}
+  usePropertyMaterialBlock: 1
   OnColorChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  ColorNameHash: 4
 --- !u!114 &8147089721316868844
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,34 @@ namespace CyberBeat
 		public Color CurrentColor { get { return this [DefaultColorName]; } set { this [DefaultColorName] = value; OnColorChanged.Invoke (value); } }
 		public Color this [string colorName]
 		{
-			get { return CurrentMaterial.GetColor (colorName); } set { CurrentMaterial.SetColor (colorName, value); }
+			get
+			{
+
+				Color color = Color.white;
+				if (usePropertyMaterialBlock)
+				{
+					renderer.GetPropertyBlock (matProp);
+					color = matProp.GetColor (ColorNameHash);
+				}
+				else
+				{
+					color = CurrentMaterial.GetColor (ColorNameHash);
+				}
+				return color;
+			}
+			set
+			{
+				if (usePropertyMaterialBlock)
+				{
+					renderer.GetPropertyBlock (matProp);
+					matProp.SetColor (ColorNameHash, value);
+					renderer.SetPropertyBlock (matProp);
+				}
+				else
+				{
+					CurrentMaterial.SetColor (ColorNameHash, value);
+				}
+			}
 		}
 		private Renderer _renderer = null;
 		public new Renderer renderer { get { if (_renderer == null) _renderer = GetComponent<Renderer> (); return _renderer; } }
@@ -20,9 +47,21 @@ namespace CyberBeat
 		const string defaultColorName = "_Color";
 		public string DefaultColorName { get { return DefaultColorNameVariable?DefaultColorNameVariable.Value : defaultColorName; } }
 
+		[SerializeField] bool usePropertyMaterialBlock;
+		MaterialPropertyBlock matProp;
+
 		[SerializeField] UnityEventColor OnColorChanged;
+		[SerializeField] int ColorNameHash = 0;
+		private void OnValidate ()
+		{
+			ColorNameHash = Shader.PropertyToID (DefaultColorName);
+		}
 		private void Awake ()
 		{
+
+			if (usePropertyMaterialBlock)
+				matProp = new MaterialPropertyBlock ();
+
 			if (newMaterialOnAwake)
 			{
 				CurrentMaterial = Instantiate (CurrentMaterial);
@@ -45,7 +84,7 @@ namespace CyberBeat
 		{
 			// return CurrentColor.Equals (otherColor);
 			return
-				CurrentColor.r == otherColor.r &&
+			CurrentColor.r == otherColor.r &&
 				CurrentColor.g == otherColor.g &&
 				CurrentColor.b == otherColor.b;
 		}
