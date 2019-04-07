@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TrackCell
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 61121ea450b99c549acc23fabce5d124, type: 3}
+    - {fileID: 2800000, guid: 7395cd18d9239d94cad2aa9f701d9bbc, type: 3}
+    - {fileID: 2800000, guid: 7d622ff6da48919478ce4a3110785910, type: 3}
+    - {fileID: 2800000, guid: c2a700395871af040bf52d0c13d35dc9, type: 3}
+    - {fileID: 2800000, guid: bd7fb8e9730fb1348890210a0a3da3dc, type: 3}
+    - {fileID: 2800000, guid: 2186470af660c814981d2e12a78f5939, type: 3}
+    - {fileID: 2800000, guid: fe4961b5c25b7d24c97a9e52967378f8, type: 3}
+    - {fileID: 2800000, guid: 5cdcd176cf2860044acdb540d8547be7, type: 3}
+    - {fileID: 2800000, guid: b8822651ffcaa6244bbd91255a4d3305, type: 3}
+    - {fileID: 2800000, guid: 64130196db2bc094f9138a9ed594d164, type: 3}
+    - {fileID: 2800000, guid: 7df38afd2fe3c4a4a968132227af961b, type: 3}
+    totalSpriteSurfaceArea: 153792
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: b8822651ffcaa6244bbd91255a4d3305, type: 3}
+  - {fileID: 21300000, guid: 61121ea450b99c549acc23fabce5d124, type: 3}
+  - {fileID: 21300000, guid: fe4961b5c25b7d24c97a9e52967378f8, type: 3}
+  - {fileID: 21300000, guid: 5cdcd176cf2860044acdb540d8547be7, type: 3}
+  - {fileID: 21300000, guid: 64130196db2bc094f9138a9ed594d164, type: 3}
+  - {fileID: 21300000, guid: 7d622ff6da48919478ce4a3110785910, type: 3}
+  - {fileID: 21300000, guid: 7395cd18d9239d94cad2aa9f701d9bbc, type: 3}
+  - {fileID: 21300000, guid: c2a700395871af040bf52d0c13d35dc9, type: 3}
+  - {fileID: 21300000, guid: bd7fb8e9730fb1348890210a0a3da3dc, type: 3}
+  - {fileID: 21300000, guid: 2186470af660c814981d2e12a78f5939, type: 3}
+  - {fileID: 21300000, guid: 7df38afd2fe3c4a4a968132227af961b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - btn_DisNote
+  - PlayTrack
+  - update_en
+  - btn_DisAds
+  - btn_EnAds
+  - update_ru
+  - PauseTrack
+  - tape
+  - new_en
+  - new_ru
+  - btn_EnNote
+  m_Tag: TrackCell
+  m_IsVariant: 0

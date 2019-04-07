@@ -45,8 +45,6 @@ namespace CyberBeat
             Bougth = (Price == 0);
             this.type = type;
         }
-
-      
         public bool TryBuy () { return Bougth = Buyer.TryBuyDefaultCurency (Price); }
         public bool BuyByVideo () => Bougth = (--VideoCount <= 0);
         public bool IsAvalivable { get { return Bougth; } }

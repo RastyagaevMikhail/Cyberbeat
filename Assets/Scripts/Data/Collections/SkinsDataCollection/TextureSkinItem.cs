@@ -8,7 +8,17 @@ namespace CyberBeat
 {
 	public class TextureSkinItem : SkinItem
 	{
+
 		Texture texture { get { return Prefab as Texture; } }
+
+		[HideInInspector]
+		[SerializeField] int hashName = 0;
+		private void OnValidate ()
+		{
+			if (hashName == 0)
+				hashName = Shader.PropertyToID ("_Main");
+		}
+
 		public override void Apply (Object target, params object[] args)
 		{
 			// Debug.Log ("Apply Road Skin");
@@ -20,11 +30,7 @@ namespace CyberBeat
 				args.Length == 1 &&
 				args[0] as string != null;
 
-			// Debug.LogFormat ("texture = {0}", texture);
-			// if (isValidArgs)
-			mat.SetTexture ("_EmissionMap", texture);
-			// else
-			// mat.mainTexture = texture;
+			mat.SetTexture (hashName, texture);
 		}
 	}
 }

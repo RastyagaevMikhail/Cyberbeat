@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace GameCore
@@ -21,6 +22,7 @@ namespace GameCore
 
         [Header ("Other Objects")]
         [SerializeField] protected RectTransform PrefabRect;
+        [SerializeField] UnityEvent OnInited;
         private ScrollRect _scrollRect = null;
         protected ScrollRect scrollRect { get { if (_scrollRect == null) _scrollRect = GetComponent<ScrollRect> (); return _scrollRect; } }
 
@@ -62,6 +64,7 @@ namespace GameCore
 
                 instPans.Add (newRect);
             }
+            OnInited.Invoke();
         }
         public abstract RectTransform GetPrefabInstance (int i);
         public abstract Vector2 StartPos { get; }

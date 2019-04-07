@@ -353,8 +353,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e6540d248bb122448a99e1bb5c1db05b, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: bf0263f8e44949441a7ea5e9d8e73e9f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -644,8 +644,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 00:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
-  m_sharedMaterial: {fileID: 21676424071739598, guid: e9861507bfb60474c94b6cc17f396fa0,
+  m_fontAsset: {fileID: 11400000, guid: a6e430b7259280340a84dda76274082f, type: 2}
+  m_sharedMaterial: {fileID: 21944962788983806, guid: 18da937a7308eae4eb69c0c802f6d3e4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -711,7 +711,7 @@ MonoBehaviour:
   m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
-    textComponent: {fileID: 0}
+    textComponent: {fileID: 591084007927070570}
     characterCount: 5
     spriteCount: 0
     spaceCount: 0

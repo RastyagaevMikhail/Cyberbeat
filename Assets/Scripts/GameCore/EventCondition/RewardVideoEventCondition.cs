@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace GameCore
 {
-	[CreateAssetMenu (fileName = "RewardVideoCondition", menuName = "GameCore/EventCondition/RewardVideo")]
 	public class RewardVideoEventCondition : MonoBehaviour
 	{
 		[SerializeField] string nameReward;

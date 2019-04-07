@@ -22,7 +22,7 @@ namespace UnityEngine.UI.Extensions
     /// - in order to work it disables layout components and size fitter if present (automatically)
     /// </summary>
 
-    [AddComponentMenu("UI/Extensions/UI Scrollrect Occlusion")]
+    [AddComponentMenu ("UI/Extensions/UI Scrollrect Occlusion")]
     public class UI_ScrollRectOcclusion : MonoBehaviour
     {
         //if true user will need to call Init() method manually (in case the contend of the scrollview is generated from code or requires special initialization)
@@ -37,62 +37,66 @@ namespace UnityEngine.UI.Extensions
         private float _disableMarginX = 0;
         private float _disableMarginY = 0;
         private bool hasDisabledGridComponents = false;
-        private List<RectTransform> items = new List<RectTransform>();
+        private List<RectTransform> items = new List<RectTransform> ();
 
-        void Awake()
+        void Awake ()
         {
             if (InitByUser)
                 return;
 
-            Init();
+            Init ();
 
         }
 
-        public void Init()
+        public void Init ()
         {
-            if (GetComponent<ScrollRect>() != null)
+            if (GetComponent<ScrollRect> () != null)
             {
-                _scrollRect = GetComponent<ScrollRect>();
-                _scrollRect.onValueChanged.AddListener(OnScroll);
+                _scrollRect = GetComponent<ScrollRect> ();
+                _scrollRect.onValueChanged.AddListener (OnScroll);
 
                 _isHorizontal = _scrollRect.horizontal;
                 _isVertical = _scrollRect.vertical;
 
                 for (int i = 0; i < _scrollRect.content.childCount; i++)
                 {
-                    items.Add(_scrollRect.content.GetChild(i).GetComponent<RectTransform>());
+                    items.Add (_scrollRect.content.GetChild (i).GetComponent<RectTransform> ());
                 }
-                if (_scrollRect.content.GetComponent<VerticalLayoutGroup>() != null)
+                if (_scrollRect.content.GetComponent<VerticalLayoutGroup> () != null)
                 {
-                    _verticalLayoutGroup = _scrollRect.content.GetComponent<VerticalLayoutGroup>();
+                    _verticalLayoutGroup = _scrollRect.content.GetComponent<VerticalLayoutGroup> ();
                 }
-                if (_scrollRect.content.GetComponent<HorizontalLayoutGroup>() != null)
+                if (_scrollRect.content.GetComponent<HorizontalLayoutGroup> () != null)
                 {
-                    _horizontalLayoutGroup = _scrollRect.content.GetComponent<HorizontalLayoutGroup>();
+                    _horizontalLayoutGroup = _scrollRect.content.GetComponent<HorizontalLayoutGroup> ();
                 }
-                if (_scrollRect.content.GetComponent<GridLayoutGroup>() != null)
+                if (_scrollRect.content.GetComponent<GridLayoutGroup> () != null)
                 {
-                    _gridLayoutGroup = _scrollRect.content.GetComponent<GridLayoutGroup>();
+                    _gridLayoutGroup = _scrollRect.content.GetComponent<GridLayoutGroup> ();
                 }
-                if (_scrollRect.content.GetComponent<ContentSizeFitter>() != null)
+                if (_scrollRect.content.GetComponent<ContentSizeFitter> () != null)
                 {
-                    _contentSizeFitter = _scrollRect.content.GetComponent<ContentSizeFitter>();
+                    _contentSizeFitter = _scrollRect.content.GetComponent<ContentSizeFitter> ();
                 }
-
+                OnScroll (Vector2.zero);
             }
             else
             {
-                Debug.LogError("UI_ScrollRectOcclusion => No ScrollRect component found");
+                Debug.LogError ("UI_ScrollRectOcclusion => No ScrollRect component found");
             }
         }
 
-        void DisableGridComponents()
+        [Range (1, 5)]
+        [SerializeField] int verticalHeigthCountOfffset = 1;
+        [Range (1, 5)]
+        [SerializeField] int horizontalWidthCountOfffset = 1;
+        void DisableGridComponents ()
         {
             if (_isVertical)
-                _disableMarginY = _scrollRect.GetComponent<RectTransform>().rect.height / 2 + items[0].sizeDelta.y;
+                _disableMarginY = _scrollRect.GetComponent<RectTransform> ().rect.height / 2 + items[0].rect.height * verticalHeigthCountOfffset;
 
             if (_isHorizontal)
-                _disableMarginX = _scrollRect.GetComponent<RectTransform>().rect.width / 2 + items[0].sizeDelta.x;
+                _disableMarginX = _scrollRect.GetComponent<RectTransform> ().rect.width / 2 + items[0].rect.width * horizontalWidthCountOfffset;
 
             if (_verticalLayoutGroup)
             {
@@ -113,49 +117,49 @@ namespace UnityEngine.UI.Extensions
             hasDisabledGridComponents = true;
         }
 
-        public void OnScroll(Vector2 pos)
+        public void OnScroll (Vector2 pos)
         {
 
             if (!hasDisabledGridComponents)
-                DisableGridComponents();
+                DisableGridComponents ();
 
             for (int i = 0; i < items.Count; i++)
             {
                 if (_isVertical && _isHorizontal)
                 {
-                    if (_scrollRect.transform.InverseTransformPoint(items[i].position).y < -_disableMarginY || _scrollRect.transform.InverseTransformPoint(items[i].position).y > _disableMarginY
-                    || _scrollRect.transform.InverseTransformPoint(items[i].position).x < -_disableMarginX || _scrollRect.transform.InverseTransformPoint(items[i].position).x > _disableMarginX)
+                    if (_scrollRect.transform.InverseTransformPoint (items[i].position).y < -_disableMarginY || _scrollRect.transform.InverseTransformPoint (items[i].position).y > _disableMarginY ||
+                        _scrollRect.transform.InverseTransformPoint (items[i].position).x < -_disableMarginX || _scrollRect.transform.InverseTransformPoint (items[i].position).x > _disableMarginX)
                     {
-                        items[i].gameObject.SetActive(false);
+                        items[i].gameObject.SetActive (false);
                     }
                     else
                     {
-                        items[i].gameObject.SetActive(true);
+                        items[i].gameObject.SetActive (true);
                     }
                 }
                 else
                 {
                     if (_isVertical)
                     {
-                        if (_scrollRect.transform.InverseTransformPoint(items[i].position).y < -_disableMarginY || _scrollRect.transform.InverseTransformPoint(items[i].position).y > _disableMarginY)
+                        if (_scrollRect.transform.InverseTransformPoint (items[i].position).y < -_disableMarginY || _scrollRect.transform.InverseTransformPoint (items[i].position).y > _disableMarginY)
                         {
-                            items[i].gameObject.SetActive(false);
+                            items[i].gameObject.SetActive (false);
                         }
                         else
                         {
-                            items[i].gameObject.SetActive(true);
+                            items[i].gameObject.SetActive (true);
                         }
                     }
 
                     if (_isHorizontal)
                     {
-                        if (_scrollRect.transform.InverseTransformPoint(items[i].position).x < -_disableMarginX || _scrollRect.transform.InverseTransformPoint(items[i].position).x > _disableMarginX)
+                        if (_scrollRect.transform.InverseTransformPoint (items[i].position).x < -_disableMarginX || _scrollRect.transform.InverseTransformPoint (items[i].position).x > _disableMarginX)
                         {
-                            items[i].gameObject.SetActive(false);
+                            items[i].gameObject.SetActive (false);
                         }
                         else
                         {
-                            items[i].gameObject.SetActive(true);
+                            items[i].gameObject.SetActive (true);
                         }
                     }
                 }

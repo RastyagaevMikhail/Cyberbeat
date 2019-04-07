@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MenuSkinsUI
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 2
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 512
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: d4a43bef75589a644b4bbef749c6e01f, type: 3}
+    - {fileID: 2800000, guid: 4290e0d384f18584f980cb6de3c05ec5, type: 3}
+    - {fileID: 2800000, guid: 8239b3707960bee419500a468901b1c2, type: 3}
+    - {fileID: 2800000, guid: 411de6d76dd69ec42a9a2da6f72e40a0, type: 3}
+    - {fileID: 2800000, guid: 272996eea238ce64ab6f69b112a49c3b, type: 3}
+    totalSpriteSurfaceArea: 108000
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 8239b3707960bee419500a468901b1c2, type: 3}
+  - {fileID: 21300000, guid: 4290e0d384f18584f980cb6de3c05ec5, type: 3}
+  - {fileID: 21300000, guid: 411de6d76dd69ec42a9a2da6f72e40a0, type: 3}
+  - {fileID: 21300000, guid: 272996eea238ce64ab6f69b112a49c3b, type: 3}
+  - {fileID: 21300000, guid: d4a43bef75589a644b4bbef749c6e01f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - sel_En
+  - sel_Dis
+  - Tab_DisSel
+  - Tab_EnSel
+  - arrow
+  m_Tag: MenuSkinsUI
+  m_IsVariant: 0
