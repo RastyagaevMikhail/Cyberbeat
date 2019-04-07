@@ -18,7 +18,7 @@ namespace CyberBeat
         [SerializeField] SkinType skinType;
         [SerializeField] SkinsEnumDataSelector selector;
         [SerializeField] IntVariable indexVariable;
-        [SerializeField] Material material;
+        [SerializeField] Material RoadRend;
         [SerializeField] UnityEventInt skinHightlighted;
         [SerializeField] UnityEventInt skinSelected;
         Dictionary<int, SkinItem> skinsHash = new Dictionary<int, SkinItem> ();
@@ -36,20 +36,20 @@ namespace CyberBeat
         }
         private void OnEnable ()
         {
-            selector[skinType][indexSelected].Apply (material);
+            selector[skinType][indexSelected].Apply (RoadRend);
             skinHightlighted.Invoke (indexSelected);
             skinSelected.Invoke (indexSelected);
             ForeEach<SkinsScrollViewCell> (cell => cell.OnSkinItemSelected (indexSelected));
         }
         private void OnDisable ()
         {
-            selector[skinType][indexSelected].Apply (material);
+            selector[skinType][indexSelected].Apply (RoadRend);
         }
         public void OnSkinItemHighLighted (int indexHighlighted)
         {
             if (!enabled) return;
 
-            selector[skinType][indexHighlighted].Apply (material);
+            selector[skinType][indexHighlighted].Apply (RoadRend);
         }
 
         List<SkinsScrollViewCell> cels = new List<SkinsScrollViewCell> ();

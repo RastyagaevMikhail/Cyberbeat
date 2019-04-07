@@ -29,6 +29,7 @@ namespace CyberBeat
 			{
 				if (usePropertyMaterialBlock)
 				{
+					ValidatePropertyBlock ();
 					renderer.GetPropertyBlock (matProp);
 					matProp.SetColor (ColorNameHash, value);
 					renderer.SetPropertyBlock (matProp);
@@ -58,27 +59,23 @@ namespace CyberBeat
 		}
 		private void Awake ()
 		{
-
-			if (usePropertyMaterialBlock)
-				matProp = new MaterialPropertyBlock ();
+			ValidatePropertyBlock ();
 
 			if (newMaterialOnAwake)
 			{
 				CurrentMaterial = Instantiate (CurrentMaterial);
 			}
 		}
-		public void SetMyColorTo (MaterialSwitcher materialSwitcher)
+
+		private void ValidatePropertyBlock ()
 		{
-			materialSwitcher.SetColor (CurrentColor);
-		}
-		public void SetColor (Color newColor)
-		{
-			CurrentColor = newColor;
+			if (usePropertyMaterialBlock)
+				matProp = new MaterialPropertyBlock ();
 		}
 
-		public void SetMaterial (Material newMaterial)
+		public void SetMyColorTo (MaterialSwitcher materialSwitcher)
 		{
-			renderer.sharedMaterial = newMaterial;
+			materialSwitcher.CurrentColor = (CurrentColor);
 		}
 		public bool ChechColor (Color otherColor)
 		{
@@ -87,6 +84,10 @@ namespace CyberBeat
 			CurrentColor.r == otherColor.r &&
 				CurrentColor.g == otherColor.g &&
 				CurrentColor.b == otherColor.b;
+		}
+		public void SetColor (ColorVariable variable)
+		{
+			CurrentColor = variable.Value;
 		}
 	}
 }

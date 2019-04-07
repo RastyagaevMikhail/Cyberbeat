@@ -8,29 +8,20 @@ namespace CyberBeat
 {
 	public class TextureSkinItem : SkinItem
 	{
+		public Texture texture { get { return Prefab as Texture; } }
 
-		Texture texture { get { return Prefab as Texture; } }
+		[SerializeField] TextureProperty property;
+#if UNITY_EDITOR
 
-		[HideInInspector]
-		[SerializeField] int hashName = 0;
 		private void OnValidate ()
 		{
-			if (hashName == 0)
-				hashName = Shader.PropertyToID ("_Main");
+			property = Tools.ValidateSO<TextureProperty> ("Assets/Data/PropertyBlockInfo/RoadSkin.asset");
+			this.Save ();
 		}
-
+#endif
 		public override void Apply (Object target, params object[] args)
 		{
-			// Debug.Log ("Apply Road Skin");
-			Material mat = null;
-			bool isApplied = Applyed (out mat, target);
-			if (!isApplied) return;
-
-			bool isValidArgs = args != null &&
-				args.Length == 1 &&
-				args[0] as string != null;
-
-			mat.SetTexture (hashName, texture);
+			property.property = texture;
 		}
 	}
 }
