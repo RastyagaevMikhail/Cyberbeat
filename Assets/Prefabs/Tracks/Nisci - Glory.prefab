@@ -7828,6 +7828,8 @@ GameObject:
   - component: {fileID: 1219121428487732968}
   - component: {fileID: 6309817866999696263}
   - component: {fileID: 5872078909108171289}
+  - component: {fileID: 4572810093185533996}
+  - component: {fileID: 7091548619706477}
   m_Layer: 0
   m_Name: Nisci - Glory
   m_TagString: Untagged
@@ -7954,3 +7956,143 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variable: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}
+--- !u!114 &4572810093185533996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098045239702120352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6923bd10c6bd61e449104060af434510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rends:
+  - {fileID: 3932036029079929906}
+  - {fileID: 3932036029251229036}
+  - {fileID: 3932036031081273073}
+  - {fileID: 3932036029108646913}
+  - {fileID: 3932036030603597914}
+  - {fileID: 3932036029750576408}
+  - {fileID: 3932036029611390123}
+  - {fileID: 3932036029126854986}
+  - {fileID: 3932036030836472758}
+  - {fileID: 3932036030001239150}
+  - {fileID: 3932036029724149909}
+  - {fileID: 3932036029811580260}
+  - {fileID: 3932036029169125854}
+  - {fileID: 3932036030139823323}
+  - {fileID: 3932036030314781939}
+  - {fileID: 3932036030410220097}
+  - {fileID: 3932036029161096911}
+  - {fileID: 3932036029204432706}
+  - {fileID: 3932036030206521527}
+  - {fileID: 3932036031038127761}
+  - {fileID: 3932036030324046801}
+  - {fileID: 3932036030119477698}
+  - {fileID: 3932036029103110353}
+  - {fileID: 3932036029243959681}
+  - {fileID: 3932036029213131553}
+  - {fileID: 3932036030190500114}
+  - {fileID: 3932036030113200497}
+  - {fileID: 3932036030313406806}
+  - {fileID: 3932036030827348779}
+  - {fileID: 3932036029670750105}
+  - {fileID: 3932036030907020770}
+  - {fileID: 3932036029563145914}
+  - {fileID: 3932036029594785494}
+  - {fileID: 3932036029969048797}
+  - {fileID: 3932036030611686783}
+  - {fileID: 3932036030988523131}
+  - {fileID: 3932036030687537982}
+  - {fileID: 3932036030772507817}
+  - {fileID: 3932036030590631158}
+  - {fileID: 3932036029686563729}
+  - {fileID: 3932036030336826217}
+  - {fileID: 3932036029902954526}
+  - {fileID: 3932036029687635233}
+  - {fileID: 3932036030545428625}
+  - {fileID: 3932036029705922563}
+  - {fileID: 3932036029437566646}
+  - {fileID: 3932036029712240072}
+  - {fileID: 3932036030259777324}
+  - {fileID: 3932036030011648975}
+  - {fileID: 3932036030815709351}
+  - {fileID: 3932036031026016602}
+  - {fileID: 3932036030893437189}
+  - {fileID: 3932036030711347356}
+  - {fileID: 3932036029379994192}
+  - {fileID: 3932036029796221691}
+  - {fileID: 3932036030769032831}
+  - {fileID: 3932036030773207791}
+  - {fileID: 3932036029780031301}
+  - {fileID: 3932036030639922148}
+  - {fileID: 3932036030573097761}
+  - {fileID: 3932036029372318196}
+  - {fileID: 3932036030734440685}
+  - {fileID: 3932036030084290389}
+  - {fileID: 3932036030415235980}
+  - {fileID: 3932036029359893732}
+  - {fileID: 3932036029784271640}
+  - {fileID: 3932036029735057068}
+  - {fileID: 3932036029769939134}
+  - {fileID: 3932036029266326797}
+  - {fileID: 3932036030885350655}
+  - {fileID: 3932036029442808479}
+  - {fileID: 3932036029436603783}
+  - {fileID: 3932036029210587503}
+  - {fileID: 3932036029514224734}
+  - {fileID: 3932036030978206341}
+  - {fileID: 3932036029239707307}
+  - {fileID: 3932036030035890466}
+  - {fileID: 3932036030601280814}
+  - {fileID: 3932036031014672366}
+  - {fileID: 3932036029687396087}
+  - {fileID: 3932036029871835965}
+  - {fileID: 3932036029300674431}
+  - {fileID: 3932036030656905926}
+  - {fileID: 3932036030375211260}
+  - {fileID: 3932036029983905749}
+  - {fileID: 3932036029493108383}
+  - {fileID: 3932036029742459194}
+  - {fileID: 3932036031019945067}
+  - {fileID: 3932036029781269886}
+  - {fileID: 3932036029654048438}
+  - {fileID: 3932036029649804361}
+  - {fileID: 3932036030695338704}
+  - {fileID: 3932036029389348156}
+  - {fileID: 3932036030122168082}
+  _textureProp: {fileID: 11400000, guid: 456ccfe71e0441946aeee8349d4b5c80, type: 2}
+  _colorProp: {fileID: 11400000, guid: 9c246095b6f63a3499a19a0d303f4934, type: 2}
+  index: {fileID: 11400000, guid: 783d695bb4920e9439e9fdd31d544f56, type: 2}
+--- !u!114 &7091548619706477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098045239702120352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    EventObject: {fileID: 11400000, guid: fb4d046c293515c4bad70ebf98f8dc87, type: 2}
+    Responce:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4572810093185533996}
+          m_MethodName: set_color
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null

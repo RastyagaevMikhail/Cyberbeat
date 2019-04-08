@@ -9525,6 +9525,8 @@ GameObject:
   - component: {fileID: 3677562256958978378}
   - component: {fileID: 3677562256958978379}
   - component: {fileID: 5722426544373814529}
+  - component: {fileID: 370723242530247362}
+  - component: {fileID: 2502445019564168682}
   m_Layer: 0
   m_Name: Di Young - I Have Nothing
   m_TagString: Untagged
@@ -9640,6 +9642,172 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variable: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}
+--- !u!114 &370723242530247362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677562256958978376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6923bd10c6bd61e449104060af434510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rends:
+  - {fileID: 678057090}
+  - {fileID: 330151164}
+  - {fileID: 1730399071}
+  - {fileID: 1699201037}
+  - {fileID: 1741044146}
+  - {fileID: 556963815}
+  - {fileID: 104552324}
+  - {fileID: 1289724165}
+  - {fileID: 1854894597}
+  - {fileID: 244147218}
+  - {fileID: 2111954110}
+  - {fileID: 1752249619}
+  - {fileID: 1415623915}
+  - {fileID: 130788489}
+  - {fileID: 1449869443}
+  - {fileID: 1973464897}
+  - {fileID: 747169927}
+  - {fileID: 24308616}
+  - {fileID: 1030368254}
+  - {fileID: 2005654935}
+  - {fileID: 54613897}
+  - {fileID: 2077075918}
+  - {fileID: 377365407}
+  - {fileID: 1008743573}
+  - {fileID: 1575559181}
+  - {fileID: 538149049}
+  - {fileID: 282514471}
+  - {fileID: 774756142}
+  - {fileID: 280869921}
+  - {fileID: 1039003239}
+  - {fileID: 1372179531}
+  - {fileID: 811375790}
+  - {fileID: 1666748867}
+  - {fileID: 1076309914}
+  - {fileID: 945797591}
+  - {fileID: 810584336}
+  - {fileID: 916019679}
+  - {fileID: 601170995}
+  - {fileID: 1268016668}
+  - {fileID: 1396965058}
+  - {fileID: 1328400710}
+  - {fileID: 704632816}
+  - {fileID: 1091938020}
+  - {fileID: 1471815113}
+  - {fileID: 1172197479}
+  - {fileID: 1425360685}
+  - {fileID: 1653822679}
+  - {fileID: 288501256}
+  - {fileID: 610178763}
+  - {fileID: 2143453790}
+  - {fileID: 887793448}
+  - {fileID: 838770354}
+  - {fileID: 684563786}
+  - {fileID: 1650064658}
+  - {fileID: 323432222}
+  - {fileID: 1640964349}
+  - {fileID: 1835634853}
+  - {fileID: 1939851200}
+  - {fileID: 1741931882}
+  - {fileID: 1891010928}
+  - {fileID: 748748709}
+  - {fileID: 917296267}
+  - {fileID: 604878843}
+  - {fileID: 657363869}
+  - {fileID: 1875090358}
+  - {fileID: 1242356475}
+  - {fileID: 1288367181}
+  - {fileID: 968097552}
+  - {fileID: 1208117982}
+  - {fileID: 1817123130}
+  - {fileID: 1561171096}
+  - {fileID: 266793719}
+  - {fileID: 1610857130}
+  - {fileID: 862466649}
+  - {fileID: 275192858}
+  - {fileID: 114192149}
+  - {fileID: 1201928021}
+  - {fileID: 644630676}
+  - {fileID: 218115048}
+  - {fileID: 741581203}
+  - {fileID: 1899719438}
+  - {fileID: 739981990}
+  - {fileID: 274507373}
+  - {fileID: 488178085}
+  - {fileID: 753608064}
+  - {fileID: 65809585}
+  - {fileID: 1492646835}
+  - {fileID: 601569548}
+  - {fileID: 391691449}
+  - {fileID: 548594458}
+  - {fileID: 2143524478}
+  - {fileID: 1042355962}
+  - {fileID: 615394553}
+  - {fileID: 1679385868}
+  - {fileID: 1023797175}
+  - {fileID: 294413434}
+  - {fileID: 1034473618}
+  - {fileID: 906497397}
+  - {fileID: 1091325404}
+  - {fileID: 855874439}
+  - {fileID: 1741330900}
+  - {fileID: 1393804598}
+  - {fileID: 894140472}
+  - {fileID: 900094828}
+  - {fileID: 1075852264}
+  - {fileID: 1625570363}
+  - {fileID: 742305690}
+  - {fileID: 437660884}
+  - {fileID: 219241039}
+  - {fileID: 1746688458}
+  - {fileID: 563285349}
+  - {fileID: 885919261}
+  - {fileID: 1205850532}
+  - {fileID: 862287090}
+  - {fileID: 58660645}
+  - {fileID: 1065923188}
+  - {fileID: 499486099}
+  - {fileID: 92148846}
+  - {fileID: 380811463}
+  - {fileID: 619298620}
+  _textureProp: {fileID: 11400000, guid: 456ccfe71e0441946aeee8349d4b5c80, type: 2}
+  _colorProp: {fileID: 11400000, guid: 9c246095b6f63a3499a19a0d303f4934, type: 2}
+  index: {fileID: 11400000, guid: 783d695bb4920e9439e9fdd31d544f56, type: 2}
+--- !u!114 &2502445019564168682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677562256958978376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    EventObject: {fileID: 11400000, guid: fb4d046c293515c4bad70ebf98f8dc87, type: 2}
+    Responce:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 370723242530247362}
+          m_MethodName: set_color
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
 --- !u!1 &4735843030863834822
 GameObject:
   m_ObjectHideFlags: 0

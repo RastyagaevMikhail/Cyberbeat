@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameCore
 {
+    [RequireComponent (typeof (Renderer))]
+    [ExecuteInEditMode]
     public class MaterialPropertySetter : MonoBehaviour
     {
 
         [SerializeField] List<FloatProperty> floats;
         [SerializeField] List<ColorProperty> colors;
         [SerializeField] List<TextureProperty> textures;
-        [HideInInspector]
+        // [HideInInspector]
         [SerializeField] Renderer rend;
         private void OnValidate ()
         {
@@ -42,6 +44,7 @@ namespace GameCore
         {
             if (!Application.isPlaying)
             {
+                OnValidate ();
                 UpdateProperties (floats);
                 UpdateProperties (colors);
                 UpdateProperties (textures);

@@ -14,8 +14,8 @@ namespace GameCore
 			if (ResetByDefault)
 			{
 				Value = DefaultValue;
-				this.Save ();
 				SaveValue ();
+				this.Save ();
 			}
 		}
 		public void SetValue (int value)
@@ -52,7 +52,7 @@ namespace GameCore
 		[ContextMenu ("Save Value")]
 		public override void SaveValue ()
 		{
-				PlayerPrefs.SetInt (name, _value);		
+			PlayerPrefs.SetInt (name, _value);
 		}
 
 		[Button]

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 618}
   - component: {fileID: 608}
   - component: {fileID: 617}
+  - component: {fileID: 7197833997900789636}
+  - component: {fileID: 300951839038982196}
   m_Layer: 0
   m_Name: Julius Dreisig - In My Head
   m_TagString: Untagged
@@ -140,6 +142,146 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variable: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}
+--- !u!114 &7197833997900789636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6923bd10c6bd61e449104060af434510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rends:
+  - {fileID: 360}
+  - {fileID: 365}
+  - {fileID: 410}
+  - {fileID: 433}
+  - {fileID: 406}
+  - {fileID: 429}
+  - {fileID: 373}
+  - {fileID: 435}
+  - {fileID: 351}
+  - {fileID: 396}
+  - {fileID: 364}
+  - {fileID: 348}
+  - {fileID: 431}
+  - {fileID: 395}
+  - {fileID: 391}
+  - {fileID: 357}
+  - {fileID: 352}
+  - {fileID: 425}
+  - {fileID: 380}
+  - {fileID: 363}
+  - {fileID: 400}
+  - {fileID: 370}
+  - {fileID: 377}
+  - {fileID: 381}
+  - {fileID: 412}
+  - {fileID: 420}
+  - {fileID: 387}
+  - {fileID: 359}
+  - {fileID: 375}
+  - {fileID: 383}
+  - {fileID: 361}
+  - {fileID: 385}
+  - {fileID: 358}
+  - {fileID: 422}
+  - {fileID: 382}
+  - {fileID: 402}
+  - {fileID: 388}
+  - {fileID: 366}
+  - {fileID: 346}
+  - {fileID: 418}
+  - {fileID: 386}
+  - {fileID: 403}
+  - {fileID: 354}
+  - {fileID: 349}
+  - {fileID: 401}
+  - {fileID: 376}
+  - {fileID: 397}
+  - {fileID: 405}
+  - {fileID: 356}
+  - {fileID: 416}
+  - {fileID: 419}
+  - {fileID: 432}
+  - {fileID: 353}
+  - {fileID: 398}
+  - {fileID: 372}
+  - {fileID: 369}
+  - {fileID: 408}
+  - {fileID: 355}
+  - {fileID: 413}
+  - {fileID: 378}
+  - {fileID: 437}
+  - {fileID: 423}
+  - {fileID: 430}
+  - {fileID: 399}
+  - {fileID: 367}
+  - {fileID: 379}
+  - {fileID: 427}
+  - {fileID: 389}
+  - {fileID: 393}
+  - {fileID: 426}
+  - {fileID: 414}
+  - {fileID: 374}
+  - {fileID: 404}
+  - {fileID: 415}
+  - {fileID: 421}
+  - {fileID: 424}
+  - {fileID: 362}
+  - {fileID: 394}
+  - {fileID: 411}
+  - {fileID: 409}
+  - {fileID: 436}
+  - {fileID: 371}
+  - {fileID: 390}
+  - {fileID: 407}
+  - {fileID: 345}
+  - {fileID: 350}
+  - {fileID: 368}
+  - {fileID: 384}
+  - {fileID: 428}
+  - {fileID: 417}
+  - {fileID: 344}
+  - {fileID: 392}
+  - {fileID: 347}
+  - {fileID: 434}
+  _textureProp: {fileID: 11400000, guid: 456ccfe71e0441946aeee8349d4b5c80, type: 2}
+  _colorProp: {fileID: 11400000, guid: 9c246095b6f63a3499a19a0d303f4934, type: 2}
+  index: {fileID: 11400000, guid: 783d695bb4920e9439e9fdd31d544f56, type: 2}
+--- !u!114 &300951839038982196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    EventObject: {fileID: 11400000, guid: fb4d046c293515c4bad70ebf98f8dc87, type: 2}
+    Responce:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7197833997900789636}
+          m_MethodName: set_color
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
 --- !u!1 &139
 GameObject:
   m_ObjectHideFlags: 0

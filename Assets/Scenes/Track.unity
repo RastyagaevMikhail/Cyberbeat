@@ -1799,6 +1799,35 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 9101584314198818335}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1504677842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4818849759445752757, guid: ace36c5459eefa74fb445842f314bc13,
+    type: 3}
+  m_PrefabInstance: {fileID: 2141233242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1504677844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504677842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6923bd10c6bd61e449104060af434510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rends:
+  - {fileID: 1504677845}
+  _textureProp: {fileID: 11400000, guid: 456ccfe71e0441946aeee8349d4b5c80, type: 2}
+  _colorProp: {fileID: 11400000, guid: 9c246095b6f63a3499a19a0d303f4934, type: 2}
+  index: {fileID: 11400000, guid: 783d695bb4920e9439e9fdd31d544f56, type: 2}
+--- !u!23 &1504677845 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8241560323411584924, guid: ace36c5459eefa74fb445842f314bc13,
+    type: 3}
+  m_PrefabInstance: {fileID: 2141233242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1508653016 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 410154569, guid: ba13699702d5d2f459367a5920fde44c,
@@ -4715,20 +4744,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4507617694825245077, guid: ad0035983416b05479c343fd62de4b2c,
         type: 3}
-      propertyPath: debug
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4507617694825245077, guid: ad0035983416b05479c343fd62de4b2c,
-        type: 3}
       propertyPath: settings.Array.data[0].Name
       value: Road._Color
       objectReference: {fileID: 0}
-    - target: {fileID: 4507617694825245077, guid: ad0035983416b05479c343fd62de4b2c,
-        type: 3}
-      propertyPath: settings.Array.data[0].ColorName
-      value: 
-      objectReference: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad0035983416b05479c343fd62de4b2c, type: 3}
 --- !u!224 &4604876729668615569

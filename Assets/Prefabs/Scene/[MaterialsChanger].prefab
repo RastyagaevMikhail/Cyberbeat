@@ -45,25 +45,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings:
-  - Name: Road._EmissionColor
-    material: {fileID: 2100000, guid: 5b449dc69683b454d9d79053ecfbf311, type: 2}
-    ColorName: {fileID: 11400000, guid: 40958cd5154efa84783f4e37b3800c3e, type: 2}
-  - Name: Trail._Color
+  - nameHash: 4
     material: {fileID: 2100000, guid: 88e9399e15225404f80937f2b76cab6f, type: 2}
     ColorName: {fileID: 11400000, guid: 9ec36a4a4fdc51a448f2b8099fb727dd, type: 2}
-  - Name: Tail_Particles._EmisColor
+  - nameHash: 339
     material: {fileID: 2100000, guid: 3b731058cfc66f240b9b9a98dbdc5984, type: 2}
     ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-  - Name: TrailSquare_whole._EmisColor
+  - nameHash: 339
     material: {fileID: 2100000, guid: 042d6827960710745bc5c1380fd2b36b, type: 2}
     ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-  - Name: square_fill._EmisColor
+  - nameHash: 339
     material: {fileID: 2100000, guid: d58fc857659afc9419a56fa415544999, type: 2}
     ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
-  - Name: Square_whole._EmisColor
+  - nameHash: 339
     material: {fileID: 2100000, guid: a2331ce24bae9f447b46f4fde19b4624, type: 2}
     ColorName: {fileID: 11400000, guid: 047ca0d6b894eee4cb3a7c1dd5cc2437, type: 2}
   IndexOfRemove: 0
+  debug: 1
 --- !u!114 &4507617694825245076
 MonoBehaviour:
   m_ObjectHideFlags: 0

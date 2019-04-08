@@ -11080,6 +11080,8 @@ GameObject:
   - component: {fileID: 2587520121384764285}
   - component: {fileID: 7247275068654188050}
   - component: {fileID: 5356993886298732620}
+  - component: {fileID: 4334423015955209833}
+  - component: {fileID: 2695201133896303498}
   m_Layer: 0
   m_Name: Skylike - Collide
   m_TagString: Untagged
@@ -11210,3 +11212,183 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variable: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}
+--- !u!114 &4334423015955209833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467843923998120501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6923bd10c6bd61e449104060af434510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rends:
+  - {fileID: 401632090872150491}
+  - {fileID: 401632090375065512}
+  - {fileID: 401632091404181366}
+  - {fileID: 401632091775059714}
+  - {fileID: 401632090534951597}
+  - {fileID: 401632091409776517}
+  - {fileID: 401632090621993836}
+  - {fileID: 401632091496569763}
+  - {fileID: 401632090774998497}
+  - {fileID: 401632091104368281}
+  - {fileID: 401632091527609208}
+  - {fileID: 401632090568832982}
+  - {fileID: 401632091168833706}
+  - {fileID: 401632090585732073}
+  - {fileID: 401632090424764237}
+  - {fileID: 401632090059132599}
+  - {fileID: 401632090266639698}
+  - {fileID: 401632091636306090}
+  - {fileID: 401632090876488975}
+  - {fileID: 401632090442398681}
+  - {fileID: 401632090410592353}
+  - {fileID: 401632091492985914}
+  - {fileID: 401632090218204625}
+  - {fileID: 401632090760642082}
+  - {fileID: 401632090682547438}
+  - {fileID: 401632090279737386}
+  - {fileID: 401632091327144032}
+  - {fileID: 401632090282087244}
+  - {fileID: 401632090196772652}
+  - {fileID: 401632090419346476}
+  - {fileID: 401632090903050062}
+  - {fileID: 401632090953412165}
+  - {fileID: 401632091945369559}
+  - {fileID: 401632091867102218}
+  - {fileID: 401632090362038140}
+  - {fileID: 401632090605448522}
+  - {fileID: 401632090210345877}
+  - {fileID: 401632090735146471}
+  - {fileID: 401632090815973584}
+  - {fileID: 401632090002849563}
+  - {fileID: 401632090639815993}
+  - {fileID: 401632090441142259}
+  - {fileID: 401632091749352923}
+  - {fileID: 401632091524151508}
+  - {fileID: 401632091722048642}
+  - {fileID: 401632090257702134}
+  - {fileID: 401632090780033008}
+  - {fileID: 401632091502131762}
+  - {fileID: 401632091665228485}
+  - {fileID: 401632090196486828}
+  - {fileID: 401632091057301358}
+  - {fileID: 401632090310172759}
+  - {fileID: 401632090979876193}
+  - {fileID: 401632089970942115}
+  - {fileID: 401632089898171165}
+  - {fileID: 401632091884187199}
+  - {fileID: 401632090878688173}
+  - {fileID: 401632089957941909}
+  - {fileID: 401632091075447939}
+  - {fileID: 401632090243493212}
+  - {fileID: 401632090086833689}
+  - {fileID: 401632091147247101}
+  - {fileID: 401632091651730056}
+  - {fileID: 401632090337425645}
+  - {fileID: 401632091121208999}
+  - {fileID: 401632090210338480}
+  - {fileID: 401632091968722258}
+  - {fileID: 401632090481745990}
+  - {fileID: 401632091531773753}
+  - {fileID: 401632090520682211}
+  - {fileID: 401632090680336805}
+  - {fileID: 401632090529077782}
+  - {fileID: 401632090285156651}
+  - {fileID: 401632090376760942}
+  - {fileID: 401632090345906046}
+  - {fileID: 401632090156590204}
+  - {fileID: 401632091882003109}
+  - {fileID: 401632091554725011}
+  - {fileID: 401632091843006367}
+  - {fileID: 401632090855818032}
+  - {fileID: 401632090859490395}
+  - {fileID: 401632091182488747}
+  - {fileID: 401632091036736154}
+  - {fileID: 401632091670061532}
+  - {fileID: 401632090062382556}
+  - {fileID: 401632090364245141}
+  - {fileID: 401632090231170917}
+  - {fileID: 401632090202889900}
+  - {fileID: 401632090975183022}
+  - {fileID: 401632090658673819}
+  - {fileID: 401632091778973948}
+  - {fileID: 401632090683856186}
+  - {fileID: 401632091525931143}
+  - {fileID: 401632090731362631}
+  - {fileID: 401632090707611224}
+  - {fileID: 401632091587580215}
+  - {fileID: 401632090533752849}
+  - {fileID: 401632091715438754}
+  - {fileID: 401632090560482827}
+  - {fileID: 401632092013819100}
+  - {fileID: 401632090884197082}
+  - {fileID: 401632090613114985}
+  - {fileID: 401632090096684447}
+  - {fileID: 401632091704012126}
+  - {fileID: 401632092001145487}
+  - {fileID: 401632092031104172}
+  - {fileID: 401632091472611709}
+  - {fileID: 401632090594491362}
+  - {fileID: 401632090422115239}
+  - {fileID: 401632090160436224}
+  - {fileID: 401632090614520722}
+  - {fileID: 401632090593831785}
+  - {fileID: 401632091817653980}
+  - {fileID: 401632091922064007}
+  - {fileID: 401632090226026505}
+  - {fileID: 401632090886175516}
+  - {fileID: 401632091750737065}
+  - {fileID: 401632090089769057}
+  - {fileID: 401632089975746961}
+  - {fileID: 401632091172904477}
+  - {fileID: 401632091910939667}
+  - {fileID: 401632090572349275}
+  - {fileID: 401632091780097953}
+  - {fileID: 401632090935712190}
+  - {fileID: 401632090821016659}
+  - {fileID: 401632091010069863}
+  - {fileID: 401632090707296406}
+  - {fileID: 401632091343221238}
+  - {fileID: 401632090520111314}
+  - {fileID: 401632091333301176}
+  - {fileID: 401632090409289426}
+  - {fileID: 401632091844165351}
+  - {fileID: 401632090445367888}
+  - {fileID: 401632090356264820}
+  _textureProp: {fileID: 11400000, guid: 456ccfe71e0441946aeee8349d4b5c80, type: 2}
+  _colorProp: {fileID: 11400000, guid: 9c246095b6f63a3499a19a0d303f4934, type: 2}
+  index: {fileID: 11400000, guid: 783d695bb4920e9439e9fdd31d544f56, type: 2}
+--- !u!114 &2695201133896303498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467843923998120501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    EventObject: {fileID: 11400000, guid: fb4d046c293515c4bad70ebf98f8dc87, type: 2}
+    Responce:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4334423015955209833}
+          m_MethodName: set_color
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null

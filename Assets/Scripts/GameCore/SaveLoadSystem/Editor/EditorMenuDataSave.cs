@@ -10,7 +10,7 @@ namespace GameCore.Editor
 	using System;
 
 	using UnityEditor;
-	using Tools = Tools;
+	using Tools = GameCore.Tools;
 
 	public class EditorMenuDataSave
 	{
@@ -26,12 +26,23 @@ namespace GameCore.Editor
 		[MenuItem ("Game/Reset/Default/All", priority = 1)]
 		public static void ResetAllDefault ()
 		{
+
 			IEnumerable<IResetable> enumerable = Tools.GetAtPath<ScriptableObject> ("Assets").ToList ()
 				.FindAll (so => so is IResetable)
 				.Select (so => so as IResetable);
 
 			foreach (var data in enumerable)
+			{
+				var assetObject = data as UnityEngine.Object;
+				if (AssetDatabase.GetAssetPath (assetObject) == string.Empty)
+				{
+					Tools.Destroy (assetObject);
+					Resources.UnloadUnusedAssets ();
+					AssetDatabase.Refresh ();
+					continue;
+				}
 				data.ResetDefault ();
+			}
 
 			Debug.Log (Tools.LogCollection (enumerable));
 		}

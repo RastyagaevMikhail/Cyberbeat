@@ -6682,6 +6682,8 @@ GameObject:
   - component: {fileID: 2021213998610896991}
   - component: {fileID: 6590739869335694640}
   - component: {fileID: 5229111171636620925}
+  - component: {fileID: 8985899630660689211}
+  - component: {fileID: 496003094173068742}
   m_Layer: 0
   m_Name: Inova - Desert
   m_TagString: Untagged
@@ -6804,3 +6806,130 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variable: {fileID: 11400000, guid: d53ad1cb8576933468197ee49f9895e7, type: 2}
+--- !u!114 &8985899630660689211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6361159378876809495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6923bd10c6bd61e449104060af434510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rends:
+  - {fileID: 4212729295683896499}
+  - {fileID: 4212729295544127771}
+  - {fileID: 4212729295430797420}
+  - {fileID: 4212729294639158135}
+  - {fileID: 4212729294717373470}
+  - {fileID: 4212729295086682941}
+  - {fileID: 4212729294788452024}
+  - {fileID: 4212729294978060276}
+  - {fileID: 4212729294778297544}
+  - {fileID: 4212729294039177157}
+  - {fileID: 4212729294939430550}
+  - {fileID: 4212729294106729541}
+  - {fileID: 4212729294753225195}
+  - {fileID: 4212729294216297486}
+  - {fileID: 4212729295112648530}
+  - {fileID: 4212729294548177862}
+  - {fileID: 4212729294578441965}
+  - {fileID: 4212729295283736982}
+  - {fileID: 4212729295141297352}
+  - {fileID: 4212729295601384071}
+  - {fileID: 4212729294788060651}
+  - {fileID: 4212729294162518346}
+  - {fileID: 4212729294723363894}
+  - {fileID: 4212729294793083293}
+  - {fileID: 4212729294721794022}
+  - {fileID: 4212729293999500853}
+  - {fileID: 4212729295244878035}
+  - {fileID: 4212729293810406775}
+  - {fileID: 4212729294501499971}
+  - {fileID: 4212729294074053005}
+  - {fileID: 4212729294260345699}
+  - {fileID: 4212729295644041337}
+  - {fileID: 4212729295790082686}
+  - {fileID: 4212729295305509998}
+  - {fileID: 4212729293984259592}
+  - {fileID: 4212729295465503143}
+  - {fileID: 4212729294531241189}
+  - {fileID: 4212729294103007023}
+  - {fileID: 4212729294085960203}
+  - {fileID: 4212729295198034640}
+  - {fileID: 4212729295337792391}
+  - {fileID: 4212729295465905981}
+  - {fileID: 4212729295519924722}
+  - {fileID: 4212729295222784925}
+  - {fileID: 4212729295128050683}
+  - {fileID: 4212729294086620467}
+  - {fileID: 4212729295378484921}
+  - {fileID: 4212729294937896864}
+  - {fileID: 4212729295733804094}
+  - {fileID: 4212729293964887618}
+  - {fileID: 4212729295380008289}
+  - {fileID: 4212729294112348564}
+  - {fileID: 4212729295468601247}
+  - {fileID: 4212729294944262460}
+  - {fileID: 4212729294933287668}
+  - {fileID: 4212729295129775326}
+  - {fileID: 4212729294765588172}
+  - {fileID: 4212729294553497917}
+  - {fileID: 4212729295671345946}
+  - {fileID: 4212729295603483351}
+  - {fileID: 4212729294105941002}
+  - {fileID: 4212729294665741986}
+  - {fileID: 4212729294023131162}
+  - {fileID: 4212729295792284892}
+  - {fileID: 4212729294120645432}
+  - {fileID: 4212729294403074730}
+  - {fileID: 4212729295745827485}
+  - {fileID: 4212729294922450660}
+  - {fileID: 4212729294398155097}
+  - {fileID: 4212729293937709954}
+  - {fileID: 4212729295532818179}
+  - {fileID: 4212729294322618056}
+  - {fileID: 4212729294228849254}
+  - {fileID: 4212729295016679995}
+  - {fileID: 4212729294577250282}
+  - {fileID: 4212729295839295212}
+  - {fileID: 4212729295100343532}
+  - {fileID: 4212729294610812114}
+  - {fileID: 4212729295605668667}
+  - {fileID: 4212729293977955454}
+  - {fileID: 4212729295230663700}
+  _textureProp: {fileID: 11400000, guid: 456ccfe71e0441946aeee8349d4b5c80, type: 2}
+  _colorProp: {fileID: 11400000, guid: 9c246095b6f63a3499a19a0d303f4934, type: 2}
+  index: {fileID: 11400000, guid: 783d695bb4920e9439e9fdd31d544f56, type: 2}
+--- !u!114 &496003094173068742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6361159378876809495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595987ec7b7b8ae439ad8dc86b04843e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    EventObject: {fileID: 11400000, guid: fb4d046c293515c4bad70ebf98f8dc87, type: 2}
+    Responce:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8985899630660689211}
+          m_MethodName: set_color
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: GameCore.UnityEventColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
