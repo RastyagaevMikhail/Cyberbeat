@@ -28,7 +28,7 @@ MonoBehaviour:
     SaveKey: Audioscribe - Free Fall Buyed
   videoInfo:
     SaveKey_VideoCount: Audioscribe - Free Fall VideoCount
-    videoCount: 3
+    videoCount: 1
     SaveKey_LastDataExpired: Audioscribe - Free Fall LastDataExpired
   maxReward: 1000
   progressInfo:
@@ -39,6 +39,7 @@ MonoBehaviour:
   prefab: {fileID: 6271428923547171100, guid: 86fe73c2027953d459351e3a22fa209b, type: 3}
   difficulty: {fileID: 11400000, guid: b03258d9662096a4cbfa95bb87ffc4a5, type: 2}
   status: {fileID: 0}
+  nameSprite: {fileID: 21300000, guid: d8706912a55f84146870f8d243a6fd19, type: 3}
   layerBitsSelector: {fileID: 11400000, guid: 85d642dc10b2a914abe43e97e37d0c95, type: 2}
   koreography: {fileID: 11400000, guid: babc2ae791a3f54499735d637d11b6ea, type: 2}
   StartSpeed: 40

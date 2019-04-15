@@ -99,8 +99,8 @@ GameObject:
   - component: {fileID: 1646690676602921009}
   - component: {fileID: 4063712310700991409}
   - component: {fileID: 3895946146517702214}
-  - component: {fileID: 2296718599515335813}
-  - component: {fileID: 4819633976406958348}
+  - component: {fileID: 2762280292191459623}
+  - component: {fileID: 5323179771853340955}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -346,7 +346,18 @@ MonoBehaviour:
   action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2296718599515335813}
+      - m_Target: {fileID: 2762280292191459623}
+        m_MethodName: set_enabled
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5323179771853340955}
         m_MethodName: set_enabled
         m_Mode: 0
         m_Arguments:
@@ -362,7 +373,7 @@ MonoBehaviour:
   updateOnEnable: 1
   Inverse: 0
   debug: 0
---- !u!114 &2296718599515335813
+--- !u!114 &2762280292191459623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,7 +433,7 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &4819633976406958348
+--- !u!114 &5323179771853340955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

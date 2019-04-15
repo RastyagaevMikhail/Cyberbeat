@@ -115,7 +115,8 @@ namespace CyberBeat
             if (debug) Debug.LogFormat ("totalPercent = {0}", _TotalPercent);
 
         }
-        int Reward => (int) (completePercent * trackVariable.Value.maxReward);
+        int maxReward => trackVariable.Value.maxReward;
+        int Reward => (int) (completePercent.GetAsClamped (0, 1f) * maxReward);
         public void Calculate ()
         {
             CalculateTotalPercent ();
@@ -123,8 +124,7 @@ namespace CyberBeat
             completePercent = (_TotalPercent / attemps.Value.log (debug, "Value"));
 
             completePercent.log (debug, "completePercent");
-
-            reward.Value = Reward;
+            reward.Value = Mathf.Clamp (Reward, 1, maxReward);;
             doubleReward.Value = DoubleReward;
 
             currentMaxScore.Value = (int) progressInfo.Max;

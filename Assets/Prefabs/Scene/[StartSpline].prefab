@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 4055164628250337919}
   - component: {fileID: 4109387157857250686}
   - component: {fileID: 8241560323411584924}
+  - component: {fileID: 1504677844}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -356,3 +357,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1504677844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4818849759445752757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6923bd10c6bd61e449104060af434510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rends:
+  - {fileID: 8241560323411584924}
+  _textureProp: {fileID: 11400000, guid: 456ccfe71e0441946aeee8349d4b5c80, type: 2}
+  _colorProp: {fileID: 11400000, guid: 9c246095b6f63a3499a19a0d303f4934, type: 2}
+  index: {fileID: 11400000, guid: 783d695bb4920e9439e9fdd31d544f56, type: 2}

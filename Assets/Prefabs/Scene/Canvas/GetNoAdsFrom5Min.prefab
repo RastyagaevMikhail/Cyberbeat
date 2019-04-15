@@ -70,7 +70,7 @@ MonoBehaviour:
   m_text: "\u043E\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0440\u0435\u043A\u043B\u0430\u043C\u044B
     \u043D\u0430 5 \u043C\u0438\u043D"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a6e430b7259280340a84dda76274082f, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials:
   - {fileID: 0}
@@ -106,7 +106,6 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 514
-  m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -133,6 +132,7 @@ MonoBehaviour:
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
@@ -147,13 +147,10 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 2570061930861921184}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -408,7 +405,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "+\u0410\u0432\u0442\u043E\u0440\u0435\u0441\u0442\u0430\u0440\u0442"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a6e430b7259280340a84dda76274082f, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials:
   - {fileID: 0}
@@ -444,7 +441,6 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 514
-  m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -471,6 +467,7 @@ MonoBehaviour:
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
@@ -485,13 +482,10 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 8437017069405762659}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -688,7 +682,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3552483753616312926}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bea326de53f128e4c90f561f81c83cbb, type: 3}
   m_Name: 
@@ -697,6 +691,7 @@ MonoBehaviour:
   placement: {fileID: 11400000, guid: 730f5b5d36963ee4883f775f4a6c2dea, type: 2}
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
   noAds: {fileID: 11400000, guid: 3f232928d424d0342b415605601a21f5, type: 2}
+  debug: 0
 --- !u!1 &5565570688640692369
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,7 +913,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9861507bfb60474c94b6cc17f396fa0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a6e430b7259280340a84dda76274082f, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials:
   - {fileID: 0}
@@ -954,7 +949,6 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 514
-  m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -981,6 +975,7 @@ MonoBehaviour:
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
@@ -995,13 +990,10 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 4541691063449292086}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -1349,6 +1341,7 @@ MonoBehaviour:
     m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
+  debug: 0
 --- !u!114 &6331314412434966716
 MonoBehaviour:
   m_ObjectHideFlags: 0

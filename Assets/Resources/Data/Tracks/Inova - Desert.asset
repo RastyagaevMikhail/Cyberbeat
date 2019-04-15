@@ -26,7 +26,7 @@ MonoBehaviour:
     SaveKey: Inova - Desert Buyed
   videoInfo:
     SaveKey_VideoCount: Inova - Desert VideoCount
-    videoCount: 3
+    videoCount: 1
     SaveKey_LastDataExpired: Inova - Desert LastDataExpired
   maxReward: 200
   progressInfo:
@@ -37,6 +37,7 @@ MonoBehaviour:
   prefab: {fileID: 6361159378876809495, guid: 451ccbf91003ff8479b4bd38033f848a, type: 3}
   difficulty: {fileID: 11400000, guid: 7564e4589ba3bc94383dab38d2ae6211, type: 2}
   status: {fileID: 0}
+  nameSprite: {fileID: 21300000, guid: 47d9e12806cee0d4a920fd6568e0f5fc, type: 3}
   layerBitsSelector: {fileID: 11400000, guid: 6c8ab4843419c2e4fb8f309483b8ad71, type: 2}
   koreography: {fileID: 11400000, guid: babc2ae791a3f54499735d637d11b6ea, type: 2}
   StartSpeed: 35

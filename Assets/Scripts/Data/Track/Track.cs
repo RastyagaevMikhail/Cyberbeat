@@ -115,6 +115,7 @@ namespace CyberBeat
 		public GameObject prefab;
 		public TrackDifficulty difficulty;
 		public TrackStatus status;
+		public Sprite nameSprite;
 		[InlineButton ("ValidateLayerBitsSelector", "Valiadate")]
 		[SerializeField] LayerTypeTrackBitsCollectionSelector layerBitsSelector;
 		[InlineButton ("ValidateKoreographyTrackLayer", "L")]

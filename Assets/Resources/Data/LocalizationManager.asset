@@ -13,370 +13,220 @@ MonoBehaviour:
   m_Name: LocalizationManager
   m_EditorClassIdentifier: 
   keys:
-  - key: notes_pack_7500
-    index: 0
-  - key: double_notes_title
-    index: 1
-  - key: double_notes_desc
-    index: 2
   - key: loading
-    index: 3
+    index: 0
   - key: loading_text_1
-    index: 4
+    index: 1
   - key: loading_text_2
-    index: 5
-  - key: loading_text_3
-    index: 6
+    index: 2
   - key: settings
-    index: 7
+    index: 3
   - key: authors_of_tracks
-    index: 8
-  - key: other
-    index: 9
+    index: 4
   - key: on
-    index: 10
+    index: 5
   - key: off
-    index: 11
+    index: 6
   - key: music
-    index: 12
+    index: 7
   - key: sound
-    index: 13
+    index: 8
   - key: english
-    index: 14
+    index: 9
   - key: russian
-    index: 15
+    index: 10
   - key: language
-    index: 16
-  - key: authors
-    index: 17
-  - key: vibration
-    index: 18
+    index: 11
   - key: quality
-    index: 19
+    index: 12
   - key: higth_quality
-    index: 20
+    index: 13
   - key: medium_quality
-    index: 21
+    index: 14
   - key: low_quality
-    index: 22
-  - key: control
-    index: 23
-  - key: tap
-    index: 24
-  - key: swipe
-    index: 25
-  - key: restore_purchses
-    index: 26
-  - key: boosters
-    index: 27
+    index: 15
   - key: skins
-    index: 28
+    index: 16
   - key: notes
-    index: 29
+    index: 17
   - key: nots
-    index: 30
+    index: 18
   - key: play
-    index: 31
-  - key: colors
-    index: 32
-  - key: life
-    index: 33
-  - key: blade
-    index: 34
-  - key: shield
-    index: 35
-  - key: gate
-    index: 36
-  - key: you_have
-    index: 37
+    index: 19
   - key: "\u0441laim"
-    index: 38
+    index: 20
   - key: agreement
-    index: 39
+    index: 21
   - key: agree
-    index: 40
+    index: 22
   - key: remember_gift
-    index: 41
+    index: 23
   - key: yes
-    index: 42
+    index: 24
   - key: no
-    index: 43
+    index: 25
   - key: menu
-    index: 44
+    index: 26
   - key: to_menu
-    index: 45
+    index: 27
   - key: restart
-    index: 46
+    index: 28
   - key: resume
-    index: 47
+    index: 29
   - key: pause
-    index: 48
+    index: 30
   - key: select
-    index: 49
+    index: 31
   - key: selected
-    index: 50
-  - key: upgrade
-    index: 51
+    index: 32
   - key: noads_offer_title
-    index: 52
+    index: 33
   - key: plus_autorestart
-    index: 53
+    index: 34
   - key: noads_title
-    index: 54
+    index: 35
   - key: noads_desc
-    index: 55
+    index: 36
   - key: activated
-    index: 56
-  - key: blade_desc
-    index: 57
-  - key: life_desc
-    index: 58
-  - key: shield_desc
-    index: 59
-  - key: nobooster_title
-    index: 60
+    index: 37
   - key: attemps
-    index: 61
+    index: 38
   - key: beats
-    index: 62
+    index: 39
   - key: all_score
-    index: 63
+    index: 40
   - key: porgress
-    index: 64
+    index: 41
   - key: skip
-    index: 65
+    index: 42
   - key: cubbits
-    index: 66
+    index: 43
   - key: road
-    index: 67
-  - key: gates
-    index: 68
+    index: 44
   - key: hard_difficulty
-    index: 69
+    index: 45
   - key: medium_difficulty
-    index: 70
+    index: 46
   - key: easy_difficulty
-    index: 71
-  - key: reconnect
-    index: 72
-  - key: reconnect_desc
-    index: 73
+    index: 47
   - key: or
-    index: 74
-  - key: tired_of_ads_question
-    index: 75
-  - key: why_i_see_it_question
-    index: 76
+    index: 48
   - key: money_pack1
-    index: 77
-  - key: whats_new_line_1
-    index: 78
-  - key: whats_new_line_2
-    index: 79
-  - key: whats_new_line_3
-    index: 80
-  - key: whats_new_line_4
-    index: 81
-  - key: whats_new_line_5
-    index: 82
-  - key: whats_new
-    index: 83
-  - key: version_number
-    index: 84
-  - key: help_to_the_project
-    index: 85
+    index: 49
   - key: max_reward
-    index: 86
+    index: 50
   translations:
   - Lang: 10
     Items:
-    - 7 500 notes
-    - Notes doubling
-    - double all notes pickups
-    - Loading
-    - 'Use headphone for the
+    - LOADING
+    - 'USE HEADPHONE FOR THE
 
-      best experience'
-    - 'Comment your
+      BEST EXPERIENCE'
+    - 'COMMENT YOUR
 
-      high scores'
-    - Caluculate beats
-    - Settings
-    - Track authors
-    - other
-    - on
-    - off
-    - music
-    - sound
-    - english
-    - russian
-    - language
-    - authors of tracks
-    - Vibration
-    - Quality
-    - High
-    - Medium
-    - Low
-    - Control
-    - tap
-    - swipe
-    - restore purchses
-    - Boosters
-    - Skins
-    - Notes
-    - Notes
-    - Play
-    - Colors
-    - Life
-    - Blade
-    - Shield
-    - Gate
-    - 'You have:'
-    - Claim
-    - Agreement
-    - Agree
-    - Remember from next gift
-    - yes
-    - No
-    - Menu
-    - Menu
-    - Restart
-    - Resume
-    - Pause
-    - Select
-    - Selected
-    - Upgrade
-    - No ads for 5 minutes
-    - +autorestart
-    - Disable Ads
-    - +autorestart forever
-    - Activated
-    - Hit bits from two sides
-    - Saves life once
-    - Protect yourself death
-    - <color=#ef3d50>need</color> a booster
-    - Attemps
-    - Score
-    - All Score
-    - Best Score
-    - Skip
-    - Cube-beats
-    - Road
-    - Gates
-    - hard
-    - medium
-    - easy
-    - reconnect
-    - "connect to internet \n to continue"
-    - or
-    - tired of advertising?
-    - why i see it?
-    - 200 notes
-    - '- Fixed defects'
-    - '- Improve stability'
-    - '- Added new gameplay'
-    - '- Added difficulty levels'
-    - '- Optimization'
-    - What`s new?
-    - Version number 1.1
-    - 'Help to the project:'
-    - 'Max rewad:'
+      HIGH SCORES'
+    - SETTINGS
+    - AUTHORS OF TRACKS
+    - ON
+    - OFF
+    - MUSIC
+    - SOUND
+    - ENGLISH
+    - RUSSIAN
+    - LANGUAGE
+    - QUALITY
+    - HIGH
+    - MEDIUM
+    - LOW
+    - SKINS
+    - NOTES
+    - NOTES
+    - PLAY
+    - CLAIM
+    - AGREEMENT
+    - AGREE
+    - REMEMBER FROM NEXT GIFT
+    - YES
+    - NO
+    - MENU
+    - MENU
+    - RESTART
+    - RESUME
+    - PAUSE
+    - SELECT
+    - SELECTED
+    - NO ADS FOR 5 MINUTES
+    - +AUTORESTART
+    - DISABLE ADS
+    - +AUTORESTART FOREVER
+    - ACTIVATED
+    - ATTEMPS
+    - SCORE
+    - ALL SCORE
+    - BEST SCORE
+    - SKIP
+    - CUBE-BEATS
+    - ROAD
+    - HARD
+    - MEDIUM
+    - EASY
+    - OR
+    - 200 NOTES
+    - 'MAX REWARD:'
   - Lang: 30
     Items:
-    - "7 500  \u043D\u043E\u0442"
-    - "\u0423\u0434\u0432\u043E\u0435\u043D\u0438\u0435 \u043D\u043E\u0442"
-    - "\u0443\u0434\u0432\u0430\u0438\u0432\u0430\u0435\u0442 \u043D\u043E\u0442\u044B"
-    - "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430"
-    - "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439 \u043D\u0430\u0443\u0448\u043D\u0438\u043A\u0438\n\u0434\u043B\u044F
-      \u043B\u0443\u0447\u0448\u0435\u0433\u043E \u043E\u043F\u044B\u0442\u0430"
-    - "\u041F\u0438\u0448\u0438 \u0432 \u043E\u0442\u0437\u044B\u0432\u0430\u0445\n\u043B\u0443\u0447\u0448\u0438\u0435
-      \u043E\u0447\u043A\u0438"
-    - "\u041F\u043E\u0434\u0441\u0447\u0438\u0442\u044B\u0432\u0430\u0435\u043C \u0431\u0438\u0442\u044B"
-    - "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
-    - "\u0410\u0432\u0442\u043E\u0440\u044B \u0442\u0440\u0435\u043A\u043E\u0432"
-    - "\u0447\u0442\u043E-\u0442\u043E \u0435\u0449\u0451"
-    - "\u0432\u043A\u043B"
-    - "\u0432\u044B\u043A\u043B"
-    - "\u043C\u0443\u0437\u044B\u043A\u0430"
-    - "\u0437\u0432\u0443\u043A\u0438"
-    - "\u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u0438\u0439"
-    - "\u0440\u0443\u0441\u0441\u043A\u0438\u0439"
-    - "\u044F\u0437\u044B\u043A"
-    - "\u0430\u0432\u0442\u043E\u0440\u044B \u0442\u0440\u044D\u043A\u043E\u0432"
-    - "\u0412\u0438\u0431\u0440\u0430\u0446\u0438\u044F"
-    - "\u041A\u0430\u0447\u0435\u0441\u0442\u0432\u043E"
-    - "\u0412\u044B\u0441\u043E\u043A\u043E\u0435"
-    - "\u0421\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u043D\u043E\u0435"
-    - "\u041D\u0438\u0437\u043A\u043E\u0435"
-    - "\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435"
-    - "\u0442\u0430\u043F"
-    - "\u0441\u0432\u0430\u0439\u043F"
-    - "\u0432\u043E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u043E\u043A\u0443\u043F\u043A\u0438"
-    - "\u0411\u0443\u0441\u0442\u0435\u0440\u044B"
-    - "\u0421\u043A\u0438\u043D\u044B"
-    - "\u041D\u043E\u0442\u044B"
-    - "\u041D\u043E\u0442"
-    - "\u0418\u0433\u0440\u0430\u0442\u044C"
-    - "\u0426\u0432\u0435\u0442\u0430"
-    - "\u0416\u0438\u0437\u043D\u044C"
-    - "\u041B\u0435\u0437\u0432\u0438\u0435"
-    - "\u0429\u0438\u0442"
-    - "\u0412\u0440\u0430\u0442\u0430"
-    - "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438:"
-    - "\u0417\u0430\u0431\u0440\u0430\u0442\u044C"
-    - "\u0421\u043E\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435"
-    - "\u0421\u043E\u0433\u043B\u0430\u0441\u0435\u043D(\u043D\u0430)"
-    - "\u041D\u0430\u043F\u043E\u043C\u043D\u0438\u0442\u044C \u043E \u043F\u043E\u0434\u0430\u0440\u043A\u0435"
-    - "\u0414\u0430"
-    - "\u041D\u0435\u0442"
-    - "\u041C\u0435\u043D\u044E"
-    - "\u0432 \u043C\u0435\u043D\u044E"
-    - "\u0420\u0435\u0441\u0442\u0430\u0440\u0442"
-    - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
-    - "\u041F\u0430\u0443\u0437\u0430"
-    - "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
-    - "\u0412\u044B\u0431\u0440\u0430\u043D\u043E"
-    - "\u041F\u0440\u043E\u043A\u0430\u0447\u043A\u0430"
-    - "\u043E\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0440\u0435\u043A\u043B\u0430\u043C\u044B
-      \u043D\u0430 5 \u043C\u0438\u043D"
-    - "+\u0410\u0432\u0442\u043E\u0440\u0435\u0441\u0442\u0430\u0440\u0442"
-    - "\u041E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0440\u0435\u043A\u043B\u0430\u043C\u0443"
-    - "+\u0410\u0432\u0442\u043E\u0440\u0435\u0441\u0442\u0430\u0440\u0442 \u043D\u0430\u0432\u0441\u0435\u0433\u0434\u0430"
-    - "\u0410\u043A\u0442\u0438\u0432\u043D\u043E"
-    - "\u0420\u0443\u0431\u0438\u0442 \u0431\u0438\u0442\u044B \u0441 \u0434\u0432\u0443\u0445
-      \u0441\u0442\u043E\u0440\u043E\u043D"
-    - "\u0421\u043F\u0430\u0441\u0430\u0435\u0442 \u0436\u0438\u0437\u043D\u044C \u043E\u0434\u0438\u043D
-      \u0440\u0430\u0437"
-    - "\u0417\u0430\u0449\u0438\u0449\u0430\u0435\u0442 \u043E\u0442 \u0441\u043C\u0435\u0440\u0442\u0438"
-    - "<color=#ef3d50>\u041D\u0443\u0436\u0435\u043D</color> \u0431\u0443\u0441\u0442\u0435\u0440
-      {0}?"
-    - "\u041F\u043E\u043F\u044B\u0442\u043A\u0438"
-    - "\u041E\u0447\u043A\u0438"
-    - "\u0412\u0441\u0435\u0433\u043E"
-    - "\u041B\u0443\u0447\u0448\u0438\u0439"
-    - "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C"
-    - "\u041A\u0443\u0431-\u0431\u0438\u0442\u044B"
-    - "\u0414\u043E\u0440\u043E\u0436\u043A\u0438"
-    - "\u0412\u0440\u0430\u0442\u0430"
-    - "\u0442\u044F\u0436\u0435\u043B\u043E"
-    - "\u043D\u043E\u0440\u043C"
-    - "\u043B\u0435\u0433\u043A\u043E"
-    - "\u043F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C"
-    - "\u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C
-      \n\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0438\u0442\u0435 \u0438\u043D\u0442\u0435\u0440\u043D\u0435\u0442"
-    - "\u0438\u043B\u0438"
-    - "\u043D\u0430\u0434\u043E\u0435\u043B\u0430 \u0440\u0435\u043A\u043B\u0430\u043C\u0430?"
-    - "\u043F\u043E\u0447\u0435\u043C\u0443 \u044F \u044D\u0442\u043E \u0432\u0438\u0436\u0443?"
-    - "200 \u043D\u043E\u0442"
-    - "- \u0423\u0431\u0440\u0430\u043D\u044B \u0434\u0435\u0444\u0435\u043A\u0442\u044B"
-    - "- \u0423\u043B\u0443\u0447\u0448\u0435\u043D\u0430 \u0441\u0442\u0430\u0431\u0438\u043B\u044C\u043D\u043E\u0441\u0442\u044C"
-    - "- \u0414\u043E\u0431\u0430\u0432\u0438\u043B\u0438 \u043D\u043E\u0432\u0443\u044E
-      \u0438\u0433\u0440\u043E\u0432\u0443\u044E \u043C\u0435\u0445\u0430\u043D\u0438\u043A\u0443"
-    - "- \u0414\u043E\u0431\u0430\u0432\u0438\u043B\u0438 \u0443\u0440\u043E\u0432\u043D\u0438
-      \u0441\u043B\u043E\u0436\u043D\u043E\u0441\u0442\u0438"
-    - "- \u041E\u043F\u0442\u0438\u043C\u0438\u0437\u0430\u0446\u0438\u044F"
-    - "\u0427\u0442\u043E \u043D\u043E\u0432\u043E\u0433\u043E?"
-    - "\u041D\u043E\u043C\u0435\u0440 \u0432\u0435\u0440\u0441\u0438\u0438 1.1"
-    - "\u041F\u043E\u043C\u043E\u0447\u044C \u043F\u0440\u043E\u0435\u043A\u0442\u0443:"
-    - "\u041C\u0430\u043A\u0441. \u043D\u0430\u0433\u0440\u0430\u0434\u0430:"
+    - "\u0417\u0410\u0413\u0420\u0423\u0417\u041A\u0410"
+    - "\u0418\u0421\u041F\u041E\u041B\u042C\u0417\u0423\u0419 \u041D\u0410\u0423\u0428\u041D\u0418\u041A\u0418\n\u0414\u041B\u042F
+      \u041B\u0423\u0427\u0428\u0415\u0413\u041E \u041E\u041F\u042B\u0422\u0410"
+    - "\u041F\u0418\u0428\u0418 \u0412 \u041E\u0422\u0417\u042B\u0412\u0410\u0425\n\u041B\u0423\u0427\u0428\u0418\u0415
+      \u041E\u0427\u041A\u0418"
+    - "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+    - "\u0410\u0412\u0422\u041E\u0420\u042B \u0422\u0420\u0415\u041A\u041E\u0412"
+    - "\u0412\u041A\u041B"
+    - "\u0412\u042B\u041A\u041B"
+    - "\u041C\u0423\u0417\u042B\u041A\u0410"
+    - "\u0417\u0412\u0423\u041A\u0418"
+    - "\u0410\u041D\u0413\u041B\u0418\u0419\u0421\u041A\u0418\u0419"
+    - "\u0420\u0423\u0421\u0421\u041A\u0418\u0419"
+    - "\u042F\u0417\u042B\u041A"
+    - "\u041A\u0410\u0427\u0415\u0421\u0422\u0412\u041E"
+    - "\u0412\u042B\u0421\u041E\u041A\u041E\u0415"
+    - "\u0421\u0422\u0410\u041D\u0414\u0410\u0420\u0422\u041D\u041E\u0415"
+    - "\u041D\u0418\u0417\u041A\u041E\u0415"
+    - "\u0421\u041A\u0418\u041D\u042B"
+    - "\u041D\u041E\u0422\u042B"
+    - "\u041D\u041E\u0422"
+    - "\u0418\u0413\u0420\u0410\u0422\u042C"
+    - "\u0417\u0410\u0411\u0420\u0410\u0422\u042C"
+    - "\u0421\u041E\u0413\u041B\u0410\u0428\u0415\u041D\u0418\u0415"
+    - "\u0421\u041E\u0413\u041B\u0410\u0421\u0415\u041D(\u041D\u0410)"
+    - "\u041D\u0410\u041F\u041E\u041C\u041D\u0418\u0422\u042C \u041E \u041F\u041E\u0414\u0410\u0420\u041A\u0415"
+    - "\u0414\u0410"
+    - "\u041D\u0415\u0422"
+    - "\u041C\u0415\u041D\u042E"
+    - "\u0412 \u041C\u0415\u041D\u042E"
+    - "\u0420\u0415\u0421\u0422\u0410\u0420\u0422"
+    - "\u041F\u0420\u041E\u0414\u041E\u041B\u0416\u0418\u0422\u042C"
+    - "\u041F\u0410\u0423\u0417\u0410"
+    - "\u0412\u042B\u0411\u0420\u0410\u0422\u042C"
+    - "\u0412\u042B\u0411\u0420\u0410\u041D\u041E"
+    - "\u041E\u0422\u041A\u041B\u042E\u0427\u0415\u041D\u0418\u0415 \u0420\u0415\u041A\u041B\u0410\u041C\u042B
+      \u041D\u0410 5 \u041C\u0418\u041D"
+    - "+\u0410\u0412\u0422\u041E\u0420\u0415\u0421\u0422\u0410\u0420\u0422"
+    - "\u041E\u0422\u041A\u041B\u042E\u0427\u0418\u0422\u042C \u0420\u0415\u041A\u041B\u0410\u041C\u0423"
+    - "+\u0410\u0412\u0422\u041E\u0420\u0415\u0421\u0422\u0410\u0420\u0422 \u041D\u0410\u0412\u0421\u0415\u0413\u0414\u0410"
+    - "\u0410\u041A\u0422\u0418\u0412\u041D\u041E"
+    - "\u041F\u041E\u041F\u042B\u0422\u041A\u0418"
+    - "\u041E\u0427\u041A\u0418"
+    - "\u0412\u0421\u0415\u0413\u041E"
+    - "\u041B\u0423\u0427\u0428\u0418\u0419"
+    - "\u041F\u0420\u041E\u041F\u0423\u0421\u0422\u0418\u0422\u042C"
+    - "\u041A\u0423\u0411-\u0411\u0418\u0422\u042B"
+    - "\u0414\u041E\u0420\u041E\u0416\u041A\u0418"
+    - "\u0422\u042F\u0416\u0415\u041B\u041E"
+    - "\u041D\u041E\u0420\u041C"
+    - "\u041B\u0415\u0413\u041A\u041E"
+    - "\u0418\u041B\u0418"
+    - "200 \u041D\u041E\u0422"
+    - "\u041C\u0410\u041A\u0421. \u041D\u0410\u0413\u0420\u0410\u0414\u0410:"
   Languges: 0a0000001e000000

@@ -21,11 +21,6 @@ public class EditorMenuTools
 	{
 		OpenScene ("InitializeScene");
 	}
-	[MenuItem ("Game/Scenes/Tutorial", false, 2)]
-	public static void OpenTutorial ()
-	{
-		OpenScene ("Tutorial");
-	}
 	[MenuItem ("Game/Scenes/Menu", false, 3)]
 	public static void OpenMenu ()
 	{
