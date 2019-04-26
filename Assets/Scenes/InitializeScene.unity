@@ -541,7 +541,7 @@ RectTransform:
   - {fileID: 490354683}
   - {fileID: 945062681}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -910,7 +910,7 @@ PrefabInstance:
     - target: {fileID: 4675624317240795209, guid: 49a5debfcc7f4ad47903dbd0928aa863,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4675624317240795209, guid: 49a5debfcc7f4ad47903dbd0928aa863,
         type: 3}
@@ -977,8 +977,81 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4675624316834912286, guid: 49a5debfcc7f4ad47903dbd0928aa863,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675624316635481969, guid: 49a5debfcc7f4ad47903dbd0928aa863,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675624316635481969, guid: 49a5debfcc7f4ad47903dbd0928aa863,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49a5debfcc7f4ad47903dbd0928aa863, type: 3}
+--- !u!1 &455648499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4675624317240795205, guid: 49a5debfcc7f4ad47903dbd0928aa863,
+    type: 3}
+  m_PrefabInstance: {fileID: 455648498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &455648500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4675624316834912286, guid: 49a5debfcc7f4ad47903dbd0928aa863,
+    type: 3}
+  m_PrefabInstance: {fileID: 455648498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &455648501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455648499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8ba6ecef371e94c9737d504c39f151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  condition: {fileID: 11400000, guid: 99a9d6f7e70334d4b9729917664a2d13, type: 2}
+  doConditonOnEnable: 1
+  onTrue:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onFalse:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onCondition:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 455648500}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onInverseCondition:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  debug: 0
 --- !u!1 &481660199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,7 +2049,7 @@ Transform:
   m_Children:
   - {fileID: 690087803}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &1268574559
 Material:
@@ -2422,7 +2495,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1903200409
 GameObject:

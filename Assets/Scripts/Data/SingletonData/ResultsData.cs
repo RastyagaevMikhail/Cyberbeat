@@ -69,7 +69,9 @@ namespace CyberBeat
 
         public void TakeReward (bool doubleReward)
         {
-            notes.ApplyChange (doubleReward ? DoubleReward : Reward);
+            int amount = doubleReward ? DoubleReward : Reward;
+            amount = amount.GetAsClamped (1, amount);
+            notes.ApplyChange (amount);
         }
         public float completePercent { get => _CompletePercent.Value; private set => _CompletePercent.Value = value; }
         public void Reset ()
@@ -116,7 +118,7 @@ namespace CyberBeat
 
         }
         int maxReward => trackVariable.Value.maxReward;
-        int Reward => (int) (completePercent.GetAsClamped (0, 1f) * maxReward);
+        int Reward => (int) (completePercent.GetAsClamped (0, 1f) * maxReward).GetAsClamped (1, maxReward);
         public void Calculate ()
         {
             CalculateTotalPercent ();

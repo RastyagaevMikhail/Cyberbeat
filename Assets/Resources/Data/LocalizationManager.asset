@@ -115,6 +115,8 @@ MonoBehaviour:
     index: 49
   - key: max_reward
     index: 50
+  - key: disable
+    index: 51
   translations:
   - Lang: 10
     Items:
@@ -173,6 +175,7 @@ MonoBehaviour:
     - OR
     - 200 NOTES
     - 'MAX REWARD:'
+    - DISABLE
   - Lang: 30
     Items:
     - "\u0417\u0410\u0413\u0420\u0423\u0417\u041A\u0410"
@@ -229,4 +232,5 @@ MonoBehaviour:
     - "\u0418\u041B\u0418"
     - "200 \u041D\u041E\u0422"
     - "\u041C\u0410\u041A\u0421. \u041D\u0410\u0413\u0420\u0410\u0414\u0410:"
+    - "\u041E\u0422\u041A\u041B\u042E\u0427\u0418\u0422\u042C"
   Languges: 0a0000001e000000

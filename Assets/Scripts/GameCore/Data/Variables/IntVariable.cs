@@ -53,6 +53,7 @@ namespace GameCore
 		public override void SaveValue ()
 		{
 			PlayerPrefs.SetInt (name, _value);
+			PlayerPrefs.Save();
 		}
 
 		[Button]

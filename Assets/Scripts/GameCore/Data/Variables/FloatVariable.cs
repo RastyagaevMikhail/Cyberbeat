@@ -42,6 +42,7 @@ namespace GameCore {
         [Button]
         public override void SaveValue() {
             PlayerPrefs.SetFloat(name, Value);
+            PlayerPrefs.Save();
         }
 
         [Button]

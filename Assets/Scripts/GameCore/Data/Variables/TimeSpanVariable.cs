@@ -30,6 +30,7 @@ namespace GameCore
 				_value = value;
 				if (OnValueChanged != null)
 					OnValueChanged (value);
+				SaveValue ();
 			}
 		}
 
@@ -48,6 +49,7 @@ namespace GameCore
 		public override void SaveValue ()
 		{
 			PlayerPrefs.SetString (name, _value.ToString ());
+			PlayerPrefs.Save ();
 		}
 
 		public TimeSpanVariable AddSeconds (int seconds)

@@ -41,7 +41,12 @@ namespace CyberBeat
                 Debug.LogFormat ("Value = {0}", Value);
             }
 
-            if (Value) PlayerPrefs.SetString (name, Value.name);
+            if (Value)
+            {
+                PlayerPrefs.SetString (name, Value.name);
+                PlayerPrefs.Save ();
+
+            }
 
             if (logChanges) Debug.Log ("---!!!TrackVariable.SaveValue!!!---");
         }
@@ -49,7 +54,7 @@ namespace CyberBeat
         public override void LoadValue ()
         {
             if (logChanges) Debug.Log ("!!!---TrackVariable.LoadValue---!!!");
-            
+
             string SavedName = PlayerPrefs.GetString (name, DefaultValue ? DefaultValue.name : "Julius Dreisig - In My Head");
 
             if (logChanges) Debug.LogFormat ("SavedName = {0}", SavedName);

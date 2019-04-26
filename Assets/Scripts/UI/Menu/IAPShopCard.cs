@@ -19,12 +19,7 @@ namespace CyberBeat
 		[SerializeField] IAPProductData productData;
 		[SerializeField] bool debug;
 		bool buyed { get { return productData.buyed; } }
-		private void OnValidate ()
-		{
-			MaskImage = transform.Find ("BackPadMask").GetComponent<Image> ();
-			BuyButton = transform.Find ("BuyButton").GetComponent<IAPButton> ();
-			Activated = transform.Find ("Activated").gameObject;
-		}
+		
 		private void Awake ()
 		{
 			if (debug) Debug.Log ($"{this.Log()}.Awake()\n buyed =  {buyed}");

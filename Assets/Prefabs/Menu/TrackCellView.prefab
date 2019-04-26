@@ -742,12 +742,13 @@ MonoBehaviour:
   onCantNotEnuthMoney:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 67be551124a4991428d94fb242804b28, type: 2}
+      - m_Target: {fileID: 11400000, guid: bdab7dd76ca19714999058ac54bf3662, type: 2}
         m_MethodName: Raise
-        m_Mode: 0
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 99b59dec7d071a941adba28d1e68de5e,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: CyberBeat.MenuWindowType, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1118,6 +1119,7 @@ GameObject:
   - component: {fileID: 5294868022125444296}
   - component: {fileID: 5294868022125444298}
   - component: {fileID: 1519704747452613031}
+  - component: {fileID: 9978624112092253}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -1259,6 +1261,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textCompnent: {fileID: 5294868022998614757}
+--- !u!114 &9978624112092253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294868022125444302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d539fc9b19a4444b58cf79b05b4521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: 
+  FindByPath: 
 --- !u!1 &5294868022152887809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1453,7 @@ GameObject:
   - component: {fileID: 5294868022304808725}
   - component: {fileID: 5294868022304808682}
   - component: {fileID: 5294868022304808724}
+  - component: {fileID: 1975798612804429857}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -1492,8 +1509,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b8822651ffcaa6244bbd91255a4d3305, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 8866b578e8c24664e96632728ee5634e, type: 3}
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1587,6 +1604,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1975798612804429857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294868022304808680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d539fc9b19a4444b58cf79b05b4521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: 
+  FindByPath: 
 --- !u!1 &5294868022462811180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,6 +1926,8 @@ GameObject:
   - component: {fileID: 5294868022815271905}
   - component: {fileID: 5294868022815271910}
   - component: {fileID: 5294868022815271911}
+  - component: {fileID: 4684078478996153941}
+  - component: {fileID: 2405980650770139417}
   m_Layer: 5
   m_Name: Black
   m_TagString: Untagged
@@ -2011,8 +2044,84 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4684078478996153941}
+        m_MethodName: ShowAds
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 47a92134284bea14bb5ef07115dc9cfe,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: GameCore.Placement, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &4684078478996153941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294868022815271909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a63284db8e8aa4990181ade2113b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeFromReady: 15
+  adsStartShowing:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  adsStopShowing:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  adsError:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  adsFinished:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  adsSkipped:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  adsFailed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventString, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  VideoShowing:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  gameID: {fileID: 11400000, guid: 7df42290046c51347bfd714b3f5f41b9, type: 2}
+  debug: 0
+--- !u!114 &2405980650770139417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294868022815271909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d539fc9b19a4444b58cf79b05b4521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: 
+  FindByPath: 
 --- !u!1 &5294868022998614776
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,6 +2856,7 @@ GameObject:
   - component: {fileID: 5009506044558699416}
   - component: {fileID: 1685125969790283279}
   - component: {fileID: 8600369531955699925}
+  - component: {fileID: 4158248180421905479}
   m_Layer: 5
   m_Name: WatchAdsButton
   m_TagString: Untagged
@@ -3099,6 +3209,20 @@ MonoBehaviour:
       m_TypeName: GameCore.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
     inverse: 1
+--- !u!114 &4158248180421905479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294868023567168789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d539fc9b19a4444b58cf79b05b4521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: 
+  FindByPath: 
 --- !u!1 &7127216466475365561
 GameObject:
   m_ObjectHideFlags: 0

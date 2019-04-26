@@ -10,13 +10,6 @@ namespace GameCore
         [Multiline]
         public string DeveloperDescription = "";
         public string categoryTag = "Default";
-        [SerializeField, HideInInspector] SaveData saveData;
-        private void OnValidate ()
-        {
-            if (!saveData)
-                saveData = Resources.Load<SaveData> ("Data/SaveData");
-        }
-
 #if UNITY_EDITOR
         public override void SetSavable (bool value)
         {
@@ -51,34 +44,31 @@ namespace GameCore
         {
             get
             {
-                
+
                 if (IsSavable && !Loaded && Application.isPlaying)
                 {
                     LoadValue ();
                 }
-                if (logChanges) Debug.Log ($"get_{name}:{_value} id : {GetInstanceID()}");
+                if (logChanges) Debug.Log ($"get_{name}:{_value} id : {GetInstanceID()}", this);
                 return _value;
             }
             set
             {
 
                 _value = value;
-                if (logChanges) Debug.Log ($"set_{name}:{_value} id : {GetInstanceID()}");
+                if (logChanges) Debug.Log ($"set_{name}:{_value} id : {GetInstanceID()}", this);
 
                 if (OnValueChanged != null)
                     OnValueChanged (_value);
                 if (IsSavable)
                 {
-                    if (Application.isPlaying)
-                        saveData.CheckSaver ();
-                    else
-                        SaveValue ();
+                    SaveValue ();
                 }
             }
         }
 
         [ContextMenu ("Save Value")]
-        public override void SaveValue () { Debug.Log ($"SavableVariable.SaveValue.{name}"); }
+        public override void SaveValue () { Debug.Log ($"SavableVariable.SaveValue.{name}", this); }
 
         [ContextMenu ("Load Value")]
         public override void LoadValue ()

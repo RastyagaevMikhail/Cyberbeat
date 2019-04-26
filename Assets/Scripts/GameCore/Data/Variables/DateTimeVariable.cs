@@ -34,12 +34,14 @@ namespace GameCore
 				_value = value;
 				if (OnValueChanged != null)
 					OnValueChanged (value);
+				SaveValue ();
 			}
 		}
 
 		public override void SaveValue ()
 		{
 			PlayerPrefs.SetString (name, Value.ToString ());
+			PlayerPrefs.Save ();
 		}
 		public override void LoadValue ()
 		{
